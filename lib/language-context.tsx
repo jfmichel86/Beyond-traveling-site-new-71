@@ -27,17 +27,22 @@ const es: Record<string, string> = {
 
   "Property Management in Punta Mita": "Administración de Propiedades en Punta Mita",
   "Done Personally. Done Right.": "Personal. Cercana. Bien Hecha.",
-  "We work directly with homeowners to care for their homes, respond quickly to guests, and manage rentals thoughtfully—without hidden fees or distance from your property.": "Trabajamos directamente con propietarios para cuidar sus casas, responder rápidamente a los huéspedes y administrar las rentas con criterio, sin cargos ocultos ni distancia con tu propiedad.",
+  "We work directly with homeowners to care for their homes, respond quickly to guests, and manage rentals thoughtfully—without hidden fees or distance from your property.": 
+    "Trabajamos directamente con propietarios para cuidar sus casas, responder rápidamente a los huéspedes y administrar las rentas con criterio, sin cargos ocultos ni distancia con tu propiedad.",
   "Discover How We Work": "Descubre Cómo Trabajamos",
   "Talk With Us About Your Property": "Hablemos de Tu Propiedad",
   "A More Personal Way to Manage Your Home": "Una Forma Más Personal de Administrar Tu Casa",
   "Beyond Traveling isn’t built like a traditional property management company.": "Beyond Traveling no está construido como una empresa tradicional de administración de propiedades.",
-  "We’re a small, hands-on team that works closely with a limited number of homeowners. That allows us to stay available, respond quickly, and treat each property with the attention it deserves—not as a number, but as someone’s home.": "Somos un equipo pequeño y cercano que trabaja de forma directa con un número limitado de propietarios. Eso nos permite estar disponibles, responder rápido y tratar cada propiedad con la atención que merece: no como un número, sino como la casa de alguien.",
-  "When owners work with us, they work with people, not a system.": "Cuando los propietarios trabajan con nosotros, trabajan con personas, no con un sistema.",
+  "We’re a small, hands-on team that works closely with a limited number of homeowners. That allows us to stay available, respond quickly, and treat each property with the attention it deserves—not as a number, but as someone’s home.": 
+   "Somos un equipo pequeño y cercano que trabaja de forma directa con un número limitado de propietarios. Eso nos permite estar disponibles, responder rápido y tratar cada propiedad con la atención que merece: no como un número, sino como la casa de alguien.",
+  "When owners work with us, they work with people, not a system.": 
+  "Cuando los propietarios trabajan con nosotros, trabajan con personas, no con un sistema.",
   "We Don’t “Manage” Homes.": "No Solo “Administramos” Casas.",
   "We Look After Them With You": "Las Cuidamos Contigo",
   "Good property management feels like teamwork.": "Una buena administración se siente como trabajo en equipo.",
-  "We get to know you, your home, and your priorities. Some owners care most about preserving the property. Others want strong rental performance. Most want both. Our role is to align with you, communicate clearly, and make decisions as if the home were our own.": "Nos tomamos el tiempo de conocer tu casa, tus prioridades y la forma en que quieres manejarla. Algunos propietarios buscan principalmente conservar la propiedad en perfecto estado. Otros buscan un buen desempeño en rentas. La mayoría quiere ambas cosas. Nuestro papel es alinearnos contigo, comunicarnos con claridad y tomar decisiones como si la casa fuera nuestra.",
+  "We get to know you, your home, and your priorities. Some owners care most about preserving the property. Others want strong rental performance. 
+    Most want both. Our role is to align with you, communicate clearly, and make decisions as if the home were our own.": 
+    "Nos tomamos el tiempo de conocer tu casa, tus prioridades y la forma en que quieres manejarla. Algunos propietarios buscan solamente conservar la propiedad en perfecto estado. Otros buscan un buen desempeño en rentas. La mayoría quiere ambas cosas. Nuestro papel es alinearnos contigo, comunicarnos con claridad y tomar decisiones como si la casa fuera nuestra.",
   "You’ll always know:": "Siempre sabrás:",
   "Who is taking care of your property": "Quién está cuidando tu propiedad",
   "What’s happening day to day": "Qué está pasando día a día",
@@ -45,9 +50,12 @@ const es: Record<string, string> = {
   "And you’ll always be able to reach us.": "Y siempre podrás comunicarte con nosotros.",
   "Clear Pricing.": "Precios Claros.",
   "No Surprises": "Sin Sorpresas",
-  "Many owners come to us after feeling frustrated by unclear charges or constantly rising costs.": "Muchos propietarios llegan con nosotros después de sentirse frustrados por cargos poco claros o costos que suben constantemente.",
-  "We believe trust starts with transparency.": "Creemos que la confianza empieza con la transparencia.",
-  "Our fees are straightforward, and we actively look for ways to save owners money, including:": "Nuestros honorarios son claros, y buscamos activamente formas de ahorrar dinero a los propietarios, incluyendo:",
+  "Many owners come to us after feeling frustrated by unclear charges or constantly rising costs.": 
+    "Muchos propietarios llegan con nosotros después de sentirse frustrados por cargos poco claros o costos que suben constantemente.",
+  "We believe trust starts with transparency.": 
+    "Creemos que la confianza empieza con la transparencia.",
+  "Our fees are straightforward, and we actively look for ways to save owners money, including:": 
+    "Nuestros honorarios son claros, y buscamos activamente formas de ahorrar dinero a los propietarios, incluyendo:",
   "Avoiding unnecessary maintenance work": "Evitar trabajos de mantenimiento innecesarios",
   "Managing cleaning and supplies efficiently": "Administrar limpieza e insumos de forma eficiente",
   "Being thoughtful about operational and fiscal decisions": "Tomar decisiones operativas y fiscales con cuidado",
@@ -61,7 +69,7 @@ const es: Record<string, string> = {
   "Cleaning and property readiness": "Limpieza y preparación de la propiedad",
   "Accounting, reporting, and owner updates": "Contabilidad, reportes y actualizaciones para propietarios",
   "Most importantly: we stay involved.": "Lo más importante: seguimos involucrados.",
-  "We don’t disappear after onboarding, and we don’t hand your property off to layers of staff.": "No desaparecemos después del inicio, y no dejamos tu propiedad en manos de múltiples capas de personal.",
+  "We don’t disappear after onboarding, and we don’t hand your property off to layers of staff.": "No desaparecemos después del inicio, y no dejamos tu propiedad en manos de múltiples capas de personal .",
   "We’re Here.": "Estamos Aquí.",
   "And We Answer": "Y Respondemos",
   "We live and work in Punta Mita, and we’re close to the homes we manage.": "Vivimos y trabajamos en Punta Mita, cerca de las casas que administramos.",
@@ -70,7 +78,7 @@ const es: Record<string, string> = {
   "Quick action when something needs attention": "Acción rápida cuando algo requiere atención",
   "Real relationships with local vendors": "Relaciones reales con proveedores locales",
   "No “we’ll check on that Monday” mentality": "Nada de “lo revisamos el lunes”",
-  "Good rentals depend on responsiveness.": "Las buenas rentas dependen de la capacidad de respuesta.",
+  "Good rentals depend on responsiveness.": "El buen desempeño en rentas depende de la capacidad de respuesta.",
   "Good ownership depends on availability.": "Una buena experiencia como propietario depende de la disponibilidad.",
   "We take both seriously.": "Nos tomamos ambas cosas en serio.",
   "Let’s See If We’re a Good Fit": "Veamos Si Somos el Equipo Adecuado",
