@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Container from "@/components/Container";
 
 /* Shared components */
@@ -15,10 +16,19 @@ const Body = ({ children }: { children: React.ReactNode }) => (
   </p>
 );
 
-const OutlineButton = ({ children }: { children: React.ReactNode }) => (
-  <button className="inline-flex h-11 items-center justify-center rounded-lg border border-slate-900/40 px-5 text-[15px] font-medium text-slate-900 transition hover:bg-slate-900/[0.03]">
+const OutlineButton = ({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) => (
+  <Link
+    href={href}
+    className="inline-flex h-11 items-center justify-center rounded-lg border border-slate-900/40 px-5 text-[15px] font-medium text-slate-900 transition hover:bg-slate-900/[0.03]"
+  >
     {children}
-  </button>
+  </Link>
 );
 
 /* HERO */
@@ -163,7 +173,7 @@ const AboutCTA = () => (
         </p>
 
         <div className="mt-6">
-          <OutlineButton>Contact Us</OutlineButton>
+          <OutlineButton href="/contact">Contact Us</OutlineButton>
         </div>
 
       </div>
