@@ -45,7 +45,7 @@ export default function ServicesPage() {
       {/* Image Left */}
       <div className="min-w-0 rounded-2xl overflow-hidden aspect-[16/10] sm:aspect-[4/3]">
         <Image
-          src="/services/guest-communication.jpg"
+          src="/services/our-approach.jpg"
           alt="Beyond Traveling property management approach"
           width={900}
           height={650}
