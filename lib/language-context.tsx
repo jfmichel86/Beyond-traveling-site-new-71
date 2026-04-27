@@ -40,8 +40,7 @@ const es: Record<string, string> = {
   "We Don’t “Manage” Homes.": "No Solo “Administramos” Casas.",
   "We Look After Them With You": "Las Cuidamos Contigo",
   "Good property management feels like teamwork.": "Una buena administración se siente como trabajo en equipo.",
-  "We get to know you, your home, and your priorities. Some owners care most about preserving the property. Others want strong rental performance. 
-    Most want both. Our role is to align with you, communicate clearly, and make decisions as if the home were our own.": 
+  "We get to know you, your home, and your priorities. Some owners care most about preserving the property. Others want strong rental performance. Most want both. Our role is to align with you, communicate clearly, and make decisions as if the home were our own.": 
     "Nos tomamos el tiempo de conocer tu casa, tus prioridades y la forma en que quieres manejarla. Algunos propietarios buscan solamente conservar la propiedad en perfecto estado. Otros buscan un buen desempeño en rentas. La mayoría quiere ambas cosas. Nuestro papel es alinearnos contigo, comunicarnos con claridad y tomar decisiones como si la casa fuera nuestra.",
   "You’ll always know:": "Siempre sabrás:",
   "Who is taking care of your property": "Quién está cuidando tu propiedad",
