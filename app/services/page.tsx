@@ -1,6 +1,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Container from "@/components/Container";
 
 const BG = {
@@ -191,9 +192,12 @@ export default function ServicesPage() {
               Good management isn’t about doing more. It’s about doing the right things consistently and being available when it matters.
             </h3>
             <div className="mt-12 flex justify-center">
-              <button className="inline-flex h-11 items-center justify-center rounded-lg border border-slate-900/40 px-6 text-[15px] font-medium text-slate-900 transition hover:bg-slate-900/[0.03]">
+              <Link
+                    href="/contact"
+                    className="inline-flex h-11 items-center justify-center rounded-lg border border-slate-900/40 px-6 text-[15px] font-medium text-slate-900 transition hover:bg-slate-900/[0.03]"
+              >
                 Talk With Us About Your Property
-              </button>
+              </Link>
             </div>
           </div>
         </Container>
