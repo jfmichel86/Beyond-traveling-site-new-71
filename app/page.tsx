@@ -1,21 +1,40 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Container from "@/components/Container";
 
 /** Content locked. Layout/styling only. */
 
 const Hairline = ({ className = "" }: { className?: string }) => <div className={`h-px w-full bg-slate-900/10 ${className}`} />;
 
-const OutlineButton = ({ children }: { children: React.ReactNode }) => (
-  <button className="inline-flex h-11 items-center justify-center rounded-lg border border-slate-900/40 px-5 text-[15px] font-medium text-slate-900 transition hover:bg-slate-900/[0.03]">
+const OutlineButton = ({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) => (
+  <Link
+    href={href}
+    className="inline-flex h-11 items-center justify-center rounded-lg border border-slate-900/40 px-5 text-[15px] font-medium text-slate-900 transition hover:bg-slate-900/[0.03]"
+  >
     {children}
-  </button>
+  </Link>
 );
 
-const TextLink = ({ children }: { children: React.ReactNode }) => (
-  <a className="inline-flex h-11 items-center text-[15px] font-medium text-slate-900 underline decoration-transparent underline-offset-4 transition hover:decoration-slate-900/60" href="#contact">
+const TextLink = ({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) => (
+  <Link
+    href={href}
+    className="inline-flex h-11 items-center text-[15px] font-medium text-slate-900 underline decoration-transparent underline-offset-4 transition hover:decoration-slate-900/60"
+  >
     {children}
-  </a>
+  </Link>
 );
 
 const SectionTitle = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
@@ -85,8 +104,8 @@ const Hero = () => (
               We work directly with homeowners to care for their homes, respond quickly to guests, and manage rentals thoughtfully—without hidden fees or distance from your property.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <OutlineButton>Discover How We Work</OutlineButton>
-              <TextLink>Talk With Us About Your Property</TextLink>
+              <OutlineButton href="/services">Discover How We Work</OutlineButton>
+            <TextLink href="/contact">Talk With Us About Your Property</TextLink>
             </div>
           </div>
         </div>
@@ -191,7 +210,9 @@ const FeesCosts = () => (
               <li className="flex gap-3"><span className="mt-[10px] h-[2px] w-3 bg-slate-900/40" />Being thoughtful about operational and fiscal decisions</li>
             </ul>
             <Body className="mt-6">We don’t inflate costs—and we don’t benefit when expenses go up.</Body>
-            <div className="mt-8"><OutlineButton>How Our Management Works</OutlineButton></div>
+            <div className="mt-8">
+              <OutlineButton href="/services">How Our Management Works</OutlineButton>
+            </div>
           </div>
         </div>
       </div>
@@ -293,7 +314,9 @@ const FinalCta = () => (
             <Body>If you’re looking for a team that will actually answer, stay involved, and treat your home with respect, we’d be happy to talk.</Body>
             <Body>No pressure. Just a conversation.</Body>
           </div>
-          <div className="mt-8 flex justify-center"><OutlineButton>Contact Us</OutlineButton></div>
+          <div className="mt-8 flex justify-center">
+            <OutlineButton href="/contact">Contact Us</OutlineButton>
+          </div>
         </div>
       </div>
     </Container>
