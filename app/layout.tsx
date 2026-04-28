@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   title: "Beyond Traveling | Luxury Property Management in Punta Mita",
   description:
     "Luxury property management in Punta Mita. Beyond Traveling handles property care, guest experience, rentals, and local support for luxury homes.",
+  keywords: [
+    "property management Punta Mita",
+    "luxury rentals Punta Mita",
+    "villa management Punta Mita",
+    "Punta Mita property services",
+    "Riviera Nayarit property management"
+  ],
   verification: {
     google: "rdN9v2s2ZpF-poU8g0BnbSvRm8_YXErtgROUaWO5qR4",
   },
