@@ -80,7 +80,7 @@ const AboutStorySection = () => (
             <div className="relative overflow-hidden rounded-2xl">
               <div className="relative w-full aspect-[16/10]">
                 <Image
-                  src="/home/partnership.jpg"
+                  src="/about/partnership.jpg"
                   alt=""
                   fill
                   className="object-cover"
@@ -107,7 +107,7 @@ const AboutPhilosophy = () => (
             <div className="relative overflow-hidden rounded-2xl">
               <div className="relative w-full aspect-[16/10]">
                 <Image
-                  src="/home/philosophy.jpg"
+                  src="/about/philosophy.jpg"
                   alt=""
                   fill
                   className="object-cover"
