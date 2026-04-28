@@ -74,7 +74,7 @@ const Hero = () => (
         <div className="absolute inset-0">
           <Image
             src="/home/hero.jpg"
-            alt=""
+            alt="Luxury property management in Punta Mita for high-end vacation homes"
             fill
             priority
             sizes="(min-width: 1024px) 58vw, 100vw"
@@ -161,7 +161,7 @@ const Partnership = () => (
               <div className="relative w-full aspect-[16/10] sm:aspect-[4/3]">
                 <Image
                   src="/home/partnership.jpg"
-                  alt=""
+                  alt="Homeowner and property management team discussing a luxury home in Punta Mita"
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"
                   className="object-cover object-center"
@@ -187,7 +187,7 @@ const FeesCosts = () => (
               <div className="relative w-full aspect-[16/10] sm:aspect-[4/3]">
                 <Image
                   src="/home/fees.jpg"
-                  alt=""
+                  alt="Transparent property management pricing for luxury homes in Punta Mita"
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"
                   className="object-cover object-center"
@@ -243,7 +243,7 @@ const Services = () => (
               <div className="relative w-full aspect-[16/10] sm:aspect-[4/3]">
                 <Image
                   src="/home/services.jpg"
-                  alt=""
+                  alt="Luxury villa management services in Punta Mita"
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"
                   className="object-cover object-center"
@@ -269,7 +269,7 @@ const LocalAvailability = () => (
               <div className="relative w-full aspect-[16/10] sm:aspect-[4/3]">
                 <Image
                   src="/home/local.jpg"
-                  alt=""
+                  alt="Local property management team available in Punta Mita"
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"
                   className="object-cover object-center"
