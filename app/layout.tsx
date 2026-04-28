@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Luxury property management in Punta Mita. Beyond Traveling handles property care, guest experience, rentals, and local support for luxury homes.",
   verification: {
-    google: "rdN9v2s2ZpF-poU8g0BnbSvRm8_YXErtgROUaWO5qR4" />
+    google: "rdN9v2s2ZpF-poU8g0BnbSvRm8_YXErtgROUaWO5qR4",
   },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
