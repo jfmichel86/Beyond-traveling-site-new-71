@@ -4,16 +4,41 @@ import SiteFooter from "@/components/SiteFooter";
 import { LanguageProvider } from "@/lib/language-context";
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Beyond Traveling | Luxury Property Management in Punta Mita",
+  metadataBase: new URL("https://www.beyondtravelingmx.com"),
+  title: {
+    default: "Luxury Property Management Punta Mita | Beyond Traveling",
+    template: "%s | Beyond Traveling",
+  },
   description:
-    "Luxury property management in Punta Mita. Beyond Traveling handles property care, guest experience, rentals, and local support for luxury homes.",
+    "Luxury property management in Punta Mita, Riviera Nayarit. We handle rentals, guest experience, maintenance, and local operations for high-end homes.",
   keywords: [
     "property management Punta Mita",
-    "luxury rentals Punta Mita",
+    "luxury property management Punta Mita",
     "villa management Punta Mita",
+    "luxury rentals Punta Mita",
     "Punta Mita property services",
-    "Riviera Nayarit property management"
+    "Riviera Nayarit property management",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Luxury Property Management Punta Mita | Beyond Traveling",
+    description:
+      "Full-service luxury property management for high-end homes in Punta Mita, Riviera Nayarit.",
+    url: "https://www.beyondtravelingmx.com",
+    siteName: "Beyond Traveling",
+    images: [
+      {
+        url: "/home/hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Luxury property management in Punta Mita",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
   verification: {
     google: "rdN9v2s2ZpF-poU8g0BnbSvRm8_YXErtgROUaWO5qR4",
   },
