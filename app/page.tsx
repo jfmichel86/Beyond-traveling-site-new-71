@@ -97,11 +97,11 @@ const Hero = () => (
         <div className="grid grid-cols-12">
           <div className="col-span-12 max-w-[700px] py-12 md:col-span-7 md:py-20">
             <h1 className="font-serif text-4xl sm:text-5xl leading-[1.08] tracking-[-0.015em] text-slate-900 md:text-6xl">
-              Property Management in Punta Mita <span className="hidden md:inline"><br /></span>
+              Luxury Property Management in Punta Mita <span className="hidden md:inline"><br /></span>
               <span className="italic text-[0.8em]">Done Personally. Done Right.</span>
             </h1>
             <p className="mt-5 max-w-[680px] text-[17px] leading-[1.7] text-slate-900/70">
-              We work directly with homeowners to care for their homes, respond quickly to guests, and manage rentals thoughtfully—without hidden fees or distance from your property.
+              Full-service luxury property management in Punta Mita. We work directly with homeowners to care for their homes, respond quickly to guests, and manage rentals thoughtfully—without hidden fees or distance from your property.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <OutlineButton href="/services">Discover How We Work</OutlineButton>
