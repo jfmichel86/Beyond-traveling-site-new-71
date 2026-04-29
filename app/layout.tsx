@@ -46,23 +46,28 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-white text-slate-900 antialiased">
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "Beyond Traveling",
-              url: "https://www.beyondtravelingmx.com",
-              description:
-                "Luxury property management in Punta Mita, Riviera Nayarit.",
-              areaServed: "Punta Mita, Mexico",
-              serviceType: "Property Management",
-            }),
-          }}
-        />
+     <body className="bg-white text-slate-900 antialiased">
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        name: "Beyond Traveling",
+        url: "https://www.beyondtravelingmx.com",
+        email: "contact@beyondtravelingmx.com",
+        telephone: "+523313619889",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Punta Mita",
+          addressCountry: "MX",
+        },
+        areaServed: "Punta Mita",
+        description:
+          "Luxury property management in Punta Mita. Beyond Traveling handles property care, rentals, and guest experience for high-end homes.",
+      }),
+    }}
+  />
 
         <LanguageProvider>
           <SiteHeader />
