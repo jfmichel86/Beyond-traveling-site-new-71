@@ -38,7 +38,10 @@ export default function SiteFooter() {
                 <a href="/services" className="hover:text-slate-900 transition">Services</a>
                 <a href="/properties" className="hover:text-slate-900 transition">Properties</a>
                 <a href="/contact" className="hover:text-slate-900 transition">Contact</a>
-              </div>
+                <a href="/punta-mita-property-management" className="hover:text-slate-900 transition">
+                    Property Management Punta Mita
+                </a>
+                </div>
             </div>
 
             {/* Contact */}
