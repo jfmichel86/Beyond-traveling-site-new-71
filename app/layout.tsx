@@ -44,11 +44,33 @@ export const metadata: Metadata = {
   },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (<html lang="en"><body className="bg-white text-slate-900 antialiased">
+  return (
+    <html lang="en">
+      <body className="bg-white text-slate-900 antialiased">
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Beyond Traveling",
+              url: "https://www.beyondtravelingmx.com",
+              description:
+                "Luxury property management in Punta Mita, Riviera Nayarit.",
+              areaServed: "Punta Mita, Mexico",
+              serviceType: "Property Management",
+            }),
+          }}
+        />
+
         <LanguageProvider>
           <SiteHeader />
           <main>{children}</main>
           <SiteFooter />
         </LanguageProvider>
-      </body></html>);
+
+      </body>
+    </html>
+  );
 }
