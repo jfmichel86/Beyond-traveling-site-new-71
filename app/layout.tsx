@@ -42,6 +42,17 @@ export const metadata: Metadata = {
   verification: {
     google: "rdN9v2s2ZpF-poU8g0BnbSvRm8_YXErtgROUaWO5qR4",
   },
+icons: {
+  icon: [
+    { url: "/favicon.ico" },
+    { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+  ],
+  shortcut: "/favicon.ico",
+  apple: [
+    { url: "/icon-192.png" },
+  ],
+},
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
