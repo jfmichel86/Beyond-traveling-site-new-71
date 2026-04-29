@@ -3,6 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/Container";
 
+export const metadata = {
+  title: "Property Management Team Punta Mita | Beyond Traveling",
+  description:
+    "Meet the team behind Beyond Traveling, providing hands-on luxury property management in Punta Mita and Riviera Nayarit.",
+};
+
 /* Shared components */
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
   <h2 className="font-serif text-3xl md:text-4xl leading-[1.12] tracking-tight text-slate-900">
