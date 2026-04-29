@@ -6,15 +6,26 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import { useLanguage } from "@/lib/language-context";
 
-const NavLink = ({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) => (
-  <Link
-    href={href}
-    onClick={onClick}
-    className="text-[13px] font-semibold tracking-[0.14em] text-slate-900/70 transition hover:text-slate-900"
-  >
-    {children}
-  </Link>
-);
+const NavLink = ({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) => {
+  let title = "";
+
+  if (href === "/") title = "Luxury Property Management in Punta Mita";
+  if (href === "/services") title = "Property Management Services in Punta Mita";
+  if (href === "/properties") title = "Luxury Rental Properties in Punta Mita";
+  if (href === "/about") title = "Property Management Team in Punta Mita";
+  if (href === "/contact") title = "Contact Property Management Punta Mita";
+
+  return (
+    <Link
+      href={href}
+      title={title}
+      onClick={onClick}
+      className="text-[13px] font-semibold tracking-[0.14em] text-slate-900/70 transition hover:text-slate-900"
+    >
+      {children}
+    </Link>
+  );
+};
 
 export default function SiteHeader() {
   const [open, setOpen] = React.useState(false);
