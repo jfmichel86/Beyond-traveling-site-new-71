@@ -41,6 +41,12 @@ export default function SiteFooter() {
                 <a href="/punta-mita-property-management" className="hover:text-slate-900 transition">
                     Property Management Punta Mita
                 </a>
+                <a href="/luxury-rentals-punta-mita" className="hover:text-slate-900 transition">
+                  Luxury Rentals Punta Mita
+                </a>
+                <a href="/villa-management-punta-mita" className="hover:text-slate-900 transition">
+                Villa Management Punta Mita
+                </a>
                 </div>
             </div>
 
