@@ -4,6 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/Container";
 
+export const metadata = {
+  title: "Property Management Services Punta Mita | Beyond Traveling",
+  description:
+    "Full-service luxury property management in Punta Mita. Rentals, guest experience, maintenance, and local operations for high-end homes.",
+};
+
 const BG = {
   header: "bg-white",
   hero: "bg-[#f4f0ea]",
