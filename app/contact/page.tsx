@@ -3,6 +3,12 @@
 import React, { useState } from "react";
 import Container from "@/components/Container";
 
+export const metadata = {
+  title: "Contact Property Management Punta Mita | Beyond Traveling",
+  description:
+    "Contact Beyond Traveling for luxury property management in Punta Mita. Speak directly with our local team.",
+};
+
 /* Shared */
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
   <h2 className="font-serif text-3xl md:text-4xl leading-[1.12] tracking-tight text-slate-900">
