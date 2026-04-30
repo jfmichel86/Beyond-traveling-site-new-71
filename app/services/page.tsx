@@ -66,8 +66,11 @@ export default function ServicesPage() {
         </h3>
 
         <p className="mt-6 text-[18px] leading-[1.85] text-slate-900/75">
-          We manage each property with care, consistency, and direct communication. Our approach is built around the idea that a home should feel well looked after, whether the owner is nearby or away.
-        </p>
+  We manage each property with care, consistency, and direct communication. Our approach is built around the idea that a home should feel well looked after, whether the owner is nearby or away. You can also learn more about{" "}
+  <Link href="/about" className="underline underline-offset-4 hover:text-slate-900">
+    who you’ll be dealing with
+  </Link>.
+</p>
 
         <ul className="mt-6 space-y-4 text-[18px] leading-[1.85] text-slate-900/75">
           <li>— This is someone’s home</li>
