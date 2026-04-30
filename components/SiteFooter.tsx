@@ -40,14 +40,17 @@ export default function SiteFooter() {
                 <Link href="/properties" className="hover:text-slate-900 transition">Properties</Link>
                 <Link href="/contact" className="hover:text-slate-900 transition">Contact</Link>
 
+                <span className="text-[12px] uppercase tracking-wide text-slate-400 mt-4">
+  Guides
+</span>
                 <Link href="/punta-mita-property-management" className="hover:text-slate-900 transition">
-                    Property Management Punta Mita
+                    Property Management
                 </Link>
                 <Link href="/luxury-rentals-punta-mita" className="hover:text-slate-900 transition">
-                    Luxury Rentals Punta Mita
+                    Luxury Rentals
                 </Link>
                 <Link href="/villa-management-punta-mita" className="hover:text-slate-900 transition">
-                    Villa Management Punta Mita
+                    Villa Management
                 </Link>
                 </div>
             </div>
