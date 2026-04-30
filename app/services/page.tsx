@@ -37,7 +37,7 @@ export default function ServicesPage() {
       </h1>
 
       <p className="mt-6 text-[17px] leading-[1.85] text-slate-900/70">
-        We focus on the details that make ownership easier and rentals perform better—while keeping communication clear and costs under control.
+        We provide full-service property management in Punta Mita, handling everything from guest experience and rentals to maintenance and day-to-day operations. Our focus is on keeping your home in excellent condition while maximizing performance and ensuring a smooth ownership experience.
       </p>
     </div>
   </Container>
