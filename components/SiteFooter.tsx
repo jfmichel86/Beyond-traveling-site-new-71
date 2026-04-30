@@ -10,10 +10,10 @@ export default function SiteFooter() {
         <div className="py-16">
 
           {/* Top Grid */}
-          <div className="grid gap-12 md:grid-cols-4 text-[14px] text-slate-700">
+          <div className="grid items-start gap-10 md:gap-16 md:grid-cols-[1.4fr_1fr_1fr_1fr] text-[14px] text-slate-700">
 
             {/* Logo + Tagline */}
-            <div className="space-y-4">
+            <div className="flex flex-col gap-4 pt-[2px]">
               <div className="relative h-[70px] w-[240px] md:h-[80px] md:w-[320px]">
                 <Image
                   src="/logo-beyond-traveling.jpg"
