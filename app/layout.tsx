@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     "Riviera Nayarit property management",
   ],
   alternates: {
-    canonical: "/",
-  },
+  canonical: "https://www.beyondtravelingmx.com",
+},
   openGraph: {
     title: "Luxury Property Management Punta Mita | Beyond Traveling",
     description:
