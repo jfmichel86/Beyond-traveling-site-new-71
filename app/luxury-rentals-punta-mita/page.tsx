@@ -19,10 +19,10 @@ export default function LuxuryRentalsPage() {
           </h1>
 
           <p className="mt-5 text-[17px] leading-[1.75] text-slate-900/70">
-            Punta Mita is one of the most exclusive destinations in Mexico, known for its private villas,
-            oceanfront properties, and high-end guest experiences. Luxury rentals here require careful
-            management and attention to detail.
-          </p>
+  Punta Mita is one of the most exclusive destinations in Mexico, known for its private villas,
+  oceanfront properties, and high-end guest experiences. Luxury rentals in Punta Mita require
+  careful management, attention to detail, and a consistent approach to guest experience.
+</p>
 
           <h2 className="mt-10 font-serif text-2xl text-slate-900">
             What Defines a Luxury Rental
