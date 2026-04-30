@@ -48,8 +48,8 @@ const AboutHero = () => (
         </h1>
 
         <p className="mt-6 text-[17px] leading-[1.7] text-slate-900/70">
-          Beyond Traveling was created by people who believe property management works best when it’s personal, present, and honest.
-        </p>
+  Beyond Traveling was created by a local team focused on providing high-quality property management in Punta Mita. We believe management works best when it’s personal, present, and honest, with direct communication and consistent oversight of every property.
+</p>
 
       </div>
     </Container>
