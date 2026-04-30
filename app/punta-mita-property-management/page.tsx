@@ -40,10 +40,10 @@ export default function PuntaMitaPropertyManagementPage() {
             What Good Property Management Includes
           </h2>
           <p className="mt-4 text-[17px] leading-[1.75] text-slate-900/70">
-            Effective property management goes beyond maintenance. It includes overseeing daily operations,
-            coordinating guest stays, managing cleaning and readiness, and ensuring that the property remains
-            in excellent condition at all times.
-          </p>
+  Effective property management in Punta Mita goes beyond maintenance. It includes overseeing daily operations,
+  coordinating guest stays, managing cleaning and readiness, and ensuring that the property remains
+  in excellent condition at all times while performing well as a rental property.
+</p>
 
           {/* Section 3 */}
           <h2 className="mt-10 font-serif text-2xl text-slate-900">
