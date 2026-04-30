@@ -36,9 +36,9 @@ export default function LuxuryRentalsPage() {
             Managing Rentals in Punta Mita
           </h2>
           <p className="mt-4 text-[17px] leading-[1.75] text-slate-900/70">
-            Managing luxury rentals includes handling bookings, coordinating cleaning and maintenance,
-            and ensuring that each guest has a seamless experience throughout their stay.
-          </p>
+  Managing luxury rentals in Punta Mita includes handling bookings, coordinating cleaning and maintenance,
+  and ensuring that each guest has a seamless experience throughout their stay while maintaining the property at a high standard.
+</p>
 
           <h2 className="mt-10 font-serif text-2xl text-slate-900">
             A Local, Hands-On Approach
