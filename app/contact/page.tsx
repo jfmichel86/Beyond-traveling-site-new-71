@@ -30,9 +30,9 @@ const ContactIntro = () => (
         <h1 className="font-serif text-4xl md:text-5xl tracking-tight leading-[1.08] text-slate-900 max-w-[800px] mx-auto">   Let’s Have a Conversation </h1>
 
         <p className="mt-6 text-[17px] leading-[1.7] text-slate-900/70">
-  Whether you’re actively looking for a new management team or just want to understand your options, we’re happy to talk. You can also explore how we work on our{" "}
+  Whether you’re actively looking for a new property management team in Punta Mita or just want to understand your options, we’re happy to talk. You can also explore how we work on our{" "}
   <Link href="/services" className="underline underline-offset-4 hover:text-slate-900">
-    Services page
+    Services
   </Link>.
 </p>
       </div>
