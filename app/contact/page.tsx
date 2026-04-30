@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Container from "@/components/Container";
+import ContactForm from "./ContactForm";
 
 export const metadata = {
   title: "Contact Property Management Punta Mita",
