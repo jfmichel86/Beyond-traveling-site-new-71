@@ -12,8 +12,8 @@ export default function SiteFooter() {
           {/* Divider */}
           <div className="mb-6 md:mb-10 h-px w-full bg-slate-900/10" />
 
-          {/* 3 Columns */}
-          <div className="grid gap-6 md:gap-12 md:grid-cols-3 text-[14px] text-slate-900/70">
+          {/* 4 Columns */}
+          <div className="grid gap-6 md:gap-12 md:grid-cols-4 text-[14px] text-slate-900/70">
 
             {/* Logo */}
             <div>
@@ -28,32 +28,38 @@ export default function SiteFooter() {
             </div>
 
             {/* Navigation */}
-            <div className="flex flex-col items-center mt-2">
-              <span className="mb-3 text-[13px] uppercase tracking-wide text-slate-500">
-                Navigation
-              </span>
+<div className="flex flex-col items-center md:items-start mt-2">
+  <span className="mb-3 text-[13px] uppercase tracking-wide text-slate-500">
+    Navigation
+  </span>
 
-              <div className="grid grid-cols-2 gap-x-10 gap-y-2 text-left">
-                <Link href="/" className="hover:text-slate-900 transition">Home</Link>
-                <Link href="/about" className="hover:text-slate-900 transition">About</Link>
-                <Link href="/services" className="hover:text-slate-900 transition">Services</Link>
-                <Link href="/properties" className="hover:text-slate-900 transition">Properties</Link>
-                <Link href="/contact" className="hover:text-slate-900 transition">Contact</Link>
+  <div className="flex flex-col gap-2 text-center md:text-left">
+    <Link href="/" className="hover:text-slate-900 transition">Home</Link>
+    <Link href="/about" className="hover:text-slate-900 transition">About</Link>
+    <Link href="/services" className="hover:text-slate-900 transition">Services</Link>
+    <Link href="/properties" className="hover:text-slate-900 transition">Properties</Link>
+    <Link href="/contact" className="hover:text-slate-900 transition">Contact</Link>
+  </div>
+</div>
 
-                <span className="text-[12px] uppercase tracking-wide text-slate-400 mt-4">
-  Guides
-</span>
-                <Link href="/punta-mita-property-management" className="hover:text-slate-900 transition">
-                    Property Management
-                </Link>
-                <Link href="/luxury-rentals-punta-mita" className="hover:text-slate-900 transition">
-                    Luxury Rentals
-                </Link>
-                <Link href="/villa-management-punta-mita" className="hover:text-slate-900 transition">
-                    Villa Management
-                </Link>
-                </div>
-            </div>
+            {/* Guides */}
+<div className="flex flex-col items-center md:items-start mt-2">
+  <span className="mb-3 text-[13px] uppercase tracking-wide text-slate-500">
+    Guides
+  </span>
+
+  <div className="flex flex-col gap-2 text-center md:text-left">
+    <Link href="/punta-mita-property-management" className="hover:text-slate-900 transition">
+      Property Management
+    </Link>
+    <Link href="/luxury-rentals-punta-mita" className="hover:text-slate-900 transition">
+      Luxury Rentals
+    </Link>
+    <Link href="/villa-management-punta-mita" className="hover:text-slate-900 transition">
+      Villa Management
+    </Link>
+  </div>
+</div>
 
             {/* Contact */}
             <div className="flex flex-col items-center mt-2">
