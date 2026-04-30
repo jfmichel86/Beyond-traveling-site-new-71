@@ -200,8 +200,8 @@ export default function ServicesPage() {
             <h3 className="font-serif text-3xl md:text-4xl leading-[1.12] tracking-[-0.01em] text-slate-900">
               Good management isn’t about doing more. It’s about doing the right things consistently and being available when it matters.
             </h3>
-            <p className="mt-4 text-[17px] text-slate-900/70">
-  If you’re considering working together, you can{" "}
+          <p className="mt-4 text-[17px] text-slate-900/70">
+  Our property management services in Punta Mita are designed for homeowners who want reliability, transparency, and a team that is consistently present. If you’re considering working together, you can{" "}
   <Link href="/contact" className="underline underline-offset-4 hover:text-slate-900">
     get in touch with us here
   </Link>.
