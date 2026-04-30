@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import Container from "@/components/Container";
+import React from "react";
 import ContactForm from "./ContactForm";
+import Container from "@/components/Container";
 
 export const metadata = {
   title: "Contact Property Management Punta Mita",
@@ -38,22 +38,7 @@ const ContactIntro = () => (
 
 /* CONTACT + FORM */
 const ContactSection = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const text = encodeURIComponent(
-  `New inquiry from Beyond Traveling website:
-
-Name: ${name}
-Email: ${email}
-
-Message:
-${message}`
-);
 
     const whatsappUrl = `https://wa.me/523313619889?text=${text}`;
 
@@ -105,15 +90,7 @@ ${message}`
         <div className="md:col-span-6 min-w-0">
           <div className="w-full overflow-hidden bg-white rounded-2xl border border-slate-200/70 p-6 md:p-8 shadow-sm">
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-
-              <input
-                  type="text"
-                  placeholder="Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full border border-slate-300 rounded-lg px-4 py-3 text-[15px]"
-              />
+           <ContactForm />
 
               <input
                   type="email"
