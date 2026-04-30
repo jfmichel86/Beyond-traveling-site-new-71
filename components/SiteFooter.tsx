@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Container from "@/components/Container";
+import Link from "next/link";
 
 export default function SiteFooter() {
   return (
@@ -33,20 +34,21 @@ export default function SiteFooter() {
               </span>
 
               <div className="grid grid-cols-2 gap-x-10 gap-y-2 text-left">
-                <a href="/" className="hover:text-slate-900 transition">Home</a>
-                <a href="/about" className="hover:text-slate-900 transition">About</a>
-                <a href="/services" className="hover:text-slate-900 transition">Services</a>
-                <a href="/properties" className="hover:text-slate-900 transition">Properties</a>
-                <a href="/contact" className="hover:text-slate-900 transition">Contact</a>
-                <a href="/punta-mita-property-management" className="hover:text-slate-900 transition">
+                <Link href="/" className="hover:text-slate-900 transition">Home</Link>
+                <Link href="/about" className="hover:text-slate-900 transition">About</Link>
+                <Link href="/services" className="hover:text-slate-900 transition">Services</Link>
+                <Link href="/properties" className="hover:text-slate-900 transition">Properties</Link>
+                <Link href="/contact" className="hover:text-slate-900 transition">Contact</Link>
+
+                <Link href="/punta-mita-property-management" className="hover:text-slate-900 transition">
                     Property Management Punta Mita
-                </a>
-                <a href="/luxury-rentals-punta-mita" className="hover:text-slate-900 transition">
-                  Luxury Rentals Punta Mita
-                </a>
-                <a href="/villa-management-punta-mita" className="hover:text-slate-900 transition">
-                Villa Management Punta Mita
-                </a>
+                </Link>
+                <Link href="/luxury-rentals-punta-mita" className="hover:text-slate-900 transition">
+                    Luxury Rentals Punta Mita
+                </Link>
+                <Link href="/villa-management-punta-mita" className="hover:text-slate-900 transition">
+                    Villa Management Punta Mita
+                </Link>
                 </div>
             </div>
 
