@@ -20,10 +20,10 @@ export default function PuntaMitaPropertyManagementPage() {
           </h1>
 
           {/* Intro */}
-          <p className="mt-5 text-[17px] leading-[1.75] text-slate-900/70">
-            Managing a property in Punta Mita requires more than coordination. It requires local presence,
-            responsiveness, and a clear understanding of how luxury homes operate in a rental environment.
-          </p>
+         <p className="mt-5 text-[17px] leading-[1.75] text-slate-900/70">
+  Managing a property in Punta Mita requires more than coordination. It requires local presence,
+  responsiveness, and a clear understanding of how luxury homes operate in a rental environment. Our property management services in Punta Mita are designed to keep homes well maintained while ensuring a smooth and high-quality guest experience.
+</p>
 
           {/* Section 1 */}
           <h2 className="mt-10 font-serif text-2xl text-slate-900">
