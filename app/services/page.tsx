@@ -66,7 +66,7 @@ export default function ServicesPage() {
         </h3>
 
         <p className="mt-6 text-[18px] leading-[1.85] text-slate-900/75">
-  We manage each property with care, consistency, and direct communication. Our approach is built around the idea that a home should feel well looked after, whether the owner is nearby or away. You can also learn more about{" "}
+  Our property management approach in Punta Mita is built on consistency, direct communication, and attention to detail. We make sure each home is properly maintained, guests are well taken care of, and owners always know what is happening with their property. You can also learn more about{" "}
   <Link href="/about" className="underline underline-offset-4 hover:text-slate-900">
     who you’ll be dealing with
   </Link>.
