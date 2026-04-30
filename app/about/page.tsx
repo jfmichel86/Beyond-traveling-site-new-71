@@ -4,9 +4,9 @@ import Link from "next/link";
 import Container from "@/components/Container";
 
 export const metadata = {
-  title: "Property Management Team Punta Mita | Beyond Traveling",
+  title: "About Our Property Management Team Punta Mita",
   description:
-    "Meet the team behind Beyond Traveling, providing hands-on luxury property management in Punta Mita and Riviera Nayarit.",
+    "Meet the local team behind Beyond Traveling. Hands-on property management, guest experience, and operations in Punta Mita.",
 };
 
 /* Shared components */
