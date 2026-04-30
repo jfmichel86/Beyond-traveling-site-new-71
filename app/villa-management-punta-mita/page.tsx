@@ -19,9 +19,9 @@ export default function VillaManagementPage() {
           </h1>
 
           <p className="mt-5 text-[17px] leading-[1.75] text-slate-900/70">
-            Managing a villa in Punta Mita requires constant oversight. From maintenance to guest
-            coordination, every detail impacts the value and performance of the property.
-          </p>
+  Managing a villa in Punta Mita requires constant oversight. From maintenance to guest
+  coordination, every detail impacts the value and performance of the property. Our villa management services in Punta Mita are designed to maintain each property at a high standard while ensuring smooth operations and guest experience.
+</p>
 
           <h2 className="mt-10 font-serif text-2xl text-slate-900">
             Maintaining High-End Villas
