@@ -71,7 +71,10 @@ const AboutStorySection = () => (
             </SectionTitle>
 
             <p className="mt-4 text-[17px] leading-[1.7] text-slate-900/70">
-              We started this project after seeing how often homeowners felt disconnected from the people managing their homes.
+              We started this project after seeing how often homeowners felt disconnected from the people managing their homes. You can also learn more about how we manage properties on our{" "}
+            <Link href="/services" className="underline underline-offset-4 hover:text-slate-900">
+            Services
+            </Link>.
             </p>
 
             <div className="mt-6 space-y-3">
