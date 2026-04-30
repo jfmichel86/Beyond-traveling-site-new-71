@@ -24,7 +24,7 @@ export default function SiteFooter() {
               </div>
 
               <p className="text-sm text-slate-500 leading-relaxed max-w-[260px]">
-                Villa management and luxury rentals in Punta Mita. 
+                Property management and luxury rentals in Punta Mita. 
                 Hands-on service, local expertise, and direct communication.
               </p>
             </div>
