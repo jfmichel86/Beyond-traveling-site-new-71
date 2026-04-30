@@ -38,13 +38,6 @@ const ContactIntro = () => (
 
 /* CONTACT + FORM */
 const ContactSection = () => {
-
-
-    const whatsappUrl = `https://wa.me/523313619889?text=${text}`;
-
-    window.open(whatsappUrl, "_blank");
-  };
-
   return (
     <section className="bg-[#f1f4f8] overflow-hidden">
   <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-24">
@@ -89,33 +82,7 @@ const ContactSection = () => {
         {/* RIGHT — FORM */}
         <div className="md:col-span-6 min-w-0">
           <div className="w-full overflow-hidden bg-white rounded-2xl border border-slate-200/70 p-6 md:p-8 shadow-sm">
-
-           <ContactForm />
-
-              <input
-                  type="email"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full border border-slate-300 rounded-lg px-4 py-3 text-[15px]"
-              />
-
-              <textarea
-                  placeholder="Message"
-                  rows={4}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className="w-full border border-slate-300 rounded-lg px-4 py-3 text-[15px]"
-              />
-
-              <button
-                type="submit"
-                className="w-full bg-slate-900 text-white py-3 rounded-lg text-[15px] hover:bg-slate-800 transition"
-              >
-                Start a Conversation
-              </button>
-
-            </form>
+             <ContactForm />
 
           </div>
         </div>
