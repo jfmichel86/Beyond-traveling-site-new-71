@@ -37,9 +37,10 @@ export default function SiteFooter() {
 
               <div className="flex flex-col gap-2">
                 <Link href="/" className="hover:text-slate-900 transition">Home</Link>
-                <Link href="/about" className="hover:text-slate-900 transition">About</Link>
                 <Link href="/services" className="hover:text-slate-900 transition">Services</Link>
                 <Link href="/properties" className="hover:text-slate-900 transition">Properties</Link>
+                <Link href="/discover-punta-mita" className="hover:text-slate-900 transition">Discover</Link>
+                 <Link href="/about" className="hover:text-slate-900 transition">About</Link>
                 <Link href="/contact" className="hover:text-slate-900 transition">Contact</Link>
               </div>
             </div>
@@ -51,9 +52,6 @@ export default function SiteFooter() {
               </span>
 
               <div className="flex flex-col gap-2">
-                <Link href="/discover-punta-mita" className="hover:text-slate-900 transition">
-                    Discover Punta Mita
-                </Link>
                 <Link href="/punta-mita-property-management" className="hover:text-slate-900 transition">
                   Property Management
                 </Link>
