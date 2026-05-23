@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { activities } from "@/lib/discoverPuntaMita";
+import { discoverCategories } from "@/lib/discoverPuntaMita";
 
 export const metadata = {
   title: "Discover Punta Mita",
@@ -31,7 +31,7 @@ export default function DiscoverPuntaMitaPage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {activities.map((activity) => (
+            {discoverCategories.map((activity) => (
               <Link
                 key={activity.slug}
                 href={`/discover-punta-mita/${activity.slug}`}
