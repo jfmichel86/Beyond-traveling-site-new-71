@@ -12,6 +12,7 @@ const NavLink = ({ href, children, onClick }: { href: string; children: React.Re
   if (href === "/") title = "Luxury Property Management in Punta Mita";
   if (href === "/services") title = "Property Management Services in Punta Mita";
   if (href === "/properties") title = "Luxury Rental Properties in Punta Mita";
+  if (href === "/discover-punta-mita") title = "Discover Punta Mita Activities and Experiences";
   if (href === "/about") title = "Property Management Team in Punta Mita";
   if (href === "/contact") title = "Contact Property Management Punta Mita";
 
@@ -60,6 +61,7 @@ export default function SiteHeader() {
             <NavLink href="/">HOME</NavLink>
             <NavLink href="/services">SERVICES</NavLink>
             <NavLink href="/properties">PROPERTIES</NavLink>
+            <NavLink href="/discover-punta-mita">DISCOVER</NavLink>
             <NavLink href="/about">ABOUT</NavLink>
             <NavLink href="/contact">CONTACT</NavLink>
           </nav>
@@ -123,6 +125,7 @@ export default function SiteHeader() {
                 <NavLink href="/" onClick={() => setOpen(false)}>HOME</NavLink>
                 <NavLink href="/services" onClick={() => setOpen(false)}>SERVICES</NavLink>
                 <NavLink href="/properties" onClick={() => setOpen(false)}>PROPERTIES</NavLink>
+                <NavLink href="/discover-punta-mita" onClick={() => setOpen(false)}>DISCOVER</NavLink>
                 <NavLink href="/about" onClick={() => setOpen(false)}>ABOUT</NavLink>
                 <NavLink href="/contact" onClick={() => setOpen(false)}>CONTACT</NavLink>
               </div>
