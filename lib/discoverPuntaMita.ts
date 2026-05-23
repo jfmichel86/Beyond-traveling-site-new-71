@@ -1,48 +1,76 @@
-export const activities = [
+export const discoverCategories = [
   {
-    title: "Surfing",
-    slug: "surfing",
-    image: "/discover-punta-mita/surfing.jpg",
+    title: "Ocean & Water Activities",
+    slug: "ocean-water-activities",
+    image: "/discover-punta-mita/ocean-water-activities.jpg",
     description:
-      "Surf lessons and guided sessions for guests who want to enjoy Punta Mita from the water.",
-    content:
-      "Punta Mita has excellent surf options for different levels, from beginner-friendly lessons to more advanced breaks depending on the season and conditions.",
-    gallery: [
-      "/discover-punta-mita/surfing.jpg",
-      "/discover-punta-mita/surfing-2.jpg",
-      "/discover-punta-mita/surfing-3.jpg",
-    ],
+      "Boat days, surfing, snorkeling, whale watching, fishing, and ocean adventures around Punta Mita.",
   },
   {
-    title: "Golf",
-    slug: "golf",
-    image: "/discover-punta-mita/golf.jpg",
+    title: "Luxury & Relaxation",
+    slug: "luxury-relaxation",
+    image: "/discover-punta-mita/luxury-relaxation.jpg",
     description:
-      "World-class golf, ocean views, and some of the most beautiful courses in the region.",
-    content:
-      "Golf is one of Punta Mita’s signature experiences, with exceptional courses, oceanfront holes, and a relaxed luxury setting.",
-    gallery: [
-      "/discover-punta-mita/golf.jpg",
-      "/discover-punta-mita/golf-2.jpg",
-      "/discover-punta-mita/golf-3.jpg",
-    ],
+      "Private chefs, spa treatments, yoga, tastings, wellness experiences, and relaxed luxury moments.",
   },
   {
-    title: "Private Boat Trips",
-    slug: "private-boat-trips",
-    image: "/discover-punta-mita/private-boat-trips.jpg",
+    title: "Golf & Sports",
+    slug: "golf-sports",
+    image: "/discover-punta-mita/golf-sports.jpg",
     description:
-      "Explore the coast, hidden beaches, and nearby ocean experiences by private boat.",
-    content:
-      "Private boat trips are one of the best ways to experience the coastline around Punta Mita, with options for relaxed cruising, snorkeling, beach stops, and seasonal marine life.",
-    gallery: [
-      "/discover-punta-mita/private-boat-trips.jpg",
-      "/discover-punta-mita/private-boat-trips-2.jpg",
-      "/discover-punta-mita/private-boat-trips-3.jpg",
-    ],
+      "Golf, tennis, pickleball, fitness, hiking, horseback riding, and active experiences.",
+  },
+  {
+    title: "Beach Clubs & Day Clubs",
+    slug: "beach-clubs-day-clubs",
+    image: "/discover-punta-mita/beach-clubs-day-clubs.jpg",
+    description:
+      "Beach clubs, ocean clubs, day clubs, and stylish places to spend the day by the water.",
+  },
+  {
+    title: "Nightlife & Parties",
+    slug: "nightlife-parties",
+    image: "/discover-punta-mita/nightlife-parties.jpg",
+    description:
+      "Cocktail bars, rooftop lounges, DJ nights, beach parties, and Puerto Vallarta nightlife.",
+  },
+  {
+    title: "Food & Dining Experiences",
+    slug: "food-dining-experiences",
+    image: "/discover-punta-mita/food-dining-experiences.jpg",
+    description:
+      "Fine dining, seafood, taco tours, private dining, cooking classes, and local restaurants.",
+  },
+  {
+    title: "Nearby Destinations & Day Trips",
+    slug: "nearby-destinations-day-trips",
+    image: "/discover-punta-mita/nearby-destinations-day-trips.jpg",
+    description:
+      "Sayulita, San Pancho, Yelapa, Puerto Vallarta, Marietas Islands, Bucerías, and more.",
+  },
+  {
+    title: "Family-Friendly Activities",
+    slug: "family-friendly-activities",
+    image: "/discover-punta-mita/family-friendly-activities.jpg",
+    description:
+      "Kid-friendly surf lessons, turtle releases, boat days, nature tours, ziplining, and family fun.",
+  },
+  {
+    title: "Seasonal Experiences",
+    slug: "seasonal-experiences",
+    image: "/discover-punta-mita/seasonal-experiences.jpg",
+    description:
+      "Whale watching, turtle season, fishing tournaments, holiday events, festivals, and seasonal highlights.",
+  },
+  {
+    title: "High-End / VIP Experiences",
+    slug: "high-end-vip-experiences",
+    image: "/discover-punta-mita/high-end-vip-experiences.jpg",
+    description:
+      "Helicopter tours, VIP tables, private photographers, yacht experiences, and luxury concierge moments.",
   },
 ];
 
-export function getActivityBySlug(slug: string) {
-  return activities.find((activity) => activity.slug === slug);
+export function getDiscoverCategoryBySlug(slug: string) {
+  return discoverCategories.find((category) => category.slug === slug);
 }
