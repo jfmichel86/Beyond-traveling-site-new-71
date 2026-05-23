@@ -30,7 +30,7 @@ export default function DiscoverPuntaMitaPage() {
 
       <section className="py-16 md:py-24 bg-white">
         <div className="mx-auto max-w-[1200px] px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {activities.map((activity) => (
               <Link
                 key={activity.slug}
