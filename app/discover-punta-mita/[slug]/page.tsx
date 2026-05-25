@@ -45,7 +45,7 @@ export default function DiscoverCategoryPage({ params }: PageProps) {
       <section>
         <div className="relative aspect-[1983/793] w-full overflow-hidden">
           <Image
-            src={category.image}
+            src={category.heroImage}
             alt={category.title}
             fill
             priority
