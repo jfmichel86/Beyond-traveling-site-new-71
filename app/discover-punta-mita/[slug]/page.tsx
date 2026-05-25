@@ -41,9 +41,21 @@ export default function DiscoverCategoryPage({ params }: PageProps) {
   }
 
   return (
-    <main>
-      <section className="bg-white">
-        <div className="mx-auto max-w-[1200px] px-6 py-16 md:py-24">
+    <main className="bg-white">
+      <section>
+        <div className="relative aspect-[1983/793] w-full overflow-hidden">
+          <Image
+            src={category.image}
+            alt={category.title}
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-[1200px] px-6">
           <Link
             href="/discover-punta-mita"
             className="text-[14px] text-slate-500 hover:text-slate-900 transition"
@@ -61,14 +73,21 @@ export default function DiscoverCategoryPage({ params }: PageProps) {
             </p>
           </div>
 
-          <div className="mt-12 overflow-hidden rounded-2xl">
-            <Image
-              src={category.image}
-              alt={category.title}
-              width={2000}
-              height={1200}
-              className="w-full object-cover"
-            />
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm">
+              <div className="aspect-[16/9] bg-slate-100" />
+              <div className="p-6 bg-white">
+                <h2 className="font-serif text-2xl leading-tight text-slate-900">
+                  Activity Name
+                </h2>
+                <p className="mt-3 text-[15px] leading-[1.6] text-slate-600">
+                  Short description of the activity will go here.
+                </p>
+                <p className="mt-5 text-[14px] text-slate-900">
+                  Explore →
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
