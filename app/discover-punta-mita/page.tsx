@@ -40,11 +40,11 @@ export default function DiscoverPuntaMitaPage() {
                 <div className="overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition duration-300 group-hover:shadow-lg group-hover:-translate-y-[2px]">
                   <div className="overflow-hidden">
                     <Image
-                      src={activity.image}
-                      alt={activity.title}
-                      width={1600}
-                      height={1100}
-                      className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                    src={activity.image}
+                    alt={activity.title}
+                    width={1600}
+                    height={900}
+                    className="aspect-[16/9] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
                     />
                   </div>
 
