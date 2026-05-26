@@ -73,10 +73,10 @@ export default function SiteFooter() {
 
               <div className="flex flex-col gap-3">
                 <a
-                  href="mailto:contact@beyondtravelingmx.com"
+                  href="mailto:beyondtravelingmx@gmail.com"
                   className="hover:text-slate-900 transition"
                 >
-                  contact@beyondtravelingmx.com
+                  beyondtravelingmx@gmail.com
                 </a>
 
                 <a
