@@ -116,7 +116,7 @@ export default function Page() {
           <div className="mx-auto max-w-[1100px] px-6 md:px-10">
             <div className="mt-6 text-[17px] leading-[1.9] text-slate-900/75 space-y-7 text-justify">
               <p>
-                Welcome to Las Palmas 28, a warm and elegant three-bedroom residence located within the Las Palmas 
+                Las Palmas 28, a warm and elegant three-bedroom residence, is located within the Las Palmas 
                 community of Punta Mita. Thoughtfully designed for comfort and relaxed coastal living, this inviting 
                 home is ideal for families or small groups seeking privacy, daily service, and access to Punta Mita’s 
                 world-class beach clubs and amenities.
