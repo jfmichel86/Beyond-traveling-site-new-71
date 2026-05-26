@@ -10,7 +10,9 @@ export default function Page() {
   const property = {
     name: "Las Palmas 28",
     startingPrice: "$1,100 USD per night",
-    images: ["/properties/las-palmas-28.jpg"],
+    images: Array.from({ length: 30 }, (_, i) =>
+    `/properties/las-palmas-28/las-palmas-28-${i + 1}.jpg`
+    ),
   };
 
   return (
@@ -22,6 +24,38 @@ export default function Page() {
           alt={property.name}
           className="w-full h-[55vh] md:h-[65vh] object-cover"
         />
+
+        {/* LEFT ARROW */}
+<button
+  onClick={() =>
+    setSelectedImage(
+      selectedImage === 0 ? property.images.length - 1 : selectedImage - 1
+    )
+  }
+  className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 
+             bg-white/90 hover:bg-white text-black 
+             w-12 h-12 md:w-14 md:h-14 
+             flex items-center justify-center 
+             rounded-lg shadow-lg transition z-20 text-xl"
+>
+  ‹
+</button>
+
+{/* RIGHT ARROW */}
+<button
+  onClick={() =>
+    setSelectedImage(
+      selectedImage === property.images.length - 1 ? 0 : selectedImage + 1
+    )
+  }
+  className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 
+             bg-white/90 hover:bg-white text-black 
+             w-12 h-12 md:w-14 md:h-14 
+             flex items-center justify-center 
+             rounded-lg shadow-lg transition z-20 text-xl"
+>
+  ›
+</button>
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent" />
 
