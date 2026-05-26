@@ -15,7 +15,7 @@ export default function Page() {
           priority
         />
         <div className="absolute bottom-6 left-6 bg-white/80 backdrop-blur px-4 py-2 rounded-md text-sm font-medium tracking-wide text-slate-900">
-          From $2,900 USD per night
+          From $1,100 USD per night
         </div>
       </section>
 
@@ -64,15 +64,15 @@ export default function Page() {
           <div className="mt-8 divide-y divide-slate-200">
             <div className="flex justify-between py-4">
               <span>Low Season</span>
-              <span>From $2,900</span>
+              <span>From $1,050</span>
             </div>
             <div className="flex justify-between py-4">
               <span>High Season</span>
-              <span>From $5,200</span>
+              <span>From $1,600</span>
             </div>
             <div className="flex justify-between py-4">
               <span>Holiday</span>
-              <span>From $7,800</span>
+              <span>From $4,000</span>
             </div>
           </div>
 
