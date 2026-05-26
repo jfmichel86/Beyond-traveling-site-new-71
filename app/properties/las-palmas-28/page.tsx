@@ -11,8 +11,8 @@ export default function Page() {
     name: "Las Palmas 28",
     startingPrice: "$1,100 USD per night",
     images: Array.from({ length: 30 }, (_, i) =>
-    `/properties/las-palmas-28/las-palmas-28-${i + 1}.jpg`
-    ),
+  `/properties/las-palmas-28/las-palmas-28-${i + 1}.jpg`
+),
   };
 
   return (
@@ -26,36 +26,36 @@ export default function Page() {
         />
 
         {/* LEFT ARROW */}
-<button
-  onClick={() =>
-    setSelectedImage(
-      selectedImage === 0 ? property.images.length - 1 : selectedImage - 1
-    )
-  }
-  className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 
-             bg-white/90 hover:bg-white text-black 
-             w-12 h-12 md:w-14 md:h-14 
-             flex items-center justify-center 
-             rounded-lg shadow-lg transition z-20 text-xl"
->
-  ‹
-</button>
+        <button
+          onClick={() =>
+            setSelectedImage(
+              selectedImage === 0 ? property.images.length - 1 : selectedImage - 1
+            )
+          }
+          className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 
+                     bg-white/90 hover:bg-white text-black 
+                     w-12 h-12 md:w-14 md:h-14 
+                     flex items-center justify-center 
+                     rounded-lg shadow-lg transition z-20 text-xl"
+        >
+          ‹
+        </button>
 
-{/* RIGHT ARROW */}
-<button
-  onClick={() =>
-    setSelectedImage(
-      selectedImage === property.images.length - 1 ? 0 : selectedImage + 1
-    )
-  }
-  className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 
-             bg-white/90 hover:bg-white text-black 
-             w-12 h-12 md:w-14 md:h-14 
-             flex items-center justify-center 
-             rounded-lg shadow-lg transition z-20 text-xl"
->
-  ›
-</button>
+        {/* RIGHT ARROW */}
+        <button
+          onClick={() =>
+            setSelectedImage(
+              selectedImage === property.images.length - 1 ? 0 : selectedImage + 1
+            )
+          }
+          className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 
+                     bg-white/90 hover:bg-white text-black 
+                     w-12 h-12 md:w-14 md:h-14 
+                     flex items-center justify-center 
+                     rounded-lg shadow-lg transition z-20 text-xl"
+        >
+          ›
+        </button>
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent" />
 
@@ -106,12 +106,12 @@ export default function Page() {
           <div className="mx-auto max-w-[1100px] px-6 md:px-10">
             <div className="mt-6 text-[17px] leading-[1.9] text-slate-900/75 space-y-7 text-justify">
               <p>
-                Las Palmas 28 is a private residence in Punta Mita designed for a relaxed luxury stay. 
-                The villa offers comfortable living spaces, access to the Punta Mita lifestyle, and an 
+                Las Palmas 28 is a private residence in Punta Mita designed for a relaxed luxury stay.
+                The villa offers comfortable living spaces, access to the Punta Mita lifestyle, and an
                 ideal setting for families or groups looking for privacy, comfort, and convenience.
               </p>
               <p>
-                With indoor-outdoor living, a peaceful atmosphere, and close access to Punta Mita’s beaches, 
+                With indoor-outdoor living, a peaceful atmosphere, and close access to Punta Mita’s beaches,
                 dining, golf, and resort amenities, Las Palmas 28 is a welcoming home base for enjoying the area.
               </p>
             </div>
@@ -158,8 +158,8 @@ export default function Page() {
 
             <div className="mt-10 grid md:grid-cols-1 gap-8 text-slate-800">
               <ul className="space-y-3 text-slate-800 list-disc pl-5">
-                <li>Concierge services</li>
                 <li>Daily cleaning</li>
+                <li>Concierge services</li>
                 <li>Access to Punta Mita amenities</li>
                 <li>Availability confirmed upon request</li>
               </ul>
@@ -189,8 +189,8 @@ export default function Page() {
                 <ul className="mt-4 space-y-2 text-slate-600">
                   <li>Air Conditioning</li>
                   <li>WiFi</li>
-                  <li>Linens Provided</li>
                   <li>Towels Provided</li>
+                  <li>Linens Provided</li>
                 </ul>
               </div>
 
@@ -215,8 +215,45 @@ export default function Page() {
           </div>
         </section>
 
+        {/* AVAILABILITY */}
+        <section className="py-16 md:py-24 bg-white">
+          <div className="mx-auto max-w-[1100px] px-6 md:px-10">
+            <h2 className="font-serif text-3xl md:text-4xl text-slate-900">
+              Availability
+            </h2>
+
+            <div className="mt-12 grid md:grid-cols-2 gap-16 text-[15px]">
+              <div>
+                <h3 className="font-medium text-slate-900 mb-6">April 2026</h3>
+                <div className="grid grid-cols-7 gap-2 text-center text-slate-600">
+                  {Array.from({ length: 30 }, (_, i) => (
+                    <div key={i} className="py-2 border border-slate-200">
+                      {i + 1}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-medium text-slate-900 mb-6">May 2026</h3>
+                <div className="grid grid-cols-7 gap-2 text-center text-slate-600">
+                  {Array.from({ length: 31 }, (_, i) => (
+                    <div key={i} className="py-2 border border-slate-200">
+                      {i + 1}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <p className="mt-8 text-[13px] text-slate-500">
+              Calendar shown for reference. Final availability confirmed upon request.
+            </p>
+          </div>
+        </section>
+
         {/* RATES */}
-        <section className="py-12 md:py-16 bg-white">
+        <section className="py-12 md:py-16 bg-slate-50">
           <div className="mx-auto max-w-[1100px] px-6 md:px-10">
             <h2 className="font-serif text-3xl md:text-4xl text-slate-900">
               Seasonal Rates
