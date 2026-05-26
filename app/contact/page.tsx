@@ -57,7 +57,7 @@ const ContactSection = () => {
           </Body>
 
           <div className="text-[16px] leading-[1.7] text-slate-900/80 space-y-2 break-words">
-            <p>Email: contact@beyondtraveling.com</p>
+            <p>Email: beyondtravelingmx@gmail.com</p>
             <p>Phone / WhatsApp: +52 33 1361 9889</p>
            <p>
   <a
