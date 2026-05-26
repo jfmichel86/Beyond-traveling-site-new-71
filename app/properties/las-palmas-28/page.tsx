@@ -277,7 +277,7 @@ export default function Page() {
     <div className="mt-6 divide-y divide-slate-200 text-[15px]">
       <div className="flex justify-between py-4">
         <span>Low Season (May 1st to Oct 31st)</span>
-        <span>$1,050 USD per night</span>
+        <span>$1,100 USD per night</span>
       </div>
 
       <div className="flex justify-between py-4">
