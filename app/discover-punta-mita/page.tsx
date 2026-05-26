@@ -37,7 +37,7 @@ export default function DiscoverPuntaMitaPage() {
                 href={`/discover-punta-mita/${activity.slug}`}
                 className="block group"
               >
-                <div className="overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition duration-300 group-hover:shadow-lg group-hover:-translate-y-[2px]">
+                <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition duration-300 group-hover:shadow-lg group-hover:-translate-y-[2px]">
                   <div className="overflow-hidden">
                     <Image
                     src={activity.image}
@@ -48,7 +48,7 @@ export default function DiscoverPuntaMitaPage() {
                     />
                   </div>
 
-                  <div className="p-6 bg-white">
+                  <div className="flex flex-1 flex-col p-6 bg-white">
                     <h2 className="font-serif text-2xl leading-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-700">
                       {activity.title}
                     </h2>
@@ -57,9 +57,6 @@ export default function DiscoverPuntaMitaPage() {
                       {activity.description}
                     </p>
 
-                    <p className="mt-5 text-[14px] text-slate-900">
-                      Explore →
-                    </p>
                   </div>
                 </div>
               </Link>
