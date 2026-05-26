@@ -35,7 +35,7 @@ export const discoverCategories = [
     title: "Nightlife & Parties",
     slug: "nightlife-parties",
     image: "/discover-punta-mita/nightlife-parties.jpg",
-    heroImage: "/discover-punta-mita/heroes/nightlife-parties.jpg",
+    heroImage: "/discover-punta-mita/heroes/nightlife-parties-hero.jpg",
     description:
       "Cocktail bars, rooftop lounges, DJ nights, beach parties, and Puerto Vallarta nightlife.",
   },
@@ -43,7 +43,7 @@ export const discoverCategories = [
     title: "Food & Dining Experiences",
     slug: "food-dining-experiences",
     image: "/discover-punta-mita/food-dining-experiences.jpg",
-    heroImage: "/discover-punta-mita/heroes/food-dining-experiences.jpg",
+    heroImage: "/discover-punta-mita/heroes/food-dining-experiences-hero.jpg",
     description:
       "Fine dining, seafood, taco tours, private dining, cooking classes, and local restaurants.",
   },
@@ -51,7 +51,7 @@ export const discoverCategories = [
     title: "Nearby Destinations & Day Trips",
     slug: "nearby-destinations-day-trips",
     image: "/discover-punta-mita/nearby-destinations-day-trips.jpg",
-    heroImage: "/discover-punta-mita/heroes/nearby-destinations-day-trips.jpg",
+    heroImage: "/discover-punta-mita/heroes/nearby-destinations-day-trips-hero.jpg",
     description:
       "Sayulita, San Pancho, Yelapa, Puerto Vallarta, Marietas Islands, Bucerías, and more.",
   },
@@ -59,7 +59,7 @@ export const discoverCategories = [
     title: "Family-Friendly Activities",
     slug: "family-friendly-activities",
     image: "/discover-punta-mita/family-friendly-activities.jpg",
-    heroImage: "/discover-punta-mita/heroes/family-friendly-activities.jpg",
+    heroImage: "/discover-punta-mita/heroes/family-friendly-activities-hero.jpg",
     description:
       "Kid-friendly surf lessons, turtle releases, boat days, nature tours, ziplining, and family fun.",
   },
@@ -67,7 +67,7 @@ export const discoverCategories = [
     title: "Seasonal Experiences",
     slug: "seasonal-experiences",
     image: "/discover-punta-mita/seasonal-experiences.jpg",
-    heroImage: "/discover-punta-mita/heroes/seasonal-experiences.jpg",
+    heroImage: "/discover-punta-mita/heroes/seasonal-experiences-hero.jpg",
     description:
       "Whale watching, turtle season, fishing tournaments, holiday events, festivals, and seasonal highlights.",
   },
@@ -75,7 +75,7 @@ export const discoverCategories = [
     title: "High-End / VIP Experiences",
     slug: "high-end-vip-experiences",
     image: "/discover-punta-mita/high-end-vip-experiences.jpg",
-    heroImage: "/discover-punta-mita/heroes/high-end-vip-experiences.jpg",
+    heroImage: "/discover-punta-mita/heroes/high-end-vip-experiences-hero.jpg",
     description:
       "Helicopter tours, VIP tables, private photographers, yacht experiences, and luxury concierge moments.",
   },
