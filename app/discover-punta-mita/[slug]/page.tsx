@@ -64,21 +64,28 @@ export default function DiscoverCategoryPage({ params }: PageProps) {
 </Link>
 
 <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm">
-              <div className="aspect-[16/9] bg-slate-100" />
-              <div className="p-6 bg-white">
-                <h2 className="font-serif text-2xl leading-tight text-slate-900">
-                  Activity Name
-                </h2>
-                <p className="mt-3 text-[15px] leading-[1.6] text-slate-600">
-                  Short description of the activity will go here.
-                </p>
-                <p className="mt-5 text-[14px] text-slate-900">
-                  Explore →
-                </p>
-              </div>
-            </div>
-          </div>
+  <Link
+    href={`/discover-punta-mita/${category.slug}/activity-name`}
+    className="block h-full group"
+  >
+    <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition duration-300 group-hover:shadow-lg group-hover:-translate-y-[2px]">
+      <div className="aspect-[16/9] bg-slate-100" />
+
+      <div className="flex flex-1 flex-col p-6 bg-white">
+        <h2 className="font-serif text-2xl leading-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-700">
+          Activity Name
+        </h2>
+
+        <p className="mt-3 text-[15px] leading-[1.6] text-slate-600">
+          Short description of the activity will go here.
+        </p>
+      </div>
+    </div>
+  </Link>
+</div>
+       
+        
+        
         </div>
       </section>
     </main>
