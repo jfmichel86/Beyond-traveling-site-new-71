@@ -1946,8 +1946,441 @@ gallery: [
         "/discover-punta-mita/activities/cocktail-nights-3.jpg",
       ],
     },
+{
+  title: "Bar Hopping",
+  slug: "bar-hopping",
+  image: "/discover-punta-mita/activities/bar-hopping.jpg",
+  description:
+    "A casual way to explore Sayulita’s nightlife through beach bars, cocktail spots, music venues, and social streets.",
+  overview:
+    "Bar hopping in Sayulita is one of the easiest ways to experience the town’s energetic nightlife. It is casual, walkable, social, and ideal for guests who want a relaxed but lively evening.",
+  standardInfo: [
+    { label: "Best For", value: "Groups, couples, social travelers, and guests looking for casual nightlife." },
+    { label: "Typical Duration", value: "2 to 5 hours." },
+    { label: "Best Time of Day", value: "Evening through late night." },
+    { label: "Seasonality", value: "Available year-round, with more energy during weekends and high season." },
+    { label: "What to Wear / Bring", value: "Casual evening clothing, comfortable shoes, and a light layer if needed." },
   ],
-    },
+  customInfo: [
+    { label: "Region", value: "Sayulita" },
+    { label: "Atmosphere", value: "Casual, social, lively, and walkable." },
+    { label: "Experience Style", value: "Multiple bars and nightlife stops in one evening." },
+  ],
+  whatToExpect:
+    "Expect a casual night moving between bars, music spots, rooftops, and street-side venues. The experience is relaxed, social, and flexible.",
+  whatToBring:
+    "Bring comfortable shoes, casual evening clothing, and a valid ID.",
+  gallery: [
+    "/discover-punta-mita/activities/bar-hopping.jpg",
+    "/discover-punta-mita/activities/bar-hopping-2.jpg",
+    "/discover-punta-mita/activities/bar-hopping-3.jpg",
+  ],
+},
+
+{
+  title: "Live Music",
+  slug: "live-music",
+  image: "/discover-punta-mita/activities/live-music.jpg",
+  description:
+    "Live music nights in Sayulita with casual venues, local performers, beach-town energy, and a relaxed social atmosphere.",
+  overview:
+    "Sayulita’s live music scene is casual and energetic, with small venues, bars, restaurants, and outdoor settings offering music in a laid-back surf town environment.",
+  standardInfo: [
+    { label: "Best For", value: "Couples, groups, music lovers, and guests looking for a relaxed evening." },
+    { label: "Typical Duration", value: "1.5 to 4 hours." },
+    { label: "Best Time of Day", value: "Evening." },
+    { label: "Seasonality", value: "Year-round, depending on venue schedules and events." },
+    { label: "What to Wear / Bring", value: "Casual evening clothing and comfortable shoes." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Sayulita" },
+    { label: "Atmosphere", value: "Relaxed, local, social, and music-focused." },
+    { label: "Experience Style", value: "Live bands, acoustic sets, local performers, and casual venues." },
+  ],
+  whatToExpect:
+    "Expect a relaxed evening with live music, drinks, casual seating, and a beach-town atmosphere.",
+  whatToBring:
+    "Bring comfortable clothing, ID, and cash or card depending on the venue.",
+  gallery: [
+    "/discover-punta-mita/activities/live-music.jpg",
+    "/discover-punta-mita/activities/live-music-2.jpg",
+    "/discover-punta-mita/activities/live-music-3.jpg",
+  ],
+},
+
+{
+  title: "Rooftop Bars",
+  slug: "rooftop-bars",
+  image: "/discover-punta-mita/activities/rooftop-bars.jpg",
+  description:
+    "Elevated Sayulita bar experiences with views, cocktails, music, and a stylish beach-town atmosphere.",
+  overview:
+    "Rooftop bars in Sayulita offer a more polished way to enjoy the town’s nightlife, combining sunset views, cocktails, and social energy.",
+  standardInfo: [
+    { label: "Best For", value: "Couples, groups, sunset drinks, and guests looking for a stylish night out." },
+    { label: "Typical Duration", value: "1.5 to 3 hours." },
+    { label: "Best Time of Day", value: "Sunset through evening." },
+    { label: "Seasonality", value: "Year-round, depending on venue operations." },
+    { label: "What to Wear / Bring", value: "Resort casual or stylish beach-town evening attire." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Sayulita" },
+    { label: "Atmosphere", value: "Scenic, stylish, social, and relaxed." },
+    { label: "Experience Style", value: "Cocktails, views, music, and rooftop seating." },
+  ],
+  whatToExpect:
+    "Expect cocktails, elevated views, music, and a more stylish but still relaxed Sayulita evening atmosphere.",
+  whatToBring:
+    "Bring evening attire, comfortable shoes, and a phone or camera for sunset views.",
+  gallery: [
+    "/discover-punta-mita/activities/rooftop-bars.jpg",
+    "/discover-punta-mita/activities/rooftop-bars-2.jpg",
+    "/discover-punta-mita/activities/rooftop-bars-3.jpg",
+  ],
+},
+
+{
+  title: "Electronic Music Nights",
+  slug: "electronic-music-nights",
+  image: "/discover-punta-mita/activities/electronic-music-nights.jpg",
+  description:
+    "DJ-led nights in Sayulita with electronic music, dancing, beach-town energy, and a social crowd.",
+  overview:
+    "Electronic music nights in Sayulita are ideal for guests looking for a more energetic nightlife experience with DJs, dancing, and a casual surf-town party atmosphere.",
+  standardInfo: [
+    { label: "Best For", value: "Groups, music lovers, dancers, and guests looking for a more energetic night out." },
+    { label: "Typical Duration", value: "Late evening through late night." },
+    { label: "Best Time of Day", value: "Late night." },
+    { label: "Seasonality", value: "Year-round depending on venue schedules, DJs, and events." },
+    { label: "What to Wear / Bring", value: "Comfortable nightlife clothing and shoes suitable for dancing." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Sayulita" },
+    { label: "Atmosphere", value: "Energetic, social, music-driven, and casual." },
+    { label: "Experience Style", value: "DJ sets, dancing, late-night venues, and event-style nightlife." },
+  ],
+  whatToExpect:
+    "Expect DJs, dancing, drinks, and a lively social atmosphere. Event quality and energy vary by night and venue.",
+  whatToBring:
+    "Bring comfortable clothing, ID, and only essentials for a late-night environment.",
+  gallery: [
+    "/discover-punta-mita/activities/electronic-music-nights.jpg",
+    "/discover-punta-mita/activities/electronic-music-nights-2.jpg",
+    "/discover-punta-mita/activities/electronic-music-nights-3.jpg",
+  ],
+},
+
+{
+  title: "Jungle Parties",
+  slug: "jungle-parties",
+  image: "/discover-punta-mita/activities/jungle-parties.jpg",
+  description:
+    "Occasional event-style parties near Sayulita with music, dancing, tropical surroundings, and a more adventurous atmosphere.",
+  overview:
+    "Jungle parties around Sayulita are typically event-based and appeal to guests looking for a more adventurous nightlife experience outside the standard bar scene.",
+  standardInfo: [
+    { label: "Best For", value: "Groups, music lovers, adventurous travelers, and guests looking for event-style nightlife." },
+    { label: "Typical Duration", value: "Evening through late night." },
+    { label: "Best Time of Day", value: "Late evening." },
+    { label: "Seasonality", value: "Event-based and seasonal depending on organizers and local schedules." },
+    { label: "What to Wear / Bring", value: "Comfortable nightlife clothing, closed or secure shoes, and essentials only." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Sayulita" },
+    { label: "Atmosphere", value: "Energetic, adventurous, tropical, and music-focused." },
+    { label: "Important Note", value: "Events vary significantly. Transportation and safety planning are important." },
+  ],
+  whatToExpect:
+    "Expect a more adventurous music event with dancing, tropical surroundings, and a late-night crowd. Details vary by event.",
+  whatToBring:
+    "Bring ID, comfortable shoes, essentials only, and plan transportation in advance.",
+  gallery: [
+    "/discover-punta-mita/activities/jungle-parties.jpg",
+    "/discover-punta-mita/activities/jungle-parties-2.jpg",
+    "/discover-punta-mita/activities/jungle-parties-3.jpg",
+  ],
+},
+
+{
+  title: "Surf Town Nightlife",
+  slug: "surf-town-nightlife",
+  image: "/discover-punta-mita/activities/surf-town-nightlife.jpg",
+  description:
+    "The relaxed but lively nightlife style of Sayulita, shaped by surf culture, beach bars, music, and walkable streets.",
+  overview:
+    "Surf town nightlife in Sayulita is casual, social, and easygoing. It is less formal than Puerto Vallarta nightlife and more centered around bars, music, street energy, and a beach-town crowd.",
+  standardInfo: [
+    { label: "Best For", value: "Groups, couples, casual travelers, surfers, and guests seeking a relaxed nightlife scene." },
+    { label: "Typical Duration", value: "2 to 5 hours." },
+    { label: "Best Time of Day", value: "Evening through late night." },
+    { label: "Seasonality", value: "Year-round, with more activity during weekends and high season." },
+    { label: "What to Wear / Bring", value: "Casual beach-town evening clothing and comfortable shoes." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Sayulita" },
+    { label: "Atmosphere", value: "Casual, social, beach-town, and surf-inspired." },
+    { label: "Experience Style", value: "Walkable nightlife, bars, music, and street atmosphere." },
+  ],
+  whatToExpect:
+    "Expect an easygoing evening with casual bars, music, people-watching, street energy, and a relaxed surf-town feel.",
+  whatToBring:
+    "Bring comfortable shoes, casual clothing, ID, and only essentials.",
+  gallery: [
+    "/discover-punta-mita/activities/surf-town-nightlife.jpg",
+    "/discover-punta-mita/activities/surf-town-nightlife-2.jpg",
+    "/discover-punta-mita/activities/surf-town-nightlife-3.jpg",
+  ],
+},
+
+{
+  title: "Mandala",
+  slug: "mandala",
+  image: "/discover-punta-mita/activities/mandala.jpg",
+  description:
+    "A high-energy Puerto Vallarta nightclub experience with music, dancing, bottle service, and late-night atmosphere.",
+  overview:
+    "Mandala is one of Puerto Vallarta’s best-known nightlife venues, appealing to guests who want a classic club experience with dancing, music, and a lively crowd.",
+  standardInfo: [
+    { label: "Best For", value: "Groups, celebrations, bachelor and bachelorette trips, and guests looking for a late-night club." },
+    { label: "Typical Duration", value: "Late evening through late night." },
+    { label: "Best Time of Day", value: "Late night." },
+    { label: "Seasonality", value: "Year-round, with higher energy on weekends and holidays." },
+    { label: "What to Wear / Bring", value: "Nightlife attire, comfortable shoes, and valid ID." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Puerto Vallarta" },
+    { label: "Atmosphere", value: "High-energy, club-style, social, and late-night." },
+    { label: "Experience Style", value: "Nightclub, dancing, DJs, bottle service, and party atmosphere." },
+  ],
+  whatToExpect:
+    "Expect a lively nightclub setting with music, dancing, bottle service options, and a late-night crowd.",
+  whatToBring:
+    "Bring ID, nightlife attire, and only essentials.",
+  gallery: [
+    "/discover-punta-mita/activities/mandala.jpg",
+    "/discover-punta-mita/activities/mandala-2.jpg",
+    "/discover-punta-mita/activities/mandala-3.jpg",
+  ],
+},
+
+{
+  title: "La Santa",
+  slug: "la-santa",
+  image: "/discover-punta-mita/activities/la-santa.jpg",
+  description:
+    "A polished Puerto Vallarta nightlife venue known for club atmosphere, music, bottle service, and energetic evenings.",
+  overview:
+    "La Santa is a stylish nightlife option for guests looking for a more elevated club environment in Puerto Vallarta.",
+  standardInfo: [
+    { label: "Best For", value: "Groups, celebrations, nightlife travelers, and guests seeking a polished club experience." },
+    { label: "Typical Duration", value: "Late evening through late night." },
+    { label: "Best Time of Day", value: "Late night." },
+    { label: "Seasonality", value: "Year-round, with more activity during weekends and high season." },
+    { label: "What to Wear / Bring", value: "Elevated nightlife attire and valid ID." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Puerto Vallarta" },
+    { label: "Atmosphere", value: "Stylish, energetic, polished, and social." },
+    { label: "Experience Style", value: "Nightclub, DJs, bottle service, dancing, and VIP-style nightlife." },
+  ],
+  whatToExpect:
+    "Expect music, dancing, a polished nightlife crowd, and an energetic club environment.",
+  whatToBring:
+    "Bring ID, nightlife attire, and only essentials.",
+  gallery: [
+    "/discover-punta-mita/activities/la-santa.jpg",
+    "/discover-punta-mita/activities/la-santa-2.jpg",
+    "/discover-punta-mita/activities/la-santa-3.jpg",
+  ],
+},
+
+{
+  title: "Strana",
+  slug: "strana",
+  image: "/discover-punta-mita/activities/strana.jpg",
+  description:
+    "A large-scale Puerto Vallarta nightclub experience known for dramatic interiors, music, and late-night energy.",
+  overview:
+    "Strana is a well-known Puerto Vallarta club option for guests who want a bigger nightlife setting with strong visual atmosphere, dancing, and late-night energy.",
+  standardInfo: [
+    { label: "Best For", value: "Groups, party travelers, celebrations, and guests looking for a large nightclub." },
+    { label: "Typical Duration", value: "Late evening through late night." },
+    { label: "Best Time of Day", value: "Late night." },
+    { label: "Seasonality", value: "Year-round, depending on nights of operation and events." },
+    { label: "What to Wear / Bring", value: "Nightlife attire, comfortable shoes, and valid ID." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Puerto Vallarta" },
+    { label: "Atmosphere", value: "Large-scale, energetic, dramatic, and club-focused." },
+    { label: "Experience Style", value: "Nightclub, dancing, DJs, bottle service, and high-energy crowd." },
+  ],
+  whatToExpect:
+    "Expect a large club atmosphere with music, lights, dancing, and a late-night social crowd.",
+  whatToBring:
+    "Bring ID, nightlife clothing, and only essentials.",
+  gallery: [
+    "/discover-punta-mita/activities/strana.jpg",
+    "/discover-punta-mita/activities/strana-2.jpg",
+    "/discover-punta-mita/activities/strana-3.jpg",
+  ],
+},
+
+{
+  title: "Yambak",
+  slug: "yambak",
+  image: "/discover-punta-mita/activities/yambak.jpg",
+  description:
+    "A casual Puerto Vallarta nightlife spot known for music, drinks, social energy, and a relaxed crowd.",
+  overview:
+    "Yambak offers a more casual and approachable nightlife atmosphere compared to large clubs, making it attractive for guests who want music and drinks without a formal club setting.",
+  standardInfo: [
+    { label: "Best For", value: "Groups, casual nightlife travelers, music lovers, and guests seeking an easygoing night out." },
+    { label: "Typical Duration", value: "1.5 to 4 hours." },
+    { label: "Best Time of Day", value: "Evening through late night." },
+    { label: "Seasonality", value: "Year-round depending on venue schedule." },
+    { label: "What to Wear / Bring", value: "Casual evening clothing, comfortable shoes, and valid ID." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Puerto Vallarta" },
+    { label: "Atmosphere", value: "Casual, social, music-driven, and relaxed." },
+    { label: "Experience Style", value: "Bar, music venue, casual nightlife, and drinks." },
+  ],
+  whatToExpect:
+    "Expect a casual nightlife setting with drinks, music, conversation, and a relaxed social crowd.",
+  whatToBring:
+    "Bring ID, casual evening clothing, and comfortable shoes.",
+  gallery: [
+    "/discover-punta-mita/activities/yambak.jpg",
+    "/discover-punta-mita/activities/yambak-2.jpg",
+    "/discover-punta-mita/activities/yambak-3.jpg",
+  ],
+},
+
+{
+  title: "El Colibrí Cocktail Bar",
+  slug: "el-colibri-cocktail-bar",
+  image: "/discover-punta-mita/activities/el-colibri-cocktail-bar.jpg",
+  description:
+    "A cocktail-focused Puerto Vallarta bar experience with a more intimate atmosphere and crafted drinks.",
+  overview:
+    "El Colibrí Cocktail Bar is a good option for guests who prefer a more curated cocktail experience over a large nightclub setting.",
+  standardInfo: [
+    { label: "Best For", value: "Couples, adults, cocktail lovers, small groups, and guests looking for a stylish but calmer night." },
+    { label: "Typical Duration", value: "1.5 to 3 hours." },
+    { label: "Best Time of Day", value: "Evening." },
+    { label: "Seasonality", value: "Year-round depending on venue operations." },
+    { label: "What to Wear / Bring", value: "Smart casual or stylish evening clothing." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Puerto Vallarta" },
+    { label: "Atmosphere", value: "Intimate, stylish, cocktail-focused, and social." },
+    { label: "Experience Style", value: "Craft cocktails, conversation, and relaxed evening atmosphere." },
+  ],
+  whatToExpect:
+    "Expect a more intimate cocktail bar setting with crafted drinks, conversation, and a stylish evening atmosphere.",
+  whatToBring:
+    "Bring smart casual clothing, ID, and only essentials.",
+  gallery: [
+    "/discover-punta-mita/activities/el-colibri-cocktail-bar.jpg",
+    "/discover-punta-mita/activities/el-colibri-cocktail-bar-2.jpg",
+    "/discover-punta-mita/activities/el-colibri-cocktail-bar-3.jpg",
+  ],
+},
+
+{
+  title: "Mezcal & Tequila Bars",
+  slug: "mezcal-tequila-bars",
+  image: "/discover-punta-mita/activities/mezcal-tequila-bars.jpg",
+  description:
+    "Puerto Vallarta evening experiences focused on Mexican spirits, tasting flights, cocktails, and local bar culture.",
+  overview:
+    "Mezcal and tequila bars are a great way to enjoy Puerto Vallarta’s nightlife at a slower pace, with more emphasis on flavor, culture, and conversation.",
+  standardInfo: [
+    { label: "Best For", value: "Adults, couples, groups, food lovers, and guests interested in Mexican spirits." },
+    { label: "Typical Duration", value: "1.5 to 3 hours." },
+    { label: "Best Time of Day", value: "Evening or pre-dinner." },
+    { label: "Seasonality", value: "Available year-round." },
+    { label: "What to Wear / Bring", value: "Smart casual or relaxed evening clothing and valid ID." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Puerto Vallarta" },
+    { label: "Atmosphere", value: "Cultural, relaxed, social, and tasting-focused." },
+    { label: "Experience Style", value: "Tastings, cocktails, Mexican spirits, and bar hopping." },
+  ],
+  whatToExpect:
+    "Expect tequila or mezcal flights, cocktails, conversation, and a more flavor-focused nightlife experience.",
+  whatToBring:
+    "Bring ID and comfortable evening clothing.",
+  gallery: [
+    "/discover-punta-mita/activities/mezcal-tequila-bars.jpg",
+    "/discover-punta-mita/activities/mezcal-tequila-bars-2.jpg",
+    "/discover-punta-mita/activities/mezcal-tequila-bars-3.jpg",
+  ],
+},
+
+{
+  title: "Zona Romántica Nightlife",
+  slug: "zona-romantica-nightlife",
+  image: "/discover-punta-mita/activities/zona-romantica-nightlife.jpg",
+  description:
+    "A walkable Puerto Vallarta nightlife district with bars, restaurants, music, clubs, and a lively evening scene.",
+  overview:
+    "Zona Romántica is one of Puerto Vallarta’s most active nightlife areas, offering a mix of bars, restaurants, lounges, clubs, and street energy.",
+  standardInfo: [
+    { label: "Best For", value: "Groups, couples, nightlife travelers, first-time visitors, and guests who want variety in one area." },
+    { label: "Typical Duration", value: "2 to 6 hours." },
+    { label: "Best Time of Day", value: "Evening through late night." },
+    { label: "Seasonality", value: "Year-round, with more energy during weekends and holidays." },
+    { label: "What to Wear / Bring", value: "Comfortable evening clothing, walkable shoes, and valid ID." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Puerto Vallarta" },
+    { label: "Atmosphere", value: "Walkable, lively, diverse, social, and energetic." },
+    { label: "Experience Style", value: "Restaurants, bars, lounges, clubs, street energy, and nightlife district." },
+  ],
+  whatToExpect:
+    "Expect many options within walking distance, from cocktails and dinner to music, dancing, and late-night venues.",
+  whatToBring:
+    "Bring comfortable shoes, ID, and only essentials for walking between venues.",
+  gallery: [
+    "/discover-punta-mita/activities/zona-romantica-nightlife.jpg",
+    "/discover-punta-mita/activities/zona-romantica-nightlife-2.jpg",
+    "/discover-punta-mita/activities/zona-romantica-nightlife-3.jpg",
+  ],
+},
+
+{
+  title: "Rooftop Sunset Lounges",
+  slug: "rooftop-sunset-lounges",
+  image: "/discover-punta-mita/activities/rooftop-sunset-lounges.jpg",
+  description:
+    "Elevated Puerto Vallarta lounge experiences with sunset views, cocktails, music, and a polished evening atmosphere.",
+  overview:
+    "Rooftop sunset lounges are a strong option for guests who want Puerto Vallarta views, cocktails, and a more refined start to the evening.",
+  standardInfo: [
+    { label: "Best For", value: "Couples, groups, sunset lovers, adults, and guests looking for stylish evening drinks." },
+    { label: "Typical Duration", value: "1.5 to 3 hours." },
+    { label: "Best Time of Day", value: "Sunset into early evening." },
+    { label: "Seasonality", value: "Year-round, weather permitting." },
+    { label: "What to Wear / Bring", value: "Smart casual or elevated resort evening attire." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Puerto Vallarta" },
+    { label: "Atmosphere", value: "Scenic, polished, social, and cocktail-focused." },
+    { label: "Experience Style", value: "Rooftop views, cocktails, music, and sunset lounge atmosphere." },
+  ],
+  whatToExpect:
+    "Expect sunset views, cocktails, music, comfortable seating, and a more polished evening atmosphere.",
+  whatToBring:
+    "Bring smart casual clothing and a phone or camera for views.",
+  gallery: [
+    "/discover-punta-mita/activities/rooftop-sunset-lounges.jpg",
+    "/discover-punta-mita/activities/rooftop-sunset-lounges-2.jpg",
+    "/discover-punta-mita/activities/rooftop-sunset-lounges-3.jpg",
+    ],
+   },
+  ],
+ },
   
  {
     title: "Food & Dining Experiences",
