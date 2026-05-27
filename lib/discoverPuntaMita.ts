@@ -2382,16 +2382,317 @@ gallery: [
   ],
  },
   
- {
-    title: "Food & Dining Experiences",
-    slug: "food-dining-experiences",
-    image: "/discover-punta-mita/food-dining-experiences.jpg",
-    heroImage:
-      "/discover-punta-mita/heroes/food-dining-experiences-hero.jpg",
-    description:
-      "Fine dining, seafood, taco tours, private dining, cooking classes, and local restaurants.",
-    activities: [],
-  },
+{
+  title: "Food & Dining Experiences",
+  slug: "food-dining-experiences",
+  image: "/discover-punta-mita/food-dining-experiences.jpg",
+  heroImage:
+    "/discover-punta-mita/heroes/food-dining-experiences-hero.jpg",
+  description:
+    "Fine dining, seafood, taco tours, private dining, cooking classes, and local restaurants in Punta Mita and nearby areas.",
+  activities: [
+    {
+      title: "Fine Dining in Punta Mita",
+      slug: "fine-dining-in-punta-mita",
+      image: "/discover-punta-mita/activities/fine-dining-in-punta-mita.jpg",
+      description:
+        "Elegant restaurant experiences with refined menus, polished service, and a luxury coastal atmosphere.",
+      overview:
+        "Fine dining in Punta Mita is ideal for guests who want a more elevated culinary experience during their stay. The area offers refined settings, thoughtful menus, and a relaxed luxury atmosphere that works well for special evenings.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, families, celebrations, adults, luxury travelers, and special occasion dinners." },
+        { label: "Typical Duration", value: "Usually 2 to 3 hours." },
+        { label: "Best Time of Day", value: "Dinner or sunset dining." },
+        { label: "Seasonality", value: "Available year-round, with reservations especially important during high season." },
+        { label: "What to Wear / Bring", value: "Resort elegant or smart casual clothing." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Refined, polished, scenic, and service-focused." },
+        { label: "Reservation Note", value: "Advance reservations are recommended, especially for larger groups and peak travel dates." },
+        { label: "Pricing", value: "Varies by restaurant, menu, wine selection, and group size." },
+      ],
+      whatToExpect:
+        "Expect polished service, refined menus, curated drinks or wine options, and a more elevated setting than a casual beach restaurant.",
+      whatToBring:
+        "Bring smart casual or resort elegant clothing. Reservations and dietary preferences should be confirmed in advance.",
+      gallery: [
+        "/discover-punta-mita/activities/fine-dining-in-punta-mita.jpg",
+        "/discover-punta-mita/activities/fine-dining-in-punta-mita-2.jpg",
+        "/discover-punta-mita/activities/fine-dining-in-punta-mita-3.jpg",
+      ],
+    },
+    {
+      title: "Oceanfront Restaurants",
+      slug: "oceanfront-restaurants",
+      image: "/discover-punta-mita/activities/oceanfront-restaurants.jpg",
+      description:
+        "Relaxed coastal dining with ocean views, fresh ingredients, seafood, cocktails, and sunset atmosphere.",
+      overview:
+        "Oceanfront restaurants are one of the easiest ways to enjoy Punta Mita’s coastal setting. They combine casual luxury, ocean views, fresh food, and a relaxed vacation atmosphere.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, groups, sunset dinners, and relaxed coastal meals." },
+        { label: "Typical Duration", value: "Usually 1.5 to 3 hours." },
+        { label: "Best Time of Day", value: "Lunch, sunset, or dinner." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Resort casual clothing, sandals, sunglasses for daytime, and a light layer at night." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Scenic, relaxed, coastal, and food-focused." },
+        { label: "Location", value: "Punta Mita, nearby beaches, resort areas, and coastal towns depending on the restaurant." },
+        { label: "Reservation Note", value: "Reservations are recommended for sunset times and popular restaurants." },
+      ],
+      whatToExpect:
+        "Expect ocean views, seafood, cocktails, relaxed service, and a setting that works well for both casual meals and special dinners.",
+      whatToBring:
+        "Bring comfortable resort clothing, sunglasses if dining during the day, and a light layer for evening ocean breeze.",
+      gallery: [
+        "/discover-punta-mita/activities/oceanfront-restaurants.jpg",
+        "/discover-punta-mita/activities/oceanfront-restaurants-2.jpg",
+        "/discover-punta-mita/activities/oceanfront-restaurants-3.jpg",
+      ],
+    },
+    {
+      title: "Seafood Tasting Experiences",
+      slug: "seafood-tasting-experiences",
+      image: "/discover-punta-mita/activities/seafood-tasting-experiences.jpg",
+      description:
+        "Fresh coastal seafood experiences focused on local flavors, seasonal catches, and Pacific cuisine.",
+      overview:
+        "Seafood tasting experiences are a strong way to explore the flavors of the Pacific coast. They can be casual, refined, restaurant-based, or arranged privately depending on the style of the trip.",
+      standardInfo: [
+        { label: "Best For", value: "Food lovers, couples, groups, seafood fans, and guests interested in local coastal cuisine." },
+        { label: "Typical Duration", value: "Usually 1.5 to 3 hours." },
+        { label: "Best Time of Day", value: "Lunch, sunset, or dinner." },
+        { label: "Seasonality", value: "Year-round, with seafood options depending on season and availability." },
+        { label: "What to Wear / Bring", value: "Resort casual clothing." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Culinary, coastal, seasonal, and flavor-focused." },
+        { label: "Good For", value: "Guests who want to try ceviches, grilled seafood, local preparations, and regional flavors." },
+        { label: "Pricing", value: "Varies by menu, restaurant or private setup, seafood selection, and group size." },
+      ],
+      whatToExpect:
+        "Expect a seafood-focused meal or tasting format with fresh preparations, local ingredients, and Pacific coast flavors.",
+      whatToBring:
+        "No special items are needed. Share allergies or seafood preferences in advance.",
+      gallery: [
+        "/discover-punta-mita/activities/seafood-tasting-experiences.jpg",
+        "/discover-punta-mita/activities/seafood-tasting-experiences-2.jpg",
+        "/discover-punta-mita/activities/seafood-tasting-experiences-3.jpg",
+      ],
+    },
+    {
+      title: "Taco Tours",
+      slug: "taco-tours",
+      image: "/discover-punta-mita/activities/taco-tours.jpg",
+      description:
+        "A casual food experience exploring tacos, local flavors, and everyday Mexican dining culture.",
+      overview:
+        "Taco tours are a fun and approachable way to explore the local food scene. They are less formal than fine dining and give guests a closer look at everyday flavors, neighborhoods, and local favorites.",
+      standardInfo: [
+        { label: "Best For", value: "Families, groups, couples, food lovers, and guests who want a casual local experience." },
+        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
+        { label: "Best Time of Day", value: "Evening is often ideal, depending on the route." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Casual clothing, comfortable walking shoes, and appetite." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Casual, local, flavorful, and walkable." },
+        { label: "Location", value: "Nearby towns, Puerto Vallarta, Sayulita, or local food areas depending on the tour." },
+        { label: "Good to Know", value: "Routes can vary by guide, availability, and preferred food style." },
+      ],
+      whatToExpect:
+        "Expect several taco stops, local food context, simple but memorable flavors, and a relaxed experience that is more about authenticity than formality.",
+      whatToBring:
+        "Bring comfortable shoes, casual clothing, and water. Share dietary restrictions in advance.",
+      gallery: [
+        "/discover-punta-mita/activities/taco-tours.jpg",
+        "/discover-punta-mita/activities/taco-tours-2.jpg",
+        "/discover-punta-mita/activities/taco-tours-3.jpg",
+      ],
+    },
+    {
+      title: "Street Food Tours",
+      slug: "street-food-tours",
+      image: "/discover-punta-mita/activities/street-food-tours.jpg",
+      description:
+        "A guided food experience focused on casual local dishes, markets, stands, and neighborhood flavors.",
+      overview:
+        "Street food tours are ideal for guests who want a more local and informal culinary experience. They offer a way to explore traditional flavors, simple dishes, and the everyday food culture of the region.",
+      standardInfo: [
+        { label: "Best For", value: "Food lovers, adventurous eaters, groups, families, and guests interested in local culture." },
+        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
+        { label: "Best Time of Day", value: "Late afternoon or evening, depending on the route." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Casual clothing, comfortable walking shoes, and water." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Local, casual, guided, and food-focused." },
+        { label: "Location", value: "Puerto Vallarta, Sayulita, nearby towns, or local food districts depending on the tour." },
+        { label: "Good to Know", value: "Best for guests open to casual settings and local-style dining." },
+      ],
+      whatToExpect:
+        "Expect multiple food stops, a casual walking format, local dishes, and a more grounded view of the region’s food culture.",
+      whatToBring:
+        "Bring comfortable shoes, water, and an open appetite. Share allergies or dietary restrictions in advance.",
+      gallery: [
+        "/discover-punta-mita/activities/street-food-tours.jpg",
+        "/discover-punta-mita/activities/street-food-tours-2.jpg",
+        "/discover-punta-mita/activities/street-food-tours-3.jpg",
+      ],
+    },
+    {
+      title: "Farm-to-Table Dining",
+      slug: "farm-to-table-dining",
+      image: "/discover-punta-mita/activities/farm-to-table-dining.jpg",
+      description:
+        "Ingredient-focused dining experiences built around seasonal produce, regional flavors, and thoughtful preparation.",
+      overview:
+        "Farm-to-table dining is ideal for guests who want a more intentional culinary experience, with emphasis on seasonality, local ingredients, and a slower connection to the region’s food culture.",
+      standardInfo: [
+        { label: "Best For", value: "Food lovers, couples, wellness travelers, groups, and guests interested in seasonal cuisine." },
+        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
+        { label: "Best Time of Day", value: "Lunch, sunset, or dinner depending on the venue or experience." },
+        { label: "Seasonality", value: "Year-round, with menus changing by ingredient availability." },
+        { label: "What to Wear / Bring", value: "Resort casual or smart casual clothing." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Seasonal, ingredient-focused, relaxed, and culinary." },
+        { label: "Good For", value: "Guests who appreciate slower dining, local ingredients, and curated menus." },
+        { label: "Pricing", value: "Varies by venue, menu format, wine or beverage pairing, and group size." },
+      ],
+      whatToExpect:
+        "Expect a menu built around fresh ingredients, regional flavors, and a more thoughtful dining pace.",
+      whatToBring:
+        "No special items are required. Share dietary restrictions or preferences in advance.",
+      gallery: [
+        "/discover-punta-mita/activities/farm-to-table-dining.jpg",
+        "/discover-punta-mita/activities/farm-to-table-dining-2.jpg",
+        "/discover-punta-mita/activities/farm-to-table-dining-3.jpg",
+      ],
+    },
+    {
+      title: "Cooking Classes",
+      slug: "cooking-classes",
+      image: "/discover-punta-mita/activities/cooking-classes.jpg",
+      description:
+        "Hands-on culinary experiences where guests learn to prepare regional dishes, sauces, seafood, or Mexican classics.",
+      overview:
+        "Cooking classes are a fun way to turn a meal into an experience. They can be casual, family-friendly, or more culinary depending on the instructor, menu, and setting.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, groups, food lovers, and guests who enjoy interactive experiences." },
+        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
+        { label: "Best Time of Day", value: "Late morning, afternoon, or early evening." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Comfortable clothing and closed or stable shoes if cooking actively." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Hands-on, educational, social, and food-focused." },
+        { label: "Service Location", value: "Villa kitchen, private dining area, culinary space, or local venue." },
+        { label: "Customization", value: "Menus can often be adapted by cuisine, skill level, dietary needs, or group style." },
+      ],
+      whatToExpect:
+        "Expect guided preparation, cooking tips, local ingredients, and a shared meal at the end of the class.",
+      whatToBring:
+        "Bring comfortable clothing and share dietary preferences or allergies in advance.",
+      gallery: [
+        "/discover-punta-mita/activities/cooking-classes.jpg",
+        "/discover-punta-mita/activities/cooking-classes-2.jpg",
+        "/discover-punta-mita/activities/cooking-classes-3.jpg",
+      ],
+    },
+    {
+      title: "Private Dining Experiences",
+      slug: "private-dining-experiences",
+      image: "/discover-punta-mita/activities/private-dining-experiences.jpg",
+      description:
+        "Customized private meals arranged in villas, terraces, beach settings, or special locations for a more personal dining experience.",
+      overview:
+        "Private dining experiences are ideal for guests who want a memorable meal without the structure of a restaurant. They can be romantic, family-style, celebratory, or highly refined depending on the setting and service.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, families, groups, birthdays, anniversaries, proposals, and special occasions." },
+        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
+        { label: "Best Time of Day", value: "Sunset or dinner." },
+        { label: "Seasonality", value: "Available year-round, weather permitting for outdoor setups." },
+        { label: "What to Wear / Bring", value: "Resort casual, smart casual, or elegant attire depending on the setting." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Private, customizable, scenic, and service-focused." },
+        { label: "Service Location", value: "Villa, terrace, garden, beach, private room, or special outdoor setup." },
+        { label: "Pricing", value: "Varies by menu, chef, styling, service level, ingredients, and guest count." },
+      ],
+      whatToExpect:
+        "Expect a personalized meal with service adapted to the occasion, setting, and group size.",
+      whatToBring:
+        "No special items are needed. Share timing, menu preferences, dietary restrictions, and occasion details in advance.",
+      gallery: [
+        "/discover-punta-mita/activities/private-dining-experiences.jpg",
+        "/discover-punta-mita/activities/private-dining-experiences-2.jpg",
+        "/discover-punta-mita/activities/private-dining-experiences-3.jpg",
+      ],
+    },
+    {
+      title: "Marina Restaurants in La Cruz",
+      slug: "marina-restaurants-in-la-cruz",
+      image: "/discover-punta-mita/activities/marina-restaurants-in-la-cruz.jpg",
+      description:
+        "Relaxed dining around La Cruz Marina with seafood, sunset views, marina atmosphere, and casual coastal charm.",
+      overview:
+        "La Cruz Marina is a good option for guests who want a relaxed dining outing outside Punta Mita. The area offers marina views, seafood, local atmosphere, and a more casual coastal setting.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, groups, seafood lovers, and guests looking for a casual outing." },
+        { label: "Typical Duration", value: "Usually 1.5 to 3 hours." },
+        { label: "Best Time of Day", value: "Lunch, sunset, or dinner." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Casual resort clothing and comfortable shoes." },
+      ],
+      customInfo: [
+        { label: "Location", value: "La Cruz de Huanacaxtle marina area." },
+        { label: "Experience Style", value: "Casual, coastal, marina-focused, and seafood-friendly." },
+        { label: "Good to Know", value: "A good option for a relaxed meal outside the resort environment." },
+      ],
+      whatToExpect:
+        "Expect marina views, seafood options, casual dining, and a more local coastal atmosphere.",
+      whatToBring:
+        "Bring casual clothing and comfortable shoes for walking around the marina area.",
+      gallery: [
+        "/discover-punta-mita/activities/marina-restaurants-in-la-cruz.jpg",
+        "/discover-punta-mita/activities/marina-restaurants-in-la-cruz-2.jpg",
+        "/discover-punta-mita/activities/marina-restaurants-in-la-cruz-3.jpg",
+      ],
+    },
+    {
+      title: "Hidden Local Restaurants",
+      slug: "hidden-local-restaurants",
+      image: "/discover-punta-mita/activities/hidden-local-restaurants.jpg",
+      description:
+        "Low-key local restaurants, casual favorites, and smaller dining spots that give guests a more authentic regional flavor.",
+      overview:
+        "Hidden local restaurants are ideal for guests who want to explore beyond the most obvious resort dining options. These experiences are about local flavor, casual atmosphere, and discovering places with more character.",
+      standardInfo: [
+        { label: "Best For", value: "Food lovers, repeat visitors, curious travelers, families, couples, and guests seeking local flavor." },
+        { label: "Typical Duration", value: "Usually 1.5 to 3 hours." },
+        { label: "Best Time of Day", value: "Lunch or dinner depending on the restaurant." },
+        { label: "Seasonality", value: "Available year-round depending on restaurant hours." },
+        { label: "What to Wear / Bring", value: "Casual clothing and comfortable shoes." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Casual, local, authentic, and discovery-focused." },
+        { label: "Location", value: "Punta de Mita, nearby towns, Sayulita, La Cruz, Bucerías, or Puerto Vallarta depending on preference." },
+        { label: "Good to Know", value: "Best when matched to your food preferences, group size, and desired atmosphere." },
+      ],
+      whatToExpect:
+        "Expect a more casual and local dining experience with regional flavors, simpler settings, and less tourist-oriented atmosphere.",
+      whatToBring:
+        "Bring casual clothing, comfortable shoes, and an open mind for a more local food experience.",
+      gallery: [
+        "/discover-punta-mita/activities/hidden-local-restaurants.jpg",
+        "/discover-punta-mita/activities/hidden-local-restaurants-2.jpg",
+        "/discover-punta-mita/activities/hidden-local-restaurants-3.jpg",
+      ],
+    },
+  ],
+},
 
   {
     title: "Nearby Destinations & Day Trips",
