@@ -611,14 +611,435 @@ export const discoverCategories = [
 },
 
   {
-    title: "Luxury & Relaxation",
-    slug: "luxury-relaxation",
-    image: "/discover-punta-mita/luxury-relaxation.jpg",
-    heroImage: "/discover-punta-mita/heroes/luxury-relaxation-hero.jpg",
-    description:
-      "Private chefs, spa treatments, yoga, tastings, wellness experiences, and relaxed luxury moments.",
-    activities: [],
-  },
+  title: "Luxury & Relaxation",
+  slug: "luxury-relaxation",
+  image: "/discover-punta-mita/luxury-relaxation.jpg",
+  heroImage: "/discover-punta-mita/heroes/luxury-relaxation-hero.jpg",
+  description:
+    "Private chefs, spa treatments, yoga, tastings, wellness experiences, and relaxed luxury moments.",
+  activities: [
+    {
+      title: "Private Chefs",
+      slug: "private-chefs",
+      image: "/discover-punta-mita/activities/private-chefs.jpg",
+      description:
+        "A personalized in-villa dining experience with menus created around your group, occasion, and style of stay.",
+      overview:
+        "Private chefs are one of the most comfortable and elevated ways to enjoy a stay in Punta Mita. Guests can experience restaurant-quality meals without leaving the villa, with menus adapted to the group, dietary needs, and occasion.",
+      standardInfo: [
+        { label: "Best For", value: "Families, groups, celebrations, couples, and guests who want a relaxed luxury dining experience." },
+        { label: "Typical Duration", value: "Usually 2 to 4 hours depending on meal style, service, and group size." },
+        { label: "Best Time of Day", value: "Breakfast, lunch, sunset dinners, or special evening dinners." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Resort casual clothing. No special preparation needed." },
+      ],
+      customInfo: [
+        { label: "Service Location", value: "Usually inside the villa, on the terrace, by the pool, or in another private dining area." },
+        { label: "Dining Style", value: "Custom menus, family-style meals, plated dinners, casual lunches, or special occasion dining." },
+        { label: "Pricing", value: "Varies depending on menu, ingredients, number of guests, service style, and chef availability." },
+      ],
+      whatToExpect:
+        "Expect a personalized meal prepared and served in the villa. The experience can be casual and family-friendly or more refined for birthdays, anniversaries, and special dinners.",
+      whatToBring:
+        "Guests usually do not need to bring anything. Dietary preferences, allergies, preferred cuisine, and timing should be shared in advance.",
+      gallery: [
+        "/discover-punta-mita/activities/private-chefs.jpg",
+        "/discover-punta-mita/activities/private-chefs-2.jpg",
+        "/discover-punta-mita/activities/private-chefs-3.jpg",
+      ],
+    },
+    {
+      title: "In-Villa Spa Treatments",
+      slug: "in-villa-spa-treatments",
+      image: "/discover-punta-mita/activities/in-villa-spa-treatments.jpg",
+      description:
+        "Spa services brought directly to the villa for a calm, private, and restorative experience.",
+      overview:
+        "In-villa spa treatments allow guests to enjoy massage, body treatments, and wellness services without leaving the property. It is one of the easiest ways to add relaxation to a luxury stay.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, families, groups, wellness-focused guests, and travelers looking to relax after arrival or activities." },
+        { label: "Typical Duration", value: "Usually 60 to 120 minutes per treatment." },
+        { label: "Best Time of Day", value: "Morning, late afternoon, or after a beach or activity day." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Comfortable clothing before and after the treatment. Therapists usually provide treatment setup." },
+      ],
+      customInfo: [
+        { label: "Service Location", value: "Usually inside the villa, on a terrace, in a quiet bedroom, or shaded outdoor area." },
+        { label: "Experience Style", value: "Private, calm, and restorative." },
+        { label: "Booking Note", value: "Advance scheduling is recommended, especially for groups or multiple treatments." },
+      ],
+      whatToExpect:
+        "Expect a spa therapist to arrive at the villa with the needed setup. Treatments may include massage, bodywork, facials, or other wellness services depending on availability.",
+      whatToBring:
+        "No special items are usually needed. Guests should share preferences, pressure level, allergies, or medical considerations before the treatment.",
+      gallery: [
+        "/discover-punta-mita/activities/in-villa-spa-treatments.jpg",
+        "/discover-punta-mita/activities/in-villa-spa-treatments-2.jpg",
+        "/discover-punta-mita/activities/in-villa-spa-treatments-3.jpg",
+      ],
+    },
+    {
+      title: "Massage Therapy",
+      slug: "massage-therapy",
+      image: "/discover-punta-mita/activities/massage-therapy.jpg",
+      description:
+        "Relaxing, therapeutic, or deep-tissue massage sessions arranged in a private and comfortable setting.",
+      overview:
+        "Massage therapy is ideal for guests who want to unwind, recover from travel, or relax after ocean and outdoor activities. Sessions can often be adapted to the guest’s preferred pressure and treatment style.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, solo guests, families, athletes, and anyone seeking relaxation or recovery." },
+        { label: "Typical Duration", value: "Usually 60, 90, or 120 minutes." },
+        { label: "Best Time of Day", value: "Morning for a slow start, or late afternoon after activities." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Comfortable clothing before and after the massage." },
+      ],
+      customInfo: [
+        { label: "Treatment Style", value: "Relaxing, deep tissue, therapeutic, sports-focused, or customized depending on provider." },
+        { label: "Service Location", value: "Villa, spa room, shaded terrace, or other quiet private space." },
+        { label: "Booking Note", value: "Advance booking is recommended for preferred times and multiple guests." },
+      ],
+      whatToExpect:
+        "Expect a calm private session focused on relaxation, tension relief, or recovery. Guests can usually request preferred pressure and areas of focus.",
+      whatToBring:
+        "No special items are needed. Share pressure preference, injuries, or sensitivities before the session begins.",
+      gallery: [
+        "/discover-punta-mita/activities/massage-therapy.jpg",
+        "/discover-punta-mita/activities/massage-therapy-2.jpg",
+        "/discover-punta-mita/activities/massage-therapy-3.jpg",
+      ],
+    },
+    {
+      title: "Sound Healing",
+      slug: "sound-healing",
+      image: "/discover-punta-mita/activities/sound-healing.jpg",
+      description:
+        "A calming wellness experience using sound, vibration, and stillness to create a restorative atmosphere.",
+      overview:
+        "Sound healing is a peaceful wellness experience that can be especially powerful in a quiet villa, terrace, or beachfront setting. It is designed to help guests slow down and disconnect.",
+      standardInfo: [
+        { label: "Best For", value: "Wellness-focused travelers, couples, groups, retreats, and guests seeking relaxation." },
+        { label: "Typical Duration", value: "Usually 45 to 90 minutes." },
+        { label: "Best Time of Day", value: "Morning, sunset, or evening." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Comfortable clothing. Light layers are useful for stillness and relaxation." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Meditative, calming, and restorative." },
+        { label: "Service Location", value: "Villa terrace, quiet indoor room, garden, beach setting, or wellness space." },
+        { label: "Good to Know", value: "No prior experience is needed." },
+      ],
+      whatToExpect:
+        "Expect a guided session using instruments, sound bowls, or vibration-based practices. Guests usually lie down or sit comfortably while the session unfolds.",
+      whatToBring:
+        "Wear comfortable clothing. A mat, cushion, or blanket may be provided depending on the provider and location.",
+      gallery: [
+        "/discover-punta-mita/activities/sound-healing.jpg",
+        "/discover-punta-mita/activities/sound-healing-2.jpg",
+        "/discover-punta-mita/activities/sound-healing-3.jpg",
+      ],
+    },
+    {
+      title: "Yoga Classes",
+      slug: "yoga-classes",
+      image: "/discover-punta-mita/activities/yoga-classes.jpg",
+      description:
+        "Private or small-group yoga sessions designed around the pace, level, and setting of your stay.",
+      overview:
+        "Yoga classes in Punta Mita can be arranged as gentle morning movement, sunset stretching, private villa sessions, or wellness-focused group experiences.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, families, groups, wellness travelers, beginners, and experienced practitioners." },
+        { label: "Typical Duration", value: "Usually 60 to 90 minutes." },
+        { label: "Best Time of Day", value: "Early morning or sunset." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Comfortable activewear and water." },
+      ],
+      customInfo: [
+        { label: "Class Style", value: "Gentle flow, restorative, vinyasa, stretching, private instruction, or group wellness session." },
+        { label: "Service Location", value: "Villa terrace, garden, beach, gym area, or private wellness space." },
+        { label: "Skill Level", value: "Beginner-friendly and adaptable to the group." },
+      ],
+      whatToExpect:
+        "Expect a guided session adapted to the group’s level, pace, and goals. Classes can be energizing, restorative, or focused on mobility and relaxation.",
+      whatToBring:
+        "Wear comfortable activewear and bring water. Mats may be provided depending on the instructor and location.",
+      gallery: [
+        "/discover-punta-mita/activities/yoga-classes.jpg",
+        "/discover-punta-mita/activities/yoga-classes-2.jpg",
+        "/discover-punta-mita/activities/yoga-classes-3.jpg",
+      ],
+    },
+    {
+      title: "Breathwork Sessions",
+      slug: "breathwork-sessions",
+      image: "/discover-punta-mita/activities/breathwork-sessions.jpg",
+      description:
+        "Guided breathing practices designed to support relaxation, focus, recovery, and emotional reset.",
+      overview:
+        "Breathwork sessions offer a deeper wellness experience for guests interested in relaxation, nervous system reset, focus, or recovery during their stay.",
+      standardInfo: [
+        { label: "Best For", value: "Wellness travelers, couples, groups, retreat-style stays, and guests seeking a calming reset." },
+        { label: "Typical Duration", value: "Usually 45 to 90 minutes." },
+        { label: "Best Time of Day", value: "Morning, sunset, or evening." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Comfortable clothing and water." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Guided, introspective, and wellness-focused." },
+        { label: "Service Location", value: "Villa, terrace, wellness room, shaded outdoor area, or retreat setting." },
+        { label: "Good to Know", value: "Sessions can be gentle or deeper depending on facilitator style and guest preference." },
+      ],
+      whatToExpect:
+        "Expect guided breathing techniques in a calm environment. The session may include relaxation, intention setting, breath patterns, and quiet integration.",
+      whatToBring:
+        "Wear comfortable clothing and bring water. Guests should communicate any health considerations before deeper breathwork practices.",
+      gallery: [
+        "/discover-punta-mita/activities/breathwork-sessions.jpg",
+        "/discover-punta-mita/activities/breathwork-sessions-2.jpg",
+        "/discover-punta-mita/activities/breathwork-sessions-3.jpg",
+      ],
+    },
+    {
+      title: "Ice Baths & Wellness Experiences",
+      slug: "ice-baths-wellness-experiences",
+      image: "/discover-punta-mita/activities/ice-baths-wellness-experiences.jpg",
+      description:
+        "Cold immersion and recovery-focused wellness experiences for guests seeking energy, focus, and reset.",
+      overview:
+        "Ice baths and wellness recovery experiences are ideal for active travelers, wellness groups, and guests who want a more intentional reset during their stay.",
+      standardInfo: [
+        { label: "Best For", value: "Active travelers, wellness groups, athletes, retreat guests, and guests seeking recovery." },
+        { label: "Typical Duration", value: "Usually 45 to 90 minutes depending on format." },
+        { label: "Best Time of Day", value: "Morning or after physical activity." },
+        { label: "Seasonality", value: "Available year-round depending on provider availability." },
+        { label: "What to Wear / Bring", value: "Swimwear, towel, water, and comfortable clothing for after the session." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Recovery-focused, energizing, and guided." },
+        { label: "Service Location", value: "Villa, wellness area, outdoor terrace, or private setup." },
+        { label: "Good to Know", value: "Not suitable for every guest. Health considerations should be reviewed before cold immersion." },
+      ],
+      whatToExpect:
+        "Expect a guided cold immersion experience that may include breathing, preparation, short immersion periods, and recovery time.",
+      whatToBring:
+        "Bring swimwear, towel, water, and warm or comfortable clothing for after the session.",
+      gallery: [
+        "/discover-punta-mita/activities/ice-baths-wellness-experiences.jpg",
+        "/discover-punta-mita/activities/ice-baths-wellness-experiences-2.jpg",
+        "/discover-punta-mita/activities/ice-baths-wellness-experiences-3.jpg",
+      ],
+    },
+    {
+      title: "Beachfront Wellness Retreats",
+      slug: "beachfront-wellness-retreats",
+      image: "/discover-punta-mita/activities/beachfront-wellness-retreats.jpg",
+      description:
+        "Curated wellness moments by the ocean, combining movement, stillness, recovery, and natural surroundings.",
+      overview:
+        "Beachfront wellness retreats can combine yoga, meditation, breathwork, spa elements, sound healing, and healthy dining into a more complete wellness experience.",
+      standardInfo: [
+        { label: "Best For", value: "Wellness travelers, retreats, couples, small groups, and guests seeking a restorative itinerary." },
+        { label: "Typical Duration", value: "Half-day, full-day, or multi-session formats depending on planning." },
+        { label: "Best Time of Day", value: "Morning or sunset." },
+        { label: "Seasonality", value: "Available year-round, with outdoor comfort depending on weather." },
+        { label: "What to Wear / Bring", value: "Comfortable activewear, swimwear if needed, hat, sunscreen, and water." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Curated, restorative, and customizable." },
+        { label: "Location", value: "Beachfront setting, villa, terrace, garden, or private wellness space." },
+        { label: "Customization", value: "Can include yoga, meditation, breathwork, massage, sound healing, healthy meals, or recovery rituals." },
+      ],
+      whatToExpect:
+        "Expect a slower, intentional wellness experience built around the group’s goals. The format may combine movement, rest, nature, and guided practices.",
+      whatToBring:
+        "Bring comfortable clothing, water, sun protection, and swimwear if the experience includes beach or water elements.",
+      gallery: [
+        "/discover-punta-mita/activities/beachfront-wellness-retreats.jpg",
+        "/discover-punta-mita/activities/beachfront-wellness-retreats-2.jpg",
+        "/discover-punta-mita/activities/beachfront-wellness-retreats-3.jpg",
+      ],
+    },
+    {
+      title: "Luxury Picnics",
+      slug: "luxury-picnics",
+      image: "/discover-punta-mita/activities/luxury-picnics.jpg",
+      description:
+        "Styled outdoor picnic experiences for couples, families, proposals, birthdays, and relaxed celebrations.",
+      overview:
+        "Luxury picnics bring together styling, food, setting, and atmosphere for a beautiful and relaxed outdoor experience. They work especially well for celebrations or sunset moments.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, proposals, birthdays, families, small groups, and photo-friendly celebrations." },
+        { label: "Typical Duration", value: "Usually 1.5 to 3 hours." },
+        { label: "Best Time of Day", value: "Late afternoon and sunset." },
+        { label: "Seasonality", value: "Year-round, weather permitting." },
+        { label: "What to Wear / Bring", value: "Resort casual clothing, comfortable sandals, and sun protection." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Styled, romantic, relaxed, and photo-friendly." },
+        { label: "Location", value: "Beach, villa terrace, garden, or scenic outdoor setting depending on permissions and conditions." },
+        { label: "Pricing", value: "Varies depending on styling, food, drinks, location, flowers, and add-ons." },
+      ],
+      whatToExpect:
+        "Expect a styled setup with seating, decor, food or snacks, and a relaxed environment for enjoying the setting. Add-ons may include flowers, photography, or special occasion details.",
+      whatToBring:
+        "Bring sunglasses, comfortable clothing, and anything personal you would like for photos or celebration details.",
+      gallery: [
+        "/discover-punta-mita/activities/luxury-picnics.jpg",
+        "/discover-punta-mita/activities/luxury-picnics-2.jpg",
+        "/discover-punta-mita/activities/luxury-picnics-3.jpg",
+      ],
+    },
+    {
+      title: "Sunset Dinners on the Beach",
+      slug: "sunset-dinners-on-the-beach",
+      image: "/discover-punta-mita/activities/sunset-dinners-on-the-beach.jpg",
+      description:
+        "A romantic or celebratory dining experience by the ocean with sunset views and a memorable setting.",
+      overview:
+        "Sunset dinners on the beach are ideal for couples, families, and groups celebrating something special. The setting creates a more memorable experience than a traditional restaurant dinner.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, anniversaries, proposals, birthdays, families, and special celebrations." },
+        { label: "Typical Duration", value: "Usually 2 to 3 hours." },
+        { label: "Best Time of Day", value: "Sunset and early evening." },
+        { label: "Seasonality", value: "Year-round, weather permitting." },
+        { label: "What to Wear / Bring", value: "Resort elegant or smart casual clothing, sandals, and a light layer." },
+      ],
+      customInfo: [
+        { label: "Dining Style", value: "Private dinner, romantic setup, family-style meal, plated dinner, or celebration table." },
+        { label: "Location", value: "Beachfront setting, villa beach access, or approved outdoor location depending on logistics." },
+        { label: "Pricing", value: "Varies by menu, setup, location, styling, service, and number of guests." },
+      ],
+      whatToExpect:
+        "Expect a scenic outdoor dining setup with ocean views, sunset atmosphere, and service adapted to the occasion.",
+      whatToBring:
+        "Wear comfortable but elevated clothing. A light layer can be helpful after sunset.",
+      gallery: [
+        "/discover-punta-mita/activities/sunset-dinners-on-the-beach.jpg",
+        "/discover-punta-mita/activities/sunset-dinners-on-the-beach-2.jpg",
+        "/discover-punta-mita/activities/sunset-dinners-on-the-beach-3.jpg",
+      ],
+    },
+    {
+      title: "Tequila Tastings",
+      slug: "tequila-tastings",
+      image: "/discover-punta-mita/activities/tequila-tastings.jpg",
+      description:
+        "A guided tasting experience focused on tequila styles, traditions, flavor profiles, and Mexican spirits culture.",
+      overview:
+        "Tequila tastings are a polished and enjoyable way to learn more about Mexican spirits. They work well as a pre-dinner activity, private villa experience, or group gathering.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, groups, celebrations, adults, and guests interested in Mexican culture and spirits." },
+        { label: "Typical Duration", value: "Usually 60 to 90 minutes." },
+        { label: "Best Time of Day", value: "Late afternoon, pre-dinner, or evening." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Resort casual clothing. No special items needed." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Educational, social, and tasting-focused." },
+        { label: "Service Location", value: "Villa, terrace, private dining area, or event setting." },
+        { label: "Age Suitability", value: "Adults only." },
+      ],
+      whatToExpect:
+        "Expect a guided tasting of different tequila expressions, flavor notes, production context, and pairing suggestions depending on the format.",
+      whatToBring:
+        "No special items are needed. Guests should share preferences or restrictions in advance if pairing food is included.",
+      gallery: [
+        "/discover-punta-mita/activities/tequila-tastings.jpg",
+        "/discover-punta-mita/activities/tequila-tastings-2.jpg",
+        "/discover-punta-mita/activities/tequila-tastings-3.jpg",
+      ],
+    },
+    {
+      title: "Mezcal Tastings",
+      slug: "mezcal-tastings",
+      image: "/discover-punta-mita/activities/mezcal-tastings.jpg",
+      description:
+        "A guided introduction to mezcal, its regional character, smoky complexity, and artisanal traditions.",
+      overview:
+        "Mezcal tastings offer a deeper look at one of Mexico’s most expressive spirits. The experience is ideal for adults who enjoy culture, flavor, and guided tasting.",
+      standardInfo: [
+        { label: "Best For", value: "Adults, couples, groups, food lovers, and guests interested in Mexican spirits." },
+        { label: "Typical Duration", value: "Usually 60 to 90 minutes." },
+        { label: "Best Time of Day", value: "Late afternoon, pre-dinner, or evening." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Resort casual clothing. No special items needed." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Cultural, educational, and flavor-focused." },
+        { label: "Service Location", value: "Villa, terrace, private dining area, or curated event space." },
+        { label: "Age Suitability", value: "Adults only." },
+      ],
+      whatToExpect:
+        "Expect a guided tasting through different mezcal styles, regions, production methods, and tasting notes. Some experiences may include pairings.",
+      whatToBring:
+        "No special items are needed. Guests should share any food preferences if pairings are included.",
+      gallery: [
+        "/discover-punta-mita/activities/mezcal-tastings.jpg",
+        "/discover-punta-mita/activities/mezcal-tastings-2.jpg",
+        "/discover-punta-mita/activities/mezcal-tastings-3.jpg",
+      ],
+    },
+    {
+      title: "Wine Tastings",
+      slug: "wine-tastings",
+      image: "/discover-punta-mita/activities/wine-tastings.jpg",
+      description:
+        "A refined tasting experience with selected wines, guided notes, and optional pairings in a private setting.",
+      overview:
+        "Wine tastings can be arranged as an elegant villa experience, pre-dinner activity, or group evening. The format can be relaxed or more formal depending on the occasion.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, groups, celebrations, adults, food lovers, and guests planning a relaxed evening." },
+        { label: "Typical Duration", value: "Usually 60 to 120 minutes." },
+        { label: "Best Time of Day", value: "Late afternoon or evening." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Resort casual or smart casual clothing." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Refined, social, and tasting-focused." },
+        { label: "Service Location", value: "Villa, terrace, private dining room, or event setting." },
+        { label: "Customization", value: "Can often be adapted by wine region, style, pairing, or occasion." },
+      ],
+      whatToExpect:
+        "Expect selected wines, guided tasting notes, and optional pairings. The experience can be designed as a casual tasting or a more formal private event.",
+      whatToBring:
+        "No special items are needed. Share preferences in advance if you prefer specific wine styles or pairings.",
+      gallery: [
+        "/discover-punta-mita/activities/wine-tastings.jpg",
+        "/discover-punta-mita/activities/wine-tastings-2.jpg",
+        "/discover-punta-mita/activities/wine-tastings-3.jpg",
+      ],
+    },
+    {
+      title: "Cigar Experiences",
+      slug: "cigar-experiences",
+      image: "/discover-punta-mita/activities/cigar-experiences.jpg",
+      description:
+        "A private cigar-focused experience for adults, often paired with spirits, conversation, and a relaxed evening setting.",
+      overview:
+        "Cigar experiences can be a refined add-on for adult groups, celebrations, or after-dinner moments. They work well in outdoor villa settings or private lounge-style environments.",
+      standardInfo: [
+        { label: "Best For", value: "Adults, groups, celebrations, after-dinner gatherings, and guests interested in cigars and spirits." },
+        { label: "Typical Duration", value: "Usually 60 to 120 minutes." },
+        { label: "Best Time of Day", value: "Evening or after dinner." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Resort casual or evening casual clothing." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Relaxed, refined, and social." },
+        { label: "Service Location", value: "Outdoor terrace, villa lounge area, private patio, or event setting." },
+        { label: "Age Suitability", value: "Adults only." },
+      ],
+      whatToExpect:
+        "Expect selected cigars, guidance on tasting and pairing, and a relaxed atmosphere. Experiences may include spirits pairings depending on the format.",
+      whatToBring:
+        "No special items are needed. Guests should share preferences if they have a preferred cigar style or pairing.",
+      gallery: [
+        "/discover-punta-mita/activities/cigar-experiences.jpg",
+        "/discover-punta-mita/activities/cigar-experiences-2.jpg",
+        "/discover-punta-mita/activities/cigar-experiences-3.jpg",
+      ],
+    },
+  ],
+},
 
   {
     title: "Golf & Sports",
