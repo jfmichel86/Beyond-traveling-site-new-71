@@ -1644,8 +1644,10 @@ gallery: [
     "/discover-punta-mita/activities/majahuitas-beach-club.jpg",
     "/discover-punta-mita/activities/majahuitas-beach-club-2.jpg",
     "/discover-punta-mita/activities/majahuitas-beach-club-3.jpg",
+     ],
+    },
   ],
-},      
+},
 
   {
     title: "Nightlife & Parties",
