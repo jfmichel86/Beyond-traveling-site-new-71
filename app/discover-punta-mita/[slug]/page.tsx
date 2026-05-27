@@ -69,6 +69,9 @@ export default function DiscoverCategoryPage({ params }: PageProps) {
     "Inside Punta Mita",
     "Sayulita & San Pancho",
     "Puerto Vallarta Area",
+    "Punta Mita / Riviera Nayarit",
+    "Sayulita",
+    "Puerto Vallarta",
   ].map((region) => {
     const regionActivities = category.activities.filter(
       (activity) =>
