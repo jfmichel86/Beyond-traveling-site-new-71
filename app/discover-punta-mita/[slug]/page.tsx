@@ -66,7 +66,7 @@ export default function DiscoverCategoryPage({ params }: PageProps) {
 <div className="mt-10 space-y-20">
 
   {[
-    "Punta Mita Area",
+    "Inside Punta Mita",
     "Sayulita & San Pancho",
     "Puerto Vallarta Area",
   ].map((region) => {
