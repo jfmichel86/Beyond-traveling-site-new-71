@@ -27,34 +27,35 @@ export function generateMetadata({ params }: PageProps) {
   const activity = getActivityBySlug(params.slug, params.activity);
 
   if (!activity) {
-   return {
-  title: `${activity.title} in Punta Mita | Beyond Traveling`,
-  description: activity.description,
-  alternates: {
-    canonical: `/discover-punta-mita/${params.slug}/${params.activity}`,
-  },
-  openGraph: {
-    title: `${activity.title} in Punta Mita | Beyond Traveling`,
-    description: activity.description,
-    url: `/discover-punta-mita/${params.slug}/${params.activity}`,
-    siteName: "Beyond Traveling",
-    images: [
-      {
-        url: activity.image,
-        width: 1200,
-        height: 630,
-        alt: activity.title,
-      },
-    ],
-    locale: "en_US",
-    type: "article",
-  },
-};
+    return {
+      title: "Discover Punta Mita | Beyond Traveling",
+      description:
+        "Discover curated activities, ocean experiences, and things to do in Punta Mita.",
+    };
   }
 
   return {
     title: `${activity.title} in Punta Mita | Beyond Traveling`,
     description: activity.description,
+    alternates: {
+      canonical: `/discover-punta-mita/${params.slug}/${params.activity}`,
+    },
+    openGraph: {
+      title: `${activity.title} in Punta Mita | Beyond Traveling`,
+      description: activity.description,
+      url: `/discover-punta-mita/${params.slug}/${params.activity}`,
+      siteName: "Beyond Traveling",
+      images: [
+        {
+          url: activity.image,
+          width: 1200,
+          height: 630,
+          alt: `${activity.title} in Punta Mita`,
+        },
+      ],
+      locale: "en_US",
+      type: "article",
+    },
   };
 }
 
@@ -63,11 +64,30 @@ export default function ActivityPage({ params }: PageProps) {
   const activity = getActivityBySlug(params.slug, params.activity);
 
   if (!category || !activity) {
-    notFound();
-  }
+  notFound();
+}
 
-  return (
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  name: `${activity.title} in Punta Mita`,
+  description: activity.description,
+  image: activity.image,
+  touristType: activity.standardInfo.find((item) => item.label === "Best For")?.value,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Punta Mita",
+    addressRegion: "Nayarit",
+    addressCountry: "MX",
+  },
+};
+
+return (
     <main className="bg-white">
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+  />
       <section>
         <div className="relative aspect-[1983/793] w-full overflow-hidden">
           <Image
