@@ -1041,15 +1041,316 @@ export const discoverCategories = [
   ],
 },
 
-  {
-    title: "Golf & Sports",
-    slug: "golf-sports",
-    image: "/discover-punta-mita/golf-sports.jpg",
-    heroImage: "/discover-punta-mita/heroes/golf-sports-hero.jpg",
-    description:
-      "Golf, tennis, pickleball, fitness, hiking, horseback riding, and active experiences.",
-    activities: [],
-  },
+ {
+  title: "Golf & Sports",
+  slug: "golf-sports",
+  image: "/discover-punta-mita/golf-sports.jpg",
+  heroImage: "/discover-punta-mita/heroes/golf-sports-hero.jpg",
+  description:
+    "Golf, tennis, pickleball, fitness, hiking, horseback riding, and active experiences in Punta Mita and nearby.",
+  activities: [
+    {
+      title: "Punta Mita Golf Club",
+      slug: "punta-mita-golf-club",
+      image: "/discover-punta-mita/activities/punta-mita-golf-club.jpg",
+      description:
+        "A premier golf experience in Punta Mita with ocean views, luxury resort atmosphere, and beautifully maintained courses.",
+      overview:
+        "Punta Mita Golf Club is one of the most recognized golf experiences in the region, offering a polished setting, ocean scenery, and access to some of the area’s most desirable golf facilities.",
+      standardInfo: [
+        { label: "Best For", value: "Golfers, couples, groups, luxury travelers, and guests looking for a premium sports experience." },
+        { label: "Typical Duration", value: "Usually 4 to 5 hours for a full round, depending on pace and tee time." },
+        { label: "Best Time of Day", value: "Morning tee times are usually preferred for cooler temperatures and calmer conditions." },
+        { label: "Seasonality", value: "Available year-round, with demand varying by travel season and availability." },
+        { label: "What to Wear / Bring", value: "Golf attire, golf shoes, hat, sunglasses, sunscreen, and water." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Premium golf, resort-style, scenic, and relaxed." },
+        { label: "Location", value: "Inside the Punta Mita resort area." },
+        { label: "Booking Note", value: "Advance tee times are recommended, especially during high season." },
+      ],
+      whatToExpect:
+        "Expect a refined golf experience with tropical scenery, ocean views, professional course conditions, and a peaceful resort environment.",
+      whatToBring:
+        "Bring proper golf attire, golf shoes if needed, sun protection, and any personal golf accessories you prefer.",
+      gallery: [
+        "/discover-punta-mita/activities/punta-mita-golf-club.jpg",
+        "/discover-punta-mita/activities/punta-mita-golf-club-2.jpg",
+        "/discover-punta-mita/activities/punta-mita-golf-club-3.jpg",
+      ],
+    },
+    {
+      title: "Pacifico Golf Course",
+      slug: "pacifico-golf-course",
+      image: "/discover-punta-mita/activities/pacifico-golf-course.jpg",
+      description:
+        "A signature oceanfront golf experience known for dramatic coastal views and one of Punta Mita’s most memorable settings.",
+      overview:
+        "Pacifico Golf Course is one of Punta Mita’s most iconic golf experiences, combining ocean scenery, resort landscaping, and a course setting that feels distinctly connected to the Pacific coast.",
+      standardInfo: [
+        { label: "Best For", value: "Golfers, luxury travelers, couples, groups, and guests looking for a scenic golf round." },
+        { label: "Typical Duration", value: "Usually 4 to 5 hours for a full round." },
+        { label: "Best Time of Day", value: "Morning or late afternoon depending on tee time availability and weather." },
+        { label: "Seasonality", value: "Available year-round, with higher demand during peak travel periods." },
+        { label: "What to Wear / Bring", value: "Golf attire, golf shoes, hat, sunglasses, sunscreen, and water." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Scenic, oceanfront, premium, and resort-style." },
+        { label: "Location", value: "Punta Mita resort area." },
+        { label: "Booking Note", value: "Tee times and access should be confirmed in advance." },
+      ],
+      whatToExpect:
+        "Expect a beautiful golf setting with coastal views, polished course conditions, and a luxury resort atmosphere.",
+      whatToBring:
+        "Bring golf clothing, sun protection, and any personal golf equipment or accessories you prefer.",
+      gallery: [
+        "/discover-punta-mita/activities/pacifico-golf-course.jpg",
+        "/discover-punta-mita/activities/pacifico-golf-course-2.jpg",
+        "/discover-punta-mita/activities/pacifico-golf-course-3.jpg",
+      ],
+    },
+    {
+      title: "Bahia Golf Course",
+      slug: "bahia-golf-course",
+      image: "/discover-punta-mita/activities/bahia-golf-course.jpg",
+      description:
+        "A refined golf course experience in Punta Mita with tropical scenery, resort landscaping, and a relaxed luxury feel.",
+      overview:
+        "Bahia Golf Course offers another excellent golf option in Punta Mita, with a setting that blends natural landscape, resort comfort, and a high-end golf environment.",
+      standardInfo: [
+        { label: "Best For", value: "Golfers, families, groups, couples, and guests looking for an elegant sports experience." },
+        { label: "Typical Duration", value: "Usually 4 to 5 hours for a full round." },
+        { label: "Best Time of Day", value: "Morning tee times are recommended for comfort and pace." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Golf attire, golf shoes, hat, sunscreen, sunglasses, and water." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Premium, scenic, peaceful, and resort-style." },
+        { label: "Location", value: "Punta Mita resort area." },
+        { label: "Booking Note", value: "Advance reservations are recommended." },
+      ],
+      whatToExpect:
+        "Expect a polished golf experience with tropical surroundings, strong course presentation, and a calm resort atmosphere.",
+      whatToBring:
+        "Bring proper golf attire, sun protection, and personal golf accessories if desired.",
+      gallery: [
+        "/discover-punta-mita/activities/bahia-golf-course.jpg",
+        "/discover-punta-mita/activities/bahia-golf-course-2.jpg",
+        "/discover-punta-mita/activities/bahia-golf-course-3.jpg",
+      ],
+    },
+    {
+      title: "Tennis Lessons",
+      slug: "tennis-lessons",
+      image: "/discover-punta-mita/activities/tennis-lessons.jpg",
+      description:
+        "Private or small-group tennis instruction for beginners, intermediate players, and guests who want to stay active during their stay.",
+      overview:
+        "Tennis lessons are a great option for guests who want structured instruction, light competition, or a polished sports experience while staying in Punta Mita.",
+      standardInfo: [
+        { label: "Best For", value: "Beginners, intermediate players, families, couples, teens, and active travelers." },
+        { label: "Typical Duration", value: "Usually 60 to 90 minutes." },
+        { label: "Best Time of Day", value: "Morning or late afternoon to avoid the strongest heat." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Tennis attire, court shoes, hat, sunscreen, and water." },
+      ],
+      customInfo: [
+        { label: "Skill Level", value: "Beginner to advanced, depending on instructor and session format." },
+        { label: "Experience Style", value: "Instructional, active, and customizable." },
+        { label: "Booking Note", value: "Advance scheduling is recommended for preferred times and court availability." },
+      ],
+      whatToExpect:
+        "Expect a private or small-group session focused on technique, movement, drills, or match play depending on the guest’s level.",
+      whatToBring:
+        "Bring proper court shoes, water, comfortable athletic clothing, and a racquet if you prefer using your own.",
+      gallery: [
+        "/discover-punta-mita/activities/tennis-lessons.jpg",
+        "/discover-punta-mita/activities/tennis-lessons-2.jpg",
+        "/discover-punta-mita/activities/tennis-lessons-3.jpg",
+      ],
+    },
+    {
+      title: "Pickleball",
+      slug: "pickleball",
+      image: "/discover-punta-mita/activities/pickleball.jpg",
+      description:
+        "A fun, social, and accessible sport for families, groups, beginners, and active guests.",
+      overview:
+        "Pickleball is an easygoing and social sports activity that works well for groups, families, and guests who want something active but not too intense.",
+      standardInfo: [
+        { label: "Best For", value: "Families, groups, beginners, active travelers, and guests looking for a social sport." },
+        { label: "Typical Duration", value: "Usually 60 to 90 minutes." },
+        { label: "Best Time of Day", value: "Morning or late afternoon." },
+        { label: "Seasonality", value: "Available year-round depending on court access and availability." },
+        { label: "What to Wear / Bring", value: "Athletic clothing, court shoes, sunscreen, hat, and water." },
+      ],
+      customInfo: [
+        { label: "Skill Level", value: "Beginner-friendly and easy to learn." },
+        { label: "Experience Style", value: "Social, active, relaxed, and group-friendly." },
+        { label: "Booking Note", value: "Court access and equipment availability should be confirmed in advance." },
+      ],
+      whatToExpect:
+        "Expect a fun, casual court session that can be played recreationally or with instruction depending on the group.",
+      whatToBring:
+        "Bring athletic clothing, water, sun protection, and comfortable court shoes.",
+      gallery: [
+        "/discover-punta-mita/activities/pickleball.jpg",
+        "/discover-punta-mita/activities/pickleball-2.jpg",
+        "/discover-punta-mita/activities/pickleball-3.jpg",
+      ],
+    },
+    {
+      title: "Private Fitness Coaching",
+      slug: "private-fitness-coaching",
+      image: "/discover-punta-mita/activities/private-fitness-coaching.jpg",
+      description:
+        "Personalized fitness sessions arranged around your goals, schedule, villa setting, and preferred training style.",
+      overview:
+        "Private fitness coaching gives guests the flexibility to maintain their routine or add structured training during their stay. Sessions can be adapted to fitness level, equipment, and location.",
+      standardInfo: [
+        { label: "Best For", value: "Active travelers, wellness guests, athletes, families, and groups wanting private training." },
+        { label: "Typical Duration", value: "Usually 45 to 75 minutes." },
+        { label: "Best Time of Day", value: "Morning or late afternoon." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Athletic clothing, training shoes, towel, and water." },
+      ],
+      customInfo: [
+        { label: "Training Style", value: "Strength, mobility, core, HIIT, stretching, recovery, or customized private coaching." },
+        { label: "Service Location", value: "Villa gym, terrace, garden, beach area, or private fitness space." },
+        { label: "Customization", value: "Sessions can be adjusted by level, injuries, goals, and available equipment." },
+      ],
+      whatToExpect:
+        "Expect a tailored workout led by a private coach, adapted to the group’s fitness level and goals.",
+      whatToBring:
+        "Bring athletic clothing, training shoes, towel, water, and any personal fitness accessories you prefer.",
+      gallery: [
+        "/discover-punta-mita/activities/private-fitness-coaching.jpg",
+        "/discover-punta-mita/activities/private-fitness-coaching-2.jpg",
+        "/discover-punta-mita/activities/private-fitness-coaching-3.jpg",
+      ],
+    },
+    {
+      title: "Beach Workouts",
+      slug: "beach-workouts",
+      image: "/discover-punta-mita/activities/beach-workouts.jpg",
+      description:
+        "Outdoor fitness sessions by the ocean, combining movement, fresh air, and the natural setting of Punta Mita.",
+      overview:
+        "Beach workouts are ideal for guests who want an energizing outdoor session. They can be light and family-friendly or more intense depending on the group.",
+      standardInfo: [
+        { label: "Best For", value: "Active travelers, wellness groups, families, couples, and guests who enjoy outdoor movement." },
+        { label: "Typical Duration", value: "Usually 45 to 75 minutes." },
+        { label: "Best Time of Day", value: "Early morning or sunset." },
+        { label: "Seasonality", value: "Available year-round, weather permitting." },
+        { label: "What to Wear / Bring", value: "Athletic clothing, water, towel, sunscreen, and training shoes or barefoot-friendly attire depending on format." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Outdoor, energizing, scenic, and adaptable." },
+        { label: "Location", value: "Beachfront area, villa beach access, garden, terrace, or open outdoor space." },
+        { label: "Intensity", value: "Can be gentle, moderate, or challenging depending on guest preference." },
+      ],
+      whatToExpect:
+        "Expect a guided outdoor workout using bodyweight movements, mobility, conditioning, or functional training adapted to the setting.",
+      whatToBring:
+        "Bring water, towel, sun protection, and clothing suitable for movement outdoors.",
+      gallery: [
+        "/discover-punta-mita/activities/beach-workouts.jpg",
+        "/discover-punta-mita/activities/beach-workouts-2.jpg",
+        "/discover-punta-mita/activities/beach-workouts-3.jpg",
+      ],
+    },
+    {
+      title: "Hiking",
+      slug: "hiking",
+      image: "/discover-punta-mita/activities/hiking.jpg",
+      description:
+        "Explore coastal, jungle, and scenic walking routes near Punta Mita and the surrounding Riviera Nayarit area.",
+      overview:
+        "Hiking near Punta Mita can offer ocean views, tropical vegetation, quiet trails, and a more grounded way to experience the natural surroundings.",
+      standardInfo: [
+        { label: "Best For", value: "Nature lovers, active travelers, families, couples, and guests looking for scenic outdoor time." },
+        { label: "Typical Duration", value: "Usually 1.5 to 4 hours depending on route." },
+        { label: "Best Time of Day", value: "Early morning for cooler temperatures." },
+        { label: "Seasonality", value: "Year-round, with route comfort depending on heat, rain, and trail conditions." },
+        { label: "What to Wear / Bring", value: "Comfortable walking shoes, light clothing, hat, sunscreen, insect repellent, and water." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Scenic, active, nature-focused, and condition-dependent." },
+        { label: "Location", value: "Coastal paths, jungle areas, nearby towns, or guided nature routes depending on itinerary." },
+        { label: "Difficulty", value: "Can range from easy walks to more active routes." },
+      ],
+      whatToExpect:
+        "Expect a scenic outdoor experience with walking, viewpoints, nature, and changing terrain depending on the selected route.",
+      whatToBring:
+        "Bring water, sun protection, insect repellent, comfortable shoes, and a small backpack if needed.",
+      gallery: [
+        "/discover-punta-mita/activities/hiking.jpg",
+        "/discover-punta-mita/activities/hiking-2.jpg",
+        "/discover-punta-mita/activities/hiking-3.jpg",
+      ],
+    },
+    {
+      title: "Mountain Biking",
+      slug: "mountain-biking",
+      image: "/discover-punta-mita/activities/mountain-biking.jpg",
+      description:
+        "An active land-based adventure through scenic roads, trails, and natural areas near Punta Mita.",
+      overview:
+        "Mountain biking is a strong option for adventurous guests who want an active experience beyond the beach. Routes can vary depending on skill level, terrain, and guide availability.",
+      standardInfo: [
+        { label: "Best For", value: "Active travelers, adventure guests, teens, adults, and experienced riders." },
+        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
+        { label: "Best Time of Day", value: "Early morning." },
+        { label: "Seasonality", value: "Year-round, with conditions affected by rain and trail quality." },
+        { label: "What to Wear / Bring", value: "Athletic clothing, closed-toe shoes, sunscreen, water, and comfortable riding gear." },
+      ],
+      customInfo: [
+        { label: "Skill Level", value: "Beginner to advanced depending on route." },
+        { label: "Experience Style", value: "Active, adventurous, scenic, and terrain-dependent." },
+        { label: "Location", value: "Trails, scenic roads, jungle paths, or nearby guided biking routes." },
+      ],
+      whatToExpect:
+        "Expect an active ride through varied terrain. Routes should be matched to the group’s fitness level and biking experience.",
+      whatToBring:
+        "Bring athletic clothing, water, sun protection, and closed-toe shoes. Helmets and bikes are usually arranged through the provider.",
+      gallery: [
+        "/discover-punta-mita/activities/mountain-biking.jpg",
+        "/discover-punta-mita/activities/mountain-biking-2.jpg",
+        "/discover-punta-mita/activities/mountain-biking-3.jpg",
+      ],
+    },
+    {
+      title: "Horseback Riding on the Beach",
+      slug: "horseback-riding-on-the-beach",
+      image: "/discover-punta-mita/activities/horseback-riding-on-the-beach.jpg",
+      description:
+        "A scenic horseback riding experience along the beach, ideal for relaxed outdoor time and coastal views.",
+      overview:
+        "Horseback riding on the beach is a memorable way to enjoy the coastline at a slower pace. It works well for couples, families, and guests who want a relaxed but special outdoor experience.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, families, nature lovers, beginners, and guests looking for a scenic experience." },
+        { label: "Typical Duration", value: "Usually 1 to 2 hours." },
+        { label: "Best Time of Day", value: "Morning or sunset." },
+        { label: "Seasonality", value: "Year-round, weather and beach conditions permitting." },
+        { label: "What to Wear / Bring", value: "Comfortable clothing, closed-toe shoes, hat, sunscreen, and sunglasses." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Scenic, relaxed, romantic, and family-friendly." },
+        { label: "Skill Level", value: "Beginner-friendly depending on provider and horse temperament." },
+        { label: "Location", value: "Beach areas near Punta Mita, Riviera Nayarit, or nearby coastal towns depending on operator." },
+      ],
+      whatToExpect:
+        "Expect a guided ride along beach or coastal areas with time for scenery, photos, and a relaxed pace.",
+      whatToBring:
+        "Bring closed-toe shoes, sunscreen, comfortable clothing, and a hat. Avoid loose items that may fall during the ride.",
+      gallery: [
+        "/discover-punta-mita/activities/horseback-riding-on-the-beach.jpg",
+        "/discover-punta-mita/activities/horseback-riding-on-the-beach-2.jpg",
+        "/discover-punta-mita/activities/horseback-riding-on-the-beach-3.jpg",
+      ],
+    },
+  ],
+},
 
   {
     title: "Beach Clubs & Day Clubs",
