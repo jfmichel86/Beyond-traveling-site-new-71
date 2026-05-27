@@ -1946,8 +1946,10 @@ gallery: [
         "/discover-punta-mita/activities/cocktail-nights-3.jpg",
       ],
     },
-
-  {
+  ],
+    },
+  
+ {
     title: "Food & Dining Experiences",
     slug: "food-dining-experiences",
     image: "/discover-punta-mita/food-dining-experiences.jpg",
