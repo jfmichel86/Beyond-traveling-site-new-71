@@ -1812,15 +1812,140 @@ gallery: [
   ],
 },
 
-  {
-    title: "Nightlife & Parties",
-    slug: "nightlife-parties",
-    image: "/discover-punta-mita/nightlife-parties.jpg",
-    heroImage: "/discover-punta-mita/heroes/nightlife-parties-hero.jpg",
-    description:
-      "Cocktail bars, rooftop lounges, DJ nights, beach parties, and Puerto Vallarta nightlife.",
-    activities: [],
-  },
+ {
+  title: "Nightlife & Parties",
+  slug: "nightlife-parties",
+  image: "/discover-punta-mita/nightlife-parties.jpg",
+  heroImage: "/discover-punta-mita/heroes/nightlife-parties-hero.jpg",
+  description:
+    "Cocktail bars, beach parties, rooftop lounges, DJ nights, nightlife, and social experiences across Punta Mita, Sayulita, and Puerto Vallarta.",
+  activities: [
+
+    // PUNTA MITA / RIVIERA NAYARIT
+
+    {
+      title: "Beach Bonfire Dinners",
+      slug: "beach-bonfire-dinners",
+      image: "/discover-punta-mita/activities/beach-bonfire-dinners.jpg",
+      description:
+        "Private beachfront evenings with bonfires, dining, cocktails, and ocean atmosphere.",
+      overview:
+        "Beach bonfire dinners combine relaxed luxury, ocean scenery, and intimate atmosphere into one of the most memorable evening experiences around Punta Mita.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, families, celebrations, birthdays, and private group evenings." },
+        { label: "Typical Duration", value: "2 to 4 hours." },
+        { label: "Best Time of Day", value: "Sunset through evening." },
+        { label: "Seasonality", value: "Year-round, weather permitting." },
+        { label: "What to Wear / Bring", value: "Comfortable beachwear, sandals, and a light layer for the evening." },
+      ],
+      customInfo: [
+        { label: "Region", value: "Punta Mita / Riviera Nayarit" },
+        { label: "Atmosphere", value: "Relaxed, scenic, intimate, and beachfront." },
+        { label: "Experience Style", value: "Private dining and social beach evening." },
+      ],
+      whatToExpect:
+        "Expect beachfront seating, bonfire setup, ocean atmosphere, dining, and a relaxed social setting.",
+      whatToBring:
+        "Bring comfortable clothing, sandals, and anything personal for the evening.",
+      gallery: [
+        "/discover-punta-mita/activities/beach-bonfire-dinners.jpg",
+        "/discover-punta-mita/activities/beach-bonfire-dinners-2.jpg",
+        "/discover-punta-mita/activities/beach-bonfire-dinners-3.jpg",
+      ],
+    },
+
+    {
+      title: "Sunset DJ Sessions",
+      slug: "sunset-dj-sessions",
+      image: "/discover-punta-mita/activities/sunset-dj-sessions.jpg",
+      description:
+        "Oceanfront sunset sessions with music, cocktails, and relaxed Riviera Nayarit social atmosphere.",
+      overview:
+        "Sunset DJ sessions combine beach culture, music, cocktails, and sunset scenery into one of the most enjoyable social experiences around Punta Mita.",
+      standardInfo: [
+        { label: "Best For", value: "Groups, couples, social travelers, and guests seeking relaxed nightlife." },
+        { label: "Typical Duration", value: "Late afternoon through sunset." },
+        { label: "Best Time of Day", value: "Sunset." },
+        { label: "Seasonality", value: "Year-round depending on venues and events." },
+        { label: "What to Wear / Bring", value: "Beachwear, stylish casual clothing, sandals, and sunglasses." },
+      ],
+      customInfo: [
+        { label: "Region", value: "Punta Mita / Riviera Nayarit" },
+        { label: "Atmosphere", value: "Relaxed, scenic, social, and music-focused." },
+        { label: "Experience Style", value: "Beachfront sunset social atmosphere." },
+      ],
+      whatToExpect:
+        "Expect cocktails, music, sunset views, beach atmosphere, and relaxed social energy.",
+      whatToBring:
+        "Bring sunglasses, comfortable beachwear, and light evening clothing.",
+      gallery: [
+        "/discover-punta-mita/activities/sunset-dj-sessions.jpg",
+        "/discover-punta-mita/activities/sunset-dj-sessions-2.jpg",
+        "/discover-punta-mita/activities/sunset-dj-sessions-3.jpg",
+      ],
+    },
+
+    {
+      title: "Private Villa Parties",
+      slug: "private-villa-parties",
+      image: "/discover-punta-mita/activities/private-villa-parties.jpg",
+      description:
+        "Customized private gatherings with music, cocktails, chefs, DJs, and luxury villa atmosphere.",
+      overview:
+        "Private villa parties allow guests to create a personalized nightlife experience in a private and elevated setting.",
+      standardInfo: [
+        { label: "Best For", value: "Groups, birthdays, celebrations, bachelor and bachelorette trips, and private events." },
+        { label: "Typical Duration", value: "Evening or late-night experience." },
+        { label: "Best Time of Day", value: "Evening." },
+        { label: "Seasonality", value: "Available year-round depending on villa policies and setup." },
+        { label: "What to Wear / Bring", value: "Depends on the style of event and dress code." },
+      ],
+      customInfo: [
+        { label: "Region", value: "Punta Mita / Riviera Nayarit" },
+        { label: "Atmosphere", value: "Private, customizable, luxury-focused, and social." },
+        { label: "Customization", value: "Can include chefs, DJs, bartenders, lighting, entertainment, and styling." },
+      ],
+      whatToExpect:
+        "Expect a fully customized social experience depending on the group’s style, villa setup, and requested services.",
+      whatToBring:
+        "Guests usually only need clothing appropriate for the style of event planned.",
+      gallery: [
+        "/discover-punta-mita/activities/private-villa-parties.jpg",
+        "/discover-punta-mita/activities/private-villa-parties-2.jpg",
+        "/discover-punta-mita/activities/private-villa-parties-3.jpg",
+      ],
+    },
+
+    {
+      title: "Cocktail Nights",
+      slug: "cocktail-nights",
+      image: "/discover-punta-mita/activities/cocktail-nights.jpg",
+      description:
+        "Relaxed upscale evenings focused on cocktails, conversation, music, and ocean atmosphere.",
+      overview:
+        "Cocktail nights around Punta Mita offer a more relaxed and elegant nightlife experience compared to large clubs or nightlife districts.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, groups, adults, and travelers seeking relaxed nightlife." },
+        { label: "Typical Duration", value: "2 to 5 hours." },
+        { label: "Best Time of Day", value: "Evening through late night." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Resort casual or elevated evening attire." },
+      ],
+      customInfo: [
+        { label: "Region", value: "Punta Mita / Riviera Nayarit" },
+        { label: "Atmosphere", value: "Relaxed, social, elegant, and scenic." },
+        { label: "Experience Style", value: "Cocktail lounges, oceanfront bars, and upscale evening settings." },
+      ],
+      whatToExpect:
+        "Expect cocktails, conversation, music, ocean views, and a slower nightlife atmosphere.",
+      whatToBring:
+        "Bring comfortable evening attire and anything personal for a relaxed night out.",
+      gallery: [
+        "/discover-punta-mita/activities/cocktail-nights.jpg",
+        "/discover-punta-mita/activities/cocktail-nights-2.jpg",
+        "/discover-punta-mita/activities/cocktail-nights-3.jpg",
+      ],
+    },
 
   {
     title: "Food & Dining Experiences",
