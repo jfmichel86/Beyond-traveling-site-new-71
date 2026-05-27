@@ -1353,15 +1353,299 @@ export const discoverCategories = [
 },
 
   {
-    title: "Beach Clubs & Day Clubs",
-    slug: "beach-clubs-day-clubs",
-    image: "/discover-punta-mita/beach-clubs-day-clubs.jpg",
-    heroImage:
-      "/discover-punta-mita/heroes/beach-clubs-day-clubs-hero.jpg",
-    description:
-      "Beach clubs, ocean clubs, day clubs, and stylish places to spend the day by the water.",
-    activities: [],
-  },
+  title: "Beach Clubs & Day Clubs",
+  slug: "beach-clubs-day-clubs",
+  image: "/discover-punta-mita/beach-clubs-day-clubs.jpg",
+  heroImage:
+    "/discover-punta-mita/heroes/beach-clubs-day-clubs-hero.jpg",
+  description:
+    "Beach clubs, ocean clubs, day clubs, and stylish places to spend the day by the water across Punta Mita, Sayulita, San Pancho, and Puerto Vallarta.",
+  activities: [
+
+    // PUNTA MITA AREA
+
+    {
+      title: "Kupuri Beach Club",
+      slug: "kupuri-beach-club",
+      image: "/discover-punta-mita/activities/kupuri-beach-club.jpg",
+      description:
+        "A relaxed luxury beach club experience inside Punta Mita with calm water, family-friendly atmosphere, and oceanfront service.",
+      overview:
+        "Kupuri Beach Club is one of Punta Mita’s most recognized beach club experiences, offering a comfortable setting for beach days, ocean activities, and relaxed dining.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, groups, beach days, and relaxed luxury travelers." },
+        { label: "Typical Duration", value: "Half-day or full-day experience." },
+        { label: "Best Time of Day", value: "Late morning through sunset." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Swimwear, sandals, sunglasses, sunscreen, and resort beachwear." },
+      ],
+      customInfo: [
+        { label: "Area", value: "Punta Mita." },
+        { label: "Atmosphere", value: "Relaxed, upscale, family-friendly, and beachfront." },
+        { label: "Good to Know", value: "Access policies may vary depending on membership, reservations, or villa access." },
+      ],
+      whatToExpect:
+        "Expect a calm beach setting with lounge areas, food and beverage service, ocean access, and a comfortable resort-style atmosphere.",
+      whatToBring:
+        "Bring swimwear, sunscreen, sunglasses, and anything you may want for a long beach day.",
+      gallery: [
+        "/discover-punta-mita/activities/kupuri-beach-club.jpg",
+        "/discover-punta-mita/activities/kupuri-beach-club-2.jpg",
+        "/discover-punta-mita/activities/kupuri-beach-club-3.jpg",
+      ],
+    },
+
+    {
+      title: "Pacifico Beach Club",
+      slug: "pacifico-beach-club",
+      image: "/discover-punta-mita/activities/pacifico-beach-club.jpg",
+      description:
+        "An elegant oceanfront beach club experience with a polished resort atmosphere in Punta Mita.",
+      overview:
+        "Pacifico Beach Club offers a refined beachfront setting for relaxing, dining, and enjoying the Pacific coastline in a luxury resort environment.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, groups, luxury travelers, and guests seeking a relaxed upscale beach day." },
+        { label: "Typical Duration", value: "Half-day or full-day experience." },
+        { label: "Best Time of Day", value: "Morning through sunset." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "Resort beachwear, sandals, sunscreen, hat, and sunglasses." },
+      ],
+      customInfo: [
+        { label: "Area", value: "Punta Mita." },
+        { label: "Atmosphere", value: "Elegant, scenic, and upscale." },
+        { label: "Experience Style", value: "Luxury beachfront club with oceanfront dining and resort-style service." },
+],
+whatToExpect:
+  "Expect a polished beach club setting with comfortable lounging, ocean access, elevated food and beverage service, and a relaxed luxury atmosphere.",
+whatToBring:
+  "Bring swimwear, sunglasses, sunscreen, sandals, and comfortable beachwear for a full day by the ocean.",
+gallery: [
+  "/discover-punta-mita/activities/pacifico-beach-club.jpg",
+  "/discover-punta-mita/activities/pacifico-beach-club-2.jpg",
+  "/discover-punta-mita/activities/pacifico-beach-club-3.jpg",
+],
+},
+
+   {
+  title: "Sufi Ocean Club",
+  slug: "sufi-ocean-club",
+  image: "/discover-punta-mita/activities/sufi-ocean-club.jpg",
+  description:
+    "A refined oceanfront club experience known for relaxed luxury, dining, and Punta Mita coastline views.",
+  overview:
+    "Sufi Ocean Club blends beach club atmosphere, ocean scenery, and upscale dining into one of Punta Mita’s most polished day experiences.",
+  standardInfo: [
+    { label: "Best For", value: "Couples, groups, luxury travelers, and relaxed social beach days." },
+    { label: "Typical Duration", value: "Half-day or full-day experience." },
+    { label: "Best Time of Day", value: "Lunch through sunset." },
+    { label: "Seasonality", value: "Available year-round." },
+    { label: "What to Wear / Bring", value: "Elevated beachwear, sandals, sunglasses, and sun protection." },
+  ],
+  customInfo: [
+    { label: "Area", value: "Punta Mita." },
+    { label: "Atmosphere", value: "Upscale, scenic, and relaxed." },
+    { label: "Dining Style", value: "Oceanfront dining and beach club service." },
+  ],
+  whatToExpect:
+    "Expect a polished beachfront setting with comfortable seating, cocktails, dining, and a scenic atmosphere.",
+  whatToBring:
+    "Bring swimwear, sunscreen, sunglasses, and anything you may want for a comfortable beach day.",
+  gallery: [
+    "/discover-punta-mita/activities/sufi-ocean-club.jpg",
+    "/discover-punta-mita/activities/sufi-ocean-club-2.jpg",
+    "/discover-punta-mita/activities/sufi-ocean-club-3.jpg",
+  ],
+},
+
+{
+  title: "Sea Breeze Beach Club",
+  slug: "sea-breeze-beach-club",
+  image: "/discover-punta-mita/activities/sea-breeze-beach-club.jpg",
+  description:
+    "A relaxed beachfront club environment ideal for slow afternoons, ocean views, and casual luxury.",
+  overview:
+    "Sea Breeze Beach Club offers a comfortable and easygoing beach atmosphere focused on ocean access, lounging, and relaxed service.",
+  standardInfo: [
+    { label: "Best For", value: "Families, couples, groups, and guests seeking a quieter beach day." },
+    { label: "Typical Duration", value: "Half-day or full-day." },
+    { label: "Best Time of Day", value: "Late morning through afternoon." },
+    { label: "Seasonality", value: "Available year-round." },
+    { label: "What to Wear / Bring", value: "Beachwear, sandals, sunscreen, and sunglasses." },
+  ],
+  customInfo: [
+    { label: "Area", value: "Punta Mita." },
+    { label: "Atmosphere", value: "Relaxed, comfortable, and family-friendly." },
+    { label: "Experience Style", value: "Easygoing beachfront day club." },
+  ],
+  whatToExpect:
+    "Expect a calm beachfront environment with food and beverage service, shaded seating, and ocean views.",
+  whatToBring:
+    "Bring beach essentials, swimwear, sunscreen, and comfortable clothing.",
+  gallery: [
+    "/discover-punta-mita/activities/sea-breeze-beach-club.jpg",
+    "/discover-punta-mita/activities/sea-breeze-beach-club-2.jpg",
+    "/discover-punta-mita/activities/sea-breeze-beach-club-3.jpg",
+  ],
+},
+
+{
+  title: "El Surf Club",
+  slug: "el-surf-club",
+  image: "/discover-punta-mita/activities/el-surf-club.jpg",
+  description:
+    "A beachfront surf-focused club atmosphere with ocean views, relaxed energy, and a coastal Punta Mita feel.",
+  overview:
+    "El Surf Club combines beach culture, surf atmosphere, and relaxed social energy in a scenic Punta Mita setting.",
+  standardInfo: [
+    { label: "Best For", value: "Surf lovers, couples, groups, and guests seeking a casual but elevated beach atmosphere." },
+    { label: "Typical Duration", value: "Half-day or full-day experience." },
+    { label: "Best Time of Day", value: "Morning through sunset." },
+    { label: "Seasonality", value: "Available year-round." },
+    { label: "What to Wear / Bring", value: "Swimwear, sandals, sunglasses, and beachwear." },
+  ],
+  customInfo: [
+    { label: "Area", value: "Punta Mita." },
+    { label: "Atmosphere", value: "Surf-inspired, social, relaxed, and beachfront." },
+    { label: "Experience Style", value: "Beach club with surf culture influence." },
+  ],
+  whatToExpect:
+    "Expect beachfront seating, relaxed social atmosphere, ocean scenery, and a casual luxury environment.",
+  whatToBring:
+    "Bring swimwear, sunscreen, sunglasses, and comfortable beach clothing.",
+  gallery: [
+    "/discover-punta-mita/activities/el-surf-club.jpg",
+    "/discover-punta-mita/activities/el-surf-club-2.jpg",
+    "/discover-punta-mita/activities/el-surf-club-3.jpg",
+  ],
+},
+
+// SAYULITA & SAN PANCHO
+
+{
+  title: "Playa Carricitos",
+  slug: "playa-carricitos",
+  image: "/discover-punta-mita/activities/playa-carricitos.jpg",
+  description:
+    "A more hidden and natural beach experience near Sayulita known for sunsets and a relaxed atmosphere.",
+  overview:
+    "Playa Carricitos offers a quieter and more natural beach setting compared to the central Sayulita beach area, making it attractive for guests seeking scenery and a slower atmosphere.",
+  standardInfo: [
+    { label: "Best For", value: "Couples, sunset seekers, photographers, and guests wanting a quieter beach." },
+    { label: "Typical Duration", value: "2 to 5 hours." },
+    { label: "Best Time of Day", value: "Late afternoon and sunset." },
+    { label: "Seasonality", value: "Accessible year-round depending on weather and beach conditions." },
+    { label: "What to Wear / Bring", value: "Beachwear, sandals, sunscreen, water, and light snacks if desired." },
+  ],
+  customInfo: [
+    { label: "Area", value: "Sayulita." },
+    { label: "Atmosphere", value: "Natural, scenic, and less developed." },
+    { label: "Good to Know", value: "Access may require walking and ocean conditions can vary." },
+  ],
+  whatToExpect:
+    "Expect a more natural beach environment with fewer services and beautiful sunset scenery.",
+  whatToBring:
+    "Bring water, sunscreen, sandals, and beach essentials.",
+  gallery: [
+    "/discover-punta-mita/activities/playa-carricitos.jpg",
+    "/discover-punta-mita/activities/playa-carricitos-2.jpg",
+    "/discover-punta-mita/activities/playa-carricitos-3.jpg",
+  ],
+},
+
+{
+  title: "Tierra Tropical Beach Club",
+  slug: "tierra-tropical-beach-club",
+  image: "/discover-punta-mita/activities/tierra-tropical-beach-club.jpg",
+  description:
+    "A stylish Sayulita-area beach club with tropical atmosphere, dining, and relaxed social energy.",
+  overview:
+    "Tierra Tropical Beach Club blends tropical design, beach atmosphere, and relaxed social dining into a modern Riviera Nayarit beach experience.",
+  standardInfo: [
+    { label: "Best For", value: "Couples, groups, social travelers, and guests seeking a stylish beach atmosphere." },
+    { label: "Typical Duration", value: "Half-day or full-day." },
+    { label: "Best Time of Day", value: "Afternoon through sunset." },
+    { label: "Seasonality", value: "Available year-round." },
+    { label: "What to Wear / Bring", value: "Stylish beachwear, sandals, sunglasses, and sun protection." },
+  ],
+  customInfo: [
+    { label: "Area", value: "Sayulita / Riviera Nayarit." },
+    { label: "Atmosphere", value: "Tropical, social, and stylish." },
+    { label: "Dining Style", value: "Beach club dining and cocktails." },
+  ],
+  whatToExpect:
+    "Expect music, beach seating, tropical atmosphere, food and beverage service, and a social environment.",
+  whatToBring:
+    "Bring beach essentials and comfortable clothing for a full afternoon outdoors.",
+  gallery: [
+    "/discover-punta-mita/activities/tierra-tropical-beach-club.jpg",
+    "/discover-punta-mita/activities/tierra-tropical-beach-club-2.jpg",
+    "/discover-punta-mita/activities/tierra-tropical-beach-club-3.jpg",
+  ],
+},
+
+{
+  title: "La Isla Beach Club",
+  slug: "la-isla-beach-club",
+  image: "/discover-punta-mita/activities/la-isla-beach-club.jpg",
+  description:
+    "A relaxed Riviera Nayarit beach club experience with oceanfront atmosphere and tropical scenery.",
+  overview:
+    "La Isla Beach Club offers a scenic beachfront setting ideal for spending a relaxed day by the ocean with food, drinks, and beach access.",
+  standardInfo: [
+    { label: "Best For", value: "Couples, families, groups, and beach-focused travelers." },
+    { label: "Typical Duration", value: "Half-day or full-day." },
+    { label: "Best Time of Day", value: "Late morning through sunset." },
+    { label: "Seasonality", value: "Available year-round." },
+    { label: "What to Wear / Bring", value: "Beachwear, sunscreen, sandals, and sunglasses." },
+  ],
+  customInfo: [
+    { label: "Area", value: "Sayulita / Riviera Nayarit." },
+    { label: "Atmosphere", value: "Relaxed, tropical, and scenic." },
+    { label: "Experience Style", value: "Oceanfront beach day experience." },
+  ],
+  whatToExpect:
+    "Expect ocean views, beach seating, relaxed atmosphere, and beach club dining.",
+  whatToBring:
+    "Bring swimwear, sun protection, and beach essentials.",
+  gallery: [
+    "/discover-punta-mita/activities/la-isla-beach-club.jpg",
+    "/discover-punta-mita/activities/la-isla-beach-club-2.jpg",
+    "/discover-punta-mita/activities/la-isla-beach-club-3.jpg",
+  ],
+},
+
+// PUERTO VALLARTA AREA
+
+{
+  title: "Majahuitas Beach Club",
+  slug: "majahuitas-beach-club",
+  image: "/discover-punta-mita/activities/majahuitas-beach-club.jpg",
+  description:
+    "A jungle-meets-ocean beach club experience accessible by boat, known for music, scenery, and tropical atmosphere.",
+  overview:
+    "Majahuitas Beach Club is one of the most visually distinctive beach club experiences near Puerto Vallarta, combining jungle surroundings, ocean access, music, and event-style energy.",
+  standardInfo: [
+    { label: "Best For", value: "Groups, music lovers, social travelers, and guests seeking a more energetic beach club atmosphere." },
+    { label: "Typical Duration", value: "Half-day or full-day." },
+    { label: "Best Time of Day", value: "Afternoon through sunset." },
+    { label: "Seasonality", value: "Available seasonally depending on events and operations." },
+    { label: "What to Wear / Bring", value: "Stylish beachwear, sandals, sunscreen, sunglasses, and swimwear." },
+  ],
+  customInfo: [
+    { label: "Area", value: "Puerto Vallarta coastline." },
+    { label: "Atmosphere", value: "Tropical, music-focused, energetic, and scenic." },
+    { label: "Access", value: "Typically accessed by boat." },
+  ],
+  whatToExpect:
+    "Expect music, cocktails, ocean scenery, jungle atmosphere, and a more social beach club environment.",
+  whatToBring:
+    "Bring beachwear, sunscreen, sunglasses, and comfortable clothing for boat access.",
+  gallery: [
+    "/discover-punta-mita/activities/majahuitas-beach-club.jpg",
+    "/discover-punta-mita/activities/majahuitas-beach-club-2.jpg",
+    "/discover-punta-mita/activities/majahuitas-beach-club-3.jpg",
+  ],
+},      
 
   {
     title: "Nightlife & Parties",
