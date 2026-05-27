@@ -48,7 +48,7 @@ export default function ActivityPage({ params }: PageProps) {
 
   return (
     <main className="bg-white">
-      <section className="relative">
+      <section>
         <div className="relative aspect-[1983/793] w-full overflow-hidden">
           <Image
             src={activity.image}
@@ -97,14 +97,16 @@ export default function ActivityPage({ params }: PageProps) {
             ))}
           </div>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-5">
-            <InfoCard label="Price Range" value={activity.priceRange} />
-            <InfoCard label="Best Time" value={activity.bestTime} />
-            <InfoCard label="Duration" value={activity.duration} />
-            <InfoCard label="Location" value={activity.location} />
-            <InfoCard label="What to Wear" value={activity.whatToWear} />
-            <InfoCard label="Good For" value={activity.goodFor} />
-            <InfoCard label="Seasonality" value={activity.seasonality} />
+          <div className="mt-16">
+            <h2 className="font-serif text-3xl text-slate-900">
+              Experience Details
+            </h2>
+
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
+              {[...activity.standardInfo, ...activity.customInfo].map((item) => (
+                <InfoCard key={item.label} label={item.label} value={item.value} />
+              ))}
+            </div>
           </div>
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-[1fr_0.75fr] gap-12">
