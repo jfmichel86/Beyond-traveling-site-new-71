@@ -1380,6 +1380,7 @@ export const discoverCategories = [
         { label: "What to Wear / Bring", value: "Swimwear, sandals, sunglasses, sunscreen, and resort beachwear." },
       ],
       customInfo: [
+        { label: "Region", value: "Inside Punta Mita" },
         { label: "Area", value: "Punta Mita." },
         { label: "Atmosphere", value: "Relaxed, upscale, family-friendly, and beachfront." },
         { label: "Good to Know", value: "Access policies may vary depending on membership, reservations, or villa access." },
@@ -1411,6 +1412,7 @@ export const discoverCategories = [
         { label: "What to Wear / Bring", value: "Resort beachwear, sandals, sunscreen, hat, and sunglasses." },
       ],
       customInfo: [
+       { label: "Region", value: "Inside Punta Mita" },
         { label: "Area", value: "Punta Mita." },
         { label: "Atmosphere", value: "Elegant, scenic, and upscale." },
         { label: "Experience Style", value: "Luxury beachfront club with oceanfront dining and resort-style service." },
@@ -1442,6 +1444,7 @@ gallery: [
     { label: "What to Wear / Bring", value: "Elevated beachwear, sandals, sunglasses, and sun protection." },
   ],
   customInfo: [
+   { label: "Region", value: "Inside Punta Mita" },
     { label: "Area", value: "Punta Mita." },
     { label: "Atmosphere", value: "Upscale, scenic, and relaxed." },
     { label: "Dining Style", value: "Oceanfront dining and beach club service." },
@@ -1473,6 +1476,7 @@ gallery: [
     { label: "What to Wear / Bring", value: "Beachwear, sandals, sunscreen, and sunglasses." },
   ],
   customInfo: [
+   { label: "Region", value: "Inside Punta Mita" },
     { label: "Area", value: "Punta Mita." },
     { label: "Atmosphere", value: "Relaxed, comfortable, and family-friendly." },
     { label: "Experience Style", value: "Easygoing beachfront day club." },
@@ -1504,6 +1508,7 @@ gallery: [
     { label: "What to Wear / Bring", value: "Swimwear, sandals, sunglasses, and beachwear." },
   ],
   customInfo: [
+   { label: "Region", value: "Inside Punta Mita" },
     { label: "Area", value: "Punta Mita." },
     { label: "Atmosphere", value: "Surf-inspired, social, relaxed, and beachfront." },
     { label: "Experience Style", value: "Beach club with surf culture influence." },
@@ -1537,6 +1542,7 @@ gallery: [
     { label: "What to Wear / Bring", value: "Beachwear, sandals, sunscreen, water, and light snacks if desired." },
   ],
   customInfo: [
+   { label: "Region", value: "Sayulita & San Pancho" },
     { label: "Area", value: "Sayulita." },
     { label: "Atmosphere", value: "Natural, scenic, and less developed." },
     { label: "Good to Know", value: "Access may require walking and ocean conditions can vary." },
@@ -1568,6 +1574,7 @@ gallery: [
     { label: "What to Wear / Bring", value: "Stylish beachwear, sandals, sunglasses, and sun protection." },
   ],
   customInfo: [
+   { label: "Region", value: "Sayulita & San Pancho" },
     { label: "Area", value: "Sayulita / Riviera Nayarit." },
     { label: "Atmosphere", value: "Tropical, social, and stylish." },
     { label: "Dining Style", value: "Beach club dining and cocktails." },
@@ -1599,6 +1606,7 @@ gallery: [
     { label: "What to Wear / Bring", value: "Beachwear, sunscreen, sandals, and sunglasses." },
   ],
   customInfo: [
+   { label: "Region", value: "Sayulita & San Pancho" },
     { label: "Area", value: "Sayulita / Riviera Nayarit." },
     { label: "Atmosphere", value: "Relaxed, tropical, and scenic." },
     { label: "Experience Style", value: "Oceanfront beach day experience." },
@@ -1632,6 +1640,7 @@ gallery: [
     { label: "What to Wear / Bring", value: "Stylish beachwear, sandals, sunscreen, sunglasses, and swimwear." },
   ],
   customInfo: [
+   { label: "Region", value: "Puerto Vallarta Area" },
     { label: "Area", value: "Puerto Vallarta coastline." },
     { label: "Atmosphere", value: "Tropical, music-focused, energetic, and scenic." },
     { label: "Access", value: "Typically accessed by boat." },
@@ -1646,6 +1655,160 @@ gallery: [
     "/discover-punta-mita/activities/majahuitas-beach-club-3.jpg",
      ],
     },
+   {
+  title: "Anima Beach Club",
+  slug: "anima-beach-club",
+  image: "/discover-punta-mita/activities/anima-beach-club.jpg",
+  description:
+    "A stylish beach club experience accessible by boat with tropical scenery, music, and oceanfront dining.",
+  overview:
+    "Anima Beach Club combines jungle coastline scenery, music, cocktails, and relaxed luxury into one of the most attractive beach club experiences near Puerto Vallarta.",
+  standardInfo: [
+    { label: "Best For", value: "Groups, couples, social travelers, and guests seeking a lively beach atmosphere." },
+    { label: "Typical Duration", value: "Half-day or full-day." },
+    { label: "Best Time of Day", value: "Afternoon through sunset." },
+    { label: "Seasonality", value: "Available seasonally depending on operations and events." },
+    { label: "What to Wear / Bring", value: "Stylish beachwear, sandals, sunglasses, sunscreen, and swimwear." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Puerto Vallarta Area" },
+    { label: "Area", value: "Puerto Vallarta coastline." },
+    { label: "Atmosphere", value: "Social, tropical, scenic, and music-focused." },
+  ],
+  whatToExpect:
+    "Expect ocean scenery, beach club service, cocktails, music, and a more energetic social environment.",
+  whatToBring:
+    "Bring beach essentials, comfortable beachwear, sunscreen, and sunglasses.",
+  gallery: [
+    "/discover-punta-mita/activities/anima-beach-club.jpg",
+    "/discover-punta-mita/activities/anima-beach-club-2.jpg",
+    "/discover-punta-mita/activities/anima-beach-club-3.jpg",
+  ],
+},
+
+{
+  title: "Savia Beach Club",
+  slug: "savia-beach-club",
+  image: "/discover-punta-mita/activities/savia-beach-club.jpg",
+  description:
+    "A modern beachfront club experience with tropical atmosphere, ocean views, and relaxed luxury.",
+  overview:
+    "Savia Beach Club offers a polished beach setting with music, cocktails, ocean scenery, and a stylish social atmosphere.",
+  standardInfo: [
+    { label: "Best For", value: "Couples, groups, social travelers, and beach club guests." },
+    { label: "Typical Duration", value: "Half-day or full-day." },
+    { label: "Best Time of Day", value: "Afternoon through sunset." },
+    { label: "Seasonality", value: "Available year-round depending on operations." },
+    { label: "What to Wear / Bring", value: "Beachwear, sunglasses, sandals, sunscreen, and swimwear." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Puerto Vallarta Area" },
+    { label: "Area", value: "Puerto Vallarta coastline." },
+    { label: "Atmosphere", value: "Stylish, tropical, social, and oceanfront." },
+  ],
+  whatToExpect:
+    "Expect beach seating, cocktails, music, ocean views, and a modern beach club atmosphere.",
+  whatToBring:
+    "Bring swimwear, sunglasses, sunscreen, and beach essentials.",
+  gallery: [
+    "/discover-punta-mita/activities/savia-beach-club.jpg",
+    "/discover-punta-mita/activities/savia-beach-club-2.jpg",
+    "/discover-punta-mita/activities/savia-beach-club-3.jpg",
+  ],
+},
+
+{
+  title: "Chicabal Sunset Club",
+  slug: "chicabal-sunset-club",
+  image: "/discover-punta-mita/activities/chicabal-sunset-club.jpg",
+  description:
+    "A sunset-focused beach club atmosphere with music, cocktails, and oceanfront energy.",
+  overview:
+    "Chicabal Sunset Club is designed around sunset atmosphere, social energy, and beachfront evenings near Puerto Vallarta.",
+  standardInfo: [
+    { label: "Best For", value: "Groups, couples, nightlife-oriented travelers, and sunset-focused beach days." },
+    { label: "Typical Duration", value: "Afternoon through evening." },
+    { label: "Best Time of Day", value: "Sunset." },
+    { label: "Seasonality", value: "Available depending on events and operations." },
+    { label: "What to Wear / Bring", value: "Stylish beachwear, sandals, sunglasses, and evening beach attire." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Puerto Vallarta Area" },
+    { label: "Area", value: "Puerto Vallarta coastline." },
+    { label: "Atmosphere", value: "Sunset-focused, social, music-driven, and energetic." },
+  ],
+  whatToExpect:
+    "Expect music, sunset views, cocktails, beach atmosphere, and a more social late-afternoon environment.",
+  whatToBring:
+    "Bring stylish beachwear, sunglasses, and comfortable clothing for transitioning into evening.",
+  gallery: [
+    "/discover-punta-mita/activities/chicabal-sunset-club.jpg",
+    "/discover-punta-mita/activities/chicabal-sunset-club-2.jpg",
+    "/discover-punta-mita/activities/chicabal-sunset-club-3.jpg",
+  ],
+},
+
+{
+  title: "Mantamar Beach Club",
+  slug: "mantamar-beach-club",
+  image: "/discover-punta-mita/activities/mantamar-beach-club.jpg",
+  description:
+    "One of Puerto Vallarta’s most recognized beach club experiences with music, pool atmosphere, and beachfront social energy.",
+  overview:
+    "Mantamar Beach Club is known for its vibrant atmosphere, pool scene, beachfront location, and lively social environment in Puerto Vallarta.",
+  standardInfo: [
+    { label: "Best For", value: "Groups, social travelers, music lovers, and guests looking for a lively day club atmosphere." },
+    { label: "Typical Duration", value: "Half-day or full-day." },
+    { label: "Best Time of Day", value: "Afternoon through sunset." },
+    { label: "Seasonality", value: "Available year-round." },
+    { label: "What to Wear / Bring", value: "Beachwear, swimwear, sandals, sunglasses, and sunscreen." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Puerto Vallarta Area" },
+    { label: "Area", value: "Puerto Vallarta." },
+    { label: "Atmosphere", value: "Lively, social, music-focused, and energetic." },
+  ],
+  whatToExpect:
+    "Expect pool atmosphere, music, beach access, cocktails, and an energetic social environment.",
+  whatToBring:
+    "Bring beachwear, sunscreen, sunglasses, and anything needed for a full beach club day.",
+  gallery: [
+    "/discover-punta-mita/activities/mantamar-beach-club.jpg",
+    "/discover-punta-mita/activities/mantamar-beach-club-2.jpg",
+    "/discover-punta-mita/activities/mantamar-beach-club-3.jpg",
+  ],
+},
+
+{
+  title: "Sapphire Ocean Club",
+  slug: "sapphire-ocean-club",
+  image: "/discover-punta-mita/activities/sapphire-ocean-club.jpg",
+  description:
+    "A relaxed beachfront club atmosphere with ocean views, lounge seating, and a polished coastal feel.",
+  overview:
+    "Sapphire Ocean Club offers a more relaxed Puerto Vallarta beach club atmosphere with comfortable beachfront service and oceanfront scenery.",
+  standardInfo: [
+    { label: "Best For", value: "Couples, groups, beach lovers, and guests seeking a relaxed social beach club." },
+    { label: "Typical Duration", value: "Half-day or full-day." },
+    { label: "Best Time of Day", value: "Late morning through sunset." },
+    { label: "Seasonality", value: "Available year-round." },
+    { label: "What to Wear / Bring", value: "Beachwear, sandals, sunscreen, sunglasses, and swimwear." },
+  ],
+  customInfo: [
+    { label: "Region", value: "Puerto Vallarta Area" },
+    { label: "Area", value: "Puerto Vallarta." },
+    { label: "Atmosphere", value: "Relaxed, social, scenic, and beachfront." },
+  ],
+  whatToExpect:
+    "Expect beachfront lounging, food and beverage service, ocean scenery, and a calm beach club environment.",
+  whatToBring:
+    "Bring beachwear, swimwear, sunscreen, and comfortable beach essentials.",
+  gallery: [
+    "/discover-punta-mita/activities/sapphire-ocean-club.jpg",
+    "/discover-punta-mita/activities/sapphire-ocean-club-2.jpg",
+    "/discover-punta-mita/activities/sapphire-ocean-club-3.jpg",
+  ],
+},
   ],
 },
 
