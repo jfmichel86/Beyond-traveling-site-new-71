@@ -27,9 +27,29 @@ export function generateMetadata({ params }: PageProps) {
   const activity = getActivityBySlug(params.slug, params.activity);
 
   if (!activity) {
-    return {
-      title: "Discover Punta Mita",
-    };
+   return {
+  title: `${activity.title} in Punta Mita | Beyond Traveling`,
+  description: activity.description,
+  alternates: {
+    canonical: `/discover-punta-mita/${params.slug}/${params.activity}`,
+  },
+  openGraph: {
+    title: `${activity.title} in Punta Mita | Beyond Traveling`,
+    description: activity.description,
+    url: `/discover-punta-mita/${params.slug}/${params.activity}`,
+    siteName: "Beyond Traveling",
+    images: [
+      {
+        url: activity.image,
+        width: 1200,
+        height: 630,
+        alt: activity.title,
+      },
+    ],
+    locale: "en_US",
+    type: "article",
+  },
+};
   }
 
   return {
