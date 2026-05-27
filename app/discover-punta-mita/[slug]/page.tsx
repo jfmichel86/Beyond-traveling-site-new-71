@@ -64,24 +64,33 @@ export default function DiscoverCategoryPage({ params }: PageProps) {
 </Link>
 
 <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-  <Link
-    href={`/discover-punta-mita/${category.slug}/activity-name`}
-    className="block h-full group"
-  >
-    <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition duration-300 group-hover:shadow-lg group-hover:-translate-y-[2px]">
-      <div className="aspect-[16/9] bg-slate-100" />
+  {category.activities.map((activity) => (
+    <Link
+      key={activity.slug}
+      href={`/discover-punta-mita/${category.slug}/${activity.slug}`}
+      className="block h-full group"
+    >
+      <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition duration-300 group-hover:shadow-lg group-hover:-translate-y-[2px]">
+        <Image
+          src={activity.image}
+          alt={activity.title}
+          width={1600}
+          height={900}
+          className="aspect-[16/9] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+        />
 
-      <div className="flex flex-1 flex-col p-6 bg-white">
-        <h2 className="font-serif text-2xl leading-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-700">
-          Activity Name
-        </h2>
+        <div className="flex flex-1 flex-col p-6 bg-white">
+          <h2 className="font-serif text-2xl leading-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-700">
+            {activity.title}
+          </h2>
 
-        <p className="mt-3 text-[15px] leading-[1.6] text-slate-600">
-          Short description of the activity will go here.
-        </p>
+          <p className="mt-3 text-[15px] leading-[1.6] text-slate-600">
+            {activity.description}
+          </p>
+        </div>
       </div>
-    </div>
-  </Link>
+    </Link>
+  ))}
 </div>
        
         
