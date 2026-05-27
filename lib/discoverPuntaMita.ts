@@ -1,40 +1,614 @@
 export const discoverCategories = [
-  {
-    title: "Ocean & Water Activities",
-    slug: "ocean-water-activities",
-    image: "/discover-punta-mita/ocean-water-activities.jpg",
-    heroImage: "/discover-punta-mita/heroes/ocean-water-activities-hero.jpg",
-    description:
-      "Boat days, surfing, snorkeling, whale watching, fishing, and ocean adventures around Punta Mita.",
-    activities: [
-      {
-        title: "Private Yacht Charters",
-        slug: "private-yacht-charters",
-        image: "/discover-punta-mita/activities/private-yacht-charters.jpg",
-        description:
-          "A private ocean experience with space to relax, swim, explore the coast, and enjoy Punta Mita from the water.",
-        priceRange: "$$$$",
-        bestTime: "Morning or sunset",
-        duration: "3 to 6 hours",
-        location: "Punta de Mita, La Cruz Marina, or nearby marinas",
-        whatToWear:
-          "Swimwear, hat, sunglasses, sandals, and light cover-up",
-        goodFor: "Families, couples, groups, celebrations",
-        seasonality: "Year-round",
-        overview:
-          "Private yacht charters are one of the most memorable ways to experience Punta Mita. Guests can enjoy the coastline, hidden beaches, snorkeling areas, seasonal wildlife, and a relaxed day on the water.",
-        whatToExpect:
-          "Most yacht experiences include cruising, swimming stops, optional snorkeling, drinks, snacks, and time to relax on board.",
-        whatToBring:
-          "Bring sunscreen, swimwear, sunglasses, a hat, a towel, and a light layer for the return ride.",
-        gallery: [
-          "/discover-punta-mita/activities/private-yacht-charters.jpg",
-          "/discover-punta-mita/activities/private-yacht-charters-2.jpg",
-          "/discover-punta-mita/activities/private-yacht-charters-3.jpg",
-        ],
-      },
-    ],
-  },
+ {
+  title: "Ocean & Water Activities",
+  slug: "ocean-water-activities",
+  image: "/discover-punta-mita/ocean-water-activities.jpg",
+  heroImage: "/discover-punta-mita/heroes/ocean-water-activities-hero.jpg",
+  description:
+    "Boat days, surfing, snorkeling, whale watching, fishing, and ocean adventures around Punta Mita.",
+  activities: [
+    {
+      title: "Private Yacht Charters",
+      slug: "private-yacht-charters",
+      image: "/discover-punta-mita/activities/private-yacht-charters.jpg",
+      description:
+        "A private ocean experience with space to relax, swim, explore the coast, and enjoy Punta Mita from the water.",
+      overview:
+        "Private yacht charters are one of the most memorable ways to experience Punta Mita. Guests can enjoy the coastline, hidden beaches, snorkeling areas, seasonal wildlife, and a relaxed day on the water.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, groups, celebrations, and guests looking for a private luxury experience." },
+        { label: "Typical Duration", value: "3 to 8 hours depending on the yacht, route, and style of experience." },
+        { label: "Best Time of Day", value: "Morning departures for calmer water, or sunset for a more scenic cruise." },
+        { label: "Seasonality", value: "Available year-round. Whale watching may be possible during the winter season." },
+        { label: "What to Wear / Bring", value: "Swimwear, sunglasses, hat, sandals, reef-safe sunscreen, and a light cover-up." },
+      ],
+      customInfo: [
+        { label: "Departure Areas", value: "Usually Punta de Mita, La Cruz Marina, Nuevo Vallarta, or Puerto Vallarta depending on the yacht." },
+        { label: "Experience Style", value: "Fully private and customizable." },
+        { label: "Pricing", value: "Varies significantly depending on yacht size, season, duration, crew, route, and onboard services." },
+      ],
+      whatToExpect:
+        "Expect a private day on the water with cruising, swimming stops, optional snorkeling, drinks, snacks, and time to relax onboard. The experience can be casual and family-friendly or more elevated depending on the yacht and service level.",
+      whatToBring:
+        "Bring swimwear, sunglasses, a hat, sunscreen, comfortable sandals, and a light layer for the return ride.",
+      gallery: [
+        "/discover-punta-mita/activities/private-yacht-charters.jpg",
+        "/discover-punta-mita/activities/private-yacht-charters-2.jpg",
+        "/discover-punta-mita/activities/private-yacht-charters-3.jpg",
+      ],
+    },
+    {
+      title: "Catamaran Sunset Cruises",
+      slug: "catamaran-sunset-cruises",
+      image: "/discover-punta-mita/activities/catamaran-sunset-cruises.jpg",
+      description:
+        "A relaxed and scenic way to enjoy the coastline, ocean breeze, and sunset views from the water.",
+      overview:
+        "Catamaran sunset cruises are ideal for guests who want a beautiful ocean experience without committing to a full-day charter. They are relaxed, social, and visually memorable.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, families, groups, celebrations, and guests who want a relaxed sunset experience." },
+        { label: "Typical Duration", value: "2 to 4 hours." },
+        { label: "Best Time of Day", value: "Late afternoon through sunset." },
+        { label: "Seasonality", value: "Year-round, with especially beautiful conditions during dry season." },
+        { label: "What to Wear / Bring", value: "Light resort wear, sandals, sunglasses, and a light layer for after sunset." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Relaxed, scenic, and social." },
+        { label: "Departure Areas", value: "Often La Cruz Marina, Nuevo Vallarta, Puerto Vallarta, or Punta de Mita depending on the operator." },
+        { label: "Pricing", value: "Depends on whether the cruise is private or shared, the catamaran size, inclusions, and season." },
+      ],
+      whatToExpect:
+        "Expect an easygoing cruise with ocean views, music, drinks, and sunset scenery. Some cruises include snacks, light dinner options, or swimming stops depending on the route and operator.",
+      whatToBring:
+        "Bring sunglasses, a phone or camera, a light sweater, and comfortable shoes or sandals.",
+      gallery: [
+        "/discover-punta-mita/activities/catamaran-sunset-cruises.jpg",
+        "/discover-punta-mita/activities/catamaran-sunset-cruises-2.jpg",
+        "/discover-punta-mita/activities/catamaran-sunset-cruises-3.jpg",
+      ],
+    },
+    {
+      title: "Sailing Trips",
+      slug: "sailing-trips",
+      image: "/discover-punta-mita/activities/sailing-trips.jpg",
+      description:
+        "A quieter ocean experience focused on wind, scenery, coastline views, and relaxed time at sea.",
+      overview:
+        "Sailing trips are a more classic and peaceful way to experience the Pacific coast near Punta Mita. They are ideal for guests who prefer a slower, elegant ocean experience.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, small groups, families, and guests looking for a calm ocean day." },
+        { label: "Typical Duration", value: "3 to 6 hours." },
+        { label: "Best Time of Day", value: "Morning or late afternoon." },
+        { label: "Seasonality", value: "Year-round, depending on wind and sea conditions." },
+        { label: "What to Wear / Bring", value: "Comfortable resort wear, sunglasses, hat, sandals, and sunscreen." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Quiet, scenic, and relaxed." },
+        { label: "Departure Areas", value: "Usually nearby marinas such as La Cruz, Nuevo Vallarta, or Puerto Vallarta." },
+        { label: "Pricing", value: "Varies by boat size, private versus shared format, duration, and inclusions." },
+      ],
+      whatToExpect:
+        "Expect a slower-paced ocean experience with coastal views, time to relax onboard, and possibly swimming or snorkeling depending on the route.",
+      whatToBring:
+        "Bring sunscreen, sunglasses, a hat, comfortable clothing, and a light layer.",
+      gallery: [
+        "/discover-punta-mita/activities/sailing-trips.jpg",
+        "/discover-punta-mita/activities/sailing-trips-2.jpg",
+        "/discover-punta-mita/activities/sailing-trips-3.jpg",
+      ],
+    },
+    {
+      title: "Luxury Boat Days",
+      slug: "luxury-boat-days",
+      image: "/discover-punta-mita/activities/luxury-boat-days.jpg",
+      description:
+        "A premium day at sea with swimming, lounging, coastal views, and customized onboard service.",
+      overview:
+        "Luxury boat days combine the privacy of a boat experience with a relaxed, elevated itinerary. They are ideal for guests who want a beautiful day outside without a highly structured tour.",
+      standardInfo: [
+        { label: "Best For", value: "Families, friends, couples, celebrations, and luxury travelers." },
+        { label: "Typical Duration", value: "4 to 8 hours." },
+        { label: "Best Time of Day", value: "Morning for a full day, or afternoon for a sunset-focused experience." },
+        { label: "Seasonality", value: "Year-round." },
+        { label: "What to Wear / Bring", value: "Swimwear, cover-up, sunglasses, hat, sandals, and sunscreen." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Private, relaxed, and customizable." },
+        { label: "Customization", value: "Routes, food, drinks, music, beach stops, and pace can often be adjusted." },
+        { label: "Pricing", value: "Depends on vessel type, duration, route, onboard service, and season." },
+      ],
+      whatToExpect:
+        "Expect a comfortable day on the water with swimming, lounging, coastal scenery, possible snorkeling, and flexible timing depending on your preferences.",
+      whatToBring:
+        "Bring swimwear, sunscreen, sunglasses, and anything personal you want for a full day outside.",
+      gallery: [
+        "/discover-punta-mita/activities/luxury-boat-days.jpg",
+        "/discover-punta-mita/activities/luxury-boat-days-2.jpg",
+        "/discover-punta-mita/activities/luxury-boat-days-3.jpg",
+      ],
+    },
+    {
+      title: "Surfing",
+      slug: "surfing",
+      image: "/discover-punta-mita/activities/surfing.jpg",
+      description:
+        "Surf breaks around Punta Mita offer a classic ocean experience for intermediate and experienced surfers.",
+      overview:
+        "Surfing is one of the signature ocean activities in the Punta Mita area. Conditions vary by season, tide, and swell, making local guidance helpful for choosing the right break.",
+      standardInfo: [
+        { label: "Best For", value: "Intermediate and experienced surfers, active travelers, and ocean-focused guests." },
+        { label: "Typical Duration", value: "1.5 to 3 hours." },
+        { label: "Best Time of Day", value: "Usually morning, depending on tide, wind, and swell." },
+        { label: "Seasonality", value: "Year-round, with conditions changing by swell season." },
+        { label: "What to Wear / Bring", value: "Swimwear, rash guard, sunscreen, towel, and water." },
+      ],
+      customInfo: [
+        { label: "Skill Level", value: "Best for guests who already have some surf experience." },
+        { label: "Location", value: "Surf spots around Punta de Mita and nearby beaches." },
+        { label: "Conditions", value: "Conditions depend on tide, swell direction, wind, and local beach access." },
+      ],
+      whatToExpect:
+        "Expect a more active ocean experience. Local knowledge is important because the best spot can change depending on conditions.",
+      whatToBring:
+        "Bring a rash guard, sunscreen, towel, water, and any personal surf equipment if you prefer using your own board.",
+      gallery: [
+        "/discover-punta-mita/activities/surfing.jpg",
+        "/discover-punta-mita/activities/surfing-2.jpg",
+        "/discover-punta-mita/activities/surfing-3.jpg",
+      ],
+    },
+    {
+      title: "Surf Lessons",
+      slug: "surf-lessons",
+      image: "/discover-punta-mita/activities/surf-lessons.jpg",
+      description:
+        "Beginner-friendly surf instruction for guests who want to learn in a safe and guided way.",
+      overview:
+        "Surf lessons are a great introduction to the ocean lifestyle around Punta Mita. They are usually adapted to the guest’s age, comfort level, and experience.",
+      standardInfo: [
+        { label: "Best For", value: "Beginners, families, kids, teens, and first-time surfers." },
+        { label: "Typical Duration", value: "1.5 to 2 hours." },
+        { label: "Best Time of Day", value: "Morning is usually best for calmer wind and more comfortable conditions." },
+        { label: "Seasonality", value: "Year-round, depending on surf conditions." },
+        { label: "What to Wear / Bring", value: "Swimwear, rash guard, sunscreen, towel, and water." },
+      ],
+      customInfo: [
+        { label: "Skill Level", value: "Beginner to beginner-intermediate." },
+        { label: "Location", value: "Beginner-friendly beaches around Punta de Mita and nearby surf areas." },
+        { label: "Includes", value: "Usually board, instructor, and basic safety guidance." },
+      ],
+      whatToExpect:
+        "Expect basic beach instruction, safety guidance, paddling practice, and time in the water with an instructor.",
+      whatToBring:
+        "Bring a towel, sunscreen, water, and comfortable swimwear. A rash guard is strongly recommended.",
+      gallery: [
+        "/discover-punta-mita/activities/surf-lessons.jpg",
+        "/discover-punta-mita/activities/surf-lessons-2.jpg",
+        "/discover-punta-mita/activities/surf-lessons-3.jpg",
+      ],
+    },
+    {
+      title: "E-Foil Surfing",
+      slug: "e-foil-surfing",
+      image: "/discover-punta-mita/activities/e-foil-surfing.jpg",
+      description:
+        "A modern ocean activity where guests ride above the water on an electric hydrofoil board.",
+      overview:
+        "E-foil surfing is a unique water experience that combines balance, technology, and ocean scenery. It is best for active guests who want to try something different.",
+      standardInfo: [
+        { label: "Best For", value: "Active travelers, adventurous guests, teens, adults, and ocean lovers." },
+        { label: "Typical Duration", value: "1 to 2 hours." },
+        { label: "Best Time of Day", value: "Morning, when water is usually calmer." },
+        { label: "Seasonality", value: "Year-round, depending on sea and wind conditions." },
+        { label: "What to Wear / Bring", value: "Swimwear, rash guard, sunscreen, towel, and water." },
+      ],
+      customInfo: [
+        { label: "Skill Level", value: "Beginner-friendly with instruction, but balance and confidence in the water help." },
+        { label: "Experience Style", value: "Technical, active, and memorable." },
+        { label: "Conditions", value: "Best in calm water with low wind." },
+      ],
+      whatToExpect:
+        "Expect instruction, safety guidance, and gradual practice controlling the board. Most sessions focus on balance, confidence, and enjoying the sensation of gliding above the water.",
+      whatToBring:
+        "Bring swimwear, sunscreen, a towel, and water. A rash guard can help protect from sun exposure.",
+      gallery: [
+        "/discover-punta-mita/activities/e-foil-surfing.jpg",
+        "/discover-punta-mita/activities/e-foil-surfing-2.jpg",
+        "/discover-punta-mita/activities/e-foil-surfing-3.jpg",
+      ],
+    },
+    {
+      title: "Paddle Boarding",
+      slug: "paddle-boarding",
+      image: "/discover-punta-mita/activities/paddle-boarding.jpg",
+      description:
+        "A calm and scenic way to enjoy the ocean, especially during quiet morning conditions.",
+      overview:
+        "Paddle boarding is a relaxed ocean activity that works well for guests who want movement without intensity. It is especially enjoyable in calm bays and protected water.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, beginners, wellness-focused travelers, and calm-water explorers." },
+        { label: "Typical Duration", value: "1 to 2 hours." },
+        { label: "Best Time of Day", value: "Early morning for calmer ocean conditions." },
+        { label: "Seasonality", value: "Year-round when ocean conditions are calm." },
+        { label: "What to Wear / Bring", value: "Swimwear, hat, sunglasses with strap, sunscreen, and water." },
+      ],
+      customInfo: [
+        { label: "Skill Level", value: "Beginner-friendly." },
+        { label: "Experience Style", value: "Calm, scenic, and low-impact." },
+        { label: "Location", value: "Protected beaches, calm bays, or beach clubs depending on conditions." },
+      ],
+      whatToExpect:
+        "Expect a slow-paced ocean activity with beautiful views, light exercise, and time on the water.",
+      whatToBring:
+        "Bring sunscreen, water, a hat, and sunglasses with a strap if possible.",
+      gallery: [
+        "/discover-punta-mita/activities/paddle-boarding.jpg",
+        "/discover-punta-mita/activities/paddle-boarding-2.jpg",
+        "/discover-punta-mita/activities/paddle-boarding-3.jpg",
+      ],
+    },
+    {
+      title: "Snorkeling",
+      slug: "snorkeling",
+      image: "/discover-punta-mita/activities/snorkeling.jpg",
+      description:
+        "Explore clear-water areas, marine life, and rocky coastal spots near Punta Mita.",
+      overview:
+        "Snorkeling is one of the easiest ways to experience the marine environment around Punta Mita. It can be done as part of a boat day or as a focused water activity.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, kids, beginners, and guests who want a light ocean activity." },
+        { label: "Typical Duration", value: "1 to 3 hours, or included as part of a longer boat trip." },
+        { label: "Best Time of Day", value: "Morning, when visibility and water conditions are often better." },
+        { label: "Seasonality", value: "Year-round, with visibility depending on weather and sea conditions." },
+        { label: "What to Wear / Bring", value: "Swimwear, towel, sunscreen, and water." },
+      ],
+      customInfo: [
+        { label: "Skill Level", value: "Beginner-friendly." },
+        { label: "Location", value: "Coastal reefs, rocky points, boat-access spots, or nearby islands depending on conditions." },
+        { label: "Experience Style", value: "Easy, visual, and family-friendly." },
+      ],
+      whatToExpect:
+        "Expect a relaxed water experience with time to observe fish, coastal rock formations, and marine scenery. Conditions vary by visibility, tide, and swell.",
+      whatToBring:
+        "Bring swimwear, a towel, sunscreen, water, and a rash guard for sun protection.",
+      gallery: [
+        "/discover-punta-mita/activities/snorkeling.jpg",
+        "/discover-punta-mita/activities/snorkeling-2.jpg",
+        "/discover-punta-mita/activities/snorkeling-3.jpg",
+      ],
+    },
+    {
+      title: "Scuba Diving",
+      slug: "scuba-diving",
+      image: "/discover-punta-mita/activities/scuba-diving.jpg",
+      description:
+        "A deeper underwater experience for certified divers or beginners joining introductory programs.",
+      overview:
+        "Scuba diving near Punta Mita and the greater bay area offers a chance to explore underwater landscapes, marine life, and seasonal ocean conditions.",
+      standardInfo: [
+        { label: "Best For", value: "Certified divers, adventurous travelers, and beginners interested in introductory dives." },
+        { label: "Typical Duration", value: "Half-day experiences are common." },
+        { label: "Best Time of Day", value: "Morning." },
+        { label: "Seasonality", value: "Year-round, with visibility and marine life varying by season." },
+        { label: "What to Wear / Bring", value: "Swimwear, towel, sunscreen, certification card if applicable, and water." },
+      ],
+      customInfo: [
+        { label: "Skill Level", value: "Certified divers or beginners with instructor-led introductory options." },
+        { label: "Location", value: "Dive sites around the bay, islands, and coastal formations depending on operator and conditions." },
+        { label: "Requirements", value: "Certification may be required for certain dives." },
+      ],
+      whatToExpect:
+        "Expect safety briefing, equipment preparation, boat transfer, and guided underwater time. Dive locations depend on certification level, conditions, and operator availability.",
+      whatToBring:
+        "Bring swimwear, towel, sunscreen, water, and your diving certification details if you are already certified.",
+      gallery: [
+        "/discover-punta-mita/activities/scuba-diving.jpg",
+        "/discover-punta-mita/activities/scuba-diving-2.jpg",
+        "/discover-punta-mita/activities/scuba-diving-3.jpg",
+      ],
+    },
+    {
+      title: "Spearfishing",
+      slug: "spearfishing",
+      image: "/discover-punta-mita/activities/spearfishing.jpg",
+      description:
+        "A specialized ocean activity for experienced guests seeking a more technical and active marine experience.",
+      overview:
+        "Spearfishing is a more advanced ocean activity that requires comfort in the water, local guidance, and attention to conditions, safety, and regulations.",
+      standardInfo: [
+        { label: "Best For", value: "Experienced ocean users, strong swimmers, and guests comfortable with technical water activities." },
+        { label: "Typical Duration", value: "3 to 5 hours." },
+        { label: "Best Time of Day", value: "Morning, depending on conditions." },
+        { label: "Seasonality", value: "Seasonal and condition-dependent." },
+        { label: "What to Wear / Bring", value: "Swimwear, rash guard or wetsuit if needed, towel, sunscreen, and water." },
+      ],
+      customInfo: [
+        { label: "Skill Level", value: "Intermediate to advanced." },
+        { label: "Experience Style", value: "Technical, active, and ocean-condition dependent." },
+        { label: "Important Note", value: "Should only be done with qualified local guidance and according to applicable rules." },
+      ],
+      whatToExpect:
+        "Expect a physically active experience that depends heavily on visibility, current, swell, and local knowledge. Safety and responsible practices are essential.",
+      whatToBring:
+        "Bring swimwear, towel, sunscreen, water, and any personal equipment if you have specific preferences.",
+      gallery: [
+        "/discover-punta-mita/activities/spearfishing.jpg",
+        "/discover-punta-mita/activities/spearfishing-2.jpg",
+        "/discover-punta-mita/activities/spearfishing-3.jpg",
+      ],
+    },
+    {
+      title: "Deep Sea Fishing",
+      slug: "deep-sea-fishing",
+      image: "/discover-punta-mita/activities/deep-sea-fishing.jpg",
+      description:
+        "A classic Pacific coast experience for guests who want a full or half day on the water focused on sport fishing.",
+      overview:
+        "Deep sea fishing is popular in the Punta Mita and Banderas Bay area, with options that vary by season, boat size, fishing style, and target species.",
+      standardInfo: [
+        { label: "Best For", value: "Fishing enthusiasts, families, groups, and guests looking for an active day offshore." },
+        { label: "Typical Duration", value: "4 to 8 hours." },
+        { label: "Best Time of Day", value: "Early morning departures are common." },
+        { label: "Seasonality", value: "Year-round, with target species varying by season." },
+        { label: "What to Wear / Bring", value: "Light clothing, hat, sunglasses, sunscreen, non-slip shoes, and motion sickness medication if needed." },
+      ],
+      customInfo: [
+        { label: "Departure Areas", value: "Punta de Mita, La Cruz Marina, Nuevo Vallarta, or Puerto Vallarta depending on the boat." },
+        { label: "Experience Style", value: "Sport-focused and weather-dependent." },
+        { label: "Pricing", value: "Varies by boat size, duration, equipment, crew, and season." },
+      ],
+      whatToExpect:
+        "Expect an early start, time offshore, professional equipment, and a route determined by target species and current fishing conditions.",
+      whatToBring:
+        "Bring sun protection, comfortable clothing, water, and motion sickness medication if you are sensitive to boat movement.",
+      gallery: [
+        "/discover-punta-mita/activities/deep-sea-fishing.jpg",
+        "/discover-punta-mita/activities/deep-sea-fishing-2.jpg",
+        "/discover-punta-mita/activities/deep-sea-fishing-3.jpg",
+      ],
+    },
+    {
+      title: "Whale Watching",
+      slug: "whale-watching",
+      image: "/discover-punta-mita/activities/whale-watching.jpg",
+      description:
+        "A seasonal ocean experience to observe humpback whales in the Pacific waters around the region.",
+      overview:
+        "Whale watching is one of the most special seasonal experiences near Punta Mita, especially for families, couples, and nature-focused travelers.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, nature lovers, photographers, and seasonal travelers." },
+        { label: "Typical Duration", value: "2 to 4 hours." },
+        { label: "Best Time of Day", value: "Morning is often preferred for calmer conditions." },
+        { label: "Seasonality", value: "Seasonal, usually during the winter whale watching period." },
+        { label: "What to Wear / Bring", value: "Light clothing, hat, sunglasses, sunscreen, camera, and a light layer." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Scenic, seasonal, and nature-focused." },
+        { label: "Departure Areas", value: "Punta de Mita, La Cruz, Nuevo Vallarta, or Puerto Vallarta depending on operator." },
+        { label: "Important Note", value: "Sightings depend on season, wildlife behavior, and ocean conditions." },
+      ],
+      whatToExpect:
+        "Expect a guided boat outing focused on observing whales respectfully from the water. Exact sightings and activity vary naturally.",
+      whatToBring:
+        "Bring camera, sunglasses, sunscreen, a hat, and a light layer for wind on the boat.",
+      gallery: [
+        "/discover-punta-mita/activities/whale-watching.jpg",
+        "/discover-punta-mita/activities/whale-watching-2.jpg",
+        "/discover-punta-mita/activities/whale-watching-3.jpg",
+      ],
+    },
+    {
+      title: "Marietas Islands Tours",
+      slug: "marietas-islands-tours",
+      image: "/discover-punta-mita/activities/marietas-islands-tours.jpg",
+      description:
+        "Visit one of the area’s most iconic natural destinations by boat, with opportunities for sightseeing and water activities.",
+      overview:
+        "The Marietas Islands are one of the most recognized natural attractions near Punta Mita. Tours typically focus on scenery, marine life, snorkeling, and protected island views.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, nature lovers, photographers, and first-time visitors." },
+        { label: "Typical Duration", value: "3 to 5 hours depending on tour style." },
+        { label: "Best Time of Day", value: "Morning." },
+        { label: "Seasonality", value: "Year-round, depending on sea conditions and availability." },
+        { label: "What to Wear / Bring", value: "Swimwear, towel, sunscreen, hat, sunglasses, and water." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Nature-focused boat tour." },
+        { label: "Departure Areas", value: "Often Punta de Mita or nearby marinas." },
+        { label: "Important Note", value: "Some areas may have limited access or require permits depending on the tour." },
+      ],
+      whatToExpect:
+        "Expect a boat ride to the islands, scenic views, possible snorkeling, marine life sightings, and guidance from the operator.",
+      whatToBring:
+        "Bring swimwear, towel, sunscreen, sunglasses, hat, and a waterproof bag if needed.",
+      gallery: [
+        "/discover-punta-mita/activities/marietas-islands-tours.jpg",
+        "/discover-punta-mita/activities/marietas-islands-tours-2.jpg",
+        "/discover-punta-mita/activities/marietas-islands-tours-3.jpg",
+      ],
+    },
+    {
+      title: "Hidden Beach Tours",
+      slug: "hidden-beach-tours",
+      image: "/discover-punta-mita/activities/hidden-beach-tours.jpg",
+      description:
+        "A limited-access experience connected to the Marietas Islands, known for its dramatic beach setting.",
+      overview:
+        "Hidden Beach is one of the most famous experiences near Punta Mita. Access can be limited and depends on permits, ocean conditions, and operator availability.",
+      standardInfo: [
+        { label: "Best For", value: "Adventurous travelers, couples, nature lovers, and guests interested in iconic local scenery." },
+        { label: "Typical Duration", value: "3 to 5 hours depending on tour format." },
+        { label: "Best Time of Day", value: "Morning." },
+        { label: "Seasonality", value: "Year-round, subject to access, weather, and ocean conditions." },
+        { label: "What to Wear / Bring", value: "Swimwear, towel, sunscreen, secure sandals, and waterproof protection for valuables." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Adventure-focused nature tour." },
+        { label: "Access", value: "Access may be limited and can require permits or specific conditions." },
+        { label: "Important Note", value: "This experience may not be suitable for all guests because access can require swimming." },
+      ],
+      whatToExpect:
+        "Expect a boat ride, safety briefing, and a more active nature experience. Access depends on conditions and regulations.",
+      whatToBring:
+        "Bring swimwear, towel, sunscreen, water, and waterproof protection for your phone or camera.",
+      gallery: [
+        "/discover-punta-mita/activities/hidden-beach-tours.jpg",
+        "/discover-punta-mita/activities/hidden-beach-tours-2.jpg",
+        "/discover-punta-mita/activities/hidden-beach-tours-3.jpg",
+      ],
+    },
+    {
+      title: "Jet Skiing",
+      slug: "jet-skiing",
+      image: "/discover-punta-mita/activities/jet-skiing.jpg",
+      description:
+        "A fast and active water activity for guests who want movement, speed, and ocean views.",
+      overview:
+        "Jet skiing is a high-energy ocean activity that works well for guests looking for something short, fun, and active during their stay.",
+      standardInfo: [
+        { label: "Best For", value: "Active travelers, couples, groups, and guests looking for a quick ocean adventure." },
+        { label: "Typical Duration", value: "30 minutes to 1 hour." },
+        { label: "Best Time of Day", value: "Morning or early afternoon, depending on water conditions." },
+        { label: "Seasonality", value: "Year-round, weather and sea conditions permitting." },
+        { label: "What to Wear / Bring", value: "Swimwear, sunscreen, towel, and sunglasses with a strap." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Fast, active, and recreational." },
+        { label: "Skill Level", value: "Beginner-friendly with basic instruction." },
+        { label: "Location", value: "Beach or marina-based depending on local availability and conditions." },
+      ],
+      whatToExpect:
+        "Expect a short safety briefing, equipment guidance, and time riding in designated areas.",
+      whatToBring:
+        "Bring swimwear, towel, sunscreen, and avoid loose items that could fall in the water.",
+      gallery: [
+        "/discover-punta-mita/activities/jet-skiing.jpg",
+        "/discover-punta-mita/activities/jet-skiing-2.jpg",
+        "/discover-punta-mita/activities/jet-skiing-3.jpg",
+      ],
+    },
+    {
+      title: "Parasailing",
+      slug: "parasailing",
+      image: "/discover-punta-mita/activities/parasailing.jpg",
+      description:
+        "A scenic flying experience above the water with panoramic views of the bay and coastline.",
+      overview:
+        "Parasailing offers a short but memorable way to see the coastline from above. It is more scenic than intense and can be a great vacation highlight.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, families, groups, and guests looking for a scenic thrill." },
+        { label: "Typical Duration", value: "Usually a short flight experience, with total timing depending on setup and operator." },
+        { label: "Best Time of Day", value: "Morning or early afternoon, depending on wind conditions." },
+        { label: "Seasonality", value: "Year-round, weather permitting." },
+        { label: "What to Wear / Bring", value: "Comfortable beachwear, secure sandals, sunscreen, and sunglasses." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Scenic, light-adventure, and panoramic." },
+        { label: "Conditions", value: "Depends on wind, weather, and operator safety decisions." },
+        { label: "Good to Know", value: "Best for guests comfortable with heights." },
+      ],
+      whatToExpect:
+        "Expect a short safety briefing and a scenic flight over the water with coastal views.",
+      whatToBring:
+        "Bring sunscreen, comfortable beachwear, and avoid loose accessories.",
+      gallery: [
+        "/discover-punta-mita/activities/parasailing.jpg",
+        "/discover-punta-mita/activities/parasailing-2.jpg",
+        "/discover-punta-mita/activities/parasailing-3.jpg",
+      ],
+    },
+    {
+      title: "Freediving",
+      slug: "freediving",
+      image: "/discover-punta-mita/activities/freediving.jpg",
+      description:
+        "A calm and technical underwater experience for guests interested in breath, depth, and marine scenery.",
+      overview:
+        "Freediving is a more specialized activity that combines ocean comfort, breath control, and underwater exploration.",
+      standardInfo: [
+        { label: "Best For", value: "Strong swimmers, ocean lovers, wellness-focused travelers, and experienced water users." },
+        { label: "Typical Duration", value: "2 to 4 hours." },
+        { label: "Best Time of Day", value: "Morning, when water is often calmer." },
+        { label: "Seasonality", value: "Year-round depending on visibility and sea conditions." },
+        { label: "What to Wear / Bring", value: "Swimwear, rash guard or wetsuit if needed, towel, sunscreen, and water." },
+      ],
+      customInfo: [
+        { label: "Skill Level", value: "Beginner with instruction to advanced, depending on the session." },
+        { label: "Experience Style", value: "Technical, calm, and breath-focused." },
+        { label: "Important Note", value: "Should be done with qualified guidance and proper safety practices." },
+      ],
+      whatToExpect:
+        "Expect breathing guidance, safety protocols, and underwater practice adapted to your level and conditions.",
+      whatToBring:
+        "Bring swimwear, towel, sunscreen, water, and any personal freediving equipment if preferred.",
+      gallery: [
+        "/discover-punta-mita/activities/freediving.jpg",
+        "/discover-punta-mita/activities/freediving-2.jpg",
+        "/discover-punta-mita/activities/freediving-3.jpg",
+      ],
+    },
+    {
+      title: "Dolphin & Marine Wildlife Tours",
+      slug: "dolphin-marine-wildlife-tours",
+      image: "/discover-punta-mita/activities/dolphin-marine-wildlife-tours.jpg",
+      description:
+        "A nature-focused boat experience centered on observing dolphins and marine life in the region.",
+      overview:
+        "Marine wildlife tours are ideal for guests who want a softer, nature-focused ocean outing. Sightings depend on season, conditions, and wildlife movement.",
+      standardInfo: [
+        { label: "Best For", value: "Families, children, nature lovers, photographers, and relaxed travelers." },
+        { label: "Typical Duration", value: "2 to 4 hours." },
+        { label: "Best Time of Day", value: "Morning is often preferred." },
+        { label: "Seasonality", value: "Year-round, with some wildlife activity changing by season." },
+        { label: "What to Wear / Bring", value: "Light clothing, hat, sunglasses, sunscreen, camera, and a light layer." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Scenic, educational, and nature-focused." },
+        { label: "Important Note", value: "Wildlife sightings are natural and cannot be guaranteed." },
+        { label: "Location", value: "Banderas Bay and coastal waters near Punta Mita depending on operator." },
+      ],
+      whatToExpect:
+        "Expect a guided boat outing focused on finding and observing marine life respectfully. Conditions and sightings vary naturally.",
+      whatToBring:
+        "Bring a camera, sunglasses, sunscreen, hat, and a light layer for wind.",
+      gallery: [
+        "/discover-punta-mita/activities/dolphin-marine-wildlife-tours.jpg",
+        "/discover-punta-mita/activities/dolphin-marine-wildlife-tours-2.jpg",
+        "/discover-punta-mita/activities/dolphin-marine-wildlife-tours-3.jpg",
+      ],
+    },
+    {
+      title: "Beach Hopping by Boat",
+      slug: "beach-hopping-by-boat",
+      image: "/discover-punta-mita/activities/beach-hopping-by-boat.jpg",
+      description:
+        "A flexible boat day focused on discovering beaches, swimming spots, and scenic coastal areas.",
+      overview:
+        "Beach hopping by boat is one of the best ways to discover the coastline around Punta Mita and nearby areas. It is flexible, scenic, and easy to adapt to the group.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, groups, photographers, and guests who want a flexible coastal experience." },
+        { label: "Typical Duration", value: "3 to 6 hours." },
+        { label: "Best Time of Day", value: "Morning through early afternoon, or sunset depending on the route." },
+        { label: "Seasonality", value: "Year-round, weather and sea conditions permitting." },
+        { label: "What to Wear / Bring", value: "Swimwear, sandals, towel, sunscreen, sunglasses, and a hat." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Flexible, scenic, and relaxed." },
+        { label: "Route", value: "Depends on sea conditions, beach access, and selected departure point." },
+        { label: "Customization", value: "Stops can often be adjusted depending on time, group style, and conditions." },
+      ],
+      whatToExpect:
+        "Expect a scenic boat route with stops for swimming, relaxing, photos, and exploring nearby beaches or coastal points.",
+      whatToBring:
+        "Bring swimwear, towel, sunscreen, sunglasses, hat, and a waterproof bag for personal items.",
+      gallery: [
+        "/discover-punta-mita/activities/beach-hopping-by-boat.jpg",
+        "/discover-punta-mita/activities/beach-hopping-by-boat-2.jpg",
+        "/discover-punta-mita/activities/beach-hopping-by-boat-3.jpg",
+      ],
+    },
+  ],
+},
 
   {
     title: "Luxury & Relaxation",
