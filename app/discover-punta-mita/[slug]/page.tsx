@@ -5,18 +5,12 @@ import {
   discoverCategories,
   getDiscoverCategoryBySlug,
 } from "@/lib/discoverPuntaMita";
+import ActivityFilterGrid from "./ActivityFilterGrid";
 
 type PageProps = {
   params: {
     slug: string;
   };
-};
-
-type ActivityCardItem = {
-  title: string;
-  slug: string;
-  image: string;
-  description: string;
 };
 
 export function generateStaticParams() {
@@ -30,13 +24,34 @@ export function generateMetadata({ params }: PageProps) {
 
   if (!category) {
     return {
-      title: "Discover Punta Mita",
+      title: "Discover Punta Mita | Beyond Traveling",
+      description:
+        "Discover curated activities, ocean experiences, and things to do in Punta Mita.",
     };
   }
 
   return {
     title: `${category.title} | Discover Punta Mita`,
     description: category.description,
+    alternates: {
+      canonical: `/discover-punta-mita/${params.slug}`,
+    },
+    openGraph: {
+      title: `${category.title} | Discover Punta Mita`,
+      description: category.description,
+      url: `/discover-punta-mita/${params.slug}`,
+      siteName: "Beyond Traveling",
+      images: [
+        {
+          url: category.image,
+          width: 1200,
+          height: 630,
+          alt: `${category.title} in Punta Mita`,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
   };
 }
 
@@ -46,20 +61,6 @@ export default function DiscoverCategoryPage({ params }: PageProps) {
   if (!category) {
     notFound();
   }
-
-  const regionOrder = [
-    "Inside Punta Mita",
-    "Punta Mita Area",
-    "Sayulita & San Pancho",
-    "Puerto Vallarta Area",
-    "Punta Mita / Riviera Nayarit",
-    "Sayulita",
-    "Puerto Vallarta",
-  ];
-
-  const hasRegions = category.activities.some((activity) =>
-    activity.customInfo?.some((item) => item.label === "Region")
-  );
 
   return (
     <main className="bg-white">
@@ -79,90 +80,33 @@ export default function DiscoverCategoryPage({ params }: PageProps) {
         <div className="mx-auto max-w-[1200px] px-6">
           <Link
             href="/discover-punta-mita"
-            className="text-[14px] text-slate-500 hover:text-slate-900 transition"
+            className="text-[14px] text-slate-500 transition hover:text-slate-900"
           >
             ← Back to Discover
           </Link>
 
-          {hasRegions ? (
-            <div className="mt-10 space-y-20">
-              {regionOrder.map((region) => {
-                const regionActivities = category.activities.filter(
-                  (activity) =>
-                    activity.customInfo.find(
-                      (item) => item.label === "Region"
-                    )?.value === region
-                );
+          <div className="mt-8 max-w-[820px]">
+            <p className="text-[13px] uppercase tracking-[0.16em] text-slate-400">
+              Discover Punta Mita
+            </p>
 
-                if (regionActivities.length === 0) return null;
+            <h1 className="mt-4 font-serif text-4xl leading-[1.08] tracking-tight text-slate-900 md:text-5xl">
+              {category.title}
+            </h1>
 
-                return (
-                  <div key={region}>
-                    <h2 className="font-serif text-3xl md:text-4xl text-slate-900">
-                      {region}
-                    </h2>
+            <p className="mt-6 text-[18px] leading-[1.75] text-slate-900/70">
+              {category.description}
+            </p>
+          </div>
 
-                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {regionActivities.map((activity) => (
-                        <ActivityCard
-                          key={activity.slug}
-                          categorySlug={category.slug}
-                          activity={activity}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          ) : (
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {category.activities.map((activity) => (
-                <ActivityCard
-                  key={activity.slug}
-                  categorySlug={category.slug}
-                  activity={activity}
-                />
-              ))}
-            </div>
-          )}
+          <div className="mt-12">
+            <ActivityFilterGrid
+              categorySlug={category.slug}
+              activities={category.activities}
+            />
+          </div>
         </div>
       </section>
     </main>
-  );
-}
-
-function ActivityCard({
-  categorySlug,
-  activity,
-}: {
-  categorySlug: string;
-  activity: ActivityCardItem;
-}) {
-  return (
-    <Link
-      href={`/discover-punta-mita/${categorySlug}/${activity.slug}`}
-      className="block h-full group"
-    >
-      <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition duration-300 group-hover:shadow-lg group-hover:-translate-y-[2px]">
-        <Image
-          src={activity.image}
-          alt={activity.title}
-          width={1600}
-          height={900}
-          className="aspect-[16/9] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
-        />
-
-        <div className="flex flex-1 flex-col p-6 bg-white">
-          <h2 className="font-serif text-2xl leading-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-700">
-            {activity.title}
-          </h2>
-
-          <p className="mt-3 text-[15px] leading-[1.6] text-slate-600">
-            {activity.description}
-          </p>
-        </div>
-      </div>
-    </Link>
   );
 }
