@@ -3289,16 +3289,295 @@ gallery: [
   ],
 },
 
-  {
-    title: "Seasonal Experiences",
-    slug: "seasonal-experiences",
-    image: "/discover-punta-mita/seasonal-experiences.jpg",
-    heroImage:
-      "/discover-punta-mita/heroes/seasonal-experiences-hero.jpg",
-    description:
-      "Whale watching, turtle season, fishing tournaments, holiday events, festivals, and seasonal highlights.",
-    activities: [],
-  },
+{
+  title: "Seasonal Experiences",
+  slug: "seasonal-experiences",
+  image: "/discover-punta-mita/seasonal-experiences.jpg",
+  heroImage:
+    "/discover-punta-mita/heroes/seasonal-experiences-hero.jpg",
+  description:
+    "Whale watching, turtle nesting season, surf season, New Year events, food festivals, fishing tournaments, and music festivals near Punta Mita.",
+  activities: [
+    {
+      title: "Whale Watching Season",
+      slug: "whale-watching-season",
+      image: "/discover-punta-mita/activities/whale-watching-season.jpg",
+      description:
+        "One of the region’s most iconic seasonal experiences, with humpback whales migrating along the Pacific coast near Punta Mita.",
+      overview:
+        "Whale watching season is one of the most requested experiences in Punta Mita and Riviera Nayarit. Humpback whales migrate through the area each year, creating unforgettable opportunities to observe them from boats along the coast.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, photographers, nature lovers, and first-time visitors." },
+        { label: "Typical Duration", value: "Usually 2 to 4 hours depending on the tour." },
+        { label: "Best Time of Day", value: "Morning is usually best for calmer water and visibility." },
+        { label: "Seasonality", value: "Typically December through March, with peak activity varying each year." },
+        { label: "What to Wear / Bring", value: "Light layers, sunglasses, sunscreen, hat, camera, and comfortable boat clothing." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Nature-focused, scenic, educational, and seasonal." },
+        { label: "Good to Know", value: "Wildlife sightings are natural and cannot be guaranteed." },
+        { label: "Departure Area", value: "Usually from Punta de Mita or nearby marinas." },
+      ],
+      whatToExpect:
+        "Expect a scenic ocean outing with opportunities to observe humpback whales, coastal views, and marine wildlife depending on conditions.",
+      whatToBring:
+        "Bring sun protection, camera equipment, light layers for boat wind, and motion sickness medication if needed.",
+      gallery: [
+        "/discover-punta-mita/activities/whale-watching-season.jpg",
+        "/discover-punta-mita/activities/whale-watching-season-2.jpg",
+        "/discover-punta-mita/activities/whale-watching-season-3.jpg",
+      ],
+    },
+
+    {
+      title: "Turtle Nesting Season",
+      slug: "turtle-nesting-season",
+      image: "/discover-punta-mita/activities/turtle-nesting-season.jpg",
+      description:
+        "A meaningful seasonal experience focused on sea turtle nesting, conservation, hatchlings, and beach protection programs.",
+      overview:
+        "Turtle nesting season is an important part of the Riviera Nayarit coastal ecosystem. During this period, beaches become nesting grounds for sea turtles, and conservation programs often organize educational experiences and releases.",
+      standardInfo: [
+        { label: "Best For", value: "Families, children, nature lovers, photographers, and conservation-focused travelers." },
+        { label: "Typical Duration", value: "Usually 30 minutes to 2 hours depending on the activity." },
+        { label: "Best Time of Day", value: "Late afternoon, sunset, or evening depending on the program." },
+        { label: "Seasonality", value: "Typically summer through fall, depending on nesting cycles." },
+        { label: "What to Wear / Bring", value: "Comfortable beach clothing, sandals, insect repellent, and camera." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Educational, emotional, conservation-focused, and family-friendly." },
+        { label: "Good to Know", value: "Programs and timing vary according to hatchling activity and environmental regulations." },
+        { label: "Location", value: "Protected beaches and coastal conservation areas." },
+      ],
+      whatToExpect:
+        "Expect conservation-focused guidance, beach activity, and opportunities to learn about sea turtle protection and nesting cycles.",
+      whatToBring:
+        "Bring sandals, insect repellent, light clothing, and respect all conservation guidelines.",
+      gallery: [
+        "/discover-punta-mita/activities/turtle-nesting-season.jpg",
+        "/discover-punta-mita/activities/turtle-nesting-season-2.jpg",
+        "/discover-punta-mita/activities/turtle-nesting-season-3.jpg",
+      ],
+    },
+
+    {
+      title: "Surf Season",
+      slug: "surf-season",
+      image: "/discover-punta-mita/activities/surf-season.jpg",
+      description:
+        "The best seasonal conditions for surfing around Punta Mita, Sayulita, and nearby Pacific breaks.",
+      overview:
+        "Surf season changes throughout the year depending on swell direction, wave size, and local conditions. Different surf spots around Punta Mita and Riviera Nayarit become ideal during different months.",
+      standardInfo: [
+        { label: "Best For", value: "Surfers, beginners, intermediate riders, advanced surfers, and ocean-focused travelers." },
+        { label: "Typical Duration", value: "Flexible depending on surf conditions and lesson or session format." },
+        { label: "Best Time of Day", value: "Early morning is often ideal for cleaner conditions." },
+        { label: "Seasonality", value: "Good surf conditions occur year-round, with larger swells generally arriving during summer months." },
+        { label: "What to Wear / Bring", value: "Swimwear, rash guard, sunscreen, towel, and surf equipment if not provided." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Ocean-focused, active, scenic, and seasonal." },
+        { label: "Good to Know", value: "Wave conditions vary significantly by season, beach, and experience level." },
+        { label: "Location", value: "Punta Mita, Sayulita, La Lancha, and nearby surf areas." },
+      ],
+      whatToExpect:
+        "Expect changing wave conditions depending on season and location, with options for beginners through experienced surfers.",
+      whatToBring:
+        "Bring reef-safe sunscreen, towel, hydration, and surf-friendly clothing.",
+      gallery: [
+        "/discover-punta-mita/activities/surf-season.jpg",
+        "/discover-punta-mita/activities/surf-season-2.jpg",
+        "/discover-punta-mita/activities/surf-season-3.jpg",
+      ],
+    },
+
+    {
+      title: "Holiday Events",
+      slug: "holiday-events",
+      image: "/discover-punta-mita/activities/holiday-events.jpg",
+      description:
+        "Seasonal celebrations around Punta Mita and Puerto Vallarta including festive dinners, beach events, concerts, and local traditions.",
+      overview:
+        "Holiday periods bring a different energy to the region, with special dinners, events, fireworks, live music, and seasonal experiences across resorts, beach clubs, and towns.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, groups, and holiday travelers." },
+        { label: "Typical Duration", value: "Varies depending on the event." },
+        { label: "Best Time of Day", value: "Afternoon and evening." },
+        { label: "Seasonality", value: "Primarily Thanksgiving, Christmas, New Year, Easter, and major holiday weekends." },
+        { label: "What to Wear / Bring", value: "Resort casual or event-appropriate attire depending on the venue." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Festive, social, seasonal, and family-friendly." },
+        { label: "Good to Know", value: "Reservations and advance planning are highly recommended during peak holidays." },
+        { label: "Location", value: "Resorts, beach clubs, restaurants, and nearby towns." },
+      ],
+      whatToExpect:
+        "Expect seasonal decorations, themed dinners, music, fireworks, and more activity throughout the region.",
+      whatToBring:
+        "Bring event-appropriate clothing and confirm reservations early during peak travel periods.",
+      gallery: [
+        "/discover-punta-mita/activities/holiday-events.jpg",
+        "/discover-punta-mita/activities/holiday-events-2.jpg",
+        "/discover-punta-mita/activities/holiday-events-3.jpg",
+      ],
+    },
+
+    {
+      title: "New Year Beach Parties",
+      slug: "new-year-beach-parties",
+      image: "/discover-punta-mita/activities/new-year-beach-parties.jpg",
+      description:
+        "Luxury beach celebrations with dinners, DJs, fireworks, oceanfront venues, and festive nightlife.",
+      overview:
+        "New Year’s Eve is one of the busiest and most energetic periods in Punta Mita and Puerto Vallarta, with beach clubs, villas, and restaurants hosting special celebrations.",
+      standardInfo: [
+        { label: "Best For", value: "Groups, couples, celebrations, nightlife travelers, and luxury holiday trips." },
+        { label: "Typical Duration", value: "Evening through after midnight." },
+        { label: "Best Time of Day", value: "Night." },
+        { label: "Seasonality", value: "New Year holiday period only." },
+        { label: "What to Wear / Bring", value: "Festive beach or upscale evening attire depending on the event." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "High-energy, festive, luxury, and nightlife-focused." },
+        { label: "Good to Know", value: "Advance reservations and transportation planning are essential." },
+        { label: "Location", value: "Beach clubs, resorts, villas, and nightlife venues." },
+      ],
+      whatToExpect:
+        "Expect DJs, dinners, cocktails, fireworks, dancing, and large holiday crowds depending on the venue.",
+      whatToBring:
+        "Bring evening attire, reservations, transportation arrangements, and only essentials.",
+      gallery: [
+        "/discover-punta-mita/activities/new-year-beach-parties.jpg",
+        "/discover-punta-mita/activities/new-year-beach-parties-2.jpg",
+        "/discover-punta-mita/activities/new-year-beach-parties-3.jpg",
+      ],
+    },
+
+    {
+      title: "Easter Week Events",
+      slug: "easter-week-events",
+      image: "/discover-punta-mita/activities/easter-week-events.jpg",
+      description:
+        "A lively holiday period with beach activity, local traditions, family travel, nightlife, and seasonal events across the region.",
+      overview:
+        "Semana Santa and Easter Week are major travel periods in Mexico, bringing increased beach activity, local celebrations, and a more energetic atmosphere to Punta Mita and nearby destinations.",
+      standardInfo: [
+        { label: "Best For", value: "Families, beach travelers, groups, and guests who enjoy a lively atmosphere." },
+        { label: "Typical Duration", value: "Varies depending on events and travel plans." },
+        { label: "Best Time of Day", value: "All day, with stronger nightlife energy in the evenings." },
+        { label: "Seasonality", value: "During Easter Week each year." },
+        { label: "What to Wear / Bring", value: "Beachwear, casual resort clothing, sunscreen, and comfortable footwear." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Festive, social, beach-focused, and family-oriented." },
+        { label: "Good to Know", value: "Hotels, beaches, restaurants, and roads can be significantly busier during this period." },
+        { label: "Location", value: "Punta Mita, Sayulita, Puerto Vallarta, and Riviera Nayarit." },
+      ],
+      whatToExpect:
+        "Expect increased tourism activity, crowded beaches, holiday events, nightlife, and local celebrations.",
+      whatToBring:
+        "Bring patience for busy periods, reservations, and sun protection.",
+      gallery: [
+        "/discover-punta-mita/activities/easter-week-events.jpg",
+        "/discover-punta-mita/activities/easter-week-events-2.jpg",
+        "/discover-punta-mita/activities/easter-week-events-3.jpg",
+      ],
+    },
+
+    {
+      title: "Food Festivals",
+      slug: "food-festivals",
+      image: "/discover-punta-mita/activities/food-festivals.jpg",
+      description:
+        "Seasonal culinary events featuring chefs, tastings, restaurants, cocktails, seafood, wine, and local flavors.",
+      overview:
+        "Food festivals around Punta Mita and Puerto Vallarta attract chefs, restaurants, and food-focused travelers throughout the year. These events often combine dining, entertainment, and social atmosphere.",
+      standardInfo: [
+        { label: "Best For", value: "Food lovers, couples, groups, culinary travelers, and wine or cocktail enthusiasts." },
+        { label: "Typical Duration", value: "Single evening events or multi-day festivals." },
+        { label: "Best Time of Day", value: "Afternoon through evening." },
+        { label: "Seasonality", value: "Varies depending on festival schedules." },
+        { label: "What to Wear / Bring", value: "Smart casual or resort attire depending on the event style." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Culinary, social, festive, and tasting-focused." },
+        { label: "Good to Know", value: "Advance ticket purchase may be required for major events." },
+        { label: "Location", value: "Resorts, restaurants, beach clubs, and event venues across the region." },
+      ],
+      whatToExpect:
+        "Expect tasting stations, chef collaborations, cocktails, seafood, wine, music, and social dining atmosphere.",
+      whatToBring:
+        "Bring comfortable evening clothing and confirm tickets or reservations in advance.",
+      gallery: [
+        "/discover-punta-mita/activities/food-festivals.jpg",
+        "/discover-punta-mita/activities/food-festivals-2.jpg",
+        "/discover-punta-mita/activities/food-festivals-3.jpg",
+      ],
+    },
+
+    {
+      title: "Fishing Tournaments",
+      slug: "fishing-tournaments",
+      image: "/discover-punta-mita/activities/fishing-tournaments.jpg",
+      description:
+        "Competitive sport fishing events that attract anglers, boats, and ocean-focused travelers to the Pacific coast.",
+      overview:
+        "Fishing tournaments are an important seasonal event for the Riviera Nayarit region, especially for guests interested in sport fishing culture and offshore ocean activity.",
+      standardInfo: [
+        { label: "Best For", value: "Fishing enthusiasts, groups, sport fishing travelers, and ocean-focused guests." },
+        { label: "Typical Duration", value: "Single-day or multi-day events." },
+        { label: "Best Time of Day", value: "Early morning departures are common." },
+        { label: "Seasonality", value: "Varies depending on species and tournament schedules." },
+        { label: "What to Wear / Bring", value: "Sun-protective clothing, hat, sunglasses, boat shoes, and sunscreen." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Competitive, ocean-focused, social, and sport-oriented." },
+        { label: "Good to Know", value: "Tournament dates and species vary throughout the year." },
+        { label: "Location", value: "Marinas and offshore waters around Riviera Nayarit and Puerto Vallarta." },
+      ],
+      whatToExpect:
+        "Expect offshore fishing activity, marina atmosphere, sport fishing crews, and event-style energy depending on the tournament.",
+      whatToBring:
+        "Bring sun protection, lightweight clothing, and motion sickness medication if needed.",
+      gallery: [
+        "/discover-punta-mita/activities/fishing-tournaments.jpg",
+        "/discover-punta-mita/activities/fishing-tournaments-2.jpg",
+        "/discover-punta-mita/activities/fishing-tournaments-3.jpg",
+      ],
+    },
+
+    {
+      title: "Music Festivals Nearby",
+      slug: "music-festivals-nearby",
+      image: "/discover-punta-mita/activities/music-festivals-nearby.jpg",
+      description:
+        "Seasonal music events near Punta Mita featuring DJs, live performances, beach venues, and festival-style atmosphere.",
+      overview:
+        "Music festivals near Punta Mita and Puerto Vallarta range from electronic music events and beach parties to live concerts and cultural festivals.",
+      standardInfo: [
+        { label: "Best For", value: "Music lovers, groups, nightlife travelers, festival-goers, and younger travelers." },
+        { label: "Typical Duration", value: "Single-day events or multi-day festivals." },
+        { label: "Best Time of Day", value: "Afternoon through late night depending on the festival." },
+        { label: "Seasonality", value: "Varies by festival calendar and holiday periods." },
+        { label: "What to Wear / Bring", value: "Comfortable festival clothing, sunscreen, sunglasses, comfortable shoes, and light layers." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Music-focused, social, energetic, and event-driven." },
+        { label: "Good to Know", value: "Transportation planning and advance tickets are often important." },
+        { label: "Location", value: "Puerto Vallarta, Sayulita, beach clubs, and nearby event venues." },
+      ],
+      whatToExpect:
+        "Expect live music, DJs, crowds, beach or outdoor settings, and event-style nightlife atmosphere.",
+      whatToBring:
+        "Bring comfortable shoes, hydration, light clothing, and only essentials for crowded events.",
+      gallery: [
+        "/discover-punta-mita/activities/music-festivals-nearby.jpg",
+        "/discover-punta-mita/activities/music-festivals-nearby-2.jpg",
+        "/discover-punta-mita/activities/music-festivals-nearby-3.jpg",
+      ],
+    },
+  ],
+},
 
   {
     title: "High-End / VIP Experiences",
