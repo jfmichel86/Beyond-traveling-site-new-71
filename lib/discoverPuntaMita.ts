@@ -167,7 +167,7 @@ export const discoverCategories: DiscoverCategory[] = [
           "Available year-round. Hidden Beach is permit-dependent. Whale watching is seasonal.",
         tags: ["Ocean", "Family-Friendly", "Romantic", "VIP", "Adventure", "Seasonal"],
         notes:
-          "Boat type, marina or pier departure, route, catering, open bar, water toys, and Hidden Beach access should be confirmed before offering the final experience.",
+          "Every detail can be tailored, from the boat style and departure point to the route, catering, open bar, water toys, and special access requests.",
         whatToExpect:
           "Expect a tailored ocean day with a captain and crew, flexible routing, beautiful water, time to swim or snorkel, and the option to add food, drinks, music, paddleboards, water toys, photography, or a special celebration setup.",
         whatToBring:
@@ -186,7 +186,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, cover-up, sunglasses, sunscreen, hat, sandals, and any preferred personal items.",
             goodToKnow:
-              "Yacht quality varies significantly. The concierge should match the boat to the client profile, not only to group size.",
+              "The boat is selected to fit the group’s style, comfort expectations, occasion, and preferred pace on the water.",
           }),
           option({
             title: "Luxury Boat Day",
@@ -261,7 +261,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, towel, sunscreen, and comfort in the water.",
             goodToKnow:
-              "Do not promise Hidden Beach automatically. It is permit-dependent, weather-dependent, and not ideal for every guest.",
+              "Access is limited and depends on permits, ocean conditions, and guest suitability, so it is best treated as a special request within a Marietas itinerary.",
           }),
           option({
             title: "Family Boat Day",
@@ -311,7 +311,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, with conditions varying by swell, tide, and season.",
         tags: ["Ocean", "Adventure", "Family-Friendly", "Sports"],
         notes:
-          "Always match the surf spot to the guest’s level. Beginners need safe conditions and patient instructors.",
+          "The best surf spot is selected around the group’s experience level, tide, swell, and comfort in the water.",
         whatToExpect:
           "Expect board setup, local guidance, ocean-safety briefing, instruction when needed, and time in the water at the best available surf spot for the group.",
         whatToBring:
@@ -330,7 +330,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, rash guard, sunscreen, towel, and water.",
             goodToKnow:
-              "The best beginner spot depends on tide and swell. The concierge should confirm conditions before booking.",
+              "Beginner sessions are planned around safe, friendly conditions with patient instruction and the right timing.",
           }),
           option({
             title: "La Lancha Surf Day",
@@ -360,7 +360,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Surfwear, sunscreen, water, towel, and personal board if preferred.",
             goodToKnow:
-              "This is not ideal for beginners. It works best for surfers who understand that the day depends on ocean conditions.",
+              "Best for surfers who enjoy a flexible, condition-driven outing and are comfortable with changing ocean conditions.",
           }),
           option({
             title: "Kid-Friendly Surf Session",
@@ -1489,7 +1489,7 @@ export const discoverCategories: DiscoverCategory[] = [
           "Available year-round, with atmosphere, programming, and music varying by date and season.",
         tags: ["Beach", "Nightlife", "Adults", "Groups", "By Request"],
         notes:
-          "These experiences require more logistics from Punta Mita. Transportation, boat transfer, timing, reservations, minimum spends, and return plans should be confirmed before recommending.",
+          "These outings involve more planning than Punta Mita’s local beach clubs, including transportation, boat transfers, reservations, minimum spends, and return timing.",
         whatToExpect:
           "Expect a more social, music-driven beach-club experience with a younger atmosphere, drinks, dining, boat access, and a stronger party energy than Punta Mita’s private beach clubs.",
         whatToBring:
@@ -1525,7 +1525,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, beachwear, sunglasses, sunscreen, sandals, ID, and payment card.",
             goodToKnow:
-              "From Punta Mita, this is a more involved outing. It should be offered to the right type of guest, not as a default recommendation.",
+              "From Punta Mita, this is a more involved outing, best suited to guests who are specifically looking for a social beach-club scene.",
           }),
         ],
       }),
@@ -1546,7 +1546,7 @@ export const discoverCategories: DiscoverCategory[] = [
           "Available year-round for beach-club style visits. Polo and equestrian programming may be seasonal.",
         tags: ["Beach", "Food & Drink", "Family-Friendly", "Romantic", "By Request"],
         notes:
-          "This should stay selective. Add only beach clubs that feel relevant to Punta Mita luxury guests.",
+          "This section stays intentionally selective, focused only on off-property beach clubs that feel relevant to a Punta Mita stay.",
         whatToExpect:
           "Expect a curated outing outside Punta Mita with dining, beach-club atmosphere, and possibly polo or equestrian elements depending on the day and season.",
         whatToBring:
@@ -1566,7 +1566,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Resort casual clothing, swimwear if beach-focused, sunglasses, sunscreen, and camera.",
             goodToKnow:
-              "Polo-related programming is seasonal and should be confirmed before offering. This is best for guests who want a quieter and more refined outing than a party beach club.",
+              "Polo-related programming is seasonal. The experience is best for guests who want a quieter, more refined outing than a party beach club.",
           }),
         ],
       }),
@@ -2003,7 +2003,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Sayulita nightlife, live music, Zona Romántica bar crawls, VIP nightlife tables, rooftops, and cocktail-bar experiences by request.",
         overview:
-          "This category should be by request, not pushed as a default activity. It is best for guests who specifically want a night outside the villa.",
+          "This category is designed for guests who specifically want a curated night outside the villa.",
         bestFor:
           "Adults, younger groups, nightlife-focused guests, bachelor and bachelorette groups, and guests requesting Puerto Vallarta or Sayulita nightlife.",
         duration: "Usually 3 to 6 hours including transportation.",
@@ -2059,7 +2059,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Dress-code-appropriate clothing, ID, and payment method.",
             goodToKnow:
-              "This is not a default recommendation for most Punta Mita renters.",
+              "Best for guests who want a high-energy club experience outside Punta Mita.",
           }),
         ],
       }),
