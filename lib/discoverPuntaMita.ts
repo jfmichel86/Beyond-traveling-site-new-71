@@ -3860,7 +3860,7 @@ gallery: [
     },
   ],
 },
-
+];
 export function getDiscoverCategoryBySlug(slug: string) {
   return discoverCategories.find((category) => category.slug === slug);
 }
