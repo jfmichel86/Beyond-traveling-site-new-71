@@ -291,7 +291,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Resort-elegant clothing, sunglasses, light layer, and any personal items for the surprise.",
             goodToKnow:
-              "Photography, flowers, music, champagne, and backup timing should be coordinated in advance.",
+              "Photography, flowers, music, champagne, and timing can be arranged in advance to make the moment feel effortless.",
           }),
         ],
       }),
@@ -429,7 +429,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, towel, sunscreen, and athletic comfort in the water.",
             goodToKnow:
-              "Not every day is ideal for wing-foil. Conditions should be checked before confirming.",
+              "Wing-foil is best when wind and water conditions align, so timing is selected around the right conditions.",
           }),
           option({
             title: "Paddleboarding",
@@ -498,7 +498,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, towel, sunscreen, hat, and dry clothes.",
             goodToKnow:
-              "Visibility changes by day and season, so the experience should be framed as nature-based rather than guaranteed aquarium conditions.",
+              "Visibility changes by day and season, which makes each outing feel natural, varied, and connected to the ocean conditions.",
           }),
           option({
             title: "Private Scuba Dive",
@@ -513,7 +513,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Certification card if certified, swimwear, towel, dry clothes, and any personal dive gear if preferred.",
             goodToKnow:
-              "Certification, health requirements, and no-fly timing after diving should be reviewed before booking.",
+              "Certified divers should bring their certification details, and timing after diving should be considered when planning flights.",
           }),
           option({
             title: "Freediving Experience",
@@ -610,7 +610,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Whale watching, wild marine-life tours, turtle releases, and conservation-focused experiences.",
         overview:
-          "This category focuses on natural, seasonal, and conservation-oriented experiences. It should be positioned around wild marine life, responsible viewing, and meaningful family moments.",
+          "This category focuses on natural, seasonal, and conservation-oriented experiences, with an emphasis on wild marine life, responsible viewing, and meaningful family moments.",
         bestFor:
           "Families, kids, nature lovers, couples, photographers, and guests who want a meaningful seasonal experience.",
         duration: "Usually 1 to 4 hours depending on the experience.",
@@ -637,7 +637,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Camera, hat, sunglasses, sunscreen, and a light layer.",
             goodToKnow:
-              "Whale sightings are seasonal and natural. Respectful distance and responsible viewing should always be prioritized.",
+              "The experience is guided by respectful distance, responsible viewing, and appreciation for the natural behavior of the whales.",
           }),
           option({
             title: "Wild Dolphin & Marine-Life Tour",
@@ -652,7 +652,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Sun protection, camera, comfortable boat clothing, and patience for wildlife viewing.",
             goodToKnow:
-              "This should never be described as a captive dolphin experience.",
+              "This experience focuses on wild marine life observed naturally in the bay.",
           }),
           option({
             title: "Turtle Release",
@@ -716,7 +716,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable clothing and a quiet space. Providers usually bring treatment equipment.",
             goodToKnow:
-              "For larger groups, scheduling should be planned carefully so treatments flow smoothly.",
+              "For larger groups, treatments can be scheduled in a smooth sequence so everyone has time to relax.",
           }),
           option({
             title: "Private Yoga",
@@ -796,11 +796,11 @@ export const discoverCategories: DiscoverCategory[] = [
             experience:
               "Guests are guided through a ceremonial heat experience that may include intention setting, steam, herbs, breath, silence, and reflection.",
             whatToExpect:
-              "A powerful, warm, and introspective experience. It can feel physically and emotionally intense, so it should be recommended thoughtfully.",
+              "A powerful, warm, and introspective experience for guests who are comfortable with heat, stillness, and a deeper wellness setting.",
             whatToBring:
               "Swimwear or comfortable ceremony clothing, towel, water, and light clothing for after.",
             goodToKnow:
-              "Not ideal for every guest. Heat tolerance, health conditions, and comfort with ritual settings should be considered.",
+              "Best for guests who are comfortable with heat, enclosed spaces, and a more ceremonial wellness environment.",
           }),
           option({
             title: "Cacao Ceremony",
@@ -815,7 +815,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable clothing and an open mindset.",
             goodToKnow:
-              "This should be presented as wellness and ceremony, not as a party or performance.",
+              "The experience is quiet, intentional, and centered on wellness rather than entertainment.",
           }),
           option({
             title: "Ritual Wellness Evening",
@@ -869,7 +869,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Resort wear, sandals, sunglasses, and camera.",
             goodToKnow:
-              "Wind and tide matter. Setup location should be confirmed in advance.",
+              "The location is selected around the tide, wind, view, and atmosphere desired for the occasion.",
           }),
           option({
             title: "Sunset Beach Dinner",
