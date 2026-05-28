@@ -3579,17 +3579,287 @@ gallery: [
   ],
 },
 
-  {
-    title: "High-End / VIP Experiences",
-    slug: "high-end-vip-experiences",
-    image: "/discover-punta-mita/high-end-vip-experiences.jpg",
-    heroImage:
-      "/discover-punta-mita/heroes/high-end-vip-experiences-hero.jpg",
-    description:
-      "Helicopter tours, VIP tables, private photographers, yacht experiences, and luxury concierge moments.",
-    activities: [],
-  },
-];
+ {
+  title: "High-End / VIP Experiences",
+  slug: "high-end-vip-experiences",
+  image: "/discover-punta-mita/high-end-vip-experiences.jpg",
+  heroImage:
+    "/discover-punta-mita/heroes/high-end-vip-experiences-hero.jpg",
+  description:
+    "Helicopter tours, private aviation transfers, VIP nightlife tables, luxury concierge itineraries, private photographers, proposal planning, yacht-to-beach experiences, luxury shopping trips, and exclusive resort access.",
+  activities: [
+    {
+      title: "Helicopter Tours",
+      slug: "helicopter-tours",
+      image: "/discover-punta-mita/activities/helicopter-tours.jpg",
+      description:
+        "A private aerial experience with dramatic views of Punta Mita, Riviera Nayarit, Puerto Vallarta, coastline, jungle, and ocean scenery.",
+      overview:
+        "Helicopter tours are one of the most exclusive ways to experience Punta Mita and the surrounding coastline. They offer a rare aerial perspective of beaches, jungle landscapes, marinas, resorts, and the Pacific Ocean.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, VIP travelers, photographers, special occasions, and guests looking for a once-in-a-trip experience." },
+        { label: "Typical Duration", value: "Usually 20 minutes to 1 hour depending on route and aircraft availability." },
+        { label: "Best Time of Day", value: "Morning or late afternoon for softer light and more comfortable conditions." },
+        { label: "Seasonality", value: "Available year-round, weather and aircraft availability permitting." },
+        { label: "What to Wear / Bring", value: "Comfortable clothing, sunglasses, camera, and minimal loose accessories." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Exclusive, scenic, private, and highly memorable." },
+        { label: "Good to Know", value: "Routes, flight time, passenger limits, and availability vary by operator and weather." },
+        { label: "Pricing", value: "Varies significantly depending on flight duration, route, aircraft, and private arrangements." },
+      ],
+      whatToExpect:
+        "Expect a private or semi-private flight experience with safety briefing, aerial views, and a route designed around weather, aircraft logistics, and selected scenery.",
+      whatToBring:
+        "Bring sunglasses, camera or phone, comfortable clothing, and avoid loose hats or accessories.",
+      gallery: [
+        "/discover-punta-mita/activities/helicopter-tours.jpg",
+        "/discover-punta-mita/activities/helicopter-tours-2.jpg",
+        "/discover-punta-mita/activities/helicopter-tours-3.jpg",
+      ],
+    },
+    {
+      title: "Private Aviation Transfers",
+      slug: "private-aviation-transfers",
+      image: "/discover-punta-mita/activities/private-aviation-transfers.jpg",
+      description:
+        "Private aviation transfer coordination for guests seeking a faster, more seamless, and more discreet arrival or departure experience.",
+      overview:
+        "Private aviation transfers are designed for guests who value discretion, comfort, timing, and efficiency. They can help make arrival and departure logistics feel smoother and more aligned with a luxury itinerary.",
+      standardInfo: [
+        { label: "Best For", value: "VIP guests, families, executives, luxury travelers, and groups seeking seamless travel logistics." },
+        { label: "Typical Duration", value: "Varies depending on route, aircraft, airport logistics, and ground transfer planning." },
+        { label: "Best Time of Day", value: "Flexible depending on travel schedule and aircraft availability." },
+        { label: "Seasonality", value: "Available year-round, subject to aircraft and airport availability." },
+        { label: "What to Wear / Bring", value: "Comfortable travel clothing, travel documents, luggage details, and passenger information." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Private, discreet, efficient, and logistics-focused." },
+        { label: "Good to Know", value: "Planning should begin in advance, especially during peak holiday periods." },
+        { label: "Pricing", value: "Varies significantly depending on route, aircraft category, passenger count, and timing." },
+      ],
+      whatToExpect:
+        "Expect a more personalized travel flow with coordination around timing, passenger needs, ground transfers, and aviation logistics.",
+      whatToBring:
+        "Bring required travel documents, luggage details, passenger names, and schedule preferences.",
+      gallery: [
+        "/discover-punta-mita/activities/private-aviation-transfers.jpg",
+        "/discover-punta-mita/activities/private-aviation-transfers-2.jpg",
+        "/discover-punta-mita/activities/private-aviation-transfers-3.jpg",
+      ],
+    },
+    {
+      title: "VIP Nightlife Tables",
+      slug: "vip-nightlife-tables",
+      image: "/discover-punta-mita/activities/vip-nightlife-tables.jpg",
+      description:
+        "Premium nightlife arrangements with table reservations, bottle service, preferred seating, and elevated club access.",
+      overview:
+        "VIP nightlife tables are ideal for guests who want a more polished and organized night out in Puerto Vallarta, Sayulita, or select beach club events without having to manage the details themselves.",
+      standardInfo: [
+        { label: "Best For", value: "Groups, celebrations, bachelor and bachelorette trips, birthdays, and nightlife-focused travelers." },
+        { label: "Typical Duration", value: "Late evening through late night." },
+        { label: "Best Time of Day", value: "Night." },
+        { label: "Seasonality", value: "Available year-round, with higher demand during weekends, holidays, and peak travel periods." },
+        { label: "What to Wear / Bring", value: "Nightlife attire, valid ID, and only essential personal items." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "High-energy, social, premium, and reservation-based." },
+        { label: "Good to Know", value: "Minimum spends, table availability, guest counts, and dress codes vary by venue." },
+        { label: "Pricing", value: "Varies by venue, event, table location, bottle selection, guest count, and date." },
+      ],
+      whatToExpect:
+        "Expect reserved space, bottle service options, a more seamless entry experience, and a better-positioned nightlife setup depending on the venue.",
+      whatToBring:
+        "Bring valid ID, appropriate nightlife attire, and confirm guest count in advance.",
+      gallery: [
+        "/discover-punta-mita/activities/vip-nightlife-tables.jpg",
+        "/discover-punta-mita/activities/vip-nightlife-tables-2.jpg",
+        "/discover-punta-mita/activities/vip-nightlife-tables-3.jpg",
+      ],
+    },
+    {
+      title: "Luxury Concierge Itineraries",
+      slug: "luxury-concierge-itineraries",
+      image: "/discover-punta-mita/activities/luxury-concierge-itineraries.jpg",
+      description:
+        "Personalized travel planning for guests who want their Punta Mita stay organized around experiences, dining, wellness, transportation, and special moments.",
+      overview:
+        "Luxury concierge itineraries help transform a stay into a carefully planned experience. They can combine restaurants, chefs, yacht days, wellness, activities, transportation, celebrations, and quiet downtime into one cohesive plan.",
+      standardInfo: [
+        { label: "Best For", value: "Families, groups, VIP travelers, special occasion trips, luxury guests, and first-time visitors." },
+        { label: "Typical Duration", value: "Can cover one day, several days, or a full stay." },
+        { label: "Best Time of Day", value: "Planning happens before arrival; experiences are scheduled throughout the stay." },
+        { label: "Seasonality", value: "Available year-round." },
+        { label: "What to Wear / Bring", value: "No specific attire. Guests should share preferences, priorities, budget style, and group details." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Personalized, curated, seamless, and service-focused." },
+        { label: "Customization", value: "Can include dining, wellness, boats, nightlife, family activities, transportation, and special events." },
+        { label: "Good to Know", value: "Best results come from planning in advance, especially during high season." },
+      ],
+      whatToExpect:
+        "Expect a curated plan designed around your group’s travel style, schedule, preferences, and desired level of service.",
+      whatToBring:
+        "Share group size, dates, preferences, dietary restrictions, mobility needs, celebration details, and preferred pace of travel.",
+      gallery: [
+        "/discover-punta-mita/activities/luxury-concierge-itineraries.jpg",
+        "/discover-punta-mita/activities/luxury-concierge-itineraries-2.jpg",
+        "/discover-punta-mita/activities/luxury-concierge-itineraries-3.jpg",
+      ],
+    },
+    {
+      title: "Private Photographers",
+      slug: "private-photographers",
+      image: "/discover-punta-mita/activities/private-photographers.jpg",
+      description:
+        "Professional photography sessions for families, couples, proposals, villa stays, beach moments, and special occasions.",
+      overview:
+        "Private photographers help capture the most memorable parts of a Punta Mita stay, from family portraits and beach sessions to proposals, celebrations, yacht days, and lifestyle photography.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, proposals, birthdays, anniversaries, groups, and special trips." },
+        { label: "Typical Duration", value: "Usually 1 to 3 hours depending on session style." },
+        { label: "Best Time of Day", value: "Golden hour, sunrise, or sunset for the best natural light." },
+        { label: "Seasonality", value: "Available year-round, weather permitting for outdoor sessions." },
+        { label: "What to Wear / Bring", value: "Coordinated outfits, comfortable shoes, touch-up items, and any meaningful props or details." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Personal, polished, scenic, and memory-focused." },
+        { label: "Location", value: "Beach, villa, yacht, resort area, nearby towns, or scenic outdoor locations." },
+        { label: "Pricing", value: "Varies by photographer, session length, editing, delivery format, and event complexity." },
+      ],
+      whatToExpect:
+        "Expect guidance on timing, location, poses, and natural moments. Sessions can be formal, lifestyle-oriented, romantic, or family-focused.",
+      whatToBring:
+        "Bring outfits, accessories, touch-up items, water, and any details you want included in the photos.",
+      gallery: [
+        "/discover-punta-mita/activities/private-photographers.jpg",
+        "/discover-punta-mita/activities/private-photographers-2.jpg",
+        "/discover-punta-mita/activities/private-photographers-3.jpg",
+      ],
+    },
+    {
+      title: "Proposal Planning",
+      slug: "proposal-planning",
+      image: "/discover-punta-mita/activities/proposal-planning.jpg",
+      description:
+        "Personalized proposal experiences with location planning, styling, flowers, photography, dining, and private celebration details.",
+      overview:
+        "Proposal planning in Punta Mita can be designed around beach sunsets, villa terraces, yacht moments, private dinners, or hidden scenic locations. The goal is to make the moment feel personal, beautiful, and smoothly coordinated.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, surprise proposals, engagement trips, romantic celebrations, and guests planning a once-in-a-lifetime moment." },
+        { label: "Typical Duration", value: "Planning may happen before arrival; the proposal moment can be short or part of a full evening experience." },
+        { label: "Best Time of Day", value: "Sunset is usually the most requested time." },
+        { label: "Seasonality", value: "Available year-round, weather and location permitting." },
+        { label: "What to Wear / Bring", value: "Outfit appropriate to the setting, ring, and any personal details you want included." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Romantic, private, personalized, and highly detailed." },
+        { label: "Customization", value: "Can include flowers, candles, picnic setup, photographer, video, private dinner, yacht, or live music." },
+        { label: "Good to Know", value: "Advance planning is highly recommended for location access, vendors, and weather backup options." },
+      ],
+      whatToExpect:
+        "Expect help coordinating the location, timing, setup, vendors, photography, and flow of the proposal moment.",
+      whatToBring:
+        "Bring the ring, personal details, outfit, and any specific preferences for the setting or style.",
+      gallery: [
+        "/discover-punta-mita/activities/proposal-planning.jpg",
+        "/discover-punta-mita/activities/proposal-planning-2.jpg",
+        "/discover-punta-mita/activities/proposal-planning-3.jpg",
+      ],
+    },
+    {
+      title: "Yacht-to-Beach Experiences",
+      slug: "yacht-to-beach-experiences",
+      image: "/discover-punta-mita/activities/yacht-to-beach-experiences.jpg",
+      description:
+        "A luxury coastal experience combining private yacht time with beach stops, hidden coves, swimming, and curated service.",
+      overview:
+        "Yacht-to-beach experiences are designed for guests who want more than a simple boat ride. They combine private cruising, scenic coastline, beach stops, swimming, dining, and relaxed luxury service.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, groups, families, celebrations, luxury travelers, and guests seeking a signature Punta Mita day." },
+        { label: "Typical Duration", value: "Usually 4 to 8 hours depending on yacht, route, and beach access." },
+        { label: "Best Time of Day", value: "Morning for a full day, or afternoon for sunset-focused experiences." },
+        { label: "Seasonality", value: "Available year-round, weather and sea conditions permitting." },
+        { label: "What to Wear / Bring", value: "Swimwear, sunglasses, hat, sandals, sunscreen, towel, and light cover-up." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Private, scenic, luxury, ocean-focused, and customizable." },
+        { label: "Customization", value: "Can include beach stops, snorkeling, dining, drinks, photographer, music, or special occasion details." },
+        { label: "Pricing", value: "Varies significantly by yacht, route, duration, guest count, and onboard service." },
+      ],
+      whatToExpect:
+        "Expect a private coastal itinerary with time onboard, scenic cruising, possible beach stops, swimming, and curated service.",
+      whatToBring:
+        "Bring swimwear, sunscreen, sunglasses, hat, towel, and anything personal needed for a full day near the water.",
+      gallery: [
+        "/discover-punta-mita/activities/yacht-to-beach-experiences.jpg",
+        "/discover-punta-mita/activities/yacht-to-beach-experiences-2.jpg",
+        "/discover-punta-mita/activities/yacht-to-beach-experiences-3.jpg",
+      ],
+    },
+    {
+      title: "Luxury Shopping Trips",
+      slug: "luxury-shopping-trips",
+      image: "/discover-punta-mita/activities/luxury-shopping-trips.jpg",
+      description:
+        "Curated shopping outings for fashion, resort wear, jewelry, home design, artisan pieces, and local luxury finds.",
+      overview:
+        "Luxury shopping trips can be arranged for guests who want a more curated way to explore boutiques, resort wear, jewelry, artisan design, and local finds in Punta Mita, Sayulita, or Puerto Vallarta.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, groups, fashion-focused travelers, design lovers, gift shopping, and guests looking for curated local finds." },
+        { label: "Typical Duration", value: "Usually 2 to 5 hours depending on route and shopping style." },
+        { label: "Best Time of Day", value: "Late morning or afternoon." },
+        { label: "Seasonality", value: "Available year-round, with boutique hours varying by season and location." },
+        { label: "What to Wear / Bring", value: "Comfortable resort clothing, walkable shoes, sunglasses, and payment cards." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Curated, stylish, relaxed, and personalized." },
+        { label: "Location", value: "Punta Mita, Sayulita, San Pancho, Puerto Vallarta, Bucerías, or selected boutiques." },
+        { label: "Customization", value: "Can focus on resort wear, jewelry, interiors, art, artisan goods, or gifts." },
+      ],
+      whatToExpect:
+        "Expect a curated route based on shopping interests, style preferences, timing, and desired locations.",
+      whatToBring:
+        "Bring comfortable shoes, payment cards, sunglasses, and any reference images or preferences that help guide the experience.",
+      gallery: [
+        "/discover-punta-mita/activities/luxury-shopping-trips.jpg",
+        "/discover-punta-mita/activities/luxury-shopping-trips-2.jpg",
+        "/discover-punta-mita/activities/luxury-shopping-trips-3.jpg",
+      ],
+    },
+    {
+      title: "Exclusive Resort Access",
+      slug: "exclusive-resort-access",
+      image: "/discover-punta-mita/activities/exclusive-resort-access.jpg",
+      description:
+        "Access-oriented planning for guests seeking premium resort experiences, beach clubs, dining, spa, golf, or private amenities.",
+      overview:
+        "Exclusive resort access can help guests understand and coordinate premium experiences such as beach clubs, dining, spa appointments, golf, and private resort amenities when available and appropriate.",
+      standardInfo: [
+        { label: "Best For", value: "Luxury travelers, families, couples, groups, and guests wanting premium resort-style experiences." },
+        { label: "Typical Duration", value: "Half-day, full-day, or specific appointment-based experiences." },
+        { label: "Best Time of Day", value: "Depends on the resort experience, reservation, and availability." },
+        { label: "Seasonality", value: "Available year-round, subject to access policies and availability." },
+        { label: "What to Wear / Bring", value: "Resort attire, swimwear if needed, sandals, sunscreen, and reservation details." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Premium, access-based, polished, and service-focused." },
+        { label: "Good to Know", value: "Access rules, guest policies, reservation requirements, and availability vary by resort and season." },
+        { label: "Possible Experiences", value: "Beach clubs, spa, dining, golf, day experiences, wellness, or private amenities." },
+      ],
+      whatToExpect:
+        "Expect a more polished resort experience depending on what access is available and what reservations can be arranged.",
+      whatToBring:
+        "Bring appropriate resort clothing, swimwear if needed, sun protection, and confirmed reservation details.",
+      gallery: [
+        "/discover-punta-mita/activities/exclusive-resort-access.jpg",
+        "/discover-punta-mita/activities/exclusive-resort-access-2.jpg",
+        "/discover-punta-mita/activities/exclusive-resort-access-3.jpg",
+      ],
+    },
+  ],
+},
 
 export function getDiscoverCategoryBySlug(slug: string) {
   return discoverCategories.find((category) => category.slug === slug);
