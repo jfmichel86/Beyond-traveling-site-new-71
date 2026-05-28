@@ -43,7 +43,7 @@ export default function ActivityFilterGrid({
       {tags.length > 1 && (
         <div className="mb-10">
           <p className="text-[13px] uppercase tracking-[0.16em] text-slate-400">
-            Filter by interest
+            Browse by style
           </p>
 
           <div className="mt-4 flex flex-wrap gap-2">
@@ -87,7 +87,7 @@ export default function ActivityFilterGrid({
           </h2>
 
           <p className="mt-3 text-[16px] leading-[1.7] text-slate-900/70">
-            Try selecting a different tag.
+            Try selecting a different style.
           </p>
         </div>
       )}
@@ -108,35 +108,24 @@ function ActivityCard({
       className="group block h-full"
     >
       <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition duration-300 group-hover:-translate-y-[2px] group-hover:shadow-lg">
-        <Image
-          src={activity.image}
-          alt={activity.title}
-          width={1600}
-          height={900}
-          className="aspect-[16/9] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
-        />
+        <div className="overflow-hidden">
+          <Image
+            src={activity.image}
+            alt={activity.title}
+            width={1600}
+            height={900}
+            className="aspect-[16/9] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+          />
+        </div>
 
         <div className="flex flex-1 flex-col bg-white p-6">
           <h2 className="font-serif text-2xl leading-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-700">
             {activity.title}
           </h2>
 
-          <p className="mt-3 text-[15px] leading-[1.6] text-slate-600">
+          <p className="mt-3 text-[15px] leading-[1.65] text-slate-600">
             {activity.description}
           </p>
-
-          {activity.tags && activity.tags.length > 0 && (
-            <div className="mt-5 flex flex-wrap gap-2">
-              {activity.tags.slice(0, 4).map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-slate-200 px-3 py-1 text-[12px] text-slate-600"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
         </div>
       </div>
     </Link>
