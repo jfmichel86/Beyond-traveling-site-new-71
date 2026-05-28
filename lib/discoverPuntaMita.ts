@@ -1,3877 +1,2542 @@
-export const discoverCategories = [
- {
-  title: "Ocean & Water Activities",
-  slug: "ocean-water-activities",
-  image: "/discover-punta-mita/ocean-water-activities.jpg",
-  heroImage: "/discover-punta-mita/heroes/ocean-water-activities-hero.jpg",
-  description:
-    "Boat days, surfing, snorkeling, whale watching, fishing, and ocean adventures around Punta Mita.",
-  activities: [
-    {
-      title: "Private Yacht Charters",
-      slug: "private-yacht-charters",
-      image: "/discover-punta-mita/activities/private-yacht-charters.jpg",
-      description:
-        "A private ocean experience with space to relax, swim, explore the coast, and enjoy Punta Mita from the water.",
-      overview:
-        "Private yacht charters are one of the most memorable ways to experience Punta Mita. Guests can enjoy the coastline, hidden beaches, snorkeling areas, seasonal wildlife, and a relaxed day on the water.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, groups, celebrations, and guests looking for a private luxury experience." },
-        { label: "Typical Duration", value: "3 to 8 hours depending on the yacht, route, and style of experience." },
-        { label: "Best Time of Day", value: "Morning departures for calmer water, or sunset for a more scenic cruise." },
-        { label: "Seasonality", value: "Available year-round. Whale watching may be possible during the winter season." },
-        { label: "What to Wear / Bring", value: "Swimwear, sunglasses, hat, sandals, reef-safe sunscreen, and a light cover-up." },
-      ],
-      customInfo: [
-        { label: "Departure Areas", value: "Usually Punta de Mita, La Cruz Marina, Nuevo Vallarta, or Puerto Vallarta depending on the yacht." },
-        { label: "Experience Style", value: "Fully private and customizable." },
-        { label: "Pricing", value: "Varies significantly depending on yacht size, season, duration, crew, route, and onboard services." },
-      ],
-      whatToExpect:
-        "Expect a private day on the water with cruising, swimming stops, optional snorkeling, drinks, snacks, and time to relax onboard. The experience can be casual and family-friendly or more elevated depending on the yacht and service level.",
-      whatToBring:
-        "Bring swimwear, sunglasses, a hat, sunscreen, comfortable sandals, and a light layer for the return ride.",
-      gallery: [
-        "/discover-punta-mita/activities/private-yacht-charters.jpg",
-        "/discover-punta-mita/activities/private-yacht-charters-2.jpg",
-        "/discover-punta-mita/activities/private-yacht-charters-3.jpg",
-      ],
-    },
-    {
-      title: "Catamaran Sunset Cruises",
-      slug: "catamaran-sunset-cruises",
-      image: "/discover-punta-mita/activities/catamaran-sunset-cruises.jpg",
-      description:
-        "A relaxed and scenic way to enjoy the coastline, ocean breeze, and sunset views from the water.",
-      overview:
-        "Catamaran sunset cruises are ideal for guests who want a beautiful ocean experience without committing to a full-day charter. They are relaxed, social, and visually memorable.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, families, groups, celebrations, and guests who want a relaxed sunset experience." },
-        { label: "Typical Duration", value: "2 to 4 hours." },
-        { label: "Best Time of Day", value: "Late afternoon through sunset." },
-        { label: "Seasonality", value: "Year-round, with especially beautiful conditions during dry season." },
-        { label: "What to Wear / Bring", value: "Light resort wear, sandals, sunglasses, and a light layer for after sunset." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Relaxed, scenic, and social." },
-        { label: "Departure Areas", value: "Often La Cruz Marina, Nuevo Vallarta, Puerto Vallarta, or Punta de Mita depending on the operator." },
-        { label: "Pricing", value: "Depends on whether the cruise is private or shared, the catamaran size, inclusions, and season." },
-      ],
-      whatToExpect:
-        "Expect an easygoing cruise with ocean views, music, drinks, and sunset scenery. Some cruises include snacks, light dinner options, or swimming stops depending on the route and operator.",
-      whatToBring:
-        "Bring sunglasses, a phone or camera, a light sweater, and comfortable shoes or sandals.",
-      gallery: [
-        "/discover-punta-mita/activities/catamaran-sunset-cruises.jpg",
-        "/discover-punta-mita/activities/catamaran-sunset-cruises-2.jpg",
-        "/discover-punta-mita/activities/catamaran-sunset-cruises-3.jpg",
-      ],
-    },
-    {
-      title: "Sailing Trips",
-      slug: "sailing-trips",
-      image: "/discover-punta-mita/activities/sailing-trips.jpg",
-      description:
-        "A quieter ocean experience focused on wind, scenery, coastline views, and relaxed time at sea.",
-      overview:
-        "Sailing trips are a more classic and peaceful way to experience the Pacific coast near Punta Mita. They are ideal for guests who prefer a slower, elegant ocean experience.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, small groups, families, and guests looking for a calm ocean day." },
-        { label: "Typical Duration", value: "3 to 6 hours." },
-        { label: "Best Time of Day", value: "Morning or late afternoon." },
-        { label: "Seasonality", value: "Year-round, depending on wind and sea conditions." },
-        { label: "What to Wear / Bring", value: "Comfortable resort wear, sunglasses, hat, sandals, and sunscreen." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Quiet, scenic, and relaxed." },
-        { label: "Departure Areas", value: "Usually nearby marinas such as La Cruz, Nuevo Vallarta, or Puerto Vallarta." },
-        { label: "Pricing", value: "Varies by boat size, private versus shared format, duration, and inclusions." },
-      ],
-      whatToExpect:
-        "Expect a slower-paced ocean experience with coastal views, time to relax onboard, and possibly swimming or snorkeling depending on the route.",
-      whatToBring:
-        "Bring sunscreen, sunglasses, a hat, comfortable clothing, and a light layer.",
-      gallery: [
-        "/discover-punta-mita/activities/sailing-trips.jpg",
-        "/discover-punta-mita/activities/sailing-trips-2.jpg",
-        "/discover-punta-mita/activities/sailing-trips-3.jpg",
-      ],
-    },
-    {
-      title: "Luxury Boat Days",
-      slug: "luxury-boat-days",
-      image: "/discover-punta-mita/activities/luxury-boat-days.jpg",
-      description:
-        "A premium day at sea with swimming, lounging, coastal views, and customized onboard service.",
-      overview:
-        "Luxury boat days combine the privacy of a boat experience with a relaxed, elevated itinerary. They are ideal for guests who want a beautiful day outside without a highly structured tour.",
-      standardInfo: [
-        { label: "Best For", value: "Families, friends, couples, celebrations, and luxury travelers." },
-        { label: "Typical Duration", value: "4 to 8 hours." },
-        { label: "Best Time of Day", value: "Morning for a full day, or afternoon for a sunset-focused experience." },
-        { label: "Seasonality", value: "Year-round." },
-        { label: "What to Wear / Bring", value: "Swimwear, cover-up, sunglasses, hat, sandals, and sunscreen." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Private, relaxed, and customizable." },
-        { label: "Customization", value: "Routes, food, drinks, music, beach stops, and pace can often be adjusted." },
-        { label: "Pricing", value: "Depends on vessel type, duration, route, onboard service, and season." },
-      ],
-      whatToExpect:
-        "Expect a comfortable day on the water with swimming, lounging, coastal scenery, possible snorkeling, and flexible timing depending on your preferences.",
-      whatToBring:
-        "Bring swimwear, sunscreen, sunglasses, and anything personal you want for a full day outside.",
-      gallery: [
-        "/discover-punta-mita/activities/luxury-boat-days.jpg",
-        "/discover-punta-mita/activities/luxury-boat-days-2.jpg",
-        "/discover-punta-mita/activities/luxury-boat-days-3.jpg",
-      ],
-    },
-    {
-      title: "Surfing",
-      slug: "surfing",
-      image: "/discover-punta-mita/activities/surfing.jpg",
-      description:
-        "Surf breaks around Punta Mita offer a classic ocean experience for intermediate and experienced surfers.",
-      overview:
-        "Surfing is one of the signature ocean activities in the Punta Mita area. Conditions vary by season, tide, and swell, making local guidance helpful for choosing the right break.",
-      standardInfo: [
-        { label: "Best For", value: "Intermediate and experienced surfers, active travelers, and ocean-focused guests." },
-        { label: "Typical Duration", value: "1.5 to 3 hours." },
-        { label: "Best Time of Day", value: "Usually morning, depending on tide, wind, and swell." },
-        { label: "Seasonality", value: "Year-round, with conditions changing by swell season." },
-        { label: "What to Wear / Bring", value: "Swimwear, rash guard, sunscreen, towel, and water." },
-      ],
-      customInfo: [
-        { label: "Skill Level", value: "Best for guests who already have some surf experience." },
-        { label: "Location", value: "Surf spots around Punta de Mita and nearby beaches." },
-        { label: "Conditions", value: "Conditions depend on tide, swell direction, wind, and local beach access." },
-      ],
-      whatToExpect:
-        "Expect a more active ocean experience. Local knowledge is important because the best spot can change depending on conditions.",
-      whatToBring:
-        "Bring a rash guard, sunscreen, towel, water, and any personal surf equipment if you prefer using your own board.",
-      gallery: [
-        "/discover-punta-mita/activities/surfing.jpg",
-        "/discover-punta-mita/activities/surfing-2.jpg",
-        "/discover-punta-mita/activities/surfing-3.jpg",
-      ],
-    },
-    {
-      title: "Surf Lessons",
-      slug: "surf-lessons",
-      image: "/discover-punta-mita/activities/surf-lessons.jpg",
-      description:
-        "Beginner-friendly surf instruction for guests who want to learn in a safe and guided way.",
-      overview:
-        "Surf lessons are a great introduction to the ocean lifestyle around Punta Mita. They are usually adapted to the guest’s age, comfort level, and experience.",
-      standardInfo: [
-        { label: "Best For", value: "Beginners, families, kids, teens, and first-time surfers." },
-        { label: "Typical Duration", value: "1.5 to 2 hours." },
-        { label: "Best Time of Day", value: "Morning is usually best for calmer wind and more comfortable conditions." },
-        { label: "Seasonality", value: "Year-round, depending on surf conditions." },
-        { label: "What to Wear / Bring", value: "Swimwear, rash guard, sunscreen, towel, and water." },
-      ],
-      customInfo: [
-        { label: "Skill Level", value: "Beginner to beginner-intermediate." },
-        { label: "Location", value: "Beginner-friendly beaches around Punta de Mita and nearby surf areas." },
-        { label: "Includes", value: "Usually board, instructor, and basic safety guidance." },
-      ],
-      whatToExpect:
-        "Expect basic beach instruction, safety guidance, paddling practice, and time in the water with an instructor.",
-      whatToBring:
-        "Bring a towel, sunscreen, water, and comfortable swimwear. A rash guard is strongly recommended.",
-      gallery: [
-        "/discover-punta-mita/activities/surf-lessons.jpg",
-        "/discover-punta-mita/activities/surf-lessons-2.jpg",
-        "/discover-punta-mita/activities/surf-lessons-3.jpg",
-      ],
-    },
-    {
-      title: "E-Foil Surfing",
-      slug: "e-foil-surfing",
-      image: "/discover-punta-mita/activities/e-foil-surfing.jpg",
-      description:
-        "A modern ocean activity where guests ride above the water on an electric hydrofoil board.",
-      overview:
-        "E-foil surfing is a unique water experience that combines balance, technology, and ocean scenery. It is best for active guests who want to try something different.",
-      standardInfo: [
-        { label: "Best For", value: "Active travelers, adventurous guests, teens, adults, and ocean lovers." },
-        { label: "Typical Duration", value: "1 to 2 hours." },
-        { label: "Best Time of Day", value: "Morning, when water is usually calmer." },
-        { label: "Seasonality", value: "Year-round, depending on sea and wind conditions." },
-        { label: "What to Wear / Bring", value: "Swimwear, rash guard, sunscreen, towel, and water." },
-      ],
-      customInfo: [
-        { label: "Skill Level", value: "Beginner-friendly with instruction, but balance and confidence in the water help." },
-        { label: "Experience Style", value: "Technical, active, and memorable." },
-        { label: "Conditions", value: "Best in calm water with low wind." },
-      ],
-      whatToExpect:
-        "Expect instruction, safety guidance, and gradual practice controlling the board. Most sessions focus on balance, confidence, and enjoying the sensation of gliding above the water.",
-      whatToBring:
-        "Bring swimwear, sunscreen, a towel, and water. A rash guard can help protect from sun exposure.",
-      gallery: [
-        "/discover-punta-mita/activities/e-foil-surfing.jpg",
-        "/discover-punta-mita/activities/e-foil-surfing-2.jpg",
-        "/discover-punta-mita/activities/e-foil-surfing-3.jpg",
-      ],
-    },
-    {
-      title: "Paddle Boarding",
-      slug: "paddle-boarding",
-      image: "/discover-punta-mita/activities/paddle-boarding.jpg",
-      description:
-        "A calm and scenic way to enjoy the ocean, especially during quiet morning conditions.",
-      overview:
-        "Paddle boarding is a relaxed ocean activity that works well for guests who want movement without intensity. It is especially enjoyable in calm bays and protected water.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, beginners, wellness-focused travelers, and calm-water explorers." },
-        { label: "Typical Duration", value: "1 to 2 hours." },
-        { label: "Best Time of Day", value: "Early morning for calmer ocean conditions." },
-        { label: "Seasonality", value: "Year-round when ocean conditions are calm." },
-        { label: "What to Wear / Bring", value: "Swimwear, hat, sunglasses with strap, sunscreen, and water." },
-      ],
-      customInfo: [
-        { label: "Skill Level", value: "Beginner-friendly." },
-        { label: "Experience Style", value: "Calm, scenic, and low-impact." },
-        { label: "Location", value: "Protected beaches, calm bays, or beach clubs depending on conditions." },
-      ],
-      whatToExpect:
-        "Expect a slow-paced ocean activity with beautiful views, light exercise, and time on the water.",
-      whatToBring:
-        "Bring sunscreen, water, a hat, and sunglasses with a strap if possible.",
-      gallery: [
-        "/discover-punta-mita/activities/paddle-boarding.jpg",
-        "/discover-punta-mita/activities/paddle-boarding-2.jpg",
-        "/discover-punta-mita/activities/paddle-boarding-3.jpg",
-      ],
-    },
-    {
-      title: "Snorkeling",
-      slug: "snorkeling",
-      image: "/discover-punta-mita/activities/snorkeling.jpg",
-      description:
-        "Explore clear-water areas, marine life, and rocky coastal spots near Punta Mita.",
-      overview:
-        "Snorkeling is one of the easiest ways to experience the marine environment around Punta Mita. It can be done as part of a boat day or as a focused water activity.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, kids, beginners, and guests who want a light ocean activity." },
-        { label: "Typical Duration", value: "1 to 3 hours, or included as part of a longer boat trip." },
-        { label: "Best Time of Day", value: "Morning, when visibility and water conditions are often better." },
-        { label: "Seasonality", value: "Year-round, with visibility depending on weather and sea conditions." },
-        { label: "What to Wear / Bring", value: "Swimwear, towel, sunscreen, and water." },
-      ],
-      customInfo: [
-        { label: "Skill Level", value: "Beginner-friendly." },
-        { label: "Location", value: "Coastal reefs, rocky points, boat-access spots, or nearby islands depending on conditions." },
-        { label: "Experience Style", value: "Easy, visual, and family-friendly." },
-      ],
-      whatToExpect:
-        "Expect a relaxed water experience with time to observe fish, coastal rock formations, and marine scenery. Conditions vary by visibility, tide, and swell.",
-      whatToBring:
-        "Bring swimwear, a towel, sunscreen, water, and a rash guard for sun protection.",
-      gallery: [
-        "/discover-punta-mita/activities/snorkeling.jpg",
-        "/discover-punta-mita/activities/snorkeling-2.jpg",
-        "/discover-punta-mita/activities/snorkeling-3.jpg",
-      ],
-    },
-    {
-      title: "Scuba Diving",
-      slug: "scuba-diving",
-      image: "/discover-punta-mita/activities/scuba-diving.jpg",
-      description:
-        "A deeper underwater experience for certified divers or beginners joining introductory programs.",
-      overview:
-        "Scuba diving near Punta Mita and the greater bay area offers a chance to explore underwater landscapes, marine life, and seasonal ocean conditions.",
-      standardInfo: [
-        { label: "Best For", value: "Certified divers, adventurous travelers, and beginners interested in introductory dives." },
-        { label: "Typical Duration", value: "Half-day experiences are common." },
-        { label: "Best Time of Day", value: "Morning." },
-        { label: "Seasonality", value: "Year-round, with visibility and marine life varying by season." },
-        { label: "What to Wear / Bring", value: "Swimwear, towel, sunscreen, certification card if applicable, and water." },
-      ],
-      customInfo: [
-        { label: "Skill Level", value: "Certified divers or beginners with instructor-led introductory options." },
-        { label: "Location", value: "Dive sites around the bay, islands, and coastal formations depending on operator and conditions." },
-        { label: "Requirements", value: "Certification may be required for certain dives." },
-      ],
-      whatToExpect:
-        "Expect safety briefing, equipment preparation, boat transfer, and guided underwater time. Dive locations depend on certification level, conditions, and operator availability.",
-      whatToBring:
-        "Bring swimwear, towel, sunscreen, water, and your diving certification details if you are already certified.",
-      gallery: [
-        "/discover-punta-mita/activities/scuba-diving.jpg",
-        "/discover-punta-mita/activities/scuba-diving-2.jpg",
-        "/discover-punta-mita/activities/scuba-diving-3.jpg",
-      ],
-    },
-    {
-      title: "Spearfishing",
-      slug: "spearfishing",
-      image: "/discover-punta-mita/activities/spearfishing.jpg",
-      description:
-        "A specialized ocean activity for experienced guests seeking a more technical and active marine experience.",
-      overview:
-        "Spearfishing is a more advanced ocean activity that requires comfort in the water, local guidance, and attention to conditions, safety, and regulations.",
-      standardInfo: [
-        { label: "Best For", value: "Experienced ocean users, strong swimmers, and guests comfortable with technical water activities." },
-        { label: "Typical Duration", value: "3 to 5 hours." },
-        { label: "Best Time of Day", value: "Morning, depending on conditions." },
-        { label: "Seasonality", value: "Seasonal and condition-dependent." },
-        { label: "What to Wear / Bring", value: "Swimwear, rash guard or wetsuit if needed, towel, sunscreen, and water." },
-      ],
-      customInfo: [
-        { label: "Skill Level", value: "Intermediate to advanced." },
-        { label: "Experience Style", value: "Technical, active, and ocean-condition dependent." },
-        { label: "Important Note", value: "Should only be done with qualified local guidance and according to applicable rules." },
-      ],
-      whatToExpect:
-        "Expect a physically active experience that depends heavily on visibility, current, swell, and local knowledge. Safety and responsible practices are essential.",
-      whatToBring:
-        "Bring swimwear, towel, sunscreen, water, and any personal equipment if you have specific preferences.",
-      gallery: [
-        "/discover-punta-mita/activities/spearfishing.jpg",
-        "/discover-punta-mita/activities/spearfishing-2.jpg",
-        "/discover-punta-mita/activities/spearfishing-3.jpg",
-      ],
-    },
-    {
-      title: "Deep Sea Fishing",
-      slug: "deep-sea-fishing",
-      image: "/discover-punta-mita/activities/deep-sea-fishing.jpg",
-      description:
-        "A classic Pacific coast experience for guests who want a full or half day on the water focused on sport fishing.",
-      overview:
-        "Deep sea fishing is popular in the Punta Mita and Banderas Bay area, with options that vary by season, boat size, fishing style, and target species.",
-      standardInfo: [
-        { label: "Best For", value: "Fishing enthusiasts, families, groups, and guests looking for an active day offshore." },
-        { label: "Typical Duration", value: "4 to 8 hours." },
-        { label: "Best Time of Day", value: "Early morning departures are common." },
-        { label: "Seasonality", value: "Year-round, with target species varying by season." },
-        { label: "What to Wear / Bring", value: "Light clothing, hat, sunglasses, sunscreen, non-slip shoes, and motion sickness medication if needed." },
-      ],
-      customInfo: [
-        { label: "Departure Areas", value: "Punta de Mita, La Cruz Marina, Nuevo Vallarta, or Puerto Vallarta depending on the boat." },
-        { label: "Experience Style", value: "Sport-focused and weather-dependent." },
-        { label: "Pricing", value: "Varies by boat size, duration, equipment, crew, and season." },
-      ],
-      whatToExpect:
-        "Expect an early start, time offshore, professional equipment, and a route determined by target species and current fishing conditions.",
-      whatToBring:
-        "Bring sun protection, comfortable clothing, water, and motion sickness medication if you are sensitive to boat movement.",
-      gallery: [
-        "/discover-punta-mita/activities/deep-sea-fishing.jpg",
-        "/discover-punta-mita/activities/deep-sea-fishing-2.jpg",
-        "/discover-punta-mita/activities/deep-sea-fishing-3.jpg",
-      ],
-    },
-    {
-      title: "Whale Watching",
-      slug: "whale-watching",
-      image: "/discover-punta-mita/activities/whale-watching.jpg",
-      description:
-        "A seasonal ocean experience to observe humpback whales in the Pacific waters around the region.",
-      overview:
-        "Whale watching is one of the most special seasonal experiences near Punta Mita, especially for families, couples, and nature-focused travelers.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, nature lovers, photographers, and seasonal travelers." },
-        { label: "Typical Duration", value: "2 to 4 hours." },
-        { label: "Best Time of Day", value: "Morning is often preferred for calmer conditions." },
-        { label: "Seasonality", value: "Seasonal, usually during the winter whale watching period." },
-        { label: "What to Wear / Bring", value: "Light clothing, hat, sunglasses, sunscreen, camera, and a light layer." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Scenic, seasonal, and nature-focused." },
-        { label: "Departure Areas", value: "Punta de Mita, La Cruz, Nuevo Vallarta, or Puerto Vallarta depending on operator." },
-        { label: "Important Note", value: "Sightings depend on season, wildlife behavior, and ocean conditions." },
-      ],
-      whatToExpect:
-        "Expect a guided boat outing focused on observing whales respectfully from the water. Exact sightings and activity vary naturally.",
-      whatToBring:
-        "Bring camera, sunglasses, sunscreen, a hat, and a light layer for wind on the boat.",
-      gallery: [
-        "/discover-punta-mita/activities/whale-watching.jpg",
-        "/discover-punta-mita/activities/whale-watching-2.jpg",
-        "/discover-punta-mita/activities/whale-watching-3.jpg",
-      ],
-    },
-    {
-      title: "Marietas Islands Tours",
-      slug: "marietas-islands-tours",
-      image: "/discover-punta-mita/activities/marietas-islands-tours.jpg",
-      description:
-        "Visit one of the area’s most iconic natural destinations by boat, with opportunities for sightseeing and water activities.",
-      overview:
-        "The Marietas Islands are one of the most recognized natural attractions near Punta Mita. Tours typically focus on scenery, marine life, snorkeling, and protected island views.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, nature lovers, photographers, and first-time visitors." },
-        { label: "Typical Duration", value: "3 to 5 hours depending on tour style." },
-        { label: "Best Time of Day", value: "Morning." },
-        { label: "Seasonality", value: "Year-round, depending on sea conditions and availability." },
-        { label: "What to Wear / Bring", value: "Swimwear, towel, sunscreen, hat, sunglasses, and water." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Nature-focused boat tour." },
-        { label: "Departure Areas", value: "Often Punta de Mita or nearby marinas." },
-        { label: "Important Note", value: "Some areas may have limited access or require permits depending on the tour." },
-      ],
-      whatToExpect:
-        "Expect a boat ride to the islands, scenic views, possible snorkeling, marine life sightings, and guidance from the operator.",
-      whatToBring:
-        "Bring swimwear, towel, sunscreen, sunglasses, hat, and a waterproof bag if needed.",
-      gallery: [
-        "/discover-punta-mita/activities/marietas-islands-tours.jpg",
-        "/discover-punta-mita/activities/marietas-islands-tours-2.jpg",
-        "/discover-punta-mita/activities/marietas-islands-tours-3.jpg",
-      ],
-    },
-    {
-      title: "Hidden Beach Tours",
-      slug: "hidden-beach-tours",
-      image: "/discover-punta-mita/activities/hidden-beach-tours.jpg",
-      description:
-        "A limited-access experience connected to the Marietas Islands, known for its dramatic beach setting.",
-      overview:
-        "Hidden Beach is one of the most famous experiences near Punta Mita. Access can be limited and depends on permits, ocean conditions, and operator availability.",
-      standardInfo: [
-        { label: "Best For", value: "Adventurous travelers, couples, nature lovers, and guests interested in iconic local scenery." },
-        { label: "Typical Duration", value: "3 to 5 hours depending on tour format." },
-        { label: "Best Time of Day", value: "Morning." },
-        { label: "Seasonality", value: "Year-round, subject to access, weather, and ocean conditions." },
-        { label: "What to Wear / Bring", value: "Swimwear, towel, sunscreen, secure sandals, and waterproof protection for valuables." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Adventure-focused nature tour." },
-        { label: "Access", value: "Access may be limited and can require permits or specific conditions." },
-        { label: "Important Note", value: "This experience may not be suitable for all guests because access can require swimming." },
-      ],
-      whatToExpect:
-        "Expect a boat ride, safety briefing, and a more active nature experience. Access depends on conditions and regulations.",
-      whatToBring:
-        "Bring swimwear, towel, sunscreen, water, and waterproof protection for your phone or camera.",
-      gallery: [
-        "/discover-punta-mita/activities/hidden-beach-tours.jpg",
-        "/discover-punta-mita/activities/hidden-beach-tours-2.jpg",
-        "/discover-punta-mita/activities/hidden-beach-tours-3.jpg",
-      ],
-    },
-    {
-      title: "Jet Skiing",
-      slug: "jet-skiing",
-      image: "/discover-punta-mita/activities/jet-skiing.jpg",
-      description:
-        "A fast and active water activity for guests who want movement, speed, and ocean views.",
-      overview:
-        "Jet skiing is a high-energy ocean activity that works well for guests looking for something short, fun, and active during their stay.",
-      standardInfo: [
-        { label: "Best For", value: "Active travelers, couples, groups, and guests looking for a quick ocean adventure." },
-        { label: "Typical Duration", value: "30 minutes to 1 hour." },
-        { label: "Best Time of Day", value: "Morning or early afternoon, depending on water conditions." },
-        { label: "Seasonality", value: "Year-round, weather and sea conditions permitting." },
-        { label: "What to Wear / Bring", value: "Swimwear, sunscreen, towel, and sunglasses with a strap." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Fast, active, and recreational." },
-        { label: "Skill Level", value: "Beginner-friendly with basic instruction." },
-        { label: "Location", value: "Beach or marina-based depending on local availability and conditions." },
-      ],
-      whatToExpect:
-        "Expect a short safety briefing, equipment guidance, and time riding in designated areas.",
-      whatToBring:
-        "Bring swimwear, towel, sunscreen, and avoid loose items that could fall in the water.",
-      gallery: [
-        "/discover-punta-mita/activities/jet-skiing.jpg",
-        "/discover-punta-mita/activities/jet-skiing-2.jpg",
-        "/discover-punta-mita/activities/jet-skiing-3.jpg",
-      ],
-    },
-    {
-      title: "Parasailing",
-      slug: "parasailing",
-      image: "/discover-punta-mita/activities/parasailing.jpg",
-      description:
-        "A scenic flying experience above the water with panoramic views of the bay and coastline.",
-      overview:
-        "Parasailing offers a short but memorable way to see the coastline from above. It is more scenic than intense and can be a great vacation highlight.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, families, groups, and guests looking for a scenic thrill." },
-        { label: "Typical Duration", value: "Usually a short flight experience, with total timing depending on setup and operator." },
-        { label: "Best Time of Day", value: "Morning or early afternoon, depending on wind conditions." },
-        { label: "Seasonality", value: "Year-round, weather permitting." },
-        { label: "What to Wear / Bring", value: "Comfortable beachwear, secure sandals, sunscreen, and sunglasses." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Scenic, light-adventure, and panoramic." },
-        { label: "Conditions", value: "Depends on wind, weather, and operator safety decisions." },
-        { label: "Good to Know", value: "Best for guests comfortable with heights." },
-      ],
-      whatToExpect:
-        "Expect a short safety briefing and a scenic flight over the water with coastal views.",
-      whatToBring:
-        "Bring sunscreen, comfortable beachwear, and avoid loose accessories.",
-      gallery: [
-        "/discover-punta-mita/activities/parasailing.jpg",
-        "/discover-punta-mita/activities/parasailing-2.jpg",
-        "/discover-punta-mita/activities/parasailing-3.jpg",
-      ],
-    },
-    {
-      title: "Freediving",
-      slug: "freediving",
-      image: "/discover-punta-mita/activities/freediving.jpg",
-      description:
-        "A calm and technical underwater experience for guests interested in breath, depth, and marine scenery.",
-      overview:
-        "Freediving is a more specialized activity that combines ocean comfort, breath control, and underwater exploration.",
-      standardInfo: [
-        { label: "Best For", value: "Strong swimmers, ocean lovers, wellness-focused travelers, and experienced water users." },
-        { label: "Typical Duration", value: "2 to 4 hours." },
-        { label: "Best Time of Day", value: "Morning, when water is often calmer." },
-        { label: "Seasonality", value: "Year-round depending on visibility and sea conditions." },
-        { label: "What to Wear / Bring", value: "Swimwear, rash guard or wetsuit if needed, towel, sunscreen, and water." },
-      ],
-      customInfo: [
-        { label: "Skill Level", value: "Beginner with instruction to advanced, depending on the session." },
-        { label: "Experience Style", value: "Technical, calm, and breath-focused." },
-        { label: "Important Note", value: "Should be done with qualified guidance and proper safety practices." },
-      ],
-      whatToExpect:
-        "Expect breathing guidance, safety protocols, and underwater practice adapted to your level and conditions.",
-      whatToBring:
-        "Bring swimwear, towel, sunscreen, water, and any personal freediving equipment if preferred.",
-      gallery: [
-        "/discover-punta-mita/activities/freediving.jpg",
-        "/discover-punta-mita/activities/freediving-2.jpg",
-        "/discover-punta-mita/activities/freediving-3.jpg",
-      ],
-    },
-    {
-      title: "Dolphin & Marine Wildlife Tours",
-      slug: "dolphin-marine-wildlife-tours",
-      image: "/discover-punta-mita/activities/dolphin-marine-wildlife-tours.jpg",
-      description:
-        "A nature-focused boat experience centered on observing dolphins and marine life in the region.",
-      overview:
-        "Marine wildlife tours are ideal for guests who want a softer, nature-focused ocean outing. Sightings depend on season, conditions, and wildlife movement.",
-      standardInfo: [
-        { label: "Best For", value: "Families, children, nature lovers, photographers, and relaxed travelers." },
-        { label: "Typical Duration", value: "2 to 4 hours." },
-        { label: "Best Time of Day", value: "Morning is often preferred." },
-        { label: "Seasonality", value: "Year-round, with some wildlife activity changing by season." },
-        { label: "What to Wear / Bring", value: "Light clothing, hat, sunglasses, sunscreen, camera, and a light layer." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Scenic, educational, and nature-focused." },
-        { label: "Important Note", value: "Wildlife sightings are natural and cannot be guaranteed." },
-        { label: "Location", value: "Banderas Bay and coastal waters near Punta Mita depending on operator." },
-      ],
-      whatToExpect:
-        "Expect a guided boat outing focused on finding and observing marine life respectfully. Conditions and sightings vary naturally.",
-      whatToBring:
-        "Bring a camera, sunglasses, sunscreen, hat, and a light layer for wind.",
-      gallery: [
-        "/discover-punta-mita/activities/dolphin-marine-wildlife-tours.jpg",
-        "/discover-punta-mita/activities/dolphin-marine-wildlife-tours-2.jpg",
-        "/discover-punta-mita/activities/dolphin-marine-wildlife-tours-3.jpg",
-      ],
-    },
-    {
-      title: "Beach Hopping by Boat",
-      slug: "beach-hopping-by-boat",
-      image: "/discover-punta-mita/activities/beach-hopping-by-boat.jpg",
-      description:
-        "A flexible boat day focused on discovering beaches, swimming spots, and scenic coastal areas.",
-      overview:
-        "Beach hopping by boat is one of the best ways to discover the coastline around Punta Mita and nearby areas. It is flexible, scenic, and easy to adapt to the group.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, groups, photographers, and guests who want a flexible coastal experience." },
-        { label: "Typical Duration", value: "3 to 6 hours." },
-        { label: "Best Time of Day", value: "Morning through early afternoon, or sunset depending on the route." },
-        { label: "Seasonality", value: "Year-round, weather and sea conditions permitting." },
-        { label: "What to Wear / Bring", value: "Swimwear, sandals, towel, sunscreen, sunglasses, and a hat." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Flexible, scenic, and relaxed." },
-        { label: "Route", value: "Depends on sea conditions, beach access, and selected departure point." },
-        { label: "Customization", value: "Stops can often be adjusted depending on time, group style, and conditions." },
-      ],
-      whatToExpect:
-        "Expect a scenic boat route with stops for swimming, relaxing, photos, and exploring nearby beaches or coastal points.",
-      whatToBring:
-        "Bring swimwear, towel, sunscreen, sunglasses, hat, and a waterproof bag for personal items.",
-      gallery: [
-        "/discover-punta-mita/activities/beach-hopping-by-boat.jpg",
-        "/discover-punta-mita/activities/beach-hopping-by-boat-2.jpg",
-        "/discover-punta-mita/activities/beach-hopping-by-boat-3.jpg",
-      ],
-    },
-  ],
-},
+type InfoItem = {
+  label: string;
+  value: string;
+};
 
-  {
-  title: "Luxury & Relaxation",
-  slug: "luxury-relaxation",
-  image: "/discover-punta-mita/luxury-relaxation.jpg",
-  heroImage: "/discover-punta-mita/heroes/luxury-relaxation-hero.jpg",
-  description:
-    "Private chefs, spa treatments, yoga, tastings, wellness experiences, and relaxed luxury moments.",
-  activities: [
-    {
-      title: "Private Chefs",
-      slug: "private-chefs",
-      image: "/discover-punta-mita/activities/private-chefs.jpg",
-      description:
-        "A personalized in-villa dining experience with menus created around your group, occasion, and style of stay.",
-      overview:
-        "Private chefs are one of the most comfortable and elevated ways to enjoy a stay in Punta Mita. Guests can experience restaurant-quality meals without leaving the villa, with menus adapted to the group, dietary needs, and occasion.",
-      standardInfo: [
-        { label: "Best For", value: "Families, groups, celebrations, couples, and guests who want a relaxed luxury dining experience." },
-        { label: "Typical Duration", value: "Usually 2 to 4 hours depending on meal style, service, and group size." },
-        { label: "Best Time of Day", value: "Breakfast, lunch, sunset dinners, or special evening dinners." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Resort casual clothing. No special preparation needed." },
-      ],
-      customInfo: [
-        { label: "Service Location", value: "Usually inside the villa, on the terrace, by the pool, or in another private dining area." },
-        { label: "Dining Style", value: "Custom menus, family-style meals, plated dinners, casual lunches, or special occasion dining." },
-        { label: "Pricing", value: "Varies depending on menu, ingredients, number of guests, service style, and chef availability." },
-      ],
-      whatToExpect:
-        "Expect a personalized meal prepared and served in the villa. The experience can be casual and family-friendly or more refined for birthdays, anniversaries, and special dinners.",
-      whatToBring:
-        "Guests usually do not need to bring anything. Dietary preferences, allergies, preferred cuisine, and timing should be shared in advance.",
-      gallery: [
-        "/discover-punta-mita/activities/private-chefs.jpg",
-        "/discover-punta-mita/activities/private-chefs-2.jpg",
-        "/discover-punta-mita/activities/private-chefs-3.jpg",
-      ],
-    },
-    {
-      title: "In-Villa Spa Treatments",
-      slug: "in-villa-spa-treatments",
-      image: "/discover-punta-mita/activities/in-villa-spa-treatments.jpg",
-      description:
-        "Spa services brought directly to the villa for a calm, private, and restorative experience.",
-      overview:
-        "In-villa spa treatments allow guests to enjoy massage, body treatments, and wellness services without leaving the property. It is one of the easiest ways to add relaxation to a luxury stay.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, families, groups, wellness-focused guests, and travelers looking to relax after arrival or activities." },
-        { label: "Typical Duration", value: "Usually 60 to 120 minutes per treatment." },
-        { label: "Best Time of Day", value: "Morning, late afternoon, or after a beach or activity day." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Comfortable clothing before and after the treatment. Therapists usually provide treatment setup." },
-      ],
-      customInfo: [
-        { label: "Service Location", value: "Usually inside the villa, on a terrace, in a quiet bedroom, or shaded outdoor area." },
-        { label: "Experience Style", value: "Private, calm, and restorative." },
-        { label: "Booking Note", value: "Advance scheduling is recommended, especially for groups or multiple treatments." },
-      ],
-      whatToExpect:
-        "Expect a spa therapist to arrive at the villa with the needed setup. Treatments may include massage, bodywork, facials, or other wellness services depending on availability.",
-      whatToBring:
-        "No special items are usually needed. Guests should share preferences, pressure level, allergies, or medical considerations before the treatment.",
-      gallery: [
-        "/discover-punta-mita/activities/in-villa-spa-treatments.jpg",
-        "/discover-punta-mita/activities/in-villa-spa-treatments-2.jpg",
-        "/discover-punta-mita/activities/in-villa-spa-treatments-3.jpg",
-      ],
-    },
-    {
-      title: "Massage Therapy",
-      slug: "massage-therapy",
-      image: "/discover-punta-mita/activities/massage-therapy.jpg",
-      description:
-        "Relaxing, therapeutic, or deep-tissue massage sessions arranged in a private and comfortable setting.",
-      overview:
-        "Massage therapy is ideal for guests who want to unwind, recover from travel, or relax after ocean and outdoor activities. Sessions can often be adapted to the guest’s preferred pressure and treatment style.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, solo guests, families, athletes, and anyone seeking relaxation or recovery." },
-        { label: "Typical Duration", value: "Usually 60, 90, or 120 minutes." },
-        { label: "Best Time of Day", value: "Morning for a slow start, or late afternoon after activities." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Comfortable clothing before and after the massage." },
-      ],
-      customInfo: [
-        { label: "Treatment Style", value: "Relaxing, deep tissue, therapeutic, sports-focused, or customized depending on provider." },
-        { label: "Service Location", value: "Villa, spa room, shaded terrace, or other quiet private space." },
-        { label: "Booking Note", value: "Advance booking is recommended for preferred times and multiple guests." },
-      ],
-      whatToExpect:
-        "Expect a calm private session focused on relaxation, tension relief, or recovery. Guests can usually request preferred pressure and areas of focus.",
-      whatToBring:
-        "No special items are needed. Share pressure preference, injuries, or sensitivities before the session begins.",
-      gallery: [
-        "/discover-punta-mita/activities/massage-therapy.jpg",
-        "/discover-punta-mita/activities/massage-therapy-2.jpg",
-        "/discover-punta-mita/activities/massage-therapy-3.jpg",
-      ],
-    },
-    {
-      title: "Sound Healing",
-      slug: "sound-healing",
-      image: "/discover-punta-mita/activities/sound-healing.jpg",
-      description:
-        "A calming wellness experience using sound, vibration, and stillness to create a restorative atmosphere.",
-      overview:
-        "Sound healing is a peaceful wellness experience that can be especially powerful in a quiet villa, terrace, or beachfront setting. It is designed to help guests slow down and disconnect.",
-      standardInfo: [
-        { label: "Best For", value: "Wellness-focused travelers, couples, groups, retreats, and guests seeking relaxation." },
-        { label: "Typical Duration", value: "Usually 45 to 90 minutes." },
-        { label: "Best Time of Day", value: "Morning, sunset, or evening." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Comfortable clothing. Light layers are useful for stillness and relaxation." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Meditative, calming, and restorative." },
-        { label: "Service Location", value: "Villa terrace, quiet indoor room, garden, beach setting, or wellness space." },
-        { label: "Good to Know", value: "No prior experience is needed." },
-      ],
-      whatToExpect:
-        "Expect a guided session using instruments, sound bowls, or vibration-based practices. Guests usually lie down or sit comfortably while the session unfolds.",
-      whatToBring:
-        "Wear comfortable clothing. A mat, cushion, or blanket may be provided depending on the provider and location.",
-      gallery: [
-        "/discover-punta-mita/activities/sound-healing.jpg",
-        "/discover-punta-mita/activities/sound-healing-2.jpg",
-        "/discover-punta-mita/activities/sound-healing-3.jpg",
-      ],
-    },
-    {
-      title: "Yoga Classes",
-      slug: "yoga-classes",
-      image: "/discover-punta-mita/activities/yoga-classes.jpg",
-      description:
-        "Private or small-group yoga sessions designed around the pace, level, and setting of your stay.",
-      overview:
-        "Yoga classes in Punta Mita can be arranged as gentle morning movement, sunset stretching, private villa sessions, or wellness-focused group experiences.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, families, groups, wellness travelers, beginners, and experienced practitioners." },
-        { label: "Typical Duration", value: "Usually 60 to 90 minutes." },
-        { label: "Best Time of Day", value: "Early morning or sunset." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Comfortable activewear and water." },
-      ],
-      customInfo: [
-        { label: "Class Style", value: "Gentle flow, restorative, vinyasa, stretching, private instruction, or group wellness session." },
-        { label: "Service Location", value: "Villa terrace, garden, beach, gym area, or private wellness space." },
-        { label: "Skill Level", value: "Beginner-friendly and adaptable to the group." },
-      ],
-      whatToExpect:
-        "Expect a guided session adapted to the group’s level, pace, and goals. Classes can be energizing, restorative, or focused on mobility and relaxation.",
-      whatToBring:
-        "Wear comfortable activewear and bring water. Mats may be provided depending on the instructor and location.",
-      gallery: [
-        "/discover-punta-mita/activities/yoga-classes.jpg",
-        "/discover-punta-mita/activities/yoga-classes-2.jpg",
-        "/discover-punta-mita/activities/yoga-classes-3.jpg",
-      ],
-    },
-    {
-      title: "Breathwork Sessions",
-      slug: "breathwork-sessions",
-      image: "/discover-punta-mita/activities/breathwork-sessions.jpg",
-      description:
-        "Guided breathing practices designed to support relaxation, focus, recovery, and emotional reset.",
-      overview:
-        "Breathwork sessions offer a deeper wellness experience for guests interested in relaxation, nervous system reset, focus, or recovery during their stay.",
-      standardInfo: [
-        { label: "Best For", value: "Wellness travelers, couples, groups, retreat-style stays, and guests seeking a calming reset." },
-        { label: "Typical Duration", value: "Usually 45 to 90 minutes." },
-        { label: "Best Time of Day", value: "Morning, sunset, or evening." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Comfortable clothing and water." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Guided, introspective, and wellness-focused." },
-        { label: "Service Location", value: "Villa, terrace, wellness room, shaded outdoor area, or retreat setting." },
-        { label: "Good to Know", value: "Sessions can be gentle or deeper depending on facilitator style and guest preference." },
-      ],
-      whatToExpect:
-        "Expect guided breathing techniques in a calm environment. The session may include relaxation, intention setting, breath patterns, and quiet integration.",
-      whatToBring:
-        "Wear comfortable clothing and bring water. Guests should communicate any health considerations before deeper breathwork practices.",
-      gallery: [
-        "/discover-punta-mita/activities/breathwork-sessions.jpg",
-        "/discover-punta-mita/activities/breathwork-sessions-2.jpg",
-        "/discover-punta-mita/activities/breathwork-sessions-3.jpg",
-      ],
-    },
-    {
-      title: "Ice Baths & Wellness Experiences",
-      slug: "ice-baths-wellness-experiences",
-      image: "/discover-punta-mita/activities/ice-baths-wellness-experiences.jpg",
-      description:
-        "Cold immersion and recovery-focused wellness experiences for guests seeking energy, focus, and reset.",
-      overview:
-        "Ice baths and wellness recovery experiences are ideal for active travelers, wellness groups, and guests who want a more intentional reset during their stay.",
-      standardInfo: [
-        { label: "Best For", value: "Active travelers, wellness groups, athletes, retreat guests, and guests seeking recovery." },
-        { label: "Typical Duration", value: "Usually 45 to 90 minutes depending on format." },
-        { label: "Best Time of Day", value: "Morning or after physical activity." },
-        { label: "Seasonality", value: "Available year-round depending on provider availability." },
-        { label: "What to Wear / Bring", value: "Swimwear, towel, water, and comfortable clothing for after the session." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Recovery-focused, energizing, and guided." },
-        { label: "Service Location", value: "Villa, wellness area, outdoor terrace, or private setup." },
-        { label: "Good to Know", value: "Not suitable for every guest. Health considerations should be reviewed before cold immersion." },
-      ],
-      whatToExpect:
-        "Expect a guided cold immersion experience that may include breathing, preparation, short immersion periods, and recovery time.",
-      whatToBring:
-        "Bring swimwear, towel, water, and warm or comfortable clothing for after the session.",
-      gallery: [
-        "/discover-punta-mita/activities/ice-baths-wellness-experiences.jpg",
-        "/discover-punta-mita/activities/ice-baths-wellness-experiences-2.jpg",
-        "/discover-punta-mita/activities/ice-baths-wellness-experiences-3.jpg",
-      ],
-    },
-    {
-      title: "Beachfront Wellness Retreats",
-      slug: "beachfront-wellness-retreats",
-      image: "/discover-punta-mita/activities/beachfront-wellness-retreats.jpg",
-      description:
-        "Curated wellness moments by the ocean, combining movement, stillness, recovery, and natural surroundings.",
-      overview:
-        "Beachfront wellness retreats can combine yoga, meditation, breathwork, spa elements, sound healing, and healthy dining into a more complete wellness experience.",
-      standardInfo: [
-        { label: "Best For", value: "Wellness travelers, retreats, couples, small groups, and guests seeking a restorative itinerary." },
-        { label: "Typical Duration", value: "Half-day, full-day, or multi-session formats depending on planning." },
-        { label: "Best Time of Day", value: "Morning or sunset." },
-        { label: "Seasonality", value: "Available year-round, with outdoor comfort depending on weather." },
-        { label: "What to Wear / Bring", value: "Comfortable activewear, swimwear if needed, hat, sunscreen, and water." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Curated, restorative, and customizable." },
-        { label: "Location", value: "Beachfront setting, villa, terrace, garden, or private wellness space." },
-        { label: "Customization", value: "Can include yoga, meditation, breathwork, massage, sound healing, healthy meals, or recovery rituals." },
-      ],
-      whatToExpect:
-        "Expect a slower, intentional wellness experience built around the group’s goals. The format may combine movement, rest, nature, and guided practices.",
-      whatToBring:
-        "Bring comfortable clothing, water, sun protection, and swimwear if the experience includes beach or water elements.",
-      gallery: [
-        "/discover-punta-mita/activities/beachfront-wellness-retreats.jpg",
-        "/discover-punta-mita/activities/beachfront-wellness-retreats-2.jpg",
-        "/discover-punta-mita/activities/beachfront-wellness-retreats-3.jpg",
-      ],
-    },
-    {
-      title: "Luxury Picnics",
-      slug: "luxury-picnics",
-      image: "/discover-punta-mita/activities/luxury-picnics.jpg",
-      description:
-        "Styled outdoor picnic experiences for couples, families, proposals, birthdays, and relaxed celebrations.",
-      overview:
-        "Luxury picnics bring together styling, food, setting, and atmosphere for a beautiful and relaxed outdoor experience. They work especially well for celebrations or sunset moments.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, proposals, birthdays, families, small groups, and photo-friendly celebrations." },
-        { label: "Typical Duration", value: "Usually 1.5 to 3 hours." },
-        { label: "Best Time of Day", value: "Late afternoon and sunset." },
-        { label: "Seasonality", value: "Year-round, weather permitting." },
-        { label: "What to Wear / Bring", value: "Resort casual clothing, comfortable sandals, and sun protection." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Styled, romantic, relaxed, and photo-friendly." },
-        { label: "Location", value: "Beach, villa terrace, garden, or scenic outdoor setting depending on permissions and conditions." },
-        { label: "Pricing", value: "Varies depending on styling, food, drinks, location, flowers, and add-ons." },
-      ],
-      whatToExpect:
-        "Expect a styled setup with seating, decor, food or snacks, and a relaxed environment for enjoying the setting. Add-ons may include flowers, photography, or special occasion details.",
-      whatToBring:
-        "Bring sunglasses, comfortable clothing, and anything personal you would like for photos or celebration details.",
-      gallery: [
-        "/discover-punta-mita/activities/luxury-picnics.jpg",
-        "/discover-punta-mita/activities/luxury-picnics-2.jpg",
-        "/discover-punta-mita/activities/luxury-picnics-3.jpg",
-      ],
-    },
-    {
-      title: "Sunset Dinners on the Beach",
-      slug: "sunset-dinners-on-the-beach",
-      image: "/discover-punta-mita/activities/sunset-dinners-on-the-beach.jpg",
-      description:
-        "A romantic or celebratory dining experience by the ocean with sunset views and a memorable setting.",
-      overview:
-        "Sunset dinners on the beach are ideal for couples, families, and groups celebrating something special. The setting creates a more memorable experience than a traditional restaurant dinner.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, anniversaries, proposals, birthdays, families, and special celebrations." },
-        { label: "Typical Duration", value: "Usually 2 to 3 hours." },
-        { label: "Best Time of Day", value: "Sunset and early evening." },
-        { label: "Seasonality", value: "Year-round, weather permitting." },
-        { label: "What to Wear / Bring", value: "Resort elegant or smart casual clothing, sandals, and a light layer." },
-      ],
-      customInfo: [
-        { label: "Dining Style", value: "Private dinner, romantic setup, family-style meal, plated dinner, or celebration table." },
-        { label: "Location", value: "Beachfront setting, villa beach access, or approved outdoor location depending on logistics." },
-        { label: "Pricing", value: "Varies by menu, setup, location, styling, service, and number of guests." },
-      ],
-      whatToExpect:
-        "Expect a scenic outdoor dining setup with ocean views, sunset atmosphere, and service adapted to the occasion.",
-      whatToBring:
-        "Wear comfortable but elevated clothing. A light layer can be helpful after sunset.",
-      gallery: [
-        "/discover-punta-mita/activities/sunset-dinners-on-the-beach.jpg",
-        "/discover-punta-mita/activities/sunset-dinners-on-the-beach-2.jpg",
-        "/discover-punta-mita/activities/sunset-dinners-on-the-beach-3.jpg",
-      ],
-    },
-    {
-      title: "Tequila Tastings",
-      slug: "tequila-tastings",
-      image: "/discover-punta-mita/activities/tequila-tastings.jpg",
-      description:
-        "A guided tasting experience focused on tequila styles, traditions, flavor profiles, and Mexican spirits culture.",
-      overview:
-        "Tequila tastings are a polished and enjoyable way to learn more about Mexican spirits. They work well as a pre-dinner activity, private villa experience, or group gathering.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, groups, celebrations, adults, and guests interested in Mexican culture and spirits." },
-        { label: "Typical Duration", value: "Usually 60 to 90 minutes." },
-        { label: "Best Time of Day", value: "Late afternoon, pre-dinner, or evening." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Resort casual clothing. No special items needed." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Educational, social, and tasting-focused." },
-        { label: "Service Location", value: "Villa, terrace, private dining area, or event setting." },
-        { label: "Age Suitability", value: "Adults only." },
-      ],
-      whatToExpect:
-        "Expect a guided tasting of different tequila expressions, flavor notes, production context, and pairing suggestions depending on the format.",
-      whatToBring:
-        "No special items are needed. Guests should share preferences or restrictions in advance if pairing food is included.",
-      gallery: [
-        "/discover-punta-mita/activities/tequila-tastings.jpg",
-        "/discover-punta-mita/activities/tequila-tastings-2.jpg",
-        "/discover-punta-mita/activities/tequila-tastings-3.jpg",
-      ],
-    },
-    {
-      title: "Mezcal Tastings",
-      slug: "mezcal-tastings",
-      image: "/discover-punta-mita/activities/mezcal-tastings.jpg",
-      description:
-        "A guided introduction to mezcal, its regional character, smoky complexity, and artisanal traditions.",
-      overview:
-        "Mezcal tastings offer a deeper look at one of Mexico’s most expressive spirits. The experience is ideal for adults who enjoy culture, flavor, and guided tasting.",
-      standardInfo: [
-        { label: "Best For", value: "Adults, couples, groups, food lovers, and guests interested in Mexican spirits." },
-        { label: "Typical Duration", value: "Usually 60 to 90 minutes." },
-        { label: "Best Time of Day", value: "Late afternoon, pre-dinner, or evening." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Resort casual clothing. No special items needed." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Cultural, educational, and flavor-focused." },
-        { label: "Service Location", value: "Villa, terrace, private dining area, or curated event space." },
-        { label: "Age Suitability", value: "Adults only." },
-      ],
-      whatToExpect:
-        "Expect a guided tasting through different mezcal styles, regions, production methods, and tasting notes. Some experiences may include pairings.",
-      whatToBring:
-        "No special items are needed. Guests should share any food preferences if pairings are included.",
-      gallery: [
-        "/discover-punta-mita/activities/mezcal-tastings.jpg",
-        "/discover-punta-mita/activities/mezcal-tastings-2.jpg",
-        "/discover-punta-mita/activities/mezcal-tastings-3.jpg",
-      ],
-    },
-    {
-      title: "Wine Tastings",
-      slug: "wine-tastings",
-      image: "/discover-punta-mita/activities/wine-tastings.jpg",
-      description:
-        "A refined tasting experience with selected wines, guided notes, and optional pairings in a private setting.",
-      overview:
-        "Wine tastings can be arranged as an elegant villa experience, pre-dinner activity, or group evening. The format can be relaxed or more formal depending on the occasion.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, groups, celebrations, adults, food lovers, and guests planning a relaxed evening." },
-        { label: "Typical Duration", value: "Usually 60 to 120 minutes." },
-        { label: "Best Time of Day", value: "Late afternoon or evening." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Resort casual or smart casual clothing." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Refined, social, and tasting-focused." },
-        { label: "Service Location", value: "Villa, terrace, private dining room, or event setting." },
-        { label: "Customization", value: "Can often be adapted by wine region, style, pairing, or occasion." },
-      ],
-      whatToExpect:
-        "Expect selected wines, guided tasting notes, and optional pairings. The experience can be designed as a casual tasting or a more formal private event.",
-      whatToBring:
-        "No special items are needed. Share preferences in advance if you prefer specific wine styles or pairings.",
-      gallery: [
-        "/discover-punta-mita/activities/wine-tastings.jpg",
-        "/discover-punta-mita/activities/wine-tastings-2.jpg",
-        "/discover-punta-mita/activities/wine-tastings-3.jpg",
-      ],
-    },
-    {
-      title: "Cigar Experiences",
-      slug: "cigar-experiences",
-      image: "/discover-punta-mita/activities/cigar-experiences.jpg",
-      description:
-        "A private cigar-focused experience for adults, often paired with spirits, conversation, and a relaxed evening setting.",
-      overview:
-        "Cigar experiences can be a refined add-on for adult groups, celebrations, or after-dinner moments. They work well in outdoor villa settings or private lounge-style environments.",
-      standardInfo: [
-        { label: "Best For", value: "Adults, groups, celebrations, after-dinner gatherings, and guests interested in cigars and spirits." },
-        { label: "Typical Duration", value: "Usually 60 to 120 minutes." },
-        { label: "Best Time of Day", value: "Evening or after dinner." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Resort casual or evening casual clothing." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Relaxed, refined, and social." },
-        { label: "Service Location", value: "Outdoor terrace, villa lounge area, private patio, or event setting." },
-        { label: "Age Suitability", value: "Adults only." },
-      ],
-      whatToExpect:
-        "Expect selected cigars, guidance on tasting and pairing, and a relaxed atmosphere. Experiences may include spirits pairings depending on the format.",
-      whatToBring:
-        "No special items are needed. Guests should share preferences if they have a preferred cigar style or pairing.",
-      gallery: [
-        "/discover-punta-mita/activities/cigar-experiences.jpg",
-        "/discover-punta-mita/activities/cigar-experiences-2.jpg",
-        "/discover-punta-mita/activities/cigar-experiences-3.jpg",
-      ],
-    },
-  ],
-},
+type ExperienceOption = {
+  title: string;
+  description: string;
+  bestFor: string;
+  duration: string;
+  experience: string;
+  whatToExpect: string;
+  whatToBring: string;
+  goodToKnow?: string;
+};
 
- {
-  title: "Golf & Sports",
-  slug: "golf-sports",
-  image: "/discover-punta-mita/golf-sports.jpg",
-  heroImage: "/discover-punta-mita/heroes/golf-sports-hero.jpg",
-  description:
-    "Golf, tennis, pickleball, fitness, hiking, horseback riding, and active experiences in Punta Mita and nearby.",
-  activities: [
-    {
-      title: "Punta Mita Golf Club",
-      slug: "punta-mita-golf-club",
-      image: "/discover-punta-mita/activities/punta-mita-golf-club.jpg",
-      description:
-        "A premier golf experience in Punta Mita with ocean views, luxury resort atmosphere, and beautifully maintained courses.",
-      overview:
-        "Punta Mita Golf Club is one of the most recognized golf experiences in the region, offering a polished setting, ocean scenery, and access to some of the area’s most desirable golf facilities.",
-      standardInfo: [
-        { label: "Best For", value: "Golfers, couples, groups, luxury travelers, and guests looking for a premium sports experience." },
-        { label: "Typical Duration", value: "Usually 4 to 5 hours for a full round, depending on pace and tee time." },
-        { label: "Best Time of Day", value: "Morning tee times are usually preferred for cooler temperatures and calmer conditions." },
-        { label: "Seasonality", value: "Available year-round, with demand varying by travel season and availability." },
-        { label: "What to Wear / Bring", value: "Golf attire, golf shoes, hat, sunglasses, sunscreen, and water." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Premium golf, resort-style, scenic, and relaxed." },
-        { label: "Location", value: "Inside the Punta Mita resort area." },
-        { label: "Booking Note", value: "Advance tee times are recommended, especially during high season." },
-      ],
-      whatToExpect:
-        "Expect a refined golf experience with tropical scenery, ocean views, professional course conditions, and a peaceful resort environment.",
-      whatToBring:
-        "Bring proper golf attire, golf shoes if needed, sun protection, and any personal golf accessories you prefer.",
-      gallery: [
-        "/discover-punta-mita/activities/punta-mita-golf-club.jpg",
-        "/discover-punta-mita/activities/punta-mita-golf-club-2.jpg",
-        "/discover-punta-mita/activities/punta-mita-golf-club-3.jpg",
-      ],
-    },
-    {
-      title: "Pacifico Golf Course",
-      slug: "pacifico-golf-course",
-      image: "/discover-punta-mita/activities/pacifico-golf-course.jpg",
-      description:
-        "A signature oceanfront golf experience known for dramatic coastal views and one of Punta Mita’s most memorable settings.",
-      overview:
-        "Pacifico Golf Course is one of Punta Mita’s most iconic golf experiences, combining ocean scenery, resort landscaping, and a course setting that feels distinctly connected to the Pacific coast.",
-      standardInfo: [
-        { label: "Best For", value: "Golfers, luxury travelers, couples, groups, and guests looking for a scenic golf round." },
-        { label: "Typical Duration", value: "Usually 4 to 5 hours for a full round." },
-        { label: "Best Time of Day", value: "Morning or late afternoon depending on tee time availability and weather." },
-        { label: "Seasonality", value: "Available year-round, with higher demand during peak travel periods." },
-        { label: "What to Wear / Bring", value: "Golf attire, golf shoes, hat, sunglasses, sunscreen, and water." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Scenic, oceanfront, premium, and resort-style." },
-        { label: "Location", value: "Punta Mita resort area." },
-        { label: "Booking Note", value: "Tee times and access should be confirmed in advance." },
-      ],
-      whatToExpect:
-        "Expect a beautiful golf setting with coastal views, polished course conditions, and a luxury resort atmosphere.",
-      whatToBring:
-        "Bring golf clothing, sun protection, and any personal golf equipment or accessories you prefer.",
-      gallery: [
-        "/discover-punta-mita/activities/pacifico-golf-course.jpg",
-        "/discover-punta-mita/activities/pacifico-golf-course-2.jpg",
-        "/discover-punta-mita/activities/pacifico-golf-course-3.jpg",
-      ],
-    },
-    {
-      title: "Bahia Golf Course",
-      slug: "bahia-golf-course",
-      image: "/discover-punta-mita/activities/bahia-golf-course.jpg",
-      description:
-        "A refined golf course experience in Punta Mita with tropical scenery, resort landscaping, and a relaxed luxury feel.",
-      overview:
-        "Bahia Golf Course offers another excellent golf option in Punta Mita, with a setting that blends natural landscape, resort comfort, and a high-end golf environment.",
-      standardInfo: [
-        { label: "Best For", value: "Golfers, families, groups, couples, and guests looking for an elegant sports experience." },
-        { label: "Typical Duration", value: "Usually 4 to 5 hours for a full round." },
-        { label: "Best Time of Day", value: "Morning tee times are recommended for comfort and pace." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Golf attire, golf shoes, hat, sunscreen, sunglasses, and water." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Premium, scenic, peaceful, and resort-style." },
-        { label: "Location", value: "Punta Mita resort area." },
-        { label: "Booking Note", value: "Advance reservations are recommended." },
-      ],
-      whatToExpect:
-        "Expect a polished golf experience with tropical surroundings, strong course presentation, and a calm resort atmosphere.",
-      whatToBring:
-        "Bring proper golf attire, sun protection, and personal golf accessories if desired.",
-      gallery: [
-        "/discover-punta-mita/activities/bahia-golf-course.jpg",
-        "/discover-punta-mita/activities/bahia-golf-course-2.jpg",
-        "/discover-punta-mita/activities/bahia-golf-course-3.jpg",
-      ],
-    },
-    {
-      title: "Tennis Lessons",
-      slug: "tennis-lessons",
-      image: "/discover-punta-mita/activities/tennis-lessons.jpg",
-      description:
-        "Private or small-group tennis instruction for beginners, intermediate players, and guests who want to stay active during their stay.",
-      overview:
-        "Tennis lessons are a great option for guests who want structured instruction, light competition, or a polished sports experience while staying in Punta Mita.",
-      standardInfo: [
-        { label: "Best For", value: "Beginners, intermediate players, families, couples, teens, and active travelers." },
-        { label: "Typical Duration", value: "Usually 60 to 90 minutes." },
-        { label: "Best Time of Day", value: "Morning or late afternoon to avoid the strongest heat." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Tennis attire, court shoes, hat, sunscreen, and water." },
-      ],
-      customInfo: [
-        { label: "Skill Level", value: "Beginner to advanced, depending on instructor and session format." },
-        { label: "Experience Style", value: "Instructional, active, and customizable." },
-        { label: "Booking Note", value: "Advance scheduling is recommended for preferred times and court availability." },
-      ],
-      whatToExpect:
-        "Expect a private or small-group session focused on technique, movement, drills, or match play depending on the guest’s level.",
-      whatToBring:
-        "Bring proper court shoes, water, comfortable athletic clothing, and a racquet if you prefer using your own.",
-      gallery: [
-        "/discover-punta-mita/activities/tennis-lessons.jpg",
-        "/discover-punta-mita/activities/tennis-lessons-2.jpg",
-        "/discover-punta-mita/activities/tennis-lessons-3.jpg",
-      ],
-    },
-    {
-      title: "Pickleball",
-      slug: "pickleball",
-      image: "/discover-punta-mita/activities/pickleball.jpg",
-      description:
-        "A fun, social, and accessible sport for families, groups, beginners, and active guests.",
-      overview:
-        "Pickleball is an easygoing and social sports activity that works well for groups, families, and guests who want something active but not too intense.",
-      standardInfo: [
-        { label: "Best For", value: "Families, groups, beginners, active travelers, and guests looking for a social sport." },
-        { label: "Typical Duration", value: "Usually 60 to 90 minutes." },
-        { label: "Best Time of Day", value: "Morning or late afternoon." },
-        { label: "Seasonality", value: "Available year-round depending on court access and availability." },
-        { label: "What to Wear / Bring", value: "Athletic clothing, court shoes, sunscreen, hat, and water." },
-      ],
-      customInfo: [
-        { label: "Skill Level", value: "Beginner-friendly and easy to learn." },
-        { label: "Experience Style", value: "Social, active, relaxed, and group-friendly." },
-        { label: "Booking Note", value: "Court access and equipment availability should be confirmed in advance." },
-      ],
-      whatToExpect:
-        "Expect a fun, casual court session that can be played recreationally or with instruction depending on the group.",
-      whatToBring:
-        "Bring athletic clothing, water, sun protection, and comfortable court shoes.",
-      gallery: [
-        "/discover-punta-mita/activities/pickleball.jpg",
-        "/discover-punta-mita/activities/pickleball-2.jpg",
-        "/discover-punta-mita/activities/pickleball-3.jpg",
-      ],
-    },
-    {
-      title: "Private Fitness Coaching",
-      slug: "private-fitness-coaching",
-      image: "/discover-punta-mita/activities/private-fitness-coaching.jpg",
-      description:
-        "Personalized fitness sessions arranged around your goals, schedule, villa setting, and preferred training style.",
-      overview:
-        "Private fitness coaching gives guests the flexibility to maintain their routine or add structured training during their stay. Sessions can be adapted to fitness level, equipment, and location.",
-      standardInfo: [
-        { label: "Best For", value: "Active travelers, wellness guests, athletes, families, and groups wanting private training." },
-        { label: "Typical Duration", value: "Usually 45 to 75 minutes." },
-        { label: "Best Time of Day", value: "Morning or late afternoon." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Athletic clothing, training shoes, towel, and water." },
-      ],
-      customInfo: [
-        { label: "Training Style", value: "Strength, mobility, core, HIIT, stretching, recovery, or customized private coaching." },
-        { label: "Service Location", value: "Villa gym, terrace, garden, beach area, or private fitness space." },
-        { label: "Customization", value: "Sessions can be adjusted by level, injuries, goals, and available equipment." },
-      ],
-      whatToExpect:
-        "Expect a tailored workout led by a private coach, adapted to the group’s fitness level and goals.",
-      whatToBring:
-        "Bring athletic clothing, training shoes, towel, water, and any personal fitness accessories you prefer.",
-      gallery: [
-        "/discover-punta-mita/activities/private-fitness-coaching.jpg",
-        "/discover-punta-mita/activities/private-fitness-coaching-2.jpg",
-        "/discover-punta-mita/activities/private-fitness-coaching-3.jpg",
-      ],
-    },
-    {
-      title: "Beach Workouts",
-      slug: "beach-workouts",
-      image: "/discover-punta-mita/activities/beach-workouts.jpg",
-      description:
-        "Outdoor fitness sessions by the ocean, combining movement, fresh air, and the natural setting of Punta Mita.",
-      overview:
-        "Beach workouts are ideal for guests who want an energizing outdoor session. They can be light and family-friendly or more intense depending on the group.",
-      standardInfo: [
-        { label: "Best For", value: "Active travelers, wellness groups, families, couples, and guests who enjoy outdoor movement." },
-        { label: "Typical Duration", value: "Usually 45 to 75 minutes." },
-        { label: "Best Time of Day", value: "Early morning or sunset." },
-        { label: "Seasonality", value: "Available year-round, weather permitting." },
-        { label: "What to Wear / Bring", value: "Athletic clothing, water, towel, sunscreen, and training shoes or barefoot-friendly attire depending on format." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Outdoor, energizing, scenic, and adaptable." },
-        { label: "Location", value: "Beachfront area, villa beach access, garden, terrace, or open outdoor space." },
-        { label: "Intensity", value: "Can be gentle, moderate, or challenging depending on guest preference." },
-      ],
-      whatToExpect:
-        "Expect a guided outdoor workout using bodyweight movements, mobility, conditioning, or functional training adapted to the setting.",
-      whatToBring:
-        "Bring water, towel, sun protection, and clothing suitable for movement outdoors.",
-      gallery: [
-        "/discover-punta-mita/activities/beach-workouts.jpg",
-        "/discover-punta-mita/activities/beach-workouts-2.jpg",
-        "/discover-punta-mita/activities/beach-workouts-3.jpg",
-      ],
-    },
-    {
-      title: "Hiking",
-      slug: "hiking",
-      image: "/discover-punta-mita/activities/hiking.jpg",
-      description:
-        "Explore coastal, jungle, and scenic walking routes near Punta Mita and the surrounding Riviera Nayarit area.",
-      overview:
-        "Hiking near Punta Mita can offer ocean views, tropical vegetation, quiet trails, and a more grounded way to experience the natural surroundings.",
-      standardInfo: [
-        { label: "Best For", value: "Nature lovers, active travelers, families, couples, and guests looking for scenic outdoor time." },
-        { label: "Typical Duration", value: "Usually 1.5 to 4 hours depending on route." },
-        { label: "Best Time of Day", value: "Early morning for cooler temperatures." },
-        { label: "Seasonality", value: "Year-round, with route comfort depending on heat, rain, and trail conditions." },
-        { label: "What to Wear / Bring", value: "Comfortable walking shoes, light clothing, hat, sunscreen, insect repellent, and water." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Scenic, active, nature-focused, and condition-dependent." },
-        { label: "Location", value: "Coastal paths, jungle areas, nearby towns, or guided nature routes depending on itinerary." },
-        { label: "Difficulty", value: "Can range from easy walks to more active routes." },
-      ],
-      whatToExpect:
-        "Expect a scenic outdoor experience with walking, viewpoints, nature, and changing terrain depending on the selected route.",
-      whatToBring:
-        "Bring water, sun protection, insect repellent, comfortable shoes, and a small backpack if needed.",
-      gallery: [
-        "/discover-punta-mita/activities/hiking.jpg",
-        "/discover-punta-mita/activities/hiking-2.jpg",
-        "/discover-punta-mita/activities/hiking-3.jpg",
-      ],
-    },
-    {
-      title: "Mountain Biking",
-      slug: "mountain-biking",
-      image: "/discover-punta-mita/activities/mountain-biking.jpg",
-      description:
-        "An active land-based adventure through scenic roads, trails, and natural areas near Punta Mita.",
-      overview:
-        "Mountain biking is a strong option for adventurous guests who want an active experience beyond the beach. Routes can vary depending on skill level, terrain, and guide availability.",
-      standardInfo: [
-        { label: "Best For", value: "Active travelers, adventure guests, teens, adults, and experienced riders." },
-        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
-        { label: "Best Time of Day", value: "Early morning." },
-        { label: "Seasonality", value: "Year-round, with conditions affected by rain and trail quality." },
-        { label: "What to Wear / Bring", value: "Athletic clothing, closed-toe shoes, sunscreen, water, and comfortable riding gear." },
-      ],
-      customInfo: [
-        { label: "Skill Level", value: "Beginner to advanced depending on route." },
-        { label: "Experience Style", value: "Active, adventurous, scenic, and terrain-dependent." },
-        { label: "Location", value: "Trails, scenic roads, jungle paths, or nearby guided biking routes." },
-      ],
-      whatToExpect:
-        "Expect an active ride through varied terrain. Routes should be matched to the group’s fitness level and biking experience.",
-      whatToBring:
-        "Bring athletic clothing, water, sun protection, and closed-toe shoes. Helmets and bikes are usually arranged through the provider.",
-      gallery: [
-        "/discover-punta-mita/activities/mountain-biking.jpg",
-        "/discover-punta-mita/activities/mountain-biking-2.jpg",
-        "/discover-punta-mita/activities/mountain-biking-3.jpg",
-      ],
-    },
-    {
-      title: "Horseback Riding on the Beach",
-      slug: "horseback-riding-on-the-beach",
-      image: "/discover-punta-mita/activities/horseback-riding-on-the-beach.jpg",
-      description:
-        "A scenic horseback riding experience along the beach, ideal for relaxed outdoor time and coastal views.",
-      overview:
-        "Horseback riding on the beach is a memorable way to enjoy the coastline at a slower pace. It works well for couples, families, and guests who want a relaxed but special outdoor experience.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, families, nature lovers, beginners, and guests looking for a scenic experience." },
-        { label: "Typical Duration", value: "Usually 1 to 2 hours." },
-        { label: "Best Time of Day", value: "Morning or sunset." },
-        { label: "Seasonality", value: "Year-round, weather and beach conditions permitting." },
-        { label: "What to Wear / Bring", value: "Comfortable clothing, closed-toe shoes, hat, sunscreen, and sunglasses." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Scenic, relaxed, romantic, and family-friendly." },
-        { label: "Skill Level", value: "Beginner-friendly depending on provider and horse temperament." },
-        { label: "Location", value: "Beach areas near Punta Mita, Riviera Nayarit, or nearby coastal towns depending on operator." },
-      ],
-      whatToExpect:
-        "Expect a guided ride along beach or coastal areas with time for scenery, photos, and a relaxed pace.",
-      whatToBring:
-        "Bring closed-toe shoes, sunscreen, comfortable clothing, and a hat. Avoid loose items that may fall during the ride.",
-      gallery: [
-        "/discover-punta-mita/activities/horseback-riding-on-the-beach.jpg",
-        "/discover-punta-mita/activities/horseback-riding-on-the-beach-2.jpg",
-        "/discover-punta-mita/activities/horseback-riding-on-the-beach-3.jpg",
-      ],
-    },
-  ],
-},
+type Activity = {
+  title: string;
+  slug: string;
+  image: string;
+  description: string;
+  overview: string;
+  standardInfo: InfoItem[];
+  customInfo: InfoItem[];
+  whatToExpect: string;
+  whatToBring: string;
+  gallery: string[];
+  tags: string[];
+  experienceOptions: ExperienceOption[];
+};
 
-  {
-  title: "Beach Clubs & Day Clubs",
-  slug: "beach-clubs-day-clubs",
-  image: "/discover-punta-mita/beach-clubs-day-clubs.jpg",
-  heroImage:
-    "/discover-punta-mita/heroes/beach-clubs-day-clubs-hero.jpg",
-  description:
-    "Beach clubs, ocean clubs, day clubs, and stylish places to spend the day by the water across Punta Mita, Sayulita, San Pancho, and Puerto Vallarta.",
-  activities: [
+type DiscoverCategory = {
+  title: string;
+  slug: string;
+  image: string;
+  heroImage: string;
+  description: string;
+  activities: Activity[];
+};
 
-    // PUNTA MITA AREA
+function option({
+  title,
+  description,
+  bestFor,
+  duration,
+  experience,
+  whatToExpect,
+  whatToBring,
+  goodToKnow,
+}: ExperienceOption): ExperienceOption {
+  return {
+    title,
+    description,
+    bestFor,
+    duration,
+    experience,
+    whatToExpect,
+    whatToBring,
+    goodToKnow,
+  };
+}
 
-    {
-      title: "Kupuri Beach Club",
-      slug: "kupuri-beach-club",
-      image: "/discover-punta-mita/activities/kupuri-beach-club.jpg",
-      description:
-        "A relaxed luxury beach club experience inside Punta Mita with calm water, family-friendly atmosphere, and oceanfront service.",
-      overview:
-        "Kupuri Beach Club is one of Punta Mita’s most recognized beach club experiences, offering a comfortable setting for beach days, ocean activities, and relaxed dining.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, groups, beach days, and relaxed luxury travelers." },
-        { label: "Typical Duration", value: "Half-day or full-day experience." },
-        { label: "Best Time of Day", value: "Late morning through sunset." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Swimwear, sandals, sunglasses, sunscreen, and resort beachwear." },
-      ],
-      customInfo: [
-        { label: "Region", value: "Inside Punta Mita" },
-        { label: "Area", value: "Punta Mita." },
-        { label: "Atmosphere", value: "Relaxed, upscale, family-friendly, and beachfront." },
-        { label: "Good to Know", value: "Access policies may vary depending on membership, reservations, or villa access." },
-      ],
-      whatToExpect:
-        "Expect a calm beach setting with lounge areas, food and beverage service, ocean access, and a comfortable resort-style atmosphere.",
-      whatToBring:
-        "Bring swimwear, sunscreen, sunglasses, and anything you may want for a long beach day.",
-      gallery: [
-        "/discover-punta-mita/activities/kupuri-beach-club.jpg",
-        "/discover-punta-mita/activities/kupuri-beach-club-2.jpg",
-        "/discover-punta-mita/activities/kupuri-beach-club-3.jpg",
-      ],
-    },
-
-    {
-      title: "Pacifico Beach Club",
-      slug: "pacifico-beach-club",
-      image: "/discover-punta-mita/activities/pacifico-beach-club.jpg",
-      description:
-        "An elegant oceanfront beach club experience with a polished resort atmosphere in Punta Mita.",
-      overview:
-        "Pacifico Beach Club offers a refined beachfront setting for relaxing, dining, and enjoying the Pacific coastline in a luxury resort environment.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, groups, luxury travelers, and guests seeking a relaxed upscale beach day." },
-        { label: "Typical Duration", value: "Half-day or full-day experience." },
-        { label: "Best Time of Day", value: "Morning through sunset." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Resort beachwear, sandals, sunscreen, hat, and sunglasses." },
-      ],
-      customInfo: [
-       { label: "Region", value: "Inside Punta Mita" },
-        { label: "Area", value: "Punta Mita." },
-        { label: "Atmosphere", value: "Elegant, scenic, and upscale." },
-        { label: "Experience Style", value: "Luxury beachfront club with oceanfront dining and resort-style service." },
-],
-whatToExpect:
-  "Expect a polished beach club setting with comfortable lounging, ocean access, elevated food and beverage service, and a relaxed luxury atmosphere.",
-whatToBring:
-  "Bring swimwear, sunglasses, sunscreen, sandals, and comfortable beachwear for a full day by the ocean.",
-gallery: [
-  "/discover-punta-mita/activities/pacifico-beach-club.jpg",
-  "/discover-punta-mita/activities/pacifico-beach-club-2.jpg",
-  "/discover-punta-mita/activities/pacifico-beach-club-3.jpg",
-],
-},
-
-   {
-  title: "Sufi Ocean Club",
-  slug: "sufi-ocean-club",
-  image: "/discover-punta-mita/activities/sufi-ocean-club.jpg",
-  description:
-    "A refined oceanfront club experience known for relaxed luxury, dining, and Punta Mita coastline views.",
-  overview:
-    "Sufi Ocean Club blends beach club atmosphere, ocean scenery, and upscale dining into one of Punta Mita’s most polished day experiences.",
-  standardInfo: [
-    { label: "Best For", value: "Couples, groups, luxury travelers, and relaxed social beach days." },
-    { label: "Typical Duration", value: "Half-day or full-day experience." },
-    { label: "Best Time of Day", value: "Lunch through sunset." },
-    { label: "Seasonality", value: "Available year-round." },
-    { label: "What to Wear / Bring", value: "Elevated beachwear, sandals, sunglasses, and sun protection." },
-  ],
-  customInfo: [
-   { label: "Region", value: "Inside Punta Mita" },
-    { label: "Area", value: "Punta Mita." },
-    { label: "Atmosphere", value: "Upscale, scenic, and relaxed." },
-    { label: "Dining Style", value: "Oceanfront dining and beach club service." },
-  ],
-  whatToExpect:
-    "Expect a polished beachfront setting with comfortable seating, cocktails, dining, and a scenic atmosphere.",
-  whatToBring:
-    "Bring swimwear, sunscreen, sunglasses, and anything you may want for a comfortable beach day.",
-  gallery: [
-    "/discover-punta-mita/activities/sufi-ocean-club.jpg",
-    "/discover-punta-mita/activities/sufi-ocean-club-2.jpg",
-    "/discover-punta-mita/activities/sufi-ocean-club-3.jpg",
-  ],
-},
-
-{
-  title: "Sea Breeze Beach Club",
-  slug: "sea-breeze-beach-club",
-  image: "/discover-punta-mita/activities/sea-breeze-beach-club.jpg",
-  description:
-    "A relaxed beachfront club environment ideal for slow afternoons, ocean views, and casual luxury.",
-  overview:
-    "Sea Breeze Beach Club offers a comfortable and easygoing beach atmosphere focused on ocean access, lounging, and relaxed service.",
-  standardInfo: [
-    { label: "Best For", value: "Families, couples, groups, and guests seeking a quieter beach day." },
-    { label: "Typical Duration", value: "Half-day or full-day." },
-    { label: "Best Time of Day", value: "Late morning through afternoon." },
-    { label: "Seasonality", value: "Available year-round." },
-    { label: "What to Wear / Bring", value: "Beachwear, sandals, sunscreen, and sunglasses." },
-  ],
-  customInfo: [
-   { label: "Region", value: "Inside Punta Mita" },
-    { label: "Area", value: "Punta Mita." },
-    { label: "Atmosphere", value: "Relaxed, comfortable, and family-friendly." },
-    { label: "Experience Style", value: "Easygoing beachfront day club." },
-  ],
-  whatToExpect:
-    "Expect a calm beachfront environment with food and beverage service, shaded seating, and ocean views.",
-  whatToBring:
-    "Bring beach essentials, swimwear, sunscreen, and comfortable clothing.",
-  gallery: [
-    "/discover-punta-mita/activities/sea-breeze-beach-club.jpg",
-    "/discover-punta-mita/activities/sea-breeze-beach-club-2.jpg",
-    "/discover-punta-mita/activities/sea-breeze-beach-club-3.jpg",
-  ],
-},
-
-{
-  title: "El Surf Club",
-  slug: "el-surf-club",
-  image: "/discover-punta-mita/activities/el-surf-club.jpg",
-  description:
-    "A beachfront surf-focused club atmosphere with ocean views, relaxed energy, and a coastal Punta Mita feel.",
-  overview:
-    "El Surf Club combines beach culture, surf atmosphere, and relaxed social energy in a scenic Punta Mita setting.",
-  standardInfo: [
-    { label: "Best For", value: "Surf lovers, couples, groups, and guests seeking a casual but elevated beach atmosphere." },
-    { label: "Typical Duration", value: "Half-day or full-day experience." },
-    { label: "Best Time of Day", value: "Morning through sunset." },
-    { label: "Seasonality", value: "Available year-round." },
-    { label: "What to Wear / Bring", value: "Swimwear, sandals, sunglasses, and beachwear." },
-  ],
-  customInfo: [
-   { label: "Region", value: "Inside Punta Mita" },
-    { label: "Area", value: "Punta Mita." },
-    { label: "Atmosphere", value: "Surf-inspired, social, relaxed, and beachfront." },
-    { label: "Experience Style", value: "Beach club with surf culture influence." },
-  ],
-  whatToExpect:
-    "Expect beachfront seating, relaxed social atmosphere, ocean scenery, and a casual luxury environment.",
-  whatToBring:
-    "Bring swimwear, sunscreen, sunglasses, and comfortable beach clothing.",
-  gallery: [
-    "/discover-punta-mita/activities/el-surf-club.jpg",
-    "/discover-punta-mita/activities/el-surf-club-2.jpg",
-    "/discover-punta-mita/activities/el-surf-club-3.jpg",
-  ],
-},
-
-// SAYULITA & SAN PANCHO
-
-{
-  title: "Playa Carricitos",
-  slug: "playa-carricitos",
-  image: "/discover-punta-mita/activities/playa-carricitos.jpg",
-  description:
-    "A more hidden and natural beach experience near Sayulita known for sunsets and a relaxed atmosphere.",
-  overview:
-    "Playa Carricitos offers a quieter and more natural beach setting compared to the central Sayulita beach area, making it attractive for guests seeking scenery and a slower atmosphere.",
-  standardInfo: [
-    { label: "Best For", value: "Couples, sunset seekers, photographers, and guests wanting a quieter beach." },
-    { label: "Typical Duration", value: "2 to 5 hours." },
-    { label: "Best Time of Day", value: "Late afternoon and sunset." },
-    { label: "Seasonality", value: "Accessible year-round depending on weather and beach conditions." },
-    { label: "What to Wear / Bring", value: "Beachwear, sandals, sunscreen, water, and light snacks if desired." },
-  ],
-  customInfo: [
-   { label: "Region", value: "Sayulita & San Pancho" },
-    { label: "Area", value: "Sayulita." },
-    { label: "Atmosphere", value: "Natural, scenic, and less developed." },
-    { label: "Good to Know", value: "Access may require walking and ocean conditions can vary." },
-  ],
-  whatToExpect:
-    "Expect a more natural beach environment with fewer services and beautiful sunset scenery.",
-  whatToBring:
-    "Bring water, sunscreen, sandals, and beach essentials.",
-  gallery: [
-    "/discover-punta-mita/activities/playa-carricitos.jpg",
-    "/discover-punta-mita/activities/playa-carricitos-2.jpg",
-    "/discover-punta-mita/activities/playa-carricitos-3.jpg",
-  ],
-},
-
-{
-  title: "Tierra Tropical Beach Club",
-  slug: "tierra-tropical-beach-club",
-  image: "/discover-punta-mita/activities/tierra-tropical-beach-club.jpg",
-  description:
-    "A stylish Sayulita-area beach club with tropical atmosphere, dining, and relaxed social energy.",
-  overview:
-    "Tierra Tropical Beach Club blends tropical design, beach atmosphere, and relaxed social dining into a modern Riviera Nayarit beach experience.",
-  standardInfo: [
-    { label: "Best For", value: "Couples, groups, social travelers, and guests seeking a stylish beach atmosphere." },
-    { label: "Typical Duration", value: "Half-day or full-day." },
-    { label: "Best Time of Day", value: "Afternoon through sunset." },
-    { label: "Seasonality", value: "Available year-round." },
-    { label: "What to Wear / Bring", value: "Stylish beachwear, sandals, sunglasses, and sun protection." },
-  ],
-  customInfo: [
-   { label: "Region", value: "Sayulita & San Pancho" },
-    { label: "Area", value: "Sayulita / Riviera Nayarit." },
-    { label: "Atmosphere", value: "Tropical, social, and stylish." },
-    { label: "Dining Style", value: "Beach club dining and cocktails." },
-  ],
-  whatToExpect:
-    "Expect music, beach seating, tropical atmosphere, food and beverage service, and a social environment.",
-  whatToBring:
-    "Bring beach essentials and comfortable clothing for a full afternoon outdoors.",
-  gallery: [
-    "/discover-punta-mita/activities/tierra-tropical-beach-club.jpg",
-    "/discover-punta-mita/activities/tierra-tropical-beach-club-2.jpg",
-    "/discover-punta-mita/activities/tierra-tropical-beach-club-3.jpg",
-  ],
-},
-
-{
-  title: "La Isla Beach Club",
-  slug: "la-isla-beach-club",
-  image: "/discover-punta-mita/activities/la-isla-beach-club.jpg",
-  description:
-    "A relaxed Riviera Nayarit beach club experience with oceanfront atmosphere and tropical scenery.",
-  overview:
-    "La Isla Beach Club offers a scenic beachfront setting ideal for spending a relaxed day by the ocean with food, drinks, and beach access.",
-  standardInfo: [
-    { label: "Best For", value: "Couples, families, groups, and beach-focused travelers." },
-    { label: "Typical Duration", value: "Half-day or full-day." },
-    { label: "Best Time of Day", value: "Late morning through sunset." },
-    { label: "Seasonality", value: "Available year-round." },
-    { label: "What to Wear / Bring", value: "Beachwear, sunscreen, sandals, and sunglasses." },
-  ],
-  customInfo: [
-   { label: "Region", value: "Sayulita & San Pancho" },
-    { label: "Area", value: "Sayulita / Riviera Nayarit." },
-    { label: "Atmosphere", value: "Relaxed, tropical, and scenic." },
-    { label: "Experience Style", value: "Oceanfront beach day experience." },
-  ],
-  whatToExpect:
-    "Expect ocean views, beach seating, relaxed atmosphere, and beach club dining.",
-  whatToBring:
-    "Bring swimwear, sun protection, and beach essentials.",
-  gallery: [
-    "/discover-punta-mita/activities/la-isla-beach-club.jpg",
-    "/discover-punta-mita/activities/la-isla-beach-club-2.jpg",
-    "/discover-punta-mita/activities/la-isla-beach-club-3.jpg",
-  ],
-},
-
-// PUERTO VALLARTA AREA
-
-{
-  title: "Majahuitas Beach Club",
-  slug: "majahuitas-beach-club",
-  image: "/discover-punta-mita/activities/majahuitas-beach-club.jpg",
-  description:
-    "A jungle-meets-ocean beach club experience accessible by boat, known for music, scenery, and tropical atmosphere.",
-  overview:
-    "Majahuitas Beach Club is one of the most visually distinctive beach club experiences near Puerto Vallarta, combining jungle surroundings, ocean access, music, and event-style energy.",
-  standardInfo: [
-    { label: "Best For", value: "Groups, music lovers, social travelers, and guests seeking a more energetic beach club atmosphere." },
-    { label: "Typical Duration", value: "Half-day or full-day." },
-    { label: "Best Time of Day", value: "Afternoon through sunset." },
-    { label: "Seasonality", value: "Available seasonally depending on events and operations." },
-    { label: "What to Wear / Bring", value: "Stylish beachwear, sandals, sunscreen, sunglasses, and swimwear." },
-  ],
-  customInfo: [
-   { label: "Region", value: "Puerto Vallarta Area" },
-    { label: "Area", value: "Puerto Vallarta coastline." },
-    { label: "Atmosphere", value: "Tropical, music-focused, energetic, and scenic." },
-    { label: "Access", value: "Typically accessed by boat." },
-  ],
-  whatToExpect:
-    "Expect music, cocktails, ocean scenery, jungle atmosphere, and a more social beach club environment.",
-  whatToBring:
-    "Bring beachwear, sunscreen, sunglasses, and comfortable clothing for boat access.",
-  gallery: [
-    "/discover-punta-mita/activities/majahuitas-beach-club.jpg",
-    "/discover-punta-mita/activities/majahuitas-beach-club-2.jpg",
-    "/discover-punta-mita/activities/majahuitas-beach-club-3.jpg",
-     ],
-    },
-   {
-  title: "Anima Beach Club",
-  slug: "anima-beach-club",
-  image: "/discover-punta-mita/activities/anima-beach-club.jpg",
-  description:
-    "A stylish beach club experience accessible by boat with tropical scenery, music, and oceanfront dining.",
-  overview:
-    "Anima Beach Club combines jungle coastline scenery, music, cocktails, and relaxed luxury into one of the most attractive beach club experiences near Puerto Vallarta.",
-  standardInfo: [
-    { label: "Best For", value: "Groups, couples, social travelers, and guests seeking a lively beach atmosphere." },
-    { label: "Typical Duration", value: "Half-day or full-day." },
-    { label: "Best Time of Day", value: "Afternoon through sunset." },
-    { label: "Seasonality", value: "Available seasonally depending on operations and events." },
-    { label: "What to Wear / Bring", value: "Stylish beachwear, sandals, sunglasses, sunscreen, and swimwear." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Puerto Vallarta Area" },
-    { label: "Area", value: "Puerto Vallarta coastline." },
-    { label: "Atmosphere", value: "Social, tropical, scenic, and music-focused." },
-  ],
-  whatToExpect:
-    "Expect ocean scenery, beach club service, cocktails, music, and a more energetic social environment.",
-  whatToBring:
-    "Bring beach essentials, comfortable beachwear, sunscreen, and sunglasses.",
-  gallery: [
-    "/discover-punta-mita/activities/anima-beach-club.jpg",
-    "/discover-punta-mita/activities/anima-beach-club-2.jpg",
-    "/discover-punta-mita/activities/anima-beach-club-3.jpg",
-  ],
-},
-
-{
-  title: "Savia Beach Club",
-  slug: "savia-beach-club",
-  image: "/discover-punta-mita/activities/savia-beach-club.jpg",
-  description:
-    "A modern beachfront club experience with tropical atmosphere, ocean views, and relaxed luxury.",
-  overview:
-    "Savia Beach Club offers a polished beach setting with music, cocktails, ocean scenery, and a stylish social atmosphere.",
-  standardInfo: [
-    { label: "Best For", value: "Couples, groups, social travelers, and beach club guests." },
-    { label: "Typical Duration", value: "Half-day or full-day." },
-    { label: "Best Time of Day", value: "Afternoon through sunset." },
-    { label: "Seasonality", value: "Available year-round depending on operations." },
-    { label: "What to Wear / Bring", value: "Beachwear, sunglasses, sandals, sunscreen, and swimwear." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Puerto Vallarta Area" },
-    { label: "Area", value: "Puerto Vallarta coastline." },
-    { label: "Atmosphere", value: "Stylish, tropical, social, and oceanfront." },
-  ],
-  whatToExpect:
-    "Expect beach seating, cocktails, music, ocean views, and a modern beach club atmosphere.",
-  whatToBring:
-    "Bring swimwear, sunglasses, sunscreen, and beach essentials.",
-  gallery: [
-    "/discover-punta-mita/activities/savia-beach-club.jpg",
-    "/discover-punta-mita/activities/savia-beach-club-2.jpg",
-    "/discover-punta-mita/activities/savia-beach-club-3.jpg",
-  ],
-},
-
-{
-  title: "Chicabal Sunset Club",
-  slug: "chicabal-sunset-club",
-  image: "/discover-punta-mita/activities/chicabal-sunset-club.jpg",
-  description:
-    "A sunset-focused beach club atmosphere with music, cocktails, and oceanfront energy.",
-  overview:
-    "Chicabal Sunset Club is designed around sunset atmosphere, social energy, and beachfront evenings near Puerto Vallarta.",
-  standardInfo: [
-    { label: "Best For", value: "Groups, couples, nightlife-oriented travelers, and sunset-focused beach days." },
-    { label: "Typical Duration", value: "Afternoon through evening." },
-    { label: "Best Time of Day", value: "Sunset." },
-    { label: "Seasonality", value: "Available depending on events and operations." },
-    { label: "What to Wear / Bring", value: "Stylish beachwear, sandals, sunglasses, and evening beach attire." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Puerto Vallarta Area" },
-    { label: "Area", value: "Puerto Vallarta coastline." },
-    { label: "Atmosphere", value: "Sunset-focused, social, music-driven, and energetic." },
-  ],
-  whatToExpect:
-    "Expect music, sunset views, cocktails, beach atmosphere, and a more social late-afternoon environment.",
-  whatToBring:
-    "Bring stylish beachwear, sunglasses, and comfortable clothing for transitioning into evening.",
-  gallery: [
-    "/discover-punta-mita/activities/chicabal-sunset-club.jpg",
-    "/discover-punta-mita/activities/chicabal-sunset-club-2.jpg",
-    "/discover-punta-mita/activities/chicabal-sunset-club-3.jpg",
-  ],
-},
-
-{
-  title: "Mantamar Beach Club",
-  slug: "mantamar-beach-club",
-  image: "/discover-punta-mita/activities/mantamar-beach-club.jpg",
-  description:
-    "One of Puerto Vallarta’s most recognized beach club experiences with music, pool atmosphere, and beachfront social energy.",
-  overview:
-    "Mantamar Beach Club is known for its vibrant atmosphere, pool scene, beachfront location, and lively social environment in Puerto Vallarta.",
-  standardInfo: [
-    { label: "Best For", value: "Groups, social travelers, music lovers, and guests looking for a lively day club atmosphere." },
-    { label: "Typical Duration", value: "Half-day or full-day." },
-    { label: "Best Time of Day", value: "Afternoon through sunset." },
-    { label: "Seasonality", value: "Available year-round." },
-    { label: "What to Wear / Bring", value: "Beachwear, swimwear, sandals, sunglasses, and sunscreen." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Puerto Vallarta Area" },
-    { label: "Area", value: "Puerto Vallarta." },
-    { label: "Atmosphere", value: "Lively, social, music-focused, and energetic." },
-  ],
-  whatToExpect:
-    "Expect pool atmosphere, music, beach access, cocktails, and an energetic social environment.",
-  whatToBring:
-    "Bring beachwear, sunscreen, sunglasses, and anything needed for a full beach club day.",
-  gallery: [
-    "/discover-punta-mita/activities/mantamar-beach-club.jpg",
-    "/discover-punta-mita/activities/mantamar-beach-club-2.jpg",
-    "/discover-punta-mita/activities/mantamar-beach-club-3.jpg",
-  ],
-},
-
-{
-  title: "Sapphire Ocean Club",
-  slug: "sapphire-ocean-club",
-  image: "/discover-punta-mita/activities/sapphire-ocean-club.jpg",
-  description:
-    "A relaxed beachfront club atmosphere with ocean views, lounge seating, and a polished coastal feel.",
-  overview:
-    "Sapphire Ocean Club offers a more relaxed Puerto Vallarta beach club atmosphere with comfortable beachfront service and oceanfront scenery.",
-  standardInfo: [
-    { label: "Best For", value: "Couples, groups, beach lovers, and guests seeking a relaxed social beach club." },
-    { label: "Typical Duration", value: "Half-day or full-day." },
-    { label: "Best Time of Day", value: "Late morning through sunset." },
-    { label: "Seasonality", value: "Available year-round." },
-    { label: "What to Wear / Bring", value: "Beachwear, sandals, sunscreen, sunglasses, and swimwear." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Puerto Vallarta Area" },
-    { label: "Area", value: "Puerto Vallarta." },
-    { label: "Atmosphere", value: "Relaxed, social, scenic, and beachfront." },
-  ],
-  whatToExpect:
-    "Expect beachfront lounging, food and beverage service, ocean scenery, and a calm beach club environment.",
-  whatToBring:
-    "Bring beachwear, swimwear, sunscreen, and comfortable beach essentials.",
-  gallery: [
-    "/discover-punta-mita/activities/sapphire-ocean-club.jpg",
-    "/discover-punta-mita/activities/sapphire-ocean-club-2.jpg",
-    "/discover-punta-mita/activities/sapphire-ocean-club-3.jpg",
-  ],
-},
-  ],
-},
-
- {
-  title: "Nightlife & Parties",
-  slug: "nightlife-parties",
-  image: "/discover-punta-mita/nightlife-parties.jpg",
-  heroImage: "/discover-punta-mita/heroes/nightlife-parties-hero.jpg",
-  description:
-    "Cocktail bars, beach parties, rooftop lounges, DJ nights, nightlife, and social experiences across Punta Mita, Sayulita, and Puerto Vallarta.",
-  activities: [
-
-    // PUNTA MITA / RIVIERA NAYARIT
-
-    {
-      title: "Beach Bonfire Dinners",
-      slug: "beach-bonfire-dinners",
-      image: "/discover-punta-mita/activities/beach-bonfire-dinners.jpg",
-      description:
-        "Private beachfront evenings with bonfires, dining, cocktails, and ocean atmosphere.",
-      overview:
-        "Beach bonfire dinners combine relaxed luxury, ocean scenery, and intimate atmosphere into one of the most memorable evening experiences around Punta Mita.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, families, celebrations, birthdays, and private group evenings." },
-        { label: "Typical Duration", value: "2 to 4 hours." },
-        { label: "Best Time of Day", value: "Sunset through evening." },
-        { label: "Seasonality", value: "Year-round, weather permitting." },
-        { label: "What to Wear / Bring", value: "Comfortable beachwear, sandals, and a light layer for the evening." },
-      ],
-      customInfo: [
-        { label: "Region", value: "Punta Mita / Riviera Nayarit" },
-        { label: "Atmosphere", value: "Relaxed, scenic, intimate, and beachfront." },
-        { label: "Experience Style", value: "Private dining and social beach evening." },
-      ],
-      whatToExpect:
-        "Expect beachfront seating, bonfire setup, ocean atmosphere, dining, and a relaxed social setting.",
-      whatToBring:
-        "Bring comfortable clothing, sandals, and anything personal for the evening.",
-      gallery: [
-        "/discover-punta-mita/activities/beach-bonfire-dinners.jpg",
-        "/discover-punta-mita/activities/beach-bonfire-dinners-2.jpg",
-        "/discover-punta-mita/activities/beach-bonfire-dinners-3.jpg",
-      ],
-    },
-
-    {
-      title: "Sunset DJ Sessions",
-      slug: "sunset-dj-sessions",
-      image: "/discover-punta-mita/activities/sunset-dj-sessions.jpg",
-      description:
-        "Oceanfront sunset sessions with music, cocktails, and relaxed Riviera Nayarit social atmosphere.",
-      overview:
-        "Sunset DJ sessions combine beach culture, music, cocktails, and sunset scenery into one of the most enjoyable social experiences around Punta Mita.",
-      standardInfo: [
-        { label: "Best For", value: "Groups, couples, social travelers, and guests seeking relaxed nightlife." },
-        { label: "Typical Duration", value: "Late afternoon through sunset." },
-        { label: "Best Time of Day", value: "Sunset." },
-        { label: "Seasonality", value: "Year-round depending on venues and events." },
-        { label: "What to Wear / Bring", value: "Beachwear, stylish casual clothing, sandals, and sunglasses." },
-      ],
-      customInfo: [
-        { label: "Region", value: "Punta Mita / Riviera Nayarit" },
-        { label: "Atmosphere", value: "Relaxed, scenic, social, and music-focused." },
-        { label: "Experience Style", value: "Beachfront sunset social atmosphere." },
-      ],
-      whatToExpect:
-        "Expect cocktails, music, sunset views, beach atmosphere, and relaxed social energy.",
-      whatToBring:
-        "Bring sunglasses, comfortable beachwear, and light evening clothing.",
-      gallery: [
-        "/discover-punta-mita/activities/sunset-dj-sessions.jpg",
-        "/discover-punta-mita/activities/sunset-dj-sessions-2.jpg",
-        "/discover-punta-mita/activities/sunset-dj-sessions-3.jpg",
-      ],
-    },
-
-    {
-      title: "Private Villa Parties",
-      slug: "private-villa-parties",
-      image: "/discover-punta-mita/activities/private-villa-parties.jpg",
-      description:
-        "Customized private gatherings with music, cocktails, chefs, DJs, and luxury villa atmosphere.",
-      overview:
-        "Private villa parties allow guests to create a personalized nightlife experience in a private and elevated setting.",
-      standardInfo: [
-        { label: "Best For", value: "Groups, birthdays, celebrations, bachelor and bachelorette trips, and private events." },
-        { label: "Typical Duration", value: "Evening or late-night experience." },
-        { label: "Best Time of Day", value: "Evening." },
-        { label: "Seasonality", value: "Available year-round depending on villa policies and setup." },
-        { label: "What to Wear / Bring", value: "Depends on the style of event and dress code." },
-      ],
-      customInfo: [
-        { label: "Region", value: "Punta Mita / Riviera Nayarit" },
-        { label: "Atmosphere", value: "Private, customizable, luxury-focused, and social." },
-        { label: "Customization", value: "Can include chefs, DJs, bartenders, lighting, entertainment, and styling." },
-      ],
-      whatToExpect:
-        "Expect a fully customized social experience depending on the group’s style, villa setup, and requested services.",
-      whatToBring:
-        "Guests usually only need clothing appropriate for the style of event planned.",
-      gallery: [
-        "/discover-punta-mita/activities/private-villa-parties.jpg",
-        "/discover-punta-mita/activities/private-villa-parties-2.jpg",
-        "/discover-punta-mita/activities/private-villa-parties-3.jpg",
-      ],
-    },
-
-    {
-      title: "Cocktail Nights",
-      slug: "cocktail-nights",
-      image: "/discover-punta-mita/activities/cocktail-nights.jpg",
-      description:
-        "Relaxed upscale evenings focused on cocktails, conversation, music, and ocean atmosphere.",
-      overview:
-        "Cocktail nights around Punta Mita offer a more relaxed and elegant nightlife experience compared to large clubs or nightlife districts.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, groups, adults, and travelers seeking relaxed nightlife." },
-        { label: "Typical Duration", value: "2 to 5 hours." },
-        { label: "Best Time of Day", value: "Evening through late night." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Resort casual or elevated evening attire." },
-      ],
-      customInfo: [
-        { label: "Region", value: "Punta Mita / Riviera Nayarit" },
-        { label: "Atmosphere", value: "Relaxed, social, elegant, and scenic." },
-        { label: "Experience Style", value: "Cocktail lounges, oceanfront bars, and upscale evening settings." },
-      ],
-      whatToExpect:
-        "Expect cocktails, conversation, music, ocean views, and a slower nightlife atmosphere.",
-      whatToBring:
-        "Bring comfortable evening attire and anything personal for a relaxed night out.",
-      gallery: [
-        "/discover-punta-mita/activities/cocktail-nights.jpg",
-        "/discover-punta-mita/activities/cocktail-nights-2.jpg",
-        "/discover-punta-mita/activities/cocktail-nights-3.jpg",
-      ],
-    },
-{
-  title: "Bar Hopping",
-  slug: "bar-hopping",
-  image: "/discover-punta-mita/activities/bar-hopping.jpg",
-  description:
-    "A casual way to explore Sayulita’s nightlife through beach bars, cocktail spots, music venues, and social streets.",
-  overview:
-    "Bar hopping in Sayulita is one of the easiest ways to experience the town’s energetic nightlife. It is casual, walkable, social, and ideal for guests who want a relaxed but lively evening.",
-  standardInfo: [
-    { label: "Best For", value: "Groups, couples, social travelers, and guests looking for casual nightlife." },
-    { label: "Typical Duration", value: "2 to 5 hours." },
-    { label: "Best Time of Day", value: "Evening through late night." },
-    { label: "Seasonality", value: "Available year-round, with more energy during weekends and high season." },
-    { label: "What to Wear / Bring", value: "Casual evening clothing, comfortable shoes, and a light layer if needed." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Sayulita" },
-    { label: "Atmosphere", value: "Casual, social, lively, and walkable." },
-    { label: "Experience Style", value: "Multiple bars and nightlife stops in one evening." },
-  ],
-  whatToExpect:
-    "Expect a casual night moving between bars, music spots, rooftops, and street-side venues. The experience is relaxed, social, and flexible.",
-  whatToBring:
-    "Bring comfortable shoes, casual evening clothing, and a valid ID.",
-  gallery: [
-    "/discover-punta-mita/activities/bar-hopping.jpg",
-    "/discover-punta-mita/activities/bar-hopping-2.jpg",
-    "/discover-punta-mita/activities/bar-hopping-3.jpg",
-  ],
-},
-
-{
-  title: "Live Music",
-  slug: "live-music",
-  image: "/discover-punta-mita/activities/live-music.jpg",
-  description:
-    "Live music nights in Sayulita with casual venues, local performers, beach-town energy, and a relaxed social atmosphere.",
-  overview:
-    "Sayulita’s live music scene is casual and energetic, with small venues, bars, restaurants, and outdoor settings offering music in a laid-back surf town environment.",
-  standardInfo: [
-    { label: "Best For", value: "Couples, groups, music lovers, and guests looking for a relaxed evening." },
-    { label: "Typical Duration", value: "1.5 to 4 hours." },
-    { label: "Best Time of Day", value: "Evening." },
-    { label: "Seasonality", value: "Year-round, depending on venue schedules and events." },
-    { label: "What to Wear / Bring", value: "Casual evening clothing and comfortable shoes." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Sayulita" },
-    { label: "Atmosphere", value: "Relaxed, local, social, and music-focused." },
-    { label: "Experience Style", value: "Live bands, acoustic sets, local performers, and casual venues." },
-  ],
-  whatToExpect:
-    "Expect a relaxed evening with live music, drinks, casual seating, and a beach-town atmosphere.",
-  whatToBring:
-    "Bring comfortable clothing, ID, and cash or card depending on the venue.",
-  gallery: [
-    "/discover-punta-mita/activities/live-music.jpg",
-    "/discover-punta-mita/activities/live-music-2.jpg",
-    "/discover-punta-mita/activities/live-music-3.jpg",
-  ],
-},
-
-{
-  title: "Rooftop Bars",
-  slug: "rooftop-bars",
-  image: "/discover-punta-mita/activities/rooftop-bars.jpg",
-  description:
-    "Elevated Sayulita bar experiences with views, cocktails, music, and a stylish beach-town atmosphere.",
-  overview:
-    "Rooftop bars in Sayulita offer a more polished way to enjoy the town’s nightlife, combining sunset views, cocktails, and social energy.",
-  standardInfo: [
-    { label: "Best For", value: "Couples, groups, sunset drinks, and guests looking for a stylish night out." },
-    { label: "Typical Duration", value: "1.5 to 3 hours." },
-    { label: "Best Time of Day", value: "Sunset through evening." },
-    { label: "Seasonality", value: "Year-round, depending on venue operations." },
-    { label: "What to Wear / Bring", value: "Resort casual or stylish beach-town evening attire." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Sayulita" },
-    { label: "Atmosphere", value: "Scenic, stylish, social, and relaxed." },
-    { label: "Experience Style", value: "Cocktails, views, music, and rooftop seating." },
-  ],
-  whatToExpect:
-    "Expect cocktails, elevated views, music, and a more stylish but still relaxed Sayulita evening atmosphere.",
-  whatToBring:
-    "Bring evening attire, comfortable shoes, and a phone or camera for sunset views.",
-  gallery: [
-    "/discover-punta-mita/activities/rooftop-bars.jpg",
-    "/discover-punta-mita/activities/rooftop-bars-2.jpg",
-    "/discover-punta-mita/activities/rooftop-bars-3.jpg",
-  ],
-},
-
-{
-  title: "Electronic Music Nights",
-  slug: "electronic-music-nights",
-  image: "/discover-punta-mita/activities/electronic-music-nights.jpg",
-  description:
-    "DJ-led nights in Sayulita with electronic music, dancing, beach-town energy, and a social crowd.",
-  overview:
-    "Electronic music nights in Sayulita are ideal for guests looking for a more energetic nightlife experience with DJs, dancing, and a casual surf-town party atmosphere.",
-  standardInfo: [
-    { label: "Best For", value: "Groups, music lovers, dancers, and guests looking for a more energetic night out." },
-    { label: "Typical Duration", value: "Late evening through late night." },
-    { label: "Best Time of Day", value: "Late night." },
-    { label: "Seasonality", value: "Year-round depending on venue schedules, DJs, and events." },
-    { label: "What to Wear / Bring", value: "Comfortable nightlife clothing and shoes suitable for dancing." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Sayulita" },
-    { label: "Atmosphere", value: "Energetic, social, music-driven, and casual." },
-    { label: "Experience Style", value: "DJ sets, dancing, late-night venues, and event-style nightlife." },
-  ],
-  whatToExpect:
-    "Expect DJs, dancing, drinks, and a lively social atmosphere. Event quality and energy vary by night and venue.",
-  whatToBring:
-    "Bring comfortable clothing, ID, and only essentials for a late-night environment.",
-  gallery: [
-    "/discover-punta-mita/activities/electronic-music-nights.jpg",
-    "/discover-punta-mita/activities/electronic-music-nights-2.jpg",
-    "/discover-punta-mita/activities/electronic-music-nights-3.jpg",
-  ],
-},
-
-{
-  title: "Jungle Parties",
-  slug: "jungle-parties",
-  image: "/discover-punta-mita/activities/jungle-parties.jpg",
-  description:
-    "Occasional event-style parties near Sayulita with music, dancing, tropical surroundings, and a more adventurous atmosphere.",
-  overview:
-    "Jungle parties around Sayulita are typically event-based and appeal to guests looking for a more adventurous nightlife experience outside the standard bar scene.",
-  standardInfo: [
-    { label: "Best For", value: "Groups, music lovers, adventurous travelers, and guests looking for event-style nightlife." },
-    { label: "Typical Duration", value: "Evening through late night." },
-    { label: "Best Time of Day", value: "Late evening." },
-    { label: "Seasonality", value: "Event-based and seasonal depending on organizers and local schedules." },
-    { label: "What to Wear / Bring", value: "Comfortable nightlife clothing, closed or secure shoes, and essentials only." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Sayulita" },
-    { label: "Atmosphere", value: "Energetic, adventurous, tropical, and music-focused." },
-    { label: "Important Note", value: "Events vary significantly. Transportation and safety planning are important." },
-  ],
-  whatToExpect:
-    "Expect a more adventurous music event with dancing, tropical surroundings, and a late-night crowd. Details vary by event.",
-  whatToBring:
-    "Bring ID, comfortable shoes, essentials only, and plan transportation in advance.",
-  gallery: [
-    "/discover-punta-mita/activities/jungle-parties.jpg",
-    "/discover-punta-mita/activities/jungle-parties-2.jpg",
-    "/discover-punta-mita/activities/jungle-parties-3.jpg",
-  ],
-},
-
-{
-  title: "Surf Town Nightlife",
-  slug: "surf-town-nightlife",
-  image: "/discover-punta-mita/activities/surf-town-nightlife.jpg",
-  description:
-    "The relaxed but lively nightlife style of Sayulita, shaped by surf culture, beach bars, music, and walkable streets.",
-  overview:
-    "Surf town nightlife in Sayulita is casual, social, and easygoing. It is less formal than Puerto Vallarta nightlife and more centered around bars, music, street energy, and a beach-town crowd.",
-  standardInfo: [
-    { label: "Best For", value: "Groups, couples, casual travelers, surfers, and guests seeking a relaxed nightlife scene." },
-    { label: "Typical Duration", value: "2 to 5 hours." },
-    { label: "Best Time of Day", value: "Evening through late night." },
-    { label: "Seasonality", value: "Year-round, with more activity during weekends and high season." },
-    { label: "What to Wear / Bring", value: "Casual beach-town evening clothing and comfortable shoes." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Sayulita" },
-    { label: "Atmosphere", value: "Casual, social, beach-town, and surf-inspired." },
-    { label: "Experience Style", value: "Walkable nightlife, bars, music, and street atmosphere." },
-  ],
-  whatToExpect:
-    "Expect an easygoing evening with casual bars, music, people-watching, street energy, and a relaxed surf-town feel.",
-  whatToBring:
-    "Bring comfortable shoes, casual clothing, ID, and only essentials.",
-  gallery: [
-    "/discover-punta-mita/activities/surf-town-nightlife.jpg",
-    "/discover-punta-mita/activities/surf-town-nightlife-2.jpg",
-    "/discover-punta-mita/activities/surf-town-nightlife-3.jpg",
-  ],
-},
-
-{
-  title: "Mandala",
-  slug: "mandala",
-  image: "/discover-punta-mita/activities/mandala.jpg",
-  description:
-    "A high-energy Puerto Vallarta nightclub experience with music, dancing, bottle service, and late-night atmosphere.",
-  overview:
-    "Mandala is one of Puerto Vallarta’s best-known nightlife venues, appealing to guests who want a classic club experience with dancing, music, and a lively crowd.",
-  standardInfo: [
-    { label: "Best For", value: "Groups, celebrations, bachelor and bachelorette trips, and guests looking for a late-night club." },
-    { label: "Typical Duration", value: "Late evening through late night." },
-    { label: "Best Time of Day", value: "Late night." },
-    { label: "Seasonality", value: "Year-round, with higher energy on weekends and holidays." },
-    { label: "What to Wear / Bring", value: "Nightlife attire, comfortable shoes, and valid ID." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Puerto Vallarta" },
-    { label: "Atmosphere", value: "High-energy, club-style, social, and late-night." },
-    { label: "Experience Style", value: "Nightclub, dancing, DJs, bottle service, and party atmosphere." },
-  ],
-  whatToExpect:
-    "Expect a lively nightclub setting with music, dancing, bottle service options, and a late-night crowd.",
-  whatToBring:
-    "Bring ID, nightlife attire, and only essentials.",
-  gallery: [
-    "/discover-punta-mita/activities/mandala.jpg",
-    "/discover-punta-mita/activities/mandala-2.jpg",
-    "/discover-punta-mita/activities/mandala-3.jpg",
-  ],
-},
-
-{
-  title: "La Santa",
-  slug: "la-santa",
-  image: "/discover-punta-mita/activities/la-santa.jpg",
-  description:
-    "A polished Puerto Vallarta nightlife venue known for club atmosphere, music, bottle service, and energetic evenings.",
-  overview:
-    "La Santa is a stylish nightlife option for guests looking for a more elevated club environment in Puerto Vallarta.",
-  standardInfo: [
-    { label: "Best For", value: "Groups, celebrations, nightlife travelers, and guests seeking a polished club experience." },
-    { label: "Typical Duration", value: "Late evening through late night." },
-    { label: "Best Time of Day", value: "Late night." },
-    { label: "Seasonality", value: "Year-round, with more activity during weekends and high season." },
-    { label: "What to Wear / Bring", value: "Elevated nightlife attire and valid ID." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Puerto Vallarta" },
-    { label: "Atmosphere", value: "Stylish, energetic, polished, and social." },
-    { label: "Experience Style", value: "Nightclub, DJs, bottle service, dancing, and VIP-style nightlife." },
-  ],
-  whatToExpect:
-    "Expect music, dancing, a polished nightlife crowd, and an energetic club environment.",
-  whatToBring:
-    "Bring ID, nightlife attire, and only essentials.",
-  gallery: [
-    "/discover-punta-mita/activities/la-santa.jpg",
-    "/discover-punta-mita/activities/la-santa-2.jpg",
-    "/discover-punta-mita/activities/la-santa-3.jpg",
-  ],
-},
-
-{
-  title: "Strana",
-  slug: "strana",
-  image: "/discover-punta-mita/activities/strana.jpg",
-  description:
-    "A large-scale Puerto Vallarta nightclub experience known for dramatic interiors, music, and late-night energy.",
-  overview:
-    "Strana is a well-known Puerto Vallarta club option for guests who want a bigger nightlife setting with strong visual atmosphere, dancing, and late-night energy.",
-  standardInfo: [
-    { label: "Best For", value: "Groups, party travelers, celebrations, and guests looking for a large nightclub." },
-    { label: "Typical Duration", value: "Late evening through late night." },
-    { label: "Best Time of Day", value: "Late night." },
-    { label: "Seasonality", value: "Year-round, depending on nights of operation and events." },
-    { label: "What to Wear / Bring", value: "Nightlife attire, comfortable shoes, and valid ID." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Puerto Vallarta" },
-    { label: "Atmosphere", value: "Large-scale, energetic, dramatic, and club-focused." },
-    { label: "Experience Style", value: "Nightclub, dancing, DJs, bottle service, and high-energy crowd." },
-  ],
-  whatToExpect:
-    "Expect a large club atmosphere with music, lights, dancing, and a late-night social crowd.",
-  whatToBring:
-    "Bring ID, nightlife clothing, and only essentials.",
-  gallery: [
-    "/discover-punta-mita/activities/strana.jpg",
-    "/discover-punta-mita/activities/strana-2.jpg",
-    "/discover-punta-mita/activities/strana-3.jpg",
-  ],
-},
-
-{
-  title: "Yambak",
-  slug: "yambak",
-  image: "/discover-punta-mita/activities/yambak.jpg",
-  description:
-    "A casual Puerto Vallarta nightlife spot known for music, drinks, social energy, and a relaxed crowd.",
-  overview:
-    "Yambak offers a more casual and approachable nightlife atmosphere compared to large clubs, making it attractive for guests who want music and drinks without a formal club setting.",
-  standardInfo: [
-    { label: "Best For", value: "Groups, casual nightlife travelers, music lovers, and guests seeking an easygoing night out." },
-    { label: "Typical Duration", value: "1.5 to 4 hours." },
-    { label: "Best Time of Day", value: "Evening through late night." },
-    { label: "Seasonality", value: "Year-round depending on venue schedule." },
-    { label: "What to Wear / Bring", value: "Casual evening clothing, comfortable shoes, and valid ID." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Puerto Vallarta" },
-    { label: "Atmosphere", value: "Casual, social, music-driven, and relaxed." },
-    { label: "Experience Style", value: "Bar, music venue, casual nightlife, and drinks." },
-  ],
-  whatToExpect:
-    "Expect a casual nightlife setting with drinks, music, conversation, and a relaxed social crowd.",
-  whatToBring:
-    "Bring ID, casual evening clothing, and comfortable shoes.",
-  gallery: [
-    "/discover-punta-mita/activities/yambak.jpg",
-    "/discover-punta-mita/activities/yambak-2.jpg",
-    "/discover-punta-mita/activities/yambak-3.jpg",
-  ],
-},
-
-{
-  title: "El Colibrí Cocktail Bar",
-  slug: "el-colibri-cocktail-bar",
-  image: "/discover-punta-mita/activities/el-colibri-cocktail-bar.jpg",
-  description:
-    "A cocktail-focused Puerto Vallarta bar experience with a more intimate atmosphere and crafted drinks.",
-  overview:
-    "El Colibrí Cocktail Bar is a good option for guests who prefer a more curated cocktail experience over a large nightclub setting.",
-  standardInfo: [
-    { label: "Best For", value: "Couples, adults, cocktail lovers, small groups, and guests looking for a stylish but calmer night." },
-    { label: "Typical Duration", value: "1.5 to 3 hours." },
-    { label: "Best Time of Day", value: "Evening." },
-    { label: "Seasonality", value: "Year-round depending on venue operations." },
-    { label: "What to Wear / Bring", value: "Smart casual or stylish evening clothing." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Puerto Vallarta" },
-    { label: "Atmosphere", value: "Intimate, stylish, cocktail-focused, and social." },
-    { label: "Experience Style", value: "Craft cocktails, conversation, and relaxed evening atmosphere." },
-  ],
-  whatToExpect:
-    "Expect a more intimate cocktail bar setting with crafted drinks, conversation, and a stylish evening atmosphere.",
-  whatToBring:
-    "Bring smart casual clothing, ID, and only essentials.",
-  gallery: [
-    "/discover-punta-mita/activities/el-colibri-cocktail-bar.jpg",
-    "/discover-punta-mita/activities/el-colibri-cocktail-bar-2.jpg",
-    "/discover-punta-mita/activities/el-colibri-cocktail-bar-3.jpg",
-  ],
-},
-
-{
-  title: "Mezcal & Tequila Bars",
-  slug: "mezcal-tequila-bars",
-  image: "/discover-punta-mita/activities/mezcal-tequila-bars.jpg",
-  description:
-    "Puerto Vallarta evening experiences focused on Mexican spirits, tasting flights, cocktails, and local bar culture.",
-  overview:
-    "Mezcal and tequila bars are a great way to enjoy Puerto Vallarta’s nightlife at a slower pace, with more emphasis on flavor, culture, and conversation.",
-  standardInfo: [
-    { label: "Best For", value: "Adults, couples, groups, food lovers, and guests interested in Mexican spirits." },
-    { label: "Typical Duration", value: "1.5 to 3 hours." },
-    { label: "Best Time of Day", value: "Evening or pre-dinner." },
-    { label: "Seasonality", value: "Available year-round." },
-    { label: "What to Wear / Bring", value: "Smart casual or relaxed evening clothing and valid ID." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Puerto Vallarta" },
-    { label: "Atmosphere", value: "Cultural, relaxed, social, and tasting-focused." },
-    { label: "Experience Style", value: "Tastings, cocktails, Mexican spirits, and bar hopping." },
-  ],
-  whatToExpect:
-    "Expect tequila or mezcal flights, cocktails, conversation, and a more flavor-focused nightlife experience.",
-  whatToBring:
-    "Bring ID and comfortable evening clothing.",
-  gallery: [
-    "/discover-punta-mita/activities/mezcal-tequila-bars.jpg",
-    "/discover-punta-mita/activities/mezcal-tequila-bars-2.jpg",
-    "/discover-punta-mita/activities/mezcal-tequila-bars-3.jpg",
-  ],
-},
-
-{
-  title: "Zona Romántica Nightlife",
-  slug: "zona-romantica-nightlife",
-  image: "/discover-punta-mita/activities/zona-romantica-nightlife.jpg",
-  description:
-    "A walkable Puerto Vallarta nightlife district with bars, restaurants, music, clubs, and a lively evening scene.",
-  overview:
-    "Zona Romántica is one of Puerto Vallarta’s most active nightlife areas, offering a mix of bars, restaurants, lounges, clubs, and street energy.",
-  standardInfo: [
-    { label: "Best For", value: "Groups, couples, nightlife travelers, first-time visitors, and guests who want variety in one area." },
-    { label: "Typical Duration", value: "2 to 6 hours." },
-    { label: "Best Time of Day", value: "Evening through late night." },
-    { label: "Seasonality", value: "Year-round, with more energy during weekends and holidays." },
-    { label: "What to Wear / Bring", value: "Comfortable evening clothing, walkable shoes, and valid ID." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Puerto Vallarta" },
-    { label: "Atmosphere", value: "Walkable, lively, diverse, social, and energetic." },
-    { label: "Experience Style", value: "Restaurants, bars, lounges, clubs, street energy, and nightlife district." },
-  ],
-  whatToExpect:
-    "Expect many options within walking distance, from cocktails and dinner to music, dancing, and late-night venues.",
-  whatToBring:
-    "Bring comfortable shoes, ID, and only essentials for walking between venues.",
-  gallery: [
-    "/discover-punta-mita/activities/zona-romantica-nightlife.jpg",
-    "/discover-punta-mita/activities/zona-romantica-nightlife-2.jpg",
-    "/discover-punta-mita/activities/zona-romantica-nightlife-3.jpg",
-  ],
-},
-
-{
-  title: "Rooftop Sunset Lounges",
-  slug: "rooftop-sunset-lounges",
-  image: "/discover-punta-mita/activities/rooftop-sunset-lounges.jpg",
-  description:
-    "Elevated Puerto Vallarta lounge experiences with sunset views, cocktails, music, and a polished evening atmosphere.",
-  overview:
-    "Rooftop sunset lounges are a strong option for guests who want Puerto Vallarta views, cocktails, and a more refined start to the evening.",
-  standardInfo: [
-    { label: "Best For", value: "Couples, groups, sunset lovers, adults, and guests looking for stylish evening drinks." },
-    { label: "Typical Duration", value: "1.5 to 3 hours." },
-    { label: "Best Time of Day", value: "Sunset into early evening." },
-    { label: "Seasonality", value: "Year-round, weather permitting." },
-    { label: "What to Wear / Bring", value: "Smart casual or elevated resort evening attire." },
-  ],
-  customInfo: [
-    { label: "Region", value: "Puerto Vallarta" },
-    { label: "Atmosphere", value: "Scenic, polished, social, and cocktail-focused." },
-    { label: "Experience Style", value: "Rooftop views, cocktails, music, and sunset lounge atmosphere." },
-  ],
-  whatToExpect:
-    "Expect sunset views, cocktails, music, comfortable seating, and a more polished evening atmosphere.",
-  whatToBring:
-    "Bring smart casual clothing and a phone or camera for views.",
-  gallery: [
-    "/discover-punta-mita/activities/rooftop-sunset-lounges.jpg",
-    "/discover-punta-mita/activities/rooftop-sunset-lounges-2.jpg",
-    "/discover-punta-mita/activities/rooftop-sunset-lounges-3.jpg",
+function createActivity({
+  title,
+  slug,
+  image,
+  heroImage,
+  description,
+  overview,
+  bestFor,
+  duration,
+  seasonality,
+  tags,
+  notes,
+  whatToExpect,
+  whatToBring,
+  experienceOptions,
+}: {
+  title: string;
+  slug: string;
+  image: string;
+  heroImage: string;
+  description: string;
+  overview: string;
+  bestFor: string;
+  duration: string;
+  seasonality: string;
+  tags: string[];
+  notes: string;
+  whatToExpect: string;
+  whatToBring: string;
+  experienceOptions: ExperienceOption[];
+}): Activity {
+  return {
+    title,
+    slug,
+    image,
+    description,
+    overview,
+    standardInfo: [
+      { label: "Best For", value: bestFor },
+      { label: "Typical Duration", value: duration },
+      { label: "Seasonality", value: seasonality },
     ],
-   },
-  ],
- },
-  
-{
-  title: "Food & Dining Experiences",
-  slug: "food-dining-experiences",
-  image: "/discover-punta-mita/food-dining-experiences.jpg",
-  heroImage:
-    "/discover-punta-mita/heroes/food-dining-experiences-hero.jpg",
-  description:
-    "Fine dining, seafood, taco tours, private dining, cooking classes, and local restaurants in Punta Mita and nearby areas.",
-  activities: [
-    {
-      title: "Fine Dining in Punta Mita",
-      slug: "fine-dining-in-punta-mita",
-      image: "/discover-punta-mita/activities/fine-dining-in-punta-mita.jpg",
-      description:
-        "Elegant restaurant experiences with refined menus, polished service, and a luxury coastal atmosphere.",
-      overview:
-        "Fine dining in Punta Mita is ideal for guests who want a more elevated culinary experience during their stay. The area offers refined settings, thoughtful menus, and a relaxed luxury atmosphere that works well for special evenings.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, families, celebrations, adults, luxury travelers, and special occasion dinners." },
-        { label: "Typical Duration", value: "Usually 2 to 3 hours." },
-        { label: "Best Time of Day", value: "Dinner or sunset dining." },
-        { label: "Seasonality", value: "Available year-round, with reservations especially important during high season." },
-        { label: "What to Wear / Bring", value: "Resort elegant or smart casual clothing." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Refined, polished, scenic, and service-focused." },
-        { label: "Reservation Note", value: "Advance reservations are recommended, especially for larger groups and peak travel dates." },
-        { label: "Pricing", value: "Varies by restaurant, menu, wine selection, and group size." },
-      ],
-      whatToExpect:
-        "Expect polished service, refined menus, curated drinks or wine options, and a more elevated setting than a casual beach restaurant.",
-      whatToBring:
-        "Bring smart casual or resort elegant clothing. Reservations and dietary preferences should be confirmed in advance.",
-      gallery: [
-        "/discover-punta-mita/activities/fine-dining-in-punta-mita.jpg",
-        "/discover-punta-mita/activities/fine-dining-in-punta-mita-2.jpg",
-        "/discover-punta-mita/activities/fine-dining-in-punta-mita-3.jpg",
-      ],
-    },
-    {
-      title: "Oceanfront Restaurants",
-      slug: "oceanfront-restaurants",
-      image: "/discover-punta-mita/activities/oceanfront-restaurants.jpg",
-      description:
-        "Relaxed coastal dining with ocean views, fresh ingredients, seafood, cocktails, and sunset atmosphere.",
-      overview:
-        "Oceanfront restaurants are one of the easiest ways to enjoy Punta Mita’s coastal setting. They combine casual luxury, ocean views, fresh food, and a relaxed vacation atmosphere.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, groups, sunset dinners, and relaxed coastal meals." },
-        { label: "Typical Duration", value: "Usually 1.5 to 3 hours." },
-        { label: "Best Time of Day", value: "Lunch, sunset, or dinner." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Resort casual clothing, sandals, sunglasses for daytime, and a light layer at night." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Scenic, relaxed, coastal, and food-focused." },
-        { label: "Location", value: "Punta Mita, nearby beaches, resort areas, and coastal towns depending on the restaurant." },
-        { label: "Reservation Note", value: "Reservations are recommended for sunset times and popular restaurants." },
-      ],
-      whatToExpect:
-        "Expect ocean views, seafood, cocktails, relaxed service, and a setting that works well for both casual meals and special dinners.",
-      whatToBring:
-        "Bring comfortable resort clothing, sunglasses if dining during the day, and a light layer for evening ocean breeze.",
-      gallery: [
-        "/discover-punta-mita/activities/oceanfront-restaurants.jpg",
-        "/discover-punta-mita/activities/oceanfront-restaurants-2.jpg",
-        "/discover-punta-mita/activities/oceanfront-restaurants-3.jpg",
-      ],
-    },
-    {
-      title: "Seafood Tasting Experiences",
-      slug: "seafood-tasting-experiences",
-      image: "/discover-punta-mita/activities/seafood-tasting-experiences.jpg",
-      description:
-        "Fresh coastal seafood experiences focused on local flavors, seasonal catches, and Pacific cuisine.",
-      overview:
-        "Seafood tasting experiences are a strong way to explore the flavors of the Pacific coast. They can be casual, refined, restaurant-based, or arranged privately depending on the style of the trip.",
-      standardInfo: [
-        { label: "Best For", value: "Food lovers, couples, groups, seafood fans, and guests interested in local coastal cuisine." },
-        { label: "Typical Duration", value: "Usually 1.5 to 3 hours." },
-        { label: "Best Time of Day", value: "Lunch, sunset, or dinner." },
-        { label: "Seasonality", value: "Year-round, with seafood options depending on season and availability." },
-        { label: "What to Wear / Bring", value: "Resort casual clothing." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Culinary, coastal, seasonal, and flavor-focused." },
-        { label: "Good For", value: "Guests who want to try ceviches, grilled seafood, local preparations, and regional flavors." },
-        { label: "Pricing", value: "Varies by menu, restaurant or private setup, seafood selection, and group size." },
-      ],
-      whatToExpect:
-        "Expect a seafood-focused meal or tasting format with fresh preparations, local ingredients, and Pacific coast flavors.",
-      whatToBring:
-        "No special items are needed. Share allergies or seafood preferences in advance.",
-      gallery: [
-        "/discover-punta-mita/activities/seafood-tasting-experiences.jpg",
-        "/discover-punta-mita/activities/seafood-tasting-experiences-2.jpg",
-        "/discover-punta-mita/activities/seafood-tasting-experiences-3.jpg",
-      ],
-    },
-    {
-      title: "Taco Tours",
-      slug: "taco-tours",
-      image: "/discover-punta-mita/activities/taco-tours.jpg",
-      description:
-        "A casual food experience exploring tacos, local flavors, and everyday Mexican dining culture.",
-      overview:
-        "Taco tours are a fun and approachable way to explore the local food scene. They are less formal than fine dining and give guests a closer look at everyday flavors, neighborhoods, and local favorites.",
-      standardInfo: [
-        { label: "Best For", value: "Families, groups, couples, food lovers, and guests who want a casual local experience." },
-        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
-        { label: "Best Time of Day", value: "Evening is often ideal, depending on the route." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Casual clothing, comfortable walking shoes, and appetite." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Casual, local, flavorful, and walkable." },
-        { label: "Location", value: "Nearby towns, Puerto Vallarta, Sayulita, or local food areas depending on the tour." },
-        { label: "Good to Know", value: "Routes can vary by guide, availability, and preferred food style." },
-      ],
-      whatToExpect:
-        "Expect several taco stops, local food context, simple but memorable flavors, and a relaxed experience that is more about authenticity than formality.",
-      whatToBring:
-        "Bring comfortable shoes, casual clothing, and water. Share dietary restrictions in advance.",
-      gallery: [
-        "/discover-punta-mita/activities/taco-tours.jpg",
-        "/discover-punta-mita/activities/taco-tours-2.jpg",
-        "/discover-punta-mita/activities/taco-tours-3.jpg",
-      ],
-    },
-    {
-      title: "Street Food Tours",
-      slug: "street-food-tours",
-      image: "/discover-punta-mita/activities/street-food-tours.jpg",
-      description:
-        "A guided food experience focused on casual local dishes, markets, stands, and neighborhood flavors.",
-      overview:
-        "Street food tours are ideal for guests who want a more local and informal culinary experience. They offer a way to explore traditional flavors, simple dishes, and the everyday food culture of the region.",
-      standardInfo: [
-        { label: "Best For", value: "Food lovers, adventurous eaters, groups, families, and guests interested in local culture." },
-        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
-        { label: "Best Time of Day", value: "Late afternoon or evening, depending on the route." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Casual clothing, comfortable walking shoes, and water." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Local, casual, guided, and food-focused." },
-        { label: "Location", value: "Puerto Vallarta, Sayulita, nearby towns, or local food districts depending on the tour." },
-        { label: "Good to Know", value: "Best for guests open to casual settings and local-style dining." },
-      ],
-      whatToExpect:
-        "Expect multiple food stops, a casual walking format, local dishes, and a more grounded view of the region’s food culture.",
-      whatToBring:
-        "Bring comfortable shoes, water, and an open appetite. Share allergies or dietary restrictions in advance.",
-      gallery: [
-        "/discover-punta-mita/activities/street-food-tours.jpg",
-        "/discover-punta-mita/activities/street-food-tours-2.jpg",
-        "/discover-punta-mita/activities/street-food-tours-3.jpg",
-      ],
-    },
-    {
-      title: "Farm-to-Table Dining",
-      slug: "farm-to-table-dining",
-      image: "/discover-punta-mita/activities/farm-to-table-dining.jpg",
-      description:
-        "Ingredient-focused dining experiences built around seasonal produce, regional flavors, and thoughtful preparation.",
-      overview:
-        "Farm-to-table dining is ideal for guests who want a more intentional culinary experience, with emphasis on seasonality, local ingredients, and a slower connection to the region’s food culture.",
-      standardInfo: [
-        { label: "Best For", value: "Food lovers, couples, wellness travelers, groups, and guests interested in seasonal cuisine." },
-        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
-        { label: "Best Time of Day", value: "Lunch, sunset, or dinner depending on the venue or experience." },
-        { label: "Seasonality", value: "Year-round, with menus changing by ingredient availability." },
-        { label: "What to Wear / Bring", value: "Resort casual or smart casual clothing." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Seasonal, ingredient-focused, relaxed, and culinary." },
-        { label: "Good For", value: "Guests who appreciate slower dining, local ingredients, and curated menus." },
-        { label: "Pricing", value: "Varies by venue, menu format, wine or beverage pairing, and group size." },
-      ],
-      whatToExpect:
-        "Expect a menu built around fresh ingredients, regional flavors, and a more thoughtful dining pace.",
-      whatToBring:
-        "No special items are required. Share dietary restrictions or preferences in advance.",
-      gallery: [
-        "/discover-punta-mita/activities/farm-to-table-dining.jpg",
-        "/discover-punta-mita/activities/farm-to-table-dining-2.jpg",
-        "/discover-punta-mita/activities/farm-to-table-dining-3.jpg",
-      ],
-    },
-    {
-      title: "Cooking Classes",
-      slug: "cooking-classes",
-      image: "/discover-punta-mita/activities/cooking-classes.jpg",
-      description:
-        "Hands-on culinary experiences where guests learn to prepare regional dishes, sauces, seafood, or Mexican classics.",
-      overview:
-        "Cooking classes are a fun way to turn a meal into an experience. They can be casual, family-friendly, or more culinary depending on the instructor, menu, and setting.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, groups, food lovers, and guests who enjoy interactive experiences." },
-        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
-        { label: "Best Time of Day", value: "Late morning, afternoon, or early evening." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Comfortable clothing and closed or stable shoes if cooking actively." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Hands-on, educational, social, and food-focused." },
-        { label: "Service Location", value: "Villa kitchen, private dining area, culinary space, or local venue." },
-        { label: "Customization", value: "Menus can often be adapted by cuisine, skill level, dietary needs, or group style." },
-      ],
-      whatToExpect:
-        "Expect guided preparation, cooking tips, local ingredients, and a shared meal at the end of the class.",
-      whatToBring:
-        "Bring comfortable clothing and share dietary preferences or allergies in advance.",
-      gallery: [
-        "/discover-punta-mita/activities/cooking-classes.jpg",
-        "/discover-punta-mita/activities/cooking-classes-2.jpg",
-        "/discover-punta-mita/activities/cooking-classes-3.jpg",
-      ],
-    },
-    {
-      title: "Private Dining Experiences",
-      slug: "private-dining-experiences",
-      image: "/discover-punta-mita/activities/private-dining-experiences.jpg",
-      description:
-        "Customized private meals arranged in villas, terraces, beach settings, or special locations for a more personal dining experience.",
-      overview:
-        "Private dining experiences are ideal for guests who want a memorable meal without the structure of a restaurant. They can be romantic, family-style, celebratory, or highly refined depending on the setting and service.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, families, groups, birthdays, anniversaries, proposals, and special occasions." },
-        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
-        { label: "Best Time of Day", value: "Sunset or dinner." },
-        { label: "Seasonality", value: "Available year-round, weather permitting for outdoor setups." },
-        { label: "What to Wear / Bring", value: "Resort casual, smart casual, or elegant attire depending on the setting." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Private, customizable, scenic, and service-focused." },
-        { label: "Service Location", value: "Villa, terrace, garden, beach, private room, or special outdoor setup." },
-        { label: "Pricing", value: "Varies by menu, chef, styling, service level, ingredients, and guest count." },
-      ],
-      whatToExpect:
-        "Expect a personalized meal with service adapted to the occasion, setting, and group size.",
-      whatToBring:
-        "No special items are needed. Share timing, menu preferences, dietary restrictions, and occasion details in advance.",
-      gallery: [
-        "/discover-punta-mita/activities/private-dining-experiences.jpg",
-        "/discover-punta-mita/activities/private-dining-experiences-2.jpg",
-        "/discover-punta-mita/activities/private-dining-experiences-3.jpg",
-      ],
-    },
-    {
-      title: "Marina Restaurants in La Cruz",
-      slug: "marina-restaurants-in-la-cruz",
-      image: "/discover-punta-mita/activities/marina-restaurants-in-la-cruz.jpg",
-      description:
-        "Relaxed dining around La Cruz Marina with seafood, sunset views, marina atmosphere, and casual coastal charm.",
-      overview:
-        "La Cruz Marina is a good option for guests who want a relaxed dining outing outside Punta Mita. The area offers marina views, seafood, local atmosphere, and a more casual coastal setting.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, groups, seafood lovers, and guests looking for a casual outing." },
-        { label: "Typical Duration", value: "Usually 1.5 to 3 hours." },
-        { label: "Best Time of Day", value: "Lunch, sunset, or dinner." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "Casual resort clothing and comfortable shoes." },
-      ],
-      customInfo: [
-        { label: "Location", value: "La Cruz de Huanacaxtle marina area." },
-        { label: "Experience Style", value: "Casual, coastal, marina-focused, and seafood-friendly." },
-        { label: "Good to Know", value: "A good option for a relaxed meal outside the resort environment." },
-      ],
-      whatToExpect:
-        "Expect marina views, seafood options, casual dining, and a more local coastal atmosphere.",
-      whatToBring:
-        "Bring casual clothing and comfortable shoes for walking around the marina area.",
-      gallery: [
-        "/discover-punta-mita/activities/marina-restaurants-in-la-cruz.jpg",
-        "/discover-punta-mita/activities/marina-restaurants-in-la-cruz-2.jpg",
-        "/discover-punta-mita/activities/marina-restaurants-in-la-cruz-3.jpg",
-      ],
-    },
-    {
-      title: "Hidden Local Restaurants",
-      slug: "hidden-local-restaurants",
-      image: "/discover-punta-mita/activities/hidden-local-restaurants.jpg",
-      description:
-        "Low-key local restaurants, casual favorites, and smaller dining spots that give guests a more authentic regional flavor.",
-      overview:
-        "Hidden local restaurants are ideal for guests who want to explore beyond the most obvious resort dining options. These experiences are about local flavor, casual atmosphere, and discovering places with more character.",
-      standardInfo: [
-        { label: "Best For", value: "Food lovers, repeat visitors, curious travelers, families, couples, and guests seeking local flavor." },
-        { label: "Typical Duration", value: "Usually 1.5 to 3 hours." },
-        { label: "Best Time of Day", value: "Lunch or dinner depending on the restaurant." },
-        { label: "Seasonality", value: "Available year-round depending on restaurant hours." },
-        { label: "What to Wear / Bring", value: "Casual clothing and comfortable shoes." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Casual, local, authentic, and discovery-focused." },
-        { label: "Location", value: "Punta de Mita, nearby towns, Sayulita, La Cruz, Bucerías, or Puerto Vallarta depending on preference." },
-        { label: "Good to Know", value: "Best when matched to your food preferences, group size, and desired atmosphere." },
-      ],
-      whatToExpect:
-        "Expect a more casual and local dining experience with regional flavors, simpler settings, and less tourist-oriented atmosphere.",
-      whatToBring:
-        "Bring casual clothing, comfortable shoes, and an open mind for a more local food experience.",
-      gallery: [
-        "/discover-punta-mita/activities/hidden-local-restaurants.jpg",
-        "/discover-punta-mita/activities/hidden-local-restaurants-2.jpg",
-        "/discover-punta-mita/activities/hidden-local-restaurants-3.jpg",
-      ],
-    },
-  ],
-},
+    customInfo: [
+      { label: "Planning Notes", value: notes },
+      { label: "Tags", value: tags.join(", ") },
+    ],
+    whatToExpect,
+    whatToBring,
+    gallery: [image, heroImage],
+    tags,
+    experienceOptions,
+  };
+}
+
+const oceanImage = "/discover-punta-mita/ocean-water-activities.jpg";
+const oceanHero = "/discover-punta-mita/heroes/ocean-water-activities-hero.jpg";
+
+const wellnessImage = "/discover-punta-mita/luxury-relaxation.jpg";
+const wellnessHero = "/discover-punta-mita/heroes/luxury-relaxation-hero.jpg";
+
+const sportsImage = "/discover-punta-mita/golf-sports.jpg";
+const sportsHero = "/discover-punta-mita/heroes/golf-sports-hero.jpg";
+
+const beachClubImage = "/discover-punta-mita/beach-clubs-day-clubs.jpg";
+const beachClubHero = "/discover-punta-mita/heroes/beach-clubs-day-clubs-hero.jpg";
+
+const foodImage = "/discover-punta-mita/food-dining-experiences.jpg";
+const foodHero = "/discover-punta-mita/heroes/food-dining-experiences-hero.jpg";
+
+const nightlifeImage = "/discover-punta-mita/nightlife-parties.jpg";
+const nightlifeHero = "/discover-punta-mita/heroes/nightlife-parties-hero.jpg";
+
+const destinationsImage = "/discover-punta-mita/nearby-destinations-day-trips.jpg";
+const destinationsHero =
+  "/discover-punta-mita/heroes/nearby-destinations-day-trips-hero.jpg";
+
+const seasonalImage = "/discover-punta-mita/seasonal-experiences.jpg";
+const seasonalHero = "/discover-punta-mita/heroes/seasonal-experiences-hero.jpg";
+
+const vipImage = "/discover-punta-mita/high-end-vip-experiences.jpg";
+const vipHero = "/discover-punta-mita/heroes/high-end-vip-experiences-hero.jpg";
+
+export const discoverCategories: DiscoverCategory[] = [
+  {
+    title: "Ocean & Water",
+    slug: "ocean-water",
+    image: oceanImage,
+    heroImage: oceanHero,
+    description:
+      "Private yacht days, surf experiences, ocean adventures, fishing, wildlife, and water activities around Punta Mita.",
+    activities: [
+      createActivity({
+        title: "Private Yacht, Sailing & Marietas Days",
+        slug: "private-yacht-sailing-marietas-days",
+        image: oceanImage,
+        heroImage: oceanHero,
+        description:
+          "Private boat, yacht, sailing, catamaran, Marietas, Hidden Beach, and luxury ocean-day experiences.",
+        overview:
+          "A private day on the water is one of the signature Punta Mita experiences. This activity can be relaxed, romantic, family-friendly, adventurous, or fully VIP depending on the boat, route, catering, and occasion.",
+        bestFor:
+          "Families, couples, groups, celebrations, romantic trips, VIP travelers, and guests who want a premium ocean experience.",
+        duration: "Half-day, full-day, or sunset itinerary.",
+        seasonality:
+          "Available year-round. Hidden Beach is permit-dependent. Whale watching is seasonal.",
+        tags: ["Ocean", "Family-Friendly", "Romantic", "VIP", "Adventure", "Seasonal"],
+        notes:
+          "Boat type, marina or pier departure, route, catering, open bar, water toys, and Hidden Beach access should be confirmed before offering the final experience.",
+        whatToExpect:
+          "Expect a tailored ocean day with a captain and crew, flexible routing, beautiful water, time to swim or snorkel, and the option to add food, drinks, music, paddleboards, water toys, photography, or a special celebration setup.",
+        whatToBring:
+          "Swimwear, sunglasses, hat, sandals, reef-safe sunscreen, a light cover-up, dry clothes if needed, and a camera or phone.",
+        experienceOptions: [
+          option({
+            title: "Private Yacht Charter",
+            description:
+              "A polished private yacht experience arranged around the guest’s preferred style: relaxed cruising, swimming, music, drinks, snorkeling, or a full celebration on the water.",
+            bestFor: "VIP travelers, groups, families, birthdays, couples, and celebrations.",
+            duration: "Usually half-day or full-day.",
+            experience:
+              "Guests board a private yacht with crew and enjoy a customized route around Punta Mita, Banderas Bay, or the Marietas area. The day can include open bar, chef-style catering, music, paddleboards, snorkel gear, water toys, and time anchored in beautiful water.",
+            whatToExpect:
+              "A comfortable, private, highly flexible experience with a captain handling logistics and the itinerary adapted to ocean conditions and the group’s mood.",
+            whatToBring:
+              "Swimwear, cover-up, sunglasses, sunscreen, hat, sandals, and any preferred personal items.",
+            goodToKnow:
+              "Yacht quality varies significantly. The concierge should match the boat to the client profile, not only to group size.",
+          }),
+          option({
+            title: "Luxury Boat Day",
+            description:
+              "A more casual private boat experience that still feels elevated, ideal for families or groups who want the ocean without needing a large yacht.",
+            bestFor: "Families, friend groups, active travelers, and relaxed luxury guests.",
+            duration: "Usually 3 to 6 hours.",
+            experience:
+              "This version focuses on easy cruising, swimming, snorkeling, beach stops, snacks, drinks, and flexible time on the water. It can be arranged with smaller luxury boats, pangas, or sport boats depending on the guest’s preference.",
+            whatToExpect:
+              "A lighter, easier, and often more practical boat experience than a formal yacht charter, while still private and curated.",
+            whatToBring:
+              "Swimwear, towel, sandals, sunscreen, sunglasses, and a dry bag if needed.",
+            goodToKnow:
+              "This is often the best option for families who want a beautiful ocean day without overcomplicating the logistics.",
+          }),
+          option({
+            title: "Sailing Trip",
+            description:
+              "A slower, more elegant ocean experience centered on the feeling of sailing, views, breeze, and conversation.",
+            bestFor: "Couples, adults, relaxed groups, sunset lovers, and guests who prefer atmosphere over speed.",
+            duration: "Usually half-day or sunset itinerary.",
+            experience:
+              "Guests enjoy a private or semi-private sailing route with time to relax on deck, take in the coastline, enjoy drinks, and possibly stop for a swim depending on the boat and conditions.",
+            whatToExpect:
+              "A quieter, more graceful experience than a typical boat day, with a stronger focus on mood, scenery, and comfort.",
+            whatToBring:
+              "Resort wear, swimwear if swimming, light layer, sunglasses, sunscreen, and flat sandals.",
+            goodToKnow:
+              "Sailing is weather-dependent. Wind and sea conditions influence the route and feel of the experience.",
+          }),
+          option({
+            title: "Catamaran Sunset Cruise",
+            description:
+              "A comfortable sunset cruise with drinks, music, ocean views, and a relaxed social atmosphere.",
+            bestFor: "Couples, families, groups, first-night arrivals, and sunset celebrations.",
+            duration: "Usually 2 to 4 hours.",
+            experience:
+              "Guests board before sunset and cruise along the coast or bay while enjoying drinks, snacks, music, and golden-hour views. It can be romantic and quiet or more social depending on the group.",
+            whatToExpect:
+              "A scenic, low-effort evening on the water with beautiful light, easy movement on board, and a celebratory but relaxed atmosphere.",
+            whatToBring:
+              "Comfortable resort wear, light layer, sunglasses, phone or camera, and flat shoes.",
+            goodToKnow:
+              "This is one of the easiest ocean experiences to recommend for mixed-age groups.",
+          }),
+          option({
+            title: "Marietas Islands Tour",
+            description:
+              "A boat experience to one of the most iconic natural areas near Punta Mita, with snorkeling, wildlife, rock formations, and dramatic ocean scenery.",
+            bestFor: "Families, couples, photographers, ocean lovers, and first-time visitors.",
+            duration: "Usually half-day.",
+            experience:
+              "Guests travel by boat to the Marietas area for views, snorkeling when conditions allow, birdlife, marine scenery, and time in protected waters. The experience can be private and premium or more casual depending on boat type.",
+            whatToExpect:
+              "Beautiful ocean views, nature-focused stops, possible snorkeling, and a memorable sense of place very close to Punta Mita.",
+            whatToBring:
+              "Swimwear, towel, sunscreen, hat, sunglasses, and camera.",
+            goodToKnow:
+              "Conditions, park rules, and access restrictions can affect the route and what guests are allowed to do.",
+          }),
+          option({
+            title: "Hidden Beach Experience",
+            description:
+              "A permit-dependent visit to the famous Playa del Amor, usually treated as a special upgrade inside a Marietas itinerary.",
+            bestFor: "Adventurous couples, active adults, bucket-list travelers, and guests who understand the restrictions.",
+            duration: "Usually part of a half-day Marietas experience.",
+            experience:
+              "When permits, conditions, and guest eligibility allow, the boat itinerary includes access to Hidden Beach. It is a more regulated and active experience than a normal beach stop.",
+            whatToExpect:
+              "A memorable but controlled visit with time limitations, rules, and possible physical requirements depending on the operator and conditions.",
+            whatToBring:
+              "Swimwear, towel, sunscreen, and comfort in the water.",
+            goodToKnow:
+              "Do not promise Hidden Beach automatically. It is permit-dependent, weather-dependent, and not ideal for every guest.",
+          }),
+          option({
+            title: "Family Boat Day",
+            description:
+              "A family-friendly ocean day designed around comfort, safety, easy swimming, snacks, and activities for kids and adults.",
+            bestFor: "Families with kids, multigenerational groups, and relaxed villa guests.",
+            duration: "Usually 3 to 5 hours.",
+            experience:
+              "The route and timing are adapted for children and families. The focus is on calm water when possible, safe swimming, snacks, shade, music, and easy activities like paddleboards or snorkeling.",
+            whatToExpect:
+              "A private, low-pressure day where the crew keeps the experience flexible and comfortable for different ages.",
+            whatToBring:
+              "Swimwear, towels, hats, sunscreen, kids’ sun protection, water shirts, and any special snacks or medication.",
+            goodToKnow:
+              "For families, the best boat is not always the largest; shade, bathrooms, easy boarding, and crew attitude matter more.",
+          }),
+          option({
+            title: "Yacht Proposal or Romantic Ocean Moment",
+            description:
+              "A private yacht or sunset boat experience designed around a proposal, anniversary, honeymoon, or romantic celebration.",
+            bestFor: "Couples, proposals, anniversaries, honeymoons, and romantic trips.",
+            duration: "Usually sunset or half-day.",
+            experience:
+              "The yacht itinerary is planned around timing, privacy, décor, champagne, flowers, music, photography, and the key moment. It can be simple and elegant or fully produced.",
+            whatToExpect:
+              "A discreet, highly planned experience with attention to timing, mood, views, and privacy.",
+            whatToBring:
+              "Resort-elegant clothing, sunglasses, light layer, and any personal items for the surprise.",
+            goodToKnow:
+              "Photography, flowers, music, champagne, and backup timing should be coordinated in advance.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Surf Experiences",
+        slug: "surf-experiences",
+        image: oceanImage,
+        heroImage: oceanHero,
+        description:
+          "Private surf lessons, surf safaris, La Lancha surf days, and surf-town experiences near Punta Mita.",
+        overview:
+          "Surfing around Punta Mita can be accessible for beginners, fun for families, and rewarding for experienced surfers. The best version depends on the guest’s level, the swell, the tide, and the desired vibe.",
+        bestFor:
+          "Active travelers, families, kids, teens, couples, surfers, and guests who want a classic Punta Mita ocean experience.",
+        duration: "Usually 1.5 to 4 hours.",
+        seasonality: "Available year-round, with conditions varying by swell, tide, and season.",
+        tags: ["Ocean", "Adventure", "Family-Friendly", "Sports"],
+        notes:
+          "Always match the surf spot to the guest’s level. Beginners need safe conditions and patient instructors.",
+        whatToExpect:
+          "Expect board setup, local guidance, ocean-safety briefing, instruction when needed, and time in the water at the best available surf spot for the group.",
+        whatToBring:
+          "Swimwear, rash guard, towel, sunscreen, sandals, and a change of clothes.",
+        experienceOptions: [
+          option({
+            title: "Private Surf Lesson",
+            description:
+              "A personalized surf session for beginners or intermediate guests who want instruction, safety, and confidence in the water.",
+            bestFor: "Kids, teens, adults, first-time surfers, and families.",
+            duration: "Usually 1.5 to 2 hours.",
+            experience:
+              "Guests meet a private instructor, receive a safety briefing and land-based technique introduction, then practice in the water with guidance adapted to their level.",
+            whatToExpect:
+              "Patient instruction, beginner-friendly pacing, help with positioning and waves, and a fun active session.",
+            whatToBring:
+              "Swimwear, rash guard, sunscreen, towel, and water.",
+            goodToKnow:
+              "The best beginner spot depends on tide and swell. The concierge should confirm conditions before booking.",
+          }),
+          option({
+            title: "La Lancha Surf Day",
+            description:
+              "A surf-focused outing to one of the area’s most recognizable breaks, often paired with beach time or El Surf Club.",
+            bestFor: "Surfers, active couples, teens, and guests who want a local surf experience.",
+            duration: "Usually 2 to 4 hours.",
+            experience:
+              "Guests head to La Lancha with boards and guidance. The session can be instructional or simply supported by a local surf guide who helps choose the right timing and setup.",
+            whatToExpect:
+              "A relaxed but active surf outing with a stronger local feel than a resort-based lesson.",
+            whatToBring:
+              "Swimwear, rash guard, towel, sandals, sunscreen, and dry clothes.",
+            goodToKnow:
+              "La Lancha requires beach access logistics. It is better with someone local coordinating timing and gear.",
+          }),
+          option({
+            title: "Private Surf Safari",
+            description:
+              "A guided surf outing designed for more experienced surfers who want to chase the best break available that day.",
+            bestFor: "Intermediate and advanced surfers.",
+            duration: "Usually half-day.",
+            experience:
+              "A local surf guide selects the best break based on swell, wind, tide, and guest ability. Options may include Punta de Mita breaks, La Lancha, Burros, Stinky’s, or other nearby surf spots.",
+            whatToExpect:
+              "A more flexible and condition-driven experience, focused on better waves rather than a fixed location.",
+            whatToBring:
+              "Surfwear, sunscreen, water, towel, and personal board if preferred.",
+            goodToKnow:
+              "This is not ideal for beginners. It works best for surfers who understand that the day depends on ocean conditions.",
+          }),
+          option({
+            title: "Kid-Friendly Surf Session",
+            description:
+              "A gentle, safe, confidence-building surf lesson designed specifically for children and families.",
+            bestFor: "Families with children and beginner teens.",
+            duration: "Usually 1 to 1.5 hours.",
+            experience:
+              "The instructor keeps the session simple, safe, and encouraging, focusing on ocean comfort, balance, paddling basics, and small waves when conditions are appropriate.",
+            whatToExpect:
+              "A playful and supervised surf experience with close attention to safety and child comfort.",
+            whatToBring:
+              "Rash guard, sunscreen, towel, water, hat for before and after, and dry clothes.",
+            goodToKnow:
+              "For younger kids, ocean conditions matter more than schedule preference.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Foil, Paddle & Kayak Experiences",
+        slug: "foil-paddle-kayak-experiences",
+        image: oceanImage,
+        heroImage: oceanHero,
+        description:
+          "E-foil, wing-foil, paddleboarding, and kayaking for active guests looking for modern ocean sports.",
+        overview:
+          "This parent activity groups active but accessible water sports that work well for guests who want something fun, modern, and close to Punta Mita without committing to a full boat day.",
+        bestFor:
+          "Active travelers, teens, couples, groups, and guests who want a fun water-sports session.",
+        duration: "Usually 1 to 3 hours.",
+        seasonality: "Available year-round, subject to ocean and wind conditions.",
+        tags: ["Ocean", "Adventure", "Sports", "Family-Friendly"],
+        notes:
+          "E-foil and wing-foil are more premium and distinctive than generic water toys. Paddle and kayak experiences work best in calm conditions.",
+        whatToExpect:
+          "Expect instruction, equipment, safety guidance, and a session adapted to the guest’s comfort level and ocean conditions.",
+        whatToBring:
+          "Swimwear, towel, sunscreen, sunglasses with strap if needed, and dry clothes.",
+        experienceOptions: [
+          option({
+            title: "E-Foil Lesson",
+            description:
+              "A premium modern water-sports session where guests learn to ride an electric hydrofoil above the water.",
+            bestFor: "Active adults, teens, adventurous couples, and guests looking for something new.",
+            duration: "Usually 1 to 1.5 hours.",
+            experience:
+              "Guests receive instruction on board control, balance, speed, and safety before progressing into the water with coaching.",
+            whatToExpect:
+              "A learning curve, plenty of laughs, and a very memorable feeling once the board lifts above the water.",
+            whatToBring:
+              "Swimwear, towel, sunscreen, and comfort in the ocean.",
+            goodToKnow:
+              "This is easier for guests with board-sport experience, but beginners can still enjoy it with the right conditions.",
+          }),
+          option({
+            title: "Wing-Foil Session",
+            description:
+              "A wind-powered foil experience for sporty guests who want a more technical and dynamic ocean activity.",
+            bestFor: "Athletic guests, board-sport enthusiasts, and adventurous travelers.",
+            duration: "Usually 1.5 to 2 hours.",
+            experience:
+              "Guests learn to handle the wing, understand wind direction, balance on the board, and begin combining wind power with foil movement.",
+            whatToExpect:
+              "A more technical session than e-foil, with instruction heavily dependent on wind and water conditions.",
+            whatToBring:
+              "Swimwear, towel, sunscreen, and athletic comfort in the water.",
+            goodToKnow:
+              "Not every day is ideal for wing-foil. Conditions should be checked before confirming.",
+          }),
+          option({
+            title: "Paddleboarding",
+            description:
+              "A relaxed ocean activity that can be peaceful, active, or family-friendly depending on the route and conditions.",
+            bestFor: "Families, couples, beginners, wellness travelers, and calm-water days.",
+            duration: "Usually 1 to 2 hours.",
+            experience:
+              "Guests paddle along calm water with instruction and support if needed. It can be arranged as a simple board rental, guided paddle, or part of a beach-club or yacht day.",
+            whatToExpect:
+              "A low-pressure water activity with beautiful views, light exercise, and a slower pace.",
+            whatToBring:
+              "Swimwear, sunscreen, hat, sunglasses with strap, and towel.",
+            goodToKnow:
+              "Morning is often better because water and wind are usually calmer.",
+          }),
+          option({
+            title: "Kayaking",
+            description:
+              "A simple, accessible water activity for couples, families, and guests who want to explore the coastline at a relaxed pace.",
+            bestFor: "Families, couples, beginners, and light-adventure guests.",
+            duration: "Usually 1 to 2 hours.",
+            experience:
+              "Guests paddle with single or double kayaks, either independently in a protected area or with a guide depending on the location.",
+            whatToExpect:
+              "A scenic, easygoing session that can be active without being intense.",
+            whatToBring:
+              "Swimwear, sunscreen, hat, sunglasses, towel, and water.",
+            goodToKnow:
+              "Kayaking is best when wind and sea conditions are calm.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Underwater Exploration",
+        slug: "underwater-exploration",
+        image: oceanImage,
+        heroImage: oceanHero,
+        description:
+          "Snorkeling, scuba diving, freediving, and underwater exploration around Marietas and nearby ocean sites.",
+        overview:
+          "This activity is for guests who specifically want to explore below the surface. It can be a relaxed snorkeling outing, a private dive charter, or a more advanced freediving experience.",
+        bestFor:
+          "Ocean lovers, families, certified divers, adventurous couples, and guests interested in marine life.",
+        duration: "Usually 2 to 5 hours depending on route and activity.",
+        seasonality: "Available year-round, subject to visibility and sea conditions.",
+        tags: ["Ocean", "Adventure", "Family-Friendly", "Wildlife"],
+        notes:
+          "Scuba and freediving may require experience level, certification, or additional safety screening.",
+        whatToExpect:
+          "Expect a guided ocean session with equipment, safety briefing, boat transfer when needed, and time to explore marine life and underwater scenery.",
+        whatToBring:
+          "Swimwear, towel, reef-safe sunscreen, dry clothes, and certification card if scuba diving.",
+        experienceOptions: [
+          option({
+            title: "Marietas Snorkeling",
+            description:
+              "A relaxed guided snorkeling experience in one of the most attractive marine areas near Punta Mita.",
+            bestFor: "Families, couples, beginners, and ocean lovers.",
+            duration: "Usually part of a half-day boat experience.",
+            experience:
+              "Guests travel by boat to a suitable snorkeling area, receive gear and guidance, and enter the water to explore marine life and rock formations when visibility allows.",
+            whatToExpect:
+              "A beautiful nature-focused ocean experience with a relaxed pace and easy integration into a boat day.",
+            whatToBring:
+              "Swimwear, towel, sunscreen, hat, and dry clothes.",
+            goodToKnow:
+              "Visibility changes by day and season, so the experience should be framed as nature-based rather than guaranteed aquarium conditions.",
+          }),
+          option({
+            title: "Private Scuba Dive",
+            description:
+              "A dive-focused outing for certified divers or guests arranging a beginner discovery dive with a qualified operator.",
+            bestFor: "Certified divers, adventurous adults, and ocean-focused travelers.",
+            duration: "Usually half-day.",
+            experience:
+              "Guests dive with professional supervision at a suitable site chosen by conditions and certification level. The focus is marine life, underwater scenery, and a more immersive ocean experience.",
+            whatToExpect:
+              "A safety-first dive experience with gear, briefing, boat transfer, and professional guidance.",
+            whatToBring:
+              "Certification card if certified, swimwear, towel, dry clothes, and any personal dive gear if preferred.",
+            goodToKnow:
+              "Certification, health requirements, and no-fly timing after diving should be reviewed before booking.",
+          }),
+          option({
+            title: "Freediving Experience",
+            description:
+              "A breath-focused underwater session for guests who want a quieter, more athletic connection with the ocean.",
+            bestFor: "Strong swimmers, adventurous travelers, and guests interested in breath and underwater movement.",
+            duration: "Usually 2 to 4 hours.",
+            experience:
+              "Guests learn or practice breath control, relaxation, safety principles, and guided dives under professional supervision.",
+            whatToExpect:
+              "A calm but serious experience that combines mental focus, ocean comfort, and underwater technique.",
+            whatToBring:
+              "Swimwear, towel, sunscreen, and comfort swimming in open water.",
+            goodToKnow:
+              "This is not casual snorkeling. Safety, instruction, and guest suitability matter.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Fishing & Spearfishing Experiences",
+        slug: "fishing-spearfishing-experiences",
+        image: oceanImage,
+        heroImage: oceanHero,
+        description:
+          "Private sportfishing, spearfishing, deep-sea fishing, and sea-to-table fishing experiences.",
+        overview:
+          "This activity combines the different fishing-related experiences into one premium category. It can be casual and family-friendly or a serious offshore fishing day, depending on the group.",
+        bestFor:
+          "Fishing enthusiasts, families, groups, adventurous travelers, and guests interested in sea-to-table dining.",
+        duration: "Half-day or full-day.",
+        seasonality: "Available year-round, with target species and conditions varying by season.",
+        tags: ["Ocean", "Adventure", "Food & Drink", "Groups", "Seasonal"],
+        notes:
+          "Sea-to-table experiences should be arranged carefully with the villa chef or selected restaurant when possible.",
+        whatToExpect:
+          "Expect a private captain or crew, fishing gear, route planning based on conditions, and the possibility of preparing the catch afterward depending on the experience.",
+        whatToBring:
+          "Sun protection, comfortable boat clothing, non-slip shoes, motion-sickness support if needed, and a light layer.",
+        experienceOptions: [
+          option({
+            title: "Private Sportfishing",
+            description:
+              "A private fishing charter for guests who want a serious ocean fishing experience with captain, crew, and gear.",
+            bestFor: "Fishing enthusiasts, groups, families with older kids, and competitive guests.",
+            duration: "Half-day or full-day.",
+            experience:
+              "The captain selects the route and target species based on season, weather, and guest goals. The day may focus on inshore or offshore fishing depending on conditions.",
+            whatToExpect:
+              "A classic fishing charter with professional guidance, ocean time, gear, and the possibility of a memorable catch.",
+            whatToBring:
+              "Hat, sunscreen, sunglasses, boat shoes, light layer, and motion-sickness support if needed.",
+            goodToKnow:
+              "Fishing is never guaranteed. The value is in the experience, the ocean day, and the chance of a catch.",
+          }),
+          option({
+            title: "Spearfishing",
+            description:
+              "An active, skill-based ocean experience for strong swimmers and adventurous guests.",
+            bestFor: "Strong swimmers, experienced ocean guests, and adventurous adults.",
+            duration: "Usually half-day.",
+            experience:
+              "Guests go with a qualified guide to suitable areas, review safety and technique, then enter the water for a guided spearfishing session.",
+            whatToExpect:
+              "A physically active experience with focus, patience, safety, and direct connection to the ocean.",
+            whatToBring:
+              "Swimwear, towel, reef-safe sunscreen, and comfort in open water.",
+            goodToKnow:
+              "This is not for every guest. Ability level, ocean conditions, and responsible practices should be confirmed.",
+          }),
+          option({
+            title: "Sea-to-Table Fishing Experience",
+            description:
+              "A fishing or spearfishing experience followed by a private chef or restaurant preparation when possible.",
+            bestFor: "Food lovers, groups, families, and guests who want a story behind the meal.",
+            duration: "Half-day plus meal timing.",
+            experience:
+              "Guests fish in the morning or afternoon, then the catch is prepared as ceviche, grilled fish, tacos, or a more refined dinner depending on the chef and what is caught.",
+            whatToExpect:
+              "A memorable link between the ocean and the table, combining adventure with food and storytelling.",
+            whatToBring:
+              "Boat clothing, sun protection, and appetite for a fresh local meal.",
+            goodToKnow:
+              "This depends on the catch. A backup menu should always be planned.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Marine Wildlife & Conservation Experiences",
+        slug: "marine-wildlife-conservation-experiences",
+        image: oceanImage,
+        heroImage: oceanHero,
+        description:
+          "Whale watching, wild marine-life tours, turtle releases, and conservation-focused experiences.",
+        overview:
+          "This category focuses on natural, seasonal, and conservation-oriented experiences. It should be positioned around wild marine life, responsible viewing, and meaningful family moments.",
+        bestFor:
+          "Families, kids, nature lovers, couples, photographers, and guests who want a meaningful seasonal experience.",
+        duration: "Usually 1 to 4 hours depending on the experience.",
+        seasonality:
+          "Whale watching and turtle releases are seasonal. Marine-life tours depend on conditions.",
+        tags: ["Ocean", "Wildlife", "Family-Friendly", "Seasonal"],
+        notes:
+          "Avoid presenting this as captive animal interaction. Focus on wild and responsible experiences.",
+        whatToExpect:
+          "Expect a nature-focused experience with local guidance, seasonal timing, respectful viewing, and an educational component when available.",
+        whatToBring:
+          "Comfortable clothing, camera, sunscreen, hat, and a light layer for boat-based experiences.",
+        experienceOptions: [
+          option({
+            title: "Private Whale Watching",
+            description:
+              "A seasonal ocean experience focused on observing humpback whales in the bay with privacy and comfort.",
+            bestFor: "Families, couples, photographers, nature lovers, and first-time visitors.",
+            duration: "Usually 2 to 4 hours.",
+            experience:
+              "Guests go out by private boat during whale season with a captain or naturalist-style guide. The route is adapted to responsible viewing and current whale activity.",
+            whatToExpect:
+              "A moving and memorable nature experience, with the possibility of seeing whales breach, tail slap, or travel through the bay.",
+            whatToBring:
+              "Camera, hat, sunglasses, sunscreen, and a light layer.",
+            goodToKnow:
+              "Whale sightings are seasonal and natural. Respectful distance and responsible viewing should always be prioritized.",
+          }),
+          option({
+            title: "Wild Dolphin & Marine-Life Tour",
+            description:
+              "A responsible ocean outing focused on wild marine life, birds, turtles, rays, and dolphins when naturally encountered.",
+            bestFor: "Families, kids, nature lovers, and photographers.",
+            duration: "Usually 2 to 4 hours.",
+            experience:
+              "The boat route is planned around likely marine-life areas, with the understanding that wildlife is observed naturally and never guaranteed.",
+            whatToExpect:
+              "A relaxed ocean nature experience with education, observation, and beautiful time on the water.",
+            whatToBring:
+              "Sun protection, camera, comfortable boat clothing, and patience for wildlife viewing.",
+            goodToKnow:
+              "This should never be described as a captive dolphin experience.",
+          }),
+          option({
+            title: "Turtle Release",
+            description:
+              "A seasonal conservation-oriented experience that can be especially meaningful for families and children.",
+            bestFor: "Families, kids, couples, and guests interested in conservation.",
+            duration: "Usually 1 to 2 hours.",
+            experience:
+              "When available, guests participate in or observe a supervised turtle release with guidance from a conservation program or qualified host.",
+            whatToExpect:
+              "A quiet, emotional, and educational moment connected to the local coastline and turtle nesting season.",
+            whatToBring:
+              "Comfortable beach clothing, sandals, camera without flash if instructed, and respect for the conservation rules.",
+            goodToKnow:
+              "This is seasonal and cannot be guaranteed on every date.",
+          }),
+        ],
+      }),
+    ],
+  },
 
   {
-  title: "Nearby Destinations & Day Trips",
-  slug: "nearby-destinations-day-trips",
-  image:
-    "/discover-punta-mita/nearby-destinations-day-trips.jpg",
-  heroImage:
-    "/discover-punta-mita/heroes/nearby-destinations-day-trips-hero.jpg",
-  description:
-    "Sayulita, San Pancho, Puerto Vallarta, Yelapa, Marietas Islands, Bucerías, La Cruz, surf villages, and jungle excursions near Punta Mita.",
-  activities: [
-    {
-      title: "Sayulita",
-      slug: "sayulita",
-      image: "/discover-punta-mita/activities/sayulita.jpg",
-      description:
-        "A colorful surf town known for beaches, shopping, restaurants, nightlife, and a lively bohemian atmosphere.",
-      overview:
-        "Sayulita is one of the most popular day trips from Punta Mita. The town combines surf culture, casual beach energy, colorful streets, boutiques, cafés, restaurants, and a lively social scene.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, groups, surfers, shoppers, food lovers, and first-time visitors." },
-        { label: "Typical Duration", value: "Half-day or full-day." },
-        { label: "Best Time of Day", value: "Morning for a quieter visit, or afternoon through evening for more energy." },
-        { label: "Seasonality", value: "Year-round, with busier streets during weekends and high season." },
-        { label: "What to Wear / Bring", value: "Comfortable walking shoes, casual clothing, sunglasses, sunscreen, and swimwear if visiting the beach." },
-      ],
-      customInfo: [
-        { label: "Destination Style", value: "Surf town, shopping, food, beach, nightlife, and casual local atmosphere." },
-        { label: "Distance Feel", value: "Easy day trip from Punta Mita." },
-        { label: "Good to Know", value: "Can feel busy and lively, especially during weekends and peak travel dates." },
-      ],
-      whatToExpect:
-        "Expect colorful streets, beach activity, local shops, casual restaurants, surf culture, and a more energetic town atmosphere than Punta Mita.",
-      whatToBring:
-        "Bring comfortable shoes, sun protection, casual clothing, and swimwear if you plan to spend time at the beach.",
-      gallery: [
-        "/discover-punta-mita/activities/sayulita.jpg",
-        "/discover-punta-mita/activities/sayulita-2.jpg",
-        "/discover-punta-mita/activities/sayulita-3.jpg",
-      ],
-    },
-    {
-      title: "San Pancho",
-      slug: "san-pancho",
-      image: "/discover-punta-mita/activities/san-pancho.jpg",
-      description:
-        "A relaxed coastal town with a slower pace, creative community, beach atmosphere, restaurants, and local charm.",
-      overview:
-        "San Pancho offers a quieter and more local-feeling alternative to Sayulita. It is known for its relaxed rhythm, beach sunsets, small restaurants, creative spirit, and less crowded atmosphere.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, families, relaxed travelers, creatives, food lovers, and guests seeking a slower town experience." },
-        { label: "Typical Duration", value: "Half-day or full-day." },
-        { label: "Best Time of Day", value: "Late morning through sunset." },
-        { label: "Seasonality", value: "Year-round, with a calmer feel than Sayulita most of the time." },
-        { label: "What to Wear / Bring", value: "Casual clothing, comfortable shoes, sunscreen, sunglasses, and swimwear if visiting the beach." },
-      ],
-      customInfo: [
-        { label: "Destination Style", value: "Relaxed beach town, restaurants, sunset, art, and local charm." },
-        { label: "Atmosphere", value: "Calm, creative, and less commercial than larger destinations." },
-        { label: "Good to Know", value: "A strong option for guests who want a slower day trip." },
-      ],
-      whatToExpect:
-        "Expect a walkable town, beach views, casual dining, local shops, and a more peaceful atmosphere compared to Sayulita.",
-      whatToBring:
-        "Bring comfortable walking shoes, sun protection, and casual clothing for a relaxed day outside.",
-      gallery: [
-        "/discover-punta-mita/activities/san-pancho.jpg",
-        "/discover-punta-mita/activities/san-pancho-2.jpg",
-        "/discover-punta-mita/activities/san-pancho-3.jpg",
-      ],
-    },
-    {
-      title: "Puerto Vallarta",
-      slug: "puerto-vallarta",
-      image: "/discover-punta-mita/activities/puerto-vallarta.jpg",
-      description:
-        "A larger coastal city with restaurants, galleries, nightlife, shopping, beaches, and a historic seaside center.",
-      overview:
-        "Puerto Vallarta is one of the most complete day trips from Punta Mita, offering a mix of dining, culture, galleries, shopping, nightlife, beaches, and city energy.",
-      standardInfo: [
-        { label: "Best For", value: "First-time visitors, couples, groups, food lovers, shoppers, nightlife travelers, and culture-focused guests." },
-        { label: "Typical Duration", value: "Half-day, full-day, or evening trip." },
-        { label: "Best Time of Day", value: "Afternoon through evening, especially for dining and nightlife." },
-        { label: "Seasonality", value: "Year-round." },
-        { label: "What to Wear / Bring", value: "Comfortable walking shoes, casual or smart casual clothing, sunscreen, and sunglasses." },
-      ],
-      customInfo: [
-        { label: "Destination Style", value: "City, dining, galleries, shopping, nightlife, beach, and culture." },
-        { label: "Area Highlights", value: "Malecón, Zona Romántica, marina areas, galleries, restaurants, and nightlife districts." },
-        { label: "Good to Know", value: "Best planned around traffic, restaurant reservations, and preferred neighborhood." },
-      ],
-      whatToExpect:
-        "Expect a more urban coastal experience with many restaurants, bars, galleries, shops, and nightlife options.",
-      whatToBring:
-        "Bring comfortable shoes, sun protection, and clothing that works for both walking and dining.",
-      gallery: [
-        "/discover-punta-mita/activities/puerto-vallarta.jpg",
-        "/discover-punta-mita/activities/puerto-vallarta-2.jpg",
-        "/discover-punta-mita/activities/puerto-vallarta-3.jpg",
-      ],
-    },
-    {
-      title: "Yelapa",
-      slug: "yelapa",
-      image: "/discover-punta-mita/activities/yelapa.jpg",
-      description:
-        "A boat-access coastal village known for beach scenery, waterfalls, relaxed restaurants, and a slower escape from the city.",
-      overview:
-        "Yelapa is a memorable day trip for guests who want a more adventurous coastal outing. The village is typically reached by boat and offers beach atmosphere, local restaurants, waterfalls, and a relaxed pace.",
-      standardInfo: [
-        { label: "Best For", value: "Adventurous travelers, couples, families, nature lovers, photographers, and guests seeking a unique coastal day trip." },
-        { label: "Typical Duration", value: "Full-day experience." },
-        { label: "Best Time of Day", value: "Morning departure with afternoon return." },
-        { label: "Seasonality", value: "Year-round, with comfort depending on sea and weather conditions." },
-        { label: "What to Wear / Bring", value: "Swimwear, comfortable walking shoes, sandals, towel, sunscreen, hat, and water." },
-      ],
-      customInfo: [
-        { label: "Destination Style", value: "Boat-access village, beach, waterfalls, nature, and casual dining." },
-        { label: "Access", value: "Usually reached by boat from the Puerto Vallarta or Boca de Tomatlán area." },
-        { label: "Good to Know", value: "Routes and comfort depend on sea conditions and transportation planning." },
-      ],
-      whatToExpect:
-        "Expect boat travel, a scenic beach village, local restaurants, possible waterfall walks, and a more rustic coastal atmosphere.",
-      whatToBring:
-        "Bring swimwear, towel, walking shoes, sandals, sunscreen, and water.",
-      gallery: [
-        "/discover-punta-mita/activities/yelapa.jpg",
-        "/discover-punta-mita/activities/yelapa-2.jpg",
-        "/discover-punta-mita/activities/yelapa-3.jpg",
-      ],
-    },
-    {
-      title: "Boca de Tomatlán",
-      slug: "boca-de-tomatlan",
-      image: "/discover-punta-mita/activities/boca-de-tomatlan.jpg",
-      description:
-        "A small coastal village south of Puerto Vallarta used as a gateway to beaches, boat routes, and scenic hikes.",
-      overview:
-        "Boca de Tomatlán is a charming coastal village and departure point for boat trips and hikes to beaches south of Puerto Vallarta. It is a good fit for guests looking for a more local and scenic day.",
-      standardInfo: [
-        { label: "Best For", value: "Adventurous travelers, hikers, beach explorers, photographers, and guests seeking a local coastal outing." },
-        { label: "Typical Duration", value: "Half-day or full-day depending on route." },
-        { label: "Best Time of Day", value: "Morning or early afternoon." },
-        { label: "Seasonality", value: "Year-round, with weather and trail conditions affecting comfort." },
-        { label: "What to Wear / Bring", value: "Comfortable walking shoes, swimwear, towel, sunscreen, hat, water, and light clothing." },
-      ],
-      customInfo: [
-        { label: "Destination Style", value: "Local village, boat access, hiking, beaches, and coastal scenery." },
-        { label: "Access", value: "Usually reached by road from Puerto Vallarta, then by walking route or boat depending on the plan." },
-        { label: "Good to Know", value: "A practical gateway to nearby beaches and water taxi routes." },
-      ],
-      whatToExpect:
-        "Expect a small local village, boat activity, scenic coastline, and access to nearby beach routes or hikes.",
-      whatToBring:
-        "Bring walking shoes, swimwear, towel, sunscreen, water, and cash for small local expenses.",
-      gallery: [
-        "/discover-punta-mita/activities/boca-de-tomatlan.jpg",
-        "/discover-punta-mita/activities/boca-de-tomatlan-2.jpg",
-        "/discover-punta-mita/activities/boca-de-tomatlan-3.jpg",
-      ],
-    },
-    {
-      title: "Islas Marietas",
-      slug: "islas-marietas",
-      image: "/discover-punta-mita/activities/islas-marietas.jpg",
-      description:
-        "A protected island destination near Punta Mita known for dramatic scenery, marine life, snorkeling, and iconic nature views.",
-      overview:
-        "Islas Marietas are among the most recognized natural attractions near Punta Mita. The islands are typically visited by boat and offer scenery, marine life, snorkeling opportunities, and a memorable nature-focused experience.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, nature lovers, photographers, first-time visitors, and ocean-focused travelers." },
-        { label: "Typical Duration", value: "3 to 5 hours depending on tour style." },
-        { label: "Best Time of Day", value: "Morning." },
-        { label: "Seasonality", value: "Year-round, subject to sea conditions and access rules." },
-        { label: "What to Wear / Bring", value: "Swimwear, towel, sunscreen, hat, sunglasses, water, and waterproof protection for valuables." },
-      ],
-      customInfo: [
-        { label: "Destination Style", value: "Protected islands, boat tour, marine life, snorkeling, and nature scenery." },
-        { label: "Access", value: "Usually reached by boat from Punta de Mita or nearby marinas." },
-        { label: "Good to Know", value: "Access to certain areas may depend on permits, conditions, and operator availability." },
-      ],
-      whatToExpect:
-        "Expect a boat outing to a protected island area with scenic views, marine life, possible snorkeling, and nature-focused interpretation.",
-      whatToBring:
-        "Bring swimwear, towel, sunscreen, sunglasses, hat, and waterproof protection for your phone or camera.",
-      gallery: [
-        "/discover-punta-mita/activities/islas-marietas.jpg",
-        "/discover-punta-mita/activities/islas-marietas-2.jpg",
-        "/discover-punta-mita/activities/islas-marietas-3.jpg",
-      ],
-    },
-    {
-      title: "La Cruz de Huanacaxtle",
-      slug: "la-cruz-de-huanacaxtle",
-      image: "/discover-punta-mita/activities/la-cruz-de-huanacaxtle.jpg",
-      description:
-        "A marina town near Punta Mita known for seafood, sailing culture, local markets, casual restaurants, and coastal charm.",
-      overview:
-        "La Cruz de Huanacaxtle is a relaxed marina town that works well for dining, casual exploration, market visits, and coastal atmosphere close to Punta Mita.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, food lovers, marina visitors, market explorers, and guests seeking a casual local outing." },
-        { label: "Typical Duration", value: "2 to 5 hours." },
-        { label: "Best Time of Day", value: "Late morning, lunch, sunset, or dinner." },
-        { label: "Seasonality", value: "Year-round, with market days and marina activity varying by season." },
-        { label: "What to Wear / Bring", value: "Casual clothing, comfortable shoes, sunglasses, and sun protection." },
-      ],
-      customInfo: [
-        { label: "Destination Style", value: "Marina town, seafood, markets, casual dining, and local coastal atmosphere." },
-        { label: "Location", value: "Between Punta Mita and Bucerías." },
-        { label: "Good to Know", value: "A good option for a casual meal, marina walk, or relaxed nearby outing." },
-      ],
-      whatToExpect:
-        "Expect marina views, casual restaurants, seafood, local atmosphere, and a quieter pace than larger tourist centers.",
-      whatToBring:
-        "Bring comfortable shoes, casual clothing, and sun protection for walking around the marina area.",
-      gallery: [
-        "/discover-punta-mita/activities/la-cruz-de-huanacaxtle.jpg",
-        "/discover-punta-mita/activities/la-cruz-de-huanacaxtle-2.jpg",
-        "/discover-punta-mita/activities/la-cruz-de-huanacaxtle-3.jpg",
-      ],
-    },
-    {
-      title: "Bucerías",
-      slug: "bucerias",
-      image: "/discover-punta-mita/activities/bucerias.jpg",
-      description:
-        "A coastal town with beach restaurants, galleries, shopping, local streets, and a relaxed Riviera Nayarit atmosphere.",
-      overview:
-        "Bucerías is a friendly coastal town that offers restaurants, shops, galleries, beach walks, and a more relaxed alternative to Puerto Vallarta.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, shoppers, food lovers, beach walkers, and guests seeking a casual town outing." },
-        { label: "Typical Duration", value: "Half-day or full-day." },
-        { label: "Best Time of Day", value: "Late morning through sunset, or evening for dinner." },
-        { label: "Seasonality", value: "Year-round." },
-        { label: "What to Wear / Bring", value: "Casual clothing, comfortable walking shoes, sunglasses, sunscreen, and beachwear if visiting the beach." },
-      ],
-      customInfo: [
-        { label: "Destination Style", value: "Beach town, restaurants, galleries, shopping, and relaxed local atmosphere." },
-        { label: "Location", value: "Riviera Nayarit, between La Cruz and Nuevo Vallarta." },
-        { label: "Good to Know", value: "A versatile destination for casual meals, beach walks, shopping, and relaxed exploration." },
-      ],
-      whatToExpect:
-        "Expect a walkable town with beach restaurants, local shops, galleries, and a casual coastal feel.",
-      whatToBring:
-        "Bring comfortable shoes, sun protection, casual clothing, and swimwear if you plan to spend time at the beach.",
-      gallery: [
-        "/discover-punta-mita/activities/bucerias.jpg",
-        "/discover-punta-mita/activities/bucerias-2.jpg",
-        "/discover-punta-mita/activities/bucerias-3.jpg",
-      ],
-    },
-    {
-      title: "Punta de Mita Surf Villages",
-      slug: "punta-de-mita-surf-villages",
-      image: "/discover-punta-mita/activities/punta-de-mita-surf-villages.jpg",
-      description:
-        "Small coastal surf communities and beach areas near Punta Mita with ocean culture, casual food, and local atmosphere.",
-      overview:
-        "The surf villages and coastal areas around Punta de Mita offer a more local and relaxed view of the region, with surf culture, casual restaurants, and quieter beach settings.",
-      standardInfo: [
-        { label: "Best For", value: "Surfers, families, casual travelers, photographers, and guests interested in local beach culture." },
-        { label: "Typical Duration", value: "2 to 5 hours." },
-        { label: "Best Time of Day", value: "Morning for surf activity or afternoon for a casual visit." },
-        { label: "Seasonality", value: "Year-round, with surf and beach conditions varying by season." },
-        { label: "What to Wear / Bring", value: "Casual clothing, sandals, sunscreen, sunglasses, and swimwear if visiting the beach." },
-      ],
-      customInfo: [
-        { label: "Destination Style", value: "Surf culture, small beach communities, casual food, and local coastal atmosphere." },
-        { label: "Location", value: "Punta de Mita and nearby coastal areas." },
-        { label: "Good to Know", value: "Best experienced with local guidance if you want specific surf breaks or quieter beaches." },
-      ],
-      whatToExpect:
-        "Expect small beach areas, casual food spots, surf culture, and a more local rhythm than resort Punta Mita.",
-      whatToBring:
-        "Bring sandals, swimwear, sunscreen, and casual clothing for beach and town exploring.",
-      gallery: [
-        "/discover-punta-mita/activities/punta-de-mita-surf-villages.jpg",
-        "/discover-punta-mita/activities/punta-de-mita-surf-villages-2.jpg",
-        "/discover-punta-mita/activities/punta-de-mita-surf-villages-3.jpg",
-      ],
-    },
-    {
-      title: "Jungle Waterfall Excursions",
-      slug: "jungle-waterfall-excursions",
-      image: "/discover-punta-mita/activities/jungle-waterfall-excursions.jpg",
-      description:
-        "Nature-focused day trips to jungle trails, waterfalls, swimming spots, and scenic areas near the coast.",
-      overview:
-        "Jungle waterfall excursions are ideal for guests who want a more active nature experience away from the beach. These outings can include hiking, swimming, scenic drives, local guides, and tropical landscapes.",
-      standardInfo: [
-        { label: "Best For", value: "Nature lovers, adventurous travelers, families with active kids, couples, photographers, and groups." },
-        { label: "Typical Duration", value: "Half-day or full-day depending on route." },
-        { label: "Best Time of Day", value: "Morning for cooler temperatures and better trail comfort." },
-        { label: "Seasonality", value: "Year-round, with waterfall flow and trail conditions affected by rainy season." },
-        { label: "What to Wear / Bring", value: "Comfortable walking shoes, swimwear, towel, sunscreen, insect repellent, water, and a change of clothes." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Nature, hiking, swimming, scenic, and active." },
-        { label: "Location", value: "Jungle areas, river routes, and waterfall destinations near the greater Puerto Vallarta and Riviera Nayarit region." },
-        { label: "Good to Know", value: "Trail difficulty, water levels, and accessibility can vary by season and route." },
-      ],
-      whatToExpect:
-        "Expect a nature-focused outing with tropical scenery, walking or hiking, possible swimming, and a more adventurous day away from the resort setting.",
-      whatToBring:
-        "Bring shoes suitable for walking, swimwear, towel, water, insect repellent, sunscreen, and a dry change of clothes.",
-      gallery: [
-        "/discover-punta-mita/activities/jungle-waterfall-excursions.jpg",
-        "/discover-punta-mita/activities/jungle-waterfall-excursions-2.jpg",
-        "/discover-punta-mita/activities/jungle-waterfall-excursions-3.jpg",
-      ],
-    },
-  ],
-},
+    title: "Wellness, Relaxation & Beach Lifestyle",
+    slug: "wellness-relaxation-beach-lifestyle",
+    image: wellnessImage,
+    heroImage: wellnessHero,
+    description:
+      "In-villa spa, wellness, ritual experiences, private beach setups, sunset dinners, and relaxed luxury moments.",
+    activities: [
+      createActivity({
+        title: "In-Villa Spa & Wellness",
+        slug: "in-villa-spa-wellness",
+        image: wellnessImage,
+        heroImage: wellnessHero,
+        description:
+          "Spa treatments, massage, yoga, sound healing, breathwork, ice baths, and private wellness sessions at the villa.",
+        overview:
+          "This is the main wellness category for villa renters. It turns the villa into a private wellness space with spa treatments, movement, recovery, and restorative experiences.",
+        bestFor:
+          "Couples, families, wellness-focused guests, groups, pre-wedding stays, and guests who want to relax without leaving the villa.",
+        duration: "Usually 1 to 4 hours, or a half-day wellness program.",
+        seasonality: "Available year-round.",
+        tags: ["Wellness", "Romantic", "Family-Friendly", "VIP", "Rainy Day"],
+        notes:
+          "This should feel like a flexible private wellness menu, not many disconnected services.",
+        whatToExpect:
+          "Expect therapists, instructors, or wellness practitioners to come to the villa and create a private session adapted to the group.",
+        whatToBring:
+          "Comfortable clothing, swimwear if using cold plunge or pool, and a quiet space at the villa.",
+        experienceOptions: [
+          option({
+            title: "In-Villa Massage & Spa Treatments",
+            description:
+              "A private spa experience brought directly to the villa, ideal for guests who want to relax without leaving the property.",
+            bestFor: "Couples, families, groups, wellness travelers, and arrival-day recovery.",
+            duration: "Usually 60 to 120 minutes per guest.",
+            experience:
+              "Massage therapists or spa providers set up inside the villa, terrace, or a quiet shaded area. Treatments may include massage, facials, body treatments, or recovery-focused services.",
+            whatToExpect:
+              "A calm, private experience with spa-level service adapted to the villa environment.",
+            whatToBring:
+              "Comfortable clothing and a quiet space. Providers usually bring treatment equipment.",
+            goodToKnow:
+              "For larger groups, scheduling should be planned carefully so treatments flow smoothly.",
+          }),
+          option({
+            title: "Private Yoga",
+            description:
+              "A personalized yoga session at the villa, beach, terrace, or garden depending on the property and group preference.",
+            bestFor: "Couples, families, wellness travelers, beginners, and experienced practitioners.",
+            duration: "Usually 60 to 90 minutes.",
+            experience:
+              "A private instructor leads a class adapted to the group’s level and goals, from gentle stretching to more active flow.",
+            whatToExpect:
+              "A peaceful, grounding session that can be scheduled in the morning, at sunset, or as part of a full wellness day.",
+            whatToBring:
+              "Comfortable clothing and water. Mats can often be arranged.",
+            goodToKnow:
+              "This pairs well with breakfast, sound healing, breathwork, or massage.",
+          }),
+          option({
+            title: "Sound Healing & Breathwork",
+            description:
+              "A restorative session using guided breathing, sound, stillness, and relaxation.",
+            bestFor: "Couples, small groups, wellness guests, and guests wanting a slower experience.",
+            duration: "Usually 60 to 90 minutes.",
+            experience:
+              "A practitioner guides the group through breath, meditation, and sound using instruments such as bowls, gongs, or chimes depending on the provider.",
+            whatToExpect:
+              "A calming and introspective experience designed to reduce stress and create a deeper sense of relaxation.",
+            whatToBring:
+              "Comfortable clothing and an open mindset.",
+            goodToKnow:
+              "This works best in a quiet villa space without interruptions.",
+          }),
+          option({
+            title: "Cold Plunge & Recovery Session",
+            description:
+              "A recovery-focused wellness experience with ice bath, breathwork, mobility, or massage elements.",
+            bestFor: "Athletes, active travelers, wellness groups, and guests interested in performance recovery.",
+            duration: "Usually 60 to 120 minutes.",
+            experience:
+              "The session may include breath preparation, guided cold exposure, mobility work, recovery coaching, and optional massage or healthy refreshments.",
+            whatToExpect:
+              "A more active wellness experience that feels energizing, challenging, and memorable.",
+            whatToBring:
+              "Swimwear, towel, comfortable clothes, and water.",
+            goodToKnow:
+              "Guests with health conditions should consult a medical professional before cold exposure.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Temazcal & Ritual Wellness",
+        slug: "temazcal-ritual-wellness",
+        image: wellnessImage,
+        heroImage: wellnessHero,
+        description:
+          "Temazcal, cacao ceremonies, spiritual wellness, and ritual-style healing experiences.",
+        overview:
+          "This activity is separate from regular wellness because it feels more unique, local, and memorable. It is best for guests looking for something deeper than a standard spa treatment.",
+        bestFor:
+          "Couples, wellness travelers, small groups, spiritual travelers, and guests looking for a meaningful experience.",
+        duration: "Usually 1.5 to 3 hours.",
+        seasonality: "Available year-round, subject to provider availability.",
+        tags: ["Wellness", "Romantic", "VIP", "By Request"],
+        notes:
+          "This should be described carefully and respectfully. It is not for every guest.",
+        whatToExpect:
+          "Expect a guided ritual-style experience focused on relaxation, renewal, heat, breath, sound, or ceremony depending on the provider.",
+        whatToBring:
+          "Comfortable clothing, swimwear if needed, water, and an open mindset.",
+        experienceOptions: [
+          option({
+            title: "Temazcal Ceremony",
+            description:
+              "A traditional heat and renewal ceremony for guests seeking a deeper wellness experience.",
+            bestFor: "Wellness travelers, couples, spiritual guests, and small groups.",
+            duration: "Usually 1.5 to 3 hours.",
+            experience:
+              "Guests are guided through a ceremonial heat experience that may include intention setting, steam, herbs, breath, silence, and reflection.",
+            whatToExpect:
+              "A powerful, warm, and introspective experience. It can feel physically and emotionally intense, so it should be recommended thoughtfully.",
+            whatToBring:
+              "Swimwear or comfortable ceremony clothing, towel, water, and light clothing for after.",
+            goodToKnow:
+              "Not ideal for every guest. Heat tolerance, health conditions, and comfort with ritual settings should be considered.",
+          }),
+          option({
+            title: "Cacao Ceremony",
+            description:
+              "A softer ritual experience centered on cacao, intention, meditation, and connection.",
+            bestFor: "Couples, small groups, wellness travelers, and guests looking for a reflective moment.",
+            duration: "Usually 1 to 2 hours.",
+            experience:
+              "A facilitator guides guests through a cacao-based ritual that may include meditation, conversation, sound, or intention setting.",
+            whatToExpect:
+              "A gentle, grounded, and emotional experience that works well in a quiet villa or natural setting.",
+            whatToBring:
+              "Comfortable clothing and an open mindset.",
+            goodToKnow:
+              "This should be presented as wellness and ceremony, not as a party or performance.",
+          }),
+          option({
+            title: "Ritual Wellness Evening",
+            description:
+              "A customized wellness evening combining elements such as breathwork, sound healing, cacao, meditation, or a private chef wellness dinner.",
+            bestFor: "Couples, groups, retreats, and milestone trips.",
+            duration: "Usually 2 to 4 hours.",
+            experience:
+              "The experience is built around the group’s mood and can include multiple practitioners, quiet décor, healthy drinks, music, and a nourishing dinner after the session.",
+            whatToExpect:
+              "A curated, atmospheric evening that feels private, slow, and meaningful.",
+            whatToBring:
+              "Comfortable clothing and any personal intentions for the experience.",
+            goodToKnow:
+              "This is ideal for guests who want wellness to feel special and produced.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Private Beach Setups & Sunset Experiences",
+        slug: "private-beach-setups-sunset-experiences",
+        image: wellnessImage,
+        heroImage: wellnessHero,
+        description:
+          "Luxury picnics, sunset beach dinners, beach bonfires, cabana setups, and private sunset moments.",
+        overview:
+          "This category is ideal for romantic moments, family celebrations, birthdays, anniversaries, and relaxed luxury afternoons by the beach.",
+        bestFor:
+          "Couples, families, birthdays, anniversaries, proposals, groups, and guests who want a beautiful low-effort experience.",
+        duration: "Usually 2 to 4 hours.",
+        seasonality: "Available year-round, weather and beach rules permitting.",
+        tags: ["Romantic", "Family-Friendly", "VIP", "Food & Drink", "Beach"],
+        notes:
+          "Permits, beach rules, wind, tide, and access should be checked before promising specific setups.",
+        whatToExpect:
+          "Expect a styled outdoor setup with seating, décor, food or drinks, and a relaxed atmosphere timed around sunset or the guest’s preferred moment.",
+        whatToBring:
+          "Comfortable resort wear, sandals, light layer, camera, and anything personal for the occasion.",
+        experienceOptions: [
+          option({
+            title: "Luxury Beach Picnic",
+            description:
+              "A styled beach picnic with comfortable seating, beautiful décor, and curated food and drinks.",
+            bestFor: "Couples, families, birthdays, anniversaries, and relaxed celebrations.",
+            duration: "Usually 2 to 3 hours.",
+            experience:
+              "A private setup is arranged before guests arrive, with blankets or low seating, table styling, florals or décor, and a menu adapted to the occasion.",
+            whatToExpect:
+              "An easy, beautiful, photo-friendly experience that feels special without being too formal.",
+            whatToBring:
+              "Resort wear, sandals, sunglasses, and camera.",
+            goodToKnow:
+              "Wind and tide matter. Setup location should be confirmed in advance.",
+          }),
+          option({
+            title: "Sunset Beach Dinner",
+            description:
+              "A private dinner arranged near the beach or oceanfront, timed around the golden-hour and sunset moment.",
+            bestFor: "Couples, proposals, anniversaries, families, and VIP guests.",
+            duration: "Usually 2 to 4 hours.",
+            experience:
+              "Guests arrive to a styled table, private service, and a dinner menu designed for the occasion. It can be romantic, elegant, family-style, or celebration-focused.",
+            whatToExpect:
+              "A polished evening with atmosphere, dining, and a strong sense of place.",
+            whatToBring:
+              "Elegant resort wear, sandals or comfortable shoes, and a light layer.",
+            goodToKnow:
+              "Some locations may require permits or property approval.",
+          }),
+          option({
+            title: "Beach Bonfire",
+            description:
+              "A relaxed evening by the fire with drinks, music, casual food, and a comfortable beach atmosphere.",
+            bestFor: "Families, groups, birthdays, and relaxed evening gatherings.",
+            duration: "Usually 2 to 3 hours.",
+            experience:
+              "A bonfire-style setup is arranged with seating, lighting, drinks, snacks, and optional music or s’mores-style elements for families.",
+            whatToExpect:
+              "A warm, casual, memorable evening that works well after a beach day or villa dinner.",
+            whatToBring:
+              "Comfortable evening clothing, sandals, and a light layer.",
+            goodToKnow:
+              "Fire rules and community restrictions must be checked before confirming.",
+          }),
+          option({
+            title: "Private Cabana or Daybed Setup",
+            description:
+              "A daytime beach setup designed for comfort, shade, service, and a more elevated beach day.",
+            bestFor: "Families, couples, beach lovers, and relaxed luxury guests.",
+            duration: "Half-day or full-day.",
+            experience:
+              "Guests enjoy reserved loungers, daybeds, cabana-style shade, refreshments, towels, and a curated beach setting depending on location and access.",
+            whatToExpect:
+              "A low-effort luxury beach day with comfort, privacy, and service.",
+            whatToBring:
+              "Swimwear, cover-up, sunscreen, hat, sunglasses, and sandals.",
+            goodToKnow:
+              "Availability depends on beach access, club rules, property rules, or provider setup permissions.",
+          }),
+        ],
+      }),
+    ],
+  },
 
   {
-  title: "Family-Friendly Activities",
-  slug: "family-friendly-activities",
-  image: "/discover-punta-mita/family-friendly-activities.jpg",
-  heroImage:
-    "/discover-punta-mita/heroes/family-friendly-activities-hero.jpg",
-  description:
-    "Kid-friendly surf lessons, turtle releases, family boat days, wildlife encounters, beach games, ATV tours, ziplining, horseback riding, and nature tours.",
-  activities: [
-    {
-      title: "Turtle Releases",
-      slug: "turtle-releases",
-      image: "/discover-punta-mita/activities/turtle-releases.jpg",
-      description:
-        "A seasonal family experience where guests can learn about sea turtles and participate in a meaningful conservation moment.",
-      overview:
-        "Turtle releases are one of the most memorable seasonal family experiences in the Punta Mita and Riviera Nayarit area. They give children and adults a chance to connect with nature while learning about sea turtle conservation.",
-      standardInfo: [
-        { label: "Best For", value: "Families, children, nature lovers, photographers, and guests interested in conservation." },
-        { label: "Typical Duration", value: "Usually 30 to 90 minutes depending on the program." },
-        { label: "Best Time of Day", value: "Late afternoon or sunset, depending on the release schedule." },
-        { label: "Seasonality", value: "Seasonal and dependent on turtle nesting and hatching periods." },
-        { label: "What to Wear / Bring", value: "Comfortable beach clothing, sandals, sunscreen, insect repellent, and a camera." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Educational, nature-focused, emotional, and family-friendly." },
-        { label: "Good to Know", value: "Availability depends on conservation programs, season, and hatchling timing." },
-        { label: "Age Suitability", value: "Excellent for children and families." },
-      ],
-      whatToExpect:
-        "Expect a guided conservation experience, basic information about sea turtles, and the opportunity to observe or participate in a release depending on the program.",
-      whatToBring:
-        "Bring comfortable beach clothing, sandals, insect repellent, and a camera. Follow all conservation instructions carefully.",
-      gallery: [
-        "/discover-punta-mita/activities/turtle-releases.jpg",
-        "/discover-punta-mita/activities/turtle-releases-2.jpg",
-        "/discover-punta-mita/activities/turtle-releases-3.jpg",
-      ],
-    },
-    {
-      title: "Family Boat Days",
-      slug: "family-boat-days",
-      image: "/discover-punta-mita/activities/family-boat-days.jpg",
-      description:
-        "A relaxed private boat experience designed around children, family comfort, swimming, scenery, and easy ocean time.",
-      overview:
-        "Family boat days are one of the best ways to enjoy the coastline around Punta Mita with children. The pace can be adapted to the group, with swimming stops, snacks, shade, calm routes, and flexible timing.",
-      standardInfo: [
-        { label: "Best For", value: "Families with children, multi-generational groups, relaxed travelers, and guests wanting a private ocean day." },
-        { label: "Typical Duration", value: "3 to 6 hours depending on the boat and itinerary." },
-        { label: "Best Time of Day", value: "Morning is usually best for calmer water and younger children." },
-        { label: "Seasonality", value: "Available year-round, weather and sea conditions permitting." },
-        { label: "What to Wear / Bring", value: "Swimwear, hats, sunglasses, reef-safe sunscreen, towels, snacks, and light cover-ups." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Private, relaxed, flexible, and kid-friendly." },
-        { label: "Customization", value: "Routes, duration, swimming stops, snacks, and pace can often be adapted for families." },
-        { label: "Good to Know", value: "Choose calmer routes and shorter durations for younger children." },
-      ],
-      whatToExpect:
-        "Expect a flexible ocean day with time to swim, relax, enjoy coastal views, and adapt the itinerary around the family’s comfort.",
-      whatToBring:
-        "Bring swimwear, towels, sunscreen, hats, snacks for children, dry clothes, and motion sickness medication if needed.",
-      gallery: [
-        "/discover-punta-mita/activities/family-boat-days.jpg",
-        "/discover-punta-mita/activities/family-boat-days-2.jpg",
-        "/discover-punta-mita/activities/family-boat-days-3.jpg",
-      ],
-    },
-    {
-      title: "Kid-Friendly Surf Lessons",
-      slug: "kid-friendly-surf-lessons",
-      image: "/discover-punta-mita/activities/kid-friendly-surf-lessons.jpg",
-      description:
-        "Beginner surf lessons designed for children and families, with safety, encouragement, and gentle instruction.",
-      overview:
-        "Kid-friendly surf lessons are a great way for children to experience the ocean in a structured and supportive way. Lessons are usually adapted to age, confidence, and ocean conditions.",
-      standardInfo: [
-        { label: "Best For", value: "Kids, teens, families, beginners, and children comfortable in the water." },
-        { label: "Typical Duration", value: "Usually 1 to 2 hours." },
-        { label: "Best Time of Day", value: "Morning, when wind and ocean conditions are usually more comfortable." },
-        { label: "Seasonality", value: "Available year-round, depending on surf and weather conditions." },
-        { label: "What to Wear / Bring", value: "Swimwear, rash guard, sunscreen, towel, water, and dry clothes." },
-      ],
-      customInfo: [
-        { label: "Skill Level", value: "Beginner-friendly and adapted for children." },
-        { label: "Experience Style", value: "Instructional, safe, active, and confidence-building." },
-        { label: "Good to Know", value: "Instructor quality and ocean conditions are very important for younger children." },
-      ],
-      whatToExpect:
-        "Expect beach instruction, safety guidance, paddling practice, and time in the water with close instructor support.",
-      whatToBring:
-        "Bring a rash guard, towel, sunscreen, water, and dry clothes for after the lesson.",
-      gallery: [
-        "/discover-punta-mita/activities/kid-friendly-surf-lessons.jpg",
-        "/discover-punta-mita/activities/kid-friendly-surf-lessons-2.jpg",
-        "/discover-punta-mita/activities/kid-friendly-surf-lessons-3.jpg",
-      ],
-    },
-    {
-      title: "Wildlife Encounters",
-      slug: "wildlife-encounters",
-      image: "/discover-punta-mita/activities/wildlife-encounters.jpg",
-      description:
-        "Nature-focused outings where families can observe marine life, birds, turtles, dolphins, whales, or local wildlife depending on the season.",
-      overview:
-        "Wildlife encounters around Punta Mita can be gentle, educational, and memorable for children. Experiences vary by season and may include marine life, birds, turtles, dolphins, whales, or nature walks.",
-      standardInfo: [
-        { label: "Best For", value: "Families, children, nature lovers, photographers, and curious travelers." },
-        { label: "Typical Duration", value: "1.5 to 4 hours depending on the experience." },
-        { label: "Best Time of Day", value: "Morning is often best for comfort and wildlife activity." },
-        { label: "Seasonality", value: "Year-round, with specific wildlife varying by season." },
-        { label: "What to Wear / Bring", value: "Comfortable clothing, hat, sunscreen, insect repellent, water, and camera." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Educational, nature-focused, calm, and family-friendly." },
-        { label: "Good to Know", value: "Wildlife sightings are natural and cannot be guaranteed." },
-        { label: "Location", value: "Coastal waters, beaches, protected areas, or nearby nature routes depending on the experience." },
-      ],
-      whatToExpect:
-        "Expect a guided nature experience focused on observing wildlife respectfully. The exact animals and route depend on season and conditions.",
-      whatToBring:
-        "Bring water, sun protection, insect repellent, and a camera or binoculars if available.",
-      gallery: [
-        "/discover-punta-mita/activities/wildlife-encounters.jpg",
-        "/discover-punta-mita/activities/wildlife-encounters-2.jpg",
-        "/discover-punta-mita/activities/wildlife-encounters-3.jpg",
-      ],
-    },
-    {
-      title: "Beach Games",
-      slug: "beach-games",
-      image: "/discover-punta-mita/activities/beach-games.jpg",
-      description:
-        "Simple, fun beach activities for children and families, from sand games and paddle games to casual group competitions.",
-      overview:
-        "Beach games are an easy way to keep children active and entertained during a beach day. They can be casual, organized, or part of a larger family beach setup.",
-      standardInfo: [
-        { label: "Best For", value: "Families, children, groups, beach days, and multi-generational trips." },
-        { label: "Typical Duration", value: "Flexible, from 30 minutes to several hours." },
-        { label: "Best Time of Day", value: "Morning or late afternoon when the sun is less intense." },
-        { label: "Seasonality", value: "Available year-round, weather permitting." },
-        { label: "What to Wear / Bring", value: "Swimwear, hats, sunscreen, towels, water, and beach-friendly clothing." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Casual, playful, flexible, and family-friendly." },
-        { label: "Good For", value: "Keeping children entertained during relaxed beach days." },
-        { label: "Customization", value: "Can include volleyball, paddle games, sand games, relay games, or family competitions." },
-      ],
-      whatToExpect:
-        "Expect easygoing games and beach activities that can be adapted by age, group size, and energy level.",
-      whatToBring:
-        "Bring sunscreen, water, towels, hats, and any favorite beach toys or games.",
-      gallery: [
-        "/discover-punta-mita/activities/beach-games.jpg",
-        "/discover-punta-mita/activities/beach-games-2.jpg",
-        "/discover-punta-mita/activities/beach-games-3.jpg",
-      ],
-    },
-    {
-      title: "ATV Tours",
-      slug: "atv-tours",
-      image: "/discover-punta-mita/activities/atv-tours.jpg",
-      description:
-        "An adventurous family-friendly activity through trails, towns, jungle roads, or scenic routes depending on the tour.",
-      overview:
-        "ATV tours are a more adventurous option for families with older children or teens. Routes can include dirt roads, scenic paths, jungle areas, and local villages depending on the operator.",
-      standardInfo: [
-        { label: "Best For", value: "Families with older children, teens, groups, adventure travelers, and active guests." },
-        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
-        { label: "Best Time of Day", value: "Morning or late afternoon." },
-        { label: "Seasonality", value: "Year-round, with trail conditions affected by rain and weather." },
-        { label: "What to Wear / Bring", value: "Closed-toe shoes, comfortable clothing, sunglasses, sunscreen, and clothes that can get dusty." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Adventure, scenic, active, and terrain-dependent." },
-        { label: "Age Suitability", value: "Best for older children, teens, and adults. Age and driver requirements vary by operator." },
-        { label: "Good to Know", value: "Expect dust, bumps, and changing terrain depending on route and season." },
-      ],
-      whatToExpect:
-        "Expect safety instructions, helmets, guided riding, and a route through scenic or rural areas depending on the tour.",
-      whatToBring:
-        "Bring closed-toe shoes, sunglasses, sunscreen, and clothing you do not mind getting dusty.",
-      gallery: [
-        "/discover-punta-mita/activities/atv-tours.jpg",
-        "/discover-punta-mita/activities/atv-tours-2.jpg",
-        "/discover-punta-mita/activities/atv-tours-3.jpg",
-      ],
-    },
-    {
-      title: "Zipline Adventures",
-      slug: "zipline-adventures",
-      image: "/discover-punta-mita/activities/zipline-adventures.jpg",
-      description:
-        "A jungle adventure experience with zip lines, views, and active outdoor fun for families and groups.",
-      overview:
-        "Zipline adventures are a strong choice for families seeking a more active land-based experience. They combine outdoor scenery, movement, and excitement in a guided environment.",
-      standardInfo: [
-        { label: "Best For", value: "Families, teens, active children, groups, and adventure travelers." },
-        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
-        { label: "Best Time of Day", value: "Morning or early afternoon." },
-        { label: "Seasonality", value: "Available year-round, weather permitting." },
-        { label: "What to Wear / Bring", value: "Closed-toe shoes, athletic clothing, sunscreen, insect repellent, and water." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Adventure, guided, active, scenic, and family-friendly." },
-        { label: "Age Suitability", value: "Good for children and teens who meet age, height, or weight requirements." },
-        { label: "Good to Know", value: "Requirements vary by operator. Guests should be comfortable with heights." },
-      ],
-      whatToExpect:
-        "Expect a guided adventure with safety gear, instructions, and multiple zipline sections depending on the park or route.",
-      whatToBring:
-        "Bring closed-toe shoes, comfortable athletic clothing, water, sunscreen, and insect repellent.",
-      gallery: [
-        "/discover-punta-mita/activities/zipline-adventures.jpg",
-        "/discover-punta-mita/activities/zipline-adventures-2.jpg",
-        "/discover-punta-mita/activities/zipline-adventures-3.jpg",
-      ],
-    },
-    {
-      title: "Horseback Riding",
-      slug: "horseback-riding",
-      image: "/discover-punta-mita/activities/horseback-riding.jpg",
-      description:
-        "A scenic guided horseback riding experience for families, couples, and children comfortable around animals.",
-      overview:
-        "Horseback riding is a memorable family activity that can take place along beaches, rural paths, or scenic routes depending on the operator and location.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, children, nature lovers, beginners, and guests seeking a relaxed outdoor activity." },
-        { label: "Typical Duration", value: "Usually 1 to 2 hours." },
-        { label: "Best Time of Day", value: "Morning or sunset." },
-        { label: "Seasonality", value: "Available year-round, weather permitting." },
-        { label: "What to Wear / Bring", value: "Closed-toe shoes, comfortable clothing, hat, sunscreen, and sunglasses." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Scenic, relaxed, guided, and family-friendly." },
-        { label: "Skill Level", value: "Beginner-friendly depending on provider and horse temperament." },
-        { label: "Age Suitability", value: "Suitable for many families, though minimum age and safety rules vary by provider." },
-      ],
-      whatToExpect:
-        "Expect a guided ride at a comfortable pace with scenic surroundings and opportunities for photos.",
-      whatToBring:
-        "Bring closed-toe shoes, comfortable clothing, sun protection, and avoid loose accessories.",
-      gallery: [
-        "/discover-punta-mita/activities/horseback-riding.jpg",
-        "/discover-punta-mita/activities/horseback-riding-2.jpg",
-        "/discover-punta-mita/activities/horseback-riding-3.jpg",
-      ],
-    },
-    {
-      title: "Nature Tours",
-      slug: "nature-tours",
-      image: "/discover-punta-mita/activities/nature-tours.jpg",
-      description:
-        "Guided family-friendly outings focused on local nature, coastal scenery, wildlife, plants, and outdoor exploration.",
-      overview:
-        "Nature tours are a gentle and educational way for families to explore the natural side of Punta Mita and the surrounding region. They can be adapted to children, older guests, and different activity levels.",
-      standardInfo: [
-        { label: "Best For", value: "Families, children, nature lovers, photographers, and guests looking for educational outdoor time." },
-        { label: "Typical Duration", value: "Usually 1.5 to 4 hours." },
-        { label: "Best Time of Day", value: "Morning for cooler temperatures and better comfort." },
-        { label: "Seasonality", value: "Available year-round, with wildlife and scenery changing by season." },
-        { label: "What to Wear / Bring", value: "Comfortable walking shoes, light clothing, hat, sunscreen, insect repellent, water, and camera." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Educational, scenic, calm, and family-friendly." },
-        { label: "Location", value: "Beaches, jungle areas, coastal paths, estuaries, or nearby nature zones depending on the guide." },
-        { label: "Customization", value: "Can often be adapted by age, mobility, interests, and desired activity level." },
-      ],
-      whatToExpect:
-        "Expect a guided outdoor experience focused on observing nature, learning about the area, and enjoying a calm family-friendly pace.",
-      whatToBring:
-        "Bring comfortable walking shoes, water, sun protection, insect repellent, and a camera.",
-      gallery: [
-        "/discover-punta-mita/activities/nature-tours.jpg",
-        "/discover-punta-mita/activities/nature-tours-2.jpg",
-        "/discover-punta-mita/activities/nature-tours-3.jpg",
-      ],
-    },
-  ],
-},
+    title: "Golf, Sports & Adventure",
+    slug: "golf-sports-adventure",
+    image: sportsImage,
+    heroImage: sportsHero,
+    description:
+      "Golf, racket sports, fitness, adventure tours, hiking, horseback riding, polo, and equestrian experiences.",
+    activities: [
+      createActivity({
+        title: "Punta Mita Golf Experiences",
+        slug: "punta-mita-golf-experiences",
+        image: sportsImage,
+        heroImage: sportsHero,
+        description:
+          "Punta Mita Golf Club, Pacifico, Bahia, Tail of the Whale, clinics, tournaments, and golf events.",
+        overview:
+          "Golf is one of Punta Mita’s signature luxury activities. This parent activity includes casual rounds, serious golf days, instruction, group tournaments, and special events.",
+        bestFor:
+          "Golfers, couples, groups, corporate-style trips, families with golfers, and VIP travelers.",
+        duration: "Usually 3 to 5 hours, depending on format.",
+        seasonality: "Available year-round, with some special events seasonally.",
+        tags: ["Sports", "VIP", "Groups", "Seasonal"],
+        notes:
+          "Access may depend on villa, club rules, reservation policies, and availability.",
+        whatToExpect:
+          "Expect a polished golf experience with ocean views, premium service, and options ranging from relaxed rounds to competitive group formats.",
+        whatToBring:
+          "Golf attire, golf shoes, sunglasses, sunscreen, and personal clubs if preferred.",
+        experienceOptions: [
+          option({
+            title: "Pacifico or Bahia Golf Round",
+            description:
+              "A classic Punta Mita golf day on one of the destination’s signature courses.",
+            bestFor: "Golfers, couples, groups, and VIP travelers.",
+            duration: "Usually 4 to 5 hours.",
+            experience:
+              "Guests enjoy a round of golf with ocean views, premium service, and course conditions that make the game feel like part of the destination.",
+            whatToExpect:
+              "A polished golf experience with reservation coordination, tee time planning, and optional club rental or transportation.",
+            whatToBring:
+              "Golf attire, golf shoes, sunglasses, sunscreen, and clubs if preferred.",
+            goodToKnow:
+              "Course access and tee times depend on villa access, club rules, and availability.",
+          }),
+          option({
+            title: "Tail of the Whale Experience",
+            description:
+              "A special golf moment centered on Punta Mita’s famous optional island-green hole.",
+            bestFor: "Golfers, bucket-list travelers, photographers, and VIP guests.",
+            duration: "Part of a Pacifico round, conditions permitting.",
+            experience:
+              "When available, guests play or visit the iconic oceanfront hole that creates one of the most memorable golf moments in Punta Mita.",
+            whatToExpect:
+              "A dramatic and highly photogenic golf experience tied to tide and course conditions.",
+            whatToBring:
+              "Golf attire, camera, sunglasses, and course-ready equipment.",
+            goodToKnow:
+              "This is condition-dependent and should not be promised without checking availability.",
+          }),
+          option({
+            title: "Private Golf Clinic",
+            description:
+              "A private instruction session with a golf professional for beginners, improving players, or groups.",
+            bestFor: "Beginners, families, groups, and golfers wanting instruction.",
+            duration: "Usually 1 to 2 hours.",
+            experience:
+              "A golf professional works with the guest or group on swing, short game, putting, or course strategy depending on level.",
+            whatToExpect:
+              "Focused instruction in a premium environment, with exercises adapted to the player’s goals.",
+            whatToBring:
+              "Golf attire, shoes, clubs if preferred, and water.",
+            goodToKnow:
+              "This is a strong option for mixed groups where not everyone wants a full round.",
+          }),
+          option({
+            title: "Private Golf Tournament",
+            description:
+              "A group golf format designed for friends, families, corporate groups, or celebration trips.",
+            bestFor: "Groups, bachelor trips, corporate-style trips, families, and competitive friends.",
+            duration: "Usually half-day.",
+            experience:
+              "The round is organized as a friendly tournament with formats such as scramble, team play, closest-to-the-pin, or custom prizes.",
+            whatToExpect:
+              "A social, elevated, and organized golf experience that can include branding, scoring, awards, and post-round dining.",
+            whatToBring:
+              "Golf attire, shoes, clubs, and any custom items or prizes.",
+            goodToKnow:
+              "Advance planning is important for group tee times and tournament details.",
+          }),
+        ],
+      }),
 
-{
-  title: "Seasonal Experiences",
-  slug: "seasonal-experiences",
-  image: "/discover-punta-mita/seasonal-experiences.jpg",
-  heroImage:
-    "/discover-punta-mita/heroes/seasonal-experiences-hero.jpg",
-  description:
-    "Whale watching, turtle nesting season, surf season, New Year events, food festivals, fishing tournaments, and music festivals near Punta Mita.",
-  activities: [
-    {
-      title: "Whale Watching Season",
-      slug: "whale-watching-season",
-      image: "/discover-punta-mita/activities/whale-watching-season.jpg",
-      description:
-        "One of the region’s most iconic seasonal experiences, with humpback whales migrating along the Pacific coast near Punta Mita.",
-      overview:
-        "Whale watching season is one of the most requested experiences in Punta Mita and Riviera Nayarit. Humpback whales migrate through the area each year, creating unforgettable opportunities to observe them from boats along the coast.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, photographers, nature lovers, and first-time visitors." },
-        { label: "Typical Duration", value: "Usually 2 to 4 hours depending on the tour." },
-        { label: "Best Time of Day", value: "Morning is usually best for calmer water and visibility." },
-        { label: "Seasonality", value: "Typically December through March, with peak activity varying each year." },
-        { label: "What to Wear / Bring", value: "Light layers, sunglasses, sunscreen, hat, camera, and comfortable boat clothing." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Nature-focused, scenic, educational, and seasonal." },
-        { label: "Good to Know", value: "Wildlife sightings are natural and cannot be guaranteed." },
-        { label: "Departure Area", value: "Usually from Punta de Mita or nearby marinas." },
-      ],
-      whatToExpect:
-        "Expect a scenic ocean outing with opportunities to observe humpback whales, coastal views, and marine wildlife depending on conditions.",
-      whatToBring:
-        "Bring sun protection, camera equipment, light layers for boat wind, and motion sickness medication if needed.",
-      gallery: [
-        "/discover-punta-mita/activities/whale-watching-season.jpg",
-        "/discover-punta-mita/activities/whale-watching-season-2.jpg",
-        "/discover-punta-mita/activities/whale-watching-season-3.jpg",
-      ],
-    },
+      createActivity({
+        title: "Racket Sports",
+        slug: "racket-sports",
+        image: sportsImage,
+        heroImage: sportsHero,
+        description:
+          "Tennis, pickleball, padel, private lessons, clinics, and friendly tournaments.",
+        overview:
+          "Racket sports are a strong fit for Punta Mita guests because they can be social, active, family-friendly, and easy to schedule around beach or villa time.",
+        bestFor:
+          "Families, groups, active couples, kids, teens, and guests who want a social sport.",
+        duration: "Usually 1 to 2 hours.",
+        seasonality: "Available year-round.",
+        tags: ["Sports", "Family-Friendly", "Groups", "VIP"],
+        notes:
+          "Availability depends on court access, instructor availability, and property or club rules.",
+        whatToExpect:
+          "Expect private instruction, court time, social games, or tournament-style play depending on the group.",
+        whatToBring:
+          "Athletic clothing, court shoes, water, sunscreen, and racket if preferred.",
+        experienceOptions: [
+          option({
+            title: "Private Tennis Lesson",
+            description:
+              "A tailored tennis lesson for beginners, improving players, or active guests who want a polished sports session.",
+            bestFor: "Adults, kids, teens, and active travelers.",
+            duration: "Usually 1 hour.",
+            experience:
+              "A tennis coach adapts the session to the guest’s level, focusing on technique, drills, match play, or a fun family format.",
+            whatToExpect:
+              "Professional instruction, active movement, and a session that can be relaxed or technical.",
+            whatToBring:
+              "Court shoes, athletic clothing, water, and racket if preferred.",
+            goodToKnow:
+              "Court access and instructor availability should be confirmed in advance.",
+          }),
+          option({
+            title: "Pickleball Session",
+            description:
+              "A social and accessible racket activity for groups, families, and guests of different ages.",
+            bestFor: "Families, groups, beginners, and mixed-level players.",
+            duration: "Usually 1 to 2 hours.",
+            experience:
+              "Guests play casually or with a coach who explains rules, organizes teams, and keeps the session fun and social.",
+            whatToExpect:
+              "A lively and easy-to-learn activity that works well for mixed ages and groups.",
+            whatToBring:
+              "Athletic clothing, court shoes, water, and sunscreen.",
+            goodToKnow:
+              "This is one of the best sports activities for groups with different skill levels.",
+          }),
+          option({
+            title: "Padel Match or Clinic",
+            description:
+              "A modern racket sport experience that feels social, stylish, and active.",
+            bestFor: "Groups, couples, adults, and active travelers.",
+            duration: "Usually 1 to 2 hours.",
+            experience:
+              "Guests can book a court for casual play or arrange a coach-led clinic that introduces technique, scoring, and match play.",
+            whatToExpect:
+              "A fast, social, energetic session that works especially well for adults and groups.",
+            whatToBring:
+              "Athletic clothing, court shoes, water, and racket if preferred.",
+            goodToKnow:
+              "Padel is more specific in terms of court availability, so planning ahead matters.",
+          }),
+          option({
+            title: "Private Racket Tournament",
+            description:
+              "A friendly tournament format for tennis, pickleball, or padel groups.",
+            bestFor: "Families, friend groups, corporate-style trips, and celebration groups.",
+            duration: "Usually 2 to 3 hours.",
+            experience:
+              "The concierge or coach organizes teams, match formats, timing, scoring, and optional prizes.",
+            whatToExpect:
+              "A social, competitive, and memorable group activity that can be paired with drinks or lunch afterward.",
+            whatToBring:
+              "Athletic clothing, court shoes, water, and group energy.",
+            goodToKnow:
+              "This works best when the group has enough players and similar activity interest.",
+          }),
+        ],
+      }),
 
-    {
-      title: "Turtle Nesting Season",
-      slug: "turtle-nesting-season",
-      image: "/discover-punta-mita/activities/turtle-nesting-season.jpg",
-      description:
-        "A meaningful seasonal experience focused on sea turtle nesting, conservation, hatchlings, and beach protection programs.",
-      overview:
-        "Turtle nesting season is an important part of the Riviera Nayarit coastal ecosystem. During this period, beaches become nesting grounds for sea turtles, and conservation programs often organize educational experiences and releases.",
-      standardInfo: [
-        { label: "Best For", value: "Families, children, nature lovers, photographers, and conservation-focused travelers." },
-        { label: "Typical Duration", value: "Usually 30 minutes to 2 hours depending on the activity." },
-        { label: "Best Time of Day", value: "Late afternoon, sunset, or evening depending on the program." },
-        { label: "Seasonality", value: "Typically summer through fall, depending on nesting cycles." },
-        { label: "What to Wear / Bring", value: "Comfortable beach clothing, sandals, insect repellent, and camera." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Educational, emotional, conservation-focused, and family-friendly." },
-        { label: "Good to Know", value: "Programs and timing vary according to hatchling activity and environmental regulations." },
-        { label: "Location", value: "Protected beaches and coastal conservation areas." },
-      ],
-      whatToExpect:
-        "Expect conservation-focused guidance, beach activity, and opportunities to learn about sea turtle protection and nesting cycles.",
-      whatToBring:
-        "Bring sandals, insect repellent, light clothing, and respect all conservation guidelines.",
-      gallery: [
-        "/discover-punta-mita/activities/turtle-nesting-season.jpg",
-        "/discover-punta-mita/activities/turtle-nesting-season-2.jpg",
-        "/discover-punta-mita/activities/turtle-nesting-season-3.jpg",
-      ],
-    },
+      createActivity({
+        title: "Private Fitness & Recovery",
+        slug: "private-fitness-recovery",
+        image: sportsImage,
+        heroImage: sportsHero,
+        description:
+          "Private training, beach workouts, boxing, pilates, mobility, recovery, and performance sessions.",
+        overview:
+          "This activity is for guests who want to stay active during the trip without leaving the villa or beach environment.",
+        bestFor:
+          "Active travelers, wellness guests, groups, pre-wedding stays, and guests maintaining a fitness routine.",
+        duration: "Usually 1 to 2 hours.",
+        seasonality: "Available year-round.",
+        tags: ["Sports", "Wellness", "Groups", "Rainy Day"],
+        notes:
+          "This can be paired with in-villa wellness, healthy chef menus, massage, or cold plunge.",
+        whatToExpect:
+          "Expect a private trainer or coach to design a session based on the group’s goals, level, and available space.",
+        whatToBring:
+          "Athletic clothing, training shoes, towel, water, and swimwear if using pool or cold plunge.",
+        experienceOptions: [
+          option({
+            title: "Private Training Session",
+            description:
+              "A custom workout at the villa, gym, terrace, or beach depending on the property and guest preference.",
+            bestFor: "Active travelers, groups, couples, and guests maintaining a routine.",
+            duration: "Usually 60 minutes.",
+            experience:
+              "A private trainer creates a session around strength, conditioning, mobility, or general fitness based on guest goals.",
+            whatToExpect:
+              "A focused and efficient workout adapted to the group’s level and available equipment.",
+            whatToBring:
+              "Athletic clothing, training shoes, towel, and water.",
+            goodToKnow:
+              "This can be scheduled as a one-time session or repeated during the stay.",
+          }),
+          option({
+            title: "Boxing or Beach Training",
+            description:
+              "A high-energy workout that can be done at the villa, beach, or outdoor space.",
+            bestFor: "Groups, active adults, teens, and guests who like energetic workouts.",
+            duration: "Usually 60 minutes.",
+            experience:
+              "A coach leads boxing drills, conditioning, partner exercises, or beach-style training adapted to the group.",
+            whatToExpect:
+              "A fun, sweaty, motivating workout with a strong group energy.",
+            whatToBring:
+              "Athletic clothing, shoes if needed, towel, and water.",
+            goodToKnow:
+              "Morning sessions are usually best because of heat.",
+          }),
+          option({
+            title: "Pilates, Mobility or Stretch Session",
+            description:
+              "A gentler private movement session focused on posture, flexibility, recovery, and body awareness.",
+            bestFor: "Wellness travelers, couples, older guests, and active recovery days.",
+            duration: "Usually 60 minutes.",
+            experience:
+              "A private coach guides movement, stretching, mobility, and breathing exercises adapted to guest needs.",
+            whatToExpect:
+              "A calm but useful session that pairs well with massage, yoga, or recovery treatments.",
+            whatToBring:
+              "Comfortable clothing and water.",
+            goodToKnow:
+              "Ideal after golf, surfing, hiking, or travel.",
+          }),
+        ],
+      }),
 
-    {
-      title: "Surf Season",
-      slug: "surf-season",
-      image: "/discover-punta-mita/activities/surf-season.jpg",
-      description:
-        "The best seasonal conditions for surfing around Punta Mita, Sayulita, and nearby Pacific breaks.",
-      overview:
-        "Surf season changes throughout the year depending on swell direction, wave size, and local conditions. Different surf spots around Punta Mita and Riviera Nayarit become ideal during different months.",
-      standardInfo: [
-        { label: "Best For", value: "Surfers, beginners, intermediate riders, advanced surfers, and ocean-focused travelers." },
-        { label: "Typical Duration", value: "Flexible depending on surf conditions and lesson or session format." },
-        { label: "Best Time of Day", value: "Early morning is often ideal for cleaner conditions." },
-        { label: "Seasonality", value: "Good surf conditions occur year-round, with larger swells generally arriving during summer months." },
-        { label: "What to Wear / Bring", value: "Swimwear, rash guard, sunscreen, towel, and surf equipment if not provided." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Ocean-focused, active, scenic, and seasonal." },
-        { label: "Good to Know", value: "Wave conditions vary significantly by season, beach, and experience level." },
-        { label: "Location", value: "Punta Mita, Sayulita, La Lancha, and nearby surf areas." },
-      ],
-      whatToExpect:
-        "Expect changing wave conditions depending on season and location, with options for beginners through experienced surfers.",
-      whatToBring:
-        "Bring reef-safe sunscreen, towel, hydration, and surf-friendly clothing.",
-      gallery: [
-        "/discover-punta-mita/activities/surf-season.jpg",
-        "/discover-punta-mita/activities/surf-season-2.jpg",
-        "/discover-punta-mita/activities/surf-season-3.jpg",
-      ],
-    },
+      createActivity({
+        title: "Higuera Blanca Adventure Experiences",
+        slug: "higuera-blanca-adventure-experiences",
+        image: sportsImage,
+        heroImage: sportsHero,
+        description:
+          "ATV, RZR, zipline, canopy, and family adventure experiences close to Punta Mita.",
+        overview:
+          "This parent activity keeps adventure close and practical for Punta Mita renters. It is more relevant than far-away adventure parks because it avoids excessive transfer time.",
+        bestFor:
+          "Families, groups, teens, active travelers, and guests wanting a half-day adventure.",
+        duration: "Usually 2 to 4 hours.",
+        seasonality: "Available year-round, weather permitting.",
+        tags: ["Adventure", "Family-Friendly", "Groups", "Sports"],
+        notes:
+          "Good for guests who want excitement without committing to a full-day excursion far from Punta Mita.",
+        whatToExpect:
+          "Expect a guided adventure route with safety briefing, equipment, and a mix of jungle, views, or trail experiences depending on the selected tour.",
+        whatToBring:
+          "Closed-toe shoes, comfortable clothes, sunscreen, sunglasses, and clothes that can get dusty.",
+        experienceOptions: [
+          option({
+            title: "ATV Tour",
+            description:
+              "A guided off-road adventure close to Punta Mita with dust, views, trails, and a fun group atmosphere.",
+            bestFor: "Families with older kids, groups, teens, and active travelers.",
+            duration: "Usually 2 to 3 hours.",
+            experience:
+              "Guests ride ATVs on guided routes with safety equipment, instruction, and stops depending on the selected tour.",
+            whatToExpect:
+              "A dusty, energetic, scenic experience that adds adventure without requiring a long drive.",
+            whatToBring:
+              "Closed-toe shoes, clothes that can get dusty, sunglasses, sunscreen, and ID if required.",
+            goodToKnow:
+              "Drivers may need to meet age and license requirements.",
+          }),
+          option({
+            title: "RZR Adventure",
+            description:
+              "A more comfortable off-road vehicle experience for guests who want adventure with a slightly more substantial ride.",
+            bestFor: "Groups, couples, families, and guests who prefer side-by-side vehicles.",
+            duration: "Usually 2 to 3 hours.",
+            experience:
+              "Guests ride in RZR vehicles with a guided route through trails and scenic areas near Higuera Blanca.",
+            whatToExpect:
+              "A fun, social, off-road activity with less individual riding pressure than ATVs.",
+            whatToBring:
+              "Closed-toe shoes, comfortable clothes, sunglasses, sunscreen, and dust-friendly clothing.",
+            goodToKnow:
+              "This can be better than ATVs for guests who want to ride together.",
+          }),
+          option({
+            title: "Zipline & Canopy Experience",
+            description:
+              "A guided canopy adventure for guests who want height, views, and adrenaline.",
+            bestFor: "Families, teens, groups, and adventure travelers.",
+            duration: "Usually 2 to 3 hours.",
+            experience:
+              "Guests follow a guided zipline or canopy route with safety equipment and staff supervision.",
+            whatToExpect:
+              "An active, confidence-building adventure with scenic views and light adrenaline.",
+            whatToBring:
+              "Closed-toe shoes, comfortable clothing, sunscreen, and hair tied back if needed.",
+            goodToKnow:
+              "Weight, age, and health restrictions may apply.",
+          }),
+        ],
+      }),
 
-    {
-      title: "Holiday Events",
-      slug: "holiday-events",
-      image: "/discover-punta-mita/activities/holiday-events.jpg",
-      description:
-        "Seasonal celebrations around Punta Mita and Puerto Vallarta including festive dinners, beach events, concerts, and local traditions.",
-      overview:
-        "Holiday periods bring a different energy to the region, with special dinners, events, fireworks, live music, and seasonal experiences across resorts, beach clubs, and towns.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, groups, and holiday travelers." },
-        { label: "Typical Duration", value: "Varies depending on the event." },
-        { label: "Best Time of Day", value: "Afternoon and evening." },
-        { label: "Seasonality", value: "Primarily Thanksgiving, Christmas, New Year, Easter, and major holiday weekends." },
-        { label: "What to Wear / Bring", value: "Resort casual or event-appropriate attire depending on the venue." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Festive, social, seasonal, and family-friendly." },
-        { label: "Good to Know", value: "Reservations and advance planning are highly recommended during peak holidays." },
-        { label: "Location", value: "Resorts, beach clubs, restaurants, and nearby towns." },
-      ],
-      whatToExpect:
-        "Expect seasonal decorations, themed dinners, music, fireworks, and more activity throughout the region.",
-      whatToBring:
-        "Bring event-appropriate clothing and confirm reservations early during peak travel periods.",
-      gallery: [
-        "/discover-punta-mita/activities/holiday-events.jpg",
-        "/discover-punta-mita/activities/holiday-events-2.jpg",
-        "/discover-punta-mita/activities/holiday-events-3.jpg",
-      ],
-    },
+      createActivity({
+        title: "Monkey Mountain & Guided Nature Hikes",
+        slug: "monkey-mountain-guided-nature-hikes",
+        image: sportsImage,
+        heroImage: sportsHero,
+        description:
+          "Guided hikes, sunrise routes, nature walks, and scenic active experiences near Punta Mita.",
+        overview:
+          "This is the only hiking category I would keep as a main Punta Mita activity because it is close, scenic, active, and easy to understand.",
+        bestFor:
+          "Active guests, couples, families with older kids, nature lovers, and guests who enjoy sunrise activities.",
+        duration: "Usually 2 to 4 hours.",
+        seasonality: "Best in cooler morning hours. Available most of the year.",
+        tags: ["Adventure", "Sports", "Nature", "Family-Friendly"],
+        notes:
+          "This should be guided for safety, navigation, heat management, and guest comfort.",
+        whatToExpect:
+          "Expect an active outdoor hike with scenic views, local guidance, and an early departure for the best conditions.",
+        whatToBring:
+          "Athletic shoes, breathable clothing, hat, sunscreen, water, and camera.",
+        experienceOptions: [
+          option({
+            title: "Monkey Mountain Sunrise Hike",
+            description:
+              "A scenic guided hike timed for cooler weather, softer light, and panoramic views.",
+            bestFor: "Active couples, families with older kids, photographers, and nature lovers.",
+            duration: "Usually 2.5 to 4 hours.",
+            experience:
+              "Guests depart early with a guide and hike toward viewpoint areas with views of Punta Mita, the coastline, and surrounding jungle.",
+            whatToExpect:
+              "A physically active morning with rewarding views and a strong sense of place.",
+            whatToBring:
+              "Athletic shoes, hat, sunscreen, water, breathable clothing, and camera.",
+            goodToKnow:
+              "Heat can be significant later in the day, so morning is strongly preferred.",
+          }),
+          option({
+            title: "Private Guided Nature Walk",
+            description:
+              "A softer nature-focused outing for guests who want scenery and local context without a strenuous hike.",
+            bestFor: "Families, older guests, nature lovers, and relaxed active travelers.",
+            duration: "Usually 1.5 to 3 hours.",
+            experience:
+              "A guide leads a gentler route focused on views, local plants, birds, coastline, and the surrounding landscape.",
+            whatToExpect:
+              "A slower and more educational outdoor experience than a fitness hike.",
+            whatToBring:
+              "Comfortable shoes, hat, sunscreen, water, and camera.",
+            goodToKnow:
+              "This is best customized to the group’s fitness level.",
+          }),
+        ],
+      }),
 
-    {
-      title: "New Year Beach Parties",
-      slug: "new-year-beach-parties",
-      image: "/discover-punta-mita/activities/new-year-beach-parties.jpg",
-      description:
-        "Luxury beach celebrations with dinners, DJs, fireworks, oceanfront venues, and festive nightlife.",
-      overview:
-        "New Year’s Eve is one of the busiest and most energetic periods in Punta Mita and Puerto Vallarta, with beach clubs, villas, and restaurants hosting special celebrations.",
-      standardInfo: [
-        { label: "Best For", value: "Groups, couples, celebrations, nightlife travelers, and luxury holiday trips." },
-        { label: "Typical Duration", value: "Evening through after midnight." },
-        { label: "Best Time of Day", value: "Night." },
-        { label: "Seasonality", value: "New Year holiday period only." },
-        { label: "What to Wear / Bring", value: "Festive beach or upscale evening attire depending on the event." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "High-energy, festive, luxury, and nightlife-focused." },
-        { label: "Good to Know", value: "Advance reservations and transportation planning are essential." },
-        { label: "Location", value: "Beach clubs, resorts, villas, and nightlife venues." },
-      ],
-      whatToExpect:
-        "Expect DJs, dinners, cocktails, fireworks, dancing, and large holiday crowds depending on the venue.",
-      whatToBring:
-        "Bring evening attire, reservations, transportation arrangements, and only essentials.",
-      gallery: [
-        "/discover-punta-mita/activities/new-year-beach-parties.jpg",
-        "/discover-punta-mita/activities/new-year-beach-parties-2.jpg",
-        "/discover-punta-mita/activities/new-year-beach-parties-3.jpg",
-      ],
-    },
+      createActivity({
+        title: "Horseback, Polo & Equestrian Experiences",
+        slug: "horseback-polo-equestrian-experiences",
+        image: sportsImage,
+        heroImage: sportsHero,
+        description:
+          "Beach horseback riding, polo brunch, polo lessons, and curated equestrian experiences.",
+        overview:
+          "This category combines casual horseback riding with more elevated polo and equestrian experiences in the San Pancho area.",
+        bestFor:
+          "Couples, families, groups, horse lovers, and guests looking for an elegant outdoor experience.",
+        duration: "Usually 1.5 to 4 hours depending on experience.",
+        seasonality: "Available year-round. Polo brunch and matches may be seasonal.",
+        tags: ["Sports", "Family-Friendly", "Romantic", "VIP", "Seasonal"],
+        notes:
+          "This can be casual and family-friendly or more refined with brunch and polo.",
+        whatToExpect:
+          "Expect guided riding, equestrian facilities, beach or countryside scenery, or a more social polo-club experience depending on the option selected.",
+        whatToBring:
+          "Comfortable clothing, closed-toe shoes, hat, sunscreen, and sunglasses.",
+        experienceOptions: [
+          option({
+            title: "Beach Horseback Ride",
+            description:
+              "A scenic guided horseback ride that can feel romantic, family-friendly, or adventurous depending on timing and route.",
+            bestFor: "Couples, families, first-time riders, and relaxed outdoor guests.",
+            duration: "Usually 1 to 2 hours.",
+            experience:
+              "Guests ride with a guide through beach or coastal scenery, often timed for softer light or sunset when available.",
+            whatToExpect:
+              "A scenic, accessible, and memorable outdoor experience with horses and ocean atmosphere.",
+            whatToBring:
+              "Closed-toe shoes, comfortable clothing, sunscreen, hat, and sunglasses.",
+            goodToKnow:
+              "Rider comfort level, age, and weight restrictions may apply.",
+          }),
+          option({
+            title: "Polo Brunch",
+            description:
+              "An elegant social outing built around polo, brunch, countryside atmosphere, and a refined day-club feeling.",
+            bestFor: "Couples, adults, families, groups, and guests looking for something different.",
+            duration: "Usually 2 to 4 hours.",
+            experience:
+              "Guests attend a polo-focused brunch or social experience, combining food, drinks, equestrian atmosphere, and the chance to watch the sport in a beautiful setting.",
+            whatToExpect:
+              "A stylish and slower-paced outing that feels more elevated than a normal activity tour.",
+            whatToBring:
+              "Resort casual clothing, sunglasses, hat, and camera.",
+            goodToKnow:
+              "Polo schedules are seasonal and should be confirmed before offering.",
+          }),
+          option({
+            title: "Polo Lesson or Equestrian Session",
+            description:
+              "A more hands-on equestrian experience for guests interested in learning, riding, or trying something rare.",
+            bestFor: "Horse lovers, adventurous adults, families with older kids, and VIP guests.",
+            duration: "Usually 1.5 to 3 hours.",
+            experience:
+              "Depending on the provider, guests may receive instruction, ride in an arena, learn polo basics, or enjoy a private equestrian experience.",
+            whatToExpect:
+              "A guided, specialized activity that feels unique and memorable.",
+            whatToBring:
+              "Closed-toe shoes, comfortable riding clothing, sunscreen, and water.",
+            goodToKnow:
+              "Experience level should be discussed before booking.",
+          }),
+        ],
+      }),
+    ],
+  },
 
-    {
-      title: "Easter Week Events",
-      slug: "easter-week-events",
-      image: "/discover-punta-mita/activities/easter-week-events.jpg",
-      description:
-        "A lively holiday period with beach activity, local traditions, family travel, nightlife, and seasonal events across the region.",
-      overview:
-        "Semana Santa and Easter Week are major travel periods in Mexico, bringing increased beach activity, local celebrations, and a more energetic atmosphere to Punta Mita and nearby destinations.",
-      standardInfo: [
-        { label: "Best For", value: "Families, beach travelers, groups, and guests who enjoy a lively atmosphere." },
-        { label: "Typical Duration", value: "Varies depending on events and travel plans." },
-        { label: "Best Time of Day", value: "All day, with stronger nightlife energy in the evenings." },
-        { label: "Seasonality", value: "During Easter Week each year." },
-        { label: "What to Wear / Bring", value: "Beachwear, casual resort clothing, sunscreen, and comfortable footwear." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Festive, social, beach-focused, and family-oriented." },
-        { label: "Good to Know", value: "Hotels, beaches, restaurants, and roads can be significantly busier during this period." },
-        { label: "Location", value: "Punta Mita, Sayulita, Puerto Vallarta, and Riviera Nayarit." },
-      ],
-      whatToExpect:
-        "Expect increased tourism activity, crowded beaches, holiday events, nightlife, and local celebrations.",
-      whatToBring:
-        "Bring patience for busy periods, reservations, and sun protection.",
-      gallery: [
-        "/discover-punta-mita/activities/easter-week-events.jpg",
-        "/discover-punta-mita/activities/easter-week-events-2.jpg",
-        "/discover-punta-mita/activities/easter-week-events-3.jpg",
-      ],
-    },
+  {
+    title: "Beach Clubs & Day Clubs",
+    slug: "beach-clubs-day-clubs",
+    image: beachClubImage,
+    heroImage: beachClubHero,
+    description:
+      "Curated Punta Mita beach club days, surf-club lunches, cabanas, daybeds, and selected day-club experiences.",
+    activities: [
+      createActivity({
+        title: "Curated Beach Club Days",
+        slug: "curated-beach-club-days",
+        image: beachClubImage,
+        heroImage: beachClubHero,
+        description:
+          "A curated selection of Punta Mita beach clubs, El Surf Club, Tierra Tropical, cabanas, daybeds, and private buyouts.",
+        overview:
+          "Instead of listing every beach club in the region, this activity focuses on the beach clubs that make sense for Punta Mita luxury renters.",
+        bestFor:
+          "Couples, families, groups, beach lovers, relaxed luxury travelers, and guests who want an easy day out.",
+        duration: "Half-day, full-day, lunch, or sunset visit.",
+        seasonality: "Available year-round, subject to access and reservation availability.",
+        tags: ["Beach", "Family-Friendly", "Romantic", "VIP", "Food & Drink"],
+        notes:
+          "Some clubs may require property access, reservations, membership rules, or special arrangements.",
+        whatToExpect:
+          "Expect a polished beach day with dining, loungers, ocean access, pool or club amenities depending on the selected venue.",
+        whatToBring:
+          "Resort wear, swimwear, sunglasses, sunscreen, sandals, and reservation details.",
+        experienceOptions: [
+          option({
+            title: "Punta Mita Beach Club Day",
+            description:
+              "A relaxed day at one of Punta Mita’s beach clubs, with beach, pool, dining, and resort-style service.",
+            bestFor: "Families, couples, villa guests, and relaxed luxury travelers.",
+            duration: "Half-day or full-day.",
+            experience:
+              "Guests enjoy a beach-club day with loungers, swimming, lunch, drinks, and easy access to oceanfront amenities depending on the club and villa access.",
+            whatToExpect:
+              "A refined, easy beach day that feels natural for Punta Mita renters.",
+            whatToBring:
+              "Swimwear, cover-up, sandals, sunglasses, hat, and sunscreen.",
+            goodToKnow:
+              "Access depends on villa privileges, club rules, and reservations.",
+          }),
+          option({
+            title: "El Surf Club & La Lancha Day",
+            description:
+              "A barefoot-luxury surf and beach day centered around La Lancha and El Surf Club.",
+            bestFor: "Surfers, couples, groups, and stylish beach-day guests.",
+            duration: "Usually half-day.",
+            experience:
+              "Guests combine beach time, surf atmosphere, lunch, drinks, and optional surf lessons or board time depending on the group.",
+            whatToExpect:
+              "A casual but elevated beach-club experience with a stronger surf lifestyle feeling.",
+            whatToBring:
+              "Swimwear, beachwear, sunscreen, towel, and surf gear if needed.",
+            goodToKnow:
+              "This pairs very well with the Surf Experiences activity.",
+          }),
+          option({
+            title: "Tierra Tropical Beach & Polo Club Day",
+            description:
+              "A San Pancho-area outing combining beach-club atmosphere, dining, and possible polo or equestrian programming.",
+            bestFor: "Couples, families, groups, and guests who want something elegant outside Punta Mita.",
+            duration: "Half-day.",
+            experience:
+              "Guests enjoy a refined beach-club or polo-club style day with lunch, sunset drinks, brunch, or seasonal polo elements depending on availability.",
+            whatToExpect:
+              "A more distinctive day-club experience than a standard beach outing.",
+            whatToBring:
+              "Resort casual clothing, swimwear if beach-focused, sunglasses, and camera.",
+            goodToKnow:
+              "Polo-related programming is seasonal and should be confirmed.",
+          }),
+          option({
+            title: "Private Beach-Club Buyout or Group Setup",
+            description:
+              "A more exclusive version of the beach-club day for events, birthdays, weddings, or private group celebrations.",
+            bestFor: "Groups, birthdays, weddings, corporate-style trips, and VIP guests.",
+            duration: "Half-day, evening, or custom.",
+            experience:
+              "The concierge coordinates reserved areas, special menus, music, décor, service, and privacy depending on venue rules and availability.",
+            whatToExpect:
+              "A produced beach-club experience designed around the group and occasion.",
+            whatToBring:
+              "Depends on the event style. Share guest count, timing, mood, and budget.",
+            goodToKnow:
+              "Buyouts and private areas require advance planning and may have minimum spends.",
+          }),
+        ],
+      }),
+    ],
+  },
 
-    {
-      title: "Food Festivals",
-      slug: "food-festivals",
-      image: "/discover-punta-mita/activities/food-festivals.jpg",
-      description:
-        "Seasonal culinary events featuring chefs, tastings, restaurants, cocktails, seafood, wine, and local flavors.",
-      overview:
-        "Food festivals around Punta Mita and Puerto Vallarta attract chefs, restaurants, and food-focused travelers throughout the year. These events often combine dining, entertainment, and social atmosphere.",
-      standardInfo: [
-        { label: "Best For", value: "Food lovers, couples, groups, culinary travelers, and wine or cocktail enthusiasts." },
-        { label: "Typical Duration", value: "Single evening events or multi-day festivals." },
-        { label: "Best Time of Day", value: "Afternoon through evening." },
-        { label: "Seasonality", value: "Varies depending on festival schedules." },
-        { label: "What to Wear / Bring", value: "Smart casual or resort attire depending on the event style." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Culinary, social, festive, and tasting-focused." },
-        { label: "Good to Know", value: "Advance ticket purchase may be required for major events." },
-        { label: "Location", value: "Resorts, restaurants, beach clubs, and event venues across the region." },
-      ],
-      whatToExpect:
-        "Expect tasting stations, chef collaborations, cocktails, seafood, wine, music, and social dining atmosphere.",
-      whatToBring:
-        "Bring comfortable evening clothing and confirm tickets or reservations in advance.",
-      gallery: [
-        "/discover-punta-mita/activities/food-festivals.jpg",
-        "/discover-punta-mita/activities/food-festivals-2.jpg",
-        "/discover-punta-mita/activities/food-festivals-3.jpg",
-      ],
-    },
+  {
+    title: "Food & Dining",
+    slug: "food-dining",
+    image: foodImage,
+    heroImage: foodHero,
+    description:
+      "Private chef experiences, Punta Mita restaurants, agave tastings, mixology, farm-to-table, and culinary experiences.",
+    activities: [
+      createActivity({
+        title: "Private Chef & In-Villa Dining",
+        slug: "private-chef-in-villa-dining",
+        image: foodImage,
+        heroImage: foodHero,
+        description:
+          "Private chefs, tasting menus, taco nights, sushi chefs, seafood bars, ceviche stations, and cooking classes at the villa.",
+        overview:
+          "This is one of the most important categories for luxury villa renters. It gives guests restaurant-level dining without leaving the property.",
+        bestFor:
+          "Families, couples, groups, celebrations, food lovers, and guests who prefer private service.",
+        duration: "Meal-based, half-day, or multi-day depending on service.",
+        seasonality: "Available year-round.",
+        tags: ["Food & Drink", "Family-Friendly", "Romantic", "VIP", "Rainy Day"],
+        notes:
+          "Menus should be customized around the group, allergies, dietary needs, and level of formality.",
+        whatToExpect:
+          "Expect menu planning, ingredient sourcing, chef preparation, service, and a private dining experience at the villa.",
+        whatToBring:
+          "No special items required. Share dietary restrictions, favorite cuisines, allergies, and preferred timing.",
+        experienceOptions: [
+          option({
+            title: "Private Chef Dinner",
+            description:
+              "A private dinner at the villa with a chef-designed menu and restaurant-style service.",
+            bestFor: "Families, couples, groups, celebrations, and VIP guests.",
+            duration: "Usually 2 to 4 hours.",
+            experience:
+              "The chef prepares a customized dinner at the villa, with menu planning based on guest preferences, dietary needs, occasion, and desired level of formality.",
+            whatToExpect:
+              "A polished, comfortable dining experience without leaving the villa.",
+            whatToBring:
+              "No special items required. Share dietary restrictions and preferences in advance.",
+            goodToKnow:
+              "This is one of the highest-value experiences for villa renters.",
+          }),
+          option({
+            title: "Chef’s Tasting Menu",
+            description:
+              "A more refined in-villa culinary experience with multiple courses and a stronger fine-dining feeling.",
+            bestFor: "Couples, food lovers, anniversaries, birthdays, and VIP guests.",
+            duration: "Usually 2.5 to 4 hours.",
+            experience:
+              "The chef creates a multi-course menu, often with local seafood, seasonal produce, Mexican flavors, or a theme selected by the guest.",
+            whatToExpect:
+              "A slower, more elevated dinner with stronger attention to plating, pacing, and storytelling.",
+            whatToBring:
+              "Elegant resort wear and any wine or pairing preferences.",
+            goodToKnow:
+              "This works best for smaller or medium-sized groups that want a true dining experience.",
+          }),
+          option({
+            title: "Private Taco Night",
+            description:
+              "A fun, casual, high-quality taco experience brought into the villa.",
+            bestFor: "Families, groups, kids, casual celebration nights, and arrival dinners.",
+            duration: "Usually 1.5 to 3 hours.",
+            experience:
+              "A chef or team prepares tacos, salsas, sides, and optional margaritas or aguas frescas in a relaxed format.",
+            whatToExpect:
+              "A lively and easy dinner that feels local, social, and guest-friendly.",
+            whatToBring:
+              "No special items required. Share spice level and dietary restrictions.",
+            goodToKnow:
+              "This is a great first-night or family dinner option.",
+          }),
+          option({
+            title: "Seafood, Ceviche or Aguachile Bar",
+            description:
+              "A fresh seafood-focused experience for lunch, poolside dining, or a sunset appetizer moment.",
+            bestFor: "Seafood lovers, groups, pool days, yacht return days, and casual lunches.",
+            duration: "Usually 1.5 to 3 hours.",
+            experience:
+              "The chef prepares fresh ceviche, aguachile, tostadas, oysters, grilled seafood, or a seafood bar depending on preferences and sourcing.",
+            whatToExpect:
+              "A bright, fresh, coastal dining experience that feels perfect for Punta Mita.",
+            whatToBring:
+              "No special items required. Share seafood preferences and allergies.",
+            goodToKnow:
+              "Best when planned with trusted sourcing and proper timing.",
+          }),
+          option({
+            title: "Private Sushi Chef",
+            description:
+              "A refined in-villa sushi or Japanese-inspired dinner experience.",
+            bestFor: "Couples, groups, birthdays, adults, and food lovers.",
+            duration: "Usually 2 to 3 hours.",
+            experience:
+              "A sushi chef prepares rolls, sashimi, nigiri, or a chef’s selection in the villa, often with a bar-style setup or plated service.",
+            whatToExpect:
+              "A clean, elegant, interactive dining experience that works well for adults and celebrations.",
+            whatToBring:
+              "No special items required. Share preferences and allergies.",
+            goodToKnow:
+              "Quality depends heavily on chef and sourcing, so use trusted providers only.",
+          }),
+        ],
+      }),
 
-    {
-      title: "Fishing Tournaments",
-      slug: "fishing-tournaments",
-      image: "/discover-punta-mita/activities/fishing-tournaments.jpg",
-      description:
-        "Competitive sport fishing events that attract anglers, boats, and ocean-focused travelers to the Pacific coast.",
-      overview:
-        "Fishing tournaments are an important seasonal event for the Riviera Nayarit region, especially for guests interested in sport fishing culture and offshore ocean activity.",
-      standardInfo: [
-        { label: "Best For", value: "Fishing enthusiasts, groups, sport fishing travelers, and ocean-focused guests." },
-        { label: "Typical Duration", value: "Single-day or multi-day events." },
-        { label: "Best Time of Day", value: "Early morning departures are common." },
-        { label: "Seasonality", value: "Varies depending on species and tournament schedules." },
-        { label: "What to Wear / Bring", value: "Sun-protective clothing, hat, sunglasses, boat shoes, and sunscreen." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Competitive, ocean-focused, social, and sport-oriented." },
-        { label: "Good to Know", value: "Tournament dates and species vary throughout the year." },
-        { label: "Location", value: "Marinas and offshore waters around Riviera Nayarit and Puerto Vallarta." },
-      ],
-      whatToExpect:
-        "Expect offshore fishing activity, marina atmosphere, sport fishing crews, and event-style energy depending on the tournament.",
-      whatToBring:
-        "Bring sun protection, lightweight clothing, and motion sickness medication if needed.",
-      gallery: [
-        "/discover-punta-mita/activities/fishing-tournaments.jpg",
-        "/discover-punta-mita/activities/fishing-tournaments-2.jpg",
-        "/discover-punta-mita/activities/fishing-tournaments-3.jpg",
-      ],
-    },
+      createActivity({
+        title: "Punta Mita Fine Dining & Oceanfront Restaurants",
+        slug: "punta-mita-fine-dining-oceanfront-restaurants",
+        image: foodImage,
+        heroImage: foodHero,
+        description:
+          "Fine dining, oceanfront restaurants, seafood experiences, and curated restaurant reservations around Punta Mita.",
+        overview:
+          "This category keeps restaurant recommendations focused on places that are actually worth leaving the villa for.",
+        bestFor:
+          "Couples, families, groups, food lovers, and guests wanting a polished restaurant experience.",
+        duration: "Usually 1.5 to 3 hours.",
+        seasonality: "Available year-round, subject to restaurant schedules and reservation availability.",
+        tags: ["Food & Drink", "Romantic", "Family-Friendly", "VIP"],
+        notes:
+          "Avoid sending guests too far unless the restaurant is truly worth the transfer.",
+        whatToExpect:
+          "Expect curated recommendations and reservations based on the guest’s style, group, occasion, and preferred cuisine.",
+        whatToBring:
+          "Resort casual or elegant resort wear, depending on the restaurant.",
+        experienceOptions: [
+          option({
+            title: "Punta Mita Fine Dining",
+            description:
+              "A curated restaurant reservation focused on the strongest dining options in and around Punta Mita.",
+            bestFor: "Couples, families, groups, and food lovers.",
+            duration: "Usually 1.5 to 3 hours.",
+            experience:
+              "The concierge recommends and reserves a restaurant based on cuisine, atmosphere, occasion, guest profile, and logistics from the villa.",
+            whatToExpect:
+              "A polished dinner or lunch experience with minimal travel and strong fit for the group.",
+            whatToBring:
+              "Resort casual or elegant resort wear depending on venue.",
+            goodToKnow:
+              "The best restaurant choice depends heavily on the group’s style and exact villa location.",
+          }),
+          option({
+            title: "Oceanfront Restaurant Experience",
+            description:
+              "A dining experience centered on views, sunset, seafood, and the coastal atmosphere.",
+            bestFor: "Couples, families, first-night dinners, and sunset lovers.",
+            duration: "Usually 1.5 to 3 hours.",
+            experience:
+              "Guests dine at a restaurant chosen for its ocean setting, atmosphere, food quality, and ease of access.",
+            whatToExpect:
+              "A relaxed but beautiful meal with the destination feeling strongly present.",
+            whatToBring:
+              "Resort casual clothing, light layer, and camera.",
+            goodToKnow:
+              "Sunset reservations should be planned early during high season.",
+          }),
+          option({
+            title: "Curated Local Favorite",
+            description:
+              "A more local or hidden dining recommendation selected carefully so it still fits a luxury guest.",
+            bestFor: "Food lovers, repeat guests, adventurous couples, and guests asking for something less obvious.",
+            duration: "Usually 1.5 to 3 hours.",
+            experience:
+              "The concierge recommends a trusted local restaurant that is worth the trip for flavor, authenticity, or atmosphere.",
+            whatToExpect:
+              "A less formal but more local dining experience, selected carefully to avoid disappointing luxury guests.",
+            whatToBring:
+              "Casual resort clothing and an open mind.",
+            goodToKnow:
+              "This should be curated, not generic. Do not send guests to places just because they are popular online.",
+          }),
+        ],
+      }),
 
-    {
-      title: "Music Festivals Nearby",
-      slug: "music-festivals-nearby",
-      image: "/discover-punta-mita/activities/music-festivals-nearby.jpg",
-      description:
-        "Seasonal music events near Punta Mita featuring DJs, live performances, beach venues, and festival-style atmosphere.",
-      overview:
-        "Music festivals near Punta Mita and Puerto Vallarta range from electronic music events and beach parties to live concerts and cultural festivals.",
-      standardInfo: [
-        { label: "Best For", value: "Music lovers, groups, nightlife travelers, festival-goers, and younger travelers." },
-        { label: "Typical Duration", value: "Single-day events or multi-day festivals." },
-        { label: "Best Time of Day", value: "Afternoon through late night depending on the festival." },
-        { label: "Seasonality", value: "Varies by festival calendar and holiday periods." },
-        { label: "What to Wear / Bring", value: "Comfortable festival clothing, sunscreen, sunglasses, comfortable shoes, and light layers." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Music-focused, social, energetic, and event-driven." },
-        { label: "Good to Know", value: "Transportation planning and advance tickets are often important." },
-        { label: "Location", value: "Puerto Vallarta, Sayulita, beach clubs, and nearby event venues." },
-      ],
-      whatToExpect:
-        "Expect live music, DJs, crowds, beach or outdoor settings, and event-style nightlife atmosphere.",
-      whatToBring:
-        "Bring comfortable shoes, hydration, light clothing, and only essentials for crowded events.",
-      gallery: [
-        "/discover-punta-mita/activities/music-festivals-nearby.jpg",
-        "/discover-punta-mita/activities/music-festivals-nearby-2.jpg",
-        "/discover-punta-mita/activities/music-festivals-nearby-3.jpg",
-      ],
-    },
-  ],
-},
+      createActivity({
+        title: "Agave, Mixology, Cigar & Farm-to-Table Experiences",
+        slug: "agave-mixology-cigar-farm-to-table-experiences",
+        image: foodImage,
+        heroImage: foodHero,
+        description:
+          "Tequila, mezcal, raicilla, mixology, cigars, pairing dinners, Cachasol, and farm-to-table experiences.",
+        overview:
+          "This category groups the most interesting tasting and culinary-culture experiences into one premium activity.",
+        bestFor:
+          "Couples, groups, food lovers, adults, celebrations, and guests interested in Mexican spirits and local flavors.",
+        duration: "Usually 1.5 to 4 hours.",
+        seasonality: "Available year-round.",
+        tags: ["Food & Drink", "Adults", "Romantic", "VIP", "Groups"],
+        notes:
+          "Raicilla and farm-to-glass experiences feel more local and distinctive than generic wine tastings.",
+        whatToExpect:
+          "Expect a guided tasting, private mixology session, pairing dinner, or curated farm-to-table experience depending on the format selected.",
+        whatToBring:
+          "Comfortable clothing, valid ID if required, and transportation if the experience is outside the villa.",
+        experienceOptions: [
+          option({
+            title: "Private Tequila, Mezcal or Raicilla Tasting",
+            description:
+              "A guided Mexican spirits tasting brought to the villa or arranged at a curated venue.",
+            bestFor: "Adults, couples, groups, birthdays, and food-and-drink lovers.",
+            duration: "Usually 1.5 to 2 hours.",
+            experience:
+              "A host guides guests through selected spirits, flavor profiles, production methods, regions, and pairing notes.",
+            whatToExpect:
+              "A social, educational, and premium tasting that can be serious or relaxed depending on the group.",
+            whatToBring:
+              "Valid ID if required and comfortable evening clothing.",
+            goodToKnow:
+              "Raicilla gives the experience a more local and distinctive angle.",
+          }),
+          option({
+            title: "In-Villa Mixology Class",
+            description:
+              "A private cocktail-making experience with a bartender or mixologist.",
+            bestFor: "Groups, couples, adults, birthdays, and pre-dinner entertainment.",
+            duration: "Usually 1.5 to 2 hours.",
+            experience:
+              "Guests learn to make selected cocktails using tequila, mezcal, raicilla, tropical ingredients, or classic techniques.",
+            whatToExpect:
+              "A fun, interactive, social experience that works especially well before dinner or a villa party.",
+            whatToBring:
+              "No special items required. Share spirit preferences and cocktail style.",
+            goodToKnow:
+              "This pairs well with a private chef dinner or villa party.",
+          }),
+          option({
+            title: "Cigar & Spirits Evening",
+            description:
+              "A sophisticated adults-only evening with cigars, spirits, and a relaxed lounge atmosphere.",
+            bestFor: "Adults, groups, bachelor trips, celebrations, and cigar enthusiasts.",
+            duration: "Usually 1.5 to 3 hours.",
+            experience:
+              "The experience can include selected cigars, tequila, mezcal, whisky, rum, or raicilla pairings, plus a host to guide the evening.",
+            whatToExpect:
+              "A slower, elegant, after-dinner atmosphere with conversation and premium pairings.",
+            whatToBring:
+              "Comfortable evening clothing.",
+            goodToKnow:
+              "Confirm smoking rules at the villa or venue before arranging.",
+          }),
+          option({
+            title: "Cachasol Farm-to-Table & Mixology Experience",
+            description:
+              "A nearby culinary and farm-to-glass experience built around agave, gardens, cooking, and cocktails.",
+            bestFor: "Food lovers, couples, groups, adults, and guests wanting something local but polished.",
+            duration: "Usually 3 to 4 hours including transfers.",
+            experience:
+              "Guests visit a curated farm and distillery-style setting for cooking, cocktails, agave, local ingredients, and a more immersive culinary experience.",
+            whatToExpect:
+              "A distinctive outing that feels more local and memorable than a normal restaurant reservation.",
+            whatToBring:
+              "Comfortable resort casual clothing, sunglasses, and transportation arrangements.",
+            goodToKnow:
+              "This is one of the strongest off-villa food experiences for Punta Mita guests.",
+          }),
+        ],
+      }),
+    ],
+  },
 
- {
-  title: "High-End / VIP Experiences",
-  slug: "high-end-vip-experiences",
-  image: "/discover-punta-mita/high-end-vip-experiences.jpg",
-  heroImage:
-    "/discover-punta-mita/heroes/high-end-vip-experiences-hero.jpg",
-  description:
-    "Helicopter tours, private aviation transfers, VIP nightlife tables, luxury concierge itineraries, private photographers, proposal planning, yacht-to-beach experiences, luxury shopping trips, and exclusive resort access.",
-  activities: [
-    {
-      title: "Helicopter Tours",
-      slug: "helicopter-tours",
-      image: "/discover-punta-mita/activities/helicopter-tours.jpg",
-      description:
-        "A private aerial experience with dramatic views of Punta Mita, Riviera Nayarit, Puerto Vallarta, coastline, jungle, and ocean scenery.",
-      overview:
-        "Helicopter tours are one of the most exclusive ways to experience Punta Mita and the surrounding coastline. They offer a rare aerial perspective of beaches, jungle landscapes, marinas, resorts, and the Pacific Ocean.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, VIP travelers, photographers, special occasions, and guests looking for a once-in-a-trip experience." },
-        { label: "Typical Duration", value: "Usually 20 minutes to 1 hour depending on route and aircraft availability." },
-        { label: "Best Time of Day", value: "Morning or late afternoon for softer light and more comfortable conditions." },
-        { label: "Seasonality", value: "Available year-round, weather and aircraft availability permitting." },
-        { label: "What to Wear / Bring", value: "Comfortable clothing, sunglasses, camera, and minimal loose accessories." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Exclusive, scenic, private, and highly memorable." },
-        { label: "Good to Know", value: "Routes, flight time, passenger limits, and availability vary by operator and weather." },
-        { label: "Pricing", value: "Varies significantly depending on flight duration, route, aircraft, and private arrangements." },
-      ],
-      whatToExpect:
-        "Expect a private or semi-private flight experience with safety briefing, aerial views, and a route designed around weather, aircraft logistics, and selected scenery.",
-      whatToBring:
-        "Bring sunglasses, camera or phone, comfortable clothing, and avoid loose hats or accessories.",
-      gallery: [
-        "/discover-punta-mita/activities/helicopter-tours.jpg",
-        "/discover-punta-mita/activities/helicopter-tours-2.jpg",
-        "/discover-punta-mita/activities/helicopter-tours-3.jpg",
-      ],
-    },
-    {
-      title: "Private Aviation Transfers",
-      slug: "private-aviation-transfers",
-      image: "/discover-punta-mita/activities/private-aviation-transfers.jpg",
-      description:
-        "Private aviation transfer coordination for guests seeking a faster, more seamless, and more discreet arrival or departure experience.",
-      overview:
-        "Private aviation transfers are designed for guests who value discretion, comfort, timing, and efficiency. They can help make arrival and departure logistics feel smoother and more aligned with a luxury itinerary.",
-      standardInfo: [
-        { label: "Best For", value: "VIP guests, families, executives, luxury travelers, and groups seeking seamless travel logistics." },
-        { label: "Typical Duration", value: "Varies depending on route, aircraft, airport logistics, and ground transfer planning." },
-        { label: "Best Time of Day", value: "Flexible depending on travel schedule and aircraft availability." },
-        { label: "Seasonality", value: "Available year-round, subject to aircraft and airport availability." },
-        { label: "What to Wear / Bring", value: "Comfortable travel clothing, travel documents, luggage details, and passenger information." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Private, discreet, efficient, and logistics-focused." },
-        { label: "Good to Know", value: "Planning should begin in advance, especially during peak holiday periods." },
-        { label: "Pricing", value: "Varies significantly depending on route, aircraft category, passenger count, and timing." },
-      ],
-      whatToExpect:
-        "Expect a more personalized travel flow with coordination around timing, passenger needs, ground transfers, and aviation logistics.",
-      whatToBring:
-        "Bring required travel documents, luggage details, passenger names, and schedule preferences.",
-      gallery: [
-        "/discover-punta-mita/activities/private-aviation-transfers.jpg",
-        "/discover-punta-mita/activities/private-aviation-transfers-2.jpg",
-        "/discover-punta-mita/activities/private-aviation-transfers-3.jpg",
-      ],
-    },
-    {
-      title: "VIP Nightlife Tables",
-      slug: "vip-nightlife-tables",
-      image: "/discover-punta-mita/activities/vip-nightlife-tables.jpg",
-      description:
-        "Premium nightlife arrangements with table reservations, bottle service, preferred seating, and elevated club access.",
-      overview:
-        "VIP nightlife tables are ideal for guests who want a more polished and organized night out in Puerto Vallarta, Sayulita, or select beach club events without having to manage the details themselves.",
-      standardInfo: [
-        { label: "Best For", value: "Groups, celebrations, bachelor and bachelorette trips, birthdays, and nightlife-focused travelers." },
-        { label: "Typical Duration", value: "Late evening through late night." },
-        { label: "Best Time of Day", value: "Night." },
-        { label: "Seasonality", value: "Available year-round, with higher demand during weekends, holidays, and peak travel periods." },
-        { label: "What to Wear / Bring", value: "Nightlife attire, valid ID, and only essential personal items." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "High-energy, social, premium, and reservation-based." },
-        { label: "Good to Know", value: "Minimum spends, table availability, guest counts, and dress codes vary by venue." },
-        { label: "Pricing", value: "Varies by venue, event, table location, bottle selection, guest count, and date." },
-      ],
-      whatToExpect:
-        "Expect reserved space, bottle service options, a more seamless entry experience, and a better-positioned nightlife setup depending on the venue.",
-      whatToBring:
-        "Bring valid ID, appropriate nightlife attire, and confirm guest count in advance.",
-      gallery: [
-        "/discover-punta-mita/activities/vip-nightlife-tables.jpg",
-        "/discover-punta-mita/activities/vip-nightlife-tables-2.jpg",
-        "/discover-punta-mita/activities/vip-nightlife-tables-3.jpg",
-      ],
-    },
-    {
-      title: "Luxury Concierge Itineraries",
-      slug: "luxury-concierge-itineraries",
-      image: "/discover-punta-mita/activities/luxury-concierge-itineraries.jpg",
-      description:
-        "Personalized travel planning for guests who want their Punta Mita stay organized around experiences, dining, wellness, transportation, and special moments.",
-      overview:
-        "Luxury concierge itineraries help transform a stay into a carefully planned experience. They can combine restaurants, chefs, yacht days, wellness, activities, transportation, celebrations, and quiet downtime into one cohesive plan.",
-      standardInfo: [
-        { label: "Best For", value: "Families, groups, VIP travelers, special occasion trips, luxury guests, and first-time visitors." },
-        { label: "Typical Duration", value: "Can cover one day, several days, or a full stay." },
-        { label: "Best Time of Day", value: "Planning happens before arrival; experiences are scheduled throughout the stay." },
-        { label: "Seasonality", value: "Available year-round." },
-        { label: "What to Wear / Bring", value: "No specific attire. Guests should share preferences, priorities, budget style, and group details." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Personalized, curated, seamless, and service-focused." },
-        { label: "Customization", value: "Can include dining, wellness, boats, nightlife, family activities, transportation, and special events." },
-        { label: "Good to Know", value: "Best results come from planning in advance, especially during high season." },
-      ],
-      whatToExpect:
-        "Expect a curated plan designed around your group’s travel style, schedule, preferences, and desired level of service.",
-      whatToBring:
-        "Share group size, dates, preferences, dietary restrictions, mobility needs, celebration details, and preferred pace of travel.",
-      gallery: [
-        "/discover-punta-mita/activities/luxury-concierge-itineraries.jpg",
-        "/discover-punta-mita/activities/luxury-concierge-itineraries-2.jpg",
-        "/discover-punta-mita/activities/luxury-concierge-itineraries-3.jpg",
-      ],
-    },
-    {
-      title: "Private Photographers",
-      slug: "private-photographers",
-      image: "/discover-punta-mita/activities/private-photographers.jpg",
-      description:
-        "Professional photography sessions for families, couples, proposals, villa stays, beach moments, and special occasions.",
-      overview:
-        "Private photographers help capture the most memorable parts of a Punta Mita stay, from family portraits and beach sessions to proposals, celebrations, yacht days, and lifestyle photography.",
-      standardInfo: [
-        { label: "Best For", value: "Families, couples, proposals, birthdays, anniversaries, groups, and special trips." },
-        { label: "Typical Duration", value: "Usually 1 to 3 hours depending on session style." },
-        { label: "Best Time of Day", value: "Golden hour, sunrise, or sunset for the best natural light." },
-        { label: "Seasonality", value: "Available year-round, weather permitting for outdoor sessions." },
-        { label: "What to Wear / Bring", value: "Coordinated outfits, comfortable shoes, touch-up items, and any meaningful props or details." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Personal, polished, scenic, and memory-focused." },
-        { label: "Location", value: "Beach, villa, yacht, resort area, nearby towns, or scenic outdoor locations." },
-        { label: "Pricing", value: "Varies by photographer, session length, editing, delivery format, and event complexity." },
-      ],
-      whatToExpect:
-        "Expect guidance on timing, location, poses, and natural moments. Sessions can be formal, lifestyle-oriented, romantic, or family-focused.",
-      whatToBring:
-        "Bring outfits, accessories, touch-up items, water, and any details you want included in the photos.",
-      gallery: [
-        "/discover-punta-mita/activities/private-photographers.jpg",
-        "/discover-punta-mita/activities/private-photographers-2.jpg",
-        "/discover-punta-mita/activities/private-photographers-3.jpg",
-      ],
-    },
-    {
-      title: "Proposal Planning",
-      slug: "proposal-planning",
-      image: "/discover-punta-mita/activities/proposal-planning.jpg",
-      description:
-        "Personalized proposal experiences with location planning, styling, flowers, photography, dining, and private celebration details.",
-      overview:
-        "Proposal planning in Punta Mita can be designed around beach sunsets, villa terraces, yacht moments, private dinners, or hidden scenic locations. The goal is to make the moment feel personal, beautiful, and smoothly coordinated.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, surprise proposals, engagement trips, romantic celebrations, and guests planning a once-in-a-lifetime moment." },
-        { label: "Typical Duration", value: "Planning may happen before arrival; the proposal moment can be short or part of a full evening experience." },
-        { label: "Best Time of Day", value: "Sunset is usually the most requested time." },
-        { label: "Seasonality", value: "Available year-round, weather and location permitting." },
-        { label: "What to Wear / Bring", value: "Outfit appropriate to the setting, ring, and any personal details you want included." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Romantic, private, personalized, and highly detailed." },
-        { label: "Customization", value: "Can include flowers, candles, picnic setup, photographer, video, private dinner, yacht, or live music." },
-        { label: "Good to Know", value: "Advance planning is highly recommended for location access, vendors, and weather backup options." },
-      ],
-      whatToExpect:
-        "Expect help coordinating the location, timing, setup, vendors, photography, and flow of the proposal moment.",
-      whatToBring:
-        "Bring the ring, personal details, outfit, and any specific preferences for the setting or style.",
-      gallery: [
-        "/discover-punta-mita/activities/proposal-planning.jpg",
-        "/discover-punta-mita/activities/proposal-planning-2.jpg",
-        "/discover-punta-mita/activities/proposal-planning-3.jpg",
-      ],
-    },
-    {
-      title: "Yacht-to-Beach Experiences",
-      slug: "yacht-to-beach-experiences",
-      image: "/discover-punta-mita/activities/yacht-to-beach-experiences.jpg",
-      description:
-        "A luxury coastal experience combining private yacht time with beach stops, hidden coves, swimming, and curated service.",
-      overview:
-        "Yacht-to-beach experiences are designed for guests who want more than a simple boat ride. They combine private cruising, scenic coastline, beach stops, swimming, dining, and relaxed luxury service.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, groups, families, celebrations, luxury travelers, and guests seeking a signature Punta Mita day." },
-        { label: "Typical Duration", value: "Usually 4 to 8 hours depending on yacht, route, and beach access." },
-        { label: "Best Time of Day", value: "Morning for a full day, or afternoon for sunset-focused experiences." },
-        { label: "Seasonality", value: "Available year-round, weather and sea conditions permitting." },
-        { label: "What to Wear / Bring", value: "Swimwear, sunglasses, hat, sandals, sunscreen, towel, and light cover-up." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Private, scenic, luxury, ocean-focused, and customizable." },
-        { label: "Customization", value: "Can include beach stops, snorkeling, dining, drinks, photographer, music, or special occasion details." },
-        { label: "Pricing", value: "Varies significantly by yacht, route, duration, guest count, and onboard service." },
-      ],
-      whatToExpect:
-        "Expect a private coastal itinerary with time onboard, scenic cruising, possible beach stops, swimming, and curated service.",
-      whatToBring:
-        "Bring swimwear, sunscreen, sunglasses, hat, towel, and anything personal needed for a full day near the water.",
-      gallery: [
-        "/discover-punta-mita/activities/yacht-to-beach-experiences.jpg",
-        "/discover-punta-mita/activities/yacht-to-beach-experiences-2.jpg",
-        "/discover-punta-mita/activities/yacht-to-beach-experiences-3.jpg",
-      ],
-    },
-    {
-      title: "Luxury Shopping Trips",
-      slug: "luxury-shopping-trips",
-      image: "/discover-punta-mita/activities/luxury-shopping-trips.jpg",
-      description:
-        "Curated shopping outings for fashion, resort wear, jewelry, home design, artisan pieces, and local luxury finds.",
-      overview:
-        "Luxury shopping trips can be arranged for guests who want a more curated way to explore boutiques, resort wear, jewelry, artisan design, and local finds in Punta Mita, Sayulita, or Puerto Vallarta.",
-      standardInfo: [
-        { label: "Best For", value: "Couples, groups, fashion-focused travelers, design lovers, gift shopping, and guests looking for curated local finds." },
-        { label: "Typical Duration", value: "Usually 2 to 5 hours depending on route and shopping style." },
-        { label: "Best Time of Day", value: "Late morning or afternoon." },
-        { label: "Seasonality", value: "Available year-round, with boutique hours varying by season and location." },
-        { label: "What to Wear / Bring", value: "Comfortable resort clothing, walkable shoes, sunglasses, and payment cards." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Curated, stylish, relaxed, and personalized." },
-        { label: "Location", value: "Punta Mita, Sayulita, San Pancho, Puerto Vallarta, Bucerías, or selected boutiques." },
-        { label: "Customization", value: "Can focus on resort wear, jewelry, interiors, art, artisan goods, or gifts." },
-      ],
-      whatToExpect:
-        "Expect a curated route based on shopping interests, style preferences, timing, and desired locations.",
-      whatToBring:
-        "Bring comfortable shoes, payment cards, sunglasses, and any reference images or preferences that help guide the experience.",
-      gallery: [
-        "/discover-punta-mita/activities/luxury-shopping-trips.jpg",
-        "/discover-punta-mita/activities/luxury-shopping-trips-2.jpg",
-        "/discover-punta-mita/activities/luxury-shopping-trips-3.jpg",
-      ],
-    },
-    {
-      title: "Exclusive Resort Access",
-      slug: "exclusive-resort-access",
-      image: "/discover-punta-mita/activities/exclusive-resort-access.jpg",
-      description:
-        "Access-oriented planning for guests seeking premium resort experiences, beach clubs, dining, spa, golf, or private amenities.",
-      overview:
-        "Exclusive resort access can help guests understand and coordinate premium experiences such as beach clubs, dining, spa appointments, golf, and private resort amenities when available and appropriate.",
-      standardInfo: [
-        { label: "Best For", value: "Luxury travelers, families, couples, groups, and guests wanting premium resort-style experiences." },
-        { label: "Typical Duration", value: "Half-day, full-day, or specific appointment-based experiences." },
-        { label: "Best Time of Day", value: "Depends on the resort experience, reservation, and availability." },
-        { label: "Seasonality", value: "Available year-round, subject to access policies and availability." },
-        { label: "What to Wear / Bring", value: "Resort attire, swimwear if needed, sandals, sunscreen, and reservation details." },
-      ],
-      customInfo: [
-        { label: "Experience Style", value: "Premium, access-based, polished, and service-focused." },
-        { label: "Good to Know", value: "Access rules, guest policies, reservation requirements, and availability vary by resort and season." },
-        { label: "Possible Experiences", value: "Beach clubs, spa, dining, golf, day experiences, wellness, or private amenities." },
-      ],
-      whatToExpect:
-        "Expect a more polished resort experience depending on what access is available and what reservations can be arranged.",
-      whatToBring:
-        "Bring appropriate resort clothing, swimwear if needed, sun protection, and confirmed reservation details.",
-      gallery: [
-        "/discover-punta-mita/activities/exclusive-resort-access.jpg",
-        "/discover-punta-mita/activities/exclusive-resort-access-2.jpg",
-        "/discover-punta-mita/activities/exclusive-resort-access-3.jpg",
-      ],
-    },
-  ],
-},
+  {
+    title: "Nightlife & Entertainment",
+    slug: "nightlife-entertainment",
+    image: nightlifeImage,
+    heroImage: nightlifeHero,
+    description:
+      "Private villa parties, entertainment, poker nights, casino experiences, curated nights out, and signature dinner shows.",
+    activities: [
+      createActivity({
+        title: "Private Villa Parties & Entertainment",
+        slug: "private-villa-parties-entertainment",
+        image: nightlifeImage,
+        heroImage: nightlifeHero,
+        description:
+          "Private villa parties, DJs, bartenders, mariachi, movie nights, family entertainment, and celebration setups.",
+        overview:
+          "For Punta Mita luxury renters, the best nightlife is often private. This category turns the villa into the evening venue.",
+        bestFor:
+          "Families, groups, birthdays, bachelor and bachelorette groups, celebrations, and guests who prefer private entertainment.",
+        duration: "Usually 2 to 6 hours.",
+        seasonality: "Available year-round, subject to property rules and provider availability.",
+        tags: ["Nightlife", "Groups", "VIP", "Family-Friendly", "Rainy Day"],
+        notes:
+          "Always confirm villa rules, noise restrictions, community policies, and guest count limits.",
+        whatToExpect:
+          "Expect a tailored private event at the villa with entertainment, drinks, music, food, décor, or family programming depending on the occasion.",
+        whatToBring:
+          "No special items required. Share music preferences, guest count, timing, and celebration details.",
+        experienceOptions: [
+          option({
+            title: "Private DJ Villa Party",
+            description:
+              "A private music-focused evening at the villa with DJ, sound, lighting, and party atmosphere.",
+            bestFor: "Groups, birthdays, bachelor and bachelorette trips, and celebrations.",
+            duration: "Usually 3 to 6 hours.",
+            experience:
+              "A DJ sets up at the villa and plays a music program adapted to the group, with optional bartender, chef, lighting, décor, and event staffing.",
+            whatToExpect:
+              "A private, controlled party atmosphere without needing to travel to a club.",
+            whatToBring:
+              "Party attire and music preferences.",
+            goodToKnow:
+              "Noise rules and community restrictions must be confirmed before promising this.",
+          }),
+          option({
+            title: "Private Bartender & Cocktail Night",
+            description:
+              "A polished drinks experience at the villa with a bartender, curated cocktail menu, and relaxed social atmosphere.",
+            bestFor: "Adults, groups, couples, and pre-dinner gatherings.",
+            duration: "Usually 2 to 4 hours.",
+            experience:
+              "A bartender prepares cocktails, margaritas, mezcal drinks, mocktails, or a custom bar menu for the evening.",
+            whatToExpect:
+              "A social and elevated evening that can be casual or formal depending on setup.",
+            whatToBring:
+              "No special items required. Share drink preferences in advance.",
+            goodToKnow:
+              "This pairs well with private chef dinner, DJ, or cigar experience.",
+          }),
+          option({
+            title: "Private Mariachi Dinner",
+            description:
+              "A classic Mexican celebration moment with live mariachi arranged during dinner or sunset.",
+            bestFor: "Families, birthdays, anniversaries, first-time visitors, and celebration groups.",
+            duration: "Usually 45 to 90 minutes as part of an evening.",
+            experience:
+              "A mariachi group performs at the villa during cocktails, dinner, or a surprise celebration moment.",
+            whatToExpect:
+              "A festive, emotional, and memorable cultural moment that works well for all ages.",
+            whatToBring:
+              "No special items required.",
+            goodToKnow:
+              "Timing matters. Mariachi is strongest as a highlight during a larger evening, not necessarily the full event.",
+          }),
+          option({
+            title: "Private Movie Night or Family Entertainment",
+            description:
+              "A relaxed villa evening with movie setup, snacks, kids’ entertainment, games, or a family celebration.",
+            bestFor: "Families, kids, rainy evenings, relaxed groups, and multi-generational stays.",
+            duration: "Usually 2 to 4 hours.",
+            experience:
+              "The concierge arranges outdoor or indoor movie setup, popcorn, snacks, themed décor, games, piñata, or family-friendly entertainment.",
+            whatToExpect:
+              "An easy, warm, private evening that keeps families entertained without leaving the villa.",
+            whatToBring:
+              "Comfortable clothing and movie preferences.",
+            goodToKnow:
+              "This is a strong option for families after a busy beach or boat day.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Poker & Casino Experiences",
+        slug: "poker-casino-experiences",
+        image: nightlifeImage,
+        heroImage: nightlifeHero,
+        description:
+          "Private poker nights, casino-style villa evenings, and calendar-dependent poker tournaments nearby.",
+        overview:
+          "This is a niche but strong option for certain groups. It works especially well for adult group trips, birthdays, bachelor groups, and guests who want a private evening activity.",
+        bestFor:
+          "Adults, groups, bachelor trips, birthdays, and guests who enjoy cards or casino-style entertainment.",
+        duration: "Usually 2 to 5 hours.",
+        seasonality: "Private events are year-round. Public tournaments are calendar-dependent.",
+        tags: ["Nightlife", "Adults", "Groups", "By Request"],
+        notes:
+          "Public tournament schedules should be checked before offering. Private villa events should follow property rules.",
+        whatToExpect:
+          "Expect a private game night or casino-style setup with dealers, tables, cards, and a social adults-only atmosphere.",
+        whatToBring:
+          "Comfortable evening clothing. Confirm guest count and preferred format in advance.",
+        experienceOptions: [
+          option({
+            title: "Private Villa Poker Night",
+            description:
+              "A private poker evening at the villa with table setup, cards, chips, and optional dealer or host.",
+            bestFor: "Adults, groups, bachelor trips, birthdays, and poker players.",
+            duration: "Usually 2 to 5 hours.",
+            experience:
+              "A poker table is set up at the villa with chips, cards, and a format chosen for the group, from casual friendly play to a more structured tournament.",
+            whatToExpect:
+              "A private, social, adults-only evening that keeps the group together at the villa.",
+            whatToBring:
+              "Comfortable evening clothing and preferred game format.",
+            goodToKnow:
+              "Confirm villa rules and local legal considerations before arranging.",
+          }),
+          option({
+            title: "Private Casino Night",
+            description:
+              "A casino-style entertainment setup with games such as blackjack, roulette-style tables, poker, or other social formats.",
+            bestFor: "Groups, birthdays, corporate-style trips, and celebration evenings.",
+            duration: "Usually 2 to 4 hours.",
+            experience:
+              "Dealers or hosts create a casino-style atmosphere at the villa using entertainment chips, tables, and guest-friendly game formats.",
+            whatToExpect:
+              "A fun, produced evening with a strong social and event feel.",
+            whatToBring:
+              "Evening clothing and guest count details.",
+            goodToKnow:
+              "This should be positioned as entertainment unless a fully legal licensed gaming environment is being used.",
+          }),
+          option({
+            title: "Poker Tournament in Bucerías",
+            description:
+              "A by-request outing for guests interested in local or regional poker events nearby.",
+            bestFor: "Adults, serious poker players, and niche-interest guests.",
+            duration: "Varies by tournament.",
+            experience:
+              "The concierge checks current tournament schedules and arranges transportation or reservations when a relevant event is available.",
+            whatToExpect:
+              "A more specific outing that only makes sense when the tournament schedule fits the guest’s dates.",
+            whatToBring:
+              "Valid ID, payment method, and tournament details.",
+            goodToKnow:
+              "This should never be promised without checking the current calendar.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Curated Nights Out",
+        slug: "curated-nights-out",
+        image: nightlifeImage,
+        heroImage: nightlifeHero,
+        description:
+          "Sayulita nightlife, live music, Zona Romántica bar crawls, VIP nightlife tables, rooftops, and cocktail-bar experiences by request.",
+        overview:
+          "This category should be by request, not pushed as a default activity. It is best for guests who specifically want a night outside the villa.",
+        bestFor:
+          "Adults, younger groups, nightlife-focused guests, bachelor and bachelorette groups, and guests requesting Puerto Vallarta or Sayulita nightlife.",
+        duration: "Usually 3 to 6 hours including transportation.",
+        seasonality: "Available year-round, with quality varying by night and season.",
+        tags: ["Nightlife", "Adults", "Groups", "By Request"],
+        notes:
+          "Transportation, safety, group profile, and return logistics matter. This should be curated carefully.",
+        whatToExpect:
+          "Expect a planned evening route with reservations, transportation, and venues selected based on the group’s style.",
+        whatToBring:
+          "Evening clothing, ID, payment card, and comfortable shoes.",
+        experienceOptions: [
+          option({
+            title: "Sayulita Night Out",
+            description:
+              "A casual surf-town night with bars, live music, and a younger, more relaxed atmosphere.",
+            bestFor: "Younger groups, casual adults, and guests wanting nightlife close to Punta Mita.",
+            duration: "Usually 3 to 5 hours.",
+            experience:
+              "The evening is planned around a few selected bars, live music spots, or casual venues in Sayulita with transportation arranged.",
+            whatToExpect:
+              "A more relaxed, bohemian, and social night than Puerto Vallarta clubs.",
+            whatToBring:
+              "Casual evening clothing, comfortable shoes, ID, and payment card.",
+            goodToKnow:
+              "Sayulita can be crowded and informal. It is not the right fit for every luxury guest.",
+          }),
+          option({
+            title: "Zona Romántica Bar Crawl",
+            description:
+              "A curated Puerto Vallarta nightlife outing focused on cocktail bars, energy, and walkable nightlife.",
+            bestFor: "Adults, LGBTQ+ travelers, bachelor and bachelorette groups, and nightlife-focused guests.",
+            duration: "Usually 5 to 7 hours including transfers.",
+            experience:
+              "The concierge plans a route through selected bars, lounges, or clubs with transportation and timing arranged.",
+            whatToExpect:
+              "A longer night out with more energy and variety than Punta Mita or Sayulita.",
+            whatToBring:
+              "Evening clothing, ID, payment card, and comfortable shoes.",
+            goodToKnow:
+              "This is farther from Punta Mita and should be offered only to groups actively requesting nightlife.",
+          }),
+          option({
+            title: "VIP Nightclub Table",
+            description:
+              "A by-request club experience with reserved table, bottle service, and transportation.",
+            bestFor: "Adults, nightlife groups, bachelor and bachelorette trips.",
+            duration: "Usually late evening.",
+            experience:
+              "The concierge coordinates venue selection, table reservation, bottle service, driver, and return timing.",
+            whatToExpect:
+              "A high-energy nightlife experience that requires careful logistics and group fit.",
+            whatToBring:
+              "Dress-code-appropriate clothing, ID, and payment method.",
+            goodToKnow:
+              "This is not a default recommendation for most Punta Mita renters.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Signature Dinner Shows",
+        slug: "signature-dinner-shows",
+        image: nightlifeImage,
+        heroImage: nightlifeHero,
+        description:
+          "Produced evening experiences that combine boat transfer, dinner, entertainment, and a memorable night out.",
+        overview:
+          "This category is separate from regular nightlife because it is a complete produced excursion rather than a bar or club night.",
+        bestFor:
+          "Couples, families with older kids, groups, first-time visitors, and guests who want an organized evening experience.",
+        duration: "Usually a full evening.",
+        seasonality: "Available most of the year, subject to operator schedules.",
+        tags: ["Nightlife", "Romantic", "Family-Friendly", "By Request"],
+        notes:
+          "This involves more logistics than a local dinner, so it should be recommended selectively.",
+        whatToExpect:
+          "Expect transportation, a boat-based transfer, dinner, show elements, and a longer evening outside Punta Mita.",
+        whatToBring:
+          "Comfortable evening resort wear, light layer, comfortable shoes, and camera.",
+        experienceOptions: [
+          option({
+            title: "Rhythms of the Night",
+            description:
+              "A signature evening excursion with boat transfer, dinner, and a staged show in a dramatic coastal setting.",
+            bestFor: "Couples, families with older kids, groups, and first-time visitors.",
+            duration: "Usually a full evening.",
+            experience:
+              "Guests travel by boat to the venue, enjoy dinner, atmosphere, and a produced performance experience before returning later in the evening.",
+            whatToExpect:
+              "A memorable, theatrical night that feels more like an excursion than a normal dinner.",
+            whatToBring:
+              "Comfortable evening clothing, light layer, and comfortable shoes.",
+            goodToKnow:
+              "The logistics are heavier from Punta Mita, so recommend it selectively.",
+          }),
+          option({
+            title: "Special Dinner Show Experience",
+            description:
+              "A more general produced evening format for guests who want entertainment, dining, and a planned night out.",
+            bestFor: "Families, couples, groups, and guests who prefer organized experiences.",
+            duration: "Usually 3 to 6 hours.",
+            experience:
+              "The concierge selects a show or entertainment dinner that fits the guest’s interests and coordinates transportation, timing, and reservations.",
+            whatToExpect:
+              "A structured night with less decision-making for guests.",
+            whatToBring:
+              "Evening resort wear, ID if needed, and comfortable shoes.",
+            goodToKnow:
+              "Quality varies, so only recommend vetted options.",
+          }),
+        ],
+      }),
+    ],
+  },
+
+  {
+    title: "Nearby Destinations & Day Trips",
+    slug: "nearby-destinations-day-trips",
+    image: destinationsImage,
+    heroImage: destinationsHero,
+    description:
+      "Curated nearby outings that are close enough or special enough to make sense for Punta Mita renters.",
+    activities: [
+      createActivity({
+        title: "Sayulita & San Pancho Half-Day Experiences",
+        slug: "sayulita-san-pancho-half-day-experiences",
+        image: destinationsImage,
+        heroImage: destinationsHero,
+        description:
+          "Curated half-day visits to Sayulita and San Pancho for surf, beach, boutiques, casual dining, and local atmosphere.",
+        overview:
+          "This parent activity combines the nearby surf towns into one practical half-day outing. It should be curated, not presented as an endless town guide.",
+        bestFor:
+          "Families, couples, younger guests, shoppers, surfers, and guests who want a casual local outing.",
+        duration: "Usually 3 to 5 hours.",
+        seasonality: "Available year-round.",
+        tags: ["Culture", "Family-Friendly", "Shopping", "Food & Drink", "By Request"],
+        notes:
+          "Best for guests who want a change of scene without going all the way to Puerto Vallarta.",
+        whatToExpect:
+          "Expect a casual curated outing with time for walking, beach, boutiques, lunch, drinks, or surf-town atmosphere.",
+        whatToBring:
+          "Comfortable walking shoes, sunglasses, hat, sunscreen, and casual resort clothing.",
+        experienceOptions: [
+          option({
+            title: "Sayulita Half-Day",
+            description:
+              "A curated visit to Sayulita for beach, surf-town energy, boutiques, lunch, and casual exploring.",
+            bestFor: "Younger guests, families, shoppers, surfers, and first-time visitors.",
+            duration: "Usually 3 to 5 hours.",
+            experience:
+              "Guests visit Sayulita with planned time for walking, shopping, beach, lunch, drinks, or surf atmosphere depending on the group.",
+            whatToExpect:
+              "A colorful, casual, lively town experience close enough to make sense from Punta Mita.",
+            whatToBring:
+              "Comfortable shoes, casual clothing, sunscreen, sunglasses, and payment card.",
+            goodToKnow:
+              "Sayulita can feel busy and informal. It is better for guests who want local energy, not quiet luxury.",
+          }),
+          option({
+            title: "San Pancho Half-Day",
+            description:
+              "A quieter, more refined nearby town outing with beach, restaurants, galleries, and a slower rhythm.",
+            bestFor: "Couples, families, relaxed guests, and people who prefer less crowded towns.",
+            duration: "Usually 3 to 5 hours.",
+            experience:
+              "Guests visit San Pancho for beach time, lunch, boutique browsing, coffee, galleries, or a sunset moment depending on timing.",
+            whatToExpect:
+              "A calmer and more polished town experience than Sayulita.",
+            whatToBring:
+              "Comfortable shoes, resort casual clothing, sunglasses, and camera.",
+            goodToKnow:
+              "San Pancho is often a better fit for luxury guests than Sayulita.",
+          }),
+          option({
+            title: "Surf Town Shopping & Lunch",
+            description:
+              "A curated shopping and dining outing through selected boutiques, galleries, and restaurants.",
+            bestFor: "Couples, families, shoppers, and guests wanting a light off-villa outing.",
+            duration: "Usually 3 to 4 hours.",
+            experience:
+              "The concierge suggests a route with selected boutiques, artisan shops, galleries, cafés, and lunch or drinks.",
+            whatToExpect:
+              "A relaxed, low-pressure outing with a clear plan and no need to over-research.",
+            whatToBring:
+              "Comfortable walking shoes, casual clothing, sunglasses, and payment card.",
+            goodToKnow:
+              "This should be curated carefully so it feels elevated and not touristy.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "La Cruz & Bucerías Specialty Outings",
+        slug: "la-cruz-bucerias-specialty-outings",
+        image: destinationsImage,
+        heroImage: destinationsHero,
+        description:
+          "Nearby specialty outings for marina departures, selected dinners, casino, poker, and specific guest requests.",
+        overview:
+          "La Cruz and Bucerías should not be major headline destinations, but they are useful when there is a specific reason to go.",
+        bestFor:
+          "Guests with yacht departures, dinner plans, casino interest, poker interest, or a specific nearby outing request.",
+        duration: "Usually 2 to 5 hours depending on purpose.",
+        seasonality: "Available year-round. Poker and event schedules vary.",
+        tags: ["Food & Drink", "Nightlife", "By Request", "Groups"],
+        notes:
+          "This is a practical specialty category, not a broad tourism recommendation.",
+        whatToExpect:
+          "Expect a targeted outing built around one clear reason: marina, dinner, casino, poker, or logistics.",
+        whatToBring:
+          "Depends on the outing. Bring ID for casino or poker-related activities.",
+        experienceOptions: [
+          option({
+            title: "La Cruz Marina Departure or Dinner",
+            description:
+              "A practical nearby outing centered on the marina, yacht departure, or a selected dinner reservation.",
+            bestFor: "Yacht guests, dinner guests, and groups with marina logistics.",
+            duration: "Usually 2 to 4 hours unless part of a boat day.",
+            experience:
+              "Guests go to La Cruz for a marina departure, waterfront dinner, or selected restaurant experience when it makes logistical sense.",
+            whatToExpect:
+              "A targeted nearby outing rather than a full tourist day.",
+            whatToBring:
+              "Depends on the plan. For marina departures, bring boat-day essentials.",
+            goodToKnow:
+              "La Cruz is most useful when connected to a specific reason.",
+          }),
+          option({
+            title: "Bucerías Casino or Poker Outing",
+            description:
+              "A by-request outing for adults interested in casino or poker experiences nearby.",
+            bestFor: "Adults, groups, poker players, and niche nightlife guests.",
+            duration: "Usually 3 to 5 hours.",
+            experience:
+              "The concierge checks the schedule or venue details, then coordinates transportation and timing for a casino or poker-focused outing.",
+            whatToExpect:
+              "A specific adults-only evening that only makes sense when guests are genuinely interested.",
+            whatToBring:
+              "Valid ID, payment method, and evening clothing.",
+            goodToKnow:
+              "Schedules and quality should be checked before recommending.",
+          }),
+          option({
+            title: "Selected Bucerías or La Cruz Dinner",
+            description:
+              "A specific dinner outing only when the restaurant or occasion justifies leaving Punta Mita.",
+            bestFor: "Food lovers, guests with a specific request, and groups wanting a nearby change of scene.",
+            duration: "Usually 2 to 3 hours.",
+            experience:
+              "The concierge recommends a selected restaurant based on cuisine, atmosphere, availability, and travel time.",
+            whatToExpect:
+              "A nearby dinner experience with clear purpose, not a generic day trip.",
+            whatToBring:
+              "Resort casual or evening clothing depending on the venue.",
+            goodToKnow:
+              "Do not promote this broadly; use it when there is a strong match.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Las Caletas Day or Evening Excursion",
+        slug: "las-caletas-day-evening-excursion",
+        image: destinationsImage,
+        heroImage: destinationsHero,
+        description:
+          "A special exception excursion for guests interested in Las Caletas, beach adventure, or the evening dinner show format.",
+        overview:
+          "Las Caletas is farther than most Punta Mita activities, but it remains one of the few farther excursions that can justify the logistics for the right guest.",
+        bestFor:
+          "Families, couples, first-time visitors, groups, and guests who want a produced excursion.",
+        duration: "Usually half-day, full-day, or full evening depending on format.",
+        seasonality: "Available most of the year, subject to operator schedules.",
+        tags: ["Adventure", "Family-Friendly", "Romantic", "By Request"],
+        notes:
+          "Recommend selectively because it requires more travel and logistics from Punta Mita.",
+        whatToExpect:
+          "Expect a structured excursion with transportation, boat transfer, beach or evening programming, and a longer time commitment.",
+        whatToBring:
+          "Swimwear for day trips, comfortable resort wear for evening trips, sandals, sunscreen, and a light layer.",
+        experienceOptions: [
+          option({
+            title: "Las Caletas Beach Day",
+            description:
+              "A produced beach excursion with boat transfer, beach time, nature, food, and activities.",
+            bestFor: "Families, first-time visitors, groups, and soft-adventure guests.",
+            duration: "Usually half-day to full-day.",
+            experience:
+              "Guests travel to Las Caletas for a structured beach experience with activities, swimming, food, and a scenic coastal setting.",
+            whatToExpect:
+              "A more organized and operator-led day than a private yacht experience.",
+            whatToBring:
+              "Swimwear, towel, sunscreen, sandals, hat, and dry clothes.",
+            goodToKnow:
+              "This requires more logistics from Punta Mita and should be recommended selectively.",
+          }),
+          option({
+            title: "Las Caletas Evening Experience",
+            description:
+              "An evening version centered on atmosphere, dinner, performance, and a memorable night outside Punta Mita.",
+            bestFor: "Couples, groups, families with older kids, and first-time visitors.",
+            duration: "Usually a full evening.",
+            experience:
+              "Guests travel by boat for an evening with dinner, lighting, show elements, and a more theatrical coastal setting.",
+            whatToExpect:
+              "A full evening excursion with more structure and travel time than a local dinner.",
+            whatToBring:
+              "Comfortable evening resort wear, light layer, and comfortable shoes.",
+            goodToKnow:
+              "This overlaps with Signature Dinner Shows and can be cross-linked later.",
+          }),
+        ],
+      }),
+    ],
+  },
+
+  {
+    title: "Seasonal & Special Events",
+    slug: "seasonal-special-events",
+    image: seasonalImage,
+    heroImage: seasonalHero,
+    description:
+      "Punta Mita seasonal events, holidays, golf events, polo season, fishing tournaments, and private celebrations.",
+    activities: [
+      createActivity({
+        title: "Punta Mita Seasonal Events & Holidays",
+        slug: "punta-mita-seasonal-events-holidays",
+        image: seasonalImage,
+        heroImage: seasonalHero,
+        description:
+          "Gourmet & Golf, club events, holidays, New Year’s Eve, polo season, fishing tournaments, surf season, and seasonal celebrations.",
+        overview:
+          "This category keeps seasonal events focused on what matters to Punta Mita luxury guests instead of listing every regional event.",
+        bestFor:
+          "Families, groups, golfers, food lovers, holiday travelers, and guests visiting during event weeks.",
+        duration: "Varies by event.",
+        seasonality: "Seasonal and date-dependent.",
+        tags: ["Seasonal", "VIP", "Groups", "Family-Friendly", "Food & Drink", "Sports"],
+        notes:
+          "Event calendars should be checked before recommending specific dates or promising availability.",
+        whatToExpect:
+          "Expect date-specific experiences that may require advance reservations, guest access, tickets, or concierge coordination.",
+        whatToBring:
+          "Depends on the event. Confirm dress code, access rules, and timing in advance.",
+        experienceOptions: [
+          option({
+            title: "Punta Mita Gourmet & Golf",
+            description:
+              "A seasonal luxury event combining golf, food, wine, spirits, and destination atmosphere.",
+            bestFor: "Golfers, food lovers, couples, groups, and VIP travelers.",
+            duration: "Multi-day event or selected event attendance.",
+            experience:
+              "Guests attend selected culinary, golf, or social events connected to the Punta Mita Gourmet & Golf calendar.",
+            whatToExpect:
+              "A polished seasonal experience that connects directly to the Punta Mita lifestyle.",
+            whatToBring:
+              "Event-appropriate resort wear, golf attire if needed, and reservation details.",
+            goodToKnow:
+              "Dates, access, and programming change each year.",
+          }),
+          option({
+            title: "Holiday Villa Experiences",
+            description:
+              "Private Thanksgiving, Christmas, New Year’s Eve, or holiday events arranged at the villa.",
+            bestFor: "Families, groups, holiday travelers, and celebration trips.",
+            duration: "Meal, evening, or full-day programming.",
+            experience:
+              "The concierge coordinates holiday dinner, décor, music, staff, chef, fireworks alternatives, beach setup, or family programming depending on the holiday.",
+            whatToExpect:
+              "A private holiday celebration without the stress of planning locally.",
+            whatToBring:
+              "Share traditions, guest count, dietary needs, and preferred holiday style.",
+            goodToKnow:
+              "Holidays require advance planning because vendors and chefs book early.",
+          }),
+          option({
+            title: "New Year’s Eve Yacht, Villa or Beach-Club Event",
+            description:
+              "A high-demand seasonal celebration arranged as a private villa event, yacht celebration, or curated beach-club night.",
+            bestFor: "Groups, families, couples, and VIP travelers.",
+            duration: "Usually full evening.",
+            experience:
+              "The night is designed around dinner, music, countdown, champagne, transportation, and the desired energy level.",
+            whatToExpect:
+              "A premium celebration with high logistical complexity and strong need for advance planning.",
+            whatToBring:
+              "Evening resort wear and any celebration preferences.",
+            goodToKnow:
+              "New Year’s Eve should be planned as early as possible.",
+          }),
+          option({
+            title: "Seasonal Sports & Local Events",
+            description:
+              "A flexible seasonal category for fishing tournaments, surf season, polo season, poker events, and Punta Mita club events.",
+            bestFor: "Guests visiting during specific event windows.",
+            duration: "Varies.",
+            experience:
+              "The concierge checks event calendars and matches relevant events to the guest’s dates and interests.",
+            whatToExpect:
+              "A date-specific recommendation rather than a guaranteed activity.",
+            whatToBring:
+              "Depends on the event.",
+            goodToKnow:
+              "This should always be confirmed against current schedules.",
+          }),
+        ],
+      }),
+    ],
+  },
+
+  {
+    title: "High-End / VIP Experiences",
+    slug: "high-end-vip-experiences",
+    image: vipImage,
+    heroImage: vipHero,
+    description:
+      "Private aviation, scenic flights, celebrations, proposals, VIP hosting, security, drivers, and full-stay concierge planning.",
+    activities: [
+      createActivity({
+        title: "Private Aviation & Scenic Flights",
+        slug: "private-aviation-scenic-flights",
+        image: vipImage,
+        heroImage: vipHero,
+        description:
+          "Private aviation transfers, helicopter tours, scenic flights, and VIP arrival or departure logistics.",
+        overview:
+          "This is a VIP-only category for guests who want premium arrival, departure, transfer, or aerial experiences.",
+        bestFor:
+          "VIP travelers, high-end groups, special occasions, time-sensitive guests, and guests looking for a rare experience.",
+        duration: "Varies by transfer or flight format.",
+        seasonality: "Available by request, subject to weather, aircraft, permits, and provider availability.",
+        tags: ["VIP", "By Request", "Romantic", "Adventure"],
+        notes:
+          "This should always be confirmed directly with trusted providers before presenting details to guests.",
+        whatToExpect:
+          "Expect a highly customized experience with aircraft availability, weather checks, scheduling, and premium logistics.",
+        whatToBring:
+          "Valid identification, comfortable clothing, and luggage details if transfer-related.",
+        experienceOptions: [
+          option({
+            title: "Private Aviation Transfer",
+            description:
+              "A premium arrival or departure solution for guests who want speed, privacy, and high-touch logistics.",
+            bestFor: "VIP travelers, time-sensitive guests, families, and high-end groups.",
+            duration: "Varies by route.",
+            experience:
+              "The concierge coordinates aircraft, transfer timing, luggage details, ground transportation, and arrival or departure logistics.",
+            whatToExpect:
+              "A smoother, more private travel experience with fewer friction points.",
+            whatToBring:
+              "Valid identification, luggage details, and travel documents.",
+            goodToKnow:
+              "Aircraft availability, weather, and permits must be confirmed.",
+          }),
+          option({
+            title: "Helicopter or Scenic Flight",
+            description:
+              "A rare aerial experience over the coastline, bay, or nearby landmarks.",
+            bestFor: "VIP guests, photographers, proposals, and special occasions.",
+            duration: "Usually 30 to 90 minutes depending on route.",
+            experience:
+              "Guests take a scenic flight arranged around views, timing, route, and weather conditions.",
+            whatToExpect:
+              "A dramatic perspective of the destination and a memorable luxury moment.",
+            whatToBring:
+              "Valid ID, comfortable clothing, sunglasses, and camera.",
+            goodToKnow:
+              "Weather and aircraft availability are critical. This is always by request.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Luxury Celebrations & Proposals",
+        slug: "luxury-celebrations-proposals",
+        image: vipImage,
+        heroImage: vipHero,
+        description:
+          "Proposal planning, photographers, videographers, yacht proposals, beach setups, birthdays, anniversaries, and celebration production.",
+        overview:
+          "This category is very important for luxury villa rentals because many guests travel to Punta Mita for milestone moments.",
+        bestFor:
+          "Couples, families, birthdays, anniversaries, proposals, wedding-weekend guests, and celebration groups.",
+        duration: "Varies by event.",
+        seasonality: "Available year-round, with holidays requiring extra advance planning.",
+        tags: ["Romantic", "VIP", "Groups", "Family-Friendly"],
+        notes:
+          "This should be handled carefully with mood boards, timing, privacy, guest preferences, and backup plans.",
+        whatToExpect:
+          "Expect a custom-produced experience with planning, setup, décor, photography, dining, music, and logistics depending on the occasion.",
+        whatToBring:
+          "Share occasion details, inspiration images, guest count, timing, and any surprise requirements.",
+        experienceOptions: [
+          option({
+            title: "Proposal Planning",
+            description:
+              "A fully coordinated proposal experience designed around privacy, emotion, timing, and the couple’s style.",
+            bestFor: "Couples and surprise proposals.",
+            duration: "Usually a planned moment plus optional dinner or celebration.",
+            experience:
+              "The concierge coordinates location, timing, flowers, candles, photographer, music, champagne, dinner, and backup plans.",
+            whatToExpect:
+              "A discreet and highly detailed production designed to feel effortless for the guest.",
+            whatToBring:
+              "The ring, inspiration images if available, and preferred style details.",
+            goodToKnow:
+              "Weather, privacy, and backup planning matter.",
+          }),
+          option({
+            title: "Birthday or Anniversary Production",
+            description:
+              "A custom celebration at the villa, beach, yacht, restaurant, or beach club.",
+            bestFor: "Families, couples, groups, birthdays, and anniversaries.",
+            duration: "Usually 2 to 6 hours.",
+            experience:
+              "The concierge coordinates décor, chef, cake, music, entertainment, photographer, flowers, table styling, and event flow.",
+            whatToExpect:
+              "A polished celebration built around the person, occasion, and group dynamic.",
+            whatToBring:
+              "Guest count, mood-board references, dietary needs, and preferred timing.",
+            goodToKnow:
+              "More elaborate events require more lead time and property approval.",
+          }),
+          option({
+            title: "Private Photographer or Content Creator",
+            description:
+              "A professional photo, video, or social content session during the stay.",
+            bestFor: "Families, couples, proposals, influencers, celebrations, and groups.",
+            duration: "Usually 1 to 3 hours.",
+            experience:
+              "A photographer or content creator captures villa moments, beach portraits, yacht days, proposals, family sessions, or social content.",
+            whatToExpect:
+              "A polished visual record of the trip with direction and location planning.",
+            whatToBring:
+              "Outfits, inspiration references, and preferred shot list.",
+            goodToKnow:
+              "Best scheduled around sunrise, sunset, yacht days, or key celebration moments.",
+          }),
+          option({
+            title: "Wedding-Weekend Activity Planning",
+            description:
+              "A curated program of activities for guests traveling for a wedding or multi-day celebration.",
+            bestFor: "Wedding groups, families, and destination celebration hosts.",
+            duration: "Multi-day planning.",
+            experience:
+              "The concierge designs yacht days, welcome dinners, recovery brunches, beach activities, wellness sessions, and guest-friendly outings around the wedding schedule.",
+            whatToExpect:
+              "A smoother and more memorable guest experience across the full wedding weekend.",
+            whatToBring:
+              "Guest count, schedule, priorities, budget, and any must-have activities.",
+            goodToKnow:
+              "This should be planned early to secure providers and avoid schedule conflicts.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Full-Stay Concierge & VIP Hosting",
+        slug: "full-stay-concierge-vip-hosting",
+        image: vipImage,
+        heroImage: vipHero,
+        description:
+          "Full itinerary design, private driver, bilingual host, security, reservations, activity planning, and VIP coordination.",
+        overview:
+          "This is not a traditional activity, but it is one of the most valuable services for luxury travelers. It turns the full stay into a curated experience.",
+        bestFor:
+          "VIP travelers, families, groups, first-time visitors, destination celebrations, and guests who want everything handled.",
+        duration: "Full stay.",
+        seasonality: "Available year-round.",
+        tags: ["VIP", "Groups", "Family-Friendly", "By Request"],
+        notes:
+          "Avoid promising access that cannot be guaranteed. Phrase exclusive access carefully.",
+        whatToExpect:
+          "Expect itinerary planning, reservations, vendor coordination, transportation, guest support, and personalized recommendations before and during the stay.",
+        whatToBring:
+          "Share travel dates, group profile, villa location, priorities, dietary needs, celebration details, and preferred pace of travel.",
+        experienceOptions: [
+          option({
+            title: "Full Itinerary Design",
+            description:
+              "A complete travel plan built around the guest’s villa, dates, group, pace, and interests.",
+            bestFor: "Families, VIP travelers, first-time visitors, and groups.",
+            duration: "Full stay.",
+            experience:
+              "The concierge designs a balanced itinerary with villa time, beach, dining, activities, wellness, transport, and special moments.",
+            whatToExpect:
+              "A stay that feels curated without being over-scheduled.",
+            whatToBring:
+              "Travel dates, group profile, preferred pace, interests, and must-do activities.",
+            goodToKnow:
+              "The best itineraries leave space for rest.",
+          }),
+          option({
+            title: "Private Driver & Bilingual Host",
+            description:
+              "High-touch local support for transportation, reservations, activities, and guest comfort.",
+            bestFor: "VIP guests, families, groups, and travelers who want support during the stay.",
+            duration: "Hourly, daily, or full stay.",
+            experience:
+              "A driver or bilingual host helps guests move smoothly between activities, dinners, errands, airport transfers, and special experiences.",
+            whatToExpect:
+              "A more seamless trip with local knowledge and fewer logistics for the guest to manage.",
+            whatToBring:
+              "Schedule details, guest count, luggage details if relevant, and preferred communication style.",
+            goodToKnow:
+              "This is especially valuable for groups with multiple reservations and moving parts.",
+          }),
+          option({
+            title: "Private Security",
+            description:
+              "Discreet security support for high-profile guests, events, transfers, or special circumstances.",
+            bestFor: "High-profile guests, VIP groups, events, and guests requesting additional privacy.",
+            duration: "Hourly, daily, event-based, or full stay.",
+            experience:
+              "Security is arranged based on guest profile, property, schedule, privacy needs, and movement during the stay.",
+            whatToExpect:
+              "Professional, discreet support designed to protect privacy and comfort without disrupting the vacation atmosphere.",
+            whatToBring:
+              "Guest profile details, schedule, access needs, and privacy expectations.",
+            goodToKnow:
+              "This should be handled with discretion and trusted providers only.",
+          }),
+          option({
+            title: "VIP Access & Reservation Coordination",
+            description:
+              "A concierge-led service for restaurants, activities, beach clubs, nightlife, and special requests.",
+            bestFor: "VIP travelers, groups, celebrations, and guests who want a frictionless stay.",
+            duration: "Before and during the stay.",
+            experience:
+              "The concierge coordinates reservations, provider availability, activity timing, transportation, and special requests.",
+            whatToExpect:
+              "A smoother vacation with fewer decisions and better timing.",
+            whatToBring:
+              "Preferences, dates, guest count, dietary needs, and any non-negotiable experiences.",
+            goodToKnow:
+              "Use careful language: some access depends on availability, villa privileges, venue rules, or provider approval.",
+          }),
+        ],
+      }),
+    ],
+  },
 ];
+
 export function getDiscoverCategoryBySlug(slug: string) {
   return discoverCategories.find((category) => category.slug === slug);
 }
 
-export function getActivityBySlug(
-  categorySlug: string,
-  activitySlug: string
-) {
+export function getActivityBySlug(categorySlug: string, activitySlug: string) {
   const category = getDiscoverCategoryBySlug(categorySlug);
 
-  return category?.activities.find(
-    (activity) => activity.slug === activitySlug
-  );
+  return category?.activities.find((activity) => activity.slug === activitySlug);
 }
