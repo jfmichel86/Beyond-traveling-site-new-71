@@ -1360,100 +1360,218 @@ export const discoverCategories: DiscoverCategory[] = [
     ],
   },
 
-  {
+    {
     title: "Beach Clubs & Day Clubs",
     slug: "beach-clubs-day-clubs",
     image: beachClubImage,
     heroImage: beachClubHero,
     description:
-      "Curated Punta Mita beach club days, surf-club lunches, cabanas, daybeds, and selected day-club experiences.",
+      "Curated beach club experiences in Punta Mita and select destination beach clubs for guests looking for a more social or party atmosphere.",
     activities: [
       createActivity({
-        title: "Curated Beach Club Days",
-        slug: "curated-beach-club-days",
+        title: "Punta Mita Beach Clubs",
+        slug: "punta-mita-beach-clubs",
         image: beachClubImage,
         heroImage: beachClubHero,
         description:
-          "A curated selection of Punta Mita beach clubs, El Surf Club, Tierra Tropical, cabanas, daybeds, and private buyouts.",
+          "A curated guide to the private and resort-style beach clubs inside Punta Mita, including Kupuri, Pacifico, Sufi, Sea Breeze, and El Surf Club.",
         overview:
-          "Instead of listing every beach club in the region, this activity focuses on the beach clubs that make sense for Punta Mita luxury renters.",
+          "Punta Mita’s beach clubs are one of the main advantages of staying in the destination. Each club has a different personality: some are better for families, some for long lunches, some for ocean sports, and others for a relaxed beach day with polished service.",
         bestFor:
-          "Couples, families, groups, beach lovers, relaxed luxury travelers, and guests who want an easy day out.",
+          "Families, couples, villa guests, beach lovers, relaxed luxury travelers, and guests who want an easy day close to the villa.",
         duration: "Half-day, full-day, lunch, or sunset visit.",
-        seasonality: "Available year-round, subject to access and reservation availability.",
+        seasonality:
+          "Available year-round, subject to villa access, club rules, reservations, and seasonal schedules.",
         tags: ["Beach", "Family-Friendly", "Romantic", "VIP", "Food & Drink"],
         notes:
-          "Some clubs may require property access, reservations, membership rules, or special arrangements.",
+          "Access depends on the villa, guest privileges, club rules, reservation availability, and the specific Punta Mita community or resort relationship.",
         whatToExpect:
-          "Expect a polished beach day with dining, loungers, ocean access, pool or club amenities depending on the selected venue.",
+          "Expect a polished beach-club day with loungers, dining, beach access, ocean views, pools or club amenities depending on the venue, and a more effortless way to enjoy the Punta Mita lifestyle.",
         whatToBring:
-          "Resort wear, swimwear, sunglasses, sunscreen, sandals, and reservation details.",
+          "Resort wear, swimwear, sunglasses, sunscreen, sandals, hat, and reservation or access details.",
         experienceOptions: [
           option({
-            title: "Punta Mita Beach Club Day",
+            title: "Kupuri Beach Club",
             description:
-              "A relaxed day at one of Punta Mita’s beach clubs, with beach, pool, dining, and resort-style service.",
-            bestFor: "Families, couples, villa guests, and relaxed luxury travelers.",
+              "A polished Punta Mita beach club experience with a family-friendly feel, beach service, dining, pool time, and a relaxed luxury atmosphere.",
+            bestFor:
+              "Families, couples, villa guests, kids, and guests who want a comfortable full beach day.",
             duration: "Half-day or full-day.",
             experience:
-              "Guests enjoy a beach-club day with loungers, swimming, lunch, drinks, and easy access to oceanfront amenities depending on the club and villa access.",
+              "Guests spend the day at Kupuri enjoying the beach, loungers, food, drinks, pool areas, and easy access to a refined Punta Mita beach-club setting. It works especially well for families because it feels relaxed, comfortable, and complete.",
             whatToExpect:
-              "A refined, easy beach day that feels natural for Punta Mita renters.",
+              "A smooth and easy beach day with polished service, casual luxury, and enough amenities to keep different ages comfortable.",
             whatToBring:
-              "Swimwear, cover-up, sandals, sunglasses, hat, and sunscreen.",
+              "Swimwear, cover-up, sunscreen, sunglasses, sandals, and a hat.",
             goodToKnow:
-              "Access depends on villa privileges, club rules, and reservations.",
+              "Access must be confirmed based on the villa and guest privileges. This is usually one of the easiest beach-club options to recommend for families.",
           }),
           option({
-            title: "El Surf Club & La Lancha Day",
+            title: "Pacifico Beach Club",
             description:
-              "A barefoot-luxury surf and beach day centered around La Lancha and El Surf Club.",
-            bestFor: "Surfers, couples, groups, and stylish beach-day guests.",
-            duration: "Usually half-day.",
+              "A classic Punta Mita beach club option with oceanfront atmosphere, dining, beach time, and a relaxed resort-style setting.",
+            bestFor:
+              "Couples, families, villa guests, and travelers who want a calm and elegant beach-club day.",
+            duration: "Half-day, lunch, or full-day.",
             experience:
-              "Guests combine beach time, surf atmosphere, lunch, drinks, and optional surf lessons or board time depending on the group.",
+              "Guests enjoy an oceanfront beach-club environment with time for swimming, lounging, lunch, drinks, and a slow day close to the water.",
             whatToExpect:
-              "A casual but elevated beach-club experience with a stronger surf lifestyle feeling.",
+              "A refined but relaxed experience that feels very connected to the Punta Mita lifestyle.",
             whatToBring:
-              "Swimwear, beachwear, sunscreen, towel, and surf gear if needed.",
+              "Resort wear, swimwear, sunscreen, sunglasses, sandals, and a light cover-up.",
             goodToKnow:
-              "This pairs very well with the Surf Experiences activity.",
+              "A good fit for guests who want something polished without needing a high-energy or party atmosphere.",
           }),
+          option({
+            title: "Sufi Ocean Club",
+            description:
+              "A more intimate ocean-club experience with a refined setting, beautiful views, dining, and a quieter Punta Mita atmosphere.",
+            bestFor:
+              "Couples, adults, relaxed luxury travelers, small groups, and guests who want a more elegant oceanfront setting.",
+            duration: "Lunch, sunset, half-day, or relaxed afternoon.",
+            experience:
+              "Guests visit Sufi for a slower and more refined ocean-club experience. It can be arranged around lunch, drinks, sunset, or simply a quiet afternoon by the water.",
+            whatToExpect:
+              "A calmer and more elegant beach-club style with strong atmosphere and ocean views.",
+            whatToBring:
+              "Resort casual clothing, swimwear if planning to swim, sunglasses, sunscreen, and a light layer for sunset.",
+            goodToKnow:
+              "This is a strong option for couples or adults who want something less family-oriented and more serene.",
+          }),
+          option({
+            title: "Sea Breeze Beach Club",
+            description:
+              "A convenient Punta Mita beach club experience with resort-style dining, beach access, and a relaxed social atmosphere.",
+            bestFor:
+              "Families, couples, villa guests, casual lunches, and guests wanting a simple beach-club outing.",
+            duration: "Lunch, half-day, or casual beach afternoon.",
+            experience:
+              "Guests enjoy a resort-style beach-club setting with food, drinks, beach time, and easy service. It is a good option when the goal is comfort and simplicity.",
+            whatToExpect:
+              "A relaxed and accessible beach-club day that works well for mixed groups.",
+            whatToBring:
+              "Swimwear, resort wear, sunscreen, sunglasses, sandals, and a hat.",
+            goodToKnow:
+              "Best used when guests want an easy, comfortable beach-club option without over-planning.",
+          }),
+          option({
+            title: "El Surf Club",
+            description:
+              "A barefoot-luxury surf club experience near La Lancha, ideal for guests who want beach, surf atmosphere, lunch, and a more casual coastal vibe.",
+            bestFor:
+              "Surfers, couples, younger guests, families with teens, and guests who want a stylish but relaxed beach day.",
+            duration: "Half-day, lunch, or surf-and-beach outing.",
+            experience:
+              "Guests can combine beach time, surf atmosphere, lunch, drinks, and optional surf lessons or board time. It feels more casual and lifestyle-driven than a traditional beach club.",
+            whatToExpect:
+              "A beach-club day with more surf culture, open-air energy, and a relaxed barefoot feel.",
+            whatToBring:
+              "Swimwear, beachwear, sunscreen, towel, sunglasses, and surf gear if needed.",
+            goodToKnow:
+              "This pairs very well with the Surf Experiences activity and is one of the best options for guests who want a more active beach day.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Party Beach Clubs",
+        slug: "party-beach-clubs",
+        image: beachClubImage,
+        heroImage: beachClubHero,
+        description:
+          "High-energy beach club experiences for guests looking for music, boat access, social atmosphere, and a more festive day outside Punta Mita.",
+        overview:
+          "Party beach clubs are not the right fit for every Punta Mita guest, but they can be very attractive for younger groups, birthdays, bachelor or bachelorette trips, and guests specifically looking for a social beach-club scene.",
+        bestFor:
+          "Adults, younger groups, birthdays, bachelor and bachelorette groups, social travelers, and guests who want music and energy.",
+        duration: "Usually half-day to full-day, depending on transfer and boat logistics.",
+        seasonality:
+          "Available year-round, with atmosphere, programming, and music varying by date and season.",
+        tags: ["Beach", "Nightlife", "Adults", "Groups", "By Request"],
+        notes:
+          "These experiences require more logistics from Punta Mita. Transportation, boat transfer, timing, reservations, minimum spends, and return plans should be confirmed before recommending.",
+        whatToExpect:
+          "Expect a more social, music-driven beach-club experience with a younger atmosphere, drinks, dining, boat access, and a stronger party energy than Punta Mita’s private beach clubs.",
+        whatToBring:
+          "Swimwear, stylish beachwear, sunglasses, sunscreen, sandals, ID, payment card, and a light layer for the return.",
+        experienceOptions: [
+          option({
+            title: "Majahuitas Beach Club",
+            description:
+              "A destination beach club known for its music, boat-access setting, social atmosphere, and more festive beach-club energy.",
+            bestFor:
+              "Adults, younger groups, birthdays, bachelor and bachelorette trips, and guests who want a party beach-club experience.",
+            duration: "Usually half-day to full-day including transfer logistics.",
+            experience:
+              "Guests travel to Majahuitas for a beach-club day centered on music, drinks, lunch, oceanfront lounging, and a social atmosphere. It is more of a destination outing than a simple beach day.",
+            whatToExpect:
+              "A lively beach-club experience with music, social energy, and a stronger party mood than the beach clubs inside Punta Mita.",
+            whatToBring:
+              "Stylish beachwear, swimwear, sunglasses, sunscreen, sandals, ID, and payment card.",
+            goodToKnow:
+              "This is not a low-effort Punta Mita beach day. It requires coordination, reservations, and transport planning. Best for guests who actively want the party scene.",
+          }),
+          option({
+            title: "Anima Beach Club",
+            description:
+              "A popular south-bay beach club option for guests looking for music, beach, drinks, and a more social day outside Punta Mita.",
+            bestFor:
+              "Young adults, friend groups, social travelers, birthdays, and bachelor or bachelorette groups.",
+            duration: "Usually half-day to full-day including transfer logistics.",
+            experience:
+              "Guests visit Anima for a beach-club day with food, drinks, loungers, ocean time, and a more energetic atmosphere than the quiet beach-club options in Punta Mita.",
+            whatToExpect:
+              "A fun and social beach-club outing with music, drinks, and a more casual party atmosphere.",
+            whatToBring:
+              "Swimwear, beachwear, sunglasses, sunscreen, sandals, ID, and payment card.",
+            goodToKnow:
+              "From Punta Mita, this is a more involved outing. It should be offered to the right type of guest, not as a default recommendation.",
+          }),
+        ],
+      }),
+
+      createActivity({
+        title: "Other Beach Clubs",
+        slug: "other-beach-clubs",
+        image: beachClubImage,
+        heroImage: beachClubHero,
+        description:
+          "Select beach-club and polo-club experiences outside Punta Mita that are worth considering for the right guest.",
+        overview:
+          "This category is intentionally selective. It is not a list of every beach club nearby, but a place for distinctive off-property experiences that can make sense for Punta Mita guests.",
+        bestFor:
+          "Couples, families, groups, polo lovers, relaxed luxury travelers, and guests wanting a change of scene outside Punta Mita.",
+        duration: "Usually half-day.",
+        seasonality:
+          "Available year-round for beach-club style visits. Polo and equestrian programming may be seasonal.",
+        tags: ["Beach", "Food & Drink", "Family-Friendly", "Romantic", "By Request"],
+        notes:
+          "This should stay selective. Add only beach clubs that feel relevant to Punta Mita luxury guests.",
+        whatToExpect:
+          "Expect a curated outing outside Punta Mita with dining, beach-club atmosphere, and possibly polo or equestrian elements depending on the day and season.",
+        whatToBring:
+          "Resort casual clothing, swimwear if beach-focused, sunglasses, sunscreen, sandals, and camera.",
+        experienceOptions: [
           option({
             title: "Tierra Tropical Beach & Polo Club Day",
             description:
-              "A San Pancho-area outing combining beach-club atmosphere, dining, and possible polo or equestrian programming.",
-            bestFor: "Couples, families, groups, and guests who want something elegant outside Punta Mita.",
-            duration: "Half-day.",
+              "A distinctive San Pancho-area experience combining beach-club atmosphere, dining, sunset drinks, and possible polo or equestrian programming.",
+            bestFor:
+              "Couples, families, groups, polo lovers, and guests who want something elegant outside Punta Mita.",
+            duration: "Usually half-day.",
             experience:
-              "Guests enjoy a refined beach-club or polo-club style day with lunch, sunset drinks, brunch, or seasonal polo elements depending on availability.",
+              "Guests enjoy a refined beach-club or polo-club style outing with lunch, drinks, sunset atmosphere, and seasonal polo or equestrian elements when available.",
             whatToExpect:
-              "A more distinctive day-club experience than a standard beach outing.",
+              "A more distinctive and elegant outing than a standard beach day, with a countryside-meets-coast feeling.",
             whatToBring:
-              "Resort casual clothing, swimwear if beach-focused, sunglasses, and camera.",
+              "Resort casual clothing, swimwear if beach-focused, sunglasses, sunscreen, and camera.",
             goodToKnow:
-              "Polo-related programming is seasonal and should be confirmed.",
-          }),
-          option({
-            title: "Private Beach-Club Buyout or Group Setup",
-            description:
-              "A more exclusive version of the beach-club day for events, birthdays, weddings, or private group celebrations.",
-            bestFor: "Groups, birthdays, weddings, corporate-style trips, and VIP guests.",
-            duration: "Half-day, evening, or custom.",
-            experience:
-              "The concierge coordinates reserved areas, special menus, music, décor, service, and privacy depending on venue rules and availability.",
-            whatToExpect:
-              "A produced beach-club experience designed around the group and occasion.",
-            whatToBring:
-              "Depends on the event style. Share guest count, timing, mood, and budget.",
-            goodToKnow:
-              "Buyouts and private areas require advance planning and may have minimum spends.",
+              "Polo-related programming is seasonal and should be confirmed before offering. This is best for guests who want a quieter and more refined outing than a party beach club.",
           }),
         ],
       }),
     ],
   },
-
   {
     title: "Food & Dining",
     slug: "food-dining",
