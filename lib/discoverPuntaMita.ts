@@ -345,7 +345,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, rash guard, towel, sandals, sunscreen, and dry clothes.",
             goodToKnow:
-              "La Lancha requires beach access logistics. It is better with someone local coordinating timing and gear.",
+              "La Lancha works best when timing, beach access, boards, and local surf guidance are arranged in advance.",
           }),
           option({
             title: "Private Surf Safari",
@@ -761,7 +761,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, towel, comfortable clothes, and water.",
             goodToKnow:
-              "Guests with health conditions should consult a medical professional before cold exposure.",
+              "Cold exposure is best for guests who are comfortable with intense temperature contrast and want a more active recovery experience.",
           }),
         ],
       }),
@@ -1047,7 +1047,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Court shoes, athletic clothing, water, and racket if preferred.",
             goodToKnow:
-              "Court access and instructor availability should be confirmed in advance.",
+              "Court time and instructor schedules vary, so sessions are arranged around availability.",
           }),
           option({
             title: "Pickleball Session",
@@ -1086,7 +1086,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Families, friend groups, corporate-style trips, and celebration groups.",
             duration: "Usually 2 to 3 hours.",
             experience:
-              "The concierge or coach organizes teams, match formats, timing, scoring, and optional prizes.",
+              "A coach or host can organize teams, match formats, timing, scoring, and optional prizes.",
             whatToExpect:
               "A social, competitive, and memorable group activity that can be paired with drinks or lunch afterward.",
             whatToBring:
@@ -1174,7 +1174,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "ATV, RZR, zipline, canopy, and family adventure experiences close to Punta Mita.",
         overview:
-          "This parent activity keeps adventure close and practical for Punta Mita renters. It is more relevant than far-away adventure parks because it avoids excessive transfer time.",
+          "These adventure experiences stay close to Punta Mita, avoiding the long transfers required by farther adventure parks while still adding energy, scenery, and excitement to the stay.",
         bestFor:
           "Families, groups, teens, active travelers, and guests wanting a half-day adventure.",
         duration: "Usually 2 to 4 hours.",
@@ -1250,7 +1250,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Best in cooler morning hours. Available most of the year.",
         tags: ["Adventure", "Sports", "Nature", "Family-Friendly"],
         notes:
-          "This should be guided for safety, navigation, heat management, and guest comfort.",
+          "Guided support adds safety, local context, navigation, and comfort in warmer conditions.",
         whatToExpect:
           "Expect an active outdoor hike with scenic views, local guidance, and an early departure for the best conditions.",
         whatToBring:
@@ -1338,7 +1338,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Resort casual clothing, sunglasses, hat, and camera.",
             goodToKnow:
-              "Polo schedules are seasonal and should be confirmed before offering.",
+              "Polo programming is seasonal, with schedules varying by date.",
           }),
           option({
             title: "Polo Lesson or Equestrian Session",
@@ -1353,7 +1353,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Closed-toe shoes, comfortable riding clothing, sunscreen, and water.",
             goodToKnow:
-              "Experience level should be discussed before booking.",
+              "The session can be adapted around each guest’s riding experience and comfort level.",
           }),
         ],
       }),
@@ -1404,7 +1404,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, cover-up, sunscreen, sunglasses, sandals, and a hat.",
             goodToKnow:
-              "Access must be confirmed based on the villa and guest privileges. This is usually one of the easiest beach-club options to recommend for families.",
+              "Access depends on the villa and guest privileges. This is usually one of the easiest Punta Mita beach-club options for families.",
           }),
           option({
             title: "Pacifico Beach Club",
@@ -1509,7 +1509,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Stylish beachwear, swimwear, sunglasses, sunscreen, sandals, ID, and payment card.",
             goodToKnow:
-              "This is not a low-effort Punta Mita beach day. It requires coordination, reservations, and transport planning. Best for guests who actively want the party scene.",
+              "This is a more involved outing with transport, reservations, and return timing, best for guests who want the full party beach-club scene.",
           }),
           option({
             title: "Anima Beach Club",
@@ -1595,7 +1595,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round.",
         tags: ["Food & Drink", "Family-Friendly", "Romantic", "VIP", "Rainy Day"],
         notes:
-          "Menus should be customized around the group, allergies, dietary needs, and level of formality.",
+          "Menus are customized around the group, allergies, dietary needs, preferred cuisine, and level of formality.",
         whatToExpect:
           "Expect menu planning, ingredient sourcing, chef preparation, service, and a private dining experience at the villa.",
         whatToBring:
@@ -1674,7 +1674,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "No special items required. Share preferences and allergies.",
             goodToKnow:
-              "Quality depends heavily on chef and sourcing, so use trusted providers only.",
+              "The experience is strongest when planned with excellent sourcing, timing, and a chef whose style matches the group.",
           }),
         ],
       }),
