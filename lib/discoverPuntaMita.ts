@@ -2695,16 +2695,317 @@ gallery: [
 },
 
   {
-    title: "Nearby Destinations & Day Trips",
-    slug: "nearby-destinations-day-trips",
-    image:
-      "/discover-punta-mita/nearby-destinations-day-trips.jpg",
-    heroImage:
-      "/discover-punta-mita/heroes/nearby-destinations-day-trips-hero.jpg",
-    description:
-      "Sayulita, San Pancho, Yelapa, Puerto Vallarta, Marietas Islands, Bucerías, and more.",
-    activities: [],
-  },
+  title: "Nearby Destinations & Day Trips",
+  slug: "nearby-destinations-day-trips",
+  image:
+    "/discover-punta-mita/nearby-destinations-day-trips.jpg",
+  heroImage:
+    "/discover-punta-mita/heroes/nearby-destinations-day-trips-hero.jpg",
+  description:
+    "Sayulita, San Pancho, Puerto Vallarta, Yelapa, Marietas Islands, Bucerías, La Cruz, surf villages, and jungle excursions near Punta Mita.",
+  activities: [
+    {
+      title: "Sayulita",
+      slug: "sayulita",
+      image: "/discover-punta-mita/activities/sayulita.jpg",
+      description:
+        "A colorful surf town known for beaches, shopping, restaurants, nightlife, and a lively bohemian atmosphere.",
+      overview:
+        "Sayulita is one of the most popular day trips from Punta Mita. The town combines surf culture, casual beach energy, colorful streets, boutiques, cafés, restaurants, and a lively social scene.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, groups, surfers, shoppers, food lovers, and first-time visitors." },
+        { label: "Typical Duration", value: "Half-day or full-day." },
+        { label: "Best Time of Day", value: "Morning for a quieter visit, or afternoon through evening for more energy." },
+        { label: "Seasonality", value: "Year-round, with busier streets during weekends and high season." },
+        { label: "What to Wear / Bring", value: "Comfortable walking shoes, casual clothing, sunglasses, sunscreen, and swimwear if visiting the beach." },
+      ],
+      customInfo: [
+        { label: "Destination Style", value: "Surf town, shopping, food, beach, nightlife, and casual local atmosphere." },
+        { label: "Distance Feel", value: "Easy day trip from Punta Mita." },
+        { label: "Good to Know", value: "Can feel busy and lively, especially during weekends and peak travel dates." },
+      ],
+      whatToExpect:
+        "Expect colorful streets, beach activity, local shops, casual restaurants, surf culture, and a more energetic town atmosphere than Punta Mita.",
+      whatToBring:
+        "Bring comfortable shoes, sun protection, casual clothing, and swimwear if you plan to spend time at the beach.",
+      gallery: [
+        "/discover-punta-mita/activities/sayulita.jpg",
+        "/discover-punta-mita/activities/sayulita-2.jpg",
+        "/discover-punta-mita/activities/sayulita-3.jpg",
+      ],
+    },
+    {
+      title: "San Pancho",
+      slug: "san-pancho",
+      image: "/discover-punta-mita/activities/san-pancho.jpg",
+      description:
+        "A relaxed coastal town with a slower pace, creative community, beach atmosphere, restaurants, and local charm.",
+      overview:
+        "San Pancho offers a quieter and more local-feeling alternative to Sayulita. It is known for its relaxed rhythm, beach sunsets, small restaurants, creative spirit, and less crowded atmosphere.",
+      standardInfo: [
+        { label: "Best For", value: "Couples, families, relaxed travelers, creatives, food lovers, and guests seeking a slower town experience." },
+        { label: "Typical Duration", value: "Half-day or full-day." },
+        { label: "Best Time of Day", value: "Late morning through sunset." },
+        { label: "Seasonality", value: "Year-round, with a calmer feel than Sayulita most of the time." },
+        { label: "What to Wear / Bring", value: "Casual clothing, comfortable shoes, sunscreen, sunglasses, and swimwear if visiting the beach." },
+      ],
+      customInfo: [
+        { label: "Destination Style", value: "Relaxed beach town, restaurants, sunset, art, and local charm." },
+        { label: "Atmosphere", value: "Calm, creative, and less commercial than larger destinations." },
+        { label: "Good to Know", value: "A strong option for guests who want a slower day trip." },
+      ],
+      whatToExpect:
+        "Expect a walkable town, beach views, casual dining, local shops, and a more peaceful atmosphere compared to Sayulita.",
+      whatToBring:
+        "Bring comfortable walking shoes, sun protection, and casual clothing for a relaxed day outside.",
+      gallery: [
+        "/discover-punta-mita/activities/san-pancho.jpg",
+        "/discover-punta-mita/activities/san-pancho-2.jpg",
+        "/discover-punta-mita/activities/san-pancho-3.jpg",
+      ],
+    },
+    {
+      title: "Puerto Vallarta",
+      slug: "puerto-vallarta",
+      image: "/discover-punta-mita/activities/puerto-vallarta.jpg",
+      description:
+        "A larger coastal city with restaurants, galleries, nightlife, shopping, beaches, and a historic seaside center.",
+      overview:
+        "Puerto Vallarta is one of the most complete day trips from Punta Mita, offering a mix of dining, culture, galleries, shopping, nightlife, beaches, and city energy.",
+      standardInfo: [
+        { label: "Best For", value: "First-time visitors, couples, groups, food lovers, shoppers, nightlife travelers, and culture-focused guests." },
+        { label: "Typical Duration", value: "Half-day, full-day, or evening trip." },
+        { label: "Best Time of Day", value: "Afternoon through evening, especially for dining and nightlife." },
+        { label: "Seasonality", value: "Year-round." },
+        { label: "What to Wear / Bring", value: "Comfortable walking shoes, casual or smart casual clothing, sunscreen, and sunglasses." },
+      ],
+      customInfo: [
+        { label: "Destination Style", value: "City, dining, galleries, shopping, nightlife, beach, and culture." },
+        { label: "Area Highlights", value: "Malecón, Zona Romántica, marina areas, galleries, restaurants, and nightlife districts." },
+        { label: "Good to Know", value: "Best planned around traffic, restaurant reservations, and preferred neighborhood." },
+      ],
+      whatToExpect:
+        "Expect a more urban coastal experience with many restaurants, bars, galleries, shops, and nightlife options.",
+      whatToBring:
+        "Bring comfortable shoes, sun protection, and clothing that works for both walking and dining.",
+      gallery: [
+        "/discover-punta-mita/activities/puerto-vallarta.jpg",
+        "/discover-punta-mita/activities/puerto-vallarta-2.jpg",
+        "/discover-punta-mita/activities/puerto-vallarta-3.jpg",
+      ],
+    },
+    {
+      title: "Yelapa",
+      slug: "yelapa",
+      image: "/discover-punta-mita/activities/yelapa.jpg",
+      description:
+        "A boat-access coastal village known for beach scenery, waterfalls, relaxed restaurants, and a slower escape from the city.",
+      overview:
+        "Yelapa is a memorable day trip for guests who want a more adventurous coastal outing. The village is typically reached by boat and offers beach atmosphere, local restaurants, waterfalls, and a relaxed pace.",
+      standardInfo: [
+        { label: "Best For", value: "Adventurous travelers, couples, families, nature lovers, photographers, and guests seeking a unique coastal day trip." },
+        { label: "Typical Duration", value: "Full-day experience." },
+        { label: "Best Time of Day", value: "Morning departure with afternoon return." },
+        { label: "Seasonality", value: "Year-round, with comfort depending on sea and weather conditions." },
+        { label: "What to Wear / Bring", value: "Swimwear, comfortable walking shoes, sandals, towel, sunscreen, hat, and water." },
+      ],
+      customInfo: [
+        { label: "Destination Style", value: "Boat-access village, beach, waterfalls, nature, and casual dining." },
+        { label: "Access", value: "Usually reached by boat from the Puerto Vallarta or Boca de Tomatlán area." },
+        { label: "Good to Know", value: "Routes and comfort depend on sea conditions and transportation planning." },
+      ],
+      whatToExpect:
+        "Expect boat travel, a scenic beach village, local restaurants, possible waterfall walks, and a more rustic coastal atmosphere.",
+      whatToBring:
+        "Bring swimwear, towel, walking shoes, sandals, sunscreen, and water.",
+      gallery: [
+        "/discover-punta-mita/activities/yelapa.jpg",
+        "/discover-punta-mita/activities/yelapa-2.jpg",
+        "/discover-punta-mita/activities/yelapa-3.jpg",
+      ],
+    },
+    {
+      title: "Boca de Tomatlán",
+      slug: "boca-de-tomatlan",
+      image: "/discover-punta-mita/activities/boca-de-tomatlan.jpg",
+      description:
+        "A small coastal village south of Puerto Vallarta used as a gateway to beaches, boat routes, and scenic hikes.",
+      overview:
+        "Boca de Tomatlán is a charming coastal village and departure point for boat trips and hikes to beaches south of Puerto Vallarta. It is a good fit for guests looking for a more local and scenic day.",
+      standardInfo: [
+        { label: "Best For", value: "Adventurous travelers, hikers, beach explorers, photographers, and guests seeking a local coastal outing." },
+        { label: "Typical Duration", value: "Half-day or full-day depending on route." },
+        { label: "Best Time of Day", value: "Morning or early afternoon." },
+        { label: "Seasonality", value: "Year-round, with weather and trail conditions affecting comfort." },
+        { label: "What to Wear / Bring", value: "Comfortable walking shoes, swimwear, towel, sunscreen, hat, water, and light clothing." },
+      ],
+      customInfo: [
+        { label: "Destination Style", value: "Local village, boat access, hiking, beaches, and coastal scenery." },
+        { label: "Access", value: "Usually reached by road from Puerto Vallarta, then by walking route or boat depending on the plan." },
+        { label: "Good to Know", value: "A practical gateway to nearby beaches and water taxi routes." },
+      ],
+      whatToExpect:
+        "Expect a small local village, boat activity, scenic coastline, and access to nearby beach routes or hikes.",
+      whatToBring:
+        "Bring walking shoes, swimwear, towel, sunscreen, water, and cash for small local expenses.",
+      gallery: [
+        "/discover-punta-mita/activities/boca-de-tomatlan.jpg",
+        "/discover-punta-mita/activities/boca-de-tomatlan-2.jpg",
+        "/discover-punta-mita/activities/boca-de-tomatlan-3.jpg",
+      ],
+    },
+    {
+      title: "Islas Marietas",
+      slug: "islas-marietas",
+      image: "/discover-punta-mita/activities/islas-marietas.jpg",
+      description:
+        "A protected island destination near Punta Mita known for dramatic scenery, marine life, snorkeling, and iconic nature views.",
+      overview:
+        "Islas Marietas are among the most recognized natural attractions near Punta Mita. The islands are typically visited by boat and offer scenery, marine life, snorkeling opportunities, and a memorable nature-focused experience.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, nature lovers, photographers, first-time visitors, and ocean-focused travelers." },
+        { label: "Typical Duration", value: "3 to 5 hours depending on tour style." },
+        { label: "Best Time of Day", value: "Morning." },
+        { label: "Seasonality", value: "Year-round, subject to sea conditions and access rules." },
+        { label: "What to Wear / Bring", value: "Swimwear, towel, sunscreen, hat, sunglasses, water, and waterproof protection for valuables." },
+      ],
+      customInfo: [
+        { label: "Destination Style", value: "Protected islands, boat tour, marine life, snorkeling, and nature scenery." },
+        { label: "Access", value: "Usually reached by boat from Punta de Mita or nearby marinas." },
+        { label: "Good to Know", value: "Access to certain areas may depend on permits, conditions, and operator availability." },
+      ],
+      whatToExpect:
+        "Expect a boat outing to a protected island area with scenic views, marine life, possible snorkeling, and nature-focused interpretation.",
+      whatToBring:
+        "Bring swimwear, towel, sunscreen, sunglasses, hat, and waterproof protection for your phone or camera.",
+      gallery: [
+        "/discover-punta-mita/activities/islas-marietas.jpg",
+        "/discover-punta-mita/activities/islas-marietas-2.jpg",
+        "/discover-punta-mita/activities/islas-marietas-3.jpg",
+      ],
+    },
+    {
+      title: "La Cruz de Huanacaxtle",
+      slug: "la-cruz-de-huanacaxtle",
+      image: "/discover-punta-mita/activities/la-cruz-de-huanacaxtle.jpg",
+      description:
+        "A marina town near Punta Mita known for seafood, sailing culture, local markets, casual restaurants, and coastal charm.",
+      overview:
+        "La Cruz de Huanacaxtle is a relaxed marina town that works well for dining, casual exploration, market visits, and coastal atmosphere close to Punta Mita.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, food lovers, marina visitors, market explorers, and guests seeking a casual local outing." },
+        { label: "Typical Duration", value: "2 to 5 hours." },
+        { label: "Best Time of Day", value: "Late morning, lunch, sunset, or dinner." },
+        { label: "Seasonality", value: "Year-round, with market days and marina activity varying by season." },
+        { label: "What to Wear / Bring", value: "Casual clothing, comfortable shoes, sunglasses, and sun protection." },
+      ],
+      customInfo: [
+        { label: "Destination Style", value: "Marina town, seafood, markets, casual dining, and local coastal atmosphere." },
+        { label: "Location", value: "Between Punta Mita and Bucerías." },
+        { label: "Good to Know", value: "A good option for a casual meal, marina walk, or relaxed nearby outing." },
+      ],
+      whatToExpect:
+        "Expect marina views, casual restaurants, seafood, local atmosphere, and a quieter pace than larger tourist centers.",
+      whatToBring:
+        "Bring comfortable shoes, casual clothing, and sun protection for walking around the marina area.",
+      gallery: [
+        "/discover-punta-mita/activities/la-cruz-de-huanacaxtle.jpg",
+        "/discover-punta-mita/activities/la-cruz-de-huanacaxtle-2.jpg",
+        "/discover-punta-mita/activities/la-cruz-de-huanacaxtle-3.jpg",
+      ],
+    },
+    {
+      title: "Bucerías",
+      slug: "bucerias",
+      image: "/discover-punta-mita/activities/bucerias.jpg",
+      description:
+        "A coastal town with beach restaurants, galleries, shopping, local streets, and a relaxed Riviera Nayarit atmosphere.",
+      overview:
+        "Bucerías is a friendly coastal town that offers restaurants, shops, galleries, beach walks, and a more relaxed alternative to Puerto Vallarta.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, shoppers, food lovers, beach walkers, and guests seeking a casual town outing." },
+        { label: "Typical Duration", value: "Half-day or full-day." },
+        { label: "Best Time of Day", value: "Late morning through sunset, or evening for dinner." },
+        { label: "Seasonality", value: "Year-round." },
+        { label: "What to Wear / Bring", value: "Casual clothing, comfortable walking shoes, sunglasses, sunscreen, and beachwear if visiting the beach." },
+      ],
+      customInfo: [
+        { label: "Destination Style", value: "Beach town, restaurants, galleries, shopping, and relaxed local atmosphere." },
+        { label: "Location", value: "Riviera Nayarit, between La Cruz and Nuevo Vallarta." },
+        { label: "Good to Know", value: "A versatile destination for casual meals, beach walks, shopping, and relaxed exploration." },
+      ],
+      whatToExpect:
+        "Expect a walkable town with beach restaurants, local shops, galleries, and a casual coastal feel.",
+      whatToBring:
+        "Bring comfortable shoes, sun protection, casual clothing, and swimwear if you plan to spend time at the beach.",
+      gallery: [
+        "/discover-punta-mita/activities/bucerias.jpg",
+        "/discover-punta-mita/activities/bucerias-2.jpg",
+        "/discover-punta-mita/activities/bucerias-3.jpg",
+      ],
+    },
+    {
+      title: "Punta de Mita Surf Villages",
+      slug: "punta-de-mita-surf-villages",
+      image: "/discover-punta-mita/activities/punta-de-mita-surf-villages.jpg",
+      description:
+        "Small coastal surf communities and beach areas near Punta Mita with ocean culture, casual food, and local atmosphere.",
+      overview:
+        "The surf villages and coastal areas around Punta de Mita offer a more local and relaxed view of the region, with surf culture, casual restaurants, and quieter beach settings.",
+      standardInfo: [
+        { label: "Best For", value: "Surfers, families, casual travelers, photographers, and guests interested in local beach culture." },
+        { label: "Typical Duration", value: "2 to 5 hours." },
+        { label: "Best Time of Day", value: "Morning for surf activity or afternoon for a casual visit." },
+        { label: "Seasonality", value: "Year-round, with surf and beach conditions varying by season." },
+        { label: "What to Wear / Bring", value: "Casual clothing, sandals, sunscreen, sunglasses, and swimwear if visiting the beach." },
+      ],
+      customInfo: [
+        { label: "Destination Style", value: "Surf culture, small beach communities, casual food, and local coastal atmosphere." },
+        { label: "Location", value: "Punta de Mita and nearby coastal areas." },
+        { label: "Good to Know", value: "Best experienced with local guidance if you want specific surf breaks or quieter beaches." },
+      ],
+      whatToExpect:
+        "Expect small beach areas, casual food spots, surf culture, and a more local rhythm than resort Punta Mita.",
+      whatToBring:
+        "Bring sandals, swimwear, sunscreen, and casual clothing for beach and town exploring.",
+      gallery: [
+        "/discover-punta-mita/activities/punta-de-mita-surf-villages.jpg",
+        "/discover-punta-mita/activities/punta-de-mita-surf-villages-2.jpg",
+        "/discover-punta-mita/activities/punta-de-mita-surf-villages-3.jpg",
+      ],
+    },
+    {
+      title: "Jungle Waterfall Excursions",
+      slug: "jungle-waterfall-excursions",
+      image: "/discover-punta-mita/activities/jungle-waterfall-excursions.jpg",
+      description:
+        "Nature-focused day trips to jungle trails, waterfalls, swimming spots, and scenic areas near the coast.",
+      overview:
+        "Jungle waterfall excursions are ideal for guests who want a more active nature experience away from the beach. These outings can include hiking, swimming, scenic drives, local guides, and tropical landscapes.",
+      standardInfo: [
+        { label: "Best For", value: "Nature lovers, adventurous travelers, families with active kids, couples, photographers, and groups." },
+        { label: "Typical Duration", value: "Half-day or full-day depending on route." },
+        { label: "Best Time of Day", value: "Morning for cooler temperatures and better trail comfort." },
+        { label: "Seasonality", value: "Year-round, with waterfall flow and trail conditions affected by rainy season." },
+        { label: "What to Wear / Bring", value: "Comfortable walking shoes, swimwear, towel, sunscreen, insect repellent, water, and a change of clothes." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Nature, hiking, swimming, scenic, and active." },
+        { label: "Location", value: "Jungle areas, river routes, and waterfall destinations near the greater Puerto Vallarta and Riviera Nayarit region." },
+        { label: "Good to Know", value: "Trail difficulty, water levels, and accessibility can vary by season and route." },
+      ],
+      whatToExpect:
+        "Expect a nature-focused outing with tropical scenery, walking or hiking, possible swimming, and a more adventurous day away from the resort setting.",
+      whatToBring:
+        "Bring shoes suitable for walking, swimwear, towel, water, insect repellent, sunscreen, and a dry change of clothes.",
+      gallery: [
+        "/discover-punta-mita/activities/jungle-waterfall-excursions.jpg",
+        "/discover-punta-mita/activities/jungle-waterfall-excursions-2.jpg",
+        "/discover-punta-mita/activities/jungle-waterfall-excursions-3.jpg",
+      ],
+    },
+  ],
+},
 
   {
     title: "Family-Friendly Activities",
