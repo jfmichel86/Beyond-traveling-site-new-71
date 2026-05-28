@@ -548,7 +548,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, with target species and conditions varying by season.",
         tags: ["Ocean", "Adventure", "Food & Drink", "Groups", "Seasonal"],
         notes:
-          "Sea-to-table experiences should be arranged carefully with the villa chef or selected restaurant when possible.",
+          "When possible, the day can be paired with a villa chef or selected restaurant for a fresh sea-to-table meal.",
         whatToExpect:
           "Expect a private captain or crew, fishing gear, route planning based on conditions, and the possibility of preparing the catch afterward depending on the experience.",
         whatToBring:
@@ -582,7 +582,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, towel, reef-safe sunscreen, and comfort in open water.",
             goodToKnow:
-              "This is not for every guest. Ability level, ocean conditions, and responsible practices should be confirmed.",
+              "This is best for confident ocean swimmers and guests who want a more active, skill-based experience.",
           }),
           option({
             title: "Sea-to-Table Fishing Experience",
@@ -597,7 +597,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Boat clothing, sun protection, and appetite for a fresh local meal.",
             goodToKnow:
-              "This depends on the catch. A backup menu should always be planned.",
+              "Because the catch depends on the day, the meal can be complemented with a planned chef’s menu.",
           }),
         ],
       }),
@@ -618,7 +618,7 @@ export const discoverCategories: DiscoverCategory[] = [
           "Whale watching and turtle releases are seasonal. Marine-life tours depend on conditions.",
         tags: ["Ocean", "Wildlife", "Family-Friendly", "Seasonal"],
         notes:
-          "Avoid presenting this as captive animal interaction. Focus on wild and responsible experiences.",
+          "These experiences focus on wild, respectful, and conservation-minded encounters with the natural environment.",
         whatToExpect:
           "Expect a nature-focused experience with local guidance, seasonal timing, respectful viewing, and an educational component when available.",
         whatToBring:
@@ -697,7 +697,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round.",
         tags: ["Wellness", "Romantic", "Family-Friendly", "VIP", "Rainy Day"],
         notes:
-          "This should feel like a flexible private wellness menu, not many disconnected services.",
+          "Wellness sessions can be combined into a personalized program, from a single treatment to a half-day retreat at the villa.",
         whatToExpect:
           "Expect therapists, instructors, or wellness practitioners to come to the villa and create a private session adapted to the group.",
         whatToBring:
@@ -781,7 +781,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, subject to provider availability.",
         tags: ["Wellness", "Romantic", "VIP", "By Request"],
         notes:
-          "This should be described carefully and respectfully. It is not for every guest.",
+          "These experiences are best for guests seeking a deeper, more intentional wellness moment.",
         whatToExpect:
           "Expect a guided ritual-style experience focused on relaxation, renewal, heat, breath, sound, or ceremony depending on the provider.",
         whatToBring:
@@ -850,7 +850,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, weather and beach rules permitting.",
         tags: ["Romantic", "Family-Friendly", "VIP", "Food & Drink", "Beach"],
         notes:
-          "Permits, beach rules, wind, tide, and access should be checked before promising specific setups.",
+          "Setups are planned around the location, tide, wind, access rules, and the atmosphere the guest wants to create.",
         whatToExpect:
           "Expect a styled outdoor setup with seating, décor, food or drinks, and a relaxed atmosphere timed around sunset or the guest’s preferred moment.",
         whatToBring:
@@ -899,7 +899,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable evening clothing, sandals, and a light layer.",
             goodToKnow:
-              "Fire rules and community restrictions must be checked before confirming.",
+              "Availability depends on the location, property rules, and beach regulations.",
           }),
           option({
             title: "Private Cabana or Daybed Setup",
@@ -944,7 +944,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, with some special events seasonally.",
         tags: ["Sports", "VIP", "Groups", "Seasonal"],
         notes:
-          "Access may depend on villa, club rules, reservation policies, and availability.",
+          "Access depends on the villa, club rules, reservation policies, and availability.",
         whatToExpect:
           "Expect a polished golf experience with ocean views, premium service, and options ranging from relaxed rounds to competitive group formats.",
         whatToBring:
@@ -978,7 +978,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Golf attire, camera, sunglasses, and course-ready equipment.",
             goodToKnow:
-              "This is condition-dependent and should not be promised without checking availability.",
+              "This experience depends on tide, course conditions, and availability.",
           }),
           option({
             title: "Private Golf Clinic",
@@ -1028,7 +1028,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round.",
         tags: ["Sports", "Family-Friendly", "Groups", "VIP"],
         notes:
-          "Availability depends on court access, instructor availability, and property or club rules.",
+          "Availability depends on court access, instructor schedules, and property or club rules.",
         whatToExpect:
           "Expect private instruction, court time, social games, or tournament-style play depending on the group.",
         whatToBring:
