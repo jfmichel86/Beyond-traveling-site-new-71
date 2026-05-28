@@ -14,6 +14,22 @@ type PageProps = {
   };
 };
 
+type ExperienceOption = {
+  title: string;
+  description: string;
+  bestFor: string;
+  duration: string;
+  experience: string;
+  whatToExpect: string;
+  whatToBring: string;
+  goodToKnow?: string;
+};
+
+type ActivityWithExperienceOptions = ReturnType<typeof getActivityBySlug> & {
+  experienceOptions?: ExperienceOption[];
+  tags?: string[];
+};
+
 export function generateStaticParams() {
   return discoverCategories.flatMap((category) =>
     category.activities.map((activity) => ({
@@ -61,33 +77,41 @@ export function generateMetadata({ params }: PageProps) {
 
 export default function ActivityPage({ params }: PageProps) {
   const category = getDiscoverCategoryBySlug(params.slug);
-  const activity = getActivityBySlug(params.slug, params.activity);
+  const activity = getActivityBySlug(
+    params.slug,
+    params.activity
+  ) as ActivityWithExperienceOptions;
 
   if (!category || !activity) {
-  notFound();
-}
+    notFound();
+  }
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "TouristAttraction",
-  name: `${activity.title} in Punta Mita`,
-  description: activity.description,
-  image: activity.image,
-  touristType: activity.standardInfo.find((item) => item.label === "Best For")?.value,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Punta Mita",
-    addressRegion: "Nayarit",
-    addressCountry: "MX",
-  },
-};
+  const experienceOptions = activity.experienceOptions ?? [];
+  const tags = activity.tags ?? [];
 
-return (
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    name: `${activity.title} in Punta Mita`,
+    description: activity.description,
+    image: activity.image,
+    touristType: activity.standardInfo.find((item) => item.label === "Best For")
+      ?.value,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Punta Mita",
+      addressRegion: "Nayarit",
+      addressCountry: "MX",
+    },
+  };
+
+  return (
     <main className="bg-white">
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-  />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <section>
         <div className="relative aspect-[1983/793] w-full overflow-hidden">
           <Image
@@ -104,26 +128,39 @@ return (
         <div className="mx-auto max-w-[1100px] px-6">
           <Link
             href={`/discover-punta-mita/${category.slug}`}
-            className="text-[14px] text-slate-500 hover:text-slate-900 transition"
+            className="text-[14px] text-slate-500 transition hover:text-slate-900"
           >
             ← Back to {category.title}
           </Link>
 
-          <div className="mt-8 max-w-[760px]">
+          <div className="mt-8 max-w-[820px]">
             <p className="text-[13px] uppercase tracking-[0.16em] text-slate-400">
               {category.title}
             </p>
 
-            <h1 className="mt-4 font-serif text-4xl md:text-5xl tracking-tight leading-[1.08] text-slate-900">
+            <h1 className="mt-4 font-serif text-4xl leading-[1.08] tracking-tight text-slate-900 md:text-5xl">
               {activity.title}
             </h1>
 
             <p className="mt-6 text-[18px] leading-[1.75] text-slate-900/70">
               {activity.overview}
             </p>
+
+            {tags.length > 0 && (
+              <div className="mt-7 flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-slate-200 bg-white px-4 py-2 text-[13px] text-slate-700"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
 
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
             {activity.gallery.map((image) => (
               <div key={image} className="overflow-hidden rounded-2xl">
                 <Image
@@ -142,14 +179,66 @@ return (
               Experience Details
             </h2>
 
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
-              {[...activity.standardInfo, ...activity.customInfo].map((item) => (
-                <InfoCard key={item.label} label={item.label} value={item.value} />
+            <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
+              {activity.standardInfo.map((item) => (
+                <InfoCard
+                  key={item.label}
+                  label={item.label}
+                  value={item.value}
+                />
               ))}
             </div>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-[1fr_0.75fr] gap-12">
+          {experienceOptions.length > 0 && (
+            <div className="mt-20">
+              <div className="max-w-[760px]">
+                <p className="text-[13px] uppercase tracking-[0.16em] text-slate-400">
+                  Options inside this activity
+                </p>
+
+                <h2 className="mt-3 font-serif text-3xl text-slate-900 md:text-4xl">
+                  Choose the experience that fits your trip
+                </h2>
+
+                <p className="mt-5 text-[17px] leading-[1.75] text-slate-900/70">
+                  This activity can be arranged in different ways depending on
+                  the group, season, timing, and style of travel. Below are the
+                  main experiences that can be included or customized.
+                </p>
+              </div>
+
+              <div className="mt-10 space-y-8">
+                {experienceOptions.map((experience, index) => (
+                  <ExperienceSection
+                    key={experience.title}
+                    experience={experience}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activity.customInfo.length > 0 && (
+            <div className="mt-20">
+              <h2 className="font-serif text-3xl text-slate-900">
+                Additional Notes
+              </h2>
+
+              <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
+                {activity.customInfo.map((item) => (
+                  <InfoCard
+                    key={item.label}
+                    label={item.label}
+                    value={item.value}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="mt-20 grid grid-cols-1 gap-12 md:grid-cols-[1fr_0.75fr]">
             <div>
               <h2 className="font-serif text-3xl text-slate-900">
                 What to Expect
@@ -174,7 +263,9 @@ return (
               </h3>
 
               <p className="mt-4 text-[16px] leading-[1.75] text-slate-900/70">
-                We can help guests understand which experiences fit their trip best depending on the season, group size, and style of travel.
+                We can help guests understand which experiences fit their trip
+                best depending on the season, group size, timing, and style of
+                travel.
               </p>
 
               <Link
@@ -199,6 +290,97 @@ function InfoCard({ label, value }: { label: string; value: string }) {
       </p>
 
       <p className="mt-3 text-[16px] leading-[1.6] text-slate-800">
+        {value}
+      </p>
+    </div>
+  );
+}
+
+function ExperienceSection({
+  experience,
+  index,
+}: {
+  experience: ExperienceOption;
+  index: number;
+}) {
+  return (
+    <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-[0.42fr_1fr]">
+        <div className="bg-[#f4f0ea] p-8">
+          <p className="text-[12px] uppercase tracking-[0.16em] text-slate-500">
+            Experience {index + 1}
+          </p>
+
+          <h3 className="mt-4 font-serif text-3xl leading-tight text-slate-900">
+            {experience.title}
+          </h3>
+
+          <p className="mt-5 text-[16px] leading-[1.75] text-slate-900/70">
+            {experience.description}
+          </p>
+
+          <div className="mt-7 space-y-4">
+            <MiniDetail label="Best For" value={experience.bestFor} />
+            <MiniDetail label="Typical Duration" value={experience.duration} />
+          </div>
+        </div>
+
+        <div className="p-8 md:p-10">
+          <div>
+            <h4 className="font-serif text-2xl text-slate-900">
+              The Experience
+            </h4>
+
+            <p className="mt-3 text-[16px] leading-[1.8] text-slate-900/70">
+              {experience.experience}
+            </p>
+          </div>
+
+          <div className="mt-8">
+            <h4 className="font-serif text-2xl text-slate-900">
+              What to Expect
+            </h4>
+
+            <p className="mt-3 text-[16px] leading-[1.8] text-slate-900/70">
+              {experience.whatToExpect}
+            </p>
+          </div>
+
+          <div className="mt-8">
+            <h4 className="font-serif text-2xl text-slate-900">
+              What to Bring
+            </h4>
+
+            <p className="mt-3 text-[16px] leading-[1.8] text-slate-900/70">
+              {experience.whatToBring}
+            </p>
+          </div>
+
+          {experience.goodToKnow && (
+            <div className="mt-8 rounded-2xl bg-slate-50 p-6">
+              <h4 className="text-[12px] uppercase tracking-[0.16em] text-slate-400">
+                Good to Know
+              </h4>
+
+              <p className="mt-3 text-[16px] leading-[1.75] text-slate-900/70">
+                {experience.goodToKnow}
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function MiniDetail({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <p className="text-[11px] uppercase tracking-[0.14em] text-slate-500">
+        {label}
+      </p>
+
+      <p className="mt-1 text-[15px] leading-[1.6] text-slate-800">
         {value}
       </p>
     </div>
