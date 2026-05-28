@@ -3008,15 +3008,286 @@ gallery: [
 },
 
   {
-    title: "Family-Friendly Activities",
-    slug: "family-friendly-activities",
-    image: "/discover-punta-mita/family-friendly-activities.jpg",
-    heroImage:
-      "/discover-punta-mita/heroes/family-friendly-activities-hero.jpg",
-    description:
-      "Kid-friendly surf lessons, turtle releases, boat days, nature tours, ziplining, and family fun.",
-    activities: [],
-  },
+  title: "Family-Friendly Activities",
+  slug: "family-friendly-activities",
+  image: "/discover-punta-mita/family-friendly-activities.jpg",
+  heroImage:
+    "/discover-punta-mita/heroes/family-friendly-activities-hero.jpg",
+  description:
+    "Kid-friendly surf lessons, turtle releases, family boat days, wildlife encounters, beach games, ATV tours, ziplining, horseback riding, and nature tours.",
+  activities: [
+    {
+      title: "Turtle Releases",
+      slug: "turtle-releases",
+      image: "/discover-punta-mita/activities/turtle-releases.jpg",
+      description:
+        "A seasonal family experience where guests can learn about sea turtles and participate in a meaningful conservation moment.",
+      overview:
+        "Turtle releases are one of the most memorable seasonal family experiences in the Punta Mita and Riviera Nayarit area. They give children and adults a chance to connect with nature while learning about sea turtle conservation.",
+      standardInfo: [
+        { label: "Best For", value: "Families, children, nature lovers, photographers, and guests interested in conservation." },
+        { label: "Typical Duration", value: "Usually 30 to 90 minutes depending on the program." },
+        { label: "Best Time of Day", value: "Late afternoon or sunset, depending on the release schedule." },
+        { label: "Seasonality", value: "Seasonal and dependent on turtle nesting and hatching periods." },
+        { label: "What to Wear / Bring", value: "Comfortable beach clothing, sandals, sunscreen, insect repellent, and a camera." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Educational, nature-focused, emotional, and family-friendly." },
+        { label: "Good to Know", value: "Availability depends on conservation programs, season, and hatchling timing." },
+        { label: "Age Suitability", value: "Excellent for children and families." },
+      ],
+      whatToExpect:
+        "Expect a guided conservation experience, basic information about sea turtles, and the opportunity to observe or participate in a release depending on the program.",
+      whatToBring:
+        "Bring comfortable beach clothing, sandals, insect repellent, and a camera. Follow all conservation instructions carefully.",
+      gallery: [
+        "/discover-punta-mita/activities/turtle-releases.jpg",
+        "/discover-punta-mita/activities/turtle-releases-2.jpg",
+        "/discover-punta-mita/activities/turtle-releases-3.jpg",
+      ],
+    },
+    {
+      title: "Family Boat Days",
+      slug: "family-boat-days",
+      image: "/discover-punta-mita/activities/family-boat-days.jpg",
+      description:
+        "A relaxed private boat experience designed around children, family comfort, swimming, scenery, and easy ocean time.",
+      overview:
+        "Family boat days are one of the best ways to enjoy the coastline around Punta Mita with children. The pace can be adapted to the group, with swimming stops, snacks, shade, calm routes, and flexible timing.",
+      standardInfo: [
+        { label: "Best For", value: "Families with children, multi-generational groups, relaxed travelers, and guests wanting a private ocean day." },
+        { label: "Typical Duration", value: "3 to 6 hours depending on the boat and itinerary." },
+        { label: "Best Time of Day", value: "Morning is usually best for calmer water and younger children." },
+        { label: "Seasonality", value: "Available year-round, weather and sea conditions permitting." },
+        { label: "What to Wear / Bring", value: "Swimwear, hats, sunglasses, reef-safe sunscreen, towels, snacks, and light cover-ups." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Private, relaxed, flexible, and kid-friendly." },
+        { label: "Customization", value: "Routes, duration, swimming stops, snacks, and pace can often be adapted for families." },
+        { label: "Good to Know", value: "Choose calmer routes and shorter durations for younger children." },
+      ],
+      whatToExpect:
+        "Expect a flexible ocean day with time to swim, relax, enjoy coastal views, and adapt the itinerary around the family’s comfort.",
+      whatToBring:
+        "Bring swimwear, towels, sunscreen, hats, snacks for children, dry clothes, and motion sickness medication if needed.",
+      gallery: [
+        "/discover-punta-mita/activities/family-boat-days.jpg",
+        "/discover-punta-mita/activities/family-boat-days-2.jpg",
+        "/discover-punta-mita/activities/family-boat-days-3.jpg",
+      ],
+    },
+    {
+      title: "Kid-Friendly Surf Lessons",
+      slug: "kid-friendly-surf-lessons",
+      image: "/discover-punta-mita/activities/kid-friendly-surf-lessons.jpg",
+      description:
+        "Beginner surf lessons designed for children and families, with safety, encouragement, and gentle instruction.",
+      overview:
+        "Kid-friendly surf lessons are a great way for children to experience the ocean in a structured and supportive way. Lessons are usually adapted to age, confidence, and ocean conditions.",
+      standardInfo: [
+        { label: "Best For", value: "Kids, teens, families, beginners, and children comfortable in the water." },
+        { label: "Typical Duration", value: "Usually 1 to 2 hours." },
+        { label: "Best Time of Day", value: "Morning, when wind and ocean conditions are usually more comfortable." },
+        { label: "Seasonality", value: "Available year-round, depending on surf and weather conditions." },
+        { label: "What to Wear / Bring", value: "Swimwear, rash guard, sunscreen, towel, water, and dry clothes." },
+      ],
+      customInfo: [
+        { label: "Skill Level", value: "Beginner-friendly and adapted for children." },
+        { label: "Experience Style", value: "Instructional, safe, active, and confidence-building." },
+        { label: "Good to Know", value: "Instructor quality and ocean conditions are very important for younger children." },
+      ],
+      whatToExpect:
+        "Expect beach instruction, safety guidance, paddling practice, and time in the water with close instructor support.",
+      whatToBring:
+        "Bring a rash guard, towel, sunscreen, water, and dry clothes for after the lesson.",
+      gallery: [
+        "/discover-punta-mita/activities/kid-friendly-surf-lessons.jpg",
+        "/discover-punta-mita/activities/kid-friendly-surf-lessons-2.jpg",
+        "/discover-punta-mita/activities/kid-friendly-surf-lessons-3.jpg",
+      ],
+    },
+    {
+      title: "Wildlife Encounters",
+      slug: "wildlife-encounters",
+      image: "/discover-punta-mita/activities/wildlife-encounters.jpg",
+      description:
+        "Nature-focused outings where families can observe marine life, birds, turtles, dolphins, whales, or local wildlife depending on the season.",
+      overview:
+        "Wildlife encounters around Punta Mita can be gentle, educational, and memorable for children. Experiences vary by season and may include marine life, birds, turtles, dolphins, whales, or nature walks.",
+      standardInfo: [
+        { label: "Best For", value: "Families, children, nature lovers, photographers, and curious travelers." },
+        { label: "Typical Duration", value: "1.5 to 4 hours depending on the experience." },
+        { label: "Best Time of Day", value: "Morning is often best for comfort and wildlife activity." },
+        { label: "Seasonality", value: "Year-round, with specific wildlife varying by season." },
+        { label: "What to Wear / Bring", value: "Comfortable clothing, hat, sunscreen, insect repellent, water, and camera." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Educational, nature-focused, calm, and family-friendly." },
+        { label: "Good to Know", value: "Wildlife sightings are natural and cannot be guaranteed." },
+        { label: "Location", value: "Coastal waters, beaches, protected areas, or nearby nature routes depending on the experience." },
+      ],
+      whatToExpect:
+        "Expect a guided nature experience focused on observing wildlife respectfully. The exact animals and route depend on season and conditions.",
+      whatToBring:
+        "Bring water, sun protection, insect repellent, and a camera or binoculars if available.",
+      gallery: [
+        "/discover-punta-mita/activities/wildlife-encounters.jpg",
+        "/discover-punta-mita/activities/wildlife-encounters-2.jpg",
+        "/discover-punta-mita/activities/wildlife-encounters-3.jpg",
+      ],
+    },
+    {
+      title: "Beach Games",
+      slug: "beach-games",
+      image: "/discover-punta-mita/activities/beach-games.jpg",
+      description:
+        "Simple, fun beach activities for children and families, from sand games and paddle games to casual group competitions.",
+      overview:
+        "Beach games are an easy way to keep children active and entertained during a beach day. They can be casual, organized, or part of a larger family beach setup.",
+      standardInfo: [
+        { label: "Best For", value: "Families, children, groups, beach days, and multi-generational trips." },
+        { label: "Typical Duration", value: "Flexible, from 30 minutes to several hours." },
+        { label: "Best Time of Day", value: "Morning or late afternoon when the sun is less intense." },
+        { label: "Seasonality", value: "Available year-round, weather permitting." },
+        { label: "What to Wear / Bring", value: "Swimwear, hats, sunscreen, towels, water, and beach-friendly clothing." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Casual, playful, flexible, and family-friendly." },
+        { label: "Good For", value: "Keeping children entertained during relaxed beach days." },
+        { label: "Customization", value: "Can include volleyball, paddle games, sand games, relay games, or family competitions." },
+      ],
+      whatToExpect:
+        "Expect easygoing games and beach activities that can be adapted by age, group size, and energy level.",
+      whatToBring:
+        "Bring sunscreen, water, towels, hats, and any favorite beach toys or games.",
+      gallery: [
+        "/discover-punta-mita/activities/beach-games.jpg",
+        "/discover-punta-mita/activities/beach-games-2.jpg",
+        "/discover-punta-mita/activities/beach-games-3.jpg",
+      ],
+    },
+    {
+      title: "ATV Tours",
+      slug: "atv-tours",
+      image: "/discover-punta-mita/activities/atv-tours.jpg",
+      description:
+        "An adventurous family-friendly activity through trails, towns, jungle roads, or scenic routes depending on the tour.",
+      overview:
+        "ATV tours are a more adventurous option for families with older children or teens. Routes can include dirt roads, scenic paths, jungle areas, and local villages depending on the operator.",
+      standardInfo: [
+        { label: "Best For", value: "Families with older children, teens, groups, adventure travelers, and active guests." },
+        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
+        { label: "Best Time of Day", value: "Morning or late afternoon." },
+        { label: "Seasonality", value: "Year-round, with trail conditions affected by rain and weather." },
+        { label: "What to Wear / Bring", value: "Closed-toe shoes, comfortable clothing, sunglasses, sunscreen, and clothes that can get dusty." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Adventure, scenic, active, and terrain-dependent." },
+        { label: "Age Suitability", value: "Best for older children, teens, and adults. Age and driver requirements vary by operator." },
+        { label: "Good to Know", value: "Expect dust, bumps, and changing terrain depending on route and season." },
+      ],
+      whatToExpect:
+        "Expect safety instructions, helmets, guided riding, and a route through scenic or rural areas depending on the tour.",
+      whatToBring:
+        "Bring closed-toe shoes, sunglasses, sunscreen, and clothing you do not mind getting dusty.",
+      gallery: [
+        "/discover-punta-mita/activities/atv-tours.jpg",
+        "/discover-punta-mita/activities/atv-tours-2.jpg",
+        "/discover-punta-mita/activities/atv-tours-3.jpg",
+      ],
+    },
+    {
+      title: "Zipline Adventures",
+      slug: "zipline-adventures",
+      image: "/discover-punta-mita/activities/zipline-adventures.jpg",
+      description:
+        "A jungle adventure experience with zip lines, views, and active outdoor fun for families and groups.",
+      overview:
+        "Zipline adventures are a strong choice for families seeking a more active land-based experience. They combine outdoor scenery, movement, and excitement in a guided environment.",
+      standardInfo: [
+        { label: "Best For", value: "Families, teens, active children, groups, and adventure travelers." },
+        { label: "Typical Duration", value: "Usually 2 to 4 hours." },
+        { label: "Best Time of Day", value: "Morning or early afternoon." },
+        { label: "Seasonality", value: "Available year-round, weather permitting." },
+        { label: "What to Wear / Bring", value: "Closed-toe shoes, athletic clothing, sunscreen, insect repellent, and water." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Adventure, guided, active, scenic, and family-friendly." },
+        { label: "Age Suitability", value: "Good for children and teens who meet age, height, or weight requirements." },
+        { label: "Good to Know", value: "Requirements vary by operator. Guests should be comfortable with heights." },
+      ],
+      whatToExpect:
+        "Expect a guided adventure with safety gear, instructions, and multiple zipline sections depending on the park or route.",
+      whatToBring:
+        "Bring closed-toe shoes, comfortable athletic clothing, water, sunscreen, and insect repellent.",
+      gallery: [
+        "/discover-punta-mita/activities/zipline-adventures.jpg",
+        "/discover-punta-mita/activities/zipline-adventures-2.jpg",
+        "/discover-punta-mita/activities/zipline-adventures-3.jpg",
+      ],
+    },
+    {
+      title: "Horseback Riding",
+      slug: "horseback-riding",
+      image: "/discover-punta-mita/activities/horseback-riding.jpg",
+      description:
+        "A scenic guided horseback riding experience for families, couples, and children comfortable around animals.",
+      overview:
+        "Horseback riding is a memorable family activity that can take place along beaches, rural paths, or scenic routes depending on the operator and location.",
+      standardInfo: [
+        { label: "Best For", value: "Families, couples, children, nature lovers, beginners, and guests seeking a relaxed outdoor activity." },
+        { label: "Typical Duration", value: "Usually 1 to 2 hours." },
+        { label: "Best Time of Day", value: "Morning or sunset." },
+        { label: "Seasonality", value: "Available year-round, weather permitting." },
+        { label: "What to Wear / Bring", value: "Closed-toe shoes, comfortable clothing, hat, sunscreen, and sunglasses." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Scenic, relaxed, guided, and family-friendly." },
+        { label: "Skill Level", value: "Beginner-friendly depending on provider and horse temperament." },
+        { label: "Age Suitability", value: "Suitable for many families, though minimum age and safety rules vary by provider." },
+      ],
+      whatToExpect:
+        "Expect a guided ride at a comfortable pace with scenic surroundings and opportunities for photos.",
+      whatToBring:
+        "Bring closed-toe shoes, comfortable clothing, sun protection, and avoid loose accessories.",
+      gallery: [
+        "/discover-punta-mita/activities/horseback-riding.jpg",
+        "/discover-punta-mita/activities/horseback-riding-2.jpg",
+        "/discover-punta-mita/activities/horseback-riding-3.jpg",
+      ],
+    },
+    {
+      title: "Nature Tours",
+      slug: "nature-tours",
+      image: "/discover-punta-mita/activities/nature-tours.jpg",
+      description:
+        "Guided family-friendly outings focused on local nature, coastal scenery, wildlife, plants, and outdoor exploration.",
+      overview:
+        "Nature tours are a gentle and educational way for families to explore the natural side of Punta Mita and the surrounding region. They can be adapted to children, older guests, and different activity levels.",
+      standardInfo: [
+        { label: "Best For", value: "Families, children, nature lovers, photographers, and guests looking for educational outdoor time." },
+        { label: "Typical Duration", value: "Usually 1.5 to 4 hours." },
+        { label: "Best Time of Day", value: "Morning for cooler temperatures and better comfort." },
+        { label: "Seasonality", value: "Available year-round, with wildlife and scenery changing by season." },
+        { label: "What to Wear / Bring", value: "Comfortable walking shoes, light clothing, hat, sunscreen, insect repellent, water, and camera." },
+      ],
+      customInfo: [
+        { label: "Experience Style", value: "Educational, scenic, calm, and family-friendly." },
+        { label: "Location", value: "Beaches, jungle areas, coastal paths, estuaries, or nearby nature zones depending on the guide." },
+        { label: "Customization", value: "Can often be adapted by age, mobility, interests, and desired activity level." },
+      ],
+      whatToExpect:
+        "Expect a guided outdoor experience focused on observing nature, learning about the area, and enjoying a calm family-friendly pace.",
+      whatToBring:
+        "Bring comfortable walking shoes, water, sun protection, insect repellent, and a camera.",
+      gallery: [
+        "/discover-punta-mita/activities/nature-tours.jpg",
+        "/discover-punta-mita/activities/nature-tours-2.jpg",
+        "/discover-punta-mita/activities/nature-tours-3.jpg",
+      ],
+    },
+  ],
+},
 
   {
     title: "Seasonal Experiences",
