@@ -1694,7 +1694,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, subject to restaurant schedules and reservation availability.",
         tags: ["Food & Drink", "Romantic", "Family-Friendly", "VIP"],
         notes:
-          "Avoid sending guests too far unless the restaurant is truly worth the transfer.",
+          "Restaurant outings are kept close and purposeful, with farther options reserved for places that genuinely feel worth the transfer.",
         whatToExpect:
           "Expect restaurant suggestions shaped around the group’s style, occasion, preferred cuisine, timing, and desired atmosphere.",
         whatToBring:
@@ -1728,7 +1728,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Resort casual clothing, light layer, and camera.",
             goodToKnow:
-              "Sunset reservations should be planned early during high season.",
+              "Sunset reservations are especially desirable during high season, so advance planning creates a smoother experience.",
           }),
           option({
             title: "Curated Local Favorite",
@@ -2261,7 +2261,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Resort casual or evening clothing depending on the venue.",
             goodToKnow:
-              "Do not promote this broadly; use it when there is a strong match.",
+              "Best for guests who want a specific nearby dinner rather than a full day trip.",
           }),
         ],
       }),
@@ -2394,7 +2394,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Evening resort wear and any celebration preferences.",
             goodToKnow:
-              "New Year’s Eve should be planned as early as possible.",
+              "New Year’s Eve is one of the most requested dates of the year, so early planning helps secure the best options.",
           }),
           option({
             title: "Seasonal Sports & Local Events",
@@ -2458,7 +2458,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Valid identification, luggage details, and travel documents.",
             goodToKnow:
-              "Aircraft availability, weather, and permits must be confirmed.",
+              "Aircraft availability, weather, routing, and permits shape what is possible for each flight.",
           }),
           option({
             title: "Helicopter or Scenic Flight",
@@ -2577,7 +2577,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round.",
         tags: ["VIP", "Groups", "Family-Friendly", "By Request"],
         notes:
-          "Avoid promising access that cannot be guaranteed. Phrase exclusive access carefully.",
+          "VIP arrangements are shaped around availability, villa privileges, venue policies, and the guest’s preferred level of service.",
         whatToExpect:
           "Expect itinerary planning, reservations, vendor coordination, transportation, guest support, and personalized recommendations before and during the stay.",
         whatToBring:
@@ -2590,7 +2590,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Families, VIP travelers, first-time visitors, and groups.",
             duration: "Full stay.",
             experience:
-              "The concierge designs a balanced itinerary with villa time, beach, dining, activities, wellness, transport, and special moments.",
+              "The itinerary can balance villa time, beach days, dining, wellness, activities, transportation, and special moments throughout the stay.",
             whatToExpect:
               "A stay that feels curated without being over-scheduled.",
             whatToBring:
@@ -2626,22 +2626,22 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Guest profile details, schedule, access needs, and privacy expectations.",
             goodToKnow:
-              "This should be handled with discretion and trusted providers only.",
+              "Security is arranged with discretion, professionalism, and attention to guest privacy.",
           }),
           option({
             title: "VIP Access & Reservation Coordination",
             description:
-              "A concierge-led service for restaurants, activities, beach clubs, nightlife, and special requests.",
+              "A personalized planning service for restaurants, activities, beach clubs, nightlife, and special requests.",
             bestFor: "VIP travelers, groups, celebrations, and guests who want a frictionless stay.",
             duration: "Before and during the stay.",
             experience:
-              "The concierge coordinates reservations, provider availability, activity timing, transportation, and special requests.",
+              "Reservations, provider availability, activity timing, transportation, and special requests can be coordinated before and during the stay.",
             whatToExpect:
               "A smoother vacation with fewer decisions and better timing.",
             whatToBring:
               "Preferences, dates, guest count, dietary needs, and any non-negotiable experiences.",
             goodToKnow:
-              "Use careful language: some access depends on availability, villa privileges, venue rules, or provider approval.",
+              "Some experiences depend on availability, villa privileges, venue policies, and provider approval.",
           }),
         ],
       }),
