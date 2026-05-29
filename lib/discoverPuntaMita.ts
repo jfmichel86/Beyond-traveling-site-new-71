@@ -246,7 +246,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, towel, sunscreen, hat, sunglasses, and camera.",
             goodToKnow:
-              "Conditions, park rules, and access restrictions can affect the route and what guests are allowed to do.",
+              "The route may vary based on ocean conditions, park access, and conservation guidelines.",
           }),
           option({
             title: "Hidden Beach Experience",
@@ -276,7 +276,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, towels, hats, sunscreen, kids’ sun protection, water shirts, and any special snacks or medication.",
             goodToKnow:
-              "For families, the best boat is not always the largest; shade, bathrooms, easy boarding, and crew attitude matter more.",
+              "For families, comfort details such as shade, bathrooms, easy boarding, and attentive crew make the day feel smoother.",
           }),
           option({
             title: "Yacht Proposal or Romantic Ocean Moment",
@@ -914,7 +914,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, cover-up, sunscreen, hat, sunglasses, and sandals.",
             goodToKnow:
-              "Availability depends on beach access, club rules, property rules, or provider setup permissions.",
+              "Availability varies by beach access, club policies, property setting, and setup permissions.",
           }),
         ],
       }),
@@ -963,7 +963,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Golf attire, golf shoes, sunglasses, sunscreen, and clubs if preferred.",
             goodToKnow:
-              "Course access and tee times depend on villa access, club rules, and availability.",
+              "Course access and tee times vary by villa privileges, club policies, and availability.",
           }),
           option({
             title: "Tail of the Whale Experience",
@@ -1077,7 +1077,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Athletic clothing, court shoes, water, and racket if preferred.",
             goodToKnow:
-              "Padel is more specific in terms of court availability, so planning ahead matters.",
+              "Padel court availability can be limited, so advance planning makes the experience smoother.",
           }),
           option({
             title: "Private Racket Tournament",
@@ -1812,7 +1812,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable evening clothing.",
             goodToKnow:
-              "Confirm smoking rules at the villa or venue before arranging.",
+              "The setting is selected around comfort, ventilation, and the villa or venue’s smoking policies.",
           }),
           option({
             title: "Cachasol Farm-to-Table & Mixology Experience",
@@ -1960,7 +1960,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable evening clothing and preferred game format.",
             goodToKnow:
-              "Confirm villa rules and local legal considerations before arranging.",
+              "The format is arranged around the villa setting, guest preferences, and applicable local guidelines.",
           }),
           option({
             title: "Private Casino Night",
@@ -2347,9 +2347,9 @@ export const discoverCategories: DiscoverCategory[] = [
         notes:
           "Specific dates, access, and availability vary by season and event calendar.",
         whatToExpect:
-          "Expect date-specific experiences that may require advance reservations, guest access, tickets, or concierge coordination.",
+          "Expect date-specific experiences that may involve advance reservations, guest access, tickets, or special coordination.",
         whatToBring:
-          "Depends on the event. Confirm dress code, access rules, and timing in advance.",
+          "Details vary by event, including dress code, access, and timing.",
         experienceOptions: [
           option({
             title: "Punta Mita Gourmet & Golf",
@@ -2405,11 +2405,11 @@ export const discoverCategories: DiscoverCategory[] = [
             experience:
               "Relevant events can be matched to the guest’s travel dates, interests, and preferred style of experience.",
             whatToExpect:
-              "A date-specific recommendation rather than a guaranteed activity.",
+              "A date-specific experience shaped around the events available during the stay.",
             whatToBring:
               "Depends on the event.",
             goodToKnow:
-              "This should always be confirmed against current schedules.",
+              "Availability depends on current event schedules.",
           }),
         ],
       }),
@@ -2557,7 +2557,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Guest count, schedule, priorities, budget, and any must-have activities.",
             goodToKnow:
-              "This should be planned early to secure providers and avoid schedule conflicts.",
+              "Early planning helps secure the best providers and create a smoother weekend schedule.",
           }),
         ],
       }),
