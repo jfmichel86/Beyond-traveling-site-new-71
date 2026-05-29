@@ -2098,7 +2098,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable evening clothing, light layer, and comfortable shoes.",
             goodToKnow:
-              "The logistics are heavier from Punta Mita, so recommend it selectively.",
+              "From Punta Mita, this is a fuller evening outing with more travel time, best for guests who want a complete dinner-and-show experience.",
           }),
           option({
             title: "Special Dinner Show Experience",
@@ -2107,13 +2107,13 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Families, couples, groups, and guests who prefer organized experiences.",
             duration: "Usually 3 to 6 hours.",
             experience:
-              "The concierge selects a show or entertainment dinner that fits the guest’s interests and coordinates transportation, timing, and reservations.",
+              "The evening can be arranged around a show or entertainment dinner that fits the guest’s interests, with transportation, timing, and reservations planned in advance.",
             whatToExpect:
               "A structured night with less decision-making for guests.",
             whatToBring:
               "Evening resort wear, ID if needed, and comfortable shoes.",
             goodToKnow:
-              "Quality varies, so only recommend vetted options.",
+              "The best options are selected for atmosphere, production quality, guest comfort, and overall fit with the evening.",
           }),
         ],
       }),
@@ -2136,7 +2136,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Curated half-day visits to Sayulita and San Pancho for surf, beach, boutiques, casual dining, and local atmosphere.",
         overview:
-          "This parent activity combines the nearby surf towns into one practical half-day outing. It should be curated, not presented as an endless town guide.",
+          "This activity brings together the nearby surf towns into a relaxed half-day outing focused on beach atmosphere, boutiques, casual dining, and a change of scene close to Punta Mita.",
         bestFor:
           "Families, couples, younger guests, shoppers, surfers, and guests who want a casual local outing.",
         duration: "Usually 3 to 5 hours.",
@@ -2186,13 +2186,13 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Couples, families, shoppers, and guests wanting a light off-villa outing.",
             duration: "Usually 3 to 4 hours.",
             experience:
-              "The concierge suggests a route with selected boutiques, artisan shops, galleries, cafés, and lunch or drinks.",
+              "The outing can include selected boutiques, artisan shops, galleries, cafés, and a relaxed lunch or drinks stop.",
             whatToExpect:
               "A relaxed, low-pressure outing with a clear plan and no need to over-research.",
             whatToBring:
               "Comfortable walking shoes, casual clothing, sunglasses, and payment card.",
             goodToKnow:
-              "This should be curated carefully so it feels elevated and not touristy.",
+              "The experience is best when it stays selective, relaxed, and focused on places with genuine charm.",
           }),
         ],
       }),
@@ -2205,14 +2205,14 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Nearby specialty outings for marina departures, selected dinners, casino, poker, and specific guest requests.",
         overview:
-          "La Cruz and Bucerías should not be major headline destinations, but they are useful when there is a specific reason to go.",
+          "La Cruz and Bucerías are best for targeted outings such as marina departures, selected dinners, casino nights, poker events, or specific guest interests.",
         bestFor:
           "Guests with yacht departures, dinner plans, casino interest, poker interest, or a specific nearby outing request.",
         duration: "Usually 2 to 5 hours depending on purpose.",
         seasonality: "Available year-round. Poker and event schedules vary.",
         tags: ["Food & Drink", "Nightlife", "By Request", "Groups"],
         notes:
-          "This is a practical specialty category, not a broad tourism recommendation.",
+          "This category is focused on specific nearby experiences rather than a general day trip.",
         whatToExpect:
           "Expect a targeted outing built around one clear reason: marina, dinner, casino, poker, or logistics.",
         whatToBring:
@@ -2240,13 +2240,13 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Adults, groups, poker players, and niche nightlife guests.",
             duration: "Usually 3 to 5 hours.",
             experience:
-              "The concierge checks the schedule or venue details, then coordinates transportation and timing for a casino or poker-focused outing.",
+              "Venue details, event schedules, transportation, and timing can be arranged around the guest’s preferred evening.",
             whatToExpect:
               "A specific adults-only evening that only makes sense when guests are genuinely interested.",
             whatToBring:
               "Valid ID, payment method, and evening clothing.",
             goodToKnow:
-              "Schedules and quality should be checked before recommending.",
+              "Event schedules and venue atmosphere vary by date.",
           }),
           option({
             title: "Selected Bucerías or La Cruz Dinner",
@@ -2255,7 +2255,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Food lovers, guests with a specific request, and groups wanting a nearby change of scene.",
             duration: "Usually 2 to 3 hours.",
             experience:
-              "The concierge recommends a selected restaurant based on cuisine, atmosphere, availability, and travel time.",
+              "The restaurant is selected around cuisine, atmosphere, availability, and travel time from Punta Mita.",
             whatToExpect:
               "A nearby dinner experience with clear purpose, not a generic day trip.",
             whatToBring:
@@ -2300,7 +2300,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, towel, sunscreen, sandals, hat, and dry clothes.",
             goodToKnow:
-              "This requires more logistics from Punta Mita and should be recommended selectively.",
+              "From Punta Mita, this is a more involved excursion, best for guests who want a structured beach or evening experience.",
           }),
           option({
             title: "Las Caletas Evening Experience",
