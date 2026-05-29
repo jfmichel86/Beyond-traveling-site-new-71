@@ -2281,7 +2281,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available most of the year, subject to operator schedules.",
         tags: ["Adventure", "Family-Friendly", "Romantic", "By Request"],
         notes:
-          "Recommend selectively because it requires more travel and logistics from Punta Mita.",
+          "From Punta Mita, this is a more involved excursion, best for guests who want a structured beach or evening experience with a fuller itinerary.",
         whatToExpect:
           "Expect a structured excursion with transportation, boat transfer, beach or evening programming, and a longer time commitment.",
         whatToBring:
@@ -2338,14 +2338,14 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Gourmet & Golf, club events, holidays, New Year’s Eve, polo season, fishing tournaments, surf season, and seasonal celebrations.",
         overview:
-          "This category keeps seasonal events focused on what matters to Punta Mita luxury guests instead of listing every regional event.",
+          "This category focuses on the seasonal events and holiday experiences most relevant to a luxury Punta Mita stay.",
         bestFor:
           "Families, groups, golfers, food lovers, holiday travelers, and guests visiting during event weeks.",
         duration: "Varies by event.",
         seasonality: "Seasonal and date-dependent.",
         tags: ["Seasonal", "VIP", "Groups", "Family-Friendly", "Food & Drink", "Sports"],
         notes:
-          "Event calendars should be checked before recommending specific dates or promising availability.",
+          "Specific dates, access, and availability vary by season and event calendar.",
         whatToExpect:
           "Expect date-specific experiences that may require advance reservations, guest access, tickets, or concierge coordination.",
         whatToBring:
@@ -2364,7 +2364,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Event-appropriate resort wear, golf attire if needed, and reservation details.",
             goodToKnow:
-              "Dates, access, and programming change each year.",
+              "Dates, access, and programming vary each year, making advance planning important.",
           }),
           option({
             title: "Holiday Villa Experiences",
@@ -2373,7 +2373,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Families, groups, holiday travelers, and celebration trips.",
             duration: "Meal, evening, or full-day programming.",
             experience:
-              "The concierge coordinates holiday dinner, décor, music, staff, chef, fireworks alternatives, beach setup, or family programming depending on the holiday.",
+              "The celebration can include a private holiday dinner, décor, music, chef service, beach setup, family programming, or a personalized villa event.",
             whatToExpect:
               "A private holiday celebration without the stress of planning locally.",
             whatToBring:
@@ -2403,7 +2403,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Guests visiting during specific event windows.",
             duration: "Varies.",
             experience:
-              "The concierge checks event calendars and matches relevant events to the guest’s dates and interests.",
+              "Relevant events can be matched to the guest’s travel dates, interests, and preferred style of experience.",
             whatToExpect:
               "A date-specific recommendation rather than a guaranteed activity.",
             whatToBring:
@@ -2439,7 +2439,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available by request, subject to weather, aircraft, permits, and provider availability.",
         tags: ["VIP", "By Request", "Romantic", "Adventure"],
         notes:
-          "This should always be confirmed directly with trusted providers before presenting details to guests.",
+          "Details depend on aircraft availability, routing, weather, permits, and provider schedules.",
         whatToExpect:
           "Expect a highly customized experience with aircraft availability, weather checks, scheduling, and premium logistics.",
         whatToBring:
@@ -2493,7 +2493,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, with holidays requiring extra advance planning.",
         tags: ["Romantic", "VIP", "Groups", "Family-Friendly"],
         notes:
-          "This should be handled carefully with mood boards, timing, privacy, guest preferences, and backup plans.",
+          "Each celebration is shaped around mood, timing, privacy, guest preferences, setting, and backup plans.",
         whatToExpect:
           "Expect a custom-produced experience with planning, setup, décor, photography, dining, music, and logistics depending on the occasion.",
         whatToBring:
@@ -2506,7 +2506,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Couples and surprise proposals.",
             duration: "Usually a planned moment plus optional dinner or celebration.",
             experience:
-              "The concierge coordinates location, timing, flowers, candles, photographer, music, champagne, dinner, and backup plans.",
+              "The experience can include location planning, timing, flowers, candles, photography, music, champagne, dinner, and backup plans.",
             whatToExpect:
               "A discreet and highly detailed production designed to feel effortless for the guest.",
             whatToBring:
@@ -2521,7 +2521,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Families, couples, groups, birthdays, and anniversaries.",
             duration: "Usually 2 to 6 hours.",
             experience:
-              "The concierge coordinates décor, chef, cake, music, entertainment, photographer, flowers, table styling, and event flow.",
+              "The celebration can include décor, chef service, cake, music, entertainment, photography, flowers, table styling, and a smooth event flow.",
             whatToExpect:
               "A polished celebration built around the person, occasion, and group dynamic.",
             whatToBring:
@@ -2551,7 +2551,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Wedding groups, families, and destination celebration hosts.",
             duration: "Multi-day planning.",
             experience:
-              "The concierge designs yacht days, welcome dinners, recovery brunches, beach activities, wellness sessions, and guest-friendly outings around the wedding schedule.",
+              "The weekend can include yacht days, welcome dinners, recovery brunches, beach activities, wellness sessions, and guest-friendly outings arranged around the wedding schedule.",
             whatToExpect:
               "A smoother and more memorable guest experience across the full wedding weekend.",
             whatToBring:
