@@ -231,7 +231,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable resort wear, light layer, sunglasses, phone or camera, and flat shoes.",
             goodToKnow:
-              "This is one of the easiest ocean experiences to recommend for mixed-age groups.",
+              "An easy ocean experience for mixed-age groups because it feels scenic, social, and comfortable without requiring a full-day commitment.",
           }),
           option({
             title: "Marietas Islands Tour",
@@ -1687,7 +1687,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Fine dining, oceanfront restaurants, seafood experiences, and curated restaurant reservations around Punta Mita.",
         overview:
-          "This category keeps restaurant recommendations focused on places that are actually worth leaving the villa for.",
+          "This category focuses on restaurant experiences that feel worth leaving the villa for: beautiful settings, strong food, polished service, and easy logistics.",
         bestFor:
           "Couples, families, groups, food lovers, and guests wanting a polished restaurant experience.",
         duration: "Usually 1.5 to 3 hours.",
@@ -1696,7 +1696,7 @@ export const discoverCategories: DiscoverCategory[] = [
         notes:
           "Avoid sending guests too far unless the restaurant is truly worth the transfer.",
         whatToExpect:
-          "Expect curated recommendations and reservations based on the guest’s style, group, occasion, and preferred cuisine.",
+          "Expect restaurant suggestions shaped around the group’s style, occasion, preferred cuisine, timing, and desired atmosphere.",
         whatToBring:
           "Resort casual or elegant resort wear, depending on the restaurant.",
         experienceOptions: [
@@ -1707,7 +1707,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Couples, families, groups, and food lovers.",
             duration: "Usually 1.5 to 3 hours.",
             experience:
-              "The concierge recommends and reserves a restaurant based on cuisine, atmosphere, occasion, guest profile, and logistics from the villa.",
+              "The restaurant is selected around cuisine, atmosphere, occasion, group style, and ease of access from the villa.",
             whatToExpect:
               "A polished dinner or lunch experience with minimal travel and strong fit for the group.",
             whatToBring:
@@ -1733,17 +1733,17 @@ export const discoverCategories: DiscoverCategory[] = [
           option({
             title: "Curated Local Favorite",
             description:
-              "A more local or hidden dining recommendation selected carefully so it still fits a luxury guest.",
+              "A more local or understated dining experience selected for flavor, atmosphere, and fit with the guest’s expectations.",
             bestFor: "Food lovers, repeat guests, adventurous couples, and guests asking for something less obvious.",
             duration: "Usually 1.5 to 3 hours.",
             experience:
-              "The concierge recommends a trusted local restaurant that is worth the trip for flavor, authenticity, or atmosphere.",
+              "Guests can enjoy a trusted local restaurant chosen for flavor, atmosphere, and a more authentic sense of place.",
             whatToExpect:
-              "A less formal but more local dining experience, selected carefully to avoid disappointing luxury guests.",
+              "A less formal but more local dining experience, chosen for guests who want something flavorful, relaxed, and more connected to the area.",
             whatToBring:
               "Casual resort clothing and an open mind.",
             goodToKnow:
-              "This should be curated, not generic. Do not send guests to places just because they are popular online.",
+              "The best version is highly selective, focused on places with genuine quality rather than generic tourist popularity.",
           }),
         ],
       }),
@@ -1857,7 +1857,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, subject to property rules and provider availability.",
         tags: ["Nightlife", "Groups", "VIP", "Family-Friendly", "Rainy Day"],
         notes:
-          "Always confirm villa rules, noise restrictions, community policies, and guest count limits.",
+          "Each event is shaped around the villa setting, guest count, community guidelines, timing, music style, and desired atmosphere.",
         whatToExpect:
           "Expect a tailored private event at the villa with entertainment, drinks, music, food, décor, or family programming depending on the occasion.",
         whatToBring:
@@ -1876,7 +1876,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Party attire and music preferences.",
             goodToKnow:
-              "Noise rules and community restrictions must be confirmed before promising this.",
+              "Music, timing, and production style are planned around the villa setting and community guidelines.",
           }),
           option({
             title: "Private Bartender & Cocktail Night",
@@ -1915,7 +1915,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Families, kids, rainy evenings, relaxed groups, and multi-generational stays.",
             duration: "Usually 2 to 4 hours.",
             experience:
-              "The concierge arranges outdoor or indoor movie setup, popcorn, snacks, themed décor, games, piñata, or family-friendly entertainment.",
+              "The evening can include an outdoor or indoor movie setup, popcorn, snacks, themed décor, games, piñata, or family-friendly entertainment.",
             whatToExpect:
               "An easy, warm, private evening that keeps families entertained without leaving the villa.",
             whatToBring:
@@ -1941,7 +1941,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Private events are year-round. Public tournaments are calendar-dependent.",
         tags: ["Nightlife", "Adults", "Groups", "By Request"],
         notes:
-          "Public tournament schedules should be checked before offering. Private villa events should follow property rules.",
+          "Private villa events are arranged around the property setting, while public tournament options depend on the current event calendar.",
         whatToExpect:
           "Expect a private game night or casino-style setup with dealers, tables, cards, and a social adults-only atmosphere.",
         whatToBring:
