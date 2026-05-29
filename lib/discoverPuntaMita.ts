@@ -1659,7 +1659,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "No special items required. Share seafood preferences and allergies.",
             goodToKnow:
-              "Best when planned with trusted sourcing and proper timing.",
+              "Best when planned with excellent ingredient sourcing and the right timing for freshness.",
           }),
           option({
             title: "Private Sushi Chef",
@@ -2555,7 +2555,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToExpect:
               "A smoother and more memorable guest experience across the full wedding weekend.",
             whatToBring:
-              "Guest count, schedule, priorities, budget, and any must-have activities.",
+              "Guest count, schedule, priorities, preferred pace, and any must-have experiences.",
             goodToKnow:
               "Early planning helps secure the best providers and create a smoother weekend schedule.",
           }),
@@ -2572,16 +2572,16 @@ export const discoverCategories: DiscoverCategory[] = [
         overview:
           "This is not a traditional activity, but it is one of the most valuable services for luxury travelers. It turns the full stay into a curated experience.",
         bestFor:
-          "VIP travelers, families, groups, first-time visitors, destination celebrations, and guests who want everything handled.",
+          "VIP travelers, families, groups, first-time visitors, destination celebrations, and guests who want a fully supported stay.",
         duration: "Full stay.",
         seasonality: "Available year-round.",
         tags: ["VIP", "Groups", "Family-Friendly", "By Request"],
         notes:
           "VIP arrangements are shaped around availability, villa privileges, venue policies, and the guest’s preferred level of service.",
         whatToExpect:
-          "Expect itinerary planning, reservations, vendor coordination, transportation, guest support, and personalized recommendations before and during the stay.",
+          "Expect personalized itinerary planning, reservations, transportation, guest support, and tailored recommendations before and during the stay.",
         whatToBring:
-          "Share travel dates, group profile, villa location, priorities, dietary needs, celebration details, and preferred pace of travel.",
+          "Share travel dates, group style, villa location, priorities, dietary needs, celebration details, and preferred pace of travel.",
         experienceOptions: [
           option({
             title: "Full Itinerary Design",
@@ -2594,7 +2594,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToExpect:
               "A stay that feels curated without being over-scheduled.",
             whatToBring:
-              "Travel dates, group profile, preferred pace, interests, and must-do activities.",
+              "Travel dates, group style, preferred pace, interests, and must-do experiences.",
             goodToKnow:
               "The best itineraries leave space for rest.",
           }),
@@ -2607,7 +2607,7 @@ export const discoverCategories: DiscoverCategory[] = [
             experience:
               "A driver or bilingual host helps guests move smoothly between activities, dinners, errands, airport transfers, and special experiences.",
             whatToExpect:
-              "A more seamless trip with local knowledge and fewer logistics for the guest to manage.",
+              "A more seamless stay with local knowledge, smoother transportation, and fewer details for guests to manage.",
             whatToBring:
               "Schedule details, guest count, luggage details if relevant, and preferred communication style.",
             goodToKnow:
@@ -2620,7 +2620,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "High-profile guests, VIP groups, events, and guests requesting additional privacy.",
             duration: "Hourly, daily, event-based, or full stay.",
             experience:
-              "Security is arranged based on guest profile, property, schedule, privacy needs, and movement during the stay.",
+              "Security can be arranged around the guest’s privacy needs, property setting, schedule, and movements during the stay.",
             whatToExpect:
               "Professional, discreet support designed to protect privacy and comfort without disrupting the vacation atmosphere.",
             whatToBring:
