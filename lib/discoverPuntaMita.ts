@@ -1975,7 +1975,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Evening clothing and guest count details.",
             goodToKnow:
-              "This should be positioned as entertainment unless a fully legal licensed gaming environment is being used.",
+              "Designed as a private entertainment experience, with the format adapted to the group, villa setting, and preferred atmosphere.",
           }),
           option({
             title: "Poker Tournament in Bucerías",
@@ -1984,13 +1984,13 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Adults, serious poker players, and niche-interest guests.",
             duration: "Varies by tournament.",
             experience:
-              "The concierge checks current tournament schedules and arranges transportation or reservations when a relevant event is available.",
+              "Current tournament schedules can be reviewed around the guest’s travel dates, with transportation and reservations arranged when a relevant event is available.",
             whatToExpect:
-              "A more specific outing that only makes sense when the tournament schedule fits the guest’s dates.",
+              "A date-specific outing for guests whose travel dates align with a relevant poker event.",
             whatToBring:
               "Valid ID, payment method, and tournament details.",
             goodToKnow:
-              "This should never be promised without checking the current calendar.",
+              "Tournament availability depends on the current event calendar.",
           }),
         ],
       }),
@@ -2010,7 +2010,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, with quality varying by night and season.",
         tags: ["Nightlife", "Adults", "Groups", "By Request"],
         notes:
-          "Transportation, safety, group profile, and return logistics matter. This should be curated carefully.",
+          "The evening is planned around transportation, venue selection, group style, timing, and a comfortable return to Punta Mita.",
         whatToExpect:
           "Expect a planned evening route with reservations, transportation, and venues selected based on the group’s style.",
         whatToBring:
@@ -2029,7 +2029,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Casual evening clothing, comfortable shoes, ID, and payment card.",
             goodToKnow:
-              "Sayulita can be crowded and informal. It is not the right fit for every luxury guest.",
+              "Sayulita is casual, lively, and informal, making it best for guests who want a relaxed surf-town atmosphere.",
           }),
           option({
             title: "Zona Romántica Bar Crawl",
@@ -2038,13 +2038,13 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Adults, LGBTQ+ travelers, bachelor and bachelorette groups, and nightlife-focused guests.",
             duration: "Usually 5 to 7 hours including transfers.",
             experience:
-              "The concierge plans a route through selected bars, lounges, or clubs with transportation and timing arranged.",
+              "The evening can be planned around selected bars, lounges, or clubs, with transportation and timing arranged in advance.",
             whatToExpect:
               "A longer night out with more energy and variety than Punta Mita or Sayulita.",
             whatToBring:
               "Evening clothing, ID, payment card, and comfortable shoes.",
             goodToKnow:
-              "This is farther from Punta Mita and should be offered only to groups actively requesting nightlife.",
+              "This is a longer night out from Punta Mita, best for groups specifically looking for Puerto Vallarta nightlife.",
           }),
           option({
             title: "VIP Nightclub Table",
@@ -2053,13 +2053,13 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Adults, nightlife groups, bachelor and bachelorette trips.",
             duration: "Usually late evening.",
             experience:
-              "The concierge coordinates venue selection, table reservation, bottle service, driver, and return timing.",
+              "Venue selection, table reservation, bottle service, driver, and return timing can be arranged in advance.",
             whatToExpect:
-              "A high-energy nightlife experience that requires careful logistics and group fit.",
+              "A high-energy nightlife experience for guests who want a reserved table, bottle service, and a more produced night out.",
             whatToBring:
               "Dress-code-appropriate clothing, ID, and payment method.",
             goodToKnow:
-              "Best for guests who want a high-energy club experience outside Punta Mita.",
+              "Best for guests who want a high-energy club experience with reserved service outside Punta Mita.",
           }),
         ],
       }),
@@ -2079,7 +2079,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available most of the year, subject to operator schedules.",
         tags: ["Nightlife", "Romantic", "Family-Friendly", "By Request"],
         notes:
-          "This involves more logistics than a local dinner, so it should be recommended selectively.",
+          "This is a fuller evening experience with more travel and timing involved than a local dinner.",
         whatToExpect:
           "Expect transportation, a boat-based transfer, dinner, show elements, and a longer evening outside Punta Mita.",
         whatToBring:
