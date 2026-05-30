@@ -4,22 +4,31 @@ import Link from "next/link";
 import Container from "@/components/Container";
 
 export const metadata = {
-  title: "About Our Property Management Team Punta Mita",
+  title: "About Beyond Traveling | Punta Mita Property Management",
   description:
-    "Meet the local team behind Beyond Traveling. Hands-on property management, guest experience, and operations in Punta Mita.",
+    "Meet Beyond Traveling, a local Punta Mita property management team focused on direct communication, transparent pricing, reliable oversight, guest support, and personal care for luxury homes.",
 };
 
-/* Shared components */
-const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="font-serif text-3xl md:text-4xl leading-[1.12] tracking-tight text-slate-900">
-    {children}
-  </h2>
-);
+const BG = {
+  hero: "bg-white",
+  intro: "bg-[#f1f4f8]",
+  white: "bg-white",
+  final: "bg-[#f1f4f8]",
+} as const;
 
-const Body = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-[17px] leading-[1.7] text-slate-900/75">
+const PrimaryButton = ({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) => (
+  <Link
+    href={href}
+    className="inline-flex min-h-11 items-center justify-center rounded-lg bg-slate-900 px-5 text-[15px] font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+  >
     {children}
-  </p>
+  </Link>
 );
 
 const OutlineButton = ({
@@ -31,173 +40,274 @@ const OutlineButton = ({
 }) => (
   <Link
     href={href}
-    className="inline-flex h-11 items-center justify-center rounded-lg border border-slate-900/40 px-5 text-[15px] font-medium text-slate-900 transition hover:bg-slate-900/[0.03]"
+    className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-900/35 bg-white/55 px-5 text-[15px] font-semibold text-slate-900 transition hover:border-slate-900 hover:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
   >
     {children}
   </Link>
 );
 
-/* HERO */
-const AboutHero = () => (
-  <section className="bg-white">
-    <Container>
-      <div className="py-16 md:py-24 text-center max-w-[760px] mx-auto">
+const SectionTitle = ({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <h2
+    className={`font-serif text-3xl leading-[1.12] tracking-[-0.02em] text-slate-900 md:text-4xl ${className}`}
+  >
+    {children}
+  </h2>
+);
 
-        <h1 className="font-serif text-4xl md:text-5xl">
-          Who We Are
+const Body = ({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <p className={`text-[17px] leading-[1.75] text-slate-900/72 ${className}`}>
+    {children}
+  </p>
+);
+
+const Bullet = ({ children }: { children: React.ReactNode }) => (
+  <li className="flex gap-3 text-[16px] leading-[1.75] text-slate-900/75">
+    <span className="mt-[11px] h-[2px] w-3 shrink-0 bg-slate-900/40" />
+    <span>{children}</span>
+  </li>
+);
+
+const ValueCard = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) => (
+  <div className="rounded-2xl border border-slate-900/10 bg-white/70 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.04)] backdrop-blur">
+    <p className="text-[14px] font-semibold text-slate-900">{title}</p>
+    <p className="mt-1 text-[13px] leading-6 text-slate-900/65">
+      {children}
+    </p>
+  </div>
+);
+
+const ImageBlock = ({ src, alt }: { src: string; alt: string }) => (
+  <div className="relative overflow-hidden rounded-2xl">
+    <div className="relative aspect-[16/10] w-full">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(min-width: 1024px) 42vw, 100vw"
+        className="object-cover object-center"
+      />
+    </div>
+    <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.08),rgba(15,23,42,0)_45%)]" />
+    <div className="absolute inset-0 ring-1 ring-slate-900/10" />
+  </div>
+);
+
+const MobileStickyCta = () => (
+  <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-900/10 bg-white/95 p-3 shadow-[0_-10px_30px_rgba(15,23,42,0.12)] backdrop-blur md:hidden">
+    <div className="grid grid-cols-2 gap-3">
+      <a
+        href="https://wa.me/523313619889"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-900/25 text-sm font-semibold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+      >
+        WhatsApp
+      </a>
+
+      <Link
+        href="/contact"
+        className="inline-flex min-h-11 items-center justify-center rounded-lg bg-slate-900 text-sm font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+      >
+        Contact
+      </Link>
+    </div>
+  </div>
+);
+
+const AboutHero = () => (
+  <section className={BG.hero}>
+    <Container>
+      <div className="mx-auto max-w-[820px] py-16 text-center md:py-24">
+        <p className="mb-5 text-[13px] font-semibold uppercase tracking-[0.18em] text-slate-900/60">
+          About Beyond Traveling
+        </p>
+
+        <h1 className="mx-auto max-w-[820px] font-serif text-4xl leading-[1.06] tracking-[-0.025em] text-slate-900 md:text-6xl">
+          Who We Are.
+          <span className="block italic text-[0.78em] leading-[1.15]">
+            People You Can Actually Reach.
+          </span>
         </h1>
 
-        <p className="mt-6 text-[17px] leading-[1.7] text-slate-900/70">
-  Beyond Traveling was created by a local team focused on providing high-quality property management in Punta Mita. We believe management works best when it’s personal, present, and honest, with direct communication and consistent oversight of every property.
-</p>
+        <p className="mx-auto mt-6 max-w-[760px] text-[17px] leading-[1.75] text-slate-900/72">
+          Beyond Traveling was created by a local team focused on personal,
+          present, and honest property management in Punta Mita. We believe
+          owners should know who is caring for their home, what is happening,
+          and why decisions are being made.
+        </p>
 
+        <div className="mx-auto mt-8 grid max-w-[760px] gap-3 sm:grid-cols-3">
+          <ValueCard title="Direct communication">
+            Owners deal with people, not layers.
+          </ValueCard>
+
+          <ValueCard title="Local presence">
+            We stay close to the homes we manage.
+          </ValueCard>
+
+          <ValueCard title="Clear accountability">
+            No vague answers or disappearing after onboarding.
+          </ValueCard>
+        </div>
       </div>
     </Container>
   </section>
 );
 
-
-/* 🔥 STORY SECTION (FIXED + WORKING) */
 const AboutStorySection = () => (
-    <section className="bg-[#f1f4f8] overflow-x-hidden">
+  <section className={`${BG.intro} overflow-x-hidden`}>
     <Container>
-      <div className="py-16 md:py-24">
-        <div className="grid w-full grid-cols-12 gap-6 md:gap-10">
+      <div className="grid w-full min-w-0 gap-10 py-16 md:grid-cols-2 md:items-center md:py-24">
+        <div className="min-w-0">
+          <SectionTitle>
+            Our Story. <span className="italic">A More Personal Approach.</span>
+          </SectionTitle>
 
-          {/* LEFT */}
-          <div className="col-span-12 md:col-span-6">
-            <SectionTitle>
-              Our Story. <span className="italic">A More Personal Approach</span>.
-            </SectionTitle>
+          <div className="mt-6 space-y-3">
+            <Body>
+              We started this project after seeing how often homeowners felt
+              disconnected from the people managing their homes in Punta Mita.
+              Too many owners were left waiting for updates, unclear about
+              costs, or unsure who was actually looking after the property.
+            </Body>
 
-            <p className="mt-4 text-[17px] leading-[1.7] text-slate-900/70">
-  We started this project after seeing how often homeowners felt disconnected from the people managing their homes in Punta Mita. Our goal is to provide a more reliable and hands-on property management experience, where owners feel informed and supported at all times. You can also learn more about how we manage properties on our{" "}
-  <Link href="/services" className="underline underline-offset-4 hover:text-slate-900">
-    Services
-  </Link>.
-</p>
-
-            <div className="mt-6 space-y-3">
-              <Body>
-                Our goal was simple: create a way of working that feels direct, transparent, and genuinely involved in the day-to-day of each property.
-              </Body>
-            </div>
+            <Body>
+              Our goal was simple: create a way of working that feels direct,
+              transparent, and genuinely involved in the day-to-day of each
+              home.
+            </Body>
           </div>
 
-          {/* RIGHT */}
-          <div className="col-span-12 md:col-span-6">
-            <div className="relative overflow-hidden rounded-2xl">
-              <div className="relative w-full aspect-[16/10]">
-                <Image
-                  src="/about/partnership.jpg"
-                  alt=""
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
+          <div className="mt-8">
+            <OutlineButton href="/services">
+              See How We Manage Properties
+            </OutlineButton>
           </div>
+        </div>
 
+        <div className="min-w-0">
+          <ImageBlock
+            src="/about/partnership.jpg"
+            alt="Beyond Traveling team member walking through a luxury property in Punta Mita"
+          />
         </div>
       </div>
     </Container>
   </section>
 );
 
-/* PHILOSOPHY */
 const AboutPhilosophy = () => (
-   <section className="bg-white overflow-x-hidden">
+  <section className={`${BG.white} overflow-x-hidden`}>
     <Container>
-      <div className="py-16 md:py-24">
-        <div className="grid w-full grid-cols-12 gap-6 md:gap-10">
+      <div className="grid w-full min-w-0 gap-10 py-16 md:grid-cols-2 md:items-center md:py-24">
+        <div className="min-w-0">
+          <ImageBlock
+            src="/about/philosophy.jpg"
+            alt="Beyond Traveling team member speaking with a local property vendor in Punta Mita"
+          />
+        </div>
 
-          {/* IMAGE LEFT */}
-          <div className="col-span-12 md:col-span-6">
-            <div className="relative overflow-hidden rounded-2xl">
-              <div className="relative w-full aspect-[16/10]">
-                <Image
-                  src="/about/philosophy.jpg"
-                  alt=""
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
+        <div className="min-w-0">
+          <SectionTitle>Our Philosophy</SectionTitle>
+
+          <Body className="mt-6">
+            Good management is not about making things complicated. It is about
+            being present, communicating clearly, and doing the right things
+            consistently.
+          </Body>
+
+          <div className="mt-7">
+            <p className="text-[16px] font-semibold text-slate-900">
+              What we believe:
+            </p>
+
+            <ul className="mt-4 space-y-3">
+              <Bullet>Transparency builds trust.</Bullet>
+              <Bullet>Availability prevents problems.</Bullet>
+              <Bullet>Long-term relationships matter more than fast growth.</Bullet>
+            </ul>
           </div>
 
-          {/* TEXT RIGHT */}
-          <div className="col-span-12 md:col-span-6">
+          <div className="mt-8">
+            <p className="text-[16px] font-semibold text-slate-900">
+              What makes us different:
+            </p>
 
-            <SectionTitle>
-              Our Philosophy
-            </SectionTitle>
-
-            <div className="mt-6 space-y-3">
-              <Body>
-                Integrity and care guide every decision we make.
-              </Body>
-
-              <Body>We believe:</Body>
-
-              <ul className="space-y-3 text-[16px] leading-[1.75] text-slate-900/75">
-                <li>• Transparency builds trust</li>
-                <li>• Availability prevents problems</li>
-                <li>• Long-term relationships matter more than fast growth</li>
-              </ul>
-            </div>
-
-            <div className="mt-8">
-              <div className="text-[16px] font-medium text-slate-900">
-                What Makes Us Different:
-              </div>
-
-              <ul className="space-y-3 text-[16px] leading-[1.75] text-slate-900/75">
-                <li>• Local presence in Punta Mita</li>
-                <li>• Limited number of properties</li>
-                <li>• Direct communication with owners</li>
-                <li>• Real accountability</li>
-              </ul>
-            </div>
-
+            <ul className="mt-4 space-y-3">
+              <Bullet>Local presence in Punta Mita.</Bullet>
+              <Bullet>A limited number of properties.</Bullet>
+              <Bullet>Direct communication with owners.</Bullet>
+              <Bullet>Real accountability when something needs attention.</Bullet>
+            </ul>
           </div>
-
         </div>
       </div>
     </Container>
   </section>
 );
 
-/* CTA */
 const AboutCTA = () => (
-  <section className="bg-[#f1f4f8]">
+  <section className={`${BG.final} border-t border-slate-900/8`}>
     <Container>
-      <div className="py-16 md:py-24 text-center max-w-[760px] mx-auto">
+      <div className="mx-auto max-w-[820px] py-14 text-center md:py-20">
+        <h2 className="font-serif text-3xl leading-[1.12] tracking-[-0.02em] text-slate-900 md:text-5xl">
+          Let’s see if we’re the right people for your home.
+        </h2>
 
-        <h3 className="font-serif text-3xl md:text-4xl">
-          Let’s Talk
-        </h3>
+        <p className="mx-auto mt-5 max-w-[720px] text-[17px] leading-[1.75] text-slate-900/72">
+          If you want direct communication, clear pricing, local oversight, and
+          a team that stays involved, we’d be happy to talk.
+        </p>
 
-        <p className="mt-4 text-[17px] leading-[1.7] text-slate-700">
+        <p className="mt-4 text-[17px] font-semibold text-slate-900">
           No pressure. Just a conversation.
         </p>
 
-        <div className="mt-6">
-          <OutlineButton href="/contact">Contact Us</OutlineButton>
-        </div>
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <PrimaryButton href="/contact">
+            Talk With Us About Your Property
+          </PrimaryButton>
 
+          <a
+            href="https://wa.me/523313619889"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-900/35 bg-white/55 px-5 text-[15px] font-semibold text-slate-900 transition hover:border-slate-900 hover:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+          >
+            WhatsApp Us
+          </a>
+        </div>
       </div>
     </Container>
   </section>
 );
 
-/* ✅ MAIN (ALWAYS LAST) */
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white pb-20 md:pb-0">
       <AboutHero />
-      <AboutStorySection />   {/* 👈 YOU WILL SEE THIS */}
+      <AboutStorySection />
       <AboutPhilosophy />
       <AboutCTA />
-    </div>
+      <MobileStickyCta />
+    </main>
   );
 }
