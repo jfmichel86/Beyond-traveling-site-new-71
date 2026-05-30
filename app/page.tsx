@@ -115,10 +115,10 @@ const ServiceCard = ({
 
 const FAQItem = ({
   question,
-  answer,
+  children,
 }: {
   question: string;
-  answer: React.ReactNode;
+  children: React.ReactNode;
 }) => (
   <details className="group rounded-2xl border border-slate-900/10 bg-white p-5 shadow-[0_12px_34px_rgba(15,23,42,0.04)]">
     <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-semibold text-slate-900">
@@ -128,7 +128,7 @@ const FAQItem = ({
       </span>
     </summary>
     <div className="mt-3 text-[15px] leading-[1.75] text-slate-900/70">
-      {answer}
+      {children}
     </div>
   </details>
 );
