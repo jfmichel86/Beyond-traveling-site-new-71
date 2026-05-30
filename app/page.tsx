@@ -160,7 +160,7 @@ const BG = {
   intro: "bg-[#f1f4f8]",
   white: "bg-white",
   cream: "bg-[#f6f0e8]",
-  final: "bg-[#f1f4f8]",
+  final: "bg-[#f6f0e8]",
 } as const;
 
 const Hero = () => (
@@ -405,7 +405,7 @@ const Services = () => (
           </p>
         </div>
 
-        <div className="min-w-0">
+              <div className="min-w-0 md:pt-8">
           <ImageBlock
             src="/home/services.jpg"
             alt="Luxury villa management services in Punta Mita"
@@ -462,7 +462,7 @@ const LocalAvailability = () => (
 const FAQ = () => (
   <section className={BG.intro}>
     <Container>
-      <div className="py-16 md:py-24">
+        <div className="py-14 md:py-20">
         <div className="mx-auto max-w-[780px] text-center">
           <SectionTitle>Questions Owners Usually Ask</SectionTitle>
 
@@ -471,7 +471,7 @@ const FAQ = () => (
           </Body>
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
           <FAQItem question="Do you handle rentals too?">
             Yes. We help with guest communication, property readiness, local
             coordination, and the details that support stronger rental
@@ -499,7 +499,7 @@ const FAQ = () => (
 );
 
 const FinalCta = () => (
-  <section id="contact" className={BG.final}>
+  <section id="contact" className={`${BG.final} border-t border-slate-900/8`}>
     <Container>
       <div className="py-14 md:py-20">
         <div className="mx-auto max-w-[780px] text-center">
