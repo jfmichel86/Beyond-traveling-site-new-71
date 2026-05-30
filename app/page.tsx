@@ -160,7 +160,7 @@ const BG = {
   intro: "bg-[#f1f4f8]",
   white: "bg-white",
   cream: "bg-[#f6f0e8]",
-  final: "bg-[#f6f0e8]",
+  final: "bg-[#f4f0ea]",
 } as const;
 
 const Hero = () => (
@@ -405,7 +405,7 @@ const Services = () => (
           </p>
         </div>
 
-              <div className="min-w-0 md:pt-8">
+              <div className="min-w-0 md:pt-12">
           <ImageBlock
             src="/home/services.jpg"
             alt="Luxury villa management services in Punta Mita"
@@ -460,7 +460,7 @@ const LocalAvailability = () => (
 );
 
 const FAQ = () => (
-  <section className={BG.intro}>
+  <section className={BG.white}>
     <Container>
         <div className="py-14 md:py-20">
         <div className="mx-auto max-w-[780px] text-center">
