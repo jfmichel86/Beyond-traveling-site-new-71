@@ -81,7 +81,8 @@ function Card({ src, title, slug, description, priority = false }: CardProps) {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0)_55%,rgba(15,23,42,0.18)_100%)]" />
         </div>
 
-        <h2 className="font-serif text-2xl leading-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-700">
+        <div className="bg-white p-6">
+          <h2 className="font-serif text-2xl leading-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-700">
             {title}
           </h2>
 
