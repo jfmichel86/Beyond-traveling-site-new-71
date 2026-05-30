@@ -548,6 +548,95 @@ const es: Record<string, string> = {
     "Las Palmas 28 es una residencia cálida y elegante de tres recámaras ubicada dentro de la comunidad Las Palmas en Punta Mita. Diseñada cuidadosamente para la comodidad y una vida costera relajada, esta casa es ideal para familias o grupos pequeños que buscan privacidad, servicio diario y acceso a los clubes de playa y amenidades de primer nivel de Punta Mita.",
     "Las Palmas 28 offers a serene and effortless stay, where natural textures, soft neutral tones, and open spaces create an atmosphere of calm from the moment you arrive. The home flows seamlessly between indoor and outdoor living, with comfortable seating areas, shaded terraces, and views of lush tropical surroundings":
     "Las Palmas 28 ofrece una estancia tranquila y sencilla, donde las texturas naturales, los tonos neutros suaves y los espacios abiertos crean una sensación de calma desde el momento en que llegas. La casa conecta de forma natural los espacios interiores y exteriores, con áreas cómodas para descansar, terrazas sombreadas y vistas a un entorno tropical lleno de vegetación.",
+
+  // Missing translations from current polished pages
+
+  // Services page current hero/cards
+  "We manage luxury homes in Punta Mita with clear communication, thoughtful property care, reliable guest support, transparent reporting, and no hidden fees.":
+    "Administramos casas de lujo en Punta Mita con comunicación clara, cuidado atento de la propiedad, apoyo confiable a huéspedes, reportes transparentes y sin cargos ocultos.",
+
+  "Inspections, maintenance, vendors, and readiness.":
+    "Inspecciones, mantenimiento, proveedores y preparación.",
+
+  "Fast replies, arrivals, coordination, and local help.":
+    "Respuestas rápidas, llegadas, coordinación y apoyo local.",
+
+  // About page current value cards
+  "Local presence": "Presencia local",
+
+  "Owners deal with people, not layers.":
+    "Los propietarios tratan con personas, no con capas de personal.",
+
+  "We stay close to the homes we manage.":
+    "Nos mantenemos cerca de las casas que administramos.",
+
+  // Property detail pricing values
+  "$1,100 USD per night": "$1,100 USD por noche",
+  "$1,600 USD per night": "$1,600 USD por noche",
+  "$1,800 USD per night": "$1,800 USD por noche",
+  "$2,100 USD per night": "$2,100 USD por noche",
+  "$2,200 USD per night": "$2,200 USD por noche",
+  "$2,700 USD per night": "$2,700 USD por noche",
+  "$3,000 USD per night": "$3,000 USD por noche",
+  "$3,500 USD per night": "$3,500 USD por noche",
+  "$3,600 USD per night": "$3,600 USD por noche",
+  "$4,000 USD per night": "$4,000 USD por noche",
+  "$4,500 USD per night": "$4,500 USD por noche",
+  "$5,000 USD per night": "$5,000 USD por noche",
+  "$6,500 USD per night": "$6,500 USD por noche",
+
+  "April 2026": "Abril 2026",
+  "May 2026": "Mayo 2026",
+
+  // Las Palmas 28 property detail page
+  "Las Palmas 28, a warm and elegant three-bedroom residence, is located within the Las Palmas community of Punta Mita. Thoughtfully designed for comfort and relaxed coastal living, this inviting home is ideal for families or small groups seeking privacy, daily service, and access to Punta Mita’s world-class beach clubs and amenities.":
+    "Las Palmas 28 es una residencia cálida y elegante de tres recámaras ubicada dentro de la comunidad Las Palmas en Punta Mita. Diseñada cuidadosamente para la comodidad y una vida costera relajada, esta casa es ideal para familias o grupos pequeños que buscan privacidad, servicio diario y acceso a los clubes de playa y amenidades de primer nivel de Punta Mita.",
+
+  "Las Palmas 28 offers a serene and effortless stay, where natural textures, soft neutral tones, and open spaces create an atmosphere of calm from the moment you arrive. The home flows seamlessly between indoor and outdoor living, with comfortable seating areas, shaded terraces, and views of lush tropical surroundings":
+    "Las Palmas 28 ofrece una estancia tranquila y sencilla, donde las texturas naturales, los tonos neutros suaves y los espacios abiertos crean una sensación de calma desde el momento en que llegas. La casa conecta de forma natural los espacios interiores y exteriores, con áreas cómodas para descansar, terrazas sombreadas y vistas a un entorno tropical lleno de vegetación.",
+
+  "2 Full size Beds plus 2 Twin Beds":
+    "2 Camas Matrimoniales y 2 Camas Individuales",
+
+  "There is an extra fee of $80 USD per night for any additional person after 8 guests (Except on peak weeks)":
+    "Hay un cargo extra de $80 USD por noche por cada persona adicional después de 8 huéspedes (excepto en semanas pico)",
+
+  // Alt text / accessibility labels from current pages
+  "Luxury property management in Punta Mita for high-end vacation homes":
+    "Administración de propiedades de lujo en Punta Mita para casas vacacionales de alto nivel",
+
+  "Homeowner and property management team discussing a luxury home in Punta Mita":
+    "Propietario y equipo de administración hablando sobre una casa de lujo en Punta Mita",
+
+  "Clear property management pricing for luxury homes in Punta Mita":
+    "Precios claros de administración de propiedades para casas de lujo en Punta Mita",
+
+  "Luxury villa management services in Punta Mita":
+    "Servicios de administración de villas de lujo en Punta Mita",
+
+  "Local property management team available in Punta Mita":
+    "Equipo local de administración de propiedades disponible en Punta Mita",
+
+  "Beyond Traveling team discussing property management for a luxury home in Punta Mita":
+    "Equipo de Beyond Traveling hablando sobre la administración de una casa de lujo en Punta Mita",
+
+  "Property care and maintenance for a luxury home in Punta Mita":
+    "Cuidado y mantenimiento de una casa de lujo en Punta Mita",
+
+  "Guest communication and coordination for a Punta Mita rental property":
+    "Comunicación y coordinación con huéspedes para una propiedad en renta en Punta Mita",
+
+  "Cleaning and readiness for a luxury vacation rental in Punta Mita":
+    "Limpieza y preparación para una propiedad vacacional de lujo en Punta Mita",
+
+  "Financial clarity and reporting for Punta Mita property management":
+    "Claridad financiera y reportes para administración de propiedades en Punta Mita",
+
+  "Beyond Traveling team member walking through a luxury property in Punta Mita":
+    "Miembro del equipo de Beyond Traveling recorriendo una propiedad de lujo en Punta Mita",
+
+  "Beyond Traveling team member speaking with a local property vendor in Punta Mita":
+    "Miembro del equipo de Beyond Traveling hablando con un proveedor local en Punta Mita",
   
   // Attributes / alt / aria-label examples
   "View Villa Amore": "Ver Villa Amore",
