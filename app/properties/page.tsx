@@ -81,16 +81,9 @@ function Card({ src, title, slug, description, priority = false }: CardProps) {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0)_55%,rgba(15,23,42,0.18)_100%)]" />
         </div>
 
-        <div className="bg-white p-6">
-          <div className="flex items-start justify-between gap-4">
-            <h2 className="font-serif text-2xl leading-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-700">
-              {title}
-            </h2>
-
-            <span className="mt-1 shrink-0 rounded-full border border-slate-900/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-900/55">
-              Managed
-            </span>
-          </div>
+        <h2 className="font-serif text-2xl leading-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-700">
+            {title}
+          </h2>
 
           <p className="mt-3 text-[15px] leading-[1.65] text-slate-900/68">
             {description}
