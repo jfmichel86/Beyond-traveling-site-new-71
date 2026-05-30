@@ -193,7 +193,7 @@ const es: Record<string, string> = {
   "This is someone’s home, not just an asset": "Esta es la casa de alguien, no solo un activo",
   "Decisions affect comfort, costs, and rental results": "Las decisiones afectan la comodidad, los costos y los resultados en renta",
   "Responsiveness matters as much as execution": "La capacidad de respuesta importa tanto como la ejecución",
-  "See Who You’ll Be Dealing With": "Ver Con Quién Vas a Tratar",
+  "See Who You’ll Be Dealing With": "Ve Con Quién Vas a Tratar",
   "— This is someone’s home": "— Esta es la casa de alguien",
   "— Decisions affect both comfort and finances": "— Las decisiones afectan tanto la comodidad como las finanzas",
   "— Responsiveness matters as much as execution": "— La capacidad de respuesta importa tanto como la ejecución",
