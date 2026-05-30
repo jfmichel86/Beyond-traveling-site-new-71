@@ -160,7 +160,7 @@ const BG = {
   intro: "bg-[#f1f4f8]",
   white: "bg-white",
   cream: "bg-[#f6f0e8]",
-  final: "bg-[#f4f0ea]",
+  final: "bg-[#f1f4f8]",
 } as const;
 
 const Hero = () => (
