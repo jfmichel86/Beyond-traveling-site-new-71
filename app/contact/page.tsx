@@ -4,113 +4,180 @@ import Container from "@/components/Container";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Contact Property Management Punta Mita",
+  title: "Contact Beyond Traveling | Punta Mita Property Management",
   description:
-    "Get in touch with Beyond Traveling for luxury property management in Punta Mita. Direct communication and fast response.",
+    "Contact Beyond Traveling for luxury property management in Punta Mita. Talk with a local team about property care, guest support, rental results, clear pricing, and no hidden fees.",
 };
 
-/* Shared */
+const PrimaryButton = ({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) => (
+  <Link
+    href={href}
+    className="inline-flex min-h-11 items-center justify-center rounded-lg bg-slate-900 px-5 text-[15px] font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+  >
+    {children}
+  </Link>
+);
+
+const OutlineAnchor = ({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-900/35 bg-white/55 px-5 text-[15px] font-semibold text-slate-900 transition hover:border-slate-900 hover:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+  >
+    {children}
+  </a>
+);
+
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="font-serif text-3xl md:text-4xl leading-[1.12] tracking-tight text-slate-900">
+  <h2 className="font-serif text-3xl leading-[1.12] tracking-[-0.02em] text-slate-900 md:text-4xl">
     {children}
   </h2>
 );
 
 const Body = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-[17px] text-slate-900/75 leading-[1.7]">
-    {children}
-  </p>
+  <p className="text-[17px] leading-[1.75] text-slate-900/72">{children}</p>
 );
 
-/* INTRO */
+const ContactOption = ({
+  label,
+  value,
+  href,
+}: {
+  label: string;
+  value: string;
+  href: string;
+}) => (
+  <a
+    href={href}
+    target={href.startsWith("http") ? "_blank" : undefined}
+    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+    className="block rounded-2xl border border-slate-900/10 bg-white/70 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition hover:bg-white hover:shadow-[0_16px_40px_rgba(15,23,42,0.08)] focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+  >
+    <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-slate-900/45">
+      {label}
+    </p>
+    <p className="mt-2 break-words text-[15px] font-semibold leading-6 text-slate-900">
+      {value}
+    </p>
+  </a>
+);
+
 const ContactIntro = () => (
   <section className="bg-white">
     <Container>
-     <div className="py-16 md:py-24 text-center max-w-[760px] mx-auto">
-        <h1 className="font-serif text-4xl md:text-5xl tracking-tight leading-[1.08] text-slate-900 max-w-[800px] mx-auto">   Let’s Have a Conversation </h1>
+      <div className="mx-auto max-w-[820px] py-16 text-center md:py-24">
+        <p className="mb-5 text-[13px] font-semibold uppercase tracking-[0.18em] text-slate-900/60">
+          Contact Beyond Traveling
+        </p>
 
-        <p className="mt-6 text-[17px] leading-[1.7] text-slate-900/70">
-  Whether you’re actively looking for a new property management team in Punta Mita or just want to understand your options, we’re happy to talk. You can also explore how we work on our{" "}
-  <Link href="/services" className="underline underline-offset-4 hover:text-slate-900">
-    Services
-  </Link>.
-</p>
+        <h1 className="mx-auto max-w-[820px] font-serif text-4xl leading-[1.06] tracking-[-0.025em] text-slate-900 md:text-6xl">
+          Let’s Have a Conversation.
+          <span className="block italic text-[0.78em] leading-[1.15]">
+            No pressure. No sales pitch.
+          </span>
+        </h1>
+
+        <p className="mx-auto mt-6 max-w-[760px] text-[17px] leading-[1.75] text-slate-900/72">
+          Whether you are actively looking for a new property management team in
+          Punta Mita or just want to understand your options, we are happy to
+          talk. You can also explore how we work on our{" "}
+          <Link
+            href="/services"
+            className="font-semibold underline decoration-slate-900/25 underline-offset-4 transition hover:decoration-slate-900"
+          >
+            Services
+          </Link>{" "}
+          page.
+        </p>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <PrimaryButton href="#contact-form">Send a Message</PrimaryButton>
+          <OutlineAnchor href="https://wa.me/523313619889">
+            WhatsApp Us
+          </OutlineAnchor>
+        </div>
       </div>
     </Container>
   </section>
 );
 
-/* CONTACT + FORM */
 const ContactSection = () => {
   return (
-    <section className="bg-[#f1f4f8] overflow-hidden">
-  <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-24">
-    <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
+    <section id="contact-form" className="overflow-hidden bg-[#f1f4f8]">
+      <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-24">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:items-start md:gap-16">
+          <div className="min-w-0 space-y-6 md:col-span-6">
+            <SectionTitle>Get in Touch</SectionTitle>
 
-        {/* LEFT — TEXT */}
-        <div className="md:col-span-6 space-y-6 max-w-full md:max-w-[520px] min-w-0">
+            <Body>
+              We keep communication simple and direct. Tell us a little about
+              your property, what you are looking for, or what has not been
+              working with your current setup.
+            </Body>
 
-          <SectionTitle>Get in Touch</SectionTitle>
+            <div className="grid gap-3">
+              <ContactOption
+                label="Email"
+                value="beyondtravelingmx@gmail.com"
+                href="mailto:beyondtravelingmx@gmail.com"
+              />
 
-          <Body>
-            We keep communication simple and direct. You can reach us through any of the options below.
-          </Body>
+              <ContactOption
+                label="Phone / WhatsApp"
+                value="+52 33 1361 9889"
+                href="https://wa.me/523313619889"
+              />
+            </div>
 
-          <div className="text-[16px] leading-[1.7] text-slate-900/80 space-y-2 break-words">
-            <p>Email: beyondtravelingmx@gmail.com</p>
-            <p>Phone / WhatsApp: +52 33 1361 9889</p>
-           <p>
-  <a
-    href="https://wa.me/523313619889"
-    className="inline-flex max-w-full items-center gap-2 underline underline-offset-4 hover:opacity-80 transition"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 32 32"
-      className="w-5 h-5"
-      fill="currentColor"
-    >
-      <path d="M16 3C9.373 3 4 8.373 4 15c0 2.638.858 5.077 2.313 7.06L4 29l7.153-2.252A11.937 11.937 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.872 0-3.644-.5-5.184-1.374l-.37-.22-4.247 1.337 1.388-4.136-.241-.387A9.958 9.958 0 0 1 6 15c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10zm5.393-7.382c-.294-.147-1.737-.857-2.007-.955-.27-.098-.467-.147-.664.147-.197.294-.762.955-.934 1.152-.172.197-.344.221-.638.074-.294-.147-1.24-.457-2.363-1.457-.873-.779-1.462-1.74-1.634-2.034-.172-.294-.018-.453.129-.6.132-.131.294-.344.441-.516.147-.172.197-.294.294-.49.098-.197.049-.369-.025-.516-.074-.147-.664-1.602-.91-2.193-.24-.577-.485-.498-.664-.507-.172-.009-.369-.011-.566-.011-.197 0-.516.074-.787.369-.27.294-1.033 1.01-1.033 2.459 0 1.449 1.058 2.847 1.205 3.044.147.197 2.083 3.183 5.043 4.464.705.304 1.254.485 1.683.621.707.225 1.35.193 1.86.117.567-.084 1.737-.71 1.982-1.396.245-.686.245-1.274.172-1.396-.074-.123-.27-.197-.566-.344z"/>
-    </svg>
-    Message us on WhatsApp
-  </a>
-</p>
+            <div className="rounded-2xl border border-slate-900/10 bg-white/55 p-5">
+              <p className="text-[16px] font-semibold text-slate-900">
+                What happens next?
+              </p>
+
+              <ul className="mt-3 space-y-2 text-[15px] leading-7 text-slate-900/72">
+                <li>— We read your message carefully.</li>
+                <li>— We reply directly, usually by email or WhatsApp.</li>
+                <li>— If it makes sense, we schedule a simple conversation.</li>
+              </ul>
+            </div>
           </div>
 
-          <Body>
-            We’ll get back to you as soon as possible.
-          </Body>
-
-        </div>
-
-        {/* RIGHT — FORM */}
-        <div className="md:col-span-6 min-w-0">
-          <div className="w-full overflow-hidden bg-white rounded-2xl border border-slate-200/70 p-6 md:p-8 shadow-sm">
-             <ContactForm />
-
+          <div className="min-w-0 md:col-span-6">
+            <div className="w-full overflow-hidden rounded-2xl border border-slate-200/70 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.08)] md:p-8">
+              <ContactForm />
+            </div>
           </div>
         </div>
-
-          </div>
-        </div>
-</section>
+      </div>
+    </section>
   );
 };
 
-/* CLOSING */
 const ContactClosing = () => (
-  <section className="bg-white">
+  <section className="border-t border-slate-900/8 bg-white">
     <Container>
-      <div className="py-16 md:py-24 text-center max-w-[680px] mx-auto space-y-4">
+      <div className="mx-auto max-w-[780px] py-14 text-center md:py-20">
+        <h2 className="font-serif text-3xl leading-[1.12] tracking-[-0.02em] text-slate-900 md:text-5xl">
+          A simple conversation is usually the best place to start.
+        </h2>
 
-        <h3 className="font-serif text-3xl md:text-4xl leading-[1.12] tracking-tight text-slate-900">
-          No Pressure. No Sales Pitch
-        </h3>
-
-        <p className="text-[17px] text-slate-900/75">
-          Just an honest conversation about your property.
+        <p className="mx-auto mt-5 max-w-[680px] text-[17px] leading-[1.75] text-slate-900/72">
+          We can talk about your home, your current setup, rental goals,
+          communication, costs, and whether we are the right fit.
         </p>
-
       </div>
     </Container>
   </section>
@@ -118,10 +185,10 @@ const ContactClosing = () => (
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <main className="min-h-screen overflow-x-hidden bg-white">
       <ContactIntro />
       <ContactSection />
       <ContactClosing />
-    </div>
+    </main>
   );
 }
