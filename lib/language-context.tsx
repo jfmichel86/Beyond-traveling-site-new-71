@@ -459,6 +459,7 @@ const es: Record<string, string> = {
   "2 Queen Beds plus 2 Twin Beds": "2 Camas Queen y 2 Camas Individuales",
   "1 Twin Bunk Beds": "1 Litera Individual",
   "One Single Bed": "Una Cama Individual",
+  "2 Full size Beds plus 2 Twin Beds": "2 Camas Matrimoniales y 2 Camas Individuales",
   "Ensuite bathroom": "Baño en suite",
   "Staff and Amenities": "Personal y Amenidades",
   "Daily cleaning": "Limpieza diaria",
@@ -519,6 +520,9 @@ const es: Record<string, string> = {
     "Hay un cargo extra de $100 USD por noche por cada persona adicional después de 9 huéspedes (excepto en semanas pico)",
   "There is an extra fee of $100 USD per night for any additional person after 8 guests (Except on peak weeks)":
     "Hay un cargo extra de $100 USD por noche por cada persona adicional después de 8 huéspedes (excepto en semanas pico)",
+  "There is an extra fee of $80 USD per night for any additional person after 8 guests (Except on peak weeks)":
+    "Hay un cargo extra de $80 USD por noche por cada persona adicional después de 8 huéspedes (excepto en semanas pico)",
+  
   "Ready to Check Availability?": "¿Listo para Revisar Disponibilidad?",
   "Send us a message and we’ll confirm availability and details shortly.":
     "Envíanos un mensaje y confirmaremos disponibilidad y detalles pronto.",
@@ -540,9 +544,11 @@ const es: Record<string, string> = {
     "Villa Llamas es un refugio cálido y elegante de cinco recámaras dentro de la exclusiva comunidad de Porta Fortuna en Punta Mita. A unos pasos de Sufi Beach Club, esta villa ofrece un equilibrio perfecto entre vida costera relajada y lujo moderno, con amplios espacios interiores y exteriores, servicio diario y acceso a los principales clubes de golf y playa de Punta Mita.",
   "From the moment you step inside, Villa Llamas welcomes you with an atmosphere of comfort and connection. The open design fills the home with natural light and gentle breezes, blending soft tones, natural wood, and elegant furnishings. The expansive terrace overlooks the lush golf course, featuring a serene private pool, comfortable loungers, and a shaded outdoor dining area — the perfect setting for lazy mornings and sunset gatherings.":
     "Desde el momento en que entras, Villa Llamas te recibe con una atmósfera de comodidad y conexión. Su diseño abierto llena la casa de luz natural y brisas suaves, combinando tonos cálidos, madera natural y mobiliario elegante. La amplia terraza mira hacia el campo de golf y cuenta con alberca privada, camastros cómodos y un comedor exterior sombreado: el escenario perfecto para mañanas tranquilas y reuniones al atardecer.",
-  "Placeholder overview text. Replace with refined description of the residence and atmosphere.":
-    "Texto descriptivo pendiente. Reemplazar con una descripción refinada de la residencia y su ambiente.",
-
+    "Las Palmas 28, a warm and elegant three-bedroom residence, is located within the Las Palmas community of Punta Mita. Thoughtfully designed for comfort and relaxed coastal living, this inviting home is ideal for families or small groups seeking privacy, daily service, and access to Punta Mita’s world-class beach clubs and amenities.":
+    "Las Palmas 28 es una residencia cálida y elegante de tres recámaras ubicada dentro de la comunidad Las Palmas en Punta Mita. Diseñada cuidadosamente para la comodidad y una vida costera relajada, esta casa es ideal para familias o grupos pequeños que buscan privacidad, servicio diario y acceso a los clubes de playa y amenidades de primer nivel de Punta Mita.",
+    "Las Palmas 28 offers a serene and effortless stay, where natural textures, soft neutral tones, and open spaces create an atmosphere of calm from the moment you arrive. The home flows seamlessly between indoor and outdoor living, with comfortable seating areas, shaded terraces, and views of lush tropical surroundings":
+    "Las Palmas 28 ofrece una estancia tranquila y sencilla, donde las texturas naturales, los tonos neutros suaves y los espacios abiertos crean una sensación de calma desde el momento en que llegas. La casa conecta de forma natural los espacios interiores y exteriores, con áreas cómodas para descansar, terrazas sombreadas y vistas a un entorno tropical lleno de vegetación.",
+  
   // Attributes / alt / aria-label examples
   "View Villa Amore": "Ver Villa Amore",
   "View Villa Llamas": "Ver Villa Llamas",
