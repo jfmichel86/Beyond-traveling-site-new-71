@@ -1,17 +1,27 @@
 "use client";
 
 import React, { useState } from "react";
+import { useLanguage } from "@/lib/language-context";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const { language } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const text = encodeURIComponent(
-      `New inquiry from Beyond Traveling website:
+        const text = encodeURIComponent(
+      language === "es"
+        ? `Nueva consulta desde el sitio web de Beyond Traveling:
+
+Nombre: ${name}
+Correo: ${email}
+
+Mensaje:
+${message}`
+        : `New inquiry from Beyond Traveling website:
 
 Name: ${name}
 Email: ${email}
