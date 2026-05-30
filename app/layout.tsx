@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     template: "%s | Beyond Traveling",
   },
   description:
-      description:
     "Luxury property management in Punta Mita with direct owner communication, guest support, clear pricing, no hidden fees, and local care for high-end homes.",
   keywords: [
     "property management Punta Mita",
