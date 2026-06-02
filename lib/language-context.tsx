@@ -589,11 +589,6 @@ const es: Record<string, string> = {
   "May 2026": "Mayo 2026",
 
   // Las Palmas 28 property detail page
-  "Las Palmas 28, a warm and elegant three-bedroom residence, is located within the Las Palmas community of Punta Mita. Thoughtfully designed for comfort and relaxed coastal living, this inviting home is ideal for families or small groups seeking privacy, daily service, and access to Punta Mita’s world-class beach clubs and amenities.":
-    "Las Palmas 28 es una residencia cálida y elegante de tres recámaras ubicada dentro de la comunidad Las Palmas en Punta Mita. Diseñada cuidadosamente para la comodidad y una vida costera relajada, esta casa es ideal para familias o grupos pequeños que buscan privacidad, servicio diario y acceso a los clubes de playa y amenidades de primer nivel de Punta Mita.",
-
-  "Las Palmas 28 offers a serene and effortless stay, where natural textures, soft neutral tones, and open spaces create an atmosphere of calm from the moment you arrive. The home flows seamlessly between indoor and outdoor living, with comfortable seating areas, shaded terraces, and views of lush tropical surroundings":
-    "Las Palmas 28 ofrece una estancia tranquila y sencilla, donde las texturas naturales, los tonos neutros suaves y los espacios abiertos crean una sensación de calma desde el momento en que llegas. La casa conecta de forma natural los espacios interiores y exteriores, con áreas cómodas para descansar, terrazas sombreadas y vistas a un entorno tropical lleno de vegetación.",
 
   "2 Full size Beds plus 2 Twin Beds":
     "2 Camas Matrimoniales y 2 Camas Individuales",
