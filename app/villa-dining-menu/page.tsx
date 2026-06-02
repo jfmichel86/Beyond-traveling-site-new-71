@@ -9,7 +9,7 @@ import {
 export const metadata = {
   title: "Villa Dining Menu | Beyond Traveling",
   description:
-    "Private villa dining menu with fresh breakfast, poolside lunch, private dinners, children’s options, and desserts.",
+    "Private villa dining menu with fresh breakfast, lunch, private dinners, children’s menu, and desserts.",
   robots: {
     index: false,
     follow: false,
@@ -19,55 +19,66 @@ export const metadata = {
 export default function VillaDiningMenuPage() {
   return (
     <main className="bg-white">
-      <section className="bg-white">
-        <div className="mx-auto max-w-[920px] px-6 py-16 text-center md:py-24">
-          <p className="mb-5 text-[13px] font-semibold uppercase tracking-[0.18em] text-slate-900/45">
-            Villa Dining Menu
-          </p>
+     <section className="bg-white">
+  <div className="mx-auto max-w-[920px] px-6 py-16 text-center md:py-24">
+    <p className="mb-5 text-[13px] font-semibold uppercase tracking-[0.18em] text-slate-900/45">
+      Villa Dining Menu
+    </p>
 
-          <h1 className="mx-auto max-w-[860px] font-serif text-4xl leading-[1.06] tracking-[-0.025em] text-slate-900 md:text-6xl">
-            Fresh Breakfast, Poolside Lunch
-            <span className="block italic text-[0.78em] leading-[1.15]">
-              & Private Dinners at Home.
-            </span>
-          </h1>
+    <h1 className="mx-auto max-w-[860px] font-serif text-4xl leading-[1.06] tracking-[-0.025em] text-slate-900 md:text-6xl">
+      Fresh Breakfast, Lunch
+      <span className="block italic text-[0.78em] leading-[1.15]">
+        & Private Dinners at Home.
+      </span>
+    </h1>
 
-          <p className="mx-auto mt-6 max-w-[760px] text-[17px] leading-[1.75] text-slate-900/72">
-            Enjoy relaxed, freshly prepared meals from the comfort of your
-            private villa. Breakfast preparation is included with your rental;
-            however, the cost of groceries and ingredients is not included.
-          </p>
+    <p className="mx-auto mt-6 max-w-[760px] text-[17px] leading-[1.75] text-slate-900/72">
+      Enjoy relaxed, freshly prepared meals from the comfort of your
+      private villa.
+    </p>
+  </div>
+</section>
+<div className="mx-auto max-w-[1100px] px-6">
+  <div className="border-t border-slate-200" />
+</div>
 
-          <p className="mx-auto mt-4 max-w-[760px] text-[17px] leading-[1.75] text-slate-900/72">
-            Lunch and dinner preparation may be arranged upon request for an
-            additional service cost. All meals are prepared using groceries
-            purchased for your stay, based on your group size, selected dishes,
-            and preferences.
-          </p>
+<section className="bg-white py-12 md:py-16">
+  <div className="mx-auto max-w-[860px] px-6 text-center">
+    <p className="text-[17px] leading-[1.75] text-slate-900/72">
+      Breakfast preparation is included with your rental; however, the cost
+      of groceries and ingredients is not included.
+    </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a
-              href="#menu-categories"
-              className="inline-flex min-h-11 items-center justify-center rounded-lg bg-slate-900 px-5 text-[15px] font-semibold text-white shadow-sm transition hover:bg-slate-800"
-            >
-              View Menu
-            </a>
+    <p className="mx-auto mt-4 max-w-[780px] text-[17px] leading-[1.75] text-slate-900/72">
+      Lunch and dinner preparation may be arranged upon request for an
+      additional service cost. All meals are prepared using groceries
+      purchased for your stay, based on your group size, selected dishes,
+      and preferences.
+    </p>
 
-            <a
-              href="#service-details"
-              className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-900/35 bg-white px-5 text-[15px] font-semibold text-slate-900 transition hover:border-slate-900"
-            >
-              Important Service Details
-            </a>
-          </div>
-        </div>
-      </section>
+    <div className="mt-8 flex flex-wrap justify-center gap-4">
+      <a
+        href="#menu-categories"
+        className="inline-flex min-h-11 items-center justify-center rounded-lg bg-slate-900 px-5 text-[15px] font-semibold text-white shadow-sm transition hover:bg-slate-800"
+      >
+        View Menu
+      </a>
 
-      <div className="mx-auto max-w-[1100px] px-6">
-        <div className="border-t border-slate-200" />
-      </div>
+      <a
+        href="#service-details"
+        className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-900/35 bg-white px-5 text-[15px] font-semibold text-slate-900 transition hover:border-slate-900"
+      >
+        Important Service Details
+      </a>
+    </div>
+  </div>
+</section>
 
-      <section id="menu-categories" className="bg-white py-14 md:py-20">
+<div className="mx-auto max-w-[1100px] px-6">
+  <div className="border-t border-slate-200" />
+</div>
+
+<section id="menu-categories" className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-900/45">
@@ -80,8 +91,7 @@ export default function VillaDiningMenuPage() {
 
             <p className="mt-5 text-[17px] leading-[1.75] text-slate-900/70">
               Browse breakfast, lunch, private dinner, children’s options, and
-              desserts. Each category includes sub-categories with the dishes
-              available for your villa stay.
+              desserts.
             </p>
           </div>
 
@@ -104,18 +114,12 @@ export default function VillaDiningMenuPage() {
                     />
                   </div>
 
-                  <div className="flex flex-1 flex-col bg-white p-6">
+                  <div className="flex flex-1 flex-col bg-white p-6 md:min-h-[118px]">
                     <h3 className="font-serif text-2xl leading-tight text-slate-900">
                       {category.title}
                     </h3>
 
-                    <p className="mt-3 flex-1 text-[15px] leading-[1.65] text-slate-900/68">
-                      {category.description}
-                    </p>
-
-                    <p className="mt-5 text-[14px] font-semibold text-slate-900 underline decoration-slate-900/20 underline-offset-4 transition group-hover:decoration-slate-900">
-                      View options
-                    </p>
+                  <div className="mt-3 flex-1" />
                   </div>
                 </article>
               </Link>
