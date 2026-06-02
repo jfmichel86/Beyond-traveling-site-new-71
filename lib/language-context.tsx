@@ -590,12 +590,6 @@ const es: Record<string, string> = {
 
   // Las Palmas 28 property detail page
 
-  "2 Full size Beds plus 2 Twin Beds":
-    "2 Camas Matrimoniales y 2 Camas Individuales",
-
-  "There is an extra fee of $80 USD per night for any additional person after 8 guests (Except on peak weeks)":
-    "Hay un cargo extra de $80 USD por noche por cada persona adicional después de 8 huéspedes (excepto en semanas pico)",
-
   // Alt text / accessibility labels from current pages
   "Luxury property management in Punta Mita for high-end vacation homes":
     "Administración de propiedades de lujo en Punta Mita para casas vacacionales de alto nivel",
