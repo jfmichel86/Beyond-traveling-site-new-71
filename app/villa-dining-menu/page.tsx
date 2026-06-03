@@ -43,33 +43,29 @@ export default function VillaDiningMenuPage() {
 </div>
 
 <section className="bg-white py-12 md:py-16">
-  <div className="mx-auto max-w-[860px] px-6 text-center">
-    <p className="text-[17px] leading-[1.75] text-slate-900/72">
-      Breakfast preparation is included with your rental; however, the cost
-      of groceries and ingredients is not included.
-    </p>
+  <div className="mx-auto max-w-[1200px] px-6">
+    <div className="max-w-[820px]">
+      <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-900/45">
+        Service Overview
+      </p>
 
-    <p className="mx-auto mt-4 max-w-[780px] text-[17px] leading-[1.75] text-slate-900/72">
-      Lunch and dinner preparation may be arranged upon request for an
-      additional service cost. All meals are prepared using groceries
-      purchased for your stay, based on your group size, selected dishes,
-      and preferences.
-    </p>
+      <h2 className="mt-4 font-serif text-3xl leading-tight tracking-[-0.02em] text-slate-900 md:text-4xl">
+        Freshly prepared meals, arranged around your stay
+      </h2>
 
-    <div className="mt-8 flex flex-wrap justify-center gap-4">
-      <a
-        href="#menu-categories"
-        className="inline-flex min-h-11 items-center justify-center rounded-lg bg-slate-900 px-5 text-[15px] font-semibold text-white shadow-sm transition hover:bg-slate-800"
-      >
-        View Menu
-      </a>
+      <div className="mt-6 space-y-4 text-[17px] leading-[1.8] text-slate-900/70">
+        <p>
+          Breakfast preparation is included with your rental; however, the
+          cost of groceries and ingredients is not included.
+        </p>
 
-      <a
-        href="#service-details"
-        className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-900/35 bg-white px-5 text-[15px] font-semibold text-slate-900 transition hover:border-slate-900"
-      >
-        Important Service Details
-      </a>
+        <p>
+          Lunch and dinner preparation may be arranged upon request for an
+          additional service cost. All meals are prepared using groceries
+          purchased for your stay, based on your group size, selected dishes,
+          and preferences.
+        </p>
+      </div>
     </div>
   </div>
 </section>
