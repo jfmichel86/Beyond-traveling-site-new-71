@@ -103,7 +103,7 @@ function createActivity({
       { label: "Seasonality", value: seasonality },
     ],
     customInfo: [
-      { label: "Planning Notes", value: notes },
+      { label: "Good to Know", value: notes },
       { label: "Tags", value: tags.join(", ") },
     ],
     whatToExpect,
@@ -252,7 +252,7 @@ export const discoverCategories: DiscoverCategory[] = [
             title: "Hidden Beach Experience",
             description:
               "A permit-dependent visit to the famous Playa del Amor, usually treated as a special upgrade inside a Marietas itinerary.",
-            bestFor: "Adventurous couples, active adults, bucket-list travelers, and guests who understand the restrictions.",
+            bestFor: "Adventurous couples, active adults, and bucket-list travelers comfortable with a more active ocean experience.",
             duration: "Usually part of a half-day Marietas experience.",
             experience:
               "When permits, conditions, and guest eligibility allow, the boat itinerary includes access to Hidden Beach. It is a more regulated and active experience than a normal beach stop.",
@@ -261,7 +261,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, towel, sunscreen, and comfort in the water.",
             goodToKnow:
-              "Access is limited and depends on permits, ocean conditions, and guest suitability, so it is best treated as a special request within a Marietas itinerary.",
+              "Access is limited and depends on permits, ocean conditions, and park guidelines, making it one of the most exclusive additions to a Marietas itinerary.",
           }),
           option({
             title: "Family Boat Day",
@@ -513,7 +513,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Certification card if certified, swimwear, towel, dry clothes, and any personal dive gear if preferred.",
             goodToKnow:
-              "Certified divers should bring their certification details, and timing after diving should be considered when planning flights.",
+              "Certified divers bring their certification details, and flight timing is considered when planning the dive schedule.",
           }),
           option({
             title: "Freediving Experience",
@@ -528,7 +528,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, towel, sunscreen, and comfort swimming in open water.",
             goodToKnow:
-              "This is not casual snorkeling. Safety, instruction, and guest suitability matter.",
+              "This is a more focused underwater experience with professional instruction, safety guidance, and conditions suited to the session.",
           }),
         ],
       }),
@@ -774,7 +774,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Temazcal, cacao ceremonies, spiritual wellness, and ritual-style healing experiences.",
         overview:
-          "This activity is separate from regular wellness because it feels more unique, local, and memorable. It is best for guests looking for something deeper than a standard spa treatment.",
+          "For guests looking beyond a traditional spa treatment, these experiences offer a deeper, more memorable wellness moment rooted in ritual, atmosphere, and intention.",
         bestFor:
           "Couples, wellness travelers, small groups, spiritual travelers, and guests looking for a meaningful experience.",
         duration: "Usually 1.5 to 3 hours.",
@@ -1452,7 +1452,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, resort wear, sunscreen, sunglasses, sandals, and a hat.",
             goodToKnow:
-              "Best used when guests want an easy, comfortable beach-club option without over-planning.",
+              "A comfortable choice for guests who want an easy beach-club day with minimal logistics.",
           }),
           option({
             title: "El Surf Club",
@@ -1536,9 +1536,9 @@ export const discoverCategories: DiscoverCategory[] = [
         image: beachClubImage,
         heroImage: beachClubHero,
         description:
-          "Select beach-club and polo-club experiences outside Punta Mita that are worth considering for the right guest.",
+          "Select beach-club and polo-club experiences outside Punta Mita, curated for guests who want a distinctive off-property outing.",
         overview:
-          "This category is intentionally selective. It is not a list of every beach club nearby, but a place for distinctive off-property experiences that can make sense for Punta Mita guests.",
+          "A curated selection of distinctive off-property experiences for guests who want a different beach-club atmosphere, polo-club setting, or day-trip feel.",
         bestFor:
           "Couples, families, groups, polo lovers, relaxed luxury travelers, and guests wanting a change of scene outside Punta Mita.",
         duration: "Usually half-day.",
@@ -1733,8 +1733,8 @@ export const discoverCategories: DiscoverCategory[] = [
           option({
             title: "Curated Local Favorite",
             description:
-              "A more local or understated dining experience selected for flavor, atmosphere, and fit with the guest’s expectations.",
-            bestFor: "Food lovers, repeat guests, adventurous couples, and guests asking for something less obvious.",
+              "A more local or understated dining experience chosen for flavor, atmosphere, and a strong sense of place.",
+            bestFor: "Food lovers, repeat guests, adventurous couples, and guests interested in local flavor beyond the most familiar addresses.",
             duration: "Usually 1.5 to 3 hours.",
             experience:
               "Guests can enjoy a trusted local restaurant chosen for flavor, atmosphere, and a more authentic sense of place.",
@@ -1857,7 +1857,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, subject to property rules and provider availability.",
         tags: ["Nightlife", "Groups", "VIP", "Family-Friendly", "Rainy Day"],
         notes:
-          "Each event is shaped around the villa setting, guest count, community guidelines, timing, music style, and desired atmosphere.",
+          "Each event is tailored to the villa setting, group size, timing, music style, and desired atmosphere.",
         whatToExpect:
           "Expect a tailored private event at the villa with entertainment, drinks, music, food, décor, or family programming depending on the occasion.",
         whatToBring:
@@ -1876,7 +1876,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Party attire and music preferences.",
             goodToKnow:
-              "Music, timing, and production style are planned around the villa setting and community guidelines.",
+              "Music, timing, and production style are planned around the villa setting and overall guest experience.",
           }),
           option({
             title: "Private Bartender & Cocktail Night",
@@ -1934,7 +1934,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Private poker nights, casino-style villa evenings, and calendar-dependent poker tournaments nearby.",
         overview:
-          "This is a niche but strong option for certain groups. It works especially well for adult group trips, birthdays, bachelor groups, and guests who want a private evening activity.",
+          "A private, social option for adult group trips, birthdays, bachelor groups, and guests who enjoy cards or casino-style entertainment.",
         bestFor:
           "Adults, groups, bachelor trips, birthdays, and guests who enjoy cards or casino-style entertainment.",
         duration: "Usually 2 to 5 hours.",
@@ -1945,7 +1945,7 @@ export const discoverCategories: DiscoverCategory[] = [
         whatToExpect:
           "Expect a private game night or casino-style setup with dealers, tables, cards, and a social adults-only atmosphere.",
         whatToBring:
-          "Comfortable evening clothing. Confirm guest count and preferred format in advance.",
+          "Comfortable evening clothing. Guest count and preferred format are coordinated in advance.",
         experienceOptions: [
           option({
             title: "Private Villa Poker Night",
@@ -1960,7 +1960,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable evening clothing and preferred game format.",
             goodToKnow:
-              "The format is arranged around the villa setting, guest preferences, and applicable local guidelines.",
+              "The format is arranged around the villa setting, guest preferences, and the style of evening desired.",
           }),
           option({
             title: "Private Casino Night",
@@ -1980,7 +1980,7 @@ export const discoverCategories: DiscoverCategory[] = [
           option({
             title: "Poker Tournament in Bucerías",
             description:
-              "A by-request outing for guests interested in local or regional poker events nearby.",
+              "A tailored outing for guests interested in local or regional poker events nearby.",
             bestFor: "Adults, serious poker players, and niche-interest guests.",
             duration: "Varies by tournament.",
             experience:
@@ -2003,7 +2003,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Sayulita nightlife, live music, Zona Romántica bar crawls, VIP nightlife tables, rooftops, and cocktail-bar experiences by request.",
         overview:
-          "This category is designed for guests who specifically want a curated night outside the villa.",
+          "For guests who want a curated night outside the villa, this experience brings together transportation, reservations, and the right evening atmosphere.",
         bestFor:
           "Adults, younger groups, nightlife-focused guests, bachelor and bachelorette groups, and guests requesting Puerto Vallarta or Sayulita nightlife.",
         duration: "Usually 3 to 6 hours including transportation.",
@@ -2049,7 +2049,7 @@ export const discoverCategories: DiscoverCategory[] = [
           option({
             title: "VIP Nightclub Table",
             description:
-              "A by-request club experience with reserved table, bottle service, and transportation.",
+              "A VIP club experience with reserved table, bottle service, and transportation.",
             bestFor: "Adults, nightlife groups, bachelor and bachelorette trips.",
             duration: "Usually late evening.",
             experience:
@@ -2072,7 +2072,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Produced evening experiences that combine boat transfer, dinner, entertainment, and a memorable night out.",
         overview:
-          "This category is separate from regular nightlife because it is a complete produced excursion rather than a bar or club night.",
+          "A complete produced evening excursion for guests who want dinner, entertainment, scenery, and a more memorable night out.",
         bestFor:
           "Couples, families with older kids, groups, first-time visitors, and guests who want an organized evening experience.",
         duration: "Usually a full evening.",
@@ -2113,7 +2113,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Evening resort wear, ID if needed, and comfortable shoes.",
             goodToKnow:
-              "The best options are selected for atmosphere, production quality, guest comfort, and overall fit with the evening.",
+              "Options are chosen for atmosphere, production quality, comfort, and the overall style of evening guests want.",
           }),
         ],
       }),
@@ -2236,13 +2236,13 @@ export const discoverCategories: DiscoverCategory[] = [
           option({
             title: "Bucerías Casino or Poker Outing",
             description:
-              "A by-request outing for adults interested in casino or poker experiences nearby.",
+              "A tailored outing for adults interested in casino or poker experiences nearby.",
             bestFor: "Adults, groups, poker players, and niche nightlife guests.",
             duration: "Usually 3 to 5 hours.",
             experience:
               "Venue details, event schedules, transportation, and timing can be arranged around the guest’s preferred evening.",
             whatToExpect:
-              "A specific adults-only evening that only makes sense when guests are genuinely interested.",
+              "A focused adults-only evening for guests who enjoy casino or poker-style entertainment.",
             whatToBring:
               "Valid ID, payment method, and evening clothing.",
             goodToKnow:
@@ -2272,9 +2272,9 @@ export const discoverCategories: DiscoverCategory[] = [
         image: destinationsImage,
         heroImage: destinationsHero,
         description:
-          "A special exception excursion for guests interested in Las Caletas, beach adventure, or the evening dinner show format.",
+          "A distinctive excursion for guests interested in Las Caletas, beach adventure, or the evening dinner show format.",
         overview:
-          "Las Caletas is farther than most Punta Mita activities, but it remains one of the few farther excursions that can justify the logistics for the right guest.",
+          "Las Caletas is farther than most Punta Mita activities, but it offers a fuller excursion with beach scenery, adventure, and evening-show options.",
         bestFor:
           "Families, couples, first-time visitors, groups, and guests who want a produced excursion.",
         duration: "Usually half-day, full-day, or full evening depending on format.",
@@ -2403,7 +2403,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Guests visiting during specific event windows.",
             duration: "Varies.",
             experience:
-              "Relevant events can be matched to the guest’s travel dates, interests, and preferred style of experience.",
+              "Relevant events can be coordinated around the guest’s travel dates, interests, and preferred style of experience.",
             whatToExpect:
               "A date-specific experience shaped around the events available during the stay.",
             whatToBring:
