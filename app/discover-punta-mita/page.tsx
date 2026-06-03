@@ -6,7 +6,7 @@ import { discoverCategories } from "@/lib/discoverPuntaMita";
 export const metadata = {
   title: "Discover Punta Mita Experiences | Beyond Traveling",
   description:
-    "Discover Punta Mita experiences arranged by Beyond Traveling, including private yachts, wellness, beach clubs, golf, private chefs, dining, day trips, nightlife, and VIP concierge planning.",
+    "Discover Punta Mita experiences with Beyond Traveling, including private yachts, wellness, beach clubs, golf, private chefs, dining, day trips, nightlife, and VIP trip planning.",
 };
 
 const PrimaryButton = ({
