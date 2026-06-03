@@ -106,7 +106,7 @@ export default function VillaDiningSubcategoryPage({ params }: PageProps) {
                 key={dish.title}
                 className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm"
               >
-                <div className="bg-slate-100">
+  <div className="bg-slate-100">
   <div className="relative aspect-[16/9] overflow-hidden">
     <Image
       src={dish.images[0]}
