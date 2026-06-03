@@ -124,7 +124,7 @@ export default function DiscoverPuntaMitaPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-[900px] px-6 py-16 text-center md:py-24">
           <p className="mb-5 text-[13px] font-semibold uppercase tracking-[0.18em] text-slate-900/45">
-            Beyond Traveling Concierge
+            Punta Mita Experiences
           </p>
 
           <h1 className="mx-auto max-w-[820px] font-serif text-4xl leading-[1.06] tracking-[-0.025em] text-slate-900 md:text-6xl">
@@ -155,7 +155,7 @@ export default function DiscoverPuntaMitaPage() {
             </ValueCard>
 
             <ValueCard title="Clear expectations">
-              No vague suggestions. We explain what each experience is like.
+              A clear sense of what each experience feels like before you decide.
             </ValueCard>
           </div>
         </div>
@@ -177,9 +177,9 @@ export default function DiscoverPuntaMitaPage() {
             </h2>
 
             <p className="mt-5 text-[17px] leading-[1.75] text-slate-900/70">
-              Choose a category below and explore the kinds of experiences we
-              can help arrange. Some days are quiet and relaxed. Others are for
-              celebrating. The point is to make the plan fit the people.
+              Choose a category below and explore experiences designed around
+              different travel styles, from quiet villa days to celebrations,
+              family outings, ocean adventures, and memorable nights out.
             </p>
           </div>
 
