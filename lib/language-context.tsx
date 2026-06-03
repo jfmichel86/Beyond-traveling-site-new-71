@@ -37,8 +37,10 @@ const es: Record<string, string> = {
   "Property Management": "Administración de Propiedades",
   "Luxury Rentals": "Rentas de Lujo",
   "Villa Management": "Administración de Villas",
-  "Property management and luxury rentals in Punta Mita. Hands-on service, local expertise, and direct communication.":
-    "Administración de propiedades y rentas de lujo en Punta Mita. Servicio cercano, experiencia local y comunicación directa.",
+  "Property management and luxury rentals in Punta Mita.":
+    "Administración de propiedades y rentas de lujo en Punta Mita.",
+  "Hands-on service, local expertise, and direct communication.":
+    "Servicio cercano, experiencia local y comunicación directa.",
   "WhatsApp Us": "Escríbenos por WhatsApp",
   "View Services": "Ver Servicios",
 
@@ -435,6 +437,8 @@ const es: Record<string, string> = {
   "Your name": "Tu nombre",
   "you@example.com": "tu@correo.com",
   "Message": "Mensaje",
+    "This opens WhatsApp with your message ready to send.":
+    "Esto abre WhatsApp con tu mensaje listo para enviar.",
   "Tell us a little about your property or what you need help with.":
     "Cuéntanos un poco sobre tu propiedad o en qué necesitas ayuda.",
   "Send via WhatsApp": "Enviar por WhatsApp",
@@ -650,6 +654,74 @@ const es: Record<string, string> = {
     "Explorar experiencias de Temporadas y Eventos Especiales en Punta Mita",
   "Explore High-End / VIP Experiences experiences in Punta Mita":
     "Explorar experiencias High-End / VIP en Punta Mita"
+
+  "Luxury Rentals in Punta Mita": "Rentas de Lujo en Punta Mita",
+  "Punta Mita is one of the most exclusive destinations in Mexico, known for its private villas, oceanfront properties, and high-end guest experiences. Luxury rentals in Punta Mita require careful management, attention to detail, and a consistent approach to guest experience.":
+    "Punta Mita es uno de los destinos más exclusivos de México, conocido por sus villas privadas, propiedades frente al mar y experiencias de alto nivel. Las rentas de lujo en Punta Mita requieren una administración cuidadosa, atención al detalle y un enfoque constante en la experiencia del huésped.",
+  "What Defines a Luxury Rental": "Qué Define una Renta de Lujo",
+  "Luxury rentals are not just about the property itself. They involve service, preparation, and coordination. Every stay must meet expectations from arrival to departure.":
+    "Las rentas de lujo no se tratan solo de la propiedad en sí. Implican servicio, preparación y coordinación. Cada estancia debe cumplir expectativas desde la llegada hasta la salida.",
+  "Managing Rentals in Punta Mita": "Administrar Rentas en Punta Mita",
+  "Managing luxury rentals in Punta Mita includes handling bookings, coordinating cleaning and maintenance, and ensuring that each guest has a seamless experience throughout their stay while maintaining the property at a high standard.":
+    "Administrar rentas de lujo en Punta Mita incluye gestionar reservaciones, coordinar limpieza y mantenimiento, y asegurar que cada huésped tenga una experiencia fluida durante su estancia, manteniendo la propiedad en un alto estándar.",
+  "A Local, Hands-On Approach": "Un Enfoque Local y Cercano",
+  "Being present in Punta Mita allows for faster response times, better coordination, and a more personalized approach to both homeowners and guests.":
+    "Estar presentes en Punta Mita permite responder más rápido, coordinar mejor y ofrecer un enfoque más personalizado tanto para propietarios como para huéspedes.",
+  "View Properties": "Ver Propiedades",
+  "Talk With Us": "Hablemos",
+
+  "Managing a property in Punta Mita requires more than coordination. It requires local presence, responsiveness, and a clear understanding of how luxury homes operate in a rental environment. Our property management services in Punta Mita are designed to keep homes well maintained while ensuring a smooth and high-quality guest experience.":
+    "Administrar una propiedad en Punta Mita requiere más que coordinación. Requiere presencia local, capacidad de respuesta y una comprensión clara de cómo operan las casas de lujo en un entorno de renta. Nuestros servicios de administración están diseñados para mantener las casas en excelente estado y asegurar una experiencia fluida y de alta calidad para los huéspedes.",
+  "Why Property Management in Punta Mita Is Different":
+    "Por Qué la Administración de Propiedades en Punta Mita es Diferente",
+  "Punta Mita is a unique market where expectations are high and response times matter. Homes are not only valuable assets, but also rental properties that require constant attention, maintenance, and guest coordination.":
+    "Punta Mita es un mercado único donde las expectativas son altas y los tiempos de respuesta importan. Las casas no solo son activos valiosos, también son propiedades en renta que requieren atención constante, mantenimiento y coordinación con huéspedes.",
+  "What Good Property Management Includes":
+    "Qué Incluye una Buena Administración de Propiedades",
+  "Effective property management in Punta Mita goes beyond maintenance. It includes overseeing daily operations, coordinating guest stays, managing cleaning and readiness, and ensuring that the property remains in excellent condition at all times while performing well as a rental property.":
+    "Una administración efectiva en Punta Mita va más allá del mantenimiento. Incluye supervisar la operación diaria, coordinar estancias de huéspedes, gestionar limpieza y preparación, y asegurar que la propiedad se mantenga en excelente estado mientras funciona bien como propiedad en renta.",
+  "At Beyond Traveling, we work closely with a limited number of homeowners. This allows us to stay involved, respond quickly, and treat each home with the level of care it deserves.":
+    "En Beyond Traveling trabajamos de cerca con un número limitado de propietarios. Esto nos permite mantenernos involucrados, responder rápido y tratar cada casa con el nivel de cuidado que merece.",
+  "Explore Our Services": "Explora Nuestros Servicios",
+
+  "Villa Management in Punta Mita": "Administración de Villas en Punta Mita",
+  "Managing a villa in Punta Mita requires constant oversight. From maintenance to guest coordination, every detail impacts the value and performance of the property. Our villa management services in Punta Mita are designed to maintain each property at a high standard while ensuring smooth operations and guest experience.":
+    "Administrar una villa en Punta Mita requiere supervisión constante. Desde el mantenimiento hasta la coordinación con huéspedes, cada detalle impacta el valor y el desempeño de la propiedad. Nuestros servicios de administración de villas están diseñados para mantener cada propiedad en un alto estándar y asegurar una operación fluida y una buena experiencia para los huéspedes.",
+  "Maintaining High-End Villas": "Mantener Villas de Alto Nivel",
+  "Villas must be maintained at a high standard at all times. This includes regular inspections, quick repairs, and coordination with trusted local vendors.":
+    "Las villas deben mantenerse en un alto estándar en todo momento. Esto incluye inspecciones regulares, reparaciones rápidas y coordinación con proveedores locales de confianza.",
+  "Rental Performance and Operations": "Desempeño en Rentas y Operación",
+  "Villa management also includes optimizing rentals, managing bookings, and ensuring that each guest experience meets expectations.":
+    "La administración de villas también incluye optimizar rentas, gestionar reservaciones y asegurar que cada experiencia de huésped cumpla expectativas.",
+  "Direct Communication With Owners": "Comunicación Directa con Propietarios",
+  "Clear and direct communication allows owners to stay informed and confident that their property is being properly managed.":
+    "La comunicación clara y directa permite que los propietarios se mantengan informados y tranquilos de que su propiedad está siendo administrada correctamente.",
+  "Explore Services": "Explorar Servicios",
+
+        "Starting at": "Desde",
+  "Send us a message and we’ll confirm availability and details shortly.":
+    "Envíanos un mensaje y confirmaremos disponibilidad y detalles en breve.",
+  "Concierge services": "Servicios de concierge",
+
+  "Villa Amore is a stunning four-bedroom sanctuary located in Punta Mita’s exclusive Iyari community. This exquisite 2 level villa features unobstructed views of the Pacific Ocean, providing a serene and picturesque backdrop for your getaway. Every living space is meticulously crafted to enhance relaxation and provide ultimate comfort, ensuring an unforgettable stay. With daily service, ocean views, and access to Punta Mita’s premier golf and beach clubs, Villa Amore captures the essence of relaxed luxury.":
+    "Villa Amore es un espectacular refugio de cuatro recámaras ubicado en la exclusiva comunidad Iyari de Punta Mita. Esta exquisita villa de dos niveles ofrece vistas despejadas al Océano Pacífico, creando un escenario sereno y memorable para tu estancia. Cada espacio está cuidadosamente diseñado para fomentar el descanso y ofrecer máximo confort. Con servicio diario, vistas al mar y acceso a los principales clubes de golf y playa de Punta Mita, Villa Amore captura la esencia del lujo relajado.",
+  "From the moment you arrive, Villa Amore envelops you in an atmosphere of calm sophistication. The open-concept living spaces invite the outdoors in through large glass doors that frame sweeping ocean and jungle views. The heart of the home is the expansive terrace — featuring a private infinity pool, sun loungers, shaded lounge area, and an al fresco dining space complete with a professional-grade outdoor grill. Whether you’re enjoying a leisurely breakfast, lounging by the pool, or sharing sunset cocktails, every space is designed for connection and tranquility.":
+    "Desde el momento en que llegas, Villa Amore te envuelve en una atmósfera de calma y sofisticación. Sus espacios abiertos integran el exterior a través de grandes puertas de cristal que enmarcan vistas al mar y a la selva. El corazón de la casa es su amplia terraza, con alberca infinity privada, camastros, sala sombreada y comedor al aire libre con asador profesional. Ya sea para desayunar con calma, descansar junto a la alberca o compartir cocteles al atardecer, cada espacio está diseñado para la conexión y la tranquilidad.",
+
+  "Villa Brezza is a refined five-bedroom retreat inside the exclusive Porta Fortuna community in Punta Mita. Steps from Sufi Beach Club, this stylish villa blends the comfort of a private home with the luxury of resort living — complete with daily cleaning service, private cook, golf privileges, and breathtaking golf-course views.":
+    "Villa Brezza es un refinado refugio de cinco recámaras dentro de la exclusiva comunidad Porta Fortuna en Punta Mita. A unos pasos de Sufi Beach Club, esta elegante villa combina la comodidad de una casa privada con el lujo de vivir como en un resort, con servicio diario de limpieza, cocinera privada, privilegios de golf y espectaculares vistas al campo.",
+  "Villa Brezza surrounds you with calm sophistication. Natural textures, soft tones, and open design create an effortless flow between indoor and outdoor living. The spacious terrace is the heart of the home — featuring a shimmering private pool, comfortable loungers, hammocks, and a shaded dining area that overlooks the manicured fairways":
+    "Villa Brezza te rodea de una sofisticación tranquila. Texturas naturales, tonos suaves y un diseño abierto crean una conexión fluida entre los espacios interiores y exteriores. La amplia terraza es el corazón de la casa, con alberca privada, cómodos camastros, hamacas y un comedor sombreado con vista a los fairways.",
+
+  "Villa Llamas is a warm and elegant five-bedroom retreat nestled inside Punta Mita’s exclusive Porta Fortuna community. Just steps from Sufi Beach Club, this stylish villa offers a perfect balance between relaxed coastal living and modern luxury — with spacious indoor-outdoor areas, daily service, and access to Punta Mita’s premier golf and beach clubs.":
+    "Villa Llamas es un cálido y elegante refugio de cinco recámaras dentro de la exclusiva comunidad Porta Fortuna en Punta Mita. A unos pasos de Sufi Beach Club, esta villa ofrece un equilibrio perfecto entre la vida costera relajada y el lujo moderno, con amplios espacios interiores y exteriores, servicio diario y acceso a los principales clubes de golf y playa de Punta Mita.",
+  "From the moment you step inside, Villa Llamas welcomes you with an atmosphere of comfort and connection. The open design fills the home with natural light and gentle breezes, blending soft tones, natural wood, and elegant furnishings. The expansive terrace overlooks the lush golf course, featuring a serene private pool, comfortable loungers, and a shaded outdoor dining area — the perfect setting for lazy mornings and sunset gatherings.":
+    "Desde el momento en que entras, Villa Llamas te recibe con una atmósfera de confort y conexión. Su diseño abierto llena la casa de luz natural y brisas suaves, combinando tonos cálidos, madera natural y mobiliario elegante. La amplia terraza tiene vista al campo de golf, con alberca privada, cómodos camastros y comedor exterior sombreado: el escenario perfecto para mañanas tranquilas y reuniones al atardecer.",
+
+  "Las Palmas 28, a warm and elegant three-bedroom residence, is located within the Las Palmas community of Punta Mita. Thoughtfully designed for comfort and relaxed coastal living, this inviting home is ideal for families or small groups seeking privacy, daily service, and access to Punta Mita’s world-class beach clubs and amenities.":
+    "Las Palmas 28 es una residencia cálida y elegante de tres recámaras ubicada dentro de la comunidad Las Palmas en Punta Mita. Diseñada para el confort y la vida costera relajada, esta casa es ideal para familias o grupos pequeños que buscan privacidad, servicio diario y acceso a los clubes de playa y amenidades de clase mundial de Punta Mita.",
+
+  
 };
 
 const normalize = (value: string) => value.replace(/\s+/g, " ").trim();
