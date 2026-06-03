@@ -193,10 +193,10 @@ export const villaDiningCategories: MenuCategory[] = [
     ],
   },
   {
-    title: "Poolside Lunch",
-    slug: "poolside-lunch",
-    image: categoryImage("poolside-lunch"),
-    description: "Fresh, Casual & Perfect for Villa Days",
+  title: "Lunch",
+  slug: "lunch",
+  image: categoryImage("lunch"),
+  description: "Fresh, Casual & Perfect for Villa Days",
     intro:
       "Lunch may be arranged upon request for an additional preparation/service cost. The cost of groceries and ingredients is charged separately.",
     subcategories: [
@@ -514,20 +514,20 @@ export const villaDiningCategories: MenuCategory[] = [
       },
     ],
   },
-  {
-    title: "Children & Simple Requests",
-    slug: "children-simple-requests",
-    image: categoryImage("children-simple-requests"),
-    description: "Simple, Familiar Options for Children and Easy Meals",
-    intro:
-      "Simple options can be prepared for children or guests who prefer familiar, casual dishes.",
-    subcategories: [
-      {
-        title: "Children & Simple Requests",
-        slug: "children-simple-requests",
-        image: subcategoryImage("children-simple-requests"),
-        description:
-          "Easy, familiar dishes for children or simple villa meals.",
+ {
+  title: "Children’s Favorites",
+  slug: "childrens-favorites",
+  image: categoryImage("childrens-favorites"),
+  description: "Familiar Favorites for Younger Guests",
+  intro:
+  "Familiar dishes can be prepared for children or guests who prefer relaxed, casual meals.",
+  subcategories: [
+    {
+      title: "Children’s Favorites",
+      slug: "childrens-favorites",
+      image: subcategoryImage("childrens-favorites"),
+      description:
+  "Familiar favorites for younger guests and relaxed villa meals.",
         dishes: [
           {
             title: "Chicken Tenders",
