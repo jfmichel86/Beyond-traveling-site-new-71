@@ -106,32 +106,17 @@ export default function VillaDiningSubcategoryPage({ params }: PageProps) {
                 key={dish.title}
                 className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm"
               >
-                <div
-                  className={
-                    dish.images.length > 1
-                      ? "grid grid-cols-2 gap-1 bg-slate-100"
-                      : "bg-slate-100"
-                  }
-                >
-                  {dish.images.map((image, index) => (
-                    <div
-                      key={image}
-                      className="relative aspect-[16/11] overflow-hidden"
-                    >
-                      <Image
-                        src={image}
-                        alt={
-                          dish.images.length > 1
-                            ? `${dish.title} ${index + 1}`
-                            : dish.title
-                        }
-                        fill
-                        sizes="(min-width: 1024px) 370px, (min-width: 768px) 50vw, 100vw"
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
+                <div className="bg-slate-100">
+  <div className="relative aspect-[16/9] overflow-hidden">
+    <Image
+      src={dish.images[0]}
+      alt={dish.title}
+      fill
+      sizes="(min-width: 1024px) 370px, (min-width: 768px) 50vw, 100vw"
+      className="object-cover"
+    />
+  </div>
+</div>
 
                 <div className="flex flex-1 flex-col bg-white p-6">
                   <h2 className="font-serif text-2xl leading-tight text-slate-900">
