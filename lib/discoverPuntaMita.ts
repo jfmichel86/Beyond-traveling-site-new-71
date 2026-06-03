@@ -311,7 +311,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, with conditions varying by swell, tide, and season.",
         tags: ["Ocean", "Adventure", "Family-Friendly", "Sports"],
         notes:
-          "The best surf spot is selected around the group’s experience level, tide, swell, and comfort in the water.",
+          "The surf location is chosen based on experience level, tide, swell, and comfort in the water.",
         whatToExpect:
           "Expect board setup, local guidance, ocean-safety briefing, instruction when needed, and time in the water at the best available surf spot for the group.",
         whatToBring:
@@ -429,7 +429,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, towel, sunscreen, and athletic comfort in the water.",
             goodToKnow:
-              "Wing-foil is best when wind and water conditions align, so timing is selected around the right conditions.",
+              "Wing-foil depends on wind and water conditions, so timing is planned for the most suitable conditions.",
           }),
           option({
             title: "Paddleboarding",
@@ -869,7 +869,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Resort wear, sandals, sunglasses, and camera.",
             goodToKnow:
-              "The location is selected around the tide, wind, view, and atmosphere desired for the occasion.",
+              "The location is chosen based on tide, wind, view, and the atmosphere desired for the occasion.",
           }),
           option({
             title: "Sunset Beach Dinner",
@@ -1481,7 +1481,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "High-energy beach club experiences for guests looking for music, boat access, social atmosphere, and a more festive day outside Punta Mita.",
         overview:
-          "Party beach clubs are not the right fit for every Punta Mita guest, but they can be very attractive for younger groups, birthdays, bachelor or bachelorette trips, and guests specifically looking for a social beach-club scene.",
+          "Party beach clubs are ideal for younger groups, birthdays, bachelor or bachelorette trips, and guests looking for a lively social beach-club scene.",
         bestFor:
           "Adults, younger groups, birthdays, bachelor and bachelorette groups, social travelers, and guests who want music and energy.",
         duration: "Usually half-day to full-day, depending on transfer and boat logistics.",
@@ -1546,7 +1546,7 @@ export const discoverCategories: DiscoverCategory[] = [
           "Available year-round for beach-club style visits. Polo and equestrian programming may be seasonal.",
         tags: ["Beach", "Food & Drink", "Family-Friendly", "Romantic", "By Request"],
         notes:
-          "This section stays intentionally selective, focused only on off-property beach clubs that feel relevant to a Punta Mita stay.",
+          "This section highlights off-property beach clubs that pair naturally with a Punta Mita stay.",
         whatToExpect:
           "Expect a curated outing outside Punta Mita with dining, beach-club atmosphere, and possibly polo or equestrian elements depending on the day and season.",
         whatToBring:
@@ -1707,7 +1707,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Couples, families, groups, and food lovers.",
             duration: "Usually 1.5 to 3 hours.",
             experience:
-              "The restaurant is selected around cuisine, atmosphere, occasion, group style, and ease of access from the villa.",
+              "Restaurant options are chosen based on cuisine, atmosphere, occasion, group style, and ease of access from the villa.",
             whatToExpect:
               "A polished dinner or lunch experience with minimal travel and strong fit for the group.",
             whatToBring:
@@ -1812,7 +1812,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable evening clothing.",
             goodToKnow:
-              "The setting is selected around comfort, ventilation, and the villa or venue’s smoking policies.",
+              "The setting is arranged with comfort, ventilation, and the villa or venue environment in mind.",
           }),
           option({
             title: "Cachasol Farm-to-Table & Mixology Experience",
@@ -2012,7 +2012,7 @@ export const discoverCategories: DiscoverCategory[] = [
         notes:
           "The evening is planned around transportation, venue selection, group style, timing, and a comfortable return to Punta Mita.",
         whatToExpect:
-          "Expect a planned evening route with reservations, transportation, and venues selected based on the group’s style.",
+          "Expect a curated evening route with reservations, transportation, and venues chosen to match the group’s style.",
         whatToBring:
           "Evening clothing, ID, payment card, and comfortable shoes.",
         experienceOptions: [
@@ -2203,9 +2203,9 @@ export const discoverCategories: DiscoverCategory[] = [
         image: destinationsImage,
         heroImage: destinationsHero,
         description:
-          "Nearby specialty outings for marina departures, selected dinners, casino, poker, and specific guest requests.",
+          "Nearby specialty outings for marina departures, waterfront dinners, casino evenings, poker, and tailored local plans.",
         overview:
-          "La Cruz and Bucerías are best for targeted outings such as marina departures, selected dinners, casino nights, poker events, or specific guest interests.",
+          "La Cruz and Bucerías work well for marina departures, waterfront dinners, casino nights, poker events, and focused nearby outings.",
         bestFor:
           "Guests with yacht departures, dinner plans, casino interest, poker interest, or a specific nearby outing request.",
         duration: "Usually 2 to 5 hours depending on purpose.",
@@ -2255,7 +2255,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Food lovers, guests with a specific request, and groups wanting a nearby change of scene.",
             duration: "Usually 2 to 3 hours.",
             experience:
-              "The restaurant is selected around cuisine, atmosphere, availability, and travel time from Punta Mita.",
+              "The restaurant is chosen based on cuisine, atmosphere, availability, and travel time from Punta Mita.",
             whatToExpect:
               "A nearby dinner experience with clear purpose, not a generic day trip.",
             whatToBring:
@@ -2432,7 +2432,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Private aviation transfers, helicopter tours, scenic flights, and VIP arrival or departure logistics.",
         overview:
-          "This is a VIP-only category for guests who want premium arrival, departure, transfer, or aerial experiences.",
+          "A premium category for guests who want private arrival, departure, transfer, or aerial experiences.",
         bestFor:
           "VIP travelers, high-end groups, special occasions, time-sensitive guests, and guests looking for a rare experience.",
         duration: "Varies by transfer or flight format.",
@@ -2452,7 +2452,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "VIP travelers, time-sensitive guests, families, and high-end groups.",
             duration: "Varies by route.",
             experience:
-              "The concierge coordinates aircraft, transfer timing, luggage details, ground transportation, and arrival or departure logistics.",
+              "Aircraft, transfer timing, luggage details, ground transportation, and arrival or departure logistics are coordinated in advance.",
             whatToExpect:
               "A smoother, more private travel experience with fewer friction points.",
             whatToBring:
