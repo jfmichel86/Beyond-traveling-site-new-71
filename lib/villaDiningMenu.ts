@@ -27,10 +27,108 @@ const categoryImage = (slug: string) =>
 const subcategoryImage = (slug: string) =>
   `/villa-dining-menu/subcategories/${slug}.jpg`;
 
-const dishImages = (slug: string) => [
-  `/villa-dining-menu/dishes/${slug}-1.jpg`,
-  `/villa-dining-menu/dishes/${slug}-2.jpg`,
-];
+const dishImageFileBySlug: Record<string, string> = {
+  "fresh-seasonal-fruit-platter": "fresh-seasonal-fruit-platter",
+  "fresh-orange-juice-green-juice": "fresh-orange-juice-or-green-juice",
+  "coffee-and-creamer": "coffee-and-creamer",
+  "granola-and-yogurt": "granola-and-yogurt",
+
+  "red-green-chilaquiles-eggs-chicken": "chilaquiles",
+  "huevos-rancheros": "huevos-rancheros",
+  "huevos-a-la-mexicana": "huevos-a-la-mexicana",
+  "eggs-any-style": "eggs-any-style",
+  "breakfast-burrito": "breakfast-burrito",
+  "molletes": "molletes",
+  "enfrijoladas": "enfrijoladas",
+  "quesadillas": "quesadillas",
+  "avocado-toast": "avocado-toast",
+  "smoked-salmon-toast-bagel": "smoked-salmon-toast-or-bagel",
+
+  "pancakes": "pancakes",
+  "waffles": "waffles",
+  "french-toast": "french-toast",
+  "oatmeal-bowl": "oatmeal-bowl",
+  "tropical-yogurt-parfait": "tropical-yogurt-parfait",
+  "acai-smoothie-bowl": "acai-or-smoothie-bowl",
+  "sweet-bagel": "sweet-bagel",
+
+  "guacamole-pico-de-gallo": "guacamole-and-pico-de-gallo",
+  "cheese-arrachera-nachos": "cheese-and-arrachera-nachos",
+  "grilled-vegetables": "grilled-vegetables",
+  "mexican-rice": "mexican-rice",
+  "refried-whole-beans": "refried-or-whole-beans",
+  "french-fries": "french-fries",
+  "seasonal-vegetable-crudites-house-dip":
+    "seasonal-vegetable-crudites-with-house-dip",
+
+  "caesar-salad": "caesar-salad",
+  "caprese-salad": "caprese-salad",
+  "mixed-green-salad": "mixed-green-salad",
+  "citrus-salad": "citrus-salad",
+  "greek-salad-grilled-shrimp": "greek-salad-with-grilled-shrimp",
+
+  "vallarta-style-fish-ceviche": "vallarta-style-fish-ceviche",
+  "shrimp-ceviche": "shrimp-ceviche",
+  "green-black-aguachile": "green-or-black-aguachile",
+  "tuna-sashimi": "tuna-sashimi",
+  "tuna-tostadas": "tuna-tostadas",
+  "fish-tostadas": "fish-tostadas",
+
+  "baja-fish-shrimp-tacos": "baja-fish-or-shrimp-tacos",
+  "grilled-fish-tacos": "grilled-fish-tacos",
+  "shrimp-gobernador-tacos": "shrimp-gobernador-tacos",
+  "mexican-tacos": "mexican-tacos",
+  "chicken-tinga-tostadas": "chicken-tinga-tostadas",
+  "fajitas": "fajitas",
+  "mexican-bowl": "mexican-bowl",
+  "club-sandwich-turkey-panini": "club-sandwich-or-turkey-panini",
+
+  "chicken-mole-enchiladas": "chicken-mole-enchiladas",
+  "mexican-antojitos": "mexican-antojitos",
+  "cochinita-pibil-tacos": "cochinita-pibil-tacos",
+  "stuffed-poblano-peppers": "stuffed-poblano-peppers",
+  "arrachera-dinner-plate": "arrachera-dinner-plate",
+  "chicken-creamy-poblano-sauce": "chicken-in-creamy-poblano-sauce",
+
+  "catch-of-the-day-garlic-butter": "catch-of-the-day-with-garlic-butter",
+  "pescado-a-la-veracruzana": "pescado-a-la-veracruzana",
+  "fish-to-taste": "fish-to-taste",
+  "shrimp-to-taste": "shrimp-to-taste",
+  "zarandeado-style-seafood": "zarandeado-style-seafood",
+  "garlic-fish-fillet-shrimp": "garlic-fish-fillet-or-shrimp",
+  "grilled-platter": "grilled-platter",
+
+  "pasta": "pasta",
+  "seafood-pasta": "seafood-pasta",
+  "dinner-fajitas": "fajitas-dinner",
+  "burgers": "burgers",
+
+  "chicken-tenders": "chicken-tenders",
+  "chicken-nuggets": "chicken-nuggets",
+  "cheese-quesadillas": "cheese-quesadillas",
+  "children-french-fries": "french-fries-kids",
+  "children-pasta": "pasta-with-butter-tomato-sauce-or-alfredo",
+  "mini-pancakes": "mini-pancakes",
+  "fruit-plate": "fruit-plate",
+  "turkey-cheese-wrap": "turkey-and-cheese-wrap",
+  "banana-strawberry-nutella-wrap": "banana-strawberry-and-nutella-wrap",
+
+  "vanilla-flan-caramel-sauce": "vanilla-flan-with-caramel-sauce",
+  "churros-chocolate-sauce": "churros-with-chocolate-sauce",
+  "crepes-cajeta-strawberries": "crepes-with-cajeta-and-strawberries",
+  "brownie-vanilla-ice-cream": "brownie-with-vanilla-ice-cream",
+  "apple-pie": "apple-pie",
+  "cheesecake": "cheesecake",
+  "chocolate-lava-cake": "chocolate-lava-cake",
+  "cajeta-lava-cake": "cajeta-lava-cake",
+  "premium-assorted-ice-cream": "premium-assorted-ice-cream",
+};
+
+const dishImages = (slug: string) => {
+  const fileName = dishImageFileBySlug[slug] ?? slug;
+
+  return [`/villa-dining-menu/dishes/${fileName}.jpg`];
+};
 
 export const importantServiceDetails = [
   "Breakfast preparation is included with your rental.",
