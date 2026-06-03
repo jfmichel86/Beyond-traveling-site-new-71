@@ -251,11 +251,11 @@ export const discoverCategories: DiscoverCategory[] = [
           option({
             title: "Hidden Beach Experience",
             description:
-              "A permit-dependent visit to the famous Playa del Amor, usually treated as a special upgrade inside a Marietas itinerary.",
+              "A permit-dependent visit to the famous Playa del Amor, offered as one of the most exclusive additions to a Marietas itinerary.",
             bestFor: "Adventurous couples, active adults, and bucket-list travelers comfortable with a more active ocean experience.",
             duration: "Usually part of a half-day Marietas experience.",
             experience:
-              "When permits, conditions, and guest eligibility allow, the boat itinerary includes access to Hidden Beach. It is a more regulated and active experience than a normal beach stop.",
+              "When permits and ocean conditions allow, the boat itinerary may include access to Hidden Beach. It is a more regulated and active experience than a normal beach stop.",
             whatToExpect:
               "A memorable but controlled visit with time limitations, rules, and possible physical requirements depending on the operator and conditions.",
             whatToBring:
@@ -479,7 +479,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, subject to visibility and sea conditions.",
         tags: ["Ocean", "Adventure", "Family-Friendly", "Wildlife"],
         notes:
-          "Scuba and freediving may require experience level, certification, or additional safety screening.",
+          "Scuba and freediving may require previous experience, certification, or additional safety preparation.",
         whatToExpect:
           "Expect a guided ocean session with equipment, safety briefing, boat transfer when needed, and time to explore marine life and underwater scenery.",
         whatToBring:
@@ -850,7 +850,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, weather and beach rules permitting.",
         tags: ["Romantic", "Family-Friendly", "VIP", "Food & Drink", "Beach"],
         notes:
-          "Setups are planned around the location, tide, wind, access rules, and the atmosphere the guest wants to create.",
+          "Setups are planned around the location, tide, wind, setting, and the atmosphere desired for the occasion.",
         whatToExpect:
           "Expect a styled outdoor setup with seating, décor, food or drinks, and a relaxed atmosphere timed around sunset or the guest’s preferred moment.",
         whatToBring:
@@ -944,7 +944,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, with some special events seasonally.",
         tags: ["Sports", "VIP", "Groups", "Seasonal"],
         notes:
-          "Access depends on the villa, club rules, reservation policies, and availability.",
+          "Access varies by villa, club availability, reservation requirements, and the specific experience selected.",
         whatToExpect:
           "Expect a polished golf experience with ocean views, premium service, and options ranging from relaxed rounds to competitive group formats.",
         whatToBring:
@@ -963,7 +963,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Golf attire, golf shoes, sunglasses, sunscreen, and clubs if preferred.",
             goodToKnow:
-              "Course access and tee times vary by villa privileges, club policies, and availability.",
+              "Course access and tee times vary by villa privileges, availability, and the preferred playing schedule.",
           }),
           option({
             title: "Tail of the Whale Experience",
@@ -1243,7 +1243,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Guided hikes, sunrise routes, nature walks, and scenic active experiences near Punta Mita.",
         overview:
-          "This is the only hiking category I would keep as a main Punta Mita activity because it is close, scenic, active, and easy to understand.",
+          "Monkey Mountain is one of the most accessible and memorable hiking experiences near Punta Mita, combining scenic views, active movement, and a strong sense of place.",
         bestFor:
           "Active guests, couples, families with older kids, nature lovers, and guests who enjoy sunrise activities.",
         duration: "Usually 2 to 4 hours.",
@@ -1743,7 +1743,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Casual resort clothing and an open mind.",
             goodToKnow:
-              "The best version is highly selective, focused on places with genuine quality rather than generic tourist popularity.",
+              "The focus is on restaurants with genuine quality, atmosphere, and a stronger sense of local character.",
           }),
         ],
       }),
@@ -2192,7 +2192,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable walking shoes, casual clothing, sunglasses, and payment card.",
             goodToKnow:
-              "The experience is best when it stays selective, relaxed, and focused on places with genuine charm.",
+              "The experience feels most memorable when it stays relaxed, personal, and focused on places with genuine charm.",
           }),
         ],
       }),
@@ -2473,7 +2473,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Valid ID, comfortable clothing, sunglasses, and camera.",
             goodToKnow:
-              "Weather and aircraft availability are critical. This is always by request.",
+              "Weather and aircraft availability are important, so timing and route details are coordinated in advance.",
           }),
         ],
       }),
@@ -2577,7 +2577,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round.",
         tags: ["VIP", "Groups", "Family-Friendly", "By Request"],
         notes:
-          "VIP arrangements are shaped around availability, villa privileges, venue policies, and the guest’s preferred level of service.",
+          "VIP arrangements are shaped around availability, villa privileges, preferred service level, and the style of stay guests want to create.",
         whatToExpect:
           "Expect personalized itinerary planning, reservations, transportation, guest support, and tailored recommendations before and during the stay.",
         whatToBring:
