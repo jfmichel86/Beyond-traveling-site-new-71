@@ -176,7 +176,7 @@ export const discoverCategories: DiscoverCategory[] = [
           option({
             title: "Private Yacht Charter",
             description:
-              "A polished private yacht experience arranged around the guest’s preferred style: relaxed cruising, swimming, music, drinks, snorkeling, or a full celebration on the water.",
+              "A polished private yacht experience shaped around your preferred style: relaxed cruising, swimming, music, drinks, snorkeling, or a full celebration on the water.",
             bestFor: "VIP travelers, groups, families, birthdays, couples, and celebrations.",
             duration: "Usually half-day or full-day.",
             experience:
@@ -186,7 +186,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, cover-up, sunglasses, sunscreen, hat, sandals, and any preferred personal items.",
             goodToKnow:
-              "The boat is selected to fit the group’s style, comfort expectations, occasion, and preferred pace on the water.",
+              "The boat is chosen to match the group’s style, comfort expectations, occasion, and preferred pace on the water.",
           }),
           option({
             title: "Luxury Boat Day",
@@ -195,13 +195,13 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Families, friend groups, active travelers, and relaxed luxury guests.",
             duration: "Usually 3 to 6 hours.",
             experience:
-              "This version focuses on easy cruising, swimming, snorkeling, beach stops, snacks, drinks, and flexible time on the water. It can be arranged with smaller luxury boats, pangas, or sport boats depending on the guest’s preference.",
+              "This version focuses on easy cruising, swimming, snorkeling, beach stops, snacks, drinks, and flexible time on the water. It can be arranged with smaller luxury boats, pangas, or sport boats depending on the preferred style of outing.",
             whatToExpect:
               "A lighter, easier, and often more practical boat experience than a formal yacht charter, while still private and curated.",
             whatToBring:
               "Swimwear, towel, sandals, sunscreen, sunglasses, and a dry bag if needed.",
             goodToKnow:
-              "This is often the best option for families who want a beautiful ocean day without overcomplicating the logistics.",
+              "An ideal choice for families who want a beautiful, easy ocean day with comfort and flexibility.",
           }),
           option({
             title: "Sailing Trip",
@@ -257,7 +257,7 @@ export const discoverCategories: DiscoverCategory[] = [
             experience:
               "When permits and ocean conditions allow, the boat itinerary may include access to Hidden Beach. It is a more regulated and active experience than a normal beach stop.",
             whatToExpect:
-              "A memorable but controlled visit with time limitations, rules, and possible physical requirements depending on the operator and conditions.",
+              "A memorable and carefully managed visit with limited access, time restrictions, and possible physical requirements depending on the operator and ocean conditions.",
             whatToBring:
               "Swimwear, towel, sunscreen, and comfort in the water.",
             goodToKnow:
@@ -304,7 +304,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Private surf lessons, surf safaris, La Lancha surf days, and surf-town experiences near Punta Mita.",
         overview:
-          "Surfing around Punta Mita can be accessible for beginners, fun for families, and rewarding for experienced surfers. The best version depends on the guest’s level, the swell, the tide, and the desired vibe.",
+          "Surfing around Punta Mita can be accessible for beginners, fun for families, and rewarding for experienced surfers, with sessions shaped by experience level, swell, tide, and the desired style of day.",
         bestFor:
           "Active travelers, families, kids, teens, couples, surfers, and guests who want a classic Punta Mita ocean experience.",
         duration: "Usually 1.5 to 4 hours.",
@@ -375,7 +375,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Rash guard, sunscreen, towel, water, hat for before and after, and dry clothes.",
             goodToKnow:
-              "For younger kids, ocean conditions matter more than schedule preference.",
+              "For younger kids, the safest and most comfortable ocean conditions guide the timing.",
           }),
         ],
       }),
@@ -541,14 +541,14 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Private sportfishing, spearfishing, deep-sea fishing, and sea-to-table fishing experiences.",
         overview:
-          "This activity combines the different fishing-related experiences into one premium category. It can be casual and family-friendly or a serious offshore fishing day, depending on the group.",
+          "Fishing experiences can range from casual, family-friendly ocean outings to serious offshore sportfishing days.",
         bestFor:
           "Fishing enthusiasts, families, groups, adventurous travelers, and guests interested in sea-to-table dining.",
         duration: "Half-day or full-day.",
         seasonality: "Available year-round, with target species and conditions varying by season.",
         tags: ["Ocean", "Adventure", "Food & Drink", "Groups", "Seasonal"],
         notes:
-          "When possible, the day can be paired with a villa chef or selected restaurant for a fresh sea-to-table meal.",
+          "When possible, the day can be paired with a villa chef or trusted restaurant for a fresh sea-to-table meal.",
         whatToExpect:
           "Expect a private captain or crew, fishing gear, route planning based on conditions, and the possibility of preparing the catch afterward depending on the experience.",
         whatToBring:
@@ -690,7 +690,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Spa treatments, massage, yoga, sound healing, breathwork, ice baths, and private wellness sessions at the villa.",
         overview:
-          "This is the main wellness category for villa renters. It turns the villa into a private wellness space with spa treatments, movement, recovery, and restorative experiences.",
+          "The villa becomes a private wellness space for spa treatments, movement, recovery, and restorative experiences.",
         bestFor:
           "Couples, families, wellness-focused guests, groups, pre-wedding stays, and guests who want to relax without leaving the villa.",
         duration: "Usually 1 to 4 hours, or a half-day wellness program.",
@@ -914,7 +914,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, cover-up, sunscreen, hat, sunglasses, and sandals.",
             goodToKnow:
-              "Availability varies by beach access, club policies, property setting, and setup permissions.",
+              "Availability varies by beach access, property setting, location requirements, and the style of setup requested.",
           }),
         ],
       }),
@@ -1028,7 +1028,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round.",
         tags: ["Sports", "Family-Friendly", "Groups", "VIP"],
         notes:
-          "Availability depends on court access, instructor schedules, and property or club rules.",
+          "Availability varies by court access, instructor schedules, and the selected sports setting.",
         whatToExpect:
           "Expect private instruction, court time, social games, or tournament-style play depending on the group.",
         whatToBring:
@@ -1047,7 +1047,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Court shoes, athletic clothing, water, and racket if preferred.",
             goodToKnow:
-              "Court time and instructor schedules vary, so sessions are arranged around availability.",
+              "Court time and instructor schedules vary, so advance planning helps secure the preferred session.",
           }),
           option({
             title: "Pickleball Session",
@@ -1092,7 +1092,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Athletic clothing, court shoes, water, and group energy.",
             goodToKnow:
-              "This works best when the group has enough players and similar activity interest.",
+              "This works especially well for groups with enough players and a shared interest in friendly competition.",
           }),
         ],
       }),
@@ -1384,7 +1384,7 @@ export const discoverCategories: DiscoverCategory[] = [
           "Available year-round, subject to villa access, club rules, reservations, and seasonal schedules.",
         tags: ["Beach", "Family-Friendly", "Romantic", "VIP", "Food & Drink"],
         notes:
-          "Access depends on the villa, guest privileges, club rules, reservation availability, and the specific Punta Mita community or resort relationship.",
+          "Access varies by villa, guest privileges, reservation availability, and the specific Punta Mita community or resort relationship.",
         whatToExpect:
           "Expect a polished beach-club day with loungers, dining, beach access, ocean views, pools or club amenities depending on the venue, and a more effortless way to enjoy the Punta Mita lifestyle.",
         whatToBring:
@@ -1404,7 +1404,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Swimwear, cover-up, sunscreen, sunglasses, sandals, and a hat.",
             goodToKnow:
-              "Access depends on the villa and guest privileges. This is usually one of the easiest Punta Mita beach-club options for families.",
+              "Access varies by villa and guest privileges. Kupuri is often one of the most comfortable Punta Mita beach-club options for families.",
           }),
           option({
             title: "Pacifico Beach Club",
@@ -1588,7 +1588,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Private chefs, tasting menus, taco nights, sushi chefs, seafood bars, ceviche stations, and cooking classes at the villa.",
         overview:
-          "This is one of the most important categories for luxury villa renters. It gives guests restaurant-level dining without leaving the property.",
+          "Private dining brings restaurant-level cuisine, service, and atmosphere directly into the villa.",
         bestFor:
           "Families, couples, groups, celebrations, food lovers, and guests who prefer private service.",
         duration: "Meal-based, half-day, or multi-day depending on service.",
@@ -1614,7 +1614,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "No special items required. Share dietary restrictions and preferences in advance.",
             goodToKnow:
-              "This is one of the highest-value experiences for villa renters.",
+              "An excellent choice for guests who want a polished dinner experience without leaving the villa.",
           }),
           option({
             title: "Chef’s Tasting Menu",
@@ -1694,9 +1694,9 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, subject to restaurant schedules and reservation availability.",
         tags: ["Food & Drink", "Romantic", "Family-Friendly", "VIP"],
         notes:
-          "Restaurant outings are kept close and purposeful, with farther options reserved for places that genuinely feel worth the transfer.",
+          "Restaurant outings focus on strong dining experiences, beautiful settings, and places that feel worth the time and transfer.",
         whatToExpect:
-          "Expect restaurant suggestions shaped around the group’s style, occasion, preferred cuisine, timing, and desired atmosphere.",
+          "Expect restaurant options shaped around style, occasion, preferred cuisine, timing, and desired atmosphere.",
         whatToBring:
           "Resort casual or elegant resort wear, depending on the restaurant.",
         experienceOptions: [
@@ -1827,7 +1827,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable resort casual clothing, sunglasses, and transportation arrangements.",
             goodToKnow:
-              "This is one of the strongest off-villa food experiences for Punta Mita guests.",
+              "A standout off-villa food experience for guests who want something local, polished, and memorable.",
           }),
         ],
       }),
@@ -1850,7 +1850,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Private villa parties, DJs, bartenders, mariachi, movie nights, family entertainment, and celebration setups.",
         overview:
-          "For Punta Mita luxury renters, the best nightlife is often private. This category turns the villa into the evening venue.",
+          "For Punta Mita luxury renters, some of the best nightlife happens privately at the villa, with music, dining, drinks, and entertainment brought directly to the setting.",
         bestFor:
           "Families, groups, birthdays, bachelor and bachelorette groups, celebrations, and guests who prefer private entertainment.",
         duration: "Usually 2 to 6 hours.",
@@ -1906,7 +1906,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "No special items required.",
             goodToKnow:
-              "Timing matters. Mariachi is strongest as a highlight during a larger evening, not necessarily the full event.",
+              "Mariachi works beautifully as a highlight during cocktails, dinner, sunset, or a special celebration moment.",
           }),
           option({
             title: "Private Movie Night or Family Entertainment",
@@ -1941,7 +1941,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Private events are year-round. Public tournaments are calendar-dependent.",
         tags: ["Nightlife", "Adults", "Groups", "By Request"],
         notes:
-          "Private villa events are arranged around the property setting, while public tournament options depend on the current event calendar.",
+          "Private villa events are tailored to the property setting, while public tournament options vary by current event calendar.",
         whatToExpect:
           "Expect a private game night or casino-style setup with dealers, tables, cards, and a social adults-only atmosphere.",
         whatToBring:
@@ -1984,7 +1984,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Adults, serious poker players, and niche-interest guests.",
             duration: "Varies by tournament.",
             experience:
-              "Current tournament schedules can be reviewed around the guest’s travel dates, with transportation and reservations arranged when a relevant event is available.",
+              "Tournament schedules vary by date, with transportation and reservations coordinated when a relevant event is available.",
             whatToExpect:
               "A date-specific outing for guests whose travel dates align with a relevant poker event.",
             whatToBring:
@@ -2001,7 +2001,7 @@ export const discoverCategories: DiscoverCategory[] = [
         image: nightlifeImage,
         heroImage: nightlifeHero,
         description:
-          "Sayulita nightlife, live music, Zona Romántica bar crawls, VIP nightlife tables, rooftops, and cocktail-bar experiences by request.",
+          "Sayulita nightlife, live music, Zona Romántica bar crawls, VIP nightlife tables, rooftops, and cocktail-bar experiences.",
         overview:
           "For guests who want a curated night outside the villa, this experience brings together transportation, reservations, and the right evening atmosphere.",
         bestFor:
@@ -2010,7 +2010,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, with quality varying by night and season.",
         tags: ["Nightlife", "Adults", "Groups", "By Request"],
         notes:
-          "The evening is planned around transportation, venue selection, group style, timing, and a comfortable return to Punta Mita.",
+          "The evening brings together transportation, venue selection, group style, timing, and a comfortable return to Punta Mita.",
         whatToExpect:
           "Expect a curated evening route with reservations, transportation, and venues chosen to match the group’s style.",
         whatToBring:
@@ -2107,7 +2107,7 @@ export const discoverCategories: DiscoverCategory[] = [
             bestFor: "Families, couples, groups, and guests who prefer organized experiences.",
             duration: "Usually 3 to 6 hours.",
             experience:
-              "The evening can be arranged around a show or entertainment dinner that fits the guest’s interests, with transportation, timing, and reservations planned in advance.",
+              "The evening can include a show or entertainment dinner matched to the guest’s interests, with transportation, timing, and reservations coordinated in advance.",
             whatToExpect:
               "A structured night with less decision-making for guests.",
             whatToBring:
@@ -2126,7 +2126,7 @@ export const discoverCategories: DiscoverCategory[] = [
     image: destinationsImage,
     heroImage: destinationsHero,
     description:
-      "Curated nearby outings that are close enough or special enough to make sense for Punta Mita renters.",
+      "Curated nearby outings for guests who want to explore beyond Punta Mita without losing the ease of a luxury stay.",
     activities: [
       createActivity({
         title: "Sayulita & San Pancho Half-Day Experiences",
@@ -2143,7 +2143,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round.",
         tags: ["Culture", "Family-Friendly", "Shopping", "Food & Drink", "By Request"],
         notes:
-          "Best for guests who want a change of scene without going all the way to Puerto Vallarta.",
+          "A good choice for guests who want a change of scene without going all the way to Puerto Vallarta.",
         whatToExpect:
           "Expect a casual curated outing with time for walking, beach, boutiques, lunch, drinks, or surf-town atmosphere.",
         whatToBring:
@@ -2162,7 +2162,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable shoes, casual clothing, sunscreen, sunglasses, and payment card.",
             goodToKnow:
-              "Sayulita can feel busy and informal. It is better for guests who want local energy, not quiet luxury.",
+              "Sayulita is colorful, busy, and informal, best for guests who enjoy local energy and a casual surf-town atmosphere.",
           }),
           option({
             title: "San Pancho Half-Day",
@@ -2177,7 +2177,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable shoes, resort casual clothing, sunglasses, and camera.",
             goodToKnow:
-              "San Pancho is often a better fit for luxury guests than Sayulita.",
+              "San Pancho often feels calmer, more refined, and more relaxed than Sayulita.",
           }),
           option({
             title: "Surf Town Shopping & Lunch",
@@ -2315,7 +2315,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable evening resort wear, light layer, and comfortable shoes.",
             goodToKnow:
-              "This overlaps with Signature Dinner Shows and can be cross-linked later.",
+              "This is a strong option for guests who want dinner, entertainment, and a scenic coastal setting in one evening.",
           }),
         ],
       }),
@@ -2390,7 +2390,7 @@ export const discoverCategories: DiscoverCategory[] = [
             experience:
               "The night is designed around dinner, music, countdown, champagne, transportation, and the desired energy level.",
             whatToExpect:
-              "A premium celebration with high logistical complexity and strong need for advance planning.",
+              "A premium celebration that benefits from early planning, strong coordination, and the right setting.",
             whatToBring:
               "Evening resort wear and any celebration preferences.",
             goodToKnow:
@@ -2641,7 +2641,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Preferences, dates, guest count, dietary needs, and any non-negotiable experiences.",
             goodToKnow:
-              "Some experiences depend on availability, villa privileges, venue policies, and provider approval.",
+              "Some experiences vary by availability, villa privileges, venue requirements, and provider confirmation.",
           }),
         ],
       }),
