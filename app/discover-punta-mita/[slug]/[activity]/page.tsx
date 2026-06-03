@@ -223,7 +223,7 @@ export default function ActivityPage({ params }: PageProps) {
           {activity.customInfo.length > 0 && (
             <div className="mt-20">
               <h2 className="font-serif text-3xl text-slate-900">
-                Additional Notes
+                Good to Know
               </h2>
 
               <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -263,7 +263,7 @@ export default function ActivityPage({ params }: PageProps) {
               </h3>
 
               <p className="mt-4 text-[16px] leading-[1.75] text-slate-900/70">
-                We can help guests understand which experiences fit their trip
+                We can help you choose the experiences that fit your trip
                 best depending on the season, group size, timing, and style of
                 travel.
               </p>
