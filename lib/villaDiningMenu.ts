@@ -22,11 +22,11 @@ export type MenuCategory = {
 };
 
 const categoryImageFileBySlug: Record<string, string> = {
-  breakfast: "fresh-seasonal-fruit-platter",
-  lunch: "baja-fish-or-shrimp-tacos",
-  "private-dinner-at-home": "catch-of-the-day-with-garlic-butter",
-  "childrens-favorites": "mini-pancakes",
-  desserts: "chocolate-lava-cake",
+  breakfast: "daily-breakfast",
+  lunch: "lunch-mains",
+  "private-dinner-at-home": "seafood-and-grill",
+  "childrens-favorites": "children-favorites",
+  desserts: "desserts",
 };
 
 const subcategoryImageFileBySlug: Record<string, string> = {
