@@ -34,10 +34,10 @@ const subcategoryImageFileBySlug: Record<string, string> = {
   "savory-breakfast-options": "savory-breakfast",
   "sweet-breakfast-options": "sweet-breakfast",
 
-  "starters-sides": "guacamole-and-pico-de-gallo",
-  salads: "caesar-salad",
-  "fresh-coastal-options": "vallarta-style-fish-ceviche",
-  "lunch-mains": "baja-fish-or-shrimp-tacos",
+  "starters-sides": "starters-and-sides",
+  salads: "salads",
+  "fresh-coastal-options": "fresh-coastal",
+  "lunch-mains": "lunch-mains",
 
   "mexican-favorites": "chicken-mole-enchiladas",
   "seafood-grill": "catch-of-the-day-with-garlic-butter",
