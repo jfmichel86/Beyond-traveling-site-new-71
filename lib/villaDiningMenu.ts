@@ -39,9 +39,9 @@ const subcategoryImageFileBySlug: Record<string, string> = {
   "fresh-coastal-options": "fresh-coastal",
   "lunch-mains": "lunch-mains",
 
-  "mexican-favorites": "chicken-mole-enchiladas",
-  "seafood-grill": "catch-of-the-day-with-garlic-butter",
-  "pasta-comfort-dishes": "pasta",
+  "mexican-favorites": "mexican-favorites",
+  "seafood-grill": "seafood-and-grill",
+  "pasta-comfort-dishes": "pasta-and-comfort-dishes",
 };
 
 const categoryImage = (slug: string) => {
