@@ -63,18 +63,6 @@ export default function VillaDiningSubcategoryPage({ params }: PageProps) {
 
   return (
     <main className="bg-white">
-      <section>
-        <div className="relative aspect-[1983/793] w-full overflow-hidden">
-          <Image
-            src={subcategory.image}
-            alt={subcategory.title}
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
-      </section>
-
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-[1200px] px-6">
           <Link
@@ -106,17 +94,17 @@ export default function VillaDiningSubcategoryPage({ params }: PageProps) {
                 key={dish.title}
                 className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm"
               >
-  <div className="bg-slate-100">
-  <div className="relative aspect-[16/9] overflow-hidden">
-    <Image
-      src={dish.images[0]}
-      alt={dish.title}
-      fill
-      sizes="(min-width: 1024px) 370px, (min-width: 768px) 50vw, 100vw"
-      className="object-cover"
-    />
-  </div>
-</div>
+                <div className="bg-slate-100">
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={dish.images[0]}
+                      alt={dish.title}
+                      fill
+                      sizes="(min-width: 1024px) 370px, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
 
                 <div className="flex flex-1 flex-col bg-white p-6">
                   <h2 className="font-serif text-2xl leading-tight text-slate-900">
