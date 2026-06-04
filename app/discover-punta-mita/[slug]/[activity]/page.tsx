@@ -202,9 +202,9 @@ export default function ActivityPage({ params }: PageProps) {
                 </h2>
 
                 <p className="mt-5 text-[17px] leading-[1.75] text-slate-900/70">
-                  This activity can take different forms depending on the group,
+                  Each experience can take different forms depending on the group,
                   season, timing, and preferred style of travel. Below are the main
-                  experience options available.
+                  options available.
                 </p>
               </div>
 
