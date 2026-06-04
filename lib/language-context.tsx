@@ -437,8 +437,6 @@ const es: Record<string, string> = {
   "Your name": "Tu nombre",
   "you@example.com": "tu@correo.com",
   "Message": "Mensaje",
-    "This opens WhatsApp with your message ready to send.":
-    "Esto abre WhatsApp con tu mensaje listo para enviar.",
   "Tell us a little about your property or what you need help with.":
     "Cuéntanos un poco sobre tu propiedad o en qué necesitas ayuda.",
   "Send via WhatsApp": "Enviar por WhatsApp",
