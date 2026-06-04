@@ -472,7 +472,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Snorkeling, scuba diving, freediving, and underwater exploration around Marietas and nearby ocean sites.",
         overview:
-          "This activity is for guests who specifically want to explore below the surface. It can be a relaxed snorkeling outing, a private dive charter, or a more advanced freediving experience.",
+          "For guests who want to explore below the surface, this can be a relaxed snorkeling outing, a private dive charter, or a more advanced freediving experience.",
         bestFor:
           "Ocean lovers, families, certified divers, adventurous couples, and guests interested in marine life.",
         duration: "Usually 2 to 5 hours depending on route and activity.",
@@ -781,7 +781,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available year-round, subject to provider availability.",
         tags: ["Wellness", "Romantic", "VIP", "By Request"],
         notes:
-          "These experiences are best for guests seeking a deeper, more intentional wellness moment.",
+          "These experiences offer a deeper, more intentional wellness moment rooted in atmosphere, ritual, and relaxation.",
         whatToExpect:
           "Expect a guided ritual-style experience focused on relaxation, renewal, heat, breath, sound, or ceremony depending on the provider.",
         whatToBring:
@@ -830,7 +830,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Comfortable clothing and any personal intentions for the experience.",
             goodToKnow:
-              "This is ideal for guests who want wellness to feel special and produced.",
+              "An ideal way to make wellness feel special, atmospheric, and memorable.",
           }),
         ],
       }),
@@ -852,7 +852,7 @@ export const discoverCategories: DiscoverCategory[] = [
         notes:
           "Setups are planned around the location, tide, wind, setting, and the atmosphere desired for the occasion.",
         whatToExpect:
-          "Expect a styled outdoor setup with seating, décor, food or drinks, and a relaxed atmosphere timed around sunset or the guest’s preferred moment.",
+          "Expect a styled outdoor setup with seating, décor, food or drinks, and a relaxed atmosphere timed around sunset or the preferred moment.",
         whatToBring:
           "Comfortable resort wear, sandals, light layer, camera, and anything personal for the occasion.",
         experienceOptions: [
@@ -1105,7 +1105,7 @@ export const discoverCategories: DiscoverCategory[] = [
         description:
           "Private training, beach workouts, boxing, pilates, mobility, recovery, and performance sessions.",
         overview:
-          "This activity is for guests who want to stay active during the trip without leaving the villa or beach environment.",
+          "For guests who want to stay active during the trip, private fitness sessions can take place at the villa, beach, or another comfortable setting nearby.",
         bestFor:
           "Active travelers, wellness guests, groups, pre-wedding stays, and guests maintaining a fitness routine.",
         duration: "Usually 1 to 2 hours.",
@@ -1381,7 +1381,7 @@ export const discoverCategories: DiscoverCategory[] = [
           "Families, couples, villa guests, beach lovers, relaxed luxury travelers, and guests who want an easy day close to the villa.",
         duration: "Half-day, full-day, lunch, or sunset visit.",
         seasonality:
-          "Available year-round, subject to villa access, club rules, reservations, and seasonal schedules.",
+          "Available year-round, with access, reservations, and seasonal schedules varying by villa and club.",
         tags: ["Beach", "Family-Friendly", "Romantic", "VIP", "Food & Drink"],
         notes:
           "Access varies by villa, guest privileges, reservation availability, and the specific Punta Mita community or resort relationship.",
@@ -1990,7 +1990,7 @@ export const discoverCategories: DiscoverCategory[] = [
             whatToBring:
               "Valid ID, payment method, and tournament details.",
             goodToKnow:
-              "Tournament availability depends on the current event calendar.",
+              "Tournament availability varies by current event calendar.",
           }),
         ],
       }),
@@ -2281,7 +2281,7 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available most of the year, subject to operator schedules.",
         tags: ["Adventure", "Family-Friendly", "Romantic", "By Request"],
         notes:
-          "From Punta Mita, this is a more involved excursion, best for guests who want a structured beach or evening experience with a fuller itinerary.",
+          "From Punta Mita, this is a more involved excursion for guests who want a structured beach or evening experience with a fuller itinerary.",
         whatToExpect:
           "Expect a structured excursion with transportation, boat transfer, beach or evening programming, and a longer time commitment.",
         whatToBring:
@@ -2439,9 +2439,9 @@ export const discoverCategories: DiscoverCategory[] = [
         seasonality: "Available with advance coordination, subject to weather, aircraft, permits, and provider availability.",
         tags: ["VIP", "By Request", "Romantic", "Adventure"],
         notes:
-          "Details depend on aircraft availability, routing, weather, permits, and provider schedules.",
+          "Details vary by aircraft availability, routing, weather, permits, and provider schedules.",
         whatToExpect:
-          "Expect a highly customized experience with aircraft availability, weather checks, scheduling, and premium logistics.",
+          "Expect a highly customized experience with coordinated scheduling, route planning, weather review, and premium travel details.",
         whatToBring:
           "Valid identification, comfortable clothing, and luggage details if transfer-related.",
         experienceOptions: [
@@ -2495,9 +2495,9 @@ export const discoverCategories: DiscoverCategory[] = [
         notes:
           "Each celebration is shaped around mood, timing, privacy, guest preferences, setting, and backup plans.",
         whatToExpect:
-          "Expect a custom-produced experience with planning, setup, décor, photography, dining, music, and logistics depending on the occasion.",
+          "Expect a custom-produced experience with setup, décor, photography, dining, music, and thoughtful coordination shaped around the occasion.",
         whatToBring:
-          "Share occasion details, inspiration images, guest count, timing, and any surprise requirements.",
+          "Helpful details include the occasion, inspiration images, guest count, timing, and any surprise elements.",
         experienceOptions: [
           option({
             title: "Proposal Planning",
