@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
+  categoryShouldShowDishesDirectly,
   getVillaDiningCategoryBySlug,
   villaDiningCategories,
 } from "@/lib/villaDiningMenu";
@@ -48,20 +49,13 @@ export default function VillaDiningCategoryPage({ params }: PageProps) {
     notFound();
   }
 
+  const showDishesDirectly = categoryShouldShowDishesDirectly(category.slug);
+  const directDishes = showDishesDirectly
+    ? category.subcategories.flatMap((subcategory) => subcategory.dishes)
+    : [];
+
   return (
     <main className="bg-white">
-      <section>
-        <div className="relative aspect-[1983/793] w-full overflow-hidden">
-          <Image
-            src={category.image}
-            alt={category.title}
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
-      </section>
-
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-[1200px] px-6">
           <Link
@@ -91,43 +85,76 @@ export default function VillaDiningCategoryPage({ params }: PageProps) {
             )}
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {category.subcategories.map((subcategory) => (
-              <Link
-                key={subcategory.slug}
-                href={`/villa-dining-menu/${category.slug}/${subcategory.slug}`}
-                className="group block h-full"
-              >
-                <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition duration-300 group-hover:-translate-y-[2px] group-hover:shadow-lg">
-                  <div className="overflow-hidden">
-                    <Image
-                      src={subcategory.image}
-                      alt={subcategory.title}
-                      width={1600}
-                      height={900}
-                      className="aspect-[16/9] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
-                    />
+          {showDishesDirectly ? (
+            <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {directDishes.map((dish) => (
+                <article
+                  key={dish.title}
+                  className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm"
+                >
+                  <div className="bg-slate-100">
+                    <div className="relative aspect-[16/9] overflow-hidden">
+                      <Image
+                        src={dish.images[0]}
+                        alt={dish.title}
+                        fill
+                        sizes="(min-width: 1024px) 370px, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
 
                   <div className="flex flex-1 flex-col bg-white p-6">
                     <h2 className="font-serif text-2xl leading-tight text-slate-900">
-                      {subcategory.title}
+                      {dish.title}
                     </h2>
 
-                    {subcategory.description && (
-                      <p className="mt-3 flex-1 text-[15px] leading-[1.65] text-slate-600">
-                        {subcategory.description}
-                      </p>
-                    )}
-
-                    <p className="mt-5 text-[14px] font-semibold text-slate-900 underline decoration-slate-900/20 underline-offset-4 transition group-hover:decoration-slate-900">
-                      View dishes
+                    <p className="mt-3 text-[15px] leading-[1.65] text-slate-600">
+                      {dish.description}
                     </p>
                   </div>
                 </article>
-              </Link>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {category.subcategories.map((subcategory) => (
+                <Link
+                  key={subcategory.slug}
+                  href={`/villa-dining-menu/${category.slug}/${subcategory.slug}`}
+                  className="group block h-full"
+                >
+                  <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition duration-300 group-hover:-translate-y-[2px] group-hover:shadow-lg">
+                    <div className="overflow-hidden">
+                      <Image
+                        src={subcategory.image}
+                        alt={subcategory.title}
+                        width={1600}
+                        height={900}
+                        className="aspect-[16/9] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                      />
+                    </div>
+
+                    <div className="flex flex-1 flex-col bg-white p-6">
+                      <h2 className="font-serif text-2xl leading-tight text-slate-900">
+                        {subcategory.title}
+                      </h2>
+
+                      {subcategory.description && (
+                        <p className="mt-3 flex-1 text-[15px] leading-[1.65] text-slate-600">
+                          {subcategory.description}
+                        </p>
+                      )}
+
+                      <p className="mt-5 text-[14px] font-semibold text-slate-900 underline decoration-slate-900/20 underline-offset-4 transition group-hover:decoration-slate-900">
+                        View dishes
+                      </p>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </main>
