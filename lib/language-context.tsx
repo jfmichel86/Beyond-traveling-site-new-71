@@ -691,10 +691,9 @@ const es: Record<string, string> = {
   "Rental Performance and Operations": "Desempeño en Rentas y Operación",
   "Villa management also includes optimizing rentals, managing bookings, and ensuring that each guest experience meets expectations.":
     "La administración de villas también incluye optimizar rentas, gestionar reservaciones y asegurar que cada experiencia de huésped cumpla expectativas.",
-  "Direct Communication With Owners": "Comunicación Directa con Propietarios",
+   "Direct Communication With Owners": "Comunicación Directa con Propietarios",
   "Clear and direct communication allows owners to stay informed and confident that their property is being properly managed.":
     "La comunicación clara y directa permite que los propietarios se mantengan informados y tranquilos de que su propiedad está siendo administrada correctamente.",
-    "Envíanos un mensaje y confirmaremos disponibilidad y detalles en breve.",
   "Explore Services": "Explorar Servicios",
 };
 
