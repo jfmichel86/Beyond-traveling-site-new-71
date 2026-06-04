@@ -30,9 +30,9 @@ const categoryImageFileBySlug: Record<string, string> = {
 };
 
 const subcategoryImageFileBySlug: Record<string, string> = {
-  "daily-breakfast-includes": "fresh-seasonal-fruit-platter",
-  "savory-breakfast-options": "chilaquiles",
-  "sweet-breakfast-options": "pancakes",
+  "daily-breakfast-includes": "daily-breakfast",
+  "savory-breakfast-options": "savory-breakfast",
+  "sweet-breakfast-options": "sweet-breakfast",
 
   "starters-sides": "guacamole-and-pico-de-gallo",
   salads: "caesar-salad",
