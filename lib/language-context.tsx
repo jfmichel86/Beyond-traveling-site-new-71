@@ -653,7 +653,7 @@ const es: Record<string, string> = {
   "Explore Seasonal & Special Events experiences in Punta Mita":
     "Explorar experiencias de Temporadas y Eventos Especiales en Punta Mita",
   "Explore High-End / VIP Experiences experiences in Punta Mita":
-    "Explorar experiencias High-End / VIP en Punta Mita"
+    "Explorar experiencias High-End / VIP en Punta Mita",
 
   "Luxury Rentals in Punta Mita": "Rentas de Lujo en Punta Mita",
   "Punta Mita is one of the most exclusive destinations in Mexico, known for its private villas, oceanfront properties, and high-end guest experiences. Luxury rentals in Punta Mita require careful management, attention to detail, and a consistent approach to guest experience.":
