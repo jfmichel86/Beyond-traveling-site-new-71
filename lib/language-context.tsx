@@ -16,13 +16,13 @@ const es: Record<string, string> = {
   "HOME": "INICIO",
   "SERVICES": "SERVICIOS",
   "PROPERTIES": "PROPIEDADES",
-  "DISCOVER": "DESCUBRIR",
+  "DISCOVER": "DESCUBRE",
   "ABOUT": "NOSOTROS",
   "CONTACT": "CONTACTO",
   "Home": "Inicio",
   "Services": "Servicios",
   "Properties": "Propiedades",
-  "Discover": "Descubrir",
+  "Discover": "Descubre",
   "About": "Nosotros",
   "Contact": "Contacto",
   "Navigation": "Navegación",
@@ -695,7 +695,6 @@ const es: Record<string, string> = {
   "Clear and direct communication allows owners to stay informed and confident that their property is being properly managed.":
     "La comunicación clara y directa permite que los propietarios se mantengan informados y tranquilos de que su propiedad está siendo administrada correctamente.",
   "Explore Services": "Explorar Servicios",
-  "Send us a message and we’ll confirm availability and details shortly.":
     "Envíanos un mensaje y confirmaremos disponibilidad y detalles en breve.",
   "Concierge services": "Servicios de concierge",
 
