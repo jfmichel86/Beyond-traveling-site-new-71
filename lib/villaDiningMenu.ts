@@ -21,11 +21,40 @@ export type MenuCategory = {
   subcategories: MenuSubcategory[];
 };
 
-const categoryImage = (slug: string) =>
-  `/villa-dining-menu/categories/${slug}.jpg`;
+const categoryImageFileBySlug: Record<string, string> = {
+  breakfast: "fresh-seasonal-fruit-platter",
+  lunch: "baja-fish-or-shrimp-tacos",
+  "private-dinner-at-home": "catch-of-the-day-with-garlic-butter",
+  "childrens-favorites": "mini-pancakes",
+  desserts: "chocolate-lava-cake",
+};
 
-const subcategoryImage = (slug: string) =>
-  `/villa-dining-menu/subcategories/${slug}.jpg`;
+const subcategoryImageFileBySlug: Record<string, string> = {
+  "daily-breakfast-includes": "fresh-seasonal-fruit-platter",
+  "savory-breakfast-options": "chilaquiles",
+  "sweet-breakfast-options": "pancakes",
+
+  "starters-sides": "guacamole-and-pico-de-gallo",
+  salads: "caesar-salad",
+  "fresh-coastal-options": "vallarta-style-fish-ceviche",
+  "lunch-mains": "baja-fish-or-shrimp-tacos",
+
+  "mexican-favorites": "chicken-mole-enchiladas",
+  "seafood-grill": "catch-of-the-day-with-garlic-butter",
+  "pasta-comfort-dishes": "pasta",
+};
+
+const categoryImage = (slug: string) => {
+  const fileName = categoryImageFileBySlug[slug] ?? slug;
+
+  return `/villa-dining-menu/dishes/${fileName}.jpg`;
+};
+
+const subcategoryImage = (slug: string) => {
+  const fileName = subcategoryImageFileBySlug[slug] ?? slug;
+
+  return `/villa-dining-menu/dishes/${fileName}.jpg`;
+};
 
 const dishImageFileBySlug: Record<string, string> = {
   "fresh-seasonal-fruit-platter": "fresh-seasonal-fruit-platter",
@@ -762,4 +791,8 @@ export function getVillaDiningSubcategoryBySlug(
   return category.subcategories.find(
     (subcategory) => subcategory.slug === subcategorySlug
   );
+}
+
+export function categoryShouldShowDishesDirectly(categorySlug: string) {
+  return categorySlug === "childrens-favorites" || categorySlug === "desserts";
 }
