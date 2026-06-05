@@ -110,13 +110,18 @@ export default function VillaDiningMenuPage() {
                     />
                   </div>
 
-                  <div className="flex flex-1 flex-col bg-white p-6 md:min-h-[118px]">
-                    <h3 className="font-serif text-2xl leading-tight text-slate-900">
-                      {category.title}
-                    </h3>
+ <div className="flex flex-1 flex-col bg-white p-6 md:min-h-[150px]">
+  <h3 className="font-serif text-2xl leading-tight text-slate-900">
+    {category.title}
+  </h3>
 
-                  <div className="mt-3 flex-1" />
-                  </div>
+  <div className="mt-5 flex-1" />
+
+  <span className="inline-flex w-fit border-b border-slate-900/20 text-[15px] font-semibold leading-none text-slate-900 transition group-hover:border-slate-900">
+    View dishes
+  </span>
+</div>
+                  
                 </article>
               </Link>
             ))}
