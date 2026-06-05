@@ -1059,6 +1059,8 @@ const es: Record<string, string> = {
   "Premium Assorted Ice Cream": "Selección de Helado Premium",
   "A selection of premium ice cream.":
     "Una selección de helado premium.",
+
+  ...discoverTranslations,
 };
 
 const normalize = (value: string) => value.replace(/\s+/g, " ").trim();
