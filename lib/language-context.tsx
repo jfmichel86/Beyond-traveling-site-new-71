@@ -694,7 +694,371 @@ const es: Record<string, string> = {
    "Direct Communication With Owners": "Comunicación Directa con Propietarios",
   "Clear and direct communication allows owners to stay informed and confident that their property is being properly managed.":
     "La comunicación clara y directa permite que los propietarios se mantengan informados y tranquilos de que su propiedad está siendo administrada correctamente.",
-  "Explore Services": "Explorar Servicios",
+    "Explore Services": "Explorar Servicios",
+
+  // Villa Dining Menu
+  "Villa Dining Menu": "Menú de Villa",
+  "Villa Dining Menu | Beyond Traveling": "Menú de Villa | Beyond Traveling",
+  "Private villa dining menu with fresh breakfast, lunch, private dinners, children’s menu, and desserts.":
+    "Menú privado de villa con desayuno fresco, lunch, cenas privadas, menú infantil y postres.",
+
+  "Fresh Breakfast, Lunch": "Desayuno Fresco, Lunch",
+  "& Private Dinners at Home.": "y Cenas Privadas en Casa.",
+  "Enjoy relaxed, freshly prepared meals from the comfort of your private villa.":
+    "Disfruta comidas frescas y relajadas desde la comodidad de tu villa privada.",
+
+  "Service Overview": "Resumen del Servicio",
+  "Freshly prepared meals, arranged around your stay":
+    "Comidas preparadas al momento, organizadas alrededor de tu estancia",
+  "Breakfast preparation is included with your rental; however, the cost of groceries and ingredients is not included.":
+    "La preparación del desayuno está incluida con tu renta; sin embargo, el costo de los alimentos, compras e ingredientes no está incluido.",
+  "Lunch and dinner preparation may be arranged upon request for an additional service cost. All meals are prepared using groceries purchased for your stay, based on your group size, selected dishes, and preferences.":
+    "La preparación de lunch y cena puede organizarse bajo solicitud con un costo adicional de servicio. Todas las comidas se preparan con los alimentos comprados para tu estancia, según el tamaño de tu grupo, los platillos seleccionados y tus preferencias.",
+
+  "Menu Categories": "Categorías del Menú",
+  "Choose the service you would like to explore":
+    "Elige el servicio que quieres explorar",
+  "Browse breakfast, lunch, private dinner, children’s options, and desserts.":
+    "Explora desayuno, lunch, cena privada, opciones para niños y postres.",
+  "View dishes": "Ver platillos",
+
+  "Important Service Details": "Detalles Importantes del Servicio",
+  "Breakfast preparation is included with your rental.":
+    "La preparación del desayuno está incluida con tu renta.",
+  "The cost of groceries, food, beverages, and ingredients is not included.":
+    "El costo de alimentos, bebidas, compras e ingredientes no está incluido.",
+  "All groceries required to prepare your selected meals will be charged separately at the end of your stay.":
+    "Todos los alimentos necesarios para preparar los platillos seleccionados se cobrarán por separado al final de tu estancia.",
+  "A 15% shopping fee applies to the total grocery receipts.":
+    "Se aplica un cargo de compras del 15% sobre el total de los recibos de supermercado.",
+  "Lunch and dinner preparation may be arranged upon request for an additional service cost.":
+    "La preparación de lunch y cena puede organizarse bajo solicitud con un costo adicional de servicio.",
+  "Menus can be customized with advance notice.":
+    "Los menús pueden personalizarse con aviso previo.",
+  "Leftover groceries remain at the villa and are not deducted from the final grocery bill.":
+    "Los alimentos sobrantes permanecen en la villa y no se descuentan de la cuenta final de supermercado.",
+  "Please let us know in advance if you have allergies, dietary restrictions, children’s preferences, or special requests.":
+    "Por favor avísanos con anticipación si tienes alergias, restricciones alimenticias, preferencias para niños o solicitudes especiales.",
+
+  "← Back to Villa Dining Menu": "← Volver al Menú de Villa",
+  "← Back to Breakfast": "← Volver a Desayuno",
+  "← Back to Lunch": "← Volver a Lunch",
+  "← Back to Private Dinner at Home": "← Volver a Cena Privada en Casa",
+  "← Back to Children’s Favorites": "← Volver a Favoritos para Niños",
+  "← Back to Desserts": "← Volver a Postres",
+
+  "Breakfast": "Desayuno",
+  "Preparation Included with Your Rental": "Preparación Incluida con Tu Renta",
+  "Each morning, our housekeeper can prepare a fresh villa breakfast with seasonal fruit, juice, coffee, yogurt, and granola, plus a daily selection of savory and sweet dishes. Please note that breakfast preparation is included, but the cost of all food, groceries, and ingredients used for breakfast is charged separately.":
+    "Cada mañana, nuestra housekeeper puede preparar un desayuno fresco en la villa con fruta de temporada, jugo, café, yogurt y granola, además de una selección diaria de platillos salados y dulces. La preparación del desayuno está incluida, pero el costo de todos los alimentos, compras e ingredientes utilizados para el desayuno se cobra por separado.",
+
+  "Daily Breakfast Includes": "El Desayuno Diario Incluye",
+  "Fresh morning essentials prepared at the villa using groceries purchased for your stay.":
+    "Básicos frescos de la mañana preparados en la villa con los alimentos comprados para tu estancia.",
+  "Fresh Seasonal Fruit Platter": "Plato de Fruta Fresca de Temporada",
+  "A fresh selection of seasonal fruit prepared each morning.":
+    "Una selección fresca de fruta de temporada preparada cada mañana.",
+  "Fresh Orange Juice or Green Juice": "Jugo de Naranja Fresco o Jugo Verde",
+  "Fresh juice served with breakfast, based on availability and preference.":
+    "Jugo fresco servido con el desayuno, según disponibilidad y preferencia.",
+  "Coffee and Creamer": "Café y Crema",
+  "Morning coffee service with creamer.":
+    "Servicio de café por la mañana con crema.",
+  "Granola and Yogurt": "Granola y Yogurt",
+  "A light breakfast option served with yogurt and granola.":
+    "Una opción ligera de desayuno servida con yogurt y granola.",
+
+  "Savory Breakfast Options": "Opciones Saladas de Desayuno",
+  "Mexican classics, eggs, toasts, and warm breakfast dishes prepared fresh in the villa.":
+    "Clásicos mexicanos, huevos, toasts y platillos calientes de desayuno preparados al momento en la villa.",
+  "Red or Green Chilaquiles with Eggs or Chicken":
+    "Chilaquiles Rojos o Verdes con Huevo o Pollo",
+  "Crispy tortilla chips with salsa, crema, cheese, and eggs or chicken.":
+    "Totopos crujientes con salsa, crema, queso y huevo o pollo.",
+  "Huevos Rancheros": "Huevos Rancheros",
+  "Fried eggs served with ranchero sauce, beans, and tortillas.":
+    "Huevos estrellados servidos con salsa ranchera, frijoles y tortillas.",
+  "Huevos a la Mexicana": "Huevos a la Mexicana",
+  "Scrambled eggs with tomato, onion, and chile.":
+    "Huevos revueltos con jitomate, cebolla y chile.",
+  "Eggs Any Style": "Huevos al Gusto",
+  "Scrambled, fried, omelette, or egg whites.":
+    "Revueltos, estrellados, omelette o claras.",
+  "Breakfast Burrito": "Burrito de Desayuno",
+  "Flour tortilla filled with eggs and chorizo.":
+    "Tortilla de harina rellena de huevo y chorizo.",
+  "Molletes": "Molletes",
+  "Toasted bread with refried beans, melted cheese, and pico de gallo.":
+    "Pan tostado con frijoles refritos, queso derretido y pico de gallo.",
+  "Enfrijoladas": "Enfrijoladas",
+  "Tortillas dipped in creamy bean sauce, filled with egg, cheese, or chicken.":
+    "Tortillas bañadas en salsa cremosa de frijol, rellenas de huevo, queso o pollo.",
+  "Quesadillas": "Quesadillas",
+  "Fresh tortillas with Oaxaca cheese, mushrooms, vegetables, or chicken.":
+    "Tortillas frescas con queso Oaxaca, champiñones, vegetales o pollo.",
+  "Avocado Toast": "Avocado Toast",
+  "Toasted bread with avocado, olive oil, and fresh toppings.":
+    "Pan tostado con aguacate, aceite de oliva y toppings frescos.",
+  "Smoked Salmon Toast or Bagel": "Toast o Bagel de Salmón Ahumado",
+  "Served with cream cheese, capers, and herbs.":
+    "Servido con queso crema, alcaparras y hierbas.",
+
+  "Sweet Breakfast Options": "Opciones Dulces de Desayuno",
+  "Sweet morning favorites served with fruit, maple syrup, berries, yogurt, or toppings.":
+    "Favoritos dulces de la mañana servidos con fruta, miel maple, frutos rojos, yogurt o toppings.",
+  "Pancakes": "Hot Cakes",
+  "Served with maple syrup and fresh fruit.":
+    "Servidos con miel maple y fruta fresca.",
+  "Waffles": "Waffles",
+  "Served with maple syrup, Nutella, or berries.":
+    "Servidos con miel maple, Nutella o frutos rojos.",
+  "French Toast": "Pan Francés",
+  "Served with maple syrup and seasonal fruit.":
+    "Servido con miel maple y fruta de temporada.",
+  "Oatmeal Bowl": "Bowl de Avena",
+  "With seeds, berries, banana, and honey.":
+    "Con semillas, frutos rojos, plátano y miel.",
+  "Tropical Yogurt Parfait": "Parfait Tropical de Yogurt",
+  "Greek yogurt, granola, honey, and seasonal fruit.":
+    "Yogurt griego, granola, miel y fruta de temporada.",
+  "Açaí or Smoothie Bowl": "Bowl de Açaí o Smoothie",
+  "Blended fruit bowl with granola, coconut, banana, and berries.":
+    "Bowl de fruta licuada con granola, coco, plátano y frutos rojos.",
+  "Sweet Bagel": "Bagel Dulce",
+  "With cream cheese and jam.":
+    "Con queso crema y mermelada.",
+
+  "Lunch": "Lunch",
+  "Fresh, Casual & Perfect for Villa Days":
+    "Fresco, Casual y Perfecto para Días en la Villa",
+  "Lunch may be arranged upon request for an additional preparation/service cost. The cost of groceries and ingredients is charged separately.":
+    "El lunch puede organizarse bajo solicitud con un costo adicional de preparación/servicio. El costo de alimentos e ingredientes se cobra por separado.",
+
+  "Starters & Sides": "Entradas y Guarniciones",
+  "Easy villa lunch additions for sharing by the pool or pairing with main dishes.":
+    "Opciones sencillas para compartir junto a la alberca o acompañar platillos principales.",
+  "Guacamole and Pico de Gallo": "Guacamole y Pico de Gallo",
+  "Fresh guacamole served with pico de gallo.":
+    "Guacamole fresco servido con pico de gallo.",
+  "Cheese and Arrachera Nachos": "Nachos con Queso y Arrachera",
+  "Nachos with cheese and arrachera.":
+    "Nachos con queso y arrachera.",
+  "Grilled Vegetables": "Vegetales a la Parrilla",
+  "Seasonal vegetables prepared on the grill.":
+    "Vegetales de temporada preparados a la parrilla.",
+  "Mexican Rice": "Arroz Mexicano",
+  "Classic Mexican rice served as a side.":
+    "Arroz mexicano clásico servido como guarnición.",
+  "Refried or Whole Beans": "Frijoles Refritos o de la Olla",
+  "Beans prepared refried or whole.":
+    "Frijoles preparados refritos o enteros.",
+  "French Fries": "Papas a la Francesa",
+  "Crispy fries for a casual villa lunch.":
+    "Papas crujientes para un lunch casual en la villa.",
+  "Seasonal Vegetable Crudités with House Dip":
+    "Crudités de Vegetales de Temporada con Dip de la Casa",
+  "Fresh vegetables served with house dip.":
+    "Vegetales frescos servidos con dip de la casa.",
+
+  "Salads": "Ensaladas",
+  "Fresh, simple salads for lighter lunches or as a side to seafood and tacos.":
+    "Ensaladas frescas y sencillas para lunches ligeros o como acompañamiento de mariscos y tacos.",
+  "Caesar Salad": "Ensalada César",
+  "Classic Caesar with romaine, parmesan, and dressing.":
+    "César clásica con lechuga romana, parmesano y aderezo.",
+  "Caprese Salad": "Ensalada Caprese",
+  "Tomato, mozzarella, basil, and olive oil.":
+    "Jitomate, mozzarella, albahaca y aceite de oliva.",
+  "Mixed Green Salad": "Ensalada Verde Mixta",
+  "Fresh greens with seasonal vegetables.":
+    "Hojas verdes frescas con vegetales de temporada.",
+  "Citrus Salad": "Ensalada Cítrica",
+  "Fresh greens with citrus, avocado, and light vinaigrette.":
+    "Hojas verdes con cítricos, aguacate y vinagreta ligera.",
+  "Greek Salad with Grilled Shrimp": "Ensalada Griega con Camarón a la Parrilla",
+  "Cucumber, tomato, olives, cheese, and grilled shrimp.":
+    "Pepino, jitomate, aceitunas, queso y camarón a la parrilla.",
+
+  "Fresh Coastal Options": "Opciones Frescas del Mar",
+  "Fresh ceviches, aguachiles, tostadas, and coastal dishes for warm villa days.":
+    "Ceviches frescos, aguachiles, tostadas y platillos costeros para días cálidos en la villa.",
+  "Vallarta-Style Fish Ceviche": "Ceviche de Pescado Estilo Vallarta",
+  "Fresh fish marinated in lime juice with vegetables.":
+    "Pescado fresco marinado en limón con vegetales.",
+  "Shrimp Ceviche": "Ceviche de Camarón",
+  "Shrimp with lime, tomato, onion, cilantro, and cucumber.":
+    "Camarón con limón, jitomate, cebolla, cilantro y pepino.",
+  "Green or Black Aguachile": "Aguachile Verde o Negro",
+  "Shrimp marinated in spicy lime sauce.":
+    "Camarón marinado en salsa picante de limón.",
+  "Tuna Sashimi": "Sashimi de Atún",
+  "Fresh tuna with ponzu-style sauce.":
+    "Atún fresco con salsa estilo ponzu.",
+  "Tuna Tostadas": "Tostadas de Atún",
+  "Crispy tostadas with fresh tuna, avocado, cucumber, and spicy mayo.":
+    "Tostadas crujientes con atún fresco, aguacate, pepino y mayo spicy.",
+  "Fish Tostadas": "Tostadas de Pescado",
+  "Fresh fish ceviche over crispy tostadas with avocado and salsa.":
+    "Ceviche de pescado fresco sobre tostadas crujientes con aguacate y salsa.",
+
+  "Lunch Mains": "Platos Fuertes de Lunch",
+  "Tacos, tostadas, bowls, fajitas, sandwiches, and familiar villa lunch favorites.":
+    "Tacos, tostadas, bowls, fajitas, sándwiches y favoritos casuales para lunch en la villa.",
+  "Baja Fish or Shrimp Tacos": "Tacos Baja de Pescado o Camarón",
+  "Breaded fish or shrimp in homemade corn tortillas with cabbage, salsa, and chipotle dressing.":
+    "Pescado o camarón empanizado en tortillas de maíz hechas en casa con col, salsa y aderezo de chipotle.",
+  "Grilled Fish Tacos": "Tacos de Pescado a la Parrilla",
+  "A lighter option with avocado, cabbage, and house salsa.":
+    "Una opción más ligera con aguacate, col y salsa de la casa.",
+  "Shrimp Gobernador Tacos": "Tacos Gobernador de Camarón",
+  "Shrimp with melted cheese, peppers, and onions.":
+    "Camarón con queso derretido, pimientos y cebolla.",
+  "Mexican Tacos": "Tacos Mexicanos",
+  "Arrachera, pastor, or chicken served in homemade corn tortillas.":
+    "Arrachera, pastor o pollo servidos en tortillas de maíz hechas en casa.",
+  "Chicken Tinga Tostadas": "Tostadas de Tinga de Pollo",
+  "Crispy tostadas with shredded chicken in tomato-chipotle sauce, lettuce, cream, and cheese.":
+    "Tostadas crujientes con pollo deshebrado en salsa de jitomate y chipotle, lechuga, crema y queso.",
+  "Fajitas": "Fajitas",
+  "Beef, chicken, shrimp, or mixed fajitas with homemade tortillas.":
+    "Fajitas de res, pollo, camarón o mixtas con tortillas hechas en casa.",
+  "Mexican Bowl": "Bowl Mexicano",
+  "Rice, beans, grilled chicken or shrimp, avocado, pico de gallo, corn, and salsa.":
+    "Arroz, frijoles, pollo o camarón a la parrilla, aguacate, pico de gallo, elote y salsa.",
+  "Club Sandwich or Turkey Panini": "Club Sándwich o Panini de Pavo",
+  "A simple, familiar option for casual lunches.":
+    "Una opción sencilla y familiar para lunches casuales.",
+
+  "Private Dinner at Home": "Cena Privada en Casa",
+  "Relaxed Villa Dining After a Day in Punta Mita":
+    "Cena Relajada en la Villa Después de un Día en Punta Mita",
+  "Dinner may be arranged upon request for an additional preparation/service cost. The cost of groceries and ingredients is charged separately.":
+    "La cena puede organizarse bajo solicitud con un costo adicional de preparación/servicio. El costo de alimentos e ingredientes se cobra por separado.",
+
+  "Mexican Favorites": "Favoritos Mexicanos",
+  "Comforting Mexican dishes prepared at home for a relaxed villa dinner.":
+    "Platillos mexicanos reconfortantes preparados en casa para una cena relajada en la villa.",
+  "Chicken Mole Enchiladas": "Enchiladas de Pollo con Mole",
+  "Corn tortillas filled with chicken and topped with mole sauce, sesame, crema, and queso fresco.":
+    "Tortillas de maíz rellenas de pollo, bañadas con mole, ajonjolí, crema y queso fresco.",
+  "Mexican Antojitos": "Antojitos Mexicanos",
+  "Sopes, enchiladas, tostadas, huaraches, or flautas with chicken tinga, pork, or beef.":
+    "Sopes, enchiladas, tostadas, huaraches o flautas con tinga de pollo, cerdo o res.",
+  "Cochinita Pibil Tacos": "Tacos de Cochinita Pibil",
+  "Slow-cooked Yucatán-style pork with pickled onion and habanero salsa.":
+    "Cerdo estilo Yucatán cocinado lentamente con cebolla encurtida y salsa de habanero.",
+  "Stuffed Poblano Peppers": "Chiles Poblanos Rellenos",
+  "Poblano peppers filled with cheese, beef, chicken, or vegetables.":
+    "Chiles poblanos rellenos de queso, res, pollo o vegetales.",
+  "Arrachera Dinner Plate": "Plato de Arrachera para Cena",
+  "Grilled arrachera with guacamole, beans, grilled onions, tortillas, and salsa.":
+    "Arrachera a la parrilla con guacamole, frijoles, cebollitas asadas, tortillas y salsa.",
+  "Chicken in Creamy Poblano Sauce": "Pollo en Salsa Cremosa de Poblano",
+  "Served with rice and vegetables.":
+    "Servido con arroz y vegetales.",
+
+  "Seafood & Grill": "Mariscos y Parrilla",
+  "Fresh fish, shrimp, zarandeado-style seafood, and grilled dishes.":
+    "Pescado fresco, camarón, mariscos estilo zarandeado y platillos a la parrilla.",
+  "Catch of the Day with Garlic Butter": "Pesca del Día con Mantequilla de Ajo",
+  "Fresh fish served with rice, grilled vegetables, and house salsa.":
+    "Pescado fresco servido con arroz, vegetales a la parrilla y salsa de la casa.",
+  "Pescado a la Veracruzana": "Pescado a la Veracruzana",
+  "Fish with tomato, olives, capers, peppers, and herbs.":
+    "Pescado con jitomate, aceitunas, alcaparras, pimientos y hierbas.",
+  "Fish to Taste": "Pescado al Gusto",
+  "Prepared garlic-style, diabla-style, or breaded.":
+    "Preparado al ajo, a la diabla o empanizado.",
+  "Shrimp to Taste": "Camarones al Gusto",
+  "Prepared garlic-style, coconut, diabla-style, mummy-style or breaded.":
+    "Preparados al ajo, con coco, a la diabla, momia o empanizados.",
+  "Zarandeado-Style Seafood": "Mariscos Estilo Zarandeado",
+  "Fish, shrimp, octopus, or mixed seafood prepared zarandeado-style.":
+    "Pescado, camarón, pulpo o mariscos mixtos preparados estilo zarandeado.",
+  "Garlic Fish Fillet or Shrimp": "Filete de Pescado o Camarón al Ajo",
+  "Served with white rice, sauces, and garlic bread.":
+    "Servido con arroz blanco, salsas y pan de ajo.",
+  "Grilled Platter": "Parrillada",
+  "Grilled chicken, arrachera, and chorizo with homemade corn tortillas.":
+    "Pollo, arrachera y chorizo a la parrilla con tortillas de maíz hechas en casa.",
+
+  "Pasta & Comfort Dishes": "Pastas y Platillos Casuales",
+  "Casual dinner options including pasta, seafood pasta, fajitas, and burgers.":
+    "Opciones casuales de cena, incluyendo pasta, pasta con mariscos, fajitas y hamburguesas.",
+  "Pasta": "Pasta",
+  "Marinara, Alfredo, bolognese, mushroom, or shrimp.":
+    "Marinara, Alfredo, boloñesa, champiñones o camarón.",
+  "Seafood Pasta": "Pasta con Mariscos",
+  "Pasta with shrimp, fish, or mixed seafood in garlic, tomato, or creamy sauce.":
+    "Pasta con camarón, pescado o mariscos mixtos en salsa de ajo, tomate o crema.",
+  "Burgers": "Hamburguesas",
+  "Available upon request for casual dinners.":
+    "Disponibles bajo solicitud para cenas casuales.",
+
+  "Children’s Favorites": "Favoritos para Niños",
+  "Familiar Favorites for Younger Guests":
+    "Favoritos Familiares para los Más Pequeños",
+  "Familiar dishes can be prepared for children or guests who prefer relaxed, casual meals.":
+    "Se pueden preparar platillos familiares para niños o huéspedes que prefieren comidas relajadas y casuales.",
+  "Familiar favorites for younger guests and relaxed villa meals.":
+    "Favoritos familiares para los más pequeños y comidas relajadas en la villa.",
+  "Chicken Tenders": "Tiras de Pollo",
+  "A simple, familiar option for children.":
+    "Una opción sencilla y familiar para niños.",
+  "Chicken Nuggets": "Nuggets de Pollo",
+  "A casual children’s favorite.":
+    "Un favorito casual para niños.",
+  "Cheese Quesadillas": "Quesadillas de Queso",
+  "Fresh tortillas with melted cheese.":
+    "Tortillas frescas con queso derretido.",
+  "Crispy fries served as a simple side.":
+    "Papas crujientes servidas como guarnición sencilla.",
+  "Pasta with Butter, Tomato Sauce, or Alfredo":
+    "Pasta con Mantequilla, Salsa de Tomate o Alfredo",
+  "Simple pasta prepared with butter, tomato sauce, or Alfredo.":
+    "Pasta sencilla preparada con mantequilla, salsa de tomate o Alfredo.",
+  "Mini Pancakes": "Mini Hot Cakes",
+  "Small pancakes for children or light breakfast requests.":
+    "Hot cakes pequeños para niños o desayunos ligeros.",
+  "Fruit Plate": "Plato de Fruta",
+  "Fresh seasonal fruit served simply.":
+    "Fruta fresca de temporada servida de forma sencilla.",
+  "Turkey and Cheese Wrap": "Wrap de Pavo y Queso",
+  "A simple wrap with turkey and cheese.":
+    "Un wrap sencillo con pavo y queso.",
+  "Banana, Strawberry, and Nutella Wrap": "Wrap de Plátano, Fresa y Nutella",
+  "A sweet wrap with banana, strawberry, and Nutella.":
+    "Un wrap dulce con plátano, fresa y Nutella.",
+
+  "Desserts": "Postres",
+  "Sweet Finishes for Villa Meals": "Finales Dulces para Comidas en la Villa",
+  "Desserts may be arranged as part of lunch or dinner service, depending on your selected menu and preferences.":
+    "Los postres pueden organizarse como parte del servicio de lunch o cena, según tu menú seleccionado y preferencias.",
+  "Classic sweet options to finish a villa lunch or dinner.":
+    "Opciones dulces clásicas para terminar un lunch o cena en la villa.",
+  "Vanilla Flan with Caramel Sauce": "Flan de Vainilla con Caramelo",
+  "Classic vanilla flan served with caramel sauce.":
+    "Flan clásico de vainilla servido con caramelo.",
+  "Churros with Chocolate Sauce": "Churros con Salsa de Chocolate",
+  "Warm churros served with chocolate sauce.":
+    "Churros calientes servidos con salsa de chocolate.",
+  "Crepes with Cajeta and Strawberries": "Crepas con Cajeta y Fresas",
+  "Crepes served with cajeta and strawberries.":
+    "Crepas servidas con cajeta y fresas.",
+  "Brownie with Vanilla Ice Cream": "Brownie con Helado de Vainilla",
+  "Warm brownie served with vanilla ice cream.":
+    "Brownie caliente servido con helado de vainilla.",
+  "Apple Pie": "Pay de Manzana",
+  "Classic apple pie.": "Pay de manzana clásico.",
+  "Cheesecake": "Cheesecake",
+  "Classic cheesecake.": "Cheesecake clásico.",
+  "Chocolate Lava Cake": "Pastel Lava de Chocolate",
+  "Warm chocolate lava cake.": "Pastel lava de chocolate caliente.",
+  "Cajeta Lava Cake": "Pastel Lava de Cajeta",
+  "Warm cajeta lava cake.": "Pastel lava de cajeta caliente.",
+  "Premium Assorted Ice Cream": "Selección de Helado Premium",
+  "A selection of premium ice cream.":
+    "Una selección de helado premium.",
 };
 
 const normalize = (value: string) => value.replace(/\s+/g, " ").trim();
