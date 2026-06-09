@@ -6,19 +6,13 @@ import {
 } from "@/lib/discoverPuntaMita";
 import DiscoverCategoryClient from "./DiscoverCategoryClient";
 
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
-
 export function generateStaticParams() {
   return discoverCategories.map((category) => ({
     slug: category.slug,
   }));
 }
 
-export function generateMetadata({ params }: PageProps) {
+export function generateMetadata({ params }: { params: { slug: string } }) {
   const category = getDiscoverCategoryBySlug(params.slug);
 
   if (!category) {
@@ -30,16 +24,14 @@ export function generateMetadata({ params }: PageProps) {
   }
 
   return {
-    title: "Discover Punta Mita | Beyond Traveling",
-    description:
-      "Discover curated activities, ocean experiences, and things to do in Punta Mita.",
+    title: `${category.title.en} | Discover Punta Mita`,
+    description: category.description.en,
     alternates: {
       canonical: `/discover-punta-mita/${params.slug}`,
     },
     openGraph: {
-      title: "Discover Punta Mita | Beyond Traveling",
-      description:
-        "Discover curated activities, ocean experiences, and things to do in Punta Mita.",
+      title: `${category.title.en} | Discover Punta Mita`,
+      description: category.description.en,
       url: `/discover-punta-mita/${params.slug}`,
       siteName: "Beyond Traveling",
       images: [
@@ -47,7 +39,7 @@ export function generateMetadata({ params }: PageProps) {
           url: category.image,
           width: 1200,
           height: 630,
-          alt: "Discover Punta Mita",
+          alt: `${category.title.en} in Punta Mita`,
         },
       ],
       locale: "en_US",
@@ -56,7 +48,11 @@ export function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default function DiscoverCategoryPage({ params }: PageProps) {
+export default function DiscoverCategoryPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const category = getDiscoverCategoryBySlug(params.slug);
 
   if (!category) {
@@ -69,7 +65,7 @@ export default function DiscoverCategoryPage({ params }: PageProps) {
         <div className="relative aspect-[1983/793] w-full overflow-hidden">
           <Image
             src={category.heroImage}
-            alt="Discover Punta Mita"
+            alt={category.title.en}
             fill
             priority
             className="object-cover"
