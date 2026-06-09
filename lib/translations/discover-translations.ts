@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { discoverTranslations } from "@/lib/translations/discover-translations";
 
 export const discoverTranslations: Record<string, string> = {
   // DISCOVER LANDING PAGE
