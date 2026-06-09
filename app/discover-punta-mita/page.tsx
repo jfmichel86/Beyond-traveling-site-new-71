@@ -61,14 +61,18 @@ const CategoryCard = ({
 }) => (
   <Link
     href={`/discover-punta-mita/${category.slug}`}
-    aria-label={`Explore ${category.title} experiences in Punta Mita`}
+    aria-label={
+  language === "es"
+    ? `Explorar experiencias de ${t(category.title)} en Punta Mita`
+    : `Explore ${t(category.title)} experiences in Punta Mita`
+}
     className="group block h-full focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-4"
   >
     <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-900/10 bg-white shadow-sm transition duration-300 group-hover:-translate-y-[2px] group-hover:shadow-[0_20px_55px_rgba(15,23,42,0.12)]">
       <div className="relative aspect-[16/9] overflow-hidden">
         <Image
           src={category.image}
-          alt={`${category.title} experiences in Punta Mita`}
+          alt={`${t(category.title)} experiences in Punta Mita`}
           fill
           priority={priority}
           sizes="(min-width: 1024px) 370px, (min-width: 768px) 50vw, 100vw"
@@ -79,11 +83,11 @@ const CategoryCard = ({
 
       <div className="flex flex-1 flex-col bg-white p-6">
         <h3 className="font-serif text-2xl leading-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-700">
-          {category.title}
+          {t(category.title)}
         </h3>
 
         <p className="mt-3 flex-1 text-[15px] leading-[1.65] text-slate-900/68">
-          {category.description}
+          {t(category.description)}
         </p>
 
         <p className="mt-5 text-[14px] font-semibold text-slate-900 underline decoration-slate-900/20 underline-offset-4 transition group-hover:decoration-slate-900">
@@ -117,6 +121,8 @@ const MobileStickyCta = () => (
 );
 
 export default function DiscoverPuntaMitaPage() {
+  const { language } = useLanguage();
+const t = (value: Parameters<typeof getText>[0]) => getText(value, language);
   return (
     <main className="bg-white pb-20 md:pb-0">
       <section className="bg-white">
