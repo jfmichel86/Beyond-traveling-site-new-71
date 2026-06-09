@@ -1,11 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   discoverCategories,
   getDiscoverCategoryBySlug,
 } from "@/lib/discoverPuntaMita";
-import ActivityFilterGrid from "./ActivityFilterGrid";
+import DiscoverCategoryClient from "./DiscoverCategoryClient";
 
 type PageProps = {
   params: {
@@ -31,14 +30,16 @@ export function generateMetadata({ params }: PageProps) {
   }
 
   return {
-    title: `${category.title} | Discover Punta Mita`,
-    description: category.description,
+    title: "Discover Punta Mita | Beyond Traveling",
+    description:
+      "Discover curated activities, ocean experiences, and things to do in Punta Mita.",
     alternates: {
       canonical: `/discover-punta-mita/${params.slug}`,
     },
     openGraph: {
-      title: `${category.title} | Discover Punta Mita`,
-      description: category.description,
+      title: "Discover Punta Mita | Beyond Traveling",
+      description:
+        "Discover curated activities, ocean experiences, and things to do in Punta Mita.",
       url: `/discover-punta-mita/${params.slug}`,
       siteName: "Beyond Traveling",
       images: [
@@ -46,7 +47,7 @@ export function generateMetadata({ params }: PageProps) {
           url: category.image,
           width: 1200,
           height: 630,
-          alt: `${category.title} in Punta Mita`,
+          alt: "Discover Punta Mita",
         },
       ],
       locale: "en_US",
@@ -68,7 +69,7 @@ export default function DiscoverCategoryPage({ params }: PageProps) {
         <div className="relative aspect-[1983/793] w-full overflow-hidden">
           <Image
             src={category.heroImage}
-            alt={category.title}
+            alt="Discover Punta Mita"
             fill
             priority
             className="object-cover"
@@ -76,37 +77,7 @@ export default function DiscoverCategoryPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-[1200px] px-6">
-          <Link
-            href="/discover-punta-mita"
-            className="text-[14px] text-slate-500 transition hover:text-slate-900"
-          >
-            ← Back to Discover
-          </Link>
-
-          <div className="mt-8 max-w-[820px]">
-            <p className="text-[13px] uppercase tracking-[0.16em] text-slate-400">
-              Discover Punta Mita
-            </p>
-
-            <h1 className="mt-4 font-serif text-4xl leading-[1.08] tracking-tight text-slate-900 md:text-5xl">
-              {category.title}
-            </h1>
-
-            <p className="mt-6 text-[18px] leading-[1.75] text-slate-900/70">
-              {category.description}
-            </p>
-          </div>
-
-          <div className="mt-12">
-            <ActivityFilterGrid
-              categorySlug={category.slug}
-              activities={category.activities}
-            />
-          </div>
-        </div>
-      </section>
+      <DiscoverCategoryClient category={category} />
     </main>
   );
 }
