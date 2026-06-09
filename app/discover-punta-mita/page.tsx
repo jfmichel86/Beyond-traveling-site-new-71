@@ -1,3 +1,7 @@
+"use client";
+
+import { useLanguage } from "@/lib/language-context";
+import { getText } from "@/lib/i18n-types";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
