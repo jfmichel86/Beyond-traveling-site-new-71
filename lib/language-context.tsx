@@ -1060,7 +1060,6 @@ const es: Record<string, string> = {
   "A selection of premium ice cream.":
     "Una selección de helado premium.",
 
-  ...discoverTranslations,
 };
 
 const normalize = (value: string) => value.replace(/\s+/g, " ").trim();
