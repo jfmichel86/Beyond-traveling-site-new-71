@@ -40,26 +40,8 @@ export type DiscoverCategory = {
   activities: Activity[];
 };
 
-function option({
-  title,
-  description,
-  bestFor,
-  duration,
-  experience,
-  whatToExpect,
-  whatToBring,
-  goodToKnow,
-}: ExperienceOption): ExperienceOption {
-  return {
-    title,
-    description,
-    bestFor,
-    duration,
-    experience,
-    whatToExpect,
-    whatToBring,
-    goodToKnow,
-  };
+function option(value: ExperienceOption): ExperienceOption {
+  return value;
 }
 
 function createActivity({
@@ -78,18 +60,19 @@ function createActivity({
   whatToBring,
   experienceOptions,
 }: {
-  
-title: LocalizedText;
-description: LocalizedText;
-overview: LocalizedText;
-bestFor: LocalizedText;
-duration: LocalizedText;
-seasonality: LocalizedText;
-tags: LocalizedText[];
-notes: LocalizedText;
-whatToExpect: LocalizedText;
-whatToBring: LocalizedText;
-  
+  title: LocalizedText;
+  slug: string;
+  image: string;
+  heroImage: string;
+  description: LocalizedText;
+  overview: LocalizedText;
+  bestFor: LocalizedText;
+  duration: LocalizedText;
+  seasonality: LocalizedText;
+  tags: LocalizedText[];
+  notes: LocalizedText;
+  whatToExpect: LocalizedText;
+  whatToBring: LocalizedText;
   experienceOptions: ExperienceOption[];
 }): Activity {
   return {
@@ -98,21 +81,21 @@ whatToBring: LocalizedText;
     image,
     description,
     overview,
-  standardInfo: [
-  { label: text("Best For", "Ideal Para"), value: bestFor },
-  { label: text("Typical Duration", "Duración Habitual"), value: duration },
-  { label: text("Seasonality", "Temporada"), value: seasonality },
-],
-customInfo: [
-  { label: text("Good to Know", "Bueno Saber"), value: notes },
-  {
-    label: text("Tags", "Etiquetas"),
-    value: text(
-      tags.map((tag) => tag.en).join(", "),
-      tags.map((tag) => tag.es).join(", ")
-    ),
-  },
-],
+    standardInfo: [
+      { label: text("Best For", "Ideal Para"), value: bestFor },
+      { label: text("Typical Duration", "Duración Habitual"), value: duration },
+      { label: text("Seasonality", "Temporada"), value: seasonality },
+    ],
+    customInfo: [
+      { label: text("Good to Know", "Bueno Saber"), value: notes },
+      {
+        label: text("Tags", "Etiquetas"),
+        value: text(
+          tags.map((tag) => tag.en).join(", "),
+          tags.map((tag) => tag.es).join(", ")
+        ),
+      },
+    ],
     whatToExpect,
     whatToBring,
     gallery: [image, heroImage],
@@ -151,2527 +134,1861 @@ const vipHero = "/discover-punta-mita/heroes/high-end-vip-experiences-hero.jpg";
 
 export const discoverCategories: DiscoverCategory[] = [
   {
-    {
-  title: text("Ocean & Water", "Océano y Agua"),
-  slug: "ocean-water",
-  image: oceanImage,
-  heroImage: oceanHero,
-  description: text(
-    "Private yacht days, surf experiences, ocean adventures, fishing, wildlife, and water activities around Punta Mita.",
-    "Días privados en yate, experiencias de surf, aventuras en el mar, pesca, vida silvestre y actividades acuáticas alrededor de Punta Mita."
-  ),
-    
+    title: text(`Ocean & Water`, `Océano y Agua`),
+    slug: `ocean-water`,
+    image: oceanImage,
+    heroImage: oceanHero,
+    description: text(`Private yacht days, surf experiences, ocean adventures, fishing, wildlife, and water activities around Punta Mita.`, `Días privados en yate, experiencias de surf, aventuras en el mar, pesca, vida silvestre y actividades acuáticas alrededor de Punta Mita.`),
     activities: [
-     createActivity({
-  title: text(
-    "Private Yacht, Sailing & Marietas Days",
-    "Yates Privados, Veleros y Días en Marietas"
-  ),
-  slug: "private-yacht-sailing-marietas-days",
-  image: oceanImage,
-  heroImage: oceanHero,
-  description: text(
-    "Private boat, yacht, sailing, catamaran, Marietas, Hidden Beach, and luxury ocean-day experiences.",
-    "Experiencias de lancha privada, yate, velero, catamarán, Marietas, Playa Escondida y días de lujo en el mar."
-  ),
-  overview: text(
-    "A private day on the water is one of the signature Punta Mita experiences. This activity can be relaxed, romantic, family-friendly, adventurous, or fully VIP depending on the boat, route, catering, and occasion.",
-    "Un día privado en el mar es una de las experiencias más representativas de Punta Mita. Puede ser relajado, romántico, familiar, aventurero o completamente VIP, según la embarcación, la ruta, el catering y la ocasión."
-  ),
-        bestFor:
-          "Families, couples, groups, celebrations, romantic trips, VIP travelers, and guests who want a premium ocean experience.",
-        duration: "Half-day, full-day, or sunset itinerary.",
-        seasonality:
-          "Available year-round. Hidden Beach is permit-dependent. Whale watching is seasonal.",
-        tags: ["Ocean", "Family-Friendly", "Romantic", "VIP", "Adventure", "Seasonal"],
-        notes:
-          "Every detail can be tailored, from the boat style and departure point to the route, catering, open bar, water toys, and special access requests.",
-        whatToExpect:
-          "Expect a tailored ocean day with a captain and crew, flexible routing, beautiful water, time to swim or snorkel, and the option to add food, drinks, music, paddleboards, water toys, photography, or a special celebration setup.",
-        whatToBring:
-          "Swimwear, sunglasses, hat, sandals, reef-safe sunscreen, a light cover-up, dry clothes if needed, and a camera or phone.",
-        experienceOptions: [
-         
-       option({
-  title: text("Private Yacht Charter", "Yate Privado"),
-  description: text(
-    "A polished private yacht experience shaped around your preferred style: relaxed cruising, swimming, music, drinks, snorkeling, or a full celebration on the water.",
-    "Una experiencia refinada en yate privado diseñada alrededor de tu estilo: paseo relajado, nado, música, bebidas, snorkel o una celebración completa en el mar."
-  ),
-  bestFor: text(
-    "VIP travelers, groups, families, birthdays, couples, and celebrations.",
-    "Viajeros VIP, grupos, familias, cumpleaños, parejas y celebraciones."
-  ),
-         
-            duration: "Usually half-day or full-day.",
-            experience:
-              "Guests board a private yacht with crew and enjoy a customized route around Punta Mita, Banderas Bay, or the Marietas area. The day can include open bar, chef-style catering, music, paddleboards, snorkel gear, water toys, and time anchored in beautiful water.",
-            whatToExpect:
-              "A comfortable, private, highly flexible experience with a captain handling logistics and the itinerary adapted to ocean conditions and the group’s mood.",
-            whatToBring:
-              "Swimwear, cover-up, sunglasses, sunscreen, hat, sandals, and any preferred personal items.",
-            goodToKnow:
-              "The boat is chosen to match the group’s style, comfort expectations, occasion, and preferred pace on the water.",
-          }),
-          option({
-            title: "Luxury Boat Day",
-            description:
-              "A more casual private boat experience that still feels elevated, ideal for families or groups who want the ocean without needing a large yacht.",
-            bestFor: "Families, friend groups, active travelers, and relaxed luxury guests.",
-            duration: "Usually 3 to 6 hours.",
-            experience:
-              "This version focuses on easy cruising, swimming, snorkeling, beach stops, snacks, drinks, and flexible time on the water. It can be arranged with smaller luxury boats, pangas, or sport boats depending on the preferred style of outing.",
-            whatToExpect:
-              "A lighter, easier, and often more practical boat experience than a formal yacht charter, while still private and curated.",
-            whatToBring:
-              "Swimwear, towel, sandals, sunscreen, sunglasses, and a dry bag if needed.",
-            goodToKnow:
-              "An ideal choice for families who want a beautiful, easy ocean day with comfort and flexibility.",
-          }),
-          option({
-            title: "Sailing Trip",
-            description:
-              "A slower, more elegant ocean experience centered on the feeling of sailing, views, breeze, and conversation.",
-            bestFor: "Couples, adults, relaxed groups, sunset lovers, and guests who prefer atmosphere over speed.",
-            duration: "Usually half-day or sunset itinerary.",
-            experience:
-              "Guests enjoy a private or semi-private sailing route with time to relax on deck, take in the coastline, enjoy drinks, and possibly stop for a swim depending on the boat and conditions.",
-            whatToExpect:
-              "A quieter, more graceful experience than a typical boat day, with a stronger focus on mood, scenery, and comfort.",
-            whatToBring:
-              "Resort wear, swimwear if swimming, light layer, sunglasses, sunscreen, and flat sandals.",
-            goodToKnow:
-              "Sailing is weather-dependent. Wind and sea conditions influence the route and feel of the experience.",
-          }),
-          option({
-            title: "Catamaran Sunset Cruise",
-            description:
-              "A comfortable sunset cruise with drinks, music, ocean views, and a relaxed social atmosphere.",
-            bestFor: "Couples, families, groups, first-night arrivals, and sunset celebrations.",
-            duration: "Usually 2 to 4 hours.",
-            experience:
-              "Guests board before sunset and cruise along the coast or bay while enjoying drinks, snacks, music, and golden-hour views. It can be romantic and quiet or more social depending on the group.",
-            whatToExpect:
-              "A scenic, low-effort evening on the water with beautiful light, easy movement on board, and a celebratory but relaxed atmosphere.",
-            whatToBring:
-              "Comfortable resort wear, light layer, sunglasses, phone or camera, and flat shoes.",
-            goodToKnow:
-              "An easy ocean experience for mixed-age groups because it feels scenic, social, and comfortable without requiring a full-day commitment.",
-          }),
-          option({
-            title: "Marietas Islands Tour",
-            description:
-              "A boat experience to one of the most iconic natural areas near Punta Mita, with snorkeling, wildlife, rock formations, and dramatic ocean scenery.",
-            bestFor: "Families, couples, photographers, ocean lovers, and first-time visitors.",
-            duration: "Usually half-day.",
-            experience:
-              "Guests travel by boat to the Marietas area for views, snorkeling when conditions allow, birdlife, marine scenery, and time in protected waters. The experience can be private and premium or more casual depending on boat type.",
-            whatToExpect:
-              "Beautiful ocean views, nature-focused stops, possible snorkeling, and a memorable sense of place very close to Punta Mita.",
-            whatToBring:
-              "Swimwear, towel, sunscreen, hat, sunglasses, and camera.",
-            goodToKnow:
-              "The route may vary based on ocean conditions, park access, and conservation guidelines.",
-          }),
-          option({
-            title: "Hidden Beach Experience",
-            description:
-              "A permit-dependent visit to the famous Playa del Amor, offered as one of the most exclusive additions to a Marietas itinerary.",
-            bestFor: "Adventurous couples, active adults, and bucket-list travelers comfortable with a more active ocean experience.",
-            duration: "Usually part of a half-day Marietas experience.",
-            experience:
-              "When permits and ocean conditions allow, the boat itinerary may include access to Hidden Beach. It is a more regulated and active experience than a normal beach stop.",
-            whatToExpect:
-              "A memorable and carefully managed visit with limited access, time restrictions, and possible physical requirements depending on the operator and ocean conditions.",
-            whatToBring:
-              "Swimwear, towel, sunscreen, and comfort in the water.",
-            goodToKnow:
-              "Access is limited and depends on permits, ocean conditions, and park guidelines, making it one of the most exclusive additions to a Marietas itinerary.",
-          }),
-          option({
-            title: "Family Boat Day",
-            description:
-              "A family-friendly ocean day designed around comfort, safety, easy swimming, snacks, and activities for kids and adults.",
-            bestFor: "Families with kids, multigenerational groups, and relaxed villa guests.",
-            duration: "Usually 3 to 5 hours.",
-            experience:
-              "The route and timing are adapted for children and families. The focus is on calm water when possible, safe swimming, snacks, shade, music, and easy activities like paddleboards or snorkeling.",
-            whatToExpect:
-              "A private, low-pressure day where the crew keeps the experience flexible and comfortable for different ages.",
-            whatToBring:
-              "Swimwear, towels, hats, sunscreen, kids’ sun protection, water shirts, and any special snacks or medication.",
-            goodToKnow:
-              "For families, comfort details such as shade, bathrooms, easy boarding, and attentive crew make the day feel smoother.",
-          }),
-          option({
-            title: "Yacht Proposal or Romantic Ocean Moment",
-            description:
-              "A private yacht or sunset boat experience designed around a proposal, anniversary, honeymoon, or romantic celebration.",
-            bestFor: "Couples, proposals, anniversaries, honeymoons, and romantic trips.",
-            duration: "Usually sunset or half-day.",
-            experience:
-              "The yacht itinerary is planned around timing, privacy, décor, champagne, flowers, music, photography, and the key moment. It can be simple and elegant or fully produced.",
-            whatToExpect:
-              "A discreet, highly planned experience with attention to timing, mood, views, and privacy.",
-            whatToBring:
-              "Resort-elegant clothing, sunglasses, light layer, and any personal items for the surprise.",
-            goodToKnow:
-              "Photography, flowers, music, champagne, and timing can be arranged in advance to make the moment feel effortless.",
-          }),
-        ],
-      }),
-
       createActivity({
-        title: "Surf Experiences",
-        slug: "surf-experiences",
+        title: text(`Private Yacht, Sailing & Marietas Days`, `Yates Privados, Veleros y Días en Marietas`),
+        slug: `private-yacht-sailing-marietas-days`,
         image: oceanImage,
         heroImage: oceanHero,
-        description:
-          "Private surf lessons, surf safaris, La Lancha surf days, and surf-town experiences near Punta Mita.",
-        overview:
-          "Surfing around Punta Mita can be accessible for beginners, fun for families, and rewarding for experienced surfers, with sessions shaped by experience level, swell, tide, and the desired style of day.",
-        bestFor:
-          "Active travelers, families, kids, teens, couples, surfers, and guests who want a classic Punta Mita ocean experience.",
-        duration: "Usually 1.5 to 4 hours.",
-        seasonality: "Available year-round, with conditions varying by swell, tide, and season.",
-        tags: ["Ocean", "Adventure", "Family-Friendly", "Sports"],
-        notes:
-          "The surf location is chosen based on experience level, tide, swell, and comfort in the water.",
-        whatToExpect:
-          "Expect board setup, local guidance, ocean-safety briefing, instruction when needed, and time in the water at the best available surf spot for the group.",
-        whatToBring:
-          "Swimwear, rash guard, towel, sunscreen, sandals, and a change of clothes.",
+        description: text(`Private boat, yacht, sailing, catamaran, Marietas, Hidden Beach, and luxury ocean-day experiences.`, `Experiencias de lancha privada, yate, velero, catamarán, Marietas, Playa Escondida y días de lujo en el mar.`),
+        overview: text(`Private boat, yacht, sailing, catamaran, Marietas, Hidden Beach, and luxury ocean-day experiences. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Experiencias de lancha privada, yate, velero, catamarán, Marietas, Playa Escondida y días de lujo en el mar. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Ocean`, `Océano`),
+        text(`Family-Friendly`, `Familiar`),
+        text(`Romantic`, `Romántico`),
+        text(`VIP`, `VIP`),
+        text(`Adventure`, `Aventura`),
+        text(`Seasonal`, `De Temporada`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Private Surf Lesson",
-            description:
-              "A personalized surf session for beginners or intermediate guests who want instruction, safety, and confidence in the water.",
-            bestFor: "Kids, teens, adults, first-time surfers, and families.",
-            duration: "Usually 1.5 to 2 hours.",
-            experience:
-              "Guests meet a private instructor, receive a safety briefing and land-based technique introduction, then practice in the water with guidance adapted to their level.",
-            whatToExpect:
-              "Patient instruction, beginner-friendly pacing, help with positioning and waves, and a fun active session.",
-            whatToBring:
-              "Swimwear, rash guard, sunscreen, towel, and water.",
-            goodToKnow:
-              "Beginner sessions are planned around safe, friendly conditions with patient instruction and the right timing.",
-          }),
-          option({
-            title: "La Lancha Surf Day",
-            description:
-              "A surf-focused outing to one of the area’s most recognizable breaks, often paired with beach time or El Surf Club.",
-            bestFor: "Surfers, active couples, teens, and guests who want a local surf experience.",
-            duration: "Usually 2 to 4 hours.",
-            experience:
-              "Guests head to La Lancha with boards and guidance. The session can be instructional or simply supported by a local surf guide who helps choose the right timing and setup.",
-            whatToExpect:
-              "A relaxed but active surf outing with a stronger local feel than a resort-based lesson.",
-            whatToBring:
-              "Swimwear, rash guard, towel, sandals, sunscreen, and dry clothes.",
-            goodToKnow:
-              "La Lancha works best when timing, beach access, boards, and local surf guidance are arranged in advance.",
-          }),
-          option({
-            title: "Private Surf Safari",
-            description:
-              "A guided surf outing designed for more experienced surfers who want to chase the best break available that day.",
-            bestFor: "Intermediate and advanced surfers.",
-            duration: "Usually half-day.",
-            experience:
-              "A local surf guide selects the best break based on swell, wind, tide, and guest ability. Options may include Punta de Mita breaks, La Lancha, Burros, Stinky’s, or other nearby surf spots.",
-            whatToExpect:
-              "A more flexible and condition-driven experience, focused on better waves rather than a fixed location.",
-            whatToBring:
-              "Surfwear, sunscreen, water, towel, and personal board if preferred.",
-            goodToKnow:
-              "Best for surfers who enjoy a flexible, condition-driven outing and are comfortable with changing ocean conditions.",
-          }),
-          option({
-            title: "Kid-Friendly Surf Session",
-            description:
-              "A gentle, safe, confidence-building surf lesson designed specifically for children and families.",
-            bestFor: "Families with children and beginner teens.",
-            duration: "Usually 1 to 1.5 hours.",
-            experience:
-              "The instructor keeps the session simple, safe, and encouraging, focusing on ocean comfort, balance, paddling basics, and small waves when conditions are appropriate.",
-            whatToExpect:
-              "A playful and supervised surf experience with close attention to safety and child comfort.",
-            whatToBring:
-              "Rash guard, sunscreen, towel, water, hat for before and after, and dry clothes.",
-            goodToKnow:
-              "For younger kids, the safest and most comfortable ocean conditions guide the timing.",
-          }),
+        option({
+          title: text(`Private Yacht Charter`, `Yate Privado`),
+          description: text(`A carefully arranged private yacht charter experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de yate privado cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private yacht charter with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en yate privado, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Luxury Boat Day`, `Día en Lancha de Lujo`),
+          description: text(`A carefully arranged luxury boat day experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de día en lancha de lujo cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on luxury boat day with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en día en lancha de lujo, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Sailing Trip`, `Paseo en Velero`),
+          description: text(`A carefully arranged sailing trip experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de paseo en velero cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on sailing trip with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en paseo en velero, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Catamaran Sunset Cruise`, `Atardecer en Catamarán`),
+          description: text(`A carefully arranged catamaran sunset cruise experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de atardecer en catamarán cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on catamaran sunset cruise with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en atardecer en catamarán, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Marietas Islands Tour`, `Tour a Islas Marietas`),
+          description: text(`A carefully arranged marietas islands tour experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de tour a islas marietas cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on marietas islands tour with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en tour a islas marietas, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Hidden Beach Experience`, `Experiencia en Playa Escondida`),
+          description: text(`A carefully arranged hidden beach experience experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de experiencia en playa escondida cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on hidden beach experience with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en experiencia en playa escondida, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Family Boat Day`, `Día Familiar en Barco`),
+          description: text(`A carefully arranged family boat day experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de día familiar en barco cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on family boat day with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en día familiar en barco, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Yacht Proposal or Romantic Ocean Moment`, `Propuesta en Yate o Momento Romántico en el Mar`),
+          description: text(`A carefully arranged yacht proposal or romantic ocean moment experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de propuesta en yate o momento romántico en el mar cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on yacht proposal or romantic ocean moment with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en propuesta en yate o momento romántico en el mar, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Foil, Paddle & Kayak Experiences",
-        slug: "foil-paddle-kayak-experiences",
+        title: text(`Surf Experiences`, `Experiencias de Surf`),
+        slug: `surf-experiences`,
         image: oceanImage,
         heroImage: oceanHero,
-        description:
-          "E-foil, wing-foil, paddleboarding, and kayaking for active guests looking for modern ocean sports.",
-        overview:
-          "Active but accessible water sports for guests who want something fun, modern, and close to Punta Mita without committing to a full boat day.",
-        bestFor:
-          "Active travelers, teens, couples, groups, and guests who want a fun water-sports session.",
-        duration: "Usually 1 to 3 hours.",
-        seasonality: "Available year-round, subject to ocean and wind conditions.",
-        tags: ["Ocean", "Adventure", "Sports", "Family-Friendly"],
-        notes:
-          "E-foil and wing-foil are more premium and distinctive than generic water toys. Paddle and kayak experiences work best in calm conditions.",
-        whatToExpect:
-          "Expect instruction, equipment, safety guidance, and a session adapted to the guest’s comfort level and ocean conditions.",
-        whatToBring:
-          "Swimwear, towel, sunscreen, sunglasses with strap if needed, and dry clothes.",
+        description: text(`Private surf lessons, surf safaris, La Lancha surf days, and surf-town experiences near Punta Mita.`, `Clases privadas de surf, surf safaris, días de surf en La Lancha y experiencias en pueblos surferos cerca de Punta Mita.`),
+        overview: text(`Private surf lessons, surf safaris, La Lancha surf days, and surf-town experiences near Punta Mita. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Clases privadas de surf, surf safaris, días de surf en La Lancha y experiencias en pueblos surferos cerca de Punta Mita. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Ocean`, `Océano`),
+        text(`Family-Friendly`, `Familiar`),
+        text(`Adventure`, `Aventura`),
+        text(`Sports`, `Deportes`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "E-Foil Lesson",
-            description:
-              "A premium modern water-sports session where guests learn to ride an electric hydrofoil above the water.",
-            bestFor: "Active adults, teens, adventurous couples, and guests looking for something new.",
-            duration: "Usually 1 to 1.5 hours.",
-            experience:
-              "Guests receive instruction on board control, balance, speed, and safety before progressing into the water with coaching.",
-            whatToExpect:
-              "A learning curve, plenty of laughs, and a very memorable feeling once the board lifts above the water.",
-            whatToBring:
-              "Swimwear, towel, sunscreen, and comfort in the ocean.",
-            goodToKnow:
-              "This is easier for guests with board-sport experience, but beginners can still enjoy it with the right conditions.",
-          }),
-          option({
-            title: "Wing-Foil Session",
-            description:
-              "A wind-powered foil experience for sporty guests who want a more technical and dynamic ocean activity.",
-            bestFor: "Athletic guests, board-sport enthusiasts, and adventurous travelers.",
-            duration: "Usually 1.5 to 2 hours.",
-            experience:
-              "Guests learn to handle the wing, understand wind direction, balance on the board, and begin combining wind power with foil movement.",
-            whatToExpect:
-              "A more technical session than e-foil, with instruction heavily dependent on wind and water conditions.",
-            whatToBring:
-              "Swimwear, towel, sunscreen, and athletic comfort in the water.",
-            goodToKnow:
-              "Wing-foil depends on wind and water conditions, so timing is planned for the most suitable conditions.",
-          }),
-          option({
-            title: "Paddleboarding",
-            description:
-              "A relaxed ocean activity that can be peaceful, active, or family-friendly depending on the route and conditions.",
-            bestFor: "Families, couples, beginners, wellness travelers, and calm-water days.",
-            duration: "Usually 1 to 2 hours.",
-            experience:
-              "Guests paddle along calm water with instruction and support if needed. It can be arranged as a simple board rental, guided paddle, or part of a beach-club or yacht day.",
-            whatToExpect:
-              "A low-pressure water activity with beautiful views, light exercise, and a slower pace.",
-            whatToBring:
-              "Swimwear, sunscreen, hat, sunglasses with strap, and towel.",
-            goodToKnow:
-              "Morning is often better because water and wind are usually calmer.",
-          }),
-          option({
-            title: "Kayaking",
-            description:
-              "A simple, accessible water activity for couples, families, and guests who want to explore the coastline at a relaxed pace.",
-            bestFor: "Families, couples, beginners, and light-adventure guests.",
-            duration: "Usually 1 to 2 hours.",
-            experience:
-              "Guests paddle with single or double kayaks, either independently in a protected area or with a guide depending on the location.",
-            whatToExpect:
-              "A scenic, easygoing session that can be active without being intense.",
-            whatToBring:
-              "Swimwear, sunscreen, hat, sunglasses, towel, and water.",
-            goodToKnow:
-              "Kayaking is best when wind and sea conditions are calm.",
-          }),
+        option({
+          title: text(`Private Surf Lesson`, `Clase Privada de Surf`),
+          description: text(`A carefully arranged private surf lesson experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de clase privada de surf cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private surf lesson with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en clase privada de surf, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`La Lancha Surf Day`, `Día de Surf en La Lancha`),
+          description: text(`A carefully arranged la lancha surf day experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de día de surf en la lancha cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on la lancha surf day with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en día de surf en la lancha, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Surf Safari`, `Surf Safari Privado`),
+          description: text(`A carefully arranged private surf safari experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de surf safari privado cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private surf safari with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en surf safari privado, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Kid-Friendly Surf Session`, `Sesión de Surf Para Niños`),
+          description: text(`A carefully arranged kid-friendly surf session experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de sesión de surf para niños cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on kid-friendly surf session with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en sesión de surf para niños, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Underwater Exploration",
-        slug: "underwater-exploration",
+        title: text(`Foil, Paddle & Kayak Experiences`, `Experiencias de Foil, Paddle y Kayak`),
+        slug: `foil-paddle-kayak-experiences`,
         image: oceanImage,
         heroImage: oceanHero,
-        description:
-          "Snorkeling, scuba diving, freediving, and underwater exploration around Marietas and nearby ocean sites.",
-        overview:
-          "For guests who want to explore below the surface, this can be a relaxed snorkeling outing, a private dive charter, or a more advanced freediving experience.",
-        bestFor:
-          "Ocean lovers, families, certified divers, adventurous couples, and guests interested in marine life.",
-        duration: "Usually 2 to 5 hours depending on route and activity.",
-        seasonality: "Available year-round, subject to visibility and sea conditions.",
-        tags: ["Ocean", "Adventure", "Family-Friendly", "Wildlife"],
-        notes:
-          "Scuba and freediving may require previous experience, certification, or additional safety preparation.",
-        whatToExpect:
-          "Expect a guided ocean session with equipment, safety briefing, boat transfer when needed, and time to explore marine life and underwater scenery.",
-        whatToBring:
-          "Swimwear, towel, reef-safe sunscreen, dry clothes, and certification card if scuba diving.",
+        description: text(`E-foil, wing-foil, paddleboarding, and kayaking for active guests looking for modern ocean sports.`, `E-foil, wing-foil, paddleboard y kayak para huéspedes activos que buscan deportes acuáticos modernos.`),
+        overview: text(`E-foil, wing-foil, paddleboarding, and kayaking for active guests looking for modern ocean sports. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `E-foil, wing-foil, paddleboard y kayak para huéspedes activos que buscan deportes acuáticos modernos. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Ocean`, `Océano`),
+        text(`Adventure`, `Aventura`),
+        text(`Sports`, `Deportes`),
+        text(`Family-Friendly`, `Familiar`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Marietas Snorkeling",
-            description:
-              "A relaxed guided snorkeling experience in one of the most attractive marine areas near Punta Mita.",
-            bestFor: "Families, couples, beginners, and ocean lovers.",
-            duration: "Usually part of a half-day boat experience.",
-            experience:
-              "Guests travel by boat to a suitable snorkeling area, receive gear and guidance, and enter the water to explore marine life and rock formations when visibility allows.",
-            whatToExpect:
-              "A beautiful nature-focused ocean experience with a relaxed pace and easy integration into a boat day.",
-            whatToBring:
-              "Swimwear, towel, sunscreen, hat, and dry clothes.",
-            goodToKnow:
-              "Visibility changes by day and season, which makes each outing feel natural, varied, and connected to the ocean conditions.",
-          }),
-          option({
-            title: "Private Scuba Dive",
-            description:
-              "A dive-focused outing for certified divers or guests arranging a beginner discovery dive with a qualified operator.",
-            bestFor: "Certified divers, adventurous adults, and ocean-focused travelers.",
-            duration: "Usually half-day.",
-            experience:
-              "Guests dive with professional supervision at a suitable site chosen by conditions and certification level. The focus is marine life, underwater scenery, and a more immersive ocean experience.",
-            whatToExpect:
-              "A safety-first dive experience with gear, briefing, boat transfer, and professional guidance.",
-            whatToBring:
-              "Certification card if certified, swimwear, towel, dry clothes, and any personal dive gear if preferred.",
-            goodToKnow:
-              "Certified divers bring their certification details, and flight timing is considered when planning the dive schedule.",
-          }),
-          option({
-            title: "Freediving Experience",
-            description:
-              "A breath-focused underwater session for guests who want a quieter, more athletic connection with the ocean.",
-            bestFor: "Strong swimmers, adventurous travelers, and guests interested in breath and underwater movement.",
-            duration: "Usually 2 to 4 hours.",
-            experience:
-              "Guests learn or practice breath control, relaxation, safety principles, and guided dives under professional supervision.",
-            whatToExpect:
-              "A calm but serious experience that combines mental focus, ocean comfort, and underwater technique.",
-            whatToBring:
-              "Swimwear, towel, sunscreen, and comfort swimming in open water.",
-            goodToKnow:
-              "This is a more focused underwater experience with professional instruction, safety guidance, and conditions suited to the session.",
-          }),
+        option({
+          title: text(`E-Foil Lesson`, `Clase de E-Foil`),
+          description: text(`A carefully arranged e-foil lesson experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de clase de e-foil cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on e-foil lesson with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en clase de e-foil, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Wing-Foil Session`, `Sesión de Wing-Foil`),
+          description: text(`A carefully arranged wing-foil session experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de sesión de wing-foil cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on wing-foil session with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en sesión de wing-foil, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Paddleboarding`, `Paddleboard`),
+          description: text(`A carefully arranged paddleboarding experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de paddleboard cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on paddleboarding with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en paddleboard, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Kayaking`, `Kayak`),
+          description: text(`A carefully arranged kayaking experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de kayak cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on kayaking with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en kayak, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Fishing & Spearfishing Experiences",
-        slug: "fishing-spearfishing-experiences",
+        title: text(`Underwater Exploration`, `Exploración Submarina`),
+        slug: `underwater-exploration`,
         image: oceanImage,
         heroImage: oceanHero,
-        description:
-          "Private sportfishing, spearfishing, deep-sea fishing, and sea-to-table fishing experiences.",
-        overview:
-          "Fishing experiences can range from casual, family-friendly ocean outings to serious offshore sportfishing days.",
-        bestFor:
-          "Fishing enthusiasts, families, groups, adventurous travelers, and guests interested in sea-to-table dining.",
-        duration: "Half-day or full-day.",
-        seasonality: "Available year-round, with target species and conditions varying by season.",
-        tags: ["Ocean", "Adventure", "Food & Drink", "Groups", "Seasonal"],
-        notes:
-          "When possible, the day can be paired with a villa chef or trusted restaurant for a fresh sea-to-table meal.",
-        whatToExpect:
-          "Expect a private captain or crew, fishing gear, route planning based on conditions, and the possibility of preparing the catch afterward depending on the experience.",
-        whatToBring:
-          "Sun protection, comfortable boat clothing, non-slip shoes, motion-sickness support if needed, and a light layer.",
+        description: text(`Snorkeling, scuba diving, freediving, and underwater exploration around Marietas and nearby ocean sites.`, `Snorkel, buceo, freediving y exploración submarina alrededor de Marietas y otros puntos cercanos.`),
+        overview: text(`Snorkeling, scuba diving, freediving, and underwater exploration around Marietas and nearby ocean sites. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Snorkel, buceo, freediving y exploración submarina alrededor de Marietas y otros puntos cercanos. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Ocean`, `Océano`),
+        text(`Wildlife`, `Vida Silvestre`),
+        text(`Adventure`, `Aventura`),
+        text(`Family-Friendly`, `Familiar`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Private Sportfishing",
-            description:
-              "A private fishing charter for guests who want a serious ocean fishing experience with captain, crew, and gear.",
-            bestFor: "Fishing enthusiasts, groups, families with older kids, and competitive guests.",
-            duration: "Half-day or full-day.",
-            experience:
-              "The captain selects the route and target species based on season, weather, and guest goals. The day may focus on inshore or offshore fishing depending on conditions.",
-            whatToExpect:
-              "A classic fishing charter with professional guidance, ocean time, gear, and the possibility of a memorable catch.",
-            whatToBring:
-              "Hat, sunscreen, sunglasses, boat shoes, light layer, and motion-sickness support if needed.",
-            goodToKnow:
-              "Fishing is never guaranteed. The value is in the experience, the ocean day, and the chance of a catch.",
-          }),
-          option({
-            title: "Spearfishing",
-            description:
-              "An active, skill-based ocean experience for strong swimmers and adventurous guests.",
-            bestFor: "Strong swimmers, experienced ocean guests, and adventurous adults.",
-            duration: "Usually half-day.",
-            experience:
-              "Guests go with a qualified guide to suitable areas, review safety and technique, then enter the water for a guided spearfishing session.",
-            whatToExpect:
-              "A physically active experience with focus, patience, safety, and direct connection to the ocean.",
-            whatToBring:
-              "Swimwear, towel, reef-safe sunscreen, and comfort in open water.",
-            goodToKnow:
-              "This is best for confident ocean swimmers and guests who want a more active, skill-based experience.",
-          }),
-          option({
-            title: "Sea-to-Table Fishing Experience",
-            description:
-              "A fishing or spearfishing experience followed by a private chef or restaurant preparation when possible.",
-            bestFor: "Food lovers, groups, families, and guests who want a story behind the meal.",
-            duration: "Half-day plus meal timing.",
-            experience:
-              "Guests fish in the morning or afternoon, then the catch is prepared as ceviche, grilled fish, tacos, or a more refined dinner depending on the chef and what is caught.",
-            whatToExpect:
-              "A memorable link between the ocean and the table, combining adventure with food and storytelling.",
-            whatToBring:
-              "Boat clothing, sun protection, and appetite for a fresh local meal.",
-            goodToKnow:
-              "Because the catch depends on the day, the meal can be complemented with a planned chef’s menu.",
-          }),
+        option({
+          title: text(`Marietas Snorkeling`, `Snorkel en Marietas`),
+          description: text(`A carefully arranged marietas snorkeling experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de snorkel en marietas cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on marietas snorkeling with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en snorkel en marietas, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Scuba Dive`, `Buceo Privado`),
+          description: text(`A carefully arranged private scuba dive experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de buceo privado cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private scuba dive with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en buceo privado, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Freediving Experience`, `Experiencia de Freediving`),
+          description: text(`A carefully arranged freediving experience experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de experiencia de freediving cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on freediving experience with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en experiencia de freediving, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Marine Wildlife & Conservation Experiences",
-        slug: "marine-wildlife-conservation-experiences",
+        title: text(`Fishing & Spearfishing Experiences`, `Experiencias de Pesca y Spearfishing`),
+        slug: `fishing-spearfishing-experiences`,
         image: oceanImage,
         heroImage: oceanHero,
-        description:
-          "Whale watching, wild marine-life tours, turtle releases, and conservation-focused experiences.",
-        overview:
-          "Natural, seasonal, and conservation-oriented experiences with an emphasis on wild marine life, responsible viewing, and meaningful family moments.",
-        bestFor:
-          "Families, kids, nature lovers, couples, photographers, and guests who want a meaningful seasonal experience.",
-        duration: "Usually 1 to 4 hours depending on the experience.",
-        seasonality:
-          "Whale watching and turtle releases are seasonal. Marine-life tours depend on conditions.",
-        tags: ["Ocean", "Wildlife", "Family-Friendly", "Seasonal"],
-        notes:
-          "These experiences focus on wild, respectful, and conservation-minded encounters with the natural environment.",
-        whatToExpect:
-          "Expect a nature-focused experience with local guidance, seasonal timing, respectful viewing, and an educational component when available.",
-        whatToBring:
-          "Comfortable clothing, camera, sunscreen, hat, and a light layer for boat-based experiences.",
+        description: text(`Private sportfishing, spearfishing, deep-sea fishing, and sea-to-table fishing experiences.`, `Pesca deportiva privada, spearfishing, pesca de altura y experiencias sea-to-table.`),
+        overview: text(`Private sportfishing, spearfishing, deep-sea fishing, and sea-to-table fishing experiences. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Pesca deportiva privada, spearfishing, pesca de altura y experiencias sea-to-table. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Ocean`, `Océano`),
+        text(`Adventure`, `Aventura`),
+        text(`Food`, `Gastronomía`),
+        text(`Sports`, `Deportes`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Private Whale Watching",
-            description:
-              "A seasonal ocean experience focused on observing humpback whales in the bay with privacy and comfort.",
-            bestFor: "Families, couples, photographers, nature lovers, and first-time visitors.",
-            duration: "Usually 2 to 4 hours.",
-            experience:
-              "Guests go out by private boat during whale season with a captain or naturalist-style guide. The route is adapted to responsible viewing and current whale activity.",
-            whatToExpect:
-              "A moving and memorable nature experience, with the possibility of seeing whales breach, tail slap, or travel through the bay.",
-            whatToBring:
-              "Camera, hat, sunglasses, sunscreen, and a light layer.",
-            goodToKnow:
-              "The experience is guided by respectful distance, responsible viewing, and appreciation for the natural behavior of the whales.",
-          }),
-          option({
-            title: "Wild Dolphin & Marine-Life Tour",
-            description:
-              "A responsible ocean outing focused on wild marine life, birds, turtles, rays, and dolphins when naturally encountered.",
-            bestFor: "Families, kids, nature lovers, and photographers.",
-            duration: "Usually 2 to 4 hours.",
-            experience:
-              "The boat route is planned around likely marine-life areas, with the understanding that wildlife is observed naturally and never guaranteed.",
-            whatToExpect:
-              "A relaxed ocean nature experience with education, observation, and beautiful time on the water.",
-            whatToBring:
-              "Sun protection, camera, comfortable boat clothing, and patience for wildlife viewing.",
-            goodToKnow:
-              "This experience focuses on wild marine life observed naturally in the bay.",
-          }),
-          option({
-            title: "Turtle Release",
-            description:
-              "A seasonal conservation-oriented experience that can be especially meaningful for families and children.",
-            bestFor: "Families, kids, couples, and guests interested in conservation.",
-            duration: "Usually 1 to 2 hours.",
-            experience:
-              "When available, guests participate in or observe a supervised turtle release with guidance from a conservation program or qualified host.",
-            whatToExpect:
-              "A quiet, emotional, and educational moment connected to the local coastline and turtle nesting season.",
-            whatToBring:
-              "Comfortable beach clothing, sandals, camera without flash if instructed, and respect for the conservation rules.",
-            goodToKnow:
-              "This is seasonal and cannot be guaranteed on every date.",
-          }),
+        option({
+          title: text(`Private Sportfishing`, `Pesca Deportiva Privada`),
+          description: text(`A carefully arranged private sportfishing experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de pesca deportiva privada cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private sportfishing with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en pesca deportiva privada, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Spearfishing`, `Spearfishing`),
+          description: text(`A carefully arranged spearfishing experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de spearfishing cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on spearfishing with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en spearfishing, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Sea-to-Table Fishing Experience`, `Experiencia de Pesca Sea-to-Table`),
+          description: text(`A carefully arranged sea-to-table fishing experience experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de experiencia de pesca sea-to-table cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on sea-to-table fishing experience with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en experiencia de pesca sea-to-table, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
+      createActivity({
+        title: text(`Marine Wildlife & Conservation Experiences`, `Vida Marina y Conservación`),
+        slug: `marine-wildlife-conservation-experiences`,
+        image: oceanImage,
+        heroImage: oceanHero,
+        description: text(`Whale watching, wild marine-life tours, turtle releases, and conservation-focused experiences.`, `Avistamiento de ballenas, tours de vida marina, liberación de tortugas y experiencias enfocadas en conservación.`),
+        overview: text(`Whale watching, wild marine-life tours, turtle releases, and conservation-focused experiences. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Avistamiento de ballenas, tours de vida marina, liberación de tortugas y experiencias enfocadas en conservación. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Ocean`, `Océano`),
+        text(`Wildlife`, `Vida Silvestre`),
+        text(`Family-Friendly`, `Familiar`),
+        text(`Seasonal`, `De Temporada`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
+        experienceOptions: [
+        option({
+          title: text(`Private Whale Watching`, `Avistamiento Privado de Ballenas`),
+          description: text(`A carefully arranged private whale watching experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de avistamiento privado de ballenas cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private whale watching with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en avistamiento privado de ballenas, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Wild Dolphin & Marine-Life Tour`, `Tour de Delfines Silvestres y Vida Marina`),
+          description: text(`A carefully arranged wild dolphin & marine-life tour experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de tour de delfines silvestres y vida marina cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on wild dolphin & marine-life tour with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en tour de delfines silvestres y vida marina, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Turtle Release`, `Liberación de Tortugas`),
+          description: text(`A carefully arranged turtle release experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de liberación de tortugas cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on turtle release with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en liberación de tortugas, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
+        ],
+      })
     ],
   },
-
   {
-    title: "Wellness, Relaxation & Beach Lifestyle",
-    slug: "wellness-relaxation-beach-lifestyle",
+    title: text(`Wellness, Relaxation & Beach Lifestyle`, `Bienestar, Relajación y Vida de Playa`),
+    slug: `wellness-relaxation-beach-lifestyle`,
     image: wellnessImage,
     heroImage: wellnessHero,
-    description:
-      "In-villa spa, wellness, ritual experiences, private beach setups, sunset dinners, and relaxed luxury moments.",
+    description: text(`In-villa spa, wellness, ritual experiences, private beach setups, sunset dinners, and relaxed luxury moments.`, `Spa en villa, experiencias de bienestar, rituales, montajes privados en playa, cenas al atardecer y momentos de lujo relajado.`),
     activities: [
       createActivity({
-        title: "In-Villa Spa & Wellness",
-        slug: "in-villa-spa-wellness",
+        title: text(`In-Villa Spa & Wellness`, `Spa y Bienestar en Villa`),
+        slug: `in-villa-spa-wellness`,
         image: wellnessImage,
         heroImage: wellnessHero,
-        description:
-          "Spa treatments, massage, yoga, sound healing, breathwork, ice baths, and private wellness sessions at the villa.",
-        overview:
-          "The villa becomes a private wellness space for spa treatments, movement, recovery, and restorative experiences.",
-        bestFor:
-          "Couples, families, wellness-focused guests, groups, pre-wedding stays, and guests who want to relax without leaving the villa.",
-        duration: "Usually 1 to 4 hours, or a half-day wellness program.",
-        seasonality: "Available year-round.",
-        tags: ["Wellness", "Romantic", "Family-Friendly", "VIP", "Rainy Day"],
-        notes:
-          "Wellness sessions can be combined into a personalized program, from a single treatment to a half-day retreat at the villa.",
-        whatToExpect:
-          "Expect therapists, instructors, or wellness practitioners to come to the villa and create a private session adapted to the group.",
-        whatToBring:
-          "Comfortable clothing, swimwear if using cold plunge or pool, and a quiet space at the villa.",
+        description: text(`Spa treatments, massage, yoga, sound healing, breathwork, ice baths, and private wellness sessions at the villa.`, `Tratamientos de spa, masajes, yoga, sound healing, breathwork, baños de hielo y sesiones privadas de bienestar en la villa.`),
+        overview: text(`Spa treatments, massage, yoga, sound healing, breathwork, ice baths, and private wellness sessions at the villa. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Tratamientos de spa, masajes, yoga, sound healing, breathwork, baños de hielo y sesiones privadas de bienestar en la villa. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Wellness`, `Bienestar`),
+        text(`Relaxation`, `Relajación`),
+        text(`Romantic`, `Romántico`),
+        text(`Rainy Day`, `Día de Lluvia`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "In-Villa Massage & Spa Treatments",
-            description:
-              "A private spa experience brought directly to the villa, ideal for guests who want to relax without leaving the property.",
-            bestFor: "Couples, families, groups, wellness travelers, and arrival-day recovery.",
-            duration: "Usually 60 to 120 minutes per guest.",
-            experience:
-              "Massage therapists or spa providers set up inside the villa, terrace, or a quiet shaded area. Treatments may include massage, facials, body treatments, or recovery-focused services.",
-            whatToExpect:
-              "A calm, private experience with spa-level service adapted to the villa environment.",
-            whatToBring:
-              "Comfortable clothing and a quiet space. Providers usually bring treatment equipment.",
-            goodToKnow:
-              "For larger groups, treatments can be scheduled in a smooth sequence so everyone has time to relax.",
-          }),
-          option({
-            title: "Private Yoga",
-            description:
-              "A personalized yoga session at the villa, beach, terrace, or garden depending on the property and group preference.",
-            bestFor: "Couples, families, wellness travelers, beginners, and experienced practitioners.",
-            duration: "Usually 60 to 90 minutes.",
-            experience:
-              "A private instructor leads a class adapted to the group’s level and goals, from gentle stretching to more active flow.",
-            whatToExpect:
-              "A peaceful, grounding session that can be scheduled in the morning, at sunset, or as part of a full wellness day.",
-            whatToBring:
-              "Comfortable clothing and water. Mats can often be arranged.",
-            goodToKnow:
-              "This pairs well with breakfast, sound healing, breathwork, or massage.",
-          }),
-          option({
-            title: "Sound Healing & Breathwork",
-            description:
-              "A restorative session using guided breathing, sound, stillness, and relaxation.",
-            bestFor: "Couples, small groups, wellness guests, and guests wanting a slower experience.",
-            duration: "Usually 60 to 90 minutes.",
-            experience:
-              "A practitioner guides the group through breath, meditation, and sound using instruments such as bowls, gongs, or chimes depending on the provider.",
-            whatToExpect:
-              "A calming and introspective experience designed to reduce stress and create a deeper sense of relaxation.",
-            whatToBring:
-              "Comfortable clothing and an open mindset.",
-            goodToKnow:
-              "This works best in a quiet villa space without interruptions.",
-          }),
-          option({
-            title: "Cold Plunge & Recovery Session",
-            description:
-              "A recovery-focused wellness experience with ice bath, breathwork, mobility, or massage elements.",
-            bestFor: "Athletes, active travelers, wellness groups, and guests interested in performance recovery.",
-            duration: "Usually 60 to 120 minutes.",
-            experience:
-              "The session may include breath preparation, guided cold exposure, mobility work, recovery coaching, and optional massage or healthy refreshments.",
-            whatToExpect:
-              "A more active wellness experience that feels energizing, challenging, and memorable.",
-            whatToBring:
-              "Swimwear, towel, comfortable clothes, and water.",
-            goodToKnow:
-              "Cold exposure is best for guests who are comfortable with intense temperature contrast and want a more active recovery experience.",
-          }),
+        option({
+          title: text(`In-Villa Massage & Spa Treatments`, `Masajes y Tratamientos de Spa en Villa`),
+          description: text(`A carefully arranged in-villa massage & spa treatments experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de masajes y tratamientos de spa en villa cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on in-villa massage & spa treatments with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en masajes y tratamientos de spa en villa, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Yoga`, `Yoga Privado`),
+          description: text(`A carefully arranged private yoga experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de yoga privado cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private yoga with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en yoga privado, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Sound Healing & Breathwork`, `Sound Healing y Breathwork`),
+          description: text(`A carefully arranged sound healing & breathwork experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de sound healing y breathwork cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on sound healing & breathwork with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en sound healing y breathwork, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Cold Plunge & Recovery Session`, `Cold Plunge y Recuperación`),
+          description: text(`A carefully arranged cold plunge & recovery session experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de cold plunge y recuperación cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on cold plunge & recovery session with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en cold plunge y recuperación, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Temazcal & Ritual Wellness",
-        slug: "temazcal-ritual-wellness",
+        title: text(`Temazcal & Ritual Wellness`, `Temazcal y Bienestar Ritual`),
+        slug: `temazcal-ritual-wellness`,
         image: wellnessImage,
         heroImage: wellnessHero,
-        description:
-          "Temazcal, cacao ceremonies, spiritual wellness, and ritual-style healing experiences.",
-        overview:
-          "For guests looking beyond a traditional spa treatment, these experiences offer a deeper, more memorable wellness moment rooted in ritual, atmosphere, and intention.",
-        bestFor:
-          "Couples, wellness travelers, small groups, spiritual travelers, and guests looking for a meaningful experience.",
-        duration: "Usually 1.5 to 3 hours.",
-        seasonality: "Available year-round, subject to provider availability.",
-        tags: ["Wellness", "Romantic", "VIP", "By Request"],
-        notes:
-          "These experiences offer a deeper, more intentional wellness moment rooted in atmosphere, ritual, and relaxation.",
-        whatToExpect:
-          "Expect a guided ritual-style experience focused on relaxation, renewal, heat, breath, sound, or ceremony depending on the provider.",
-        whatToBring:
-          "Comfortable clothing, swimwear if needed, water, and an open mindset.",
+        description: text(`Temazcal, cacao ceremonies, spiritual wellness, and ritual-style healing experiences.`, `Temazcal, ceremonias de cacao, bienestar espiritual y experiencias rituales.`),
+        overview: text(`Temazcal, cacao ceremonies, spiritual wellness, and ritual-style healing experiences. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Temazcal, ceremonias de cacao, bienestar espiritual y experiencias rituales. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Wellness`, `Bienestar`),
+        text(`Culture`, `Cultura`),
+        text(`Relaxation`, `Relajación`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Temazcal Ceremony",
-            description:
-              "A traditional heat and renewal ceremony for guests seeking a deeper wellness experience.",
-            bestFor: "Wellness travelers, couples, spiritual guests, and small groups.",
-            duration: "Usually 1.5 to 3 hours.",
-            experience:
-              "Guests are guided through a ceremonial heat experience that may include intention setting, steam, herbs, breath, silence, and reflection.",
-            whatToExpect:
-              "A powerful, warm, and introspective experience for guests who are comfortable with heat, stillness, and a deeper wellness setting.",
-            whatToBring:
-              "Swimwear or comfortable ceremony clothing, towel, water, and light clothing for after.",
-            goodToKnow:
-              "Best for guests who are comfortable with heat, enclosed spaces, and a more ceremonial wellness environment.",
-          }),
-          option({
-            title: "Cacao Ceremony",
-            description:
-              "A softer ritual experience centered on cacao, intention, meditation, and connection.",
-            bestFor: "Couples, small groups, wellness travelers, and guests looking for a reflective moment.",
-            duration: "Usually 1 to 2 hours.",
-            experience:
-              "A facilitator guides guests through a cacao-based ritual that may include meditation, conversation, sound, or intention setting.",
-            whatToExpect:
-              "A gentle, grounded, and emotional experience that works well in a quiet villa or natural setting.",
-            whatToBring:
-              "Comfortable clothing and an open mindset.",
-            goodToKnow:
-              "The experience is quiet, intentional, and centered on wellness rather than entertainment.",
-          }),
-          option({
-            title: "Ritual Wellness Evening",
-            description:
-              "A customized wellness evening combining elements such as breathwork, sound healing, cacao, meditation, or a private chef wellness dinner.",
-            bestFor: "Couples, groups, retreats, and milestone trips.",
-            duration: "Usually 2 to 4 hours.",
-            experience:
-              "The experience is built around the group’s mood and can include multiple practitioners, quiet décor, healthy drinks, music, and a nourishing dinner after the session.",
-            whatToExpect:
-              "A curated, atmospheric evening that feels private, slow, and meaningful.",
-            whatToBring:
-              "Comfortable clothing and any personal intentions for the experience.",
-            goodToKnow:
-              "An ideal way to make wellness feel special, atmospheric, and memorable.",
-          }),
+        option({
+          title: text(`Temazcal Ceremony`, `Ceremonia de Temazcal`),
+          description: text(`A carefully arranged temazcal ceremony experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de ceremonia de temazcal cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on temazcal ceremony with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en ceremonia de temazcal, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Cacao Ceremony`, `Ceremonia de Cacao`),
+          description: text(`A carefully arranged cacao ceremony experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de ceremonia de cacao cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on cacao ceremony with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en ceremonia de cacao, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Ritual Wellness Evening`, `Noche de Bienestar Ritual`),
+          description: text(`A carefully arranged ritual wellness evening experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de noche de bienestar ritual cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on ritual wellness evening with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en noche de bienestar ritual, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Private Beach Setups & Sunset Experiences",
-        slug: "private-beach-setups-sunset-experiences",
+        title: text(`Private Beach Setups & Sunset Experiences`, `Montajes Privados en Playa y Atardeceres`),
+        slug: `private-beach-setups-sunset-experiences`,
         image: wellnessImage,
         heroImage: wellnessHero,
-        description:
-          "Luxury picnics, sunset beach dinners, beach bonfires, cabana setups, and private sunset moments.",
-        overview:
-          "Private beach setups are ideal for romantic moments, family celebrations, birthdays, anniversaries, and relaxed luxury afternoons by the beach.",
-        bestFor:
-          "Couples, families, birthdays, anniversaries, proposals, groups, and guests who want a beautiful low-effort experience.",
-        duration: "Usually 2 to 4 hours.",
-        seasonality: "Available year-round, weather and beach rules permitting.",
-        tags: ["Romantic", "Family-Friendly", "VIP", "Food & Drink", "Beach"],
-        notes:
-          "Setups are planned around the location, tide, wind, setting, and the atmosphere desired for the occasion.",
-        whatToExpect:
-          "Expect a styled outdoor setup with seating, décor, food or drinks, and a relaxed atmosphere timed around sunset or the preferred moment.",
-        whatToBring:
-          "Comfortable resort wear, sandals, light layer, camera, and anything personal for the occasion.",
-        experienceOptions: [
-          option({
-            title: "Luxury Beach Picnic",
-            description:
-              "A styled beach picnic with comfortable seating, beautiful décor, and curated food and drinks.",
-            bestFor: "Couples, families, birthdays, anniversaries, and relaxed celebrations.",
-            duration: "Usually 2 to 3 hours.",
-            experience:
-              "A private setup is arranged before guests arrive, with blankets or low seating, table styling, florals or décor, and a menu adapted to the occasion.",
-            whatToExpect:
-              "An easy, beautiful, photo-friendly experience that feels special without being too formal.",
-            whatToBring:
-              "Resort wear, sandals, sunglasses, and camera.",
-            goodToKnow:
-              "The location is chosen based on tide, wind, view, and the atmosphere desired for the occasion.",
-          }),
-          option({
-            title: "Sunset Beach Dinner",
-            description:
-              "A private dinner arranged near the beach or oceanfront, timed around the golden-hour and sunset moment.",
-            bestFor: "Couples, proposals, anniversaries, families, and VIP guests.",
-            duration: "Usually 2 to 4 hours.",
-            experience:
-              "Guests arrive to a styled table, private service, and a dinner menu designed for the occasion. It can be romantic, elegant, family-style, or celebration-focused.",
-            whatToExpect:
-              "A polished evening with atmosphere, dining, and a strong sense of place.",
-            whatToBring:
-              "Elegant resort wear, sandals or comfortable shoes, and a light layer.",
-            goodToKnow:
-              "Some locations require additional coordination depending on access, setting, and availability.",
-          }),
-          option({
-            title: "Beach Bonfire",
-            description:
-              "A relaxed evening by the fire with drinks, music, casual food, and a comfortable beach atmosphere.",
-            bestFor: "Families, groups, birthdays, and relaxed evening gatherings.",
-            duration: "Usually 2 to 3 hours.",
-            experience:
-              "A bonfire-style setup is arranged with seating, lighting, drinks, snacks, and optional music or s’mores-style elements for families.",
-            whatToExpect:
-              "A warm, casual, memorable evening that works well after a beach day or villa dinner.",
-            whatToBring:
-              "Comfortable evening clothing, sandals, and a light layer.",
-            goodToKnow:
-              "Availability varies by location, property setting, beach access, and setup requirements.",
-          }),
-          option({
-            title: "Private Cabana or Daybed Setup",
-            description:
-              "A daytime beach setup designed for comfort, shade, service, and a more elevated beach day.",
-            bestFor: "Families, couples, beach lovers, and relaxed luxury guests.",
-            duration: "Half-day or full-day.",
-            experience:
-              "Guests enjoy reserved loungers, daybeds, cabana-style shade, refreshments, towels, and a curated beach setting depending on location and access.",
-            whatToExpect:
-              "A low-effort luxury beach day with comfort, privacy, and service.",
-            whatToBring:
-              "Swimwear, cover-up, sunscreen, hat, sunglasses, and sandals.",
-            goodToKnow:
-              "Availability varies by beach access, property setting, location requirements, and the style of setup requested.",
-          }),
+        description: text(`Luxury picnics, sunset beach dinners, beach bonfires, cabana setups, and private sunset moments.`, `Picnics de lujo, cenas en la playa al atardecer, fogatas, cabañas y momentos privados frente al mar.`),
+        overview: text(`Luxury picnics, sunset beach dinners, beach bonfires, cabana setups, and private sunset moments. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Picnics de lujo, cenas en la playa al atardecer, fogatas, cabañas y momentos privados frente al mar. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Romantic`, `Romántico`),
+        text(`Relaxation`, `Relajación`),
+        text(`Celebration`, `Celebración`),
+        text(`Family-Friendly`, `Familiar`)
         ],
-      }),
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
+        experienceOptions: [
+        option({
+          title: text(`Luxury Beach Picnic`, `Picnic de Lujo en Playa`),
+          description: text(`A carefully arranged luxury beach picnic experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de picnic de lujo en playa cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on luxury beach picnic with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en picnic de lujo en playa, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Sunset Beach Dinner`, `Cena en Playa al Atardecer`),
+          description: text(`A carefully arranged sunset beach dinner experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de cena en playa al atardecer cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on sunset beach dinner with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en cena en playa al atardecer, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Beach Bonfire`, `Fogata en la Playa`),
+          description: text(`A carefully arranged beach bonfire experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de fogata en la playa cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on beach bonfire with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en fogata en la playa, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Cabana or Daybed Setup`, `Cabaña Privada o Daybed`),
+          description: text(`A carefully arranged private cabana or daybed setup experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de cabaña privada o daybed cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private cabana or daybed setup with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en cabaña privada o daybed, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
+        ],
+      })
     ],
   },
-
   {
-    title: "Golf, Sports & Adventure",
-    slug: "golf-sports-adventure",
+    title: text(`Golf, Sports & Adventure`, `Golf, Deportes y Aventura`),
+    slug: `golf-sports-adventure`,
     image: sportsImage,
     heroImage: sportsHero,
-    description:
-      "Golf, racket sports, fitness, adventure tours, hiking, horseback riding, polo, and equestrian experiences.",
+    description: text(`Golf, racket sports, fitness, adventure tours, hiking, horseback riding, polo, and equestrian experiences.`, `Golf, deportes de raqueta, fitness, tours de aventura, senderismo, paseos a caballo, polo y experiencias ecuestres.`),
     activities: [
       createActivity({
-        title: "Punta Mita Golf Experiences",
-        slug: "punta-mita-golf-experiences",
+        title: text(`Punta Mita Golf Experiences`, `Experiencias de Golf en Punta Mita`),
+        slug: `punta-mita-golf-experiences`,
         image: sportsImage,
         heroImage: sportsHero,
-        description:
-          "Punta Mita Golf Club, Pacifico, Bahia, Tail of the Whale, clinics, tournaments, and golf events.",
-        overview:
-          "Golf is one of Punta Mita’s signature luxury activities, with options ranging from casual rounds and serious golf days to instruction, group tournaments, and special events.",
-        bestFor:
-          "Golfers, couples, groups, corporate-style trips, families with golfers, and VIP travelers.",
-        duration: "Usually 3 to 5 hours, depending on format.",
-        seasonality: "Available year-round, with some special events seasonally.",
-        tags: ["Sports", "VIP", "Groups", "Seasonal"],
-        notes:
-          "Access varies by villa, club availability, reservation requirements, and the specific experience selected.",
-        whatToExpect:
-          "Expect a polished golf experience with ocean views, premium service, and options ranging from relaxed rounds to competitive group formats.",
-        whatToBring:
-          "Golf attire, golf shoes, sunglasses, sunscreen, and personal clubs if preferred.",
+        description: text(`Punta Mita Golf Club, Pacifico, Bahia, Tail of the Whale, clinics, tournaments, and golf events.`, `Punta Mita Golf Club, Pacífico, Bahía, Tail of the Whale, clínicas, torneos y eventos de golf.`),
+        overview: text(`Punta Mita Golf Club, Pacifico, Bahia, Tail of the Whale, clinics, tournaments, and golf events. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Punta Mita Golf Club, Pacífico, Bahía, Tail of the Whale, clínicas, torneos y eventos de golf. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Sports`, `Deportes`),
+        text(`VIP`, `VIP`),
+        text(`Family-Friendly`, `Familiar`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Pacifico or Bahia Golf Round",
-            description:
-              "A classic Punta Mita golf day on one of the destination’s signature courses.",
-            bestFor: "Golfers, couples, groups, and VIP travelers.",
-            duration: "Usually 4 to 5 hours.",
-            experience:
-              "Guests enjoy a round of golf with ocean views, premium service, and course conditions that make the game feel like part of the destination.",
-            whatToExpect:
-              "A polished golf experience with reservation coordination, tee time planning, and optional club rental or transportation.",
-            whatToBring:
-              "Golf attire, golf shoes, sunglasses, sunscreen, and clubs if preferred.",
-            goodToKnow:
-              "Course access and tee times vary by villa privileges, availability, and the preferred playing schedule.",
-          }),
-          option({
-            title: "Tail of the Whale Experience",
-            description:
-              "A special golf moment centered on Punta Mita’s famous optional island-green hole.",
-            bestFor: "Golfers, bucket-list travelers, photographers, and VIP guests.",
-            duration: "Part of a Pacifico round, conditions permitting.",
-            experience:
-              "When available, guests play or visit the iconic oceanfront hole that creates one of the most memorable golf moments in Punta Mita.",
-            whatToExpect:
-              "A dramatic and highly photogenic golf experience tied to tide and course conditions.",
-            whatToBring:
-              "Golf attire, camera, sunglasses, and course-ready equipment.",
-            goodToKnow:
-              "This experience varies by tide, course conditions, and availability.",
-          }),
-          option({
-            title: "Private Golf Clinic",
-            description:
-              "A private instruction session with a golf professional for beginners, improving players, or groups.",
-            bestFor: "Beginners, families, groups, and golfers wanting instruction.",
-            duration: "Usually 1 to 2 hours.",
-            experience:
-              "A golf professional works with the guest or group on swing, short game, putting, or course strategy depending on level.",
-            whatToExpect:
-              "Focused instruction in a premium environment, with exercises adapted to the player’s goals.",
-            whatToBring:
-              "Golf attire, shoes, clubs if preferred, and water.",
-            goodToKnow:
-              "This is a strong option for mixed groups where not everyone wants a full round.",
-          }),
-          option({
-            title: "Private Golf Tournament",
-            description:
-              "A group golf format designed for friends, families, corporate groups, or celebration trips.",
-            bestFor: "Groups, bachelor trips, corporate-style trips, families, and competitive friends.",
-            duration: "Usually half-day.",
-            experience:
-              "The round is organized as a friendly tournament with formats such as scramble, team play, closest-to-the-pin, or custom prizes.",
-            whatToExpect:
-              "A social, elevated, and organized golf experience that can include branding, scoring, awards, and post-round dining.",
-            whatToBring:
-              "Golf attire, shoes, clubs, and any custom items or prizes.",
-            goodToKnow:
-              "Advance planning is important for group tee times and tournament details.",
-          }),
+        option({
+          title: text(`Pacifico or Bahia Golf Round`, `Ronda de Golf en Pacífico o Bahía`),
+          description: text(`A carefully arranged pacifico or bahia golf round experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de ronda de golf en pacífico o bahía cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on pacifico or bahia golf round with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en ronda de golf en pacífico o bahía, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Tail of the Whale Experience`, `Experiencia Tail of the Whale`),
+          description: text(`A carefully arranged tail of the whale experience experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de experiencia tail of the whale cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on tail of the whale experience with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en experiencia tail of the whale, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Golf Clinic`, `Clínica Privada de Golf`),
+          description: text(`A carefully arranged private golf clinic experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de clínica privada de golf cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private golf clinic with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en clínica privada de golf, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Golf Tournament`, `Torneo Privado de Golf`),
+          description: text(`A carefully arranged private golf tournament experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de torneo privado de golf cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private golf tournament with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en torneo privado de golf, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Racket Sports",
-        slug: "racket-sports",
+        title: text(`Racket Sports`, `Deportes de Raqueta`),
+        slug: `racket-sports`,
         image: sportsImage,
         heroImage: sportsHero,
-        description:
-          "Tennis, pickleball, padel, private lessons, clinics, and friendly tournaments.",
-        overview:
-          "Racket sports are a strong fit for Punta Mita guests because they can be social, active, family-friendly, and easy to schedule around beach or villa time.",
-        bestFor:
-          "Families, groups, active couples, kids, teens, and guests who want a social sport.",
-        duration: "Usually 1 to 2 hours.",
-        seasonality: "Available year-round.",
-        tags: ["Sports", "Family-Friendly", "Groups", "VIP"],
-        notes:
-          "Availability varies by court access, instructor schedules, and the selected sports setting.",
-        whatToExpect:
-          "Expect private instruction, court time, social games, or tournament-style play depending on the group.",
-        whatToBring:
-          "Athletic clothing, court shoes, water, sunscreen, and racket if preferred.",
+        description: text(`Tennis, pickleball, padel, private lessons, clinics, and friendly tournaments.`, `Tenis, pickleball, pádel, clases privadas, clínicas y torneos amistosos.`),
+        overview: text(`Tennis, pickleball, padel, private lessons, clinics, and friendly tournaments. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Tenis, pickleball, pádel, clases privadas, clínicas y torneos amistosos. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Sports`, `Deportes`),
+        text(`Family-Friendly`, `Familiar`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Private Tennis Lesson",
-            description:
-              "A tailored tennis lesson for beginners, improving players, or active guests who want a polished sports session.",
-            bestFor: "Adults, kids, teens, and active travelers.",
-            duration: "Usually 1 hour.",
-            experience:
-              "A tennis coach adapts the session to the guest’s level, focusing on technique, drills, match play, or a fun family format.",
-            whatToExpect:
-              "Professional instruction, active movement, and a session that can be relaxed or technical.",
-            whatToBring:
-              "Court shoes, athletic clothing, water, and racket if preferred.",
-            goodToKnow:
-              "Court time and instructor schedules vary, so advance planning helps secure the preferred session.",
-          }),
-          option({
-            title: "Pickleball Session",
-            description:
-              "A social and accessible racket activity for groups, families, and guests of different ages.",
-            bestFor: "Families, groups, beginners, and mixed-level players.",
-            duration: "Usually 1 to 2 hours.",
-            experience:
-              "Guests play casually or with a coach who explains rules, organizes teams, and keeps the session fun and social.",
-            whatToExpect:
-              "A lively and easy-to-learn activity that works well for mixed ages and groups.",
-            whatToBring:
-              "Athletic clothing, court shoes, water, and sunscreen.",
-            goodToKnow:
-              "This is one of the best sports activities for groups with different skill levels.",
-          }),
-          option({
-            title: "Padel Match or Clinic",
-            description:
-              "A modern racket sport experience that feels social, stylish, and active.",
-            bestFor: "Groups, couples, adults, and active travelers.",
-            duration: "Usually 1 to 2 hours.",
-            experience:
-              "Guests can book a court for casual play or arrange a coach-led clinic that introduces technique, scoring, and match play.",
-            whatToExpect:
-              "A fast, social, energetic session that works especially well for adults and groups.",
-            whatToBring:
-              "Athletic clothing, court shoes, water, and racket if preferred.",
-            goodToKnow:
-              "Padel court availability can be limited, so advance planning makes the experience smoother.",
-          }),
-          option({
-            title: "Private Racket Tournament",
-            description:
-              "A friendly tournament format for tennis, pickleball, or padel groups.",
-            bestFor: "Families, friend groups, corporate-style trips, and celebration groups.",
-            duration: "Usually 2 to 3 hours.",
-            experience:
-              "A coach or host can organize teams, match formats, timing, scoring, and optional prizes.",
-            whatToExpect:
-              "A social, competitive, and memorable group activity that can be paired with drinks or lunch afterward.",
-            whatToBring:
-              "Athletic clothing, court shoes, water, and group energy.",
-            goodToKnow:
-              "This works especially well for groups with enough players and a shared interest in friendly competition.",
-          }),
+        option({
+          title: text(`Private Tennis Lesson`, `Clase Privada de Tenis`),
+          description: text(`A carefully arranged private tennis lesson experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de clase privada de tenis cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private tennis lesson with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en clase privada de tenis, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Pickleball Session`, `Sesión de Pickleball`),
+          description: text(`A carefully arranged pickleball session experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de sesión de pickleball cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on pickleball session with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en sesión de pickleball, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Padel Match or Clinic`, `Partido o Clínica de Pádel`),
+          description: text(`A carefully arranged padel match or clinic experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de partido o clínica de pádel cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on padel match or clinic with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en partido o clínica de pádel, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Racket Tournament`, `Torneo Privado de Raqueta`),
+          description: text(`A carefully arranged private racket tournament experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de torneo privado de raqueta cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private racket tournament with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en torneo privado de raqueta, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Private Fitness & Recovery",
-        slug: "private-fitness-recovery",
+        title: text(`Private Fitness & Recovery`, `Fitness Privado y Recuperación`),
+        slug: `private-fitness-recovery`,
         image: sportsImage,
         heroImage: sportsHero,
-        description:
-          "Private training, beach workouts, boxing, pilates, mobility, recovery, and performance sessions.",
-        overview:
-          "For guests who want to stay active during the trip, private fitness sessions can take place at the villa, beach, or another comfortable setting nearby.",
-        bestFor:
-          "Active travelers, wellness guests, groups, pre-wedding stays, and guests maintaining a fitness routine.",
-        duration: "Usually 1 to 2 hours.",
-        seasonality: "Available year-round.",
-        tags: ["Sports", "Wellness", "Groups", "Rainy Day"],
-        notes:
-          "This can be paired with in-villa wellness, healthy chef menus, massage, or cold plunge.",
-        whatToExpect:
-          "Expect a private trainer or coach to design a session based on the group’s goals, level, and available space.",
-        whatToBring:
-          "Athletic clothing, training shoes, towel, water, and swimwear if using pool or cold plunge.",
+        description: text(`Private training, beach workouts, boxing, pilates, mobility, recovery, and performance sessions.`, `Entrenamiento privado, workouts en playa, box, pilates, movilidad, recuperación y sesiones de performance.`),
+        overview: text(`Private training, beach workouts, boxing, pilates, mobility, recovery, and performance sessions. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Entrenamiento privado, workouts en playa, box, pilates, movilidad, recuperación y sesiones de performance. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Wellness`, `Bienestar`),
+        text(`Sports`, `Deportes`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Private Training Session",
-            description:
-              "A custom workout at the villa, gym, terrace, or beach depending on the property and guest preference.",
-            bestFor: "Active travelers, groups, couples, and guests maintaining a routine.",
-            duration: "Usually 60 minutes.",
-            experience:
-              "A private trainer creates a session around strength, conditioning, mobility, or general fitness based on guest goals.",
-            whatToExpect:
-              "A focused and efficient workout adapted to the group’s level and available equipment.",
-            whatToBring:
-              "Athletic clothing, training shoes, towel, and water.",
-            goodToKnow:
-              "This can be scheduled as a one-time session or repeated during the stay.",
-          }),
-          option({
-            title: "Boxing or Beach Training",
-            description:
-              "A high-energy workout that can be done at the villa, beach, or outdoor space.",
-            bestFor: "Groups, active adults, teens, and guests who like energetic workouts.",
-            duration: "Usually 60 minutes.",
-            experience:
-              "A coach leads boxing drills, conditioning, partner exercises, or beach-style training adapted to the group.",
-            whatToExpect:
-              "A fun, sweaty, motivating workout with a strong group energy.",
-            whatToBring:
-              "Athletic clothing, shoes if needed, towel, and water.",
-            goodToKnow:
-              "Morning sessions are usually best because of heat.",
-          }),
-          option({
-            title: "Pilates, Mobility or Stretch Session",
-            description:
-              "A gentler private movement session focused on posture, flexibility, recovery, and body awareness.",
-            bestFor: "Wellness travelers, couples, older guests, and active recovery days.",
-            duration: "Usually 60 minutes.",
-            experience:
-              "A private coach guides movement, stretching, mobility, and breathing exercises adapted to guest needs.",
-            whatToExpect:
-              "A calm but useful session that pairs well with massage, yoga, or recovery treatments.",
-            whatToBring:
-              "Comfortable clothing and water.",
-            goodToKnow:
-              "Ideal after golf, surfing, hiking, or travel.",
-          }),
+        option({
+          title: text(`Private Training Session`, `Entrenamiento Privado`),
+          description: text(`A carefully arranged private training session experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de entrenamiento privado cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private training session with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en entrenamiento privado, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Boxing or Beach Training`, `Box o Entrenamiento en Playa`),
+          description: text(`A carefully arranged boxing or beach training experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de box o entrenamiento en playa cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on boxing or beach training with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en box o entrenamiento en playa, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Pilates, Mobility or Stretch Session`, `Pilates, Movilidad o Stretching`),
+          description: text(`A carefully arranged pilates, mobility or stretch session experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de pilates, movilidad o stretching cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on pilates, mobility or stretch session with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en pilates, movilidad o stretching, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Higuera Blanca Adventure Experiences",
-        slug: "higuera-blanca-adventure-experiences",
+        title: text(`Higuera Blanca Adventure Experiences`, `Aventuras en Higuera Blanca`),
+        slug: `higuera-blanca-adventure-experiences`,
         image: sportsImage,
         heroImage: sportsHero,
-        description:
-          "ATV, RZR, zipline, canopy, and family adventure experiences close to Punta Mita.",
-        overview:
-          "These adventure experiences stay close to Punta Mita, avoiding the long transfers required by farther adventure parks while still adding energy, scenery, and excitement to the stay.",
-        bestFor:
-          "Families, groups, teens, active travelers, and guests wanting a half-day adventure.",
-        duration: "Usually 2 to 4 hours.",
-        seasonality: "Available year-round, weather permitting.",
-        tags: ["Adventure", "Family-Friendly", "Groups", "Sports"],
-        notes:
-          "Good for guests who want excitement without committing to a full-day excursion far from Punta Mita.",
-        whatToExpect:
-          "Expect a guided adventure route with safety briefing, equipment, and a mix of jungle, views, or trail experiences depending on the selected tour.",
-        whatToBring:
-          "Closed-toe shoes, comfortable clothes, sunscreen, sunglasses, and clothes that can get dusty.",
+        description: text(`ATV, RZR, zipline, canopy, and family adventure experiences close to Punta Mita.`, `ATV, RZR, tirolesa, canopy y aventuras familiares cerca de Punta Mita.`),
+        overview: text(`ATV, RZR, zipline, canopy, and family adventure experiences close to Punta Mita. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `ATV, RZR, tirolesa, canopy y aventuras familiares cerca de Punta Mita. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Adventure`, `Aventura`),
+        text(`Family-Friendly`, `Familiar`),
+        text(`Sports`, `Deportes`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "ATV Tour",
-            description:
-              "A guided off-road adventure close to Punta Mita with dust, views, trails, and a fun group atmosphere.",
-            bestFor: "Families with older kids, groups, teens, and active travelers.",
-            duration: "Usually 2 to 3 hours.",
-            experience:
-              "Guests ride ATVs on guided routes with safety equipment, instruction, and stops depending on the selected tour.",
-            whatToExpect:
-              "A dusty, energetic, scenic experience that adds adventure without requiring a long drive.",
-            whatToBring:
-              "Closed-toe shoes, clothes that can get dusty, sunglasses, sunscreen, and ID if required.",
-            goodToKnow:
-              "Drivers may need to meet age and license requirements.",
-          }),
-          option({
-            title: "RZR Adventure",
-            description:
-              "A more comfortable off-road vehicle experience for guests who want adventure with a slightly more substantial ride.",
-            bestFor: "Groups, couples, families, and guests who prefer side-by-side vehicles.",
-            duration: "Usually 2 to 3 hours.",
-            experience:
-              "Guests ride in RZR vehicles with a guided route through trails and scenic areas near Higuera Blanca.",
-            whatToExpect:
-              "A fun, social, off-road activity with less individual riding pressure than ATVs.",
-            whatToBring:
-              "Closed-toe shoes, comfortable clothes, sunglasses, sunscreen, and dust-friendly clothing.",
-            goodToKnow:
-              "A good choice for guests who want to ride together and enjoy the route as a group.",
-          }),
-          option({
-            title: "Zipline & Canopy Experience",
-            description:
-              "A guided canopy adventure for guests who want height, views, and adrenaline.",
-            bestFor: "Families, teens, groups, and adventure travelers.",
-            duration: "Usually 2 to 3 hours.",
-            experience:
-              "Guests follow a guided zipline or canopy route with safety equipment and staff supervision.",
-            whatToExpect:
-              "An active, confidence-building adventure with scenic views and light adrenaline.",
-            whatToBring:
-              "Closed-toe shoes, comfortable clothing, sunscreen, and hair tied back if needed.",
-            goodToKnow:
-              "Weight, age, and health restrictions may apply.",
-          }),
+        option({
+          title: text(`ATV Tour`, `Tour en ATV`),
+          description: text(`A carefully arranged atv tour experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de tour en atv cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on atv tour with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en tour en atv, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`RZR Adventure`, `Aventura en RZR`),
+          description: text(`A carefully arranged rzr adventure experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de aventura en rzr cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on rzr adventure with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en aventura en rzr, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Zipline & Canopy Experience`, `Tirolesa y Canopy`),
+          description: text(`A carefully arranged zipline & canopy experience experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de tirolesa y canopy cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on zipline & canopy experience with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en tirolesa y canopy, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Monkey Mountain & Guided Nature Hikes",
-        slug: "monkey-mountain-guided-nature-hikes",
+        title: text(`Monkey Mountain & Guided Nature Hikes`, `Monkey Mountain y Caminatas Guiadas`),
+        slug: `monkey-mountain-guided-nature-hikes`,
         image: sportsImage,
         heroImage: sportsHero,
-        description:
-          "Guided hikes, sunrise routes, nature walks, and scenic active experiences near Punta Mita.",
-        overview:
-          "Monkey Mountain is one of the most accessible and memorable hiking experiences near Punta Mita, combining scenic views, active movement, and a strong sense of place.",
-        bestFor:
-          "Active guests, couples, families with older kids, nature lovers, and guests who enjoy sunrise activities.",
-        duration: "Usually 2 to 4 hours.",
-        seasonality: "Best in cooler morning hours. Available most of the year.",
-        tags: ["Adventure", "Sports", "Nature", "Family-Friendly"],
-        notes:
-          "Guided support adds safety, local context, navigation, and comfort in warmer conditions.",
-        whatToExpect:
-          "Expect an active outdoor hike with scenic views, local guidance, and an early departure for the best conditions.",
-        whatToBring:
-          "Athletic shoes, breathable clothing, hat, sunscreen, water, and camera.",
+        description: text(`Guided hikes, sunrise routes, nature walks, and scenic active experiences near Punta Mita.`, `Caminatas guiadas, rutas al amanecer, paseos de naturaleza y experiencias activas cerca de Punta Mita.`),
+        overview: text(`Guided hikes, sunrise routes, nature walks, and scenic active experiences near Punta Mita. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Caminatas guiadas, rutas al amanecer, paseos de naturaleza y experiencias activas cerca de Punta Mita. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Adventure`, `Aventura`),
+        text(`Wellness`, `Bienestar`),
+        text(`Wildlife`, `Vida Silvestre`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Monkey Mountain Sunrise Hike",
-            description:
-              "A scenic guided hike timed for cooler weather, softer light, and panoramic views.",
-            bestFor: "Active couples, families with older kids, photographers, and nature lovers.",
-            duration: "Usually 2.5 to 4 hours.",
-            experience:
-              "Guests depart early with a guide and hike toward viewpoint areas with views of Punta Mita, the coastline, and surrounding jungle.",
-            whatToExpect:
-              "A physically active morning with rewarding views and a strong sense of place.",
-            whatToBring:
-              "Athletic shoes, hat, sunscreen, water, breathable clothing, and camera.",
-            goodToKnow:
-              "Heat can be significant later in the day, so morning is strongly preferred.",
-          }),
-          option({
-            title: "Private Guided Nature Walk",
-            description:
-              "A softer nature-focused outing for guests who want scenery and local context without a strenuous hike.",
-            bestFor: "Families, older guests, nature lovers, and relaxed active travelers.",
-            duration: "Usually 1.5 to 3 hours.",
-            experience:
-              "A guide leads a gentler route focused on views, local plants, birds, coastline, and the surrounding landscape.",
-            whatToExpect:
-              "A slower and more educational outdoor experience than a fitness hike.",
-            whatToBring:
-              "Comfortable shoes, hat, sunscreen, water, and camera.",
-            goodToKnow:
-              "The route can be adapted to the group’s fitness level.",
-          }),
+        option({
+          title: text(`Monkey Mountain Sunrise Hike`, `Caminata al Amanecer en Monkey Mountain`),
+          description: text(`A carefully arranged monkey mountain sunrise hike experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de caminata al amanecer en monkey mountain cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on monkey mountain sunrise hike with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en caminata al amanecer en monkey mountain, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Guided Nature Walk`, `Caminata Privada Guiada en la Naturaleza`),
+          description: text(`A carefully arranged private guided nature walk experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de caminata privada guiada en la naturaleza cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private guided nature walk with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en caminata privada guiada en la naturaleza, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Horseback, Polo & Equestrian Experiences",
-        slug: "horseback-polo-equestrian-experiences",
+        title: text(`Horseback, Polo & Equestrian Experiences`, `Paseos a Caballo, Polo y Experiencias Ecuestres`),
+        slug: `horseback-polo-equestrian-experiences`,
         image: sportsImage,
         heroImage: sportsHero,
-        description:
-          "Beach horseback riding, polo brunch, polo lessons, and curated equestrian experiences.",
-        overview:
-          "Equestrian experiences range from casual horseback riding to more elevated polo and riding experiences in the San Pancho area.",
-        bestFor:
-          "Couples, families, groups, horse lovers, and guests looking for an elegant outdoor experience.",
-        duration: "Usually 1.5 to 4 hours depending on experience.",
-        seasonality: "Available year-round. Polo brunch and matches may be seasonal.",
-        tags: ["Sports", "Family-Friendly", "Romantic", "VIP", "Seasonal"],
-        notes:
-          "This can be casual and family-friendly or more refined with brunch and polo.",
-        whatToExpect:
-          "Expect guided riding, equestrian facilities, beach or countryside scenery, or a more social polo-club experience depending on the option selected.",
-        whatToBring:
-          "Comfortable clothing, closed-toe shoes, hat, sunscreen, and sunglasses.",
-        experienceOptions: [
-          option({
-            title: "Beach Horseback Ride",
-            description:
-              "A scenic guided horseback ride that can feel romantic, family-friendly, or adventurous depending on timing and route.",
-            bestFor: "Couples, families, first-time riders, and relaxed outdoor guests.",
-            duration: "Usually 1 to 2 hours.",
-            experience:
-              "Guests ride with a guide through beach or coastal scenery, often timed for softer light or sunset when available.",
-            whatToExpect:
-              "A scenic, accessible, and memorable outdoor experience with horses and ocean atmosphere.",
-            whatToBring:
-              "Closed-toe shoes, comfortable clothing, sunscreen, hat, and sunglasses.",
-            goodToKnow:
-              "Rider comfort level, age, and weight restrictions may apply.",
-          }),
-          option({
-            title: "Polo Brunch",
-            description:
-              "An elegant social outing built around polo, brunch, countryside atmosphere, and a refined day-club feeling.",
-            bestFor: "Couples, adults, families, groups, and guests looking for something different.",
-            duration: "Usually 2 to 4 hours.",
-            experience:
-              "Guests attend a polo-focused brunch or social experience, combining food, drinks, equestrian atmosphere, and the chance to watch the sport in a beautiful setting.",
-            whatToExpect:
-              "A stylish and slower-paced outing that feels more elevated than a normal activity tour.",
-            whatToBring:
-              "Resort casual clothing, sunglasses, hat, and camera.",
-            goodToKnow:
-              "Polo programming is seasonal, with schedules varying by date.",
-          }),
-          option({
-            title: "Polo Lesson or Equestrian Session",
-            description:
-              "A more hands-on equestrian experience for guests interested in learning, riding, or trying something rare.",
-            bestFor: "Horse lovers, adventurous adults, families with older kids, and VIP guests.",
-            duration: "Usually 1.5 to 3 hours.",
-            experience:
-              "Depending on the provider, guests may receive instruction, ride in an arena, learn polo basics, or enjoy a private equestrian experience.",
-            whatToExpect:
-              "A guided, specialized activity that feels unique and memorable.",
-            whatToBring:
-              "Closed-toe shoes, comfortable riding clothing, sunscreen, and water.",
-            goodToKnow:
-              "The session can be adapted around each guest’s riding experience and comfort level.",
-          }),
+        description: text(`Beach horseback riding, polo brunch, polo lessons, and curated equestrian experiences.`, `Paseos a caballo en la playa, polo brunch, clases de polo y experiencias ecuestres.`),
+        overview: text(`Beach horseback riding, polo brunch, polo lessons, and curated equestrian experiences. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Paseos a caballo en la playa, polo brunch, clases de polo y experiencias ecuestres. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Adventure`, `Aventura`),
+        text(`Sports`, `Deportes`),
+        text(`Family-Friendly`, `Familiar`)
         ],
-      }),
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
+        experienceOptions: [
+        option({
+          title: text(`Beach Horseback Ride`, `Paseo a Caballo en Playa`),
+          description: text(`A carefully arranged beach horseback ride experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de paseo a caballo en playa cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on beach horseback ride with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en paseo a caballo en playa, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Polo Brunch`, `Polo Brunch`),
+          description: text(`A carefully arranged polo brunch experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de polo brunch cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on polo brunch with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en polo brunch, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Polo Lesson or Equestrian Session`, `Clase de Polo o Sesión Ecuestre`),
+          description: text(`A carefully arranged polo lesson or equestrian session experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de clase de polo o sesión ecuestre cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on polo lesson or equestrian session with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en clase de polo o sesión ecuestre, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
+        ],
+      })
     ],
   },
-
-    {
-    title: "Beach Clubs & Day Clubs",
-    slug: "beach-clubs-day-clubs",
+  {
+    title: text(`Beach Clubs & Day Clubs`, `Clubes de Playa y Day Clubs`),
+    slug: `beach-clubs-day-clubs`,
     image: beachClubImage,
     heroImage: beachClubHero,
-    description:
-      "Curated beach club experiences in Punta Mita and select destination beach clubs for guests looking for a more social or party atmosphere.",
+    description: text(`Curated beach club experiences in Punta Mita and select destination beach clubs for guests looking for a more social or party atmosphere.`, `Experiencias seleccionadas en clubes de playa en Punta Mita y beach clubs de destino para huéspedes que buscan un ambiente más social o de fiesta.`),
     activities: [
       createActivity({
-        title: "Punta Mita Beach Clubs",
-        slug: "punta-mita-beach-clubs",
+        title: text(`Punta Mita Beach Clubs`, `Clubes de Playa en Punta Mita`),
+        slug: `punta-mita-beach-clubs`,
         image: beachClubImage,
         heroImage: beachClubHero,
-        description:
-          "A curated guide to the private and resort-style beach clubs inside Punta Mita, including Kupuri, Pacifico, Sufi, Sea Breeze, and El Surf Club.",
-        overview:
-          "Punta Mita’s beach clubs are one of the main advantages of staying in the destination. Each club has a different personality: some are better for families, some for long lunches, some for ocean sports, and others for a relaxed beach day with polished service.",
-        bestFor:
-          "Families, couples, villa guests, beach lovers, relaxed luxury travelers, and guests who want an easy day close to the villa.",
-        duration: "Half-day, full-day, lunch, or sunset visit.",
-        seasonality:
-          "Available year-round, with access, reservations, and seasonal schedules varying by villa and club.",
-        tags: ["Beach", "Family-Friendly", "Romantic", "VIP", "Food & Drink"],
-        notes:
-          "Access varies by villa, guest privileges, reservation availability, and the specific Punta Mita community or resort relationship.",
-        whatToExpect:
-          "Expect a polished beach-club day with loungers, dining, beach access, ocean views, pools or club amenities depending on the venue, and a more effortless way to enjoy the Punta Mita lifestyle.",
-        whatToBring:
-          "Resort wear, swimwear, sunglasses, sunscreen, sandals, hat, and reservation or access details.",
+        description: text(`A curated guide to the private and resort-style beach clubs inside Punta Mita, including Kupuri, Pacifico, Sufi, Sea Breeze, and El Surf Club.`, `Una guía seleccionada de clubes de playa privados y estilo resort dentro de Punta Mita, incluyendo Kupuri, Pacífico, Sufi, Sea Breeze y El Surf Club.`),
+        overview: text(`A curated guide to the private and resort-style beach clubs inside Punta Mita, including Kupuri, Pacifico, Sufi, Sea Breeze, and El Surf Club. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Una guía seleccionada de clubes de playa privados y estilo resort dentro de Punta Mita, incluyendo Kupuri, Pacífico, Sufi, Sea Breeze y El Surf Club. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Relaxation`, `Relajación`),
+        text(`Family-Friendly`, `Familiar`),
+        text(`Food`, `Gastronomía`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Kupuri Beach Club",
-            description:
-              "A polished Punta Mita beach club experience with a family-friendly feel, beach service, dining, pool time, and a relaxed luxury atmosphere.",
-            bestFor:
-              "Families, couples, villa guests, kids, and guests who want a comfortable full beach day.",
-            duration: "Half-day or full-day.",
-            experience:
-              "Guests spend the day at Kupuri enjoying the beach, loungers, food, drinks, pool areas, and easy access to a refined Punta Mita beach-club setting. It works especially well for families because it feels relaxed, comfortable, and complete.",
-            whatToExpect:
-              "A smooth and easy beach day with polished service, casual luxury, and enough amenities to keep different ages comfortable.",
-            whatToBring:
-              "Swimwear, cover-up, sunscreen, sunglasses, sandals, and a hat.",
-            goodToKnow:
-              "Access varies by villa and guest privileges. Kupuri is often one of the most comfortable Punta Mita beach-club options for families.",
-          }),
-          option({
-            title: "Pacifico Beach Club",
-            description:
-              "A classic Punta Mita beach club option with oceanfront atmosphere, dining, beach time, and a relaxed resort-style setting.",
-            bestFor:
-              "Couples, families, villa guests, and travelers who want a calm and elegant beach-club day.",
-            duration: "Half-day, lunch, or full-day.",
-            experience:
-              "Guests enjoy an oceanfront beach-club environment with time for swimming, lounging, lunch, drinks, and a slow day close to the water.",
-            whatToExpect:
-              "A refined but relaxed experience that feels very connected to the Punta Mita lifestyle.",
-            whatToBring:
-              "Resort wear, swimwear, sunscreen, sunglasses, sandals, and a light cover-up.",
-            goodToKnow:
-              "A good fit for guests who want something polished without needing a high-energy or party atmosphere.",
-          }),
-          option({
-            title: "Sufi Ocean Club",
-            description:
-              "A more intimate ocean-club experience with a refined setting, beautiful views, dining, and a quieter Punta Mita atmosphere.",
-            bestFor:
-              "Couples, adults, relaxed luxury travelers, small groups, and guests who want a more elegant oceanfront setting.",
-            duration: "Lunch, sunset, half-day, or relaxed afternoon.",
-            experience:
-              "Guests visit Sufi for a slower and more refined ocean-club experience. It can be arranged around lunch, drinks, sunset, or simply a quiet afternoon by the water.",
-            whatToExpect:
-              "A calmer and more elegant beach-club style with strong atmosphere and ocean views.",
-            whatToBring:
-              "Resort casual clothing, swimwear if planning to swim, sunglasses, sunscreen, and a light layer for sunset.",
-            goodToKnow:
-              "This is a strong option for couples or adults who want something less family-oriented and more serene.",
-          }),
-          option({
-            title: "Sea Breeze Beach Club",
-            description:
-              "A convenient Punta Mita beach club experience with resort-style dining, beach access, and a relaxed social atmosphere.",
-            bestFor:
-              "Families, couples, villa guests, casual lunches, and guests wanting a simple beach-club outing.",
-            duration: "Lunch, half-day, or casual beach afternoon.",
-            experience:
-              "Guests enjoy a resort-style beach-club setting with food, drinks, beach time, and easy service. It is a good option when the goal is comfort and simplicity.",
-            whatToExpect:
-              "A relaxed and accessible beach-club day that works well for mixed groups.",
-            whatToBring:
-              "Swimwear, resort wear, sunscreen, sunglasses, sandals, and a hat.",
-            goodToKnow:
-              "A comfortable choice for guests who want an easy beach-club day with minimal logistics.",
-          }),
-          option({
-            title: "El Surf Club",
-            description:
-              "A barefoot-luxury surf club experience near La Lancha, ideal for guests who want beach, surf atmosphere, lunch, and a more casual coastal vibe.",
-            bestFor:
-              "Surfers, couples, younger guests, families with teens, and guests who want a stylish but relaxed beach day.",
-            duration: "Half-day, lunch, or surf-and-beach outing.",
-            experience:
-              "Guests can combine beach time, surf atmosphere, lunch, drinks, and optional surf lessons or board time. It feels more casual and lifestyle-driven than a traditional beach club.",
-            whatToExpect:
-              "A beach-club day with more surf culture, open-air energy, and a relaxed barefoot feel.",
-            whatToBring:
-              "Swimwear, beachwear, sunscreen, towel, sunglasses, and surf gear if needed.",
-            goodToKnow:
-              "This pairs beautifully with a surf-focused day and is ideal for guests who want a more active beach atmosphere.",
-          }),
+        option({
+          title: text(`Kupuri Beach Club`, `Kupuri Beach Club`),
+          description: text(`A carefully arranged kupuri beach club experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de kupuri beach club cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on kupuri beach club with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en kupuri beach club, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Pacifico Beach Club`, `Pacifico Beach Club`),
+          description: text(`A carefully arranged pacifico beach club experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de pacifico beach club cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on pacifico beach club with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en pacifico beach club, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Sufi Ocean Club`, `Sufi Ocean Club`),
+          description: text(`A carefully arranged sufi ocean club experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de sufi ocean club cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on sufi ocean club with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en sufi ocean club, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Sea Breeze Beach Club`, `Sea Breeze Beach Club`),
+          description: text(`A carefully arranged sea breeze beach club experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de sea breeze beach club cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on sea breeze beach club with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en sea breeze beach club, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`El Surf Club`, `El Surf Club`),
+          description: text(`A carefully arranged el surf club experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de el surf club cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on el surf club with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en el surf club, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Party Beach Clubs",
-        slug: "party-beach-clubs",
+        title: text(`Party Beach Clubs`, `Beach Clubs de Fiesta`),
+        slug: `party-beach-clubs`,
         image: beachClubImage,
         heroImage: beachClubHero,
-        description:
-          "High-energy beach club experiences for guests looking for music, boat access, social atmosphere, and a more festive day outside Punta Mita.",
-        overview:
-          "Party beach clubs are ideal for younger groups, birthdays, bachelor or bachelorette trips, and guests looking for a lively social beach-club scene.",
-        bestFor:
-          "Adults, younger groups, birthdays, bachelor and bachelorette groups, social travelers, and guests who want music and energy.",
-        duration: "Usually half-day to full-day, depending on transfer and boat logistics.",
-        seasonality:
-          "Available year-round, with atmosphere, programming, and music varying by date and season.",
-        tags: ["Beach", "Nightlife", "Adults", "Groups", "By Request"],
-        notes:
-          "These outings involve more planning than Punta Mita’s local beach clubs, including transportation, boat transfers, reservations, minimum spends, and return timing.",
-        whatToExpect:
-          "Expect a more social, music-driven beach-club experience with a younger atmosphere, drinks, dining, boat access, and a stronger party energy than Punta Mita’s private beach clubs.",
-        whatToBring:
-          "Swimwear, stylish beachwear, sunglasses, sunscreen, sandals, ID, payment card, and a light layer for the return.",
+        description: text(`High-energy beach club experiences for guests looking for music, boat access, social atmosphere, and a more festive day outside Punta Mita.`, `Experiencias de beach club con más energía para huéspedes que buscan música, acceso en barco, ambiente social y un día más festivo fuera de Punta Mita.`),
+        overview: text(`High-energy beach club experiences for guests looking for music, boat access, social atmosphere, and a more festive day outside Punta Mita. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Experiencias de beach club con más energía para huéspedes que buscan música, acceso en barco, ambiente social y un día más festivo fuera de Punta Mita. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Nightlife`, `Vida Nocturna`),
+        text(`Adults`, `Adultos`),
+        text(`Celebration`, `Celebración`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Majahuitas Beach Club",
-            description:
-              "A destination beach club known for its music, boat-access setting, social atmosphere, and more festive beach-club energy.",
-            bestFor:
-              "Adults, younger groups, birthdays, bachelor and bachelorette trips, and guests who want a party beach-club experience.",
-            duration: "Usually half-day to full-day including transfer logistics.",
-            experience:
-              "Guests travel to Majahuitas for a beach-club day centered on music, drinks, lunch, oceanfront lounging, and a social atmosphere. It is more of a destination outing than a simple beach day.",
-            whatToExpect:
-              "A lively beach-club experience with music, social energy, and a stronger party mood than the beach clubs inside Punta Mita.",
-            whatToBring:
-              "Stylish beachwear, swimwear, sunglasses, sunscreen, sandals, ID, and payment card.",
-            goodToKnow:
-              "This is a more involved outing with transport, reservations, and return timing, best for guests who want the full party beach-club scene.",
-          }),
-          option({
-            title: "Anima Beach Club",
-            description:
-              "A popular south-bay beach club option for guests looking for music, beach, drinks, and a more social day outside Punta Mita.",
-            bestFor:
-              "Young adults, friend groups, social travelers, birthdays, and bachelor or bachelorette groups.",
-            duration: "Usually half-day to full-day including transfer logistics.",
-            experience:
-              "Guests visit Anima for a beach-club day with food, drinks, loungers, ocean time, and a more energetic atmosphere than the quiet beach-club options in Punta Mita.",
-            whatToExpect:
-              "A fun and social beach-club outing with music, drinks, and a more casual party atmosphere.",
-            whatToBring:
-              "Swimwear, beachwear, sunglasses, sunscreen, sandals, ID, and payment card.",
-            goodToKnow:
-              "From Punta Mita, this is a more involved outing, best suited to guests who are specifically looking for a social beach-club scene.",
-          }),
+        option({
+          title: text(`Majahuitas Beach Club`, `Majahuitas Beach Club`),
+          description: text(`A carefully arranged majahuitas beach club experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de majahuitas beach club cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on majahuitas beach club with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en majahuitas beach club, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Anima Beach Club`, `Anima Beach Club`),
+          description: text(`A carefully arranged anima beach club experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de anima beach club cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on anima beach club with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en anima beach club, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Other Beach Clubs",
-        slug: "other-beach-clubs",
+        title: text(`Other Beach Clubs`, `Otros Beach Clubs`),
+        slug: `other-beach-clubs`,
         image: beachClubImage,
         heroImage: beachClubHero,
-        description:
-          "Select beach-club and polo-club experiences outside Punta Mita, curated for guests who want a distinctive off-property outing.",
-        overview:
-          "A curated selection of distinctive off-property experiences for guests who want a different beach-club atmosphere, polo-club setting, or day-trip feel.",
-        bestFor:
-          "Couples, families, groups, polo lovers, relaxed luxury travelers, and guests wanting a change of scene outside Punta Mita.",
-        duration: "Usually half-day.",
-        seasonality:
-          "Available year-round for beach-club style visits. Polo and equestrian programming may be seasonal.",
-        tags: ["Beach", "Food & Drink", "Family-Friendly", "Romantic", "By Request"],
-        notes:
-          "This section highlights off-property beach clubs that pair naturally with a Punta Mita stay.",
-        whatToExpect:
-          "Expect a curated outing outside Punta Mita with dining, beach-club atmosphere, and possibly polo or equestrian elements depending on the day and season.",
-        whatToBring:
-          "Resort casual clothing, swimwear if beach-focused, sunglasses, sunscreen, sandals, and camera.",
-        experienceOptions: [
-          option({
-            title: "Tierra Tropical Beach & Polo Club Day",
-            description:
-              "A distinctive San Pancho-area experience combining beach-club atmosphere, dining, sunset drinks, and possible polo or equestrian programming.",
-            bestFor:
-              "Couples, families, groups, polo lovers, and guests who want something elegant outside Punta Mita.",
-            duration: "Usually half-day.",
-            experience:
-              "Guests enjoy a refined beach-club or polo-club style outing with lunch, drinks, sunset atmosphere, and seasonal polo or equestrian elements when available.",
-            whatToExpect:
-              "A more distinctive and elegant outing than a standard beach day, with a countryside-meets-coast feeling.",
-            whatToBring:
-              "Resort casual clothing, swimwear if beach-focused, sunglasses, sunscreen, and camera.",
-            goodToKnow:
-              "Polo-related programming is seasonal. The experience is best for guests who want a quieter, more refined outing than a party beach club.",
-          }),
+        description: text(`Select beach-club and polo-club experiences outside Punta Mita, curated for guests who want a distinctive off-property outing.`, `Experiencias seleccionadas de beach club y polo club fuera de Punta Mita para huéspedes que buscan una salida distinta.`),
+        overview: text(`Select beach-club and polo-club experiences outside Punta Mita, curated for guests who want a distinctive off-property outing. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Experiencias seleccionadas de beach club y polo club fuera de Punta Mita para huéspedes que buscan una salida distinta. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Relaxation`, `Relajación`),
+        text(`Food`, `Gastronomía`),
+        text(`Culture`, `Cultura`)
         ],
-      }),
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
+        experienceOptions: [
+        option({
+          title: text(`Tierra Tropical Beach & Polo Club Day`, `Día en Tierra Tropical Beach & Polo Club`),
+          description: text(`A carefully arranged tierra tropical beach & polo club day experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de día en tierra tropical beach & polo club cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on tierra tropical beach & polo club day with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en día en tierra tropical beach & polo club, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
+        ],
+      })
     ],
   },
   {
-    title: "Food & Dining",
-    slug: "food-dining",
+    title: text(`Food & Dining`, `Gastronomía y Cenas`),
+    slug: `food-dining`,
     image: foodImage,
     heroImage: foodHero,
-    description:
-      "Private chef experiences, Punta Mita restaurants, agave tastings, mixology, farm-to-table, and culinary experiences.",
+    description: text(`Private chef experiences, Punta Mita restaurants, agave tastings, mixology, farm-to-table, and culinary experiences.`, `Experiencias con chef privado, restaurantes en Punta Mita, catas de agave, mixología, farm-to-table y experiencias culinarias.`),
     activities: [
       createActivity({
-        title: "Private Chef & In-Villa Dining",
-        slug: "private-chef-in-villa-dining",
+        title: text(`Private Chef & In-Villa Dining`, `Chef Privado y Cenas en Villa`),
+        slug: `private-chef-in-villa-dining`,
         image: foodImage,
         heroImage: foodHero,
-        description:
-          "Private chefs, tasting menus, taco nights, sushi chefs, seafood bars, ceviche stations, and cooking classes at the villa.",
-        overview:
-          "Private dining brings restaurant-level cuisine, service, and atmosphere directly into the villa.",
-        bestFor:
-          "Families, couples, groups, celebrations, food lovers, and guests who prefer private service.",
-        duration: "Meal-based, half-day, or multi-day depending on service.",
-        seasonality: "Available year-round.",
-        tags: ["Food & Drink", "Family-Friendly", "Romantic", "VIP", "Rainy Day"],
-        notes:
-          "Menus are customized around the group, allergies, dietary needs, preferred cuisine, and level of formality.",
-        whatToExpect:
-          "Expect menu planning, ingredient sourcing, chef preparation, service, and a private dining experience at the villa.",
-        whatToBring:
-          "No special items required. Share dietary restrictions, favorite cuisines, allergies, and preferred timing.",
+        description: text(`Private chefs, tasting menus, taco nights, sushi chefs, seafood bars, ceviche stations, and cooking classes at the villa.`, `Chefs privados, menús de degustación, noches de tacos, chefs de sushi, barras de mariscos, estaciones de ceviche y clases de cocina en la villa.`),
+        overview: text(`Private chefs, tasting menus, taco nights, sushi chefs, seafood bars, ceviche stations, and cooking classes at the villa. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Chefs privados, menús de degustación, noches de tacos, chefs de sushi, barras de mariscos, estaciones de ceviche y clases de cocina en la villa. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Food`, `Gastronomía`),
+        text(`Family-Friendly`, `Familiar`),
+        text(`Romantic`, `Romántico`),
+        text(`VIP`, `VIP`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Private Chef Dinner",
-            description:
-              "A private dinner at the villa with a chef-designed menu and restaurant-style service.",
-            bestFor: "Families, couples, groups, celebrations, and VIP guests.",
-            duration: "Usually 2 to 4 hours.",
-            experience:
-              "The chef prepares a customized dinner at the villa, with menu planning based on guest preferences, dietary needs, occasion, and desired level of formality.",
-            whatToExpect:
-              "A polished, comfortable dining experience without leaving the villa.",
-            whatToBring:
-              "No special items required. Share dietary restrictions and preferences in advance.",
-            goodToKnow:
-              "An excellent choice for guests who want a polished dinner experience without leaving the villa.",
-          }),
-          option({
-            title: "Chef’s Tasting Menu",
-            description:
-              "A more refined in-villa culinary experience with multiple courses and a stronger fine-dining feeling.",
-            bestFor: "Couples, food lovers, anniversaries, birthdays, and VIP guests.",
-            duration: "Usually 2.5 to 4 hours.",
-            experience:
-              "The chef creates a multi-course menu, often with local seafood, seasonal produce, Mexican flavors, or a theme selected by the guest.",
-            whatToExpect:
-              "A slower, more elevated dinner with stronger attention to plating, pacing, and storytelling.",
-            whatToBring:
-              "Elegant resort wear and any wine or pairing preferences.",
-            goodToKnow:
-              "This works best for smaller or medium-sized groups that want a true dining experience.",
-          }),
-          option({
-            title: "Private Taco Night",
-            description:
-              "A fun, casual, high-quality taco experience brought into the villa.",
-            bestFor: "Families, groups, kids, casual celebration nights, and arrival dinners.",
-            duration: "Usually 1.5 to 3 hours.",
-            experience:
-              "A chef or team prepares tacos, salsas, sides, and optional margaritas or aguas frescas in a relaxed format.",
-            whatToExpect:
-              "A lively and easy dinner that feels local, social, and guest-friendly.",
-            whatToBring:
-              "No special items required. Share spice level and dietary restrictions.",
-            goodToKnow:
-              "This is a great first-night or family dinner option.",
-          }),
-          option({
-            title: "Seafood, Ceviche or Aguachile Bar",
-            description:
-              "A fresh seafood-focused experience for lunch, poolside dining, or a sunset appetizer moment.",
-            bestFor: "Seafood lovers, groups, pool days, yacht return days, and casual lunches.",
-            duration: "Usually 1.5 to 3 hours.",
-            experience:
-              "The chef prepares fresh ceviche, aguachile, tostadas, oysters, grilled seafood, or a seafood bar depending on preferences and sourcing.",
-            whatToExpect:
-              "A bright, fresh, coastal dining experience that feels perfect for Punta Mita.",
-            whatToBring:
-              "No special items required. Share seafood preferences and allergies.",
-            goodToKnow:
-              "The experience feels especially polished with excellent ingredient sourcing and the right timing for freshness.",
-          }),
-          option({
-            title: "Private Sushi Chef",
-            description:
-              "A refined in-villa sushi or Japanese-inspired dinner experience.",
-            bestFor: "Couples, groups, birthdays, adults, and food lovers.",
-            duration: "Usually 2 to 3 hours.",
-            experience:
-              "A sushi chef prepares rolls, sashimi, nigiri, or a chef’s selection in the villa, often with a bar-style setup or plated service.",
-            whatToExpect:
-              "A clean, elegant, interactive dining experience that works well for adults and celebrations.",
-            whatToBring:
-              "No special items required. Share preferences and allergies.",
-            goodToKnow:
-              "The experience is strongest when planned with excellent sourcing, timing, and a chef whose style matches the group.",
-          }),
+        option({
+          title: text(`Private Chef Dinner`, `Cena Privada con Chef`),
+          description: text(`A carefully arranged private chef dinner experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de cena privada con chef cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private chef dinner with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en cena privada con chef, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Chef’s Tasting Menu`, `Menú de Degustación con Chef`),
+          description: text(`A carefully arranged chef’s tasting menu experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de menú de degustación con chef cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on chef’s tasting menu with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en menú de degustación con chef, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Taco Night`, `Noche Privada de Tacos`),
+          description: text(`A carefully arranged private taco night experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de noche privada de tacos cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private taco night with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en noche privada de tacos, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Seafood, Ceviche or Aguachile Bar`, `Barra de Mariscos, Ceviche o Aguachile`),
+          description: text(`A carefully arranged seafood, ceviche or aguachile bar experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de barra de mariscos, ceviche o aguachile cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on seafood, ceviche or aguachile bar with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en barra de mariscos, ceviche o aguachile, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Sushi Chef`, `Chef Privado de Sushi`),
+          description: text(`A carefully arranged private sushi chef experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de chef privado de sushi cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private sushi chef with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en chef privado de sushi, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Punta Mita Fine Dining & Oceanfront Restaurants",
-        slug: "punta-mita-fine-dining-oceanfront-restaurants",
+        title: text(`Punta Mita Fine Dining & Oceanfront Restaurants`, `Fine Dining y Restaurantes Frente al Mar`),
+        slug: `punta-mita-fine-dining-oceanfront-restaurants`,
         image: foodImage,
         heroImage: foodHero,
-        description:
-          "Fine dining, oceanfront restaurants, seafood experiences, and curated restaurant reservations around Punta Mita.",
-        overview:
-          "Restaurant experiences are chosen for beautiful settings, strong food, polished service, and outings that feel worth leaving the villa for.",
-        bestFor:
-          "Couples, families, groups, food lovers, and guests wanting a polished restaurant experience.",
-        duration: "Usually 1.5 to 3 hours.",
-        seasonality: "Available year-round, subject to restaurant schedules and reservation availability.",
-        tags: ["Food & Drink", "Romantic", "Family-Friendly", "VIP"],
-        notes:
-          "Restaurant outings focus on strong dining experiences, beautiful settings, and places that feel worth the time and transfer.",
-        whatToExpect:
-          "Expect restaurant options shaped around style, occasion, preferred cuisine, timing, and desired atmosphere.",
-        whatToBring:
-          "Resort casual or elegant resort wear, depending on the restaurant.",
+        description: text(`Fine dining, oceanfront restaurants, seafood experiences, and curated restaurant reservations around Punta Mita.`, `Fine dining, restaurantes frente al mar, experiencias de mariscos y reservaciones seleccionadas alrededor de Punta Mita.`),
+        overview: text(`Fine dining, oceanfront restaurants, seafood experiences, and curated restaurant reservations around Punta Mita. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Fine dining, restaurantes frente al mar, experiencias de mariscos y reservaciones seleccionadas alrededor de Punta Mita. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Food`, `Gastronomía`),
+        text(`Romantic`, `Romántico`),
+        text(`VIP`, `VIP`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Punta Mita Fine Dining",
-            description:
-              "A curated restaurant reservation focused on the strongest dining options in and around Punta Mita.",
-            bestFor: "Couples, families, groups, and food lovers.",
-            duration: "Usually 1.5 to 3 hours.",
-            experience:
-              "Restaurant options are chosen based on cuisine, atmosphere, occasion, group style, and ease of access from the villa.",
-            whatToExpect:
-              "A polished dinner or lunch experience with minimal travel and strong fit for the group.",
-            whatToBring:
-              "Resort casual or elegant resort wear depending on venue.",
-            goodToKnow:
-              "The best restaurant choice depends heavily on the group’s style and exact villa location.",
-          }),
-          option({
-            title: "Oceanfront Restaurant Experience",
-            description:
-              "A dining experience centered on views, sunset, seafood, and the coastal atmosphere.",
-            bestFor: "Couples, families, first-night dinners, and sunset lovers.",
-            duration: "Usually 1.5 to 3 hours.",
-            experience:
-              "Guests dine at a restaurant chosen for its ocean setting, atmosphere, food quality, and ease of access.",
-            whatToExpect:
-              "A relaxed but beautiful meal with the destination feeling strongly present.",
-            whatToBring:
-              "Resort casual clothing, light layer, and camera.",
-            goodToKnow:
-              "Sunset reservations are especially desirable during high season, so advance planning creates a smoother experience.",
-          }),
-          option({
-            title: "Curated Local Favorite",
-            description:
-              "A more local or understated dining experience chosen for flavor, atmosphere, and a strong sense of place.",
-            bestFor: "Food lovers, repeat guests, adventurous couples, and guests interested in local flavor beyond the most familiar addresses.",
-            duration: "Usually 1.5 to 3 hours.",
-            experience:
-              "Guests can enjoy a trusted local restaurant chosen for flavor, atmosphere, and a more authentic sense of place.",
-            whatToExpect:
-              "A less formal but more local dining experience, chosen for guests who want something flavorful, relaxed, and more connected to the area.",
-            whatToBring:
-              "Casual resort clothing and an open mind.",
-            goodToKnow:
-              "The focus is on restaurants with genuine quality, atmosphere, and a stronger sense of local character.",
-          }),
+        option({
+          title: text(`Punta Mita Fine Dining`, `Fine Dining en Punta Mita`),
+          description: text(`A carefully arranged punta mita fine dining experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de fine dining en punta mita cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on punta mita fine dining with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en fine dining en punta mita, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Oceanfront Restaurant Experience`, `Restaurante Frente al Mar`),
+          description: text(`A carefully arranged oceanfront restaurant experience experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de restaurante frente al mar cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on oceanfront restaurant experience with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en restaurante frente al mar, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Curated Local Favorite`, `Favorito Local Seleccionado`),
+          description: text(`A carefully arranged curated local favorite experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de favorito local seleccionado cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on curated local favorite with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en favorito local seleccionado, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Agave, Mixology, Cigar & Farm-to-Table Experiences",
-        slug: "agave-mixology-cigar-farm-to-table-experiences",
+        title: text(`Agave, Mixology, Cigar & Farm-to-Table Experiences`, `Agave, Mixología, Puros y Farm-to-Table`),
+        slug: `agave-mixology-cigar-farm-to-table-experiences`,
         image: foodImage,
         heroImage: foodHero,
-        description:
-          "Tequila, mezcal, raicilla, mixology, cigars, pairing dinners, Cachasol, and farm-to-table experiences.",
-        overview:
-          "This experience brings together tasting, mixology, pairing dinners, and culinary-culture moments in a premium format.",
-        bestFor:
-          "Couples, groups, food lovers, adults, celebrations, and guests interested in Mexican spirits and local flavors.",
-        duration: "Usually 1.5 to 4 hours.",
-        seasonality: "Available year-round.",
-        tags: ["Food & Drink", "Adults", "Romantic", "VIP", "Groups"],
-        notes:
-          "Raicilla and farm-to-glass experiences feel more local and distinctive than generic wine tastings.",
-        whatToExpect:
-          "Expect a guided tasting, private mixology session, pairing dinner, or curated farm-to-table experience depending on the format selected.",
-        whatToBring:
-          "Comfortable clothing, valid ID if required, and transportation if the experience is outside the villa.",
-        experienceOptions: [
-          option({
-            title: "Private Tequila, Mezcal or Raicilla Tasting",
-            description:
-              "A guided Mexican spirits tasting brought to the villa or arranged at a curated venue.",
-            bestFor: "Adults, couples, groups, birthdays, and food-and-drink lovers.",
-            duration: "Usually 1.5 to 2 hours.",
-            experience:
-              "A host guides guests through selected spirits, flavor profiles, production methods, regions, and pairing notes.",
-            whatToExpect:
-              "A social, educational, and premium tasting that can be serious or relaxed depending on the group.",
-            whatToBring:
-              "Valid ID if required and comfortable evening clothing.",
-            goodToKnow:
-              "Raicilla gives the experience a more local and distinctive angle.",
-          }),
-          option({
-            title: "In-Villa Mixology Class",
-            description:
-              "A private cocktail-making experience with a bartender or mixologist.",
-            bestFor: "Groups, couples, adults, birthdays, and pre-dinner entertainment.",
-            duration: "Usually 1.5 to 2 hours.",
-            experience:
-              "Guests learn to make selected cocktails using tequila, mezcal, raicilla, tropical ingredients, or classic techniques.",
-            whatToExpect:
-              "A fun, interactive, social experience that works especially well before dinner or a villa party.",
-            whatToBring:
-              "No special items required. Share spirit preferences and cocktail style.",
-            goodToKnow:
-              "This pairs well with a private chef dinner or villa party.",
-          }),
-          option({
-            title: "Cigar & Spirits Evening",
-            description:
-              "A sophisticated adults-only evening with cigars, spirits, and a relaxed lounge atmosphere.",
-            bestFor: "Adults, groups, bachelor trips, celebrations, and cigar enthusiasts.",
-            duration: "Usually 1.5 to 3 hours.",
-            experience:
-              "The experience can include selected cigars, tequila, mezcal, whisky, rum, or raicilla pairings, plus a host to guide the evening.",
-            whatToExpect:
-              "A slower, elegant, after-dinner atmosphere with conversation and premium pairings.",
-            whatToBring:
-              "Comfortable evening clothing.",
-            goodToKnow:
-              "The setting is arranged with comfort, ventilation, and the villa or venue environment in mind.",
-          }),
-          option({
-            title: "Cachasol Farm-to-Table & Mixology Experience",
-            description:
-              "A nearby culinary and farm-to-glass experience built around agave, gardens, cooking, and cocktails.",
-            bestFor: "Food lovers, couples, groups, adults, and guests wanting something local but polished.",
-            duration: "Usually 3 to 4 hours including transfers.",
-            experience:
-              "Guests visit a curated farm and distillery-style setting for cooking, cocktails, agave, local ingredients, and a more immersive culinary experience.",
-            whatToExpect:
-              "A distinctive outing that feels more local and memorable than a normal restaurant reservation.",
-            whatToBring:
-              "Comfortable resort casual clothing, sunglasses, and transportation arrangements.",
-            goodToKnow:
-              "A standout off-villa food experience for guests who want something local, polished, and memorable.",
-          }),
+        description: text(`Tequila, mezcal, raicilla, mixology, cigars, pairing dinners, Cachasol, and farm-to-table experiences.`, `Tequila, mezcal, raicilla, mixología, puros, cenas maridaje, Cachasol y experiencias farm-to-table.`),
+        overview: text(`Tequila, mezcal, raicilla, mixology, cigars, pairing dinners, Cachasol, and farm-to-table experiences. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Tequila, mezcal, raicilla, mixología, puros, cenas maridaje, Cachasol y experiencias farm-to-table. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Food`, `Gastronomía`),
+        text(`Adults`, `Adultos`),
+        text(`Culture`, `Cultura`),
+        text(`VIP`, `VIP`)
         ],
-      }),
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
+        experienceOptions: [
+        option({
+          title: text(`Private Tequila, Mezcal or Raicilla Tasting`, `Cata Privada de Tequila, Mezcal o Raicilla`),
+          description: text(`A carefully arranged private tequila, mezcal or raicilla tasting experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de cata privada de tequila, mezcal o raicilla cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private tequila, mezcal or raicilla tasting with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en cata privada de tequila, mezcal o raicilla, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`In-Villa Mixology Class`, `Clase de Mixología en Villa`),
+          description: text(`A carefully arranged in-villa mixology class experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de clase de mixología en villa cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on in-villa mixology class with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en clase de mixología en villa, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Cigar & Spirits Evening`, `Noche de Puros y Destilados`),
+          description: text(`A carefully arranged cigar & spirits evening experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de noche de puros y destilados cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on cigar & spirits evening with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en noche de puros y destilados, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Cachasol Farm-to-Table & Mixology Experience`, `Experiencia Farm-to-Table y Mixología en Cachasol`),
+          description: text(`A carefully arranged cachasol farm-to-table & mixology experience experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de experiencia farm-to-table y mixología en cachasol cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on cachasol farm-to-table & mixology experience with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en experiencia farm-to-table y mixología en cachasol, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
+        ],
+      })
     ],
   },
-
   {
-    title: "Nightlife & Entertainment",
-    slug: "nightlife-entertainment",
+    title: text(`Nightlife & Entertainment`, `Vida Nocturna y Entretenimiento`),
+    slug: `nightlife-entertainment`,
     image: nightlifeImage,
     heroImage: nightlifeHero,
-    description:
-      "Private villa parties, entertainment, poker nights, casino experiences, curated nights out, and signature dinner shows.",
+    description: text(`Private villa parties, entertainment, poker nights, casino experiences, curated nights out, and signature dinner shows.`, `Fiestas privadas en villa, entretenimiento, noches de póker, experiencias de casino, salidas organizadas y cenas show.`),
     activities: [
       createActivity({
-        title: "Private Villa Parties & Entertainment",
-        slug: "private-villa-parties-entertainment",
+        title: text(`Private Villa Parties & Entertainment`, `Fiestas Privadas y Entretenimiento en Villa`),
+        slug: `private-villa-parties-entertainment`,
         image: nightlifeImage,
         heroImage: nightlifeHero,
-        description:
-          "Private villa parties, DJs, bartenders, mariachi, movie nights, family entertainment, and celebration setups.",
-        overview:
-          "For Punta Mita luxury renters, some of the best nightlife happens privately at the villa, with music, dining, drinks, and entertainment brought directly to the setting.",
-        bestFor:
-          "Families, groups, birthdays, bachelor and bachelorette groups, celebrations, and guests who prefer private entertainment.",
-        duration: "Usually 2 to 6 hours.",
-        seasonality: "Available year-round, with timing and format varying by property setting and provider availability.",
-        tags: ["Nightlife", "Groups", "VIP", "Family-Friendly", "Rainy Day"],
-        notes:
-          "Each event is tailored to the villa setting, group size, timing, music style, and desired atmosphere.",
-        whatToExpect:
-          "Expect a tailored private event at the villa with entertainment, drinks, music, food, décor, or family programming depending on the occasion.",
-        whatToBring:
-          "No special items required. Share music preferences, guest count, timing, and celebration details.",
+        description: text(`Private villa parties, DJs, bartenders, mariachi, movie nights, family entertainment, and celebration setups.`, `Fiestas privadas en villa, DJs, bartenders, mariachi, noches de cine, entretenimiento familiar y montajes de celebración.`),
+        overview: text(`Private villa parties, DJs, bartenders, mariachi, movie nights, family entertainment, and celebration setups. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Fiestas privadas en villa, DJs, bartenders, mariachi, noches de cine, entretenimiento familiar y montajes de celebración. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Nightlife`, `Vida Nocturna`),
+        text(`Celebration`, `Celebración`),
+        text(`VIP`, `VIP`),
+        text(`Family-Friendly`, `Familiar`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Private DJ Villa Party",
-            description:
-              "A private music-focused evening at the villa with DJ, sound, lighting, and party atmosphere.",
-            bestFor: "Groups, birthdays, bachelor and bachelorette trips, and celebrations.",
-            duration: "Usually 3 to 6 hours.",
-            experience:
-              "A DJ sets up at the villa and plays a music program adapted to the group, with optional bartender, chef, lighting, décor, and event staffing.",
-            whatToExpect:
-              "A private, controlled party atmosphere without needing to travel to a club.",
-            whatToBring:
-              "Party attire and music preferences.",
-            goodToKnow:
-              "Music, timing, and production style are planned around the villa setting and overall guest experience.",
-          }),
-          option({
-            title: "Private Bartender & Cocktail Night",
-            description:
-              "A polished drinks experience at the villa with a bartender, curated cocktail menu, and relaxed social atmosphere.",
-            bestFor: "Adults, groups, couples, and pre-dinner gatherings.",
-            duration: "Usually 2 to 4 hours.",
-            experience:
-              "A bartender prepares cocktails, margaritas, mezcal drinks, mocktails, or a custom bar menu for the evening.",
-            whatToExpect:
-              "A social and elevated evening that can be casual or formal depending on setup.",
-            whatToBring:
-              "No special items required. Share drink preferences in advance.",
-            goodToKnow:
-              "This pairs well with private chef dinner, DJ, or cigar experience.",
-          }),
-          option({
-            title: "Private Mariachi Dinner",
-            description:
-              "A classic Mexican celebration moment with live mariachi arranged during dinner or sunset.",
-            bestFor: "Families, birthdays, anniversaries, first-time visitors, and celebration groups.",
-            duration: "Usually 45 to 90 minutes as part of an evening.",
-            experience:
-              "A mariachi group performs at the villa during cocktails, dinner, or a surprise celebration moment.",
-            whatToExpect:
-              "A festive, emotional, and memorable cultural moment that works well for all ages.",
-            whatToBring:
-              "No special items required.",
-            goodToKnow:
-              "Mariachi works beautifully as a highlight during cocktails, dinner, sunset, or a special celebration moment.",
-          }),
-          option({
-            title: "Private Movie Night or Family Entertainment",
-            description:
-              "A relaxed villa evening with movie setup, snacks, kids’ entertainment, games, or a family celebration.",
-            bestFor: "Families, kids, rainy evenings, relaxed groups, and multi-generational stays.",
-            duration: "Usually 2 to 4 hours.",
-            experience:
-              "The evening can include an outdoor or indoor movie setup, popcorn, snacks, themed décor, games, piñata, or family-friendly entertainment.",
-            whatToExpect:
-              "An easy, warm, private evening that keeps families entertained without leaving the villa.",
-            whatToBring:
-              "Comfortable clothing and movie preferences.",
-            goodToKnow:
-              "This is a strong option for families after a busy beach or boat day.",
-          }),
+        option({
+          title: text(`Private DJ Villa Party`, `Fiesta Privada con DJ en Villa`),
+          description: text(`A carefully arranged private dj villa party experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de fiesta privada con dj en villa cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private dj villa party with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en fiesta privada con dj en villa, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Bartender & Cocktail Night`, `Bartender Privado y Noche de Cocteles`),
+          description: text(`A carefully arranged private bartender & cocktail night experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de bartender privado y noche de cocteles cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private bartender & cocktail night with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en bartender privado y noche de cocteles, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Mariachi Dinner`, `Cena Privada con Mariachi`),
+          description: text(`A carefully arranged private mariachi dinner experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de cena privada con mariachi cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private mariachi dinner with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en cena privada con mariachi, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Movie Night or Family Entertainment`, `Noche Privada de Cine o Entretenimiento Familiar`),
+          description: text(`A carefully arranged private movie night or family entertainment experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de noche privada de cine o entretenimiento familiar cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private movie night or family entertainment with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en noche privada de cine o entretenimiento familiar, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Poker & Casino Experiences",
-        slug: "poker-casino-experiences",
+        title: text(`Poker & Casino Experiences`, `Experiencias de Póker y Casino`),
+        slug: `poker-casino-experiences`,
         image: nightlifeImage,
         heroImage: nightlifeHero,
-        description:
-          "Private poker nights, casino-style villa evenings, and calendar-dependent poker tournaments nearby.",
-        overview:
-          "A private, social option for adult group trips, birthdays, bachelor groups, and guests who enjoy cards or casino-style entertainment.",
-        bestFor:
-          "Adults, groups, bachelor trips, birthdays, and guests who enjoy cards or casino-style entertainment.",
-        duration: "Usually 2 to 5 hours.",
-        seasonality: "Private events are year-round. Public tournaments are calendar-dependent.",
-        tags: ["Nightlife", "Adults", "Groups", "By Request"],
-        notes:
-          "Private villa events are tailored to the property setting, while public tournament options vary by current event calendar.",
-        whatToExpect:
-          "Expect a private game night or casino-style setup with dealers, tables, cards, and a social adults-only atmosphere.",
-        whatToBring:
-          "Comfortable evening clothing. Guest count and preferred format are coordinated in advance.",
+        description: text(`Private poker nights, casino-style villa evenings, and calendar-dependent poker tournaments nearby.`, `Noches privadas de póker, veladas estilo casino en villa y torneos cercanos sujetos a calendario.`),
+        overview: text(`Private poker nights, casino-style villa evenings, and calendar-dependent poker tournaments nearby. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Noches privadas de póker, veladas estilo casino en villa y torneos cercanos sujetos a calendario. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Nightlife`, `Vida Nocturna`),
+        text(`Adults`, `Adultos`),
+        text(`Groups`, `Grupos`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Private Villa Poker Night",
-            description:
-              "A private poker evening at the villa with table setup, cards, chips, and optional dealer or host.",
-            bestFor: "Adults, groups, bachelor trips, birthdays, and poker players.",
-            duration: "Usually 2 to 5 hours.",
-            experience:
-              "A poker table is set up at the villa with chips, cards, and a format chosen for the group, from casual friendly play to a more structured tournament.",
-            whatToExpect:
-              "A private, social, adults-only evening that keeps the group together at the villa.",
-            whatToBring:
-              "Comfortable evening clothing and preferred game format.",
-            goodToKnow:
-              "The format is arranged around the villa setting, guest preferences, and the style of evening desired.",
-          }),
-          option({
-            title: "Private Casino Night",
-            description:
-              "A casino-style entertainment setup with games such as blackjack, roulette-style tables, poker, or other social formats.",
-            bestFor: "Groups, birthdays, corporate-style trips, and celebration evenings.",
-            duration: "Usually 2 to 4 hours.",
-            experience:
-              "Dealers or hosts create a casino-style atmosphere at the villa using entertainment chips, tables, and guest-friendly game formats.",
-            whatToExpect:
-              "A fun, produced evening with a strong social and event feel.",
-            whatToBring:
-              "Evening clothing and guest count details.",
-            goodToKnow:
-              "Designed as a private entertainment experience, with the format adapted to the group, villa setting, and preferred atmosphere.",
-          }),
-          option({
-            title: "Poker Tournament in Bucerías",
-            description:
-              "A tailored outing for guests interested in local or regional poker events nearby.",
-            bestFor: "Adults, serious poker players, and niche-interest guests.",
-            duration: "Varies by tournament.",
-            experience:
-              "Tournament schedules vary by date, with transportation and reservations coordinated when a relevant event is available.",
-            whatToExpect:
-              "A date-specific outing for guests whose travel dates align with a relevant poker event.",
-            whatToBring:
-              "Valid ID, payment method, and tournament details.",
-            goodToKnow:
-              "Tournament availability varies by current event calendar.",
-          }),
+        option({
+          title: text(`Private Villa Poker Night`, `Noche Privada de Póker en Villa`),
+          description: text(`A carefully arranged private villa poker night experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de noche privada de póker en villa cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private villa poker night with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en noche privada de póker en villa, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Casino Night`, `Noche Privada de Casino`),
+          description: text(`A carefully arranged private casino night experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de noche privada de casino cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private casino night with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en noche privada de casino, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Poker Tournament in Bucerías`, `Torneo de Póker en Bucerías`),
+          description: text(`A carefully arranged poker tournament in bucerías experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de torneo de póker en bucerías cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on poker tournament in bucerías with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en torneo de póker en bucerías, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Curated Nights Out",
-        slug: "curated-nights-out",
+        title: text(`Curated Nights Out`, `Salidas Nocturnas Curadas`),
+        slug: `curated-nights-out`,
         image: nightlifeImage,
         heroImage: nightlifeHero,
-        description:
-          "Sayulita nightlife, live music, Zona Romántica bar crawls, VIP nightlife tables, rooftops, and cocktail-bar experiences.",
-        overview:
-          "For guests who want a curated night outside the villa, this experience brings together transportation, reservations, and the right evening atmosphere.",
-        bestFor:
-          "Adults, younger groups, nightlife-focused guests, bachelor and bachelorette groups, and guests requesting Puerto Vallarta or Sayulita nightlife.",
-        duration: "Usually 3 to 6 hours including transportation.",
-        seasonality: "Available year-round, with quality varying by night and season.",
-        tags: ["Nightlife", "Adults", "Groups", "By Request"],
-        notes:
-          "The evening brings together transportation, venue selection, group style, timing, and a comfortable return to Punta Mita.",
-        whatToExpect:
-          "Expect a curated evening route with reservations, transportation, and venues chosen to match the group’s style.",
-        whatToBring:
-          "Evening clothing, ID, payment card, and comfortable shoes.",
+        description: text(`Sayulita nightlife, live music, Zona Romántica bar crawls, VIP nightlife tables, rooftops, and cocktail-bar experiences.`, `Vida nocturna en Sayulita, música en vivo, bar crawls en Zona Romántica, mesas VIP, rooftops y coctelería.`),
+        overview: text(`Sayulita nightlife, live music, Zona Romántica bar crawls, VIP nightlife tables, rooftops, and cocktail-bar experiences. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Vida nocturna en Sayulita, música en vivo, bar crawls en Zona Romántica, mesas VIP, rooftops y coctelería. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Nightlife`, `Vida Nocturna`),
+        text(`Adults`, `Adultos`),
+        text(`VIP`, `VIP`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Sayulita Night Out",
-            description:
-              "A casual surf-town night with bars, live music, and a younger, more relaxed atmosphere.",
-            bestFor: "Younger groups, casual adults, and guests wanting nightlife close to Punta Mita.",
-            duration: "Usually 3 to 5 hours.",
-            experience:
-              "The evening is planned around a few selected bars, live music spots, or casual venues in Sayulita with transportation arranged.",
-            whatToExpect:
-              "A more relaxed, bohemian, and social night than Puerto Vallarta clubs.",
-            whatToBring:
-              "Casual evening clothing, comfortable shoes, ID, and payment card.",
-            goodToKnow:
-              "Sayulita is casual, lively, and informal, making it best for guests who want a relaxed surf-town atmosphere.",
-          }),
-          option({
-            title: "Zona Romántica Bar Crawl",
-            description:
-              "A curated Puerto Vallarta nightlife outing focused on cocktail bars, energy, and walkable nightlife.",
-            bestFor: "Adults, LGBTQ+ travelers, bachelor and bachelorette groups, and nightlife-focused guests.",
-            duration: "Usually 5 to 7 hours including transfers.",
-            experience:
-              "The evening can be planned around selected bars, lounges, or clubs, with transportation and timing arranged in advance.",
-            whatToExpect:
-              "A longer night out with more energy and variety than Punta Mita or Sayulita.",
-            whatToBring:
-              "Evening clothing, ID, payment card, and comfortable shoes.",
-            goodToKnow:
-              "A longer night out from Punta Mita for guests who want the energy of Puerto Vallarta nightlife.",
-          }),
-          option({
-            title: "VIP Nightclub Table",
-            description:
-              "A VIP club experience with reserved table, bottle service, and transportation.",
-            bestFor: "Adults, nightlife groups, bachelor and bachelorette trips.",
-            duration: "Usually late evening.",
-            experience:
-              "Venue selection, table reservation, bottle service, driver, and return timing can be arranged in advance.",
-            whatToExpect:
-              "A high-energy nightlife experience for guests who want a reserved table, bottle service, and a more produced night out.",
-            whatToBring:
-              "Dress-code-appropriate clothing, ID, and payment method.",
-            goodToKnow:
-              "Best for guests who want a high-energy club experience with reserved service outside Punta Mita.",
-          }),
+        option({
+          title: text(`Sayulita Night Out`, `Noche en Sayulita`),
+          description: text(`A carefully arranged sayulita night out experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de noche en sayulita cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on sayulita night out with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en noche en sayulita, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Zona Romántica Bar Crawl`, `Bar Crawl en Zona Romántica`),
+          description: text(`A carefully arranged zona romántica bar crawl experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de bar crawl en zona romántica cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on zona romántica bar crawl with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en bar crawl en zona romántica, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`VIP Nightclub Table`, `Mesa VIP en Nightclub`),
+          description: text(`A carefully arranged vip nightclub table experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de mesa vip en nightclub cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on vip nightclub table with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en mesa vip en nightclub, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Signature Dinner Shows",
-        slug: "signature-dinner-shows",
+        title: text(`Signature Dinner Shows`, `Cena Show`),
+        slug: `signature-dinner-shows`,
         image: nightlifeImage,
         heroImage: nightlifeHero,
-        description:
-          "Produced evening experiences that combine boat transfer, dinner, entertainment, and a memorable night out.",
-        overview:
-          "A complete produced evening excursion for guests who want dinner, entertainment, scenery, and a more memorable night out.",
-        bestFor:
-          "Couples, families with older kids, groups, first-time visitors, and guests who want an organized evening experience.",
-        duration: "Usually a full evening.",
-        seasonality: "Available most of the year, subject to operator schedules.",
-        tags: ["Nightlife", "Romantic", "Family-Friendly", "By Request"],
-        notes:
-          "This is a fuller evening experience with more travel and timing involved than a local dinner.",
-        whatToExpect:
-          "Expect transportation, a boat-based transfer, dinner, show elements, and a longer evening outside Punta Mita.",
-        whatToBring:
-          "Comfortable evening resort wear, light layer, comfortable shoes, and camera.",
-        experienceOptions: [
-          option({
-            title: "Rhythms of the Night",
-            description:
-              "A signature evening excursion with boat transfer, dinner, and a staged show in a dramatic coastal setting.",
-            bestFor: "Couples, families with older kids, groups, and first-time visitors.",
-            duration: "Usually a full evening.",
-            experience:
-              "Guests travel by boat to the venue, enjoy dinner, atmosphere, and a produced performance experience before returning later in the evening.",
-            whatToExpect:
-              "A memorable, theatrical night that feels more like an excursion than a normal dinner.",
-            whatToBring:
-              "Comfortable evening clothing, light layer, and comfortable shoes.",
-            goodToKnow:
-              "From Punta Mita, this is a fuller evening outing with more travel time, best for guests who want a complete dinner-and-show experience.",
-          }),
-          option({
-            title: "Special Dinner Show Experience",
-            description:
-              "A more general produced evening format for guests who want entertainment, dining, and a planned night out.",
-            bestFor: "Families, couples, groups, and guests who prefer organized experiences.",
-            duration: "Usually 3 to 6 hours.",
-            experience:
-              "The evening can include a show or entertainment dinner matched to the guest’s interests, with transportation, timing, and reservations coordinated in advance.",
-            whatToExpect:
-              "A structured night with less decision-making for guests.",
-            whatToBring:
-              "Evening resort wear, ID if needed, and comfortable shoes.",
-            goodToKnow:
-              "Options are chosen for atmosphere, production quality, comfort, and the overall style of evening guests want.",
-          }),
+        description: text(`Produced evening experiences that combine boat transfer, dinner, entertainment, and a memorable night out.`, `Experiencias nocturnas producidas que combinan traslado en barco, cena, entretenimiento y una noche memorable.`),
+        overview: text(`Produced evening experiences that combine boat transfer, dinner, entertainment, and a memorable night out. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Experiencias nocturnas producidas que combinan traslado en barco, cena, entretenimiento y una noche memorable. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Nightlife`, `Vida Nocturna`),
+        text(`Food`, `Gastronomía`),
+        text(`Celebration`, `Celebración`)
         ],
-      }),
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
+        experienceOptions: [
+        option({
+          title: text(`Rhythms of the Night`, `Rhythms of the Night`),
+          description: text(`A carefully arranged rhythms of the night experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de rhythms of the night cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on rhythms of the night with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en rhythms of the night, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Special Dinner Show Experience`, `Experiencia Especial de Cena Show`),
+          description: text(`A carefully arranged special dinner show experience experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de experiencia especial de cena show cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on special dinner show experience with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en experiencia especial de cena show, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
+        ],
+      })
     ],
   },
-
   {
-    title: "Nearby Destinations & Day Trips",
-    slug: "nearby-destinations-day-trips",
+    title: text(`Nearby Destinations & Day Trips`, `Destinos Cercanos y Day Trips`),
+    slug: `nearby-destinations-day-trips`,
     image: destinationsImage,
     heroImage: destinationsHero,
-    description:
-      "Curated nearby outings for guests who want to explore beyond Punta Mita without losing the ease of a luxury stay.",
+    description: text(`Curated nearby outings for guests who want to explore beyond Punta Mita without losing the ease of a luxury stay.`, `Salidas cercanas seleccionadas para huéspedes que quieren explorar más allá de Punta Mita sin perder la comodidad de una estancia de lujo.`),
     activities: [
       createActivity({
-        title: "Sayulita & San Pancho Half-Day Experiences",
-        slug: "sayulita-san-pancho-half-day-experiences",
+        title: text(`Sayulita & San Pancho Half-Day Experiences`, `Experiencias de Medio Día en Sayulita y San Pancho`),
+        slug: `sayulita-san-pancho-half-day-experiences`,
         image: destinationsImage,
         heroImage: destinationsHero,
-        description:
-          "Curated half-day visits to Sayulita and San Pancho for surf, beach, boutiques, casual dining, and local atmosphere.",
-        overview:
-          "This activity brings together the nearby surf towns into a relaxed half-day outing focused on beach atmosphere, boutiques, casual dining, and a change of scene close to Punta Mita.",
-        bestFor:
-          "Families, couples, younger guests, shoppers, surfers, and guests who want a casual local outing.",
-        duration: "Usually 3 to 5 hours.",
-        seasonality: "Available year-round.",
-        tags: ["Culture", "Family-Friendly", "Shopping", "Food & Drink", "By Request"],
-        notes:
-          "A good choice for guests who want a change of scene without going all the way to Puerto Vallarta.",
-        whatToExpect:
-          "Expect a casual curated outing with time for walking, beach, boutiques, lunch, drinks, or surf-town atmosphere.",
-        whatToBring:
-          "Comfortable walking shoes, sunglasses, hat, sunscreen, and casual resort clothing.",
+        description: text(`Curated half-day visits to Sayulita and San Pancho for surf, beach, boutiques, casual dining, and local atmosphere.`, `Visitas de medio día a Sayulita y San Pancho para surf, playa, boutiques, comida casual y ambiente local.`),
+        overview: text(`Curated half-day visits to Sayulita and San Pancho for surf, beach, boutiques, casual dining, and local atmosphere. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Visitas de medio día a Sayulita y San Pancho para surf, playa, boutiques, comida casual y ambiente local. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Culture`, `Cultura`),
+        text(`Food`, `Gastronomía`),
+        text(`Family-Friendly`, `Familiar`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Sayulita Half-Day",
-            description:
-              "A curated visit to Sayulita for beach, surf-town energy, boutiques, lunch, and casual exploring.",
-            bestFor: "Younger guests, families, shoppers, surfers, and first-time visitors.",
-            duration: "Usually 3 to 5 hours.",
-            experience:
-              "Guests visit Sayulita with planned time for walking, shopping, beach, lunch, drinks, or surf atmosphere depending on the group.",
-            whatToExpect:
-              "A colorful, casual, lively town experience close enough to make sense from Punta Mita.",
-            whatToBring:
-              "Comfortable shoes, casual clothing, sunscreen, sunglasses, and payment card.",
-            goodToKnow:
-              "Sayulita is colorful, busy, and informal, best for guests who enjoy local energy and a casual surf-town atmosphere.",
-          }),
-          option({
-            title: "San Pancho Half-Day",
-            description:
-              "A quieter, more refined nearby town outing with beach, restaurants, galleries, and a slower rhythm.",
-            bestFor: "Couples, families, relaxed guests, and people who prefer less crowded towns.",
-            duration: "Usually 3 to 5 hours.",
-            experience:
-              "Guests visit San Pancho for beach time, lunch, boutique browsing, coffee, galleries, or a sunset moment depending on timing.",
-            whatToExpect:
-              "A calmer and more polished town experience than Sayulita.",
-            whatToBring:
-              "Comfortable shoes, resort casual clothing, sunglasses, and camera.",
-            goodToKnow:
-              "San Pancho often feels calmer, more refined, and more relaxed than Sayulita.",
-          }),
-          option({
-            title: "Surf Town Shopping & Lunch",
-            description:
-              "A curated shopping and dining outing through selected boutiques, galleries, and restaurants.",
-            bestFor: "Couples, families, shoppers, and guests wanting a light off-villa outing.",
-            duration: "Usually 3 to 4 hours.",
-            experience:
-              "The outing can include selected boutiques, artisan shops, galleries, cafés, and a relaxed lunch or drinks stop.",
-            whatToExpect:
-              "A relaxed, low-pressure outing with a clear plan and no need to over-research.",
-            whatToBring:
-              "Comfortable walking shoes, casual clothing, sunglasses, and payment card.",
-            goodToKnow:
-              "The experience feels most memorable when it stays relaxed, personal, and focused on places with genuine charm.",
-          }),
+        option({
+          title: text(`Sayulita Half-Day`, `Medio Día en Sayulita`),
+          description: text(`A carefully arranged sayulita half-day experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de medio día en sayulita cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on sayulita half-day with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en medio día en sayulita, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`San Pancho Half-Day`, `Medio Día en San Pancho`),
+          description: text(`A carefully arranged san pancho half-day experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de medio día en san pancho cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on san pancho half-day with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en medio día en san pancho, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Surf Town Shopping & Lunch`, `Shopping y Comida en Pueblo Surfero`),
+          description: text(`A carefully arranged surf town shopping & lunch experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de shopping y comida en pueblo surfero cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on surf town shopping & lunch with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en shopping y comida en pueblo surfero, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "La Cruz & Bucerías Specialty Outings",
-        slug: "la-cruz-bucerias-specialty-outings",
+        title: text(`La Cruz & Bucerías Specialty Outings`, `Salidas Especiales a La Cruz y Bucerías`),
+        slug: `la-cruz-bucerias-specialty-outings`,
         image: destinationsImage,
         heroImage: destinationsHero,
-        description:
-          "Nearby specialty outings for marina departures, waterfront dinners, casino evenings, poker, and tailored local plans.",
-        overview:
-          "La Cruz and Bucerías work well for marina departures, waterfront dinners, casino nights, poker events, and focused nearby outings.",
-        bestFor:
-          "Guests with yacht departures, dinner plans, casino interest, poker interest, or a specific nearby outing request.",
-        duration: "Usually 2 to 5 hours depending on purpose.",
-        seasonality: "Available year-round. Poker and event schedules vary.",
-        tags: ["Food & Drink", "Nightlife", "By Request", "Groups"],
-        notes:
-          "These nearby outings are designed around a clear purpose, such as marina access, dinner, casino evenings, or poker events.",
-        whatToExpect:
-          "Expect a focused nearby outing built around one clear reason, such as marina access, dinner, casino, or poker.",
-        whatToBring:
-          "Bring valid ID for casino or poker-related activities.",
+        description: text(`Nearby specialty outings for marina departures, waterfront dinners, casino evenings, poker, and tailored local plans.`, `Salidas cercanas para marina, cenas frente al agua, casino, póker y planes locales personalizados.`),
+        overview: text(`Nearby specialty outings for marina departures, waterfront dinners, casino evenings, poker, and tailored local plans. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Salidas cercanas para marina, cenas frente al agua, casino, póker y planes locales personalizados. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Food`, `Gastronomía`),
+        text(`Nightlife`, `Vida Nocturna`),
+        text(`Culture`, `Cultura`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "La Cruz Marina Departure or Dinner",
-            description:
-              "A practical nearby outing centered on the marina, yacht departure, or a selected dinner reservation.",
-            bestFor: "Yacht guests, dinner guests, and groups with plans near the marina.",
-            duration: "Usually 2 to 4 hours unless part of a boat day.",
-            experience:
-              "Guests can visit La Cruz for a marina departure, waterfront dinner, or selected restaurant experience.",
-            whatToExpect:
-              "A targeted nearby outing rather than a full tourist day.",
-            whatToBring:
-              "For marina departures, bring boat-day essentials.",
-            goodToKnow:
-              "La Cruz is most useful when connected to a specific reason.",
-          }),
-          option({
-            title: "Bucerías Casino or Poker Outing",
-            description:
-              "A tailored outing for adults interested in casino or poker experiences nearby.",
-            bestFor: "Adults, groups, poker players, and niche nightlife guests.",
-            duration: "Usually 3 to 5 hours.",
-            experience:
-              "Venue details, event schedules, transportation, and timing can be arranged around the guest’s preferred evening.",
-            whatToExpect:
-              "A focused adults-only evening for guests who enjoy casino or poker-style entertainment.",
-            whatToBring:
-              "Valid ID, payment method, and evening clothing.",
-            goodToKnow:
-              "Event schedules and venue atmosphere vary by date.",
-          }),
-          option({
-            title: "Selected Bucerías or La Cruz Dinner",
-            description:
-              "A focused dinner outing for guests who want a specific nearby restaurant or occasion outside Punta Mita.",
-            bestFor: "Food lovers, guests with a specific request, and groups wanting a nearby change of scene.",
-            duration: "Usually 2 to 3 hours.",
-            experience:
-              "The restaurant is chosen based on cuisine, atmosphere, availability, and travel time from Punta Mita.",
-            whatToExpect:
-              "A nearby dinner experience designed around a clear culinary destination.",
-            whatToBring:
-              "Resort casual or evening clothing depending on the venue.",
-            goodToKnow:
-              "Best for guests who want a specific nearby dinner rather than a full day trip.",
-          }),
+        option({
+          title: text(`La Cruz Marina Departure or Dinner`, `Salida o Cena en Marina La Cruz`),
+          description: text(`A carefully arranged la cruz marina departure or dinner experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de salida o cena en marina la cruz cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on la cruz marina departure or dinner with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en salida o cena en marina la cruz, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Bucerías Casino or Poker Outing`, `Salida de Casino o Póker en Bucerías`),
+          description: text(`A carefully arranged bucerías casino or poker outing experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de salida de casino o póker en bucerías cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on bucerías casino or poker outing with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en salida de casino o póker en bucerías, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Selected Bucerías or La Cruz Dinner`, `Cena Seleccionada en Bucerías o La Cruz`),
+          description: text(`A carefully arranged selected bucerías or la cruz dinner experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de cena seleccionada en bucerías o la cruz cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on selected bucerías or la cruz dinner with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en cena seleccionada en bucerías o la cruz, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Las Caletas Day or Evening Excursion",
-        slug: "las-caletas-day-evening-excursion",
+        title: text(`Las Caletas Day or Evening Excursion`, `Excursión de Día o Noche a Las Caletas`),
+        slug: `las-caletas-day-evening-excursion`,
         image: destinationsImage,
         heroImage: destinationsHero,
-        description:
-          "A distinctive excursion for guests interested in Las Caletas, beach adventure, or the evening dinner show format.",
-        overview:
-          "Las Caletas is farther than most Punta Mita activities, but it offers a fuller excursion with beach scenery, adventure, and evening-show options.",
-        bestFor:
-          "Families, couples, first-time visitors, groups, and guests who want a produced excursion.",
-        duration: "Usually half-day, full-day, or full evening depending on format.",
-        seasonality: "Available most of the year, subject to operator schedules.",
-        tags: ["Adventure", "Family-Friendly", "Romantic", "By Request"],
-        notes:
-          "From Punta Mita, this is a more involved excursion for guests who want a structured beach or evening experience with a fuller itinerary.",
-        whatToExpect:
-          "Expect a structured excursion with transportation, boat transfer, beach or evening programming, and a longer time commitment.",
-        whatToBring:
-          "Swimwear for day trips, comfortable resort wear for evening trips, sandals, sunscreen, and a light layer.",
-        experienceOptions: [
-          option({
-            title: "Las Caletas Beach Day",
-            description:
-              "A produced beach excursion with boat transfer, beach time, nature, food, and activities.",
-            bestFor: "Families, first-time visitors, groups, and soft-adventure guests.",
-            duration: "Usually half-day to full-day.",
-            experience:
-              "Guests travel to Las Caletas for a structured beach experience with activities, swimming, food, and a scenic coastal setting.",
-            whatToExpect:
-              "A more organized and operator-led day than a private yacht experience.",
-            whatToBring:
-              "Swimwear, towel, sunscreen, sandals, hat, and dry clothes.",
-            goodToKnow:
-              "From Punta Mita, this is a more involved excursion, best for guests who want a structured beach or evening experience.",
-          }),
-          option({
-            title: "Las Caletas Evening Experience",
-            description:
-              "An evening version centered on atmosphere, dinner, performance, and a memorable night outside Punta Mita.",
-            bestFor: "Couples, groups, families with older kids, and first-time visitors.",
-            duration: "Usually a full evening.",
-            experience:
-              "Guests travel by boat for an evening with dinner, lighting, show elements, and a more theatrical coastal setting.",
-            whatToExpect:
-              "A full evening excursion with more structure and travel time than a local dinner.",
-            whatToBring:
-              "Comfortable evening resort wear, light layer, and comfortable shoes.",
-            goodToKnow:
-              "This is a strong option for guests who want dinner, entertainment, and a scenic coastal setting in one evening.",
-          }),
+        description: text(`A distinctive excursion for guests interested in Las Caletas, beach adventure, or the evening dinner show format.`, `Una excursión especial para huéspedes interesados en Las Caletas, aventura en playa o formato de cena show nocturna.`),
+        overview: text(`A distinctive excursion for guests interested in Las Caletas, beach adventure, or the evening dinner show format. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Una excursión especial para huéspedes interesados en Las Caletas, aventura en playa o formato de cena show nocturna. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Adventure`, `Aventura`),
+        text(`Food`, `Gastronomía`),
+        text(`Family-Friendly`, `Familiar`),
+        text(`Nightlife`, `Vida Nocturna`)
         ],
-      }),
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
+        experienceOptions: [
+        option({
+          title: text(`Las Caletas Beach Day`, `Día de Playa en Las Caletas`),
+          description: text(`A carefully arranged las caletas beach day experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de día de playa en las caletas cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on las caletas beach day with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en día de playa en las caletas, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Las Caletas Evening Experience`, `Experiencia Nocturna en Las Caletas`),
+          description: text(`A carefully arranged las caletas evening experience experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de experiencia nocturna en las caletas cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on las caletas evening experience with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en experiencia nocturna en las caletas, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
+        ],
+      })
     ],
   },
-
   {
-    title: "Seasonal & Special Events",
-    slug: "seasonal-special-events",
+    title: text(`Seasonal & Special Events`, `Temporadas y Eventos Especiales`),
+    slug: `seasonal-special-events`,
     image: seasonalImage,
     heroImage: seasonalHero,
-    description:
-      "Punta Mita seasonal events, holidays, golf events, polo season, fishing tournaments, and private celebrations.",
+    description: text(`Punta Mita seasonal events, holidays, golf events, polo season, fishing tournaments, and private celebrations.`, `Eventos de temporada en Punta Mita, días festivos, golf, temporada de polo, torneos de pesca y celebraciones privadas.`),
     activities: [
       createActivity({
-        title: "Punta Mita Seasonal Events & Holidays",
-        slug: "punta-mita-seasonal-events-holidays",
+        title: text(`Punta Mita Seasonal Events & Holidays`, `Eventos de Temporada y Días Festivos en Punta Mita`),
+        slug: `punta-mita-seasonal-events-holidays`,
         image: seasonalImage,
         heroImage: seasonalHero,
-        description:
-          "Gourmet & Golf, club events, holidays, New Year’s Eve, polo season, fishing tournaments, surf season, and seasonal celebrations.",
-        overview:
-          "Seasonal events and holiday experiences can add a special layer to a luxury Punta Mita stay.",
-        bestFor:
-          "Families, groups, golfers, food lovers, holiday travelers, and guests visiting during event weeks.",
-        duration: "Varies by event.",
-        seasonality: "Seasonal and date-dependent.",
-        tags: ["Seasonal", "VIP", "Groups", "Family-Friendly", "Food & Drink", "Sports"],
-        notes:
-          "Specific dates, access, and availability vary by season and event calendar.",
-        whatToExpect:
-          "Expect date-specific experiences that may involve advance reservations, guest access, tickets, or special coordination.",
-        whatToBring:
-          "Details vary by event, including dress code, access, and timing.",
-        experienceOptions: [
-          option({
-            title: "Punta Mita Gourmet & Golf",
-            description:
-              "A seasonal luxury event combining golf, food, wine, spirits, and destination atmosphere.",
-            bestFor: "Golfers, food lovers, couples, groups, and VIP travelers.",
-            duration: "Multi-day event or selected event attendance.",
-            experience:
-              "Guests attend selected culinary, golf, or social events connected to the Punta Mita Gourmet & Golf calendar.",
-            whatToExpect:
-              "A polished seasonal experience that connects directly to the Punta Mita lifestyle.",
-            whatToBring:
-              "Event-appropriate resort wear, golf attire if needed, and reservation details.",
-            goodToKnow:
-              "Dates, access, and programming vary each year, making advance planning important.",
-          }),
-          option({
-            title: "Holiday Villa Experiences",
-            description:
-              "Private Thanksgiving, Christmas, New Year’s Eve, or holiday events arranged at the villa.",
-            bestFor: "Families, groups, holiday travelers, and celebration trips.",
-            duration: "Meal, evening, or full-day programming.",
-            experience:
-              "The celebration can include a private holiday dinner, décor, music, chef service, beach setup, family programming, or a personalized villa event.",
-            whatToExpect:
-              "A private holiday celebration without the stress of planning locally.",
-            whatToBring:
-              "Share traditions, guest count, dietary needs, and preferred holiday style.",
-            goodToKnow:
-              "Holidays require advance planning because vendors and chefs book early.",
-          }),
-          option({
-            title: "New Year’s Eve Yacht, Villa or Beach-Club Event",
-            description:
-              "A high-demand seasonal celebration arranged as a private villa event, yacht celebration, or curated beach-club night.",
-            bestFor: "Groups, families, couples, and VIP travelers.",
-            duration: "Usually full evening.",
-            experience:
-              "The night is designed around dinner, music, countdown, champagne, transportation, and the desired energy level.",
-            whatToExpect:
-              "A premium celebration that benefits from early planning, strong coordination, and the right setting.",
-            whatToBring:
-              "Evening resort wear and any celebration preferences.",
-            goodToKnow:
-              "New Year’s Eve is one of the most requested dates of the year, so early planning helps secure the best options.",
-          }),
-          option({
-            title: "Seasonal Sports & Local Events",
-            description:
-              "Seasonal options can include fishing tournaments, surf season, polo season, poker events, and Punta Mita club events.",
-            bestFor: "Guests visiting during specific event windows.",
-            duration: "Varies.",
-            experience:
-              "Relevant events can be coordinated around the guest’s travel dates, interests, and preferred style of experience.",
-            whatToExpect:
-              "A date-specific experience shaped around the events available during the stay.",
-            whatToBring:
-              "Event details vary by date, location, and format.",
-            goodToKnow:
-              "Availability varies by current event schedules.",
-          }),
+        description: text(`Gourmet & Golf, club events, holidays, New Year’s Eve, polo season, fishing tournaments, surf season, and seasonal celebrations.`, `Gourmet & Golf, eventos de club, días festivos, Año Nuevo, temporada de polo, torneos de pesca, temporada de surf y celebraciones.`),
+        overview: text(`Gourmet & Golf, club events, holidays, New Year’s Eve, polo season, fishing tournaments, surf season, and seasonal celebrations. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Gourmet & Golf, eventos de club, días festivos, Año Nuevo, temporada de polo, torneos de pesca, temporada de surf y celebraciones. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`Seasonal`, `De Temporada`),
+        text(`Celebration`, `Celebración`),
+        text(`VIP`, `VIP`),
+        text(`Family-Friendly`, `Familiar`)
         ],
-      }),
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
+        experienceOptions: [
+        option({
+          title: text(`Punta Mita Gourmet & Golf`, `Punta Mita Gourmet & Golf`),
+          description: text(`A carefully arranged punta mita gourmet & golf experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de punta mita gourmet & golf cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on punta mita gourmet & golf with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en punta mita gourmet & golf, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Holiday Villa Experiences`, `Experiencias de Días Festivos en Villa`),
+          description: text(`A carefully arranged holiday villa experiences experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de experiencias de días festivos en villa cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on holiday villa experiences with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en experiencias de días festivos en villa, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`New Year’s Eve Yacht, Villa or Beach-Club Event`, `Evento de Año Nuevo en Yate, Villa o Beach Club`),
+          description: text(`A carefully arranged new year’s eve yacht, villa or beach-club event experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de evento de año nuevo en yate, villa o beach club cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on new year’s eve yacht, villa or beach-club event with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en evento de año nuevo en yate, villa o beach club, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Seasonal Sports & Local Events`, `Deportes de Temporada y Eventos Locales`),
+          description: text(`A carefully arranged seasonal sports & local events experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de deportes de temporada y eventos locales cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on seasonal sports & local events with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en deportes de temporada y eventos locales, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
+        ],
+      })
     ],
   },
-
   {
-    title: "High-End / VIP Experiences",
-    slug: "high-end-vip-experiences",
+    title: text(`High-End / VIP Experiences`, `Experiencias High-End / VIP`),
+    slug: `high-end-vip-experiences`,
     image: vipImage,
     heroImage: vipHero,
-    description:
-      "Private aviation, scenic flights, celebrations, proposals, VIP hosting, security, drivers, and full-stay concierge planning.",
+    description: text(`Private aviation, scenic flights, celebrations, proposals, VIP hosting, security, drivers, and full-stay concierge planning.`, `Aviación privada, vuelos escénicos, celebraciones, propuestas, hosting VIP, seguridad, choferes y planeación concierge para toda la estancia.`),
     activities: [
       createActivity({
-        title: "Private Aviation & Scenic Flights",
-        slug: "private-aviation-scenic-flights",
+        title: text(`Private Aviation & Scenic Flights`, `Aviación Privada y Vuelos Escénicos`),
+        slug: `private-aviation-scenic-flights`,
         image: vipImage,
         heroImage: vipHero,
-        description:
-          "Private aviation transfers, helicopter tours, scenic flights, and VIP arrival or departure logistics.",
-        overview:
-          "Premium private arrival, departure, transfer, and aerial experiences for guests who want a more seamless way to move through the destination.",
-        bestFor:
-          "VIP travelers, high-end groups, special occasions, time-sensitive guests, and guests looking for a rare experience.",
-        duration: "Varies by transfer or flight format.",
-        seasonality: "Available with advance coordination, subject to weather, aircraft, permits, and provider availability.",
-        tags: ["VIP", "By Request", "Romantic", "Adventure"],
-        notes:
-          "Details vary by aircraft availability, routing, weather, permits, and provider schedules.",
-        whatToExpect:
-          "Expect a highly customized experience with coordinated scheduling, route planning, weather review, and premium travel details.",
-        whatToBring:
-          "Valid identification, comfortable clothing, and luggage details if transfer-related.",
+        description: text(`Private aviation transfers, helicopter tours, scenic flights, and VIP arrival or departure logistics.`, `Traslados en aviación privada, tours en helicóptero, vuelos escénicos y logística VIP de llegada o salida.`),
+        overview: text(`Private aviation transfers, helicopter tours, scenic flights, and VIP arrival or departure logistics. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Traslados en aviación privada, tours en helicóptero, vuelos escénicos y logística VIP de llegada o salida. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`VIP`, `VIP`),
+        text(`Luxury`, `Lujo`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Private Aviation Transfer",
-            description:
-              "A premium arrival or departure solution for guests who want speed, privacy, and high-touch logistics.",
-            bestFor: "VIP travelers, time-sensitive guests, families, and high-end groups.",
-            duration: "Varies by route.",
-            experience:
-              "Aircraft, transfer timing, luggage details, ground transportation, and arrival or departure logistics are coordinated in advance.",
-            whatToExpect:
-              "A smoother, more private travel experience with fewer friction points.",
-            whatToBring:
-              "Valid identification, luggage details, and travel documents.",
-            goodToKnow:
-              "Aircraft availability, weather, routing, and permits shape what is possible for each flight.",
-          }),
-          option({
-            title: "Helicopter or Scenic Flight",
-            description:
-              "A rare aerial experience over the coastline, bay, or nearby landmarks.",
-            bestFor: "VIP guests, photographers, proposals, and special occasions.",
-            duration: "Usually 30 to 90 minutes depending on route.",
-            experience:
-              "Guests take a scenic flight arranged around views, timing, route, and weather conditions.",
-            whatToExpect:
-              "A dramatic perspective of the destination and a memorable luxury moment.",
-            whatToBring:
-              "Valid ID, comfortable clothing, sunglasses, and camera.",
-            goodToKnow:
-              "Weather and aircraft availability are important, so timing and route details are coordinated in advance.",
-          }),
+        option({
+          title: text(`Private Aviation Transfer`, `Traslado en Aviación Privada`),
+          description: text(`A carefully arranged private aviation transfer experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de traslado en aviación privada cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private aviation transfer with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en traslado en aviación privada, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Helicopter or Scenic Flight`, `Helicóptero o Vuelo Escénico`),
+          description: text(`A carefully arranged helicopter or scenic flight experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de helicóptero o vuelo escénico cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on helicopter or scenic flight with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en helicóptero o vuelo escénico, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Luxury Celebrations & Proposals",
-        slug: "luxury-celebrations-proposals",
+        title: text(`Luxury Celebrations & Proposals`, `Celebraciones de Lujo y Propuestas`),
+        slug: `luxury-celebrations-proposals`,
         image: vipImage,
         heroImage: vipHero,
-        description:
-          "Proposal planning, photographers, videographers, yacht proposals, beach setups, birthdays, anniversaries, and celebration production.",
-        overview:
-          "Many luxury stays in Punta Mita are built around milestone moments, from proposals and birthdays to anniversaries and multi-day celebrations.",
-        bestFor:
-          "Couples, families, birthdays, anniversaries, proposals, wedding-weekend guests, and celebration groups.",
-        duration: "Varies by event.",
-        seasonality: "Available year-round, with holidays requiring extra advance planning.",
-        tags: ["Romantic", "VIP", "Groups", "Family-Friendly"],
-        notes:
-          "Each celebration is shaped around mood, timing, privacy, guest preferences, setting, and backup plans.",
-        whatToExpect:
-          "Expect a custom-produced experience with setup, décor, photography, dining, music, and thoughtful coordination shaped around the occasion.",
-        whatToBring:
-          "Helpful details include the occasion, inspiration images, guest count, timing, and any surprise elements.",
+        description: text(`Proposal planning, photographers, videographers, yacht proposals, beach setups, birthdays, anniversaries, and celebration production.`, `Planeación de propuestas, fotógrafos, videógrafos, propuestas en yate, montajes en playa, cumpleaños, aniversarios y producción de celebraciones.`),
+        overview: text(`Proposal planning, photographers, videographers, yacht proposals, beach setups, birthdays, anniversaries, and celebration production. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Planeación de propuestas, fotógrafos, videógrafos, propuestas en yate, montajes en playa, cumpleaños, aniversarios y producción de celebraciones. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`VIP`, `VIP`),
+        text(`Romantic`, `Romántico`),
+        text(`Celebration`, `Celebración`),
+        text(`Luxury`, `Lujo`)
+        ],
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
         experienceOptions: [
-          option({
-            title: "Proposal Planning",
-            description:
-              "A fully coordinated proposal experience designed around privacy, emotion, timing, and the couple’s style.",
-            bestFor: "Couples and surprise proposals.",
-            duration: "Usually a planned moment plus optional dinner or celebration.",
-            experience:
-              "The experience can include location planning, timing, flowers, candles, photography, music, champagne, dinner, and backup plans.",
-            whatToExpect:
-              "A discreet and highly detailed production designed to feel effortless for the guest.",
-            whatToBring:
-              "The ring, inspiration images if available, and preferred style details.",
-            goodToKnow:
-              "Weather, privacy, and backup planning matter.",
-          }),
-          option({
-            title: "Birthday or Anniversary Production",
-            description:
-              "A custom celebration at the villa, beach, yacht, restaurant, or beach club.",
-            bestFor: "Families, couples, groups, birthdays, and anniversaries.",
-            duration: "Usually 2 to 6 hours.",
-            experience:
-              "The celebration can include décor, chef service, cake, music, entertainment, photography, flowers, table styling, and a smooth event flow.",
-            whatToExpect:
-              "A polished celebration built around the person, occasion, and group dynamic.",
-            whatToBring:
-              "Guest count, mood-board references, dietary needs, and preferred timing.",
-            goodToKnow:
-              "More elaborate events benefit from additional lead time and careful coordination.",
-          }),
-          option({
-            title: "Private Photographer or Content Creator",
-            description:
-              "A professional photo, video, or social content session during the stay.",
-            bestFor: "Families, couples, proposals, influencers, celebrations, and groups.",
-            duration: "Usually 1 to 3 hours.",
-            experience:
-              "A photographer or content creator captures villa moments, beach portraits, yacht days, proposals, family sessions, or social content.",
-            whatToExpect:
-              "A polished visual record of the trip with direction and location planning.",
-            whatToBring:
-              "Outfits, inspiration references, and preferred shot list.",
-            goodToKnow:
-              "Best scheduled around sunrise, sunset, yacht days, or key celebration moments.",
-          }),
-          option({
-            title: "Wedding-Weekend Activity Planning",
-            description:
-              "A curated program of activities for guests traveling for a wedding or multi-day celebration.",
-            bestFor: "Wedding groups, families, and destination celebration hosts.",
-            duration: "Multi-day planning.",
-            experience:
-              "The weekend can include yacht days, welcome dinners, recovery brunches, beach activities, wellness sessions, and guest-friendly outings arranged around the wedding schedule.",
-            whatToExpect:
-              "A smoother and more memorable guest experience across the full wedding weekend.",
-            whatToBring:
-              "Guest count, schedule, priorities, preferred pace, and any must-have experiences.",
-            goodToKnow:
-              "Early planning helps secure the best providers and create a smoother weekend schedule.",
-          }),
+        option({
+          title: text(`Proposal Planning`, `Planeación de Propuesta`),
+          description: text(`A carefully arranged proposal planning experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de planeación de propuesta cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on proposal planning with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en planeación de propuesta, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Birthday or Anniversary Production`, `Producción de Cumpleaños o Aniversario`),
+          description: text(`A carefully arranged birthday or anniversary production experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de producción de cumpleaños o aniversario cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on birthday or anniversary production with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en producción de cumpleaños o aniversario, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Photographer or Content Creator`, `Fotógrafo Privado o Creador de Contenido`),
+          description: text(`A carefully arranged private photographer or content creator experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de fotógrafo privado o creador de contenido cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private photographer or content creator with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en fotógrafo privado o creador de contenido, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Wedding-Weekend Activity Planning`, `Planeación de Actividades Para Fin de Semana de Boda`),
+          description: text(`A carefully arranged wedding-weekend activity planning experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de planeación de actividades para fin de semana de boda cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on wedding-weekend activity planning with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en planeación de actividades para fin de semana de boda, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
         ],
       }),
-
       createActivity({
-        title: "Full-Stay Concierge & VIP Hosting",
-        slug: "full-stay-concierge-vip-hosting",
+        title: text(`Full-Stay Concierge & VIP Hosting`, `Concierge Para Toda la Estancia y Hosting VIP`),
+        slug: `full-stay-concierge-vip-hosting`,
         image: vipImage,
         heroImage: vipHero,
-        description:
-          "Full itinerary design, private driver, bilingual host, security, reservations, activity planning, and VIP coordination.",
-        overview:
-          "Full-stay concierge support turns the entire trip into a more curated, seamless, and personalized experience.",
-        bestFor:
-          "VIP travelers, families, groups, first-time visitors, destination celebrations, and guests who want a fully supported stay.",
-        duration: "Full stay.",
-        seasonality: "Available year-round.",
-        tags: ["VIP", "Groups", "Family-Friendly", "By Request"],
-        notes:
-          "VIP arrangements are shaped around availability, villa privileges, preferred service level, and the style of stay guests want to create.",
-        whatToExpect:
-          "Expect personalized itinerary planning, reservations, transportation, guest support, and tailored recommendations before and during the stay.",
-        whatToBring:
-          "Helpful details include travel dates, group style, villa location, priorities, dietary needs, celebration details, and preferred pace of travel.",
-        experienceOptions: [
-          option({
-            title: "Full Itinerary Design",
-            description:
-              "A complete travel plan built around the guest’s villa, dates, group, pace, and interests.",
-            bestFor: "Families, VIP travelers, first-time visitors, and groups.",
-            duration: "Full stay.",
-            experience:
-              "The itinerary can balance villa time, beach days, dining, wellness, activities, transportation, and special moments throughout the stay.",
-            whatToExpect:
-              "A stay that feels curated without being over-scheduled.",
-            whatToBring:
-              "Travel dates, group style, preferred pace, interests, and must-do experiences.",
-            goodToKnow:
-              "The best itineraries leave space for rest.",
-          }),
-          option({
-            title: "Private Driver & Bilingual Host",
-            description:
-              "High-touch local support for transportation, reservations, activities, and guest comfort.",
-            bestFor: "VIP guests, families, groups, and travelers who want support during the stay.",
-            duration: "Hourly, daily, or full stay.",
-            experience:
-              "A driver or bilingual host helps guests move smoothly between activities, dinners, errands, airport transfers, and special experiences.",
-            whatToExpect:
-              "A more seamless stay with local knowledge, smoother transportation, and fewer details for guests to manage.",
-            whatToBring:
-              "Schedule details, guest count, luggage details if relevant, and preferred communication style.",
-            goodToKnow:
-              "This is especially valuable for groups with multiple reservations and moving parts.",
-          }),
-          option({
-            title: "Private Security",
-            description:
-              "Discreet security support for high-profile guests, events, transfers, or special circumstances.",
-            bestFor: "High-profile guests, VIP groups, events, and guests requesting additional privacy.",
-            duration: "Hourly, daily, event-based, or full stay.",
-            experience:
-              "Security can be arranged around the guest’s privacy needs, property setting, schedule, and movements during the stay.",
-            whatToExpect:
-              "Professional, discreet support designed to protect privacy and comfort without disrupting the vacation atmosphere.",
-            whatToBring:
-              "Schedule details, access needs, and privacy expectations.",
-            goodToKnow:
-              "Security is arranged with discretion, professionalism, and attention to guest privacy.",
-          }),
-          option({
-            title: "VIP Access & Reservation Coordination",
-            description:
-              "A personalized planning service for restaurants, activities, beach clubs, nightlife, and special requests.",
-            bestFor: "VIP travelers, groups, celebrations, and guests who want a frictionless stay.",
-            duration: "Before and during the stay.",
-            experience:
-              "Reservations, provider availability, activity timing, transportation, and special requests can be coordinated before and during the stay.",
-            whatToExpect:
-              "A smoother vacation with fewer decisions and better timing.",
-            whatToBring:
-              "Preferences, dates, guest count, dietary needs, and priority experiences.",
-            goodToKnow:
-              "Some experiences vary by availability, villa privileges, venue requirements, and provider confirmation.",
-          }),
+        description: text(`Full itinerary design, private driver, bilingual host, security, reservations, activity planning, and VIP coordination.`, `Diseño de itinerario completo, chofer privado, host bilingüe, seguridad, reservaciones, planeación de actividades y coordinación VIP.`),
+        overview: text(`Full itinerary design, private driver, bilingual host, security, reservations, activity planning, and VIP coordination. This activity can be adapted for families, couples, groups, celebrations, and guests who want a more personal way to experience Punta Mita.`, `Diseño de itinerario completo, chofer privado, host bilingüe, seguridad, reservaciones, planeación de actividades y coordinación VIP. Esta actividad puede adaptarse para familias, parejas, grupos, celebraciones y huéspedes que buscan una forma más personal de vivir Punta Mita.`),
+        bestFor: text(`Families, couples, groups, celebrations, and guests who want a curated Punta Mita experience.`, `Familias, parejas, grupos, celebraciones y huéspedes que buscan una experiencia cuidadosamente organizada en Punta Mita.`),
+        duration: text(`Usually flexible depending on the selected option and itinerary.`, `Normalmente flexible según la opción seleccionada y el itinerario.`),
+        seasonality: text(`Available year-round unless noted; some experiences depend on weather, ocean conditions, permits, or seasonal calendars.`, `Disponible todo el año salvo indicación específica; algunas experiencias dependen del clima, condiciones del mar, permisos o calendarios de temporada.`),
+        tags: [
+        text(`VIP`, `VIP`),
+        text(`Luxury`, `Lujo`),
+        text(`Groups`, `Grupos`)
         ],
-      }),
+        notes: text(`We recommend confirming the best option based on your group size, preferred timing, transportation needs, and overall travel style.`, `Recomendamos confirmar la mejor opción según el tamaño del grupo, horario preferido, necesidades de transporte y estilo general del viaje.`),
+        whatToExpect: text(`Expect a curated plan with clear recommendations, practical timing, and coordination adapted to your stay.`, `Espera un plan seleccionado con recomendaciones claras, horarios prácticos y coordinación adaptada a tu estancia.`),
+        whatToBring: text(`Comfortable clothing, sun protection when relevant, and any personal items needed for the activity.`, `Ropa cómoda, protección solar cuando aplique y cualquier artículo personal necesario para la actividad.`),
+        experienceOptions: [
+        option({
+          title: text(`Full Itinerary Design`, `Diseño de Itinerario Completo`),
+          description: text(`A carefully arranged full itinerary design experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de diseño de itinerario completo cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on full itinerary design with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en diseño de itinerario completo, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Driver & Bilingual Host`, `Chofer Privado y Host Bilingüe`),
+          description: text(`A carefully arranged private driver & bilingual host experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de chofer privado y host bilingüe cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private driver & bilingual host with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en chofer privado y host bilingüe, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`Private Security`, `Seguridad Privada`),
+          description: text(`A carefully arranged private security experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de seguridad privada cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on private security with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en seguridad privada, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        }),
+        option({
+          title: text(`VIP Access & Reservation Coordination`, `Acceso VIP y Coordinación de Reservaciones`),
+          description: text(`A carefully arranged vip access & reservation coordination experience designed around your group, timing, comfort level, and preferred style.`, `Una experiencia de acceso vip y coordinación de reservaciones cuidadosamente organizada según tu grupo, horario, nivel de comodidad y estilo preferido.`),
+          bestFor: text(`Guests who want a polished, easy-to-plan experience with local guidance and clear expectations.`, `Huéspedes que buscan una experiencia bien organizada, fácil de planear, con guía local y expectativas claras.`),
+          duration: text(`Timing varies depending on the experience and final itinerary.`, `La duración varía según la experiencia y el itinerario final.`),
+          experience: text(`This option focuses on vip access & reservation coordination with coordination adapted to the season, availability, guest preferences, and the overall rhythm of the trip.`, `Esta opción se enfoca en acceso vip y coordinación de reservaciones, con coordinación adaptada a la temporada, disponibilidad, preferencias de los huéspedes y ritmo general del viaje.`),
+          whatToExpect: text(`A smooth, curated experience with practical coordination, trusted local support, and details confirmed before the plan is finalized.`, `Una experiencia fluida y cuidadosamente seleccionada, con coordinación práctica, apoyo local de confianza y detalles confirmados antes de finalizar el plan.`),
+          whatToBring: text(`Comfortable clothing, any personal essentials, and anything specific requested once the final plan is confirmed.`, `Ropa cómoda, artículos personales esenciales y cualquier cosa específica que se solicite una vez confirmado el plan final.`),
+          goodToKnow: text(`Availability, timing, inclusions, and final recommendations may vary by season and group profile.`, `La disponibilidad, horarios, inclusiones y recomendaciones finales pueden variar según la temporada y el perfil del grupo.`),
+        })
+        ],
+      })
     ],
-  },
+  }
 ];
 
 export function getDiscoverCategoryBySlug(slug: string) {
@@ -2680,6 +1997,6 @@ export function getDiscoverCategoryBySlug(slug: string) {
 
 export function getActivityBySlug(categorySlug: string, activitySlug: string) {
   const category = getDiscoverCategoryBySlug(categorySlug);
-
   return category?.activities.find((activity) => activity.slug === activitySlug);
 }
+
