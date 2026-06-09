@@ -23,7 +23,7 @@ return (
     <img
       src={property.images[selectedImage]}
       alt={property.name}
-      className="w-full aspect-[16/9] md:aspect-auto md:h-[65vh] object-contain md:object-cover bg-slate-100"
+      className="w-full aspect-[16/9] md:aspect-auto md:h-[65vh] object-cover bg-slate-100"
     />
 
     {/* LEFT ARROW */}
@@ -110,10 +110,10 @@ return (
 
     <div className="mt-5 h-px w-full bg-slate-200" />
 
-    <div className="mt-5 grid grid-cols-1 gap-3">
+    <div className="mt-5 grid grid-cols-2 gap-3">
       <a
         href={`https://wa.me/523313619889?text=${encodeURIComponent(`Hi, I am interested in ${property.name}`)}`}
-        className="inline-flex h-12 items-center gap-2 justify-center rounded-lg border border-slate-900/20 bg-white text-slate-900 px-5 text-[15px] tracking-wide font-medium hover:bg-slate-50 transition"
+        className="inline-flex h-12 items-center gap-2 justify-center rounded-lg border border-slate-900/20 bg-white text-slate-900 px-3 text-[14px] tracking-wide font-medium hover:bg-slate-50 transition"
       >
         <span className="w-4 h-4">
           <svg
@@ -130,7 +130,7 @@ return (
 
       <Link
         href="/contact"
-        className="inline-flex h-12 items-center justify-center rounded-lg bg-slate-900 text-white px-5 text-[15px] tracking-wide font-medium hover:bg-slate-800 transition"
+        className="inline-flex h-12 items-center justify-center rounded-lg bg-slate-900 text-white px-3 text-[13px] tracking-wide font-medium hover:bg-slate-800 transition text-center"
       >
         Inquire About This Property
       </Link>
