@@ -3,13 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { useLanguage } from "@/lib/language-context";
+import { getText } from "@/lib/i18n-types";
+import type { LocalizedText } from "@/lib/i18n-types";
 
 type ActivityCardItem = {
-  title: string;
+  title: LocalizedText;
   slug: string;
   image: string;
-  description: string;
-  tags?: string[];
+  description: LocalizedText;
+  tags?: LocalizedText[];
 };
 
 type ActivityFilterGridProps = {
@@ -21,40 +24,51 @@ export default function ActivityFilterGrid({
   categorySlug,
   activities,
 }: ActivityFilterGridProps) {
+  const { language } = useLanguage();
+  const t = (value: string | LocalizedText) => getText(value, language);
   const [activeTag, setActiveTag] = useState("All");
 
   const tags = useMemo(() => {
-    const uniqueTags = new Set<string>();
+    const uniqueTags = new Map<string, LocalizedText>();
 
     activities.forEach((activity) => {
-      activity.tags?.forEach((tag) => uniqueTags.add(tag));
+      activity.tags?.forEach((tag) => {
+        uniqueTags.set(tag.en, tag);
+      });
     });
 
-    return ["All", ...Array.from(uniqueTags).sort()];
+    return [
+      { en: "All", es: "Todo" },
+      ...Array.from(uniqueTags.values()).sort((a, b) =>
+        a.en.localeCompare(b.en)
+      ),
+    ];
   }, [activities]);
 
   const filteredActivities =
     activeTag === "All"
       ? activities
-      : activities.filter((activity) => activity.tags?.includes(activeTag));
+      : activities.filter((activity) =>
+          activity.tags?.some((tag) => tag.en === activeTag)
+        );
 
   return (
     <div>
       {tags.length > 1 && (
         <div className="mb-10">
           <p className="text-[13px] uppercase tracking-[0.16em] text-slate-400">
-            Browse by style
+            {language === "es" ? "Explorar por estilo" : "Browse by style"}
           </p>
 
           <div className="mt-4 flex flex-wrap gap-2">
             {tags.map((tag) => {
-              const isActive = activeTag === tag;
+              const isActive = activeTag === tag.en;
 
               return (
                 <button
-                  key={tag}
+                  key={tag.en}
                   type="button"
-                  onClick={() => setActiveTag(tag)}
+                  onClick={() => setActiveTag(tag.en)}
                   className={[
                     "rounded-full border px-4 py-2 text-[14px] transition",
                     isActive
@@ -62,7 +76,7 @@ export default function ActivityFilterGrid({
                       : "border-slate-200 bg-white text-slate-700 hover:border-slate-400",
                   ].join(" ")}
                 >
-                  {tag}
+                  {t(tag)}
                 </button>
               );
             })}
@@ -83,11 +97,13 @@ export default function ActivityFilterGrid({
       ) : (
         <div className="rounded-2xl border border-slate-200 bg-white p-8">
           <h2 className="font-serif text-2xl text-slate-900">
-            No activities found
+            {language === "es" ? "No se encontraron actividades" : "No activities found"}
           </h2>
 
           <p className="mt-3 text-[16px] leading-[1.7] text-slate-900/70">
-            Try selecting a different style.
+            {language === "es"
+              ? "Intenta seleccionar otro estilo."
+              : "Try selecting a different style."}
           </p>
         </div>
       )}
@@ -102,6 +118,9 @@ function ActivityCard({
   categorySlug: string;
   activity: ActivityCardItem;
 }) {
+  const { language } = useLanguage();
+  const t = (value: string | LocalizedText) => getText(value, language);
+
   return (
     <Link
       href={`/discover-punta-mita/${categorySlug}/${activity.slug}`}
@@ -111,7 +130,7 @@ function ActivityCard({
         <div className="overflow-hidden">
           <Image
             src={activity.image}
-            alt={activity.title}
+            alt={t(activity.title)}
             width={1600}
             height={900}
             className="aspect-[16/9] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
@@ -120,11 +139,11 @@ function ActivityCard({
 
         <div className="flex flex-1 flex-col bg-white p-6">
           <h2 className="font-serif text-2xl leading-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-700">
-            {activity.title}
+            {t(activity.title)}
           </h2>
 
           <p className="mt-3 text-[15px] leading-[1.65] text-slate-600">
-            {activity.description}
+            {t(activity.description)}
           </p>
         </div>
       </div>
