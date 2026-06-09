@@ -17,86 +17,126 @@ export default function Page() {
 
   return (
     <>
-      {/* HERO IMAGE ONLY */}
-      <div className="relative">
-        <img
-          src={property.images[selectedImage]}
-          alt={property.name}
-          className="w-full h-[55vh] md:h-[65vh] object-cover"
-        />
+     {/* HERO / MOBILE OPTIMIZED */}
+<div className="bg-white">
+  <div className="relative md:mx-auto md:max-w-none">
+    <img
+      src={property.images[selectedImage]}
+      alt={property.name}
+      className="w-full aspect-[16/9] md:aspect-auto md:h-[65vh] object-cover bg-slate-100"
+    />
 
-        {/* LEFT ARROW */}
-        <button
-          onClick={() =>
-            setSelectedImage(
-              selectedImage === 0 ? property.images.length - 1 : selectedImage - 1
-            )
-          }
-          className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 
-                     bg-white/90 hover:bg-white text-black 
-                     w-12 h-12 md:w-14 md:h-14 
-                     flex items-center justify-center 
-                     rounded-lg shadow-lg transition z-20 text-xl"
-        >
-          ‹
-        </button>
-
-        {/* RIGHT ARROW */}
-        <button
-          onClick={() =>
-            setSelectedImage(
-              selectedImage === property.images.length - 1 ? 0 : selectedImage + 1
-            )
-          }
-          className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 
-                     bg-white/90 hover:bg-white text-black 
-                     w-12 h-12 md:w-14 md:h-14 
-                     flex items-center justify-center 
-                     rounded-lg shadow-lg transition z-20 text-xl"
-        >
-          ›
-        </button>
-
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent" />
-
-        <div className="absolute bottom-16 left-6 md:bottom-24 md:left-10 text-white max-w-[680px] animate-fadeUp">
-          <h1 className="font-serif text-4xl md:text-6xl leading-[0.98] tracking-tight drop-shadow-sm">
-            {property.name}
-          </h1>
-
-          <div className="mt-5 inline-block rounded-lg border border-white/25 bg-white/10 px-5 py-2 text-[13px] tracking-[0.12em] backdrop-blur-md">
-            Starting at {property.startingPrice}
-          </div>
-          
-<div className="mt-5 flex flex-col sm:flex-row gap-3">
-  <a
-  href={`https://wa.me/523313619889?text=${encodeURIComponent(`Hi, I am interested in ${property.name}`)}`}
-  className="inline-flex items-center gap-2 justify-center rounded-lg bg-white text-slate-900 px-6 py-3 text-[14px] tracking-wide font-medium hover:bg-slate-100 transition"
->
-     {/* WhatsApp Icon */}
-  <span className="w-4 h-4">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 32 32"
-      className="w-full h-full"
-      fill="currentColor"
+    {/* LEFT ARROW */}
+    <button
+      onClick={() =>
+        setSelectedImage(
+          selectedImage === 0 ? property.images.length - 1 : selectedImage - 1
+        )
+      }
+      className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 
+                 bg-white/90 hover:bg-white text-black 
+                 w-10 h-10 md:w-14 md:h-14 
+                 flex items-center justify-center 
+                 rounded-lg shadow-lg transition z-20 text-lg md:text-xl"
     >
-      <path d="M16 3C9.373 3 4 8.373 4 15c0 2.638.858 5.077 2.313 7.06L4 29l7.153-2.252A11.937 11.937 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.872 0-3.644-.5-5.184-1.374l-.37-.22-4.247 1.337 1.388-4.136-.241-.387A9.958 9.958 0 0 1 6 15c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10zm5.393-7.382c-.294-.147-1.737-.857-2.007-.955-.27-.098-.467-.147-.664.147-.197.294-.762.955-.934 1.152-.172.197-.344.221-.638.074-.294-.147-1.24-.457-2.363-1.457-.873-.779-1.462-1.74-1.634-2.034-.172-.294-.018-.453.129-.6.132-.131.294-.344.441-.516.147-.172.197-.294.294-.49.098-.197.049-.369-.025-.516-.074-.147-.664-1.602-.91-2.193-.24-.577-.485-.498-.664-.507-.172-.009-.369-.011-.566-.011-.197 0-.516.074-.787.369-.27.294-1.033 1.01-1.033 2.459 0 1.449 1.058 2.847 1.205 3.044.147.197 2.083 3.183 5.043 4.464.705.304 1.254.485 1.683.621.707.225 1.35.193 1.86.117.567-.084 1.737-.71 1.982-1.396.245-.686.245-1.274.172-1.396-.074-.123-.27-.197-.566-.344z"/>
-    </svg>
-  </span>
-    
-  WhatsApp
-</a>
+      ‹
+    </button>
 
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-lg border border-white/30 bg-white/10 text-white px-6 py-3 text-[14px] tracking-wide font-medium hover:bg-white/15 transition backdrop-blur-sm"
-            >
-              Inquire About This Property
-            </Link>
-          </div>
-        </div>
+    {/* RIGHT ARROW */}
+    <button
+      onClick={() =>
+        setSelectedImage(
+          selectedImage === property.images.length - 1 ? 0 : selectedImage + 1
+        )
+      }
+      className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 
+                 bg-white/90 hover:bg-white text-black 
+                 w-10 h-10 md:w-14 md:h-14 
+                 flex items-center justify-center 
+                 rounded-lg shadow-lg transition z-20 text-lg md:text-xl"
+    >
+      ›
+    </button>
+
+    <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent" />
+
+    {/* DESKTOP HERO TEXT */}
+    <div className="hidden md:block absolute bottom-24 left-10 text-white max-w-[680px] animate-fadeUp">
+      <h1 className="font-serif text-6xl leading-[0.98] tracking-tight drop-shadow-sm">
+        {property.name}
+      </h1>
+
+      <div className="mt-5 inline-block rounded-lg border border-white/25 bg-white/10 px-5 py-2 text-[13px] tracking-[0.12em] backdrop-blur-md">
+        Starting at {property.startingPrice}
       </div>
+
+      <div className="mt-5 flex flex-row gap-3">
+        <a
+          href={`https://wa.me/523313619889?text=${encodeURIComponent(`Hi, I am interested in ${property.name}`)}`}
+          className="inline-flex items-center gap-2 justify-center rounded-lg bg-white text-slate-900 px-6 py-3 text-[14px] tracking-wide font-medium hover:bg-slate-100 transition"
+        >
+          <span className="w-4 h-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+              className="w-full h-full"
+              fill="currentColor"
+            >
+              <path d="M16 3C9.373 3 4 8.373 4 15c0 2.638.858 5.077 2.313 7.06L4 29l7.153-2.252A11.937 11.937 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.872 0-3.644-.5-5.184-1.374l-.37-.22-4.247 1.337 1.388-4.136-.241-.387A9.958 9.958 0 0 1 6 15c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10zm5.393-7.382c-.294-.147-1.737-.857-2.007-.955-.27-.098-.467-.147-.664.147-.197.294-.762.955-.934 1.152-.172.197-.344.221-.638.074-.294-.147-1.24-.457-2.363-1.457-.873-.779-1.462-1.74-1.634-2.034-.172-.294-.018-.453.129-.6.132-.131.294-.344.441-.516.147-.172.197-.294.294-.49.098-.197.049-.369-.025-.516-.074-.147-.664-1.602-.91-2.193-.24-.577-.485-.498-.664-.507-.172-.009-.369-.011-.566-.011-.197 0-.516.074-.787.369-.27.294-1.033 1.01-1.033 2.459 0 1.449 1.058 2.847 1.205 3.044.147.197 2.083 3.183 5.043 4.464.705.304 1.254.485 1.683.621.707.225 1.35.193 1.86.117.567-.084 1.737-.71 1.982-1.396.245-.686.245-1.274.172-1.396-.074-.123-.27-.197-.566-.344z"/>
+            </svg>
+          </span>
+          WhatsApp
+        </a>
+
+        <Link
+          href="/contact"
+          className="inline-flex items-center justify-center rounded-lg border border-white/30 bg-white/10 text-white px-6 py-3 text-[14px] tracking-wide font-medium hover:bg-white/15 transition backdrop-blur-sm"
+        >
+          Inquire About This Property
+        </Link>
+      </div>
+    </div>
+  </div>
+
+  {/* MOBILE PROPERTY INFO */}
+  <div className="md:hidden px-6 pt-7 pb-8 bg-white">
+    <h1 className="font-serif text-4xl leading-[1.05] tracking-tight text-slate-900">
+      {property.name}
+    </h1>
+
+    <p className="mt-3 text-[15px] tracking-[0.08em] text-slate-600">
+      Starting at {property.startingPrice}
+    </p>
+
+    <div className="mt-5 h-px w-full bg-slate-200" />
+
+    <div className="mt-5 grid grid-cols-2 gap-3">
+      <a
+        href={`https://wa.me/523313619889?text=${encodeURIComponent(`Hi, I am interested in ${property.name}`)}`}
+        className="inline-flex h-12 items-center gap-2 justify-center rounded-lg border border-slate-900/20 bg-white text-slate-900 px-3 text-[14px] tracking-wide font-medium hover:bg-slate-50 transition"
+      >
+        <span className="w-4 h-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+            className="w-full h-full"
+            fill="currentColor"
+          >
+            <path d="M16 3C9.373 3 4 8.373 4 15c0 2.638.858 5.077 2.313 7.06L4 29l7.153-2.252A11.937 11.937 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.872 0-3.644-.5-5.184-1.374l-.37-.22-4.247 1.337 1.388-4.136-.241-.387A9.958 9.958 0 0 1 6 15c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10zm5.393-7.382c-.294-.147-1.737-.857-2.007-.955-.27-.098-.467-.147-.664.147-.197.294-.762.955-.934 1.152-.172.197-.344.221-.638.074-.294-.147-1.24-.457-2.363-1.457-.873-.779-1.462-1.74-1.634-2.034-.172-.294-.018-.453.129-.6.132-.131.294-.344.441-.516.147-.172.197-.294.294-.49.098-.197.049-.369-.025-.516-.074-.147-.664-1.602-.91-2.193-.24-.577-.485-.498-.664-.507-.172-.009-.369-.011-.566-.011-.197 0-.516.074-.787.369-.27.294-1.033 1.01-1.033 2.459 0 1.449 1.058 2.847 1.205 3.044.147.197 2.083 3.183 5.043 4.464.705.304 1.254.485 1.683.621.707.225 1.35.193 1.86.117.567-.084 1.737-.71 1.982-1.396.245-.686.245-1.274.172-1.396-.074-.123-.27-.197-.566-.344z"/>
+          </svg>
+        </span>
+        WhatsApp
+      </a>
+
+      <Link
+        href="/contact"
+        className="inline-flex h-12 items-center justify-center rounded-lg bg-slate-900 text-white px-3 text-[13px] tracking-wide font-medium hover:bg-slate-800 transition text-center"
+      >
+        Inquire About This Property
+      </Link>
+    </div>
+  </div>
+</div>
 
       <main>
         {/* GALLERY */}
