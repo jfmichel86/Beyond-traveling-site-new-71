@@ -22,7 +22,7 @@ return (
   <img
   src={property.images[selectedImage]}
   alt={property.name}
-  className="w-full h-[55vh] md:h-[65vh] object-cover"
+  className="w-full h-[72vh] md:h-[65vh] object-cover"
 />
 
 {/* LEFT ARROW */}
@@ -59,19 +59,19 @@ return (
 
   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent" />
 
-  <div className="absolute bottom-16 left-6 md:bottom-24 md:left-10 text-white max-w-[680px] animate-fadeUp">
-    <h1 className="font-serif text-4xl md:text-6xl leading-[0.98] tracking-tight drop-shadow-sm">
+  <div className="absolute bottom-10 left-5 right-5 md:right-auto md:bottom-24 md:left-10 text-white max-w-[680px] animate-fadeUp">
+    <h1 className="font-serif text-3xl md:text-6xl leading-[1] tracking-tight drop-shadow-sm">
       {property.name}
     </h1>
 
-    <div className="mt-5 inline-block rounded-lg border border-white/25 bg-white/10 px-5 py-2 text-[13px] tracking-[0.12em] backdrop-blur-md">
+    <div className="mt-3 inline-block rounded-lg border border-white/25 bg-white/10 px-4 py-2 text-[11px] md:text-[13px] tracking-[0.08em] md:tracking-[0.12em] backdrop-blur-md">
       Starting at {property.startingPrice}
     </div>
 
-    <div className="mt-5 flex flex-col sm:flex-row gap-3">
+    <div className="mt-4 flex flex-col sm:flex-row gap-3 max-w-[420px]">
   <a
   href={`https://wa.me/523313619889?text=${encodeURIComponent(`Hi, I am interested in ${property.name}`)}`}
-  className="inline-flex items-center gap-2 justify-center rounded-lg bg-white text-slate-900 px-6 py-3 text-[14px] tracking-wide font-medium hover:bg-slate-100 transition"
+  className="inline-flex items-center gap-2 justify-center rounded-lg bg-white text-slate-900 px-5 py-3 text-[13px] md:text-[14px] tracking-wide font-medium hover:bg-slate-100 transition"
 >
      {/* WhatsApp Icon */}
   <span className="w-4 h-4">
@@ -90,7 +90,7 @@ return (
 
   <Link
   href="/contact"
-  className="inline-flex items-center justify-center rounded-lg border border-white/30 bg-white/10 text-white px-6 py-3 text-[14px] tracking-wide font-medium hover:bg-white/15 transition backdrop-blur-sm"
+  className="inline-flex items-center justify-center rounded-lg border border-white/30 bg-white/10 text-white px-5 py-3 text-[13px] md:text-[14px] tracking-wide font-medium hover:bg-white/15 transition backdrop-blur-sm"
 >
   Inquire About This Property
 </Link>
