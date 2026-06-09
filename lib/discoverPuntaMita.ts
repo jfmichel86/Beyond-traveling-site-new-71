@@ -1,40 +1,42 @@
-type InfoItem = {
-  label: string;
-  value: string;
+import { LocalizedText, text } from "@/lib/i18n-types";
+
+export type InfoItem = {
+  label: LocalizedText;
+  value: LocalizedText;
 };
 
-type ExperienceOption = {
-  title: string;
-  description: string;
-  bestFor: string;
-  duration: string;
-  experience: string;
-  whatToExpect: string;
-  whatToBring: string;
-  goodToKnow?: string;
+export type ExperienceOption = {
+  title: LocalizedText;
+  description: LocalizedText;
+  bestFor: LocalizedText;
+  duration: LocalizedText;
+  experience: LocalizedText;
+  whatToExpect: LocalizedText;
+  whatToBring: LocalizedText;
+  goodToKnow?: LocalizedText;
 };
 
-type Activity = {
-  title: string;
+export type Activity = {
+  title: LocalizedText;
   slug: string;
   image: string;
-  description: string;
-  overview: string;
+  description: LocalizedText;
+  overview: LocalizedText;
   standardInfo: InfoItem[];
   customInfo: InfoItem[];
-  whatToExpect: string;
-  whatToBring: string;
+  whatToExpect: LocalizedText;
+  whatToBring: LocalizedText;
   gallery: string[];
-  tags: string[];
+  tags: LocalizedText[];
   experienceOptions: ExperienceOption[];
 };
 
-type DiscoverCategory = {
-  title: string;
+export type DiscoverCategory = {
+  title: LocalizedText;
   slug: string;
   image: string;
   heroImage: string;
-  description: string;
+  description: LocalizedText;
   activities: Activity[];
 };
 
@@ -76,19 +78,18 @@ function createActivity({
   whatToBring,
   experienceOptions,
 }: {
-  title: string;
-  slug: string;
-  image: string;
-  heroImage: string;
-  description: string;
-  overview: string;
-  bestFor: string;
-  duration: string;
-  seasonality: string;
-  tags: string[];
-  notes: string;
-  whatToExpect: string;
-  whatToBring: string;
+  
+title: LocalizedText;
+description: LocalizedText;
+overview: LocalizedText;
+bestFor: LocalizedText;
+duration: LocalizedText;
+seasonality: LocalizedText;
+tags: LocalizedText[];
+notes: LocalizedText;
+whatToExpect: LocalizedText;
+whatToBring: LocalizedText;
+  
   experienceOptions: ExperienceOption[];
 }): Activity {
   return {
@@ -97,15 +98,21 @@ function createActivity({
     image,
     description,
     overview,
-    standardInfo: [
-      { label: "Best For", value: bestFor },
-      { label: "Typical Duration", value: duration },
-      { label: "Seasonality", value: seasonality },
-    ],
-    customInfo: [
-      { label: "Good to Know", value: notes },
-      { label: "Tags", value: tags.join(", ") },
-    ],
+  standardInfo: [
+  { label: text("Best For", "Ideal Para"), value: bestFor },
+  { label: text("Typical Duration", "Duración Habitual"), value: duration },
+  { label: text("Seasonality", "Temporada"), value: seasonality },
+],
+customInfo: [
+  { label: text("Good to Know", "Bueno Saber"), value: notes },
+  {
+    label: text("Tags", "Etiquetas"),
+    value: text(
+      tags.map((tag) => tag.en).join(", "),
+      tags.map((tag) => tag.es).join(", ")
+    ),
+  },
+],
     whatToExpect,
     whatToBring,
     gallery: [image, heroImage],
@@ -144,22 +151,33 @@ const vipHero = "/discover-punta-mita/heroes/high-end-vip-experiences-hero.jpg";
 
 export const discoverCategories: DiscoverCategory[] = [
   {
-    title: "Ocean & Water",
-    slug: "ocean-water",
-    image: oceanImage,
-    heroImage: oceanHero,
-    description:
-      "Private yacht days, surf experiences, ocean adventures, fishing, wildlife, and water activities around Punta Mita.",
+    {
+  title: text("Ocean & Water", "Océano y Agua"),
+  slug: "ocean-water",
+  image: oceanImage,
+  heroImage: oceanHero,
+  description: text(
+    "Private yacht days, surf experiences, ocean adventures, fishing, wildlife, and water activities around Punta Mita.",
+    "Días privados en yate, experiencias de surf, aventuras en el mar, pesca, vida silvestre y actividades acuáticas alrededor de Punta Mita."
+  ),
+    
     activities: [
-      createActivity({
-        title: "Private Yacht, Sailing & Marietas Days",
-        slug: "private-yacht-sailing-marietas-days",
-        image: oceanImage,
-        heroImage: oceanHero,
-        description:
-          "Private boat, yacht, sailing, catamaran, Marietas, Hidden Beach, and luxury ocean-day experiences.",
-        overview:
-          "A private day on the water is one of the signature Punta Mita experiences. This activity can be relaxed, romantic, family-friendly, adventurous, or fully VIP depending on the boat, route, catering, and occasion.",
+     createActivity({
+  title: text(
+    "Private Yacht, Sailing & Marietas Days",
+    "Yates Privados, Veleros y Días en Marietas"
+  ),
+  slug: "private-yacht-sailing-marietas-days",
+  image: oceanImage,
+  heroImage: oceanHero,
+  description: text(
+    "Private boat, yacht, sailing, catamaran, Marietas, Hidden Beach, and luxury ocean-day experiences.",
+    "Experiencias de lancha privada, yate, velero, catamarán, Marietas, Playa Escondida y días de lujo en el mar."
+  ),
+  overview: text(
+    "A private day on the water is one of the signature Punta Mita experiences. This activity can be relaxed, romantic, family-friendly, adventurous, or fully VIP depending on the boat, route, catering, and occasion.",
+    "Un día privado en el mar es una de las experiencias más representativas de Punta Mita. Puede ser relajado, romántico, familiar, aventurero o completamente VIP, según la embarcación, la ruta, el catering y la ocasión."
+  ),
         bestFor:
           "Families, couples, groups, celebrations, romantic trips, VIP travelers, and guests who want a premium ocean experience.",
         duration: "Half-day, full-day, or sunset itinerary.",
@@ -173,11 +191,18 @@ export const discoverCategories: DiscoverCategory[] = [
         whatToBring:
           "Swimwear, sunglasses, hat, sandals, reef-safe sunscreen, a light cover-up, dry clothes if needed, and a camera or phone.",
         experienceOptions: [
-          option({
-            title: "Private Yacht Charter",
-            description:
-              "A polished private yacht experience shaped around your preferred style: relaxed cruising, swimming, music, drinks, snorkeling, or a full celebration on the water.",
-            bestFor: "VIP travelers, groups, families, birthdays, couples, and celebrations.",
+         
+       option({
+  title: text("Private Yacht Charter", "Yate Privado"),
+  description: text(
+    "A polished private yacht experience shaped around your preferred style: relaxed cruising, swimming, music, drinks, snorkeling, or a full celebration on the water.",
+    "Una experiencia refinada en yate privado diseñada alrededor de tu estilo: paseo relajado, nado, música, bebidas, snorkel o una celebración completa en el mar."
+  ),
+  bestFor: text(
+    "VIP travelers, groups, families, birthdays, couples, and celebrations.",
+    "Viajeros VIP, grupos, familias, cumpleaños, parejas y celebraciones."
+  ),
+         
             duration: "Usually half-day or full-day.",
             experience:
               "Guests board a private yacht with crew and enjoy a customized route around Punta Mita, Banderas Bay, or the Marietas area. The day can include open bar, chef-style catering, music, paddleboards, snorkel gear, water toys, and time anchored in beautiful water.",
