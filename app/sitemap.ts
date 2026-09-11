@@ -34,5 +34,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   url: "https://www.beyondtravelingmx.com/discover-punta-mita/private-boat-trips",
   lastModified: new Date(),
     },
+    {
+      url: "https://www.beyondtravelingmx.com/terms-and-conditions",
+      lastModified: new Date(),
+    },
+    {
+      url: "https://www.beyondtravelingmx.com/cancellation-policy",
+      lastModified: new Date(),
+    },
+    {
+      url: "https://www.beyondtravelingmx.com/privacy-policy",
+      lastModified: new Date(),
+    },
     ];
   }
