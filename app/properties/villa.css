@@ -1,0 +1,600 @@
+/* ─────────────────────────────────────────────────────────────
+   Villa pages — layout ported from the Mexican Reserve website
+   (luxury-rentals-nextjs/src/app/globals.css), scoped under .mr-villa
+   so it can't affect the rest of beyondtravelingmx.com, and re-coloured
+   with Beyond Traveling's navy / cream / gold palette.
+   The rules below the "Ported rules" line are generated from MR's CSS —
+   tweak colours via the variables here, and layout fixes at the bottom.
+   ───────────────────────────────────────────────────────────── */
+
+.mr-villa {
+  /* MR token name        → Beyond Traveling colour */
+  --deep-ocean:     #1E3A5F;  /* bt-navy */
+  --ocean:          #3D5A80;
+  --ocean-mid:      #3D5A80;  /* bt-navy-light */
+  --mist:           #B7C4D4;  /* bt-mist */
+  --mist-light:     #E6ECF3;
+  --charcoal:       #33363B;  /* bt-charcoal */
+  --charcoal-light: #5A5E65;  /* darker than bt-charcoal-light for legibility (>=5:1 on cream) */
+  --cream:          #F8F4EC;  /* bt-cream */
+  --sand:           #ECE3D2;  /* bt-sand */
+  --sand-dark:      #DCCEB2;  /* bt-sand-dark */
+  --gold:           #B8863E;  /* bt-gold */
+  --gold-light:     #D4AC6E;  /* bt-gold-light */
+  --white:          #FEFEFE;
+  --text-on-dark:   #EFF6FB;
+  --sidebar-top:    104px;  /* compact header (~77px) + breathing room */
+
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--font-inter, Inter), sans-serif;
+}
+/* Mexican Reserve has no Tailwind reset — undo the bits of Tailwind's
+   preflight that change how its markup looks. */
+.mr-villa svg { display: inline-block; vertical-align: middle; }
+.mr-villa button { background: none; }
+.mr-villa table { border-collapse: collapse; }
+
+/* ── Ported rules ─────────────────────────────────────────── */
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes ctFadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+.mr-villa .dp-cal-body { padding: 12px 28px 10px; }
+.mr-villa .dp-months-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.mr-villa .dp-month-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.mr-villa .dp-month-title { font-family: var(--font-inter, Inter), sans-serif; font-size: 13.5px; font-weight: 500; color: var(--charcoal); letter-spacing: .01em; }
+.mr-villa .dp-nav-btn { width: 28px; height: 28px; border: none; background: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s; color: var(--charcoal); }
+.mr-villa .dp-nav-btn:hover { background: var(--cream); }
+.mr-villa .dp-nav-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.mr-villa .dp-day-names { display: grid; grid-template-columns: repeat(7,1fr); margin-bottom: 2px; }
+.mr-villa .dp-day-name { font-family: var(--font-inter, Inter), sans-serif; font-size: 12px; font-weight: 400; letter-spacing: .02em; color: var(--charcoal-light); text-align: center; padding: 3px 0; }
+.mr-villa .dp-days-grid { display: grid; grid-template-columns: repeat(7,1fr); row-gap: 0; }
+.mr-villa .dp-day { height: 30px; display: flex; align-items: center; justify-content: center; font-family: var(--font-inter, Inter), sans-serif; font-size: 13px; font-weight: 400; color: var(--charcoal); cursor: pointer; border-radius: 4px; user-select: none; transition: background .12s, color .12s; }
+.mr-villa .dp-day:hover:not(.dp-day-past):not(.dp-day-empty):not(.dp-day-start):not(.dp-day-end) { background: var(--cream); }
+.mr-villa .dp-day-empty { opacity: 0; pointer-events: none; cursor: default; }
+.mr-villa .dp-day-past { opacity: .28; pointer-events: none; cursor: default; }
+.mr-villa .dp-day-today { color: var(--gold); font-weight: 500; }
+.mr-villa .dp-day-start,
+.mr-villa .dp-day-end { background: var(--deep-ocean) !important; color: var(--white) !important; font-weight: 500; }
+.mr-villa .dp-day-in-range { background: var(--mist-light); border-radius: 0; color: var(--deep-ocean); }
+.mr-villa .dp-panel-footer { display: flex; align-items: center; justify-content: space-between; padding: 10px 0 0; margin-top: 2px; }
+.mr-villa .dp-clear-btn { font-family: var(--font-inter, Inter), sans-serif; font-size: 13px; font-weight: 400; color: var(--charcoal-light); background: none; border: none; cursor: pointer; text-decoration: underline; transition: color .15s; }
+.mr-villa .dp-clear-btn:hover { color: var(--charcoal); }
+.mr-villa .dp-done-btn { font-family: var(--font-inter, Inter), sans-serif; font-size: 11.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--deep-ocean); background: none; border: none; border-bottom: 1px solid var(--ocean); padding: 4px 0; cursor: pointer; transition: color .18s, border-color .18s; }
+.mr-villa .dp-done-btn:hover { color: var(--gold); border-color: var(--gold); }
+.mr-villa .dp-tabs { display: flex; justify-content: center; padding: 14px 32px 12px; border-bottom: 1px solid var(--sand); }
+.mr-villa .dp-toggle-group { display: inline-flex; border: 1.5px solid var(--charcoal); border-radius: 6px; overflow: hidden; background: none; padding: 0; gap: 0; }
+.mr-villa .dp-tab { font-family: var(--font-inter, Inter), sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--charcoal-light); background: none; border: none; border-radius: 0; padding: 9px 28px; cursor: pointer; transition: color .15s; white-space: nowrap; user-select: none; }
+.mr-villa .dp-tab + .dp-tab { border-left: 1.5px solid var(--charcoal); }
+.mr-villa .dp-tab.dp-active { color: var(--deep-ocean); font-weight: 700; }
+.mr-villa .dp-tab:hover:not(.dp-active) { color: var(--charcoal); }
+.mr-villa .dp-flex-body { padding: 12px 28px 10px; }
+.mr-villa .dp-flex-row { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--sand); padding-bottom: 0; }
+.mr-villa .dp-flex-pill { font-family: var(--font-inter, Inter), sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--charcoal); background: none; border: 1.5px solid var(--sand-dark); padding: 6px 14px; border-radius: 100px; cursor: pointer; transition: border-color .15s, color .15s; user-select: none; }
+.mr-villa .dp-flex-pill:hover { border-color: var(--charcoal-light); color: var(--deep-ocean); }
+.mr-villa .dp-flex-pill.dp-active { border: 2.5px solid var(--charcoal); color: var(--charcoal); font-weight: 700; }
+.mr-villa .dp-flex-q { font-family: var(--font-inter, Inter), sans-serif; font-size: 14px; font-weight: 500; color: var(--charcoal); margin-bottom: 14px; text-align: center; }
+.mr-villa .dp-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; justify-content: center; }
+.mr-villa .dp-pill { font-family: var(--font-inter, Inter), sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--charcoal); background: none; border: 1.5px solid var(--sand-dark); padding: 10px 24px; border-radius: 100px; cursor: pointer; transition: background .15s, border-color .15s, color .15s; user-select: none; }
+.mr-villa .dp-pill:hover { border-color: var(--ocean-mid); color: var(--deep-ocean); }
+.mr-villa .dp-pill.dp-active { background: var(--deep-ocean); border-color: var(--deep-ocean); color: var(--white); }
+.mr-villa .dp-month-nav-row { display: flex; align-items: center; gap: 6px; }
+.mr-villa .dp-month-nav-btn { flex-shrink: 0; width: 28px; height: 56px; border: 1px solid var(--sand-dark); border-radius: 4px; background: none; cursor: pointer; color: var(--charcoal); display: flex; align-items: center; justify-content: center; transition: background .15s, border-color .15s; }
+.mr-villa .dp-month-nav-btn:hover { background: var(--cream); border-color: var(--charcoal-light); }
+.mr-villa .dp-month-nav-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.mr-villa .dp-month-nav-btn.dp-hidden { visibility: hidden; }
+.mr-villa .dp-month-tiles { display: flex; flex-direction: row; gap: 6px; flex: 1; margin-bottom: 4px; max-height: 200px; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none; }
+.mr-villa .dp-month-tiles::-webkit-scrollbar { display: none; }
+.mr-villa .dp-month-tile { font-family: var(--font-inter, Inter), sans-serif; font-size: 13px; font-weight: 400; color: var(--charcoal); background: none; border: 1px solid var(--sand-dark); border-radius: 4px; cursor: pointer; text-align: center; line-height: 1.3; flex: 0 0 calc((100% - 30px) / 6); height: 56px; display: flex; align-items: center; justify-content: center; scroll-snap-align: start; white-space: nowrap; padding: 0 8px; transition: background .15s, border-color .15s, color .15s; }
+.mr-villa .dp-month-tile:hover { border-color: var(--ocean-mid); color: var(--deep-ocean); }
+.mr-villa .dp-month-tile.dp-active { background: var(--deep-ocean); border-color: var(--deep-ocean); color: var(--white); }
+.mr-villa .s-eye { font-family: var(--font-inter, Inter), sans-serif; font-weight: 400; font-size: 11px; letter-spacing: .32em; text-transform: uppercase; color: var(--ocean); margin-bottom: 16px; }
+.mr-villa .s-title { font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-weight: 400; font-size: clamp(32px,3.8vw,52px); line-height: 1.10; color: var(--deep-ocean); letter-spacing: .01em; margin-bottom: 20px; }
+.mr-villa .s-title em { font-style: italic; color: var(--ocean-mid); }
+@media (max-width: 720px) {
+.mr-villa .dp-months-row { grid-template-columns: 1fr; gap: 28px; }
+.mr-villa .dp-nav-btn { width: 36px; height: 36px; }
+.mr-villa .dp-month-nav-btn { width: 36px; }
+}
+.mr-villa .prop-card {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--white); border-radius: 4px; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(30,58,95,.07);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.mr-villa .prop-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(30,58,95,.14); }
+.mr-villa .prop-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.mr-villa .prop-photo-wrap { position: relative; display: block; aspect-ratio: 3/2; overflow: hidden; text-decoration: none; }
+.mr-villa .prop-photo-wrap::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.18) 0%, transparent 45%);
+  pointer-events: none;
+}
+.mr-villa .prop-photos { position: relative; width: 100%; height: 100%; }
+.mr-villa .prop-photo {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity .38s ease;
+}
+.mr-villa .prop-photo.car-active { opacity: 1; }
+.mr-villa .prop-card:hover .prop-photo { transform: scale(1.05); }
+.mr-villa .prop-photo-placeholder { width: 100%; height: 100%; background: linear-gradient(160deg, var(--deep-ocean) 0%, var(--ocean-mid) 100%); }
+.mr-villa .car-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,.92); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10; opacity: 0; transition: opacity .22s;
+  box-shadow: 0 2px 10px rgba(0,0,0,.18);
+}
+.mr-villa .car-arrow svg { width: 14px; height: 14px; stroke: var(--charcoal); fill: none; stroke-width: 2.2; }
+.mr-villa .car-prev { left: 10px; }
+.mr-villa .car-next { right: 10px; }
+.mr-villa .prop-photo-wrap:hover .car-arrow { opacity: 1; }
+.mr-villa .car-dots {
+  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 5px; z-index: 10; opacity: 0; transition: opacity .22s;
+}
+.mr-villa .prop-photo-wrap:hover .car-dots { opacity: 1; }
+.mr-villa .car-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.55); transition: background .2s; flex-shrink: 0; }
+.mr-villa .car-dot.car-dot-active { background: var(--white); }
+.mr-villa .prop-badge {
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  font-family: var(--font-inter, Inter), sans-serif; font-size: 10.5px; font-weight: 400;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--text-on-dark);
+  background: rgba(30,58,95,.62); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.14); padding: 5px 10px; border-radius: 2px;
+}
+.mr-villa .prop-loc-badge {
+  position: absolute; bottom: 14px; left: 14px; z-index: 2;
+  font-family: var(--font-inter, Inter), sans-serif; font-size: 10.5px; font-weight: 400;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--text-on-dark);
+  background: rgba(30,58,95,.62); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.14); padding: 5px 11px; border-radius: 2px;
+}
+.mr-villa .prop-body { padding: 16px 18px 18px; }
+.mr-villa .prop-type {
+  font-family: var(--font-inter, Inter), sans-serif; font-size: 11px; font-weight: 400;
+  letter-spacing: .15em; text-transform: uppercase; color: var(--ocean); margin-bottom: 7px;
+}
+.mr-villa .prop-name-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.mr-villa .prop-name {
+  font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-weight: 400;
+  font-size: 20px; letter-spacing: .02em; color: var(--charcoal);
+  line-height: 1.15; flex: 1; min-width: 0;
+}
+.mr-villa .prop-amenities { display: flex; gap: 14px; flex-wrap: wrap; }
+.mr-villa .prop-amenity {
+  display: flex; align-items: center; gap: 5px;
+  font-family: var(--font-inter, Inter), sans-serif; font-size: 12px; font-weight: 400; color: var(--charcoal-light);
+}
+.mr-villa .prop-amenity svg { width: 12px; height: 12px; stroke: var(--ocean); fill: none; stroke-width: 1.8; flex-shrink: 0; }
+.mr-villa .prop-price {
+  font-family: var(--font-inter, Inter), sans-serif; font-size: 12.5px;
+  font-weight: 400; color: var(--charcoal-light);
+  white-space: nowrap; flex-shrink: 0; text-align: right;
+}
+.mr-villa .prop-price strong {
+  font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-size: 17px; font-weight: 500;
+  color: var(--charcoal); letter-spacing: .01em;
+}
+.mr-villa .prop-price span { font-size: 12px; letter-spacing: .04em; }
+.mr-villa .g-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; border-bottom: 1px solid var(--sand); }
+.mr-villa .g-row:last-of-type { border-bottom: none; }
+.mr-villa .g-info { display: flex; flex-direction: column; gap: 3px; text-align: left; }
+.mr-villa .g-type { font-family: var(--font-inter, Inter), sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--charcoal); }
+.mr-villa .g-age { font-family: var(--font-inter, Inter), sans-serif; font-size: 10.5px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--charcoal-light); }
+.mr-villa .g-counter { display: flex; align-items: center; gap: 16px; }
+.mr-villa .ctr-btn {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1px solid var(--sand-dark); background: transparent;
+  color: var(--charcoal); font-size: 18px;
+  font-family: var(--font-inter, Inter), sans-serif; font-weight: 400; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  line-height: 1; padding: 0 0 2px; user-select: none; touch-action: manipulation;
+  transition: border-color .18s, background .18s, color .18s;
+}
+.mr-villa .ctr-btn:hover:not(:disabled) { border-color: var(--ocean-mid); color: var(--deep-ocean); background: var(--mist-light); }
+.mr-villa .ctr-btn:disabled { opacity: .25; cursor: default; }
+.mr-villa .ctr-val { font-family: var(--font-inter, Inter), sans-serif; font-size: 13px; font-weight: 400; color: var(--charcoal); min-width: 16px; text-align: center; }
+.mr-villa .g-done-row { padding: 10px 20px; background: var(--cream); display: flex; align-items: center; justify-content: space-between; }
+.mr-villa .g-clear-btn,
+.mr-villa .g-done-btn {
+  font-family: var(--font-inter, Inter), sans-serif; font-size: 11px; font-weight: 400;
+  letter-spacing: .14em; text-transform: uppercase; background: none; border: none;
+  cursor: pointer; padding: 4px 0; user-select: none;
+}
+.mr-villa .g-clear-btn { color: var(--charcoal-light); text-decoration: underline; text-underline-offset: 3px; transition: color .18s; }
+.mr-villa .g-clear-btn:hover { color: var(--charcoal); }
+.mr-villa .g-done-btn { color: var(--deep-ocean); border-bottom: 1px solid var(--ocean); transition: color .18s, border-color .18s; }
+.mr-villa .g-done-btn:hover { color: var(--gold); border-color: var(--gold); }
+@media (max-width: 720px) {
+.mr-villa .prop-name { font-size: 17px; }
+.mr-villa .prop-price strong { font-size: 15px; }
+}
+.mr-villa .breadcrumb { padding: 116px 64px 0; display: flex; align-items: center; gap: 7px; }
+.mr-villa .breadcrumb a,
+.mr-villa .breadcrumb span { font-size: 12.5px; font-weight: 400; letter-spacing: .06em; color: var(--charcoal-light); text-decoration: none; transition: color .2s; }
+.mr-villa .breadcrumb a:hover { color: var(--deep-ocean); }
+.mr-villa .bc-sep { color: var(--sand-dark); }
+.mr-villa .bc-current { color: var(--charcoal) !important; }
+.mr-villa .anchor-nav {
+  position: fixed; top: 92px; left: 0; right: 0; z-index: 350;
+  background: var(--white); border-bottom: 1px solid var(--sand);
+  padding: 0 64px; display: flex; align-items: stretch;
+  opacity: 0; pointer-events: none; transition: opacity .25s ease;
+  box-shadow: 0 2px 12px rgba(30,58,95,.06);
+}
+.mr-villa .anchor-nav.visible { opacity: 1; pointer-events: auto; }
+.mr-villa .an-link {
+  font-size: 11px; font-weight: 400; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--charcoal-light); text-decoration: none; padding: 13px 18px 11px;
+  border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap;
+}
+.mr-villa .an-link:first-child { padding-left: 0; }
+.mr-villa .an-link:hover { color: var(--deep-ocean); }
+.mr-villa .an-link.active { color: var(--deep-ocean); border-bottom-color: var(--gold); }
+body.an-visible .mr-villa { --sidebar-top: 140px; }
+.mr-villa .gallery { padding: 16px 64px 0; position: relative; }
+.mr-villa .gallery-mosaic { display: grid; grid-template-columns: 3fr 1fr; grid-template-rows: repeat(3, 1fr); aspect-ratio: 2/1; gap: 4px; border-radius: 4px; overflow: hidden; }
+.mr-villa .g-cell { position: relative; overflow: hidden; cursor: pointer; background: var(--deep-ocean); }
+.mr-villa .g-cell.g-main { grid-row: 1/4; grid-column: 1; }
+.mr-villa .g-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .7s cubic-bezier(.16,1,.3,1); }
+.mr-villa .g-cell:hover .g-bg { transform: scale(1.04); }
+.mr-villa .g-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.18) 0%, transparent 40%); pointer-events: none; }
+.mr-villa .gallery-counter {
+  position: absolute; top: 28px; right: 76px;
+  background: rgba(7,20,28,.6); color: rgba(255,255,255,.85);
+  font-family: var(--font-inter, Inter), sans-serif; font-size: 12px; font-weight: 400;
+  letter-spacing: .10em; padding: 5px 10px; border-radius: 20px; pointer-events: none; z-index: 5; display: none;
+}
+.mr-villa .gallery-btns { position: absolute; bottom: 12px; right: 76px; display: flex; gap: 8px; z-index: 10; }
+.mr-villa .gallery-pills { position: absolute; bottom: 12px; left: 76px; display: flex; gap: 6px; z-index: 10; flex-wrap: wrap; }
+.mr-villa .gallery-pill {
+  font-size: 10.5px; font-weight: 400; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--deep-ocean); background: rgba(255,255,255,.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  padding: 5px 13px; border-radius: 2px; border: 1px solid rgba(255,255,255,.6);
+}
+.mr-villa .gallery-pill.featured { color: var(--gold); }
+.mr-villa .gallery-action {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--font-inter, Inter), sans-serif; font-size: 12.5px; font-weight: 400; letter-spacing: .10em;
+  color: var(--charcoal); background: rgba(255,255,255,.94);
+  border: none; padding: 8px 16px; border-radius: 2px; cursor: pointer;
+  transition: background .2s; text-decoration: none;
+}
+.mr-villa .gallery-action:hover { background: var(--white); }
+.mr-villa .gallery-action svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+.mr-villa .lightbox { display: none; position: fixed; inset: 0; z-index: 900; background: rgba(7,20,28,.96); backdrop-filter: blur(10px); flex-direction: column; align-items: center; justify-content: center; }
+.mr-villa .lightbox.open { display: flex; animation: fadeIn .18s ease both; }
+.mr-villa .lb-close { position: absolute; top: 18px; right: 22px; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.1); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; transition: background .2s; }
+.mr-villa .lb-close:hover { background: rgba(255,255,255,.2); }
+.mr-villa .lb-close svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+.mr-villa .lb-frame { position: relative; width: 100%; max-width: 1100px; padding: 0 56px; display: flex; align-items: center; justify-content: center; }
+.mr-villa .lb-img { position: relative; width: 100%; height: 70vh; border-radius: 2px; overflow: hidden; }
+.mr-villa .lb-nav {
+  position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%;
+  z-index: 2;
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.4);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  transition: background .2s;
+}
+.mr-villa .lb-nav:hover { background: rgba(255,255,255,.22); }
+.mr-villa .lb-nav svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 2; }
+.mr-villa .lb-prev { left: 8px; }
+.mr-villa .lb-next { right: 8px; }
+.mr-villa .lb-count { font-family: var(--font-inter, Inter), sans-serif; font-size: 12.5px; font-weight: 400; letter-spacing: .14em; color: rgba(255,255,255,.72); margin-top: 14px; }
+.mr-villa .lb-thumbs { display: flex; gap: 10px; margin-top: 18px; padding: 0 20px; overflow-x: auto; scroll-behavior: smooth; max-width: min(94vw, 1400px); }
+.mr-villa .lb-thumb { width: 168px; height: 109px; border-radius: 4px; flex-shrink: 0; overflow: hidden; cursor: pointer; opacity: .4; border: 2px solid transparent; transition: opacity .2s, border-color .2s; }
+.mr-villa .lb-thumb.active { opacity: 1; border-color: var(--gold); }
+.mr-villa .lb-thumb-bg { position: relative; width: 100%; height: 100%; }
+@media (max-width: 720px) {
+.mr-villa .lb-frame { padding: 0 10px; }
+.mr-villa .lb-img { height: 62vh; }
+.mr-villa .lb-nav { width: 38px; height: 38px; background: rgba(7,20,28,.5); }
+.mr-villa .lb-nav:hover { background: rgba(7,20,28,.7); }
+.mr-villa .lb-prev { left: 18px; }
+.mr-villa .lb-next { right: 18px; }
+}
+.mr-villa .prop-header { padding: 0 0 4px; }
+.mr-villa .prop-community-row { display: flex; align-items: center; row-gap: 6px; margin-bottom: 12px; flex-wrap: wrap; font-family: var(--font-inter, Inter), sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .13em; text-transform: uppercase; }
+.mr-villa .prop-comm-name { display: flex; align-items: center; gap: 5px; color: var(--gold); }
+.mr-villa .prop-comm-name svg { width: 10px; height: 10px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; }
+.mr-villa .prop-comm-sep { margin: 0 12px; color: var(--sand-dark); }
+.mr-villa .prop-comm-views { display: flex; align-items: center; gap: 5px; color: var(--ocean-mid); }
+.mr-villa .prop-comm-views svg { width: 10px; height: 10px; stroke: var(--ocean-mid); fill: none; stroke-width: 2; flex-shrink: 0; }
+.mr-villa .prop-title { font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-weight: 400; font-size: clamp(30px,4vw,52px); line-height: 1.06; color: var(--deep-ocean); letter-spacing: .01em; margin-bottom: 6px; }
+.mr-villa .prop-title em { font-style: italic; color: var(--ocean-mid); }
+.mr-villa .pd-tagline { font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-style: italic; font-weight: 400; font-size: clamp(16px,1.8vw,22px); color: var(--ocean-mid); margin-bottom: 18px; line-height: 1.4; }
+.mr-villa .pd-tagline::before { content: '\201C'; font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-size: 1.5em; line-height: .6; vertical-align: -.18em; color: var(--gold); opacity: .65; margin-right: 3px; }
+.mr-villa .pd-tagline::after { content: '\201D'; font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-size: 1.5em; line-height: .6; vertical-align: -.18em; color: var(--gold); opacity: .65; margin-left: 2px; }
+.mr-villa .specs-strip { display: flex; align-items: center; flex-wrap: wrap; row-gap: 8px; padding: 16px 0; border-top: 1px solid var(--sand); border-bottom: 1px solid var(--sand); margin-bottom: 0; }
+.mr-villa .spec-item { display: flex; align-items: center; gap: 6px; font-family: var(--font-inter, Inter), sans-serif; font-size: 13.5px; font-weight: 400; color: var(--charcoal); }
+.mr-villa .spec-item svg { width: 16px; height: 16px; stroke: var(--ocean); fill: none; stroke-width: 1.7; flex-shrink: 0; }
+.mr-villa .spec-item + .spec-item::before,
+.mr-villa .spec-rating::before { content: '·'; margin: 0 14px; color: var(--sand-dark); font-size: 12px; }
+.mr-villa .spec-rating { display: flex; align-items: center; gap: 4px; font-family: var(--font-inter, Inter), sans-serif; font-size: 13.5px; font-weight: 400; color: var(--charcoal); }
+.mr-villa .spec-rating svg { width: 16px; height: 16px; fill: var(--gold); stroke: none; }
+.mr-villa .detail-wrap { display: grid; grid-template-columns: 1fr 360px; gap: 48px; padding: 28px 64px 80px; }
+.mr-villa .detail-left { min-width: 0; align-self: start; }
+.mr-villa .detail-right { min-width: 0; }
+.mr-villa .detail-section { padding-bottom: 36px; margin-bottom: 36px; border-bottom: 1px solid var(--sand); scroll-margin-top: 164px; }
+.mr-villa .detail-section:last-child { border-bottom: none; margin-bottom: 0; }
+.mr-villa .sec-label { font-family: var(--font-inter, Inter), sans-serif; font-size: 10.5px; font-weight: 400; letter-spacing: .30em; text-transform: uppercase; color: var(--ocean); margin-bottom: 6px; display: block; }
+.mr-villa .sec-title { font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-weight: 400; font-size: 24px; letter-spacing: .02em; color: var(--deep-ocean); margin-bottom: 16px; line-height: 1.15; }
+.mr-villa .sec-body { font-family: var(--font-inter, Inter), sans-serif; font-size: 15px; font-weight: 400; line-height: 1.88; color: var(--charcoal-light); }
+.mr-villa .sec-body p + p { margin-top: 12px; }
+.mr-villa .short-desc {
+  font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-weight: 400; font-style: italic;
+  font-size: clamp(17px,1.7vw,21px); line-height: 1.78; color: var(--ocean-mid);
+  padding: 24px 0 36px 22px; border-left: 2px solid var(--gold);
+  border-bottom: 1px solid var(--sand); margin-bottom: 36px; scroll-margin-top: 164px;
+}
+.mr-villa .desc-body { overflow: hidden; max-height: 96px; transition: max-height .4s ease; }
+.mr-villa .desc-body.open { max-height: 1200px; }
+
+/* Villa description: justified text (hyphenation keeps word gaps even on narrow screens) */
+.mr-villa .desc-body .sec-body p { text-align: justify; text-justify: inter-word; hyphens: auto; -webkit-hyphens: auto; }
+.mr-villa .expand-btn { background: none; border: none; cursor: pointer; padding: 0; margin-top: 14px; display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-inter, Inter), sans-serif; font-size: 12px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--deep-ocean); border-bottom: 1px solid currentColor; padding-bottom: 2px; transition: color .2s, border-color .2s; }
+.mr-villa .expand-btn:hover { color: var(--gold); }
+.mr-villa .expand-btn svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform .3s; }
+.mr-villa .expand-btn.open svg { transform: rotate(180deg); }
+.mr-villa .facts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.mr-villa .fact-card { background: var(--white); border: 1px solid var(--sand); border-radius: 2px; padding: 18px 16px; display: flex; flex-direction: column; gap: 8px; }
+.mr-villa .fact-label { font-family: var(--font-inter, Inter), sans-serif; font-size: 10.5px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: var(--charcoal-light); }
+.mr-villa .fact-value { font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-weight: 400; font-size: 17px; color: var(--deep-ocean); line-height: 1.2; }
+.mr-villa .fact-sub { font-family: var(--font-inter, Inter), sans-serif; font-size: 12.5px; font-weight: 400; color: var(--charcoal-light); line-height: 1.45; }
+.mr-villa .bedroom-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+.mr-villa .bedroom-card { background: var(--white); border: 1px solid var(--sand); border-radius: 2px; padding: 16px; display: flex; align-items: flex-start; gap: 12px; }
+.mr-villa .bedroom-num { width: 28px; height: 28px; border-radius: 50%; background: var(--deep-ocean); display: flex; align-items: center; justify-content: center; font-family: var(--font-inter, Inter), sans-serif; font-size: 12.5px; font-weight: 400; color: var(--text-on-dark); flex-shrink: 0; letter-spacing: .04em; }
+.mr-villa .bedroom-info { flex: 1; min-width: 0; }
+.mr-villa .bedroom-name { font-family: var(--font-inter, Inter), sans-serif; font-size: 14px; font-weight: 400; color: var(--charcoal); margin-bottom: 3px; }
+.mr-villa .bedroom-beds { font-family: var(--font-inter, Inter), sans-serif; font-size: 13px; font-weight: 400; color: var(--charcoal-light); line-height: 1.4; }
+.mr-villa .bed-item { display: inline-flex; align-items: center; }
+.mr-villa .bed-sep { margin: 0 10px; color: var(--sand-dark); font-size: 12px; }
+.mr-villa .am-highlight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+.mr-villa .am-highlight-item { background: var(--white); border: 1px solid var(--sand); border-radius: 2px; padding: 14px 16px; display: flex; align-items: center; gap: 10px; }
+.mr-villa .am-highlight-item svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; stroke-width: 2.2; flex-shrink: 0; }
+.mr-villa .am-highlight-label { font-family: var(--font-inter, Inter), sans-serif; font-size: 14px; font-weight: 400; color: var(--charcoal); }
+@media (max-width: 600px) {
+.mr-villa .am-highlight-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.mr-villa .am-full-list { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--sand); }
+.mr-villa .amenity-category { margin-bottom: 28px; }
+.mr-villa .amenity-category:last-child { margin-bottom: 0; }
+.mr-villa .amenity-cat-title { font-family: var(--font-inter, Inter), sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--deep-ocean); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--sand); display: flex; align-items: center; gap: 8px; }
+.mr-villa .amenity-cat-title svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; stroke-width: 1.6; }
+.mr-villa .amenity-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 0; }
+.mr-villa .am-item { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(237,229,212,.7); font-family: var(--font-inter, Inter), sans-serif; font-size: 14px; font-weight: 400; color: var(--charcoal); }
+.mr-villa .am-item:nth-last-child(-n+2) { border-bottom: none; }
+.mr-villa .am-item svg { width: 18px; height: 18px; stroke: var(--ocean-mid); fill: none; stroke-width: 1.6; flex-shrink: 0; }
+.mr-villa .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+.mr-villa .service-card { background: var(--white); border: 1px solid var(--sand); border-radius: 2px; padding: 18px; }
+.mr-villa .service-name { font-family: var(--font-inter, Inter), sans-serif; font-size: 13.5px; font-weight: 400; color: var(--charcoal); margin-bottom: 4px; }
+.mr-villa .service-desc { font-family: var(--font-inter, Inter), sans-serif; font-size: 13px; font-weight: 400; color: var(--charcoal-light); line-height: 1.5; }
+.mr-villa .rates-table-wrap { background: var(--white); border: 1px solid var(--sand); border-radius: 2px; overflow: hidden; }
+.mr-villa .rates-table { width: 100%; border-collapse: collapse; }
+.mr-villa .rates-table th { font-family: var(--font-inter, Inter), sans-serif; font-size: 10.5px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: var(--charcoal-light); text-align: left; padding: 10px 14px; background: var(--sand); border-bottom: 1px solid var(--sand-dark); }
+.mr-villa .rates-table td { font-family: var(--font-inter, Inter), sans-serif; font-size: 14px; font-weight: 400; color: var(--charcoal); padding: 12px 14px; border-bottom: 1px solid var(--sand); }
+.mr-villa .rates-table tr:last-child td { border-bottom: none; }
+.mr-villa .rates-table td:nth-child(2) { font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-size: 18px; color: var(--gold); font-weight: 400; }
+.mr-villa .rate-tiers { display: flex; flex-direction: column; gap: 3px; }
+.mr-villa .rate-tier { font-size: 15px; }
+.mr-villa .rates-note { list-style: none; padding-left: 0; font-family: var(--font-inter, Inter), sans-serif; font-size: 12.5px; font-weight: 400; color: var(--charcoal-light); line-height: 1.7; margin-top: 14px; }
+.mr-villa .rates-note li { margin-bottom: 2px; padding-left: 14px; position: relative; }
+.mr-villa .rates-note li::before { content: '–'; position: absolute; left: 0; color: var(--gold); }
+@media (max-width: 720px) {
+.mr-villa .rates-table th,
+.mr-villa .rates-table td { text-align: center; }
+.mr-villa .rate-tiers { align-items: center; }
+}
+.mr-villa .por-intro { font-family: var(--font-inter, Inter), sans-serif; font-size: 15px; font-weight: 400; color: var(--charcoal); line-height: 1.75; margin-bottom: 24px; }
+.mr-villa .por-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.mr-villa .por-cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; font-family: var(--font-inter, Inter), sans-serif; font-size: 14px; font-weight: 500; border-radius: 2px; text-decoration: none; transition: opacity .15s; }
+.mr-villa .por-cta-btn:hover { opacity: .85; }
+.mr-villa .por-wa { background: var(--deep-ocean); color: var(--white); }
+.mr-villa .por-wa svg { width: 16px; height: 16px; fill: var(--white); }
+.mr-villa .por-email { background: transparent; color: var(--charcoal); border: 1px solid var(--sand-dark); }
+.mr-villa .por-email svg { width: 16px; height: 16px; stroke: var(--charcoal); fill: none; stroke-width: 1.8; }
+.mr-villa .iq-por { font-size: 26px !important; letter-spacing: .01em; }
+.mr-villa .policy-item { border-bottom: 1px solid var(--sand); }
+.mr-villa .policy-item:first-child { border-top: 1px solid var(--sand); }
+.mr-villa .policy-trigger { width: 100%; background: none; border: none; padding: 16px 0; display: flex; align-items: center; justify-content: space-between; cursor: pointer; text-align: left; gap: 16px; }
+.mr-villa .policy-trigger-name { font-family: var(--font-inter, Inter), sans-serif; font-size: 14px; font-weight: 400; color: var(--charcoal); }
+.mr-villa .policy-chev { width: 14px; height: 14px; stroke: var(--charcoal-light); fill: none; stroke-width: 2; flex-shrink: 0; transition: transform .28s; }
+.mr-villa .policy-item.open .policy-chev { transform: rotate(180deg); }
+.mr-villa .policy-body { overflow: hidden; max-height: 0; transition: max-height .3s ease; }
+.mr-villa .policy-item.open .policy-body { max-height: 600px; }
+.mr-villa .policy-content { padding-bottom: 16px; font-family: var(--font-inter, Inter), sans-serif; font-size: 14px; font-weight: 400; color: var(--charcoal-light); line-height: 1.75; }
+.mr-villa .policy-content ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.mr-villa .policy-content ul li { display: flex; align-items: flex-start; gap: 8px; }
+.mr-villa .policy-content ul li::before { content: '–'; color: var(--gold); flex-shrink: 0; }
+.mr-villa .house-rules-vis { display: flex; gap: 40px; padding: 18px 0 22px; flex-wrap: wrap; border-bottom: 1px solid var(--sand); }
+.mr-villa .hr-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.mr-villa .hr-icon-circle { width: 60px; height: 60px; border-radius: 50%; border: 1.5px solid var(--sand-dark); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; flex-shrink: 0; }
+.mr-villa .hr-icon { width: 26px; height: 26px; stroke: var(--charcoal); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.mr-villa .hr-ban { position: absolute; inset: 0; pointer-events: none; }
+.mr-villa .hr-ban line { stroke: var(--charcoal-light); stroke-width: 1.5; stroke-linecap: round; }
+.mr-villa .hr-label { font-family: var(--font-inter, Inter), sans-serif; font-size: 13px; font-weight: 400; color: var(--charcoal); text-align: center; max-width: 86px; line-height: 1.4; }
+.mr-villa .location-map { width: 100%; height: 260px; border-radius: 2px; overflow: hidden; background: linear-gradient(160deg,#d0e4ef 0%,#b8cfdc 40%,#a8c4b0 100%); position: relative; margin-bottom: 16px; border: 1px solid var(--sand); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; }
+.mr-villa .location-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+.mr-villa .location-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.mr-villa .location-pill { display: flex; align-items: center; gap: 6px; font-family: var(--font-inter, Inter), sans-serif; font-size: 13px; font-weight: 400; color: var(--charcoal-light); background: var(--white); border: 1px solid var(--sand); padding: 7px 14px; border-radius: 2px; }
+.mr-villa .location-pill svg { width: 11px; height: 11px; stroke: var(--ocean); fill: none; stroke-width: 2; }
+.mr-villa .sidebar-sticky { position: sticky; top: var(--sidebar-top); display: flex; flex-direction: column; gap: 14px; transition: top .3s ease; }
+.mr-villa .iq-card { background: var(--white); border-radius: 4px; box-shadow: 0 4px 28px rgba(30,58,95,.10), 0 1px 6px rgba(30,58,95,.05); }
+.mr-villa .iq-deal { background: linear-gradient(135deg, #C8943A 0%, #B37E28 100%); padding: 12px 26px; border-radius: 4px 4px 0 0; }
+.mr-villa .iq-deal-badge { display: block; font-family: var(--font-inter, Inter), sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #fff; }
+.mr-villa .iq-deal-validity { display: block; font-family: var(--font-inter, Inter), sans-serif; font-size: 12px; font-weight: 400; color: rgba(255,255,255,.85); margin-top: 3px; }
+.mr-villa .iq-deal + .iq-head { border-radius: 0; }
+.mr-villa .iq-head { background: var(--deep-ocean); padding: 22px 26px; border-radius: 4px 4px 0 0; }
+.mr-villa .iq-from { font-family: var(--font-inter, Inter), sans-serif; font-size: 10.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: rgba(239,246,251,.75); margin-bottom: 4px; }
+.mr-villa .iq-price { display: flex; align-items: baseline; gap: 5px; }
+.mr-villa .iq-amount { font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-size: 38px; font-weight: 300; color: var(--gold); line-height: 1; }
+.mr-villa .iq-per { font-family: var(--font-inter, Inter), sans-serif; font-size: 13px; font-weight: 400; color: rgba(239,246,251,.75); }
+.mr-villa .iq-min-stay { font-family: var(--font-inter, Inter), sans-serif; font-size: 12px; font-weight: 400; color: rgba(239,246,251,.75); letter-spacing: .06em; margin-top: 5px; }
+.mr-villa .iq-body { padding: 22px 26px; }
+.mr-villa .iq-nights-est { font-family: var(--font-inter, Inter), sans-serif; font-size: 12.5px; font-weight: 400; color: var(--gold); letter-spacing: .04em; margin-bottom: 10px; padding: 7px 10px; background: rgba(200,148,58,.07); border-radius: 2px; }
+.mr-villa .iq-field { margin-bottom: 12px; position: relative; }
+.mr-villa .iq-label { font-family: var(--font-inter, Inter), sans-serif; font-size: 10.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--charcoal-light); display: block; margin-bottom: 6px; }
+.mr-villa .iq-dd-trigger {
+  display: flex; align-items: center; justify-content: space-between; width: 100%;
+  border: 1px solid var(--sand-dark); border-radius: 2px; padding: 10px 12px;
+  background: var(--white); cursor: pointer; transition: border-color .2s;
+  font: inherit; text-align: left;
+}
+.mr-villa .iq-dd-trigger:hover,
+.mr-villa .iq-dd-trigger.is-open { border-color: var(--ocean); }
+.mr-villa .iq-dd-val { font-family: var(--font-inter, Inter), sans-serif; font-size: 12px; font-weight: 500; letter-spacing: .13em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mr-villa .iq-dd-val.ph { color: var(--charcoal-light); font-style: normal; font-weight: 400; }
+.mr-villa .iq-dd-arrow { width: 12px; height: 12px; stroke: var(--charcoal-light); fill: none; stroke-width: 2; flex-shrink: 0; transition: transform .22s; }
+.mr-villa .iq-dd-trigger.is-open .iq-dd-arrow { transform: rotate(180deg); stroke: var(--ocean); }
+.mr-villa .iq-dd-panel {
+  position: absolute; top: calc(100% + 8px);
+  background: var(--white); border: 1px solid var(--sand); border-radius: 4px;
+  box-shadow: 0 12px 40px rgba(30,58,95,.16); z-index: 400;
+  animation: ctFadeIn .18s ease both;
+}
+.mr-villa .iq-date-panel { right: 0; width: 520px; max-width: calc(100vw - 48px); padding: 16px 18px 14px; }
+.mr-villa .iq-date-panel .dp-tabs { padding: 0 0 14px; border-bottom: none; }
+.mr-villa .iq-date-panel .dp-toggle-group { border-radius: 100px; }
+.mr-villa .iq-date-panel .dp-tab { padding: 7px 24px; }
+.mr-villa .iq-date-panel .dp-cal-body,
+.mr-villa .iq-date-panel .dp-flex-body { padding: 0; }
+.mr-villa .iq-date-panel .dp-months-row { gap: 18px; }
+.mr-villa .iq-date-panel .dp-day { border-radius: 2px; }
+.mr-villa .iq-date-panel .dp-day-start { border-radius: 2px 0 0 2px; }
+.mr-villa .iq-date-panel .dp-day-end { border-radius: 0 2px 2px 0; }
+.mr-villa .iq-date-panel .dp-flex-row { border-top: none; margin-top: 0; }
+.mr-villa .iq-date-panel .dp-flex-pill { padding: 5px 12px; }
+.mr-villa .iq-date-panel .dp-panel-footer { margin-top: 4px; }
+.mr-villa .iq-date-panel .dp-clear-btn { font-size: 12px; text-underline-offset: 3px; }
+.mr-villa .iq-date-panel .dp-done-btn { font-size: 12px; padding: 2px 0; }
+.mr-villa .iq-date-panel .dp-flex-q { font-size: 13.5px; margin: 0 0 10px; }
+.mr-villa .iq-date-panel .dp-pills { margin-bottom: 18px; }
+.mr-villa .iq-date-panel .dp-pill { padding: 9px 20px; }
+.mr-villa .iq-date-panel .dp-month-nav-btn { height: 50px; }
+.mr-villa .iq-date-panel .dp-month-tiles { max-height: none; overflow: hidden; margin-bottom: 0; }
+.mr-villa .iq-date-panel .dp-month-tile { flex: 1; min-width: 0; height: auto; padding: 9px 4px; font-size: 12.5px; line-height: 1.35; border-width: 1.5px; }
+.mr-villa .iq-guest-panel { right: 0; width: 280px; padding: 0; }
+.mr-villa .iq-divider { height: 1px; background: var(--sand); margin: 16px 0; }
+.mr-villa .iq-wa { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; padding: 15px; background: var(--gold); color: #fff; border: none; border-radius: 2px; cursor: pointer; text-decoration: none; font-family: var(--font-inter, Inter), sans-serif; font-size: 11.5px; font-weight: 400; letter-spacing: .15em; text-transform: uppercase; transition: background .2s, transform .15s; }
+.mr-villa .iq-wa:hover { background: var(--gold-light); transform: translateY(-1px); }
+.mr-villa .iq-wa svg { width: 17px; height: 17px; fill: #fff; flex-shrink: 0; }
+.mr-villa .iq-email { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; background: none; color: var(--deep-ocean); border: 1px solid var(--deep-ocean); border-radius: 2px; cursor: pointer; text-decoration: none; font-family: var(--font-inter, Inter), sans-serif; font-size: 11.5px; font-weight: 400; letter-spacing: .13em; text-transform: uppercase; margin-top: 8px; transition: background .2s, color .2s; }
+.mr-villa .iq-email:hover { background: var(--deep-ocean); color: #fff; }
+.mr-villa .iq-email svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+.mr-villa .iq-disclaimer { text-align: center; margin-top: 12px; font-family: var(--font-inter, Inter), sans-serif; font-size: 12px; font-weight: 400; color: var(--charcoal-light); line-height: 1.55; }
+.mr-villa .scarcity-signal { display: flex; align-items: flex-start; gap: 7px; margin-top: 12px; padding: 10px 12px; background: rgba(200,148,58,.06); border: 1px solid rgba(200,148,58,.18); border-radius: 2px; }
+.mr-villa .scarcity-signal svg { width: 11px; height: 11px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; margin-top: 2px; }
+.mr-villa .scarcity-signal p { font-family: var(--font-inter, Inter), sans-serif; font-size: 12px; font-weight: 400; color: var(--charcoal-light); line-height: 1.5; }
+.mr-villa .similar { padding: 64px; background: var(--white); border-top: 1px solid var(--sand); }
+.mr-villa .similar-hdr { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 36px; gap: 20px; }
+.mr-villa .similar-view-all { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-inter, Inter), sans-serif; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ocean-mid); text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: color .2s; }
+.mr-villa .similar-view-all svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform .2s; }
+.mr-villa .similar-view-all:hover { color: var(--deep-ocean); }
+.mr-villa .similar-view-all:hover svg { transform: translateX(4px); }
+.mr-villa .similar-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.mr-villa .mobile-cta-bar {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
+  background: var(--white); border-top: 1px solid var(--sand);
+  padding: 12px 20px 16px; box-shadow: 0 -4px 24px rgba(30,58,95,.12);
+  align-items: center; justify-content: space-between; gap: 14px;
+}
+.mr-villa .mobile-cta-price { display: flex; flex-direction: column; }
+.mr-villa .mobile-cta-from { font-family: var(--font-inter, Inter), sans-serif; font-size: 10.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--charcoal-light); }
+.mr-villa .mobile-cta-amount { display: flex; align-items: baseline; gap: 5px; }
+.mr-villa .mobile-cta-amount strong { font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-size: 26px; font-weight: 400; color: var(--deep-ocean); line-height: 1; }
+.mr-villa .mobile-cta-amount span { font-family: var(--font-inter, Inter), sans-serif; font-size: 12.5px; font-weight: 400; color: var(--charcoal-light); }
+.mr-villa .mobile-cta-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 14px 20px; background: var(--gold); color: var(--white);
+  border-radius: 2px; text-decoration: none; cursor: pointer; border: none;
+  font-family: var(--font-inter, Inter), sans-serif; font-size: 11.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase;
+  transition: background .2s;
+}
+.mr-villa .mobile-cta-btn:hover { background: var(--gold-light); }
+.mr-villa .bottom-cta { background: var(--sand); margin: 0 calc(50% - 50vw); padding: 52px 64px; }
+.mr-villa .bottom-cta-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.mr-villa .bottom-cta-text h3 { font-family: var(--font-cormorant, 'Cormorant Garamond'), serif; font-weight: 400; font-size: clamp(22px,2.5vw,32px); color: var(--deep-ocean); letter-spacing: .02em; margin-bottom: 8px; line-height: 1.15; }
+.mr-villa .bottom-cta-text h3 em { font-style: italic; color: var(--gold); }
+.mr-villa .bottom-cta-text p { font-family: var(--font-inter, Inter), sans-serif; font-size: 13px; font-weight: 400; color: var(--charcoal-light); line-height: 1.65; max-width: 440px; }
+.mr-villa .bottom-cta-btns { display: flex; gap: 10px; flex-shrink: 0; }
+.mr-villa .bottom-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-inter, Inter), sans-serif; font-size: 11.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase;
+  padding: 13px 26px; border-radius: 2px; text-decoration: none;
+  transition: background .22s, color .22s, border-color .22s; white-space: nowrap;
+}
+.mr-villa .bcb-primary { background: var(--gold); color: var(--deep-ocean); }
+.mr-villa .bcb-primary:hover { background: var(--gold-light); }
+.mr-villa .bcb-secondary { background: transparent; color: var(--deep-ocean); border: 1px solid rgba(30,58,95,.22); }
+.mr-villa .bcb-secondary:hover { border-color: var(--deep-ocean); background: rgba(30,58,95,.05); }
+.mr-villa .bottom-cta-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+.mr-villa .bcb-primary svg { fill: var(--deep-ocean); }
+.mr-villa .bcb-secondary svg { stroke: currentColor; fill: none; stroke-width: 1.8; }
+.mr-villa .bed-svg { display: inline-block; width: 28px; height: 28px; vertical-align: middle; margin-right: 7px; stroke: var(--charcoal-light); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 1100px) {
+.mr-villa .detail-wrap { grid-template-columns: 1fr; gap: 0; padding-bottom: 100px; }
+.mr-villa .sidebar-sticky { position: static; margin-top: 40px; }
+.mr-villa .facts-grid { grid-template-columns: repeat(2,1fr); }
+.mr-villa .anchor-nav { padding: 0 32px; }
+.mr-villa .mobile-cta-bar { display: flex; }
+.mr-villa .gallery-counter { display: block; }
+}
+@media (max-width: 900px) {
+.mr-villa .g-cell:nth-child(4) { display: none; }
+.mr-villa .similar-grid { grid-template-columns: repeat(2,1fr); }
+.mr-villa .services-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+.mr-villa .anchor-nav { padding: 0 16px; overflow-x: auto; flex-wrap: nowrap; }
+.mr-villa .an-link { padding: 12px 12px 10px; font-size: 12px; }
+.mr-villa .an-link:last-child { display: none; }
+.mr-villa .breadcrumb { padding: 108px 24px 0; }
+.mr-villa .gallery { padding: 14px 24px 0; }
+.mr-villa .iq-date-panel,
+.mr-villa .iq-guest-panel { left: 0; right: 0; width: 100%; }
+.mr-villa .iq-date-panel .dp-months-row { grid-template-columns: 1fr; }
+.mr-villa .iq-date-panel .dp-month-nav-row { align-items: stretch; }
+.mr-villa .iq-date-panel .dp-month-nav-btn { height: auto; }
+.mr-villa .iq-date-panel .dp-month-tiles { flex-wrap: wrap; }
+.mr-villa .iq-date-panel .dp-month-tile { flex: 0 0 calc((100% - 12px) / 3); }
+.mr-villa .iq-date-panel .dp-pills { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mr-villa .iq-date-panel .dp-pill { text-align: center; padding: 10px 12px; }
+.mr-villa .specs-strip { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; row-gap: 10px; padding: 14px 0; }
+.mr-villa .spec-item + .spec-item::before,
+.mr-villa .spec-rating::before { content: none; }
+.mr-villa .spec-beds { grid-column: 1; grid-row: 1; }
+.mr-villa .spec-baths { grid-column: 2; grid-row: 1; }
+.mr-villa .spec-rating { grid-column: 1; grid-row: 2; }
+.mr-villa .spec-guests { grid-column: 2; grid-row: 2; }
+.mr-villa .gallery-mosaic { grid-template-columns: 1fr; grid-template-rows: 1fr; aspect-ratio: 3/2; }
+.mr-villa .g-cell:not(.g-main) { display: none; }
+.mr-villa .gallery-btns { right: 36px; }
+.mr-villa .gallery-counter { top: 26px; right: 36px; }
+.mr-villa .gallery-pills { left: 36px; }
+.mr-villa .detail-wrap,
+.mr-villa .similar { padding-left: 24px; padding-right: 24px; }
+.mr-villa .facts-grid { grid-template-columns: 1fr 1fr; }
+.mr-villa .bedroom-grid { grid-template-columns: 1fr; }
+.mr-villa .amenity-list { grid-template-columns: 1fr; }
+.mr-villa .similar-grid { grid-template-columns: 1fr; }
+.mr-villa .detail-wrap { padding-bottom: 90px; }
+.mr-villa .bottom-cta { padding: 40px 24px; }
+.mr-villa .bottom-cta-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+.mr-villa .bottom-cta-btns { flex-direction: column; width: 100%; }
+.mr-villa .bottom-cta-btn { justify-content: center; }
+.mr-villa .detail-section,
+.mr-villa .short-desc { scroll-margin-top: 56px; }
+}
+
+/* ── Beyond Traveling adjustments ────────────────────────────
+   MR's nav is fixed and overlays the page; BT's header is sticky and
+   already takes up space, so the big top padding isn't needed. */
+.mr-villa .breadcrumb { padding-top: 28px; }
+@media (max-width: 720px) {
+  .mr-villa .breadcrumb { padding-top: 20px; }
+}
+body.an-visible .mr-villa { --sidebar-top: 150px; } /* + section bar */

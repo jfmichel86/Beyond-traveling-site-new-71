@@ -1,549 +1,379 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import Container from "@/components/Container";
+import Image from "next/image";
+import {
+  PrimaryButton,
+  Eyebrow,
+  FullBleedPhoto,
+  PullQuoteSection,
+  HairlineRow,
+} from "@/components/ui";
+import ComparisonTable from "@/components/ComparisonTable";
 
-const PrimaryButton = ({
-  children,
-  href,
-}: {
-  children: React.ReactNode;
-  href: string;
-}) => (
-  <Link
-    href={href}
-    className="inline-flex min-h-11 items-center justify-center rounded-lg bg-slate-900 px-5 text-[15px] font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
-  >
-    {children}
-  </Link>
-);
-
-const OutlineButton = ({
-  children,
-  href,
-}: {
-  children: React.ReactNode;
-  href: string;
-}) => (
-  <Link
-    href={href}
-    className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-900/35 bg-white/55 px-5 text-[15px] font-semibold text-slate-900 transition hover:border-slate-900 hover:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
-  >
-    {children}
-  </Link>
-);
-
-const TextLink = ({
-  children,
-  href,
-}: {
-  children: React.ReactNode;
-  href: string;
-}) => (
-  <Link
-    href={href}
-    className="inline-flex min-h-11 items-center text-[15px] font-semibold text-slate-900 underline decoration-slate-900/20 underline-offset-4 transition hover:decoration-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
-  >
-    {children}
-  </Link>
-);
-
-const SectionTitle = ({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => (
-  <h2
-    className={`font-serif text-3xl leading-[1.12] tracking-[-0.02em] text-slate-900 md:text-4xl ${className}`}
-  >
-    {children}
-  </h2>
-);
-
-const Body = ({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => (
-  <p className={`text-[17px] leading-[1.75] text-slate-900/72 ${className}`}>
-    {children}
-  </p>
-);
-
-const Bullet = ({ children }: { children: React.ReactNode }) => (
-  <li className="flex gap-3 text-[16px] leading-[1.75] text-slate-900/75">
-    <span className="mt-[11px] h-[2px] w-3 shrink-0 bg-slate-900/40" />
-    <span>{children}</span>
-  </li>
-);
-
-const ValueCard = ({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) => (
-  <div className="rounded-2xl border border-slate-900/10 bg-white/70 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.04)] backdrop-blur">
-    <p className="text-[14px] font-semibold text-slate-900">{title}</p>
-    <p className="mt-1 text-[13px] leading-6 text-slate-900/65">
-      {children}
-    </p>
-  </div>
-);
-
-const ServiceCard = ({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) => (
-  <div className="rounded-2xl border border-slate-900/10 bg-white p-5 shadow-[0_14px_40px_rgba(15,23,42,0.05)]">
-    <h3 className="font-serif text-[22px] leading-tight text-slate-900">
-      {title}
-    </h3>
-    <p className="mt-3 text-[15px] leading-[1.7] text-slate-900/70">
-      {children}
-    </p>
-  </div>
-);
-
-const FAQItem = ({
-  question,
-  children,
-}: {
-  question: string;
-  children: React.ReactNode;
-}) => (
-  <details className="group rounded-2xl border border-slate-900/10 bg-white p-5 shadow-[0_12px_34px_rgba(15,23,42,0.04)]">
-    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-semibold text-slate-900">
-      {question}
-      <span className="text-xl leading-none text-slate-900/45 transition group-open:rotate-45">
-        +
-      </span>
-    </summary>
-    <div className="mt-3 text-[15px] leading-[1.75] text-slate-900/70">
-      {children}
-    </div>
-  </details>
-);
-
-const ImageBlock = ({
-  src,
-  alt,
-}: {
-  src: string;
-  alt: string;
-}) => (
-  <div className="relative overflow-hidden rounded-2xl">
-    <div className="relative aspect-[16/10] w-full sm:aspect-[4/3]">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes="(min-width: 1024px) 42vw, 100vw"
-        className="object-cover object-center"
-      />
-    </div>
-    <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.08),rgba(15,23,42,0)_45%)]" />
-    <div className="absolute inset-0 ring-1 ring-slate-900/10" />
-  </div>
-);
-
-const BG = {
-  hero: "bg-[#f4f0ea]",
-  intro: "bg-[#f1f4f8]",
-  white: "bg-white",
-  cream: "bg-[#f6f0e8]",
-  final: "bg-[#f1f4f8]",
-} as const;
+export const metadata = {
+  alternates: { canonical: "/" },
+};
 
 const Hero = () => (
-  <section id="home" className={`relative overflow-hidden ${BG.hero}`}>
-    <div className="absolute inset-0">
-      <div className="absolute inset-y-0 right-0 hidden w-[58%] md:block">
+  <section className="relative bg-white">
+    <div className="grid md:grid-cols-2">
+      <div className="flex flex-col justify-center px-7 py-16 sm:px-8 md:px-12 md:py-24 lg:pl-24">
+        <Eyebrow>Locally Based. Personally Run.</Eyebrow>
+
+        <h1 className="font-serif mt-6 text-4xl font-light leading-[1.14] tracking-[-0.01em] text-bt-navy sm:text-[42px] md:text-[46px]">
+          Luxury Property Management in Punta Mita.
+          <br />
+          <span className="italic text-bt-gold">Done Personally. Done Right.</span>
+        </h1>
+
+        <p className="mt-6 max-w-[460px] font-normal text-[15px] leading-[1.75] text-bt-charcoal/85">
+          Beyond Traveling is a bilingual, locally based team providing
+          vacation rental management, high-end property management, Home
+          Watch, and concierge services across Punta Mita &mdash; serving
+          homeowners since 2023.
+        </p>
+
+        <div className="mt-8 flex flex-wrap items-center gap-5">
+          <PrimaryButton href="/contact/owners">
+            Book a Property Consultation
+          </PrimaryButton>
+          <a
+            href="tel:+523313619889"
+            className="text-[12.5px] font-normal text-bt-navy/85 underline decoration-bt-navy/30 underline-offset-4 transition hover:text-bt-navy hover:decoration-bt-navy"
+          >
+            Or call +52 33 1361 9889
+          </a>
+        </div>
+      </div>
+
+      <div className="relative min-h-[320px] md:min-h-[560px]">
         <Image
           src="/home/hero.jpg"
-          alt="Luxury property management in Punta Mita for high-end vacation homes"
+          alt="Luxury Punta Mita terrace cared for by Beyond Traveling"
           fill
           priority
-          sizes="58vw"
-          className="object-cover object-center"
+          sizes="(min-width: 768px) 50vw, 100vw"
+          className="object-cover"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(244,240,234,0.98)_0%,rgba(244,240,234,0.86)_30%,rgba(244,240,234,0.45)_62%,rgba(244,240,234,0)_100%)]" />
       </div>
     </div>
 
-    <Container>
-      <div className="relative z-10 grid min-h-[610px] items-center py-14 md:grid-cols-12 md:py-20">
-        <div className="md:col-span-7">
-          <p className="mb-5 text-[13px] font-semibold uppercase tracking-[0.18em] text-slate-900/60">
-            Punta Mita luxury property management
-          </p>
-
-          <h1 className="max-w-[760px] font-serif text-4xl leading-[1.05] tracking-[-0.025em] text-slate-900 sm:text-5xl md:text-6xl">
-            Luxury Property Management in Punta Mita.
-            <span className="block italic text-[0.78em] leading-[1.15]">
-              Done Personally. Done Right.
-            </span>
-          </h1>
-
-          <p className="mt-6 max-w-[680px] text-[17px] leading-[1.75] text-slate-900/72">
-            We look after luxury homes, support guests, and help owners protect
-            their property and rental results — with clear pricing, direct
-            communication, and no hidden fees.
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <PrimaryButton href="/contact">
-              Talk With Us About Your Property
-            </PrimaryButton>
-            <TextLink href="/services">See How We Work</TextLink>
-          </div>
-
-          <div className="mt-8 grid max-w-[700px] gap-3 sm:grid-cols-3">
-            <ValueCard title="Direct communication">
-              You deal with people, not layers.
-            </ValueCard>
-
-            <ValueCard title="Clear pricing">
-              No hidden fees or vague charges.
-            </ValueCard>
-
-            <ValueCard title="Rental-minded care">
-              Better stays help create better results.
-            </ValueCard>
-          </div>
-        </div>
-      </div>
-    </Container>
+    {/* scroll cue — signals there's more below on tall desktop viewports */}
+    <svg
+      aria-hidden="true"
+      className="pointer-events-none absolute bottom-6 left-1/2 hidden h-5 w-5 -translate-x-1/2 animate-bounce text-bt-navy/35 md:block"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
   </section>
 );
 
-const IntroCompact = () => (
-  <section className={BG.intro}>
-    <Container>
-      <div className="py-16 md:py-24">
-        <div className="mx-auto max-w-[790px] text-center">
-          <SectionTitle>A More Personal Way to Manage Your Home</SectionTitle>
+const TrustRow = () => {
+  const items = [
+    "Local Punta Mita Experts",
+    "Bilingual Team",
+    "Property Inspections & Maintenance",
+    "Reliable Vendor Network",
+    "Monthly Property Reports",
+  ];
 
-          <div className="mt-5 space-y-3">
-            <Body>
-              Beyond Traveling isn’t built like a traditional property
-              management company.
-            </Body>
-
-            <Body>
-              We work closely with a limited number of homeowners so we can
-              stay available, respond quickly, and treat each property with the
-              attention it deserves — not as a number, but as someone’s home.
-            </Body>
-
-            <p className="text-[18px] font-semibold leading-[1.65] text-slate-900">
-              When owners work with us, they work with people, not a system.
-            </p>
-          </div>
-        </div>
+  return (
+    <div className="bg-bt-navy">
+      <div className="mx-auto flex max-w-[1100px] cursor-default flex-wrap items-center justify-center gap-y-2 px-7 py-6 text-center text-[11px] font-medium uppercase tracking-[0.04em] text-white/85 sm:px-8 md:px-12 lg:px-24">
+        {items.map((item, i) => (
+          <React.Fragment key={item}>
+            <span>{item}</span>
+            {i < items.length - 1 && (
+              <span className="mx-4 text-bt-gold-light">&#9670;</span>
+            )}
+          </React.Fragment>
+        ))}
       </div>
-    </Container>
-  </section>
+    </div>
+  );
+};
+
+const ServiceCard = ({
+  tag,
+  highlight = false,
+  title,
+  italicTitle,
+  description,
+  href,
+  linkLabel,
+}: {
+  tag: string;
+  highlight?: boolean;
+  title: string;
+  italicTitle: string;
+  description: string;
+  href: string;
+  linkLabel: string;
+}) => (
+  <Link
+    href={href}
+    className={`group block px-7 py-12 transition-colors duration-300 hover:bg-bt-navy/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-bt-gold sm:px-8 md:px-10 ${
+      highlight ? "bg-bt-navy/[0.02]" : ""
+    }`}
+  >
+    {highlight ? (
+      <span className="inline-block rounded-sm bg-bt-navy px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-white">
+        {tag}
+      </span>
+    ) : (
+      <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-bt-navy/80">
+        {tag}
+      </p>
+    )}
+    <h3 className="font-serif mt-3 text-xl font-normal text-bt-navy transition-colors duration-300 group-hover:text-bt-navy-light">
+      {title} <span className="italic text-[#8A6228]">{italicTitle}</span>
+    </h3>
+    <p className="mt-3 max-w-[320px] font-normal text-[13.5px] leading-[1.75] text-bt-charcoal/85">
+      {description}
+    </p>
+    <span className="mt-4 inline-flex items-center text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy border-b border-bt-gold/50 pb-[3px] transition-colors duration-300 group-hover:border-bt-gold">
+      {linkLabel}
+      <span className="ml-1.5 inline-block transition-transform duration-300 group-hover:translate-x-1">
+        →
+      </span>
+    </span>
+  </Link>
 );
 
-const Partnership = () => (
-  <section className={`${BG.white} overflow-x-hidden`}>
-    <Container>
-      <div className="grid w-full min-w-0 gap-10 py-16 md:grid-cols-2 md:items-center md:py-24">
-        <div className="min-w-0">
-          <SectionTitle>
-            We Don’t “Manage” Homes.{" "}
-            <span className="italic">We Look After Them With You.</span>
-          </SectionTitle>
+const comparisonColumns: { tag: string; name: string; highlight?: boolean }[] = [
+  { tag: "For Vacant Homes", name: "Home Watch" },
+  { tag: "For Every Stay", name: "Concierge Service" },
+  { tag: "Guests & Bookings", name: "Vacation Rental Management" },
+  { tag: "Property Only", name: "Property Management" },
+  { tag: "Most Complete", name: "Full-Service Management", highlight: true },
+];
 
-          <p className="mt-4 text-[17px] leading-[1.7] text-slate-900/70">
-            Good property management feels like teamwork.
+const comparisonRows: { feature: string; values: boolean[] }[] = [
+  { feature: "Scheduled Property Visits & Inspections", values: [true, false, false, true, true] },
+  { feature: "Photo-Documented Visit Reports", values: [true, false, false, true, true] },
+  { feature: "Arrival Prep & Guest Concierge", values: [false, true, true, false, true] },
+  { feature: "Guest Communication During Stays", values: [false, true, true, false, true] },
+  { feature: "Booking & Revenue Management", values: [false, false, true, false, true] },
+  { feature: "Vendor Coordination & Oversight", values: [false, false, false, true, true] },
+  { feature: "Bill Pay & Financial Administration", values: [false, false, false, true, true] },
+  { feature: "Monthly Owner Reporting", values: [false, false, true, true, true] },
+];
+
+const WhatWeDo = () => (
+  <section className="bg-white">
+    <div className="mx-auto max-w-[680px] px-7 py-16 text-center sm:px-8 md:px-12 md:py-24">
+      <Eyebrow>What We Do</Eyebrow>
+      <h2 className="font-serif mx-auto mt-6 text-2xl font-normal leading-[1.2] tracking-[-0.01em] text-bt-navy md:text-[32px]">
+        Everything Your Home Needs.
+        <br />
+        <span className="italic text-bt-gold">One Team to Handle It.</span>
+      </h2>
+      <p className="mx-auto mt-5 max-w-[480px] font-normal text-[15px] leading-[1.75] text-bt-charcoal/85">
+        Occupied by guests or standing empty, the same team looks after every
+        detail &mdash; inspections, upkeep, communication, and care.
+      </p>
+    </div>
+
+    {/* row 1 of 2 — simplest services (3 columns) */}
+    <div className="grid grid-cols-1 divide-y-2 divide-bt-navy/15 border-t-2 border-b-2 border-bt-navy/15 sm:grid-cols-3 sm:divide-x-2 sm:divide-y-0">
+      <ServiceCard
+        tag="For Vacant Homes"
+        title="Home"
+        italicTitle="Watch"
+        description="Scheduled visits and photo-documented checks for homes standing empty between guest stays."
+        href="/services/home-watch"
+        linkLabel="Explore Home Watch"
+      />
+      <ServiceCard
+        tag="For Every Stay"
+        title="Concierge"
+        italicTitle="Service"
+        description="Arrival prep and anything a stay requires, arranged directly for you in English or Spanish."
+        href="/services/concierge-service"
+        linkLabel="Explore Concierge Service"
+      />
+      <ServiceCard
+        tag="Guests & Bookings"
+        title="Vacation Rental"
+        italicTitle="Management"
+        description="Listings, pricing, and every guest conversation — the entire rental business, run for you. Bookable on its own."
+        href="/services/vacation-rental-management"
+        linkLabel="Explore Vacation Rental Management"
+      />
+    </div>
+
+    {/* row 2 of 2 — the two most complete services, wider to fill the same width */}
+    <div className="grid grid-cols-1 divide-y-2 divide-bt-navy/15 sm:grid-cols-2 sm:divide-x-2 sm:divide-y-0">
+      <ServiceCard
+        tag="Property Only"
+        title="Property"
+        italicTitle="Management"
+        description="Maintenance, vendors, and bills for the house itself — you keep the guests and the calendar. Bookable on its own."
+        href="/services/property-management"
+        linkLabel="Explore Property Management"
+      />
+      <ServiceCard
+        tag="Most Complete"
+        highlight
+        title="Full-Service"
+        italicTitle="Management"
+        description="Property Management and Vacation Rental Management, combined into one team and one report."
+        href="/services/full-service-management"
+        linkLabel="Explore Full-Service Management"
+      />
+    </div>
+
+    {/* comparison table — cream panel, a clear shift from the white
+        "What We Do" grid above it */}
+    <div className="border-t-2 border-bt-navy/15 bg-bt-cream px-6 py-16 md:px-14 md:py-20">
+      <div className="mx-auto max-w-[1220px]">
+        <div className="mx-auto max-w-[560px] pb-12 text-center md:pb-14">
+          <h2 className="font-serif text-2xl font-normal leading-[1.3] tracking-[-0.01em] text-bt-navy md:text-[32px]">
+            Which Service <span className="italic text-bt-gold">Is Right for Your Home?</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-[480px] font-normal text-[14.5px] leading-[1.75] text-bt-charcoal/90">
+            Each one covers a different part of the job &mdash; combine what
+            you need, or let one team handle everything.
           </p>
+        </div>
 
-          <div className="mt-6 space-y-3">
-            <Body>
-              We get to know you, your home, and your priorities. Some owners
-              care most about preserving the property. Others want stronger
-              rental performance. Most want both.
-            </Body>
+        <ComparisonTable columns={comparisonColumns} rows={comparisonRows} />
+        <p className="mt-3 text-center text-[11px] font-medium uppercase tracking-[0.12em] text-bt-navy/75 md:hidden">
+          Swipe to compare &rarr;
+        </p>
 
-            <Body>
-              Our role is to align with you, communicate clearly, and make
-              thoughtful decisions day to day.
-            </Body>
-          </div>
+        <p className="mt-6 text-center font-normal text-[13px] text-bt-charcoal/90">
+          Property Management and Vacation Rental Management cover different
+          parts of the job and can be booked separately &mdash; Full-Service
+          Management is simply the two together.
+        </p>
 
-          <div className="mt-6">
-            <div className="text-[16px] font-semibold text-slate-900">
-              You’ll always know:
+        {/* compact FAQ teaser — real questions pulled from /faq, placed here
+            because this is where comparison/pricing doubts surface */}
+        <div className="mx-auto mt-14 max-w-[980px] border-t border-bt-navy/15 pt-12 md:mt-16">
+          <div className="grid gap-x-10 gap-y-8 sm:grid-cols-3">
+            <div>
+              <p className="font-serif text-[15px] font-normal text-bt-navy">
+                Are there hidden fees?
+              </p>
+              <p className="mt-2 font-normal text-[13px] leading-[1.75] text-bt-charcoal/90">
+                No. Our fees are straightforward, and we don&rsquo;t benefit
+                when your expenses go up.
+              </p>
             </div>
-
-            <ul className="mt-3 space-y-3">
-              <Bullet>Who is taking care of your property</Bullet>
-              <Bullet>What’s happening day to day</Bullet>
-              <Bullet>Why decisions are being made</Bullet>
-            </ul>
+            <div>
+              <p className="font-serif text-[15px] font-normal text-bt-navy">
+                Rentals, or only maintenance?
+              </p>
+              <p className="mt-2 font-normal text-[13px] leading-[1.75] text-bt-charcoal/90">
+                Both. Guest communication and rental performance, alongside
+                the upkeep that protects the property.
+              </p>
+            </div>
+            <div>
+              <p className="font-serif text-[15px] font-normal text-bt-navy">
+                Do you take every property?
+              </p>
+              <p className="mt-2 font-normal text-[13px] leading-[1.75] text-bt-charcoal/90">
+                No. We work with a limited number of homeowners on purpose,
+                to stay closely involved.
+              </p>
+            </div>
           </div>
-
-          <p className="mt-6 text-[17px] font-semibold text-slate-900">
-            And you’ll always be able to reach us.
-          </p>
-        </div>
-
-        <div className="min-w-0">
-          <ImageBlock
-            src="/home/partnership.jpg"
-            alt="Homeowner and property management team discussing a luxury home in Punta Mita"
-          />
-        </div>
-      </div>
-    </Container>
-  </section>
-);
-
-const FeesCosts = () => (
-  <section className={`${BG.cream} overflow-x-hidden`}>
-    <Container>
-      <div className="grid w-full min-w-0 gap-10 py-16 md:grid-cols-2 md:items-center md:py-24">
-        <div className="min-w-0">
-          <ImageBlock
-            src="/home/fees.jpg"
-            alt="Clear property management pricing for luxury homes in Punta Mita"
-          />
-        </div>
-
-        <div className="min-w-0">
-          <SectionTitle>
-            Clear Pricing. <span className="italic">No Surprises.</span>
-          </SectionTitle>
-
-          <div className="mt-6 space-y-3">
-            <Body>
-              Many owners come to us after feeling frustrated by unclear charges
-              or constantly rising costs.
-            </Body>
-
-            <Body>We believe trust starts with transparency.</Body>
-          </div>
-
-          <Body className="mt-6">
-            Our fees are straightforward, and we actively look for ways to save
-            owners money, including:
-          </Body>
-
-          <ul className="mt-4 space-y-3">
-            <Bullet>Avoiding unnecessary maintenance work</Bullet>
-            <Bullet>Managing cleaning and supplies efficiently</Bullet>
-            <Bullet>
-              Being thoughtful about operational and fiscal decisions
-            </Bullet>
-          </ul>
-
-          <p className="mt-6 text-[17px] font-semibold leading-[1.7] text-slate-900">
-            We don’t inflate costs — and we don’t benefit when expenses go up.
-          </p>
-
-          <div className="mt-8">
-            <OutlineButton href="/services">
-              How Our Management Works
-            </OutlineButton>
-          </div>
-        </div>
-      </div>
-    </Container>
-  </section>
-);
-
-const Services = () => (
-  <section className={`${BG.white} overflow-x-hidden`}>
-    <Container>
-      <div className="grid w-full min-w-0 gap-10 py-16 md:grid-cols-2 md:items-start md:py-24">
-        <div className="min-w-0">
-          <SectionTitle>What We Take Care Of</SectionTitle>
-
-          <p className="mt-4 text-[17px] leading-[1.7] text-slate-900/70">
-            So you don’t have to worry about the day-to-day.
-          </p>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <ServiceCard title="Property care">
-              Maintenance oversight, inspections, vendor coordination, and
-              property readiness.
-            </ServiceCard>
-
-            <ServiceCard title="Guest support">
-              Fast guest communication, arrival coordination, local help, and
-              concierge support.
-            </ServiceCard>
-
-            <ServiceCard title="Housekeeping">
-              Cleaning coordination, supplies, laundry, and pre-arrival
-              preparation.
-            </ServiceCard>
-
-            <ServiceCard title="Owner updates">
-              Clear reporting, honest communication, and practical
-              recommendations.
-            </ServiceCard>
-          </div>
-
-          <p className="mt-7 text-[17px] font-semibold text-slate-900">
-            Most importantly: we stay involved.
-          </p>
-
-          <p className="mt-3 text-[17px] leading-[1.7] text-slate-900/75">
-            We don’t disappear after onboarding, and we don’t hand your property
-            off to layers of staff.
-          </p>
-        </div>
-
-              <div className="min-w-0 md:pt-12">
-          <ImageBlock
-            src="/home/services.jpg"
-            alt="Luxury villa management services in Punta Mita"
-          />
-        </div>
-      </div>
-    </Container>
-  </section>
-);
-
-const LocalAvailability = () => (
-  <section className={`${BG.cream} overflow-x-hidden`}>
-    <Container>
-      <div className="grid w-full min-w-0 gap-10 py-16 md:grid-cols-2 md:items-center md:py-24">
-        <div className="min-w-0">
-          <ImageBlock
-            src="/home/local.jpg"
-            alt="Local property management team available in Punta Mita"
-          />
-        </div>
-
-        <div className="min-w-0">
-          <SectionTitle>
-            We’re Here. <span className="italic">And We Answer.</span>
-          </SectionTitle>
-
-          <div className="mt-6 space-y-3">
-            <Body>
-              We live and work in Punta Mita, close to the homes we manage.
-            </Body>
-
-            <Body>
-              That matters because good rentals depend on responsiveness, and
-              good ownership depends on availability.
-            </Body>
-          </div>
-
-          <ul className="mt-5 space-y-3">
-            <Bullet>Faster responses to guests</Bullet>
-            <Bullet>Quick action when something needs attention</Bullet>
-            <Bullet>Real relationships with local vendors</Bullet>
-            <Bullet>No “we’ll check on that Monday” mentality</Bullet>
-          </ul>
-
-          <p className="mt-6 text-[17px] font-semibold text-slate-900">
-            We take both the home and the guest experience seriously.
+          <p className="mt-9 text-center">
+            <Link
+              href="/faq"
+              className="text-[11px] font-medium uppercase tracking-[0.13em] text-bt-navy border-b border-bt-gold/50 pb-[3px] transition hover:border-bt-gold"
+            >
+              See All FAQs &rarr;
+            </Link>
           </p>
         </div>
       </div>
-    </Container>
-  </section>
-);
+    </div>
 
-const FAQ = () => (
-  <section className={BG.white}>
-    <Container>
-        <div className="py-14 md:py-20">
-        <div className="mx-auto max-w-[780px] text-center">
-          <SectionTitle>Questions Owners Usually Ask</SectionTitle>
-
-          <Body className="mt-5">
-            A few simple answers before we talk.
-          </Body>
-        </div>
-
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          <FAQItem question="Do you handle rentals too?">
-            Yes. We help with guest communication, property readiness, local
-            coordination, and the details that support stronger rental
-            performance.
-          </FAQItem>
-
-          <FAQItem question="Are there hidden fees?">
-            No. Clear pricing is one of the main reasons owners work with us.
-            We believe owners should understand what they are paying for and
-            why.
-          </FAQItem>
-
-          <FAQItem question="Will I deal with one person or a system?">
-            You deal with people. We keep communication direct and avoid passing
-            your home through layers of staff.
-          </FAQItem>
-
-          <FAQItem question="Where do you work?">
-            We focus on Punta Mita and nearby luxury homes in Riviera Nayarit.
-          </FAQItem>
-        </div>
-      </div>
-    </Container>
+    {/* Full-Service Management callout */}
+    <div className="bg-bt-navy px-6 py-20 text-center md:py-28">
+      <Eyebrow className="text-bt-gold-light/90">Full-Service Management</Eyebrow>
+      <h2 className="font-serif mx-auto mt-5 max-w-[560px] text-[28px] font-light italic leading-[1.4] text-white md:text-[34px]">
+        The House and the Rental Business. One Team, One Report.
+      </h2>
+      <p className="mx-auto mt-5 max-w-[480px] font-normal text-[16px] leading-[1.75] text-white/[0.68]">
+        Full-Service Management combines Property Management and Vacation
+        Rental Management &mdash; maintenance, vendors, and bills, plus the
+        bookings, guests, and calendar, handled by the same team. Most owners
+        who want to be fully hands-off land here.
+      </p>
+      <Link
+        href="/services/full-service-management"
+        className="mt-6 inline-block text-[11px] font-medium uppercase tracking-[0.13em] text-bt-gold-light border-b border-bt-gold-light/50 pb-[3px] transition hover:border-bt-gold-light"
+      >
+        Explore Full-Service Management &rarr;
+      </Link>
+    </div>
   </section>
 );
 
 const FinalCta = () => (
-  <section id="contact" className={`${BG.final} border-t border-slate-900/8`}>
-    <Container>
-      <div className="py-14 md:py-20">
-        <div className="mx-auto max-w-[780px] text-center">
-          <h3 className="font-serif text-3xl leading-[1.15] tracking-[-0.01em] text-slate-900 md:text-5xl">
-            Let’s See If We’re a Good Fit
-          </h3>
+  <section id="contact" className="bg-bt-navy">
+    <div className="mx-auto max-w-[600px] px-6 py-20 text-center md:py-28">
+      <h2 className="font-serif text-3xl font-light leading-[1.15] tracking-[-0.01em] text-white md:text-[38px]">
+        Let&rsquo;s See If We&rsquo;re a Good Fit
+      </h2>
 
-          <div className="mt-6 space-y-3">
-            <Body>
-              If you’re looking for a team that will actually answer, stay
-              involved, treat your home with respect, and care about rental
-              results, we’d be happy to talk.
-            </Body>
+      <p className="mx-auto mt-5 max-w-[440px] font-normal text-[16px] leading-[1.75] text-white/80">
+        If you want a team that actually answers, stays involved, and treats
+        your home like it matters, let&rsquo;s talk.
+      </p>
 
-            <p className="text-[17px] font-semibold text-slate-900">
-              No pressure. Just a conversation.
-            </p>
-          </div>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <PrimaryButton href="/contact">Contact Us</PrimaryButton>
-            <OutlineButton href="/services">View Services</OutlineButton>
-          </div>
-        </div>
+      <div className="mt-8 flex flex-wrap justify-center gap-4">
+        <Link
+          href="/contact"
+          className="inline-flex min-h-11 items-center justify-center rounded-sm bg-white px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition duration-150 hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy active:scale-[0.98]"
+        >
+          Contact Us
+        </Link>
+        <Link
+          href="/services"
+          className="inline-flex min-h-11 items-center justify-center border border-white/35 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition duration-150 hover:border-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy active:scale-[0.98]"
+        >
+          View Services
+        </Link>
       </div>
-    </Container>
+
+      <p className="mt-6">
+        <Link
+          href="/faq"
+          className="text-[12.5px] font-normal text-white/85 underline decoration-white/35 underline-offset-4 transition hover:text-white hover:decoration-white"
+        >
+          Have a question first? See common questions.
+        </Link>
+      </p>
+    </div>
   </section>
 );
 
 const MobileStickyCta = () => (
-  <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-900/10 bg-white/95 p-3 shadow-[0_-10px_30px_rgba(15,23,42,0.12)] backdrop-blur md:hidden">
+  <div className="animate-fadeUp fixed inset-x-0 bottom-0 z-40 border-t border-bt-navy/15 bg-white p-3 shadow-[0_-4px_16px_rgba(15,23,42,0.08)] md:hidden">
     <div className="grid grid-cols-2 gap-3">
       <a
         href="https://wa.me/523313619889"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-900/25 text-sm font-semibold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+        className="inline-flex min-h-11 items-center justify-center border border-bt-navy/25 text-[10px] font-medium uppercase tracking-[0.13em] text-bt-navy transition hover:bg-bt-navy/5 focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
       >
         WhatsApp
       </a>
 
       <Link
         href="/contact"
-        className="inline-flex min-h-11 items-center justify-center rounded-lg bg-slate-900 text-sm font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+        className="inline-flex min-h-11 items-center justify-center bg-bt-navy text-[10px] font-medium uppercase tracking-[0.13em] text-white transition hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
       >
         Contact
       </Link>
@@ -555,15 +385,53 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white pb-20 md:pb-0">
       <Hero />
-      <IntroCompact />
-      <Partnership />
-      <FeesCosts />
-      <Services />
-      <LocalAvailability />
-      <FAQ />
+      <TrustRow />
+      <WhatWeDo />
+
+      <FullBleedPhoto
+        src="/home/portfolio.jpg"
+        alt="Villa Brezza, a Beyond Traveling property in Punta Mita"
+        caption="Villa Brezza"
+        href="/properties/villa-brezza"
+      />
+
+      <PullQuoteSection
+        eyebrow="Our Approach"
+        quote={
+          <>
+            We don&rsquo;t &ldquo;manage&rdquo; homes &mdash; we look after
+            them, with you.
+          </>
+        }
+        body="We work with a limited number of homeowners, so we can stay closely involved — getting to know you, your home, and your priorities, whether that's preserving the property, stronger rental performance, or both."
+        bg="bg-white"
+      >
+        <p className="mt-6 text-[16px] font-medium text-bt-navy">
+          And you can always reach us.
+        </p>
+      </PullQuoteSection>
+
+      <HairlineRow
+        columns={3}
+        bg="bg-bt-cream"
+        items={[
+          {
+            title: "Always Reachable",
+            body: "We respond within 1 hour during the day.",
+          },
+          {
+            title: "No Lock-In",
+            body: "No long-term contracts. Cancel anytime with 30 days' notice.",
+          },
+          {
+            title: "Transparent Pricing",
+            body: "No hidden fees — ever.",
+          },
+        ]}
+      />
+
       <FinalCta />
       <MobileStickyCta />
-      <div id="about" />
     </div>
   );
 }

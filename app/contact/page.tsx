@@ -1,183 +1,140 @@
 import React from "react";
-import ContactForm from "./ContactForm";
-import Container from "@/components/Container";
 import Link from "next/link";
+import Container from "@/components/Container";
+import { Eyebrow } from "@/components/ui";
 
 export const metadata = {
   title: "Contact Beyond Traveling | Punta Mita Property Management",
   description:
-    "Contact Beyond Traveling for luxury property management in Punta Mita. Talk with a local team about property care, guest support, rental results, clear pricing, and no hidden fees.",
+    "Contact Beyond Traveling in Punta Mita: talk about luxury property management for your home, or request a stay at one of our villas. Clear pricing, no hidden fees.",
+  alternates: { canonical: "/contact" },
 };
 
-const PrimaryButton = ({
-  children,
-  href,
-}: {
-  children: React.ReactNode;
-  href: string;
-}) => (
-  <Link
-    href={href}
-    className="inline-flex min-h-11 items-center justify-center rounded-lg bg-slate-900 px-5 text-[15px] font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
-  >
-    {children}
-  </Link>
-);
+const options = [
+  {
+    audience: "For property owners",
+    title: "Manage Your Property",
+    body: "Talk with us about managing your home in Punta Mita: property care, guest support and rental results, with clear pricing and no hidden fees.",
+    cta: "Talk about your property",
+    href: "/contact/owners",
+  },
+  {
+    audience: "For guests",
+    title: "Book a Stay",
+    body: "Ask about availability and rates for Villa Amore, Villa Brezza, Villa Llamas or Las Palmas 28. We reply to you personally.",
+    cta: "Request your dates",
+    href: "/contact/reservations",
+  },
+];
 
-const OutlineAnchor = ({
-  children,
-  href,
-}: {
-  children: React.ReactNode;
-  href: string;
-}) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-900/35 bg-white/55 px-5 text-[15px] font-semibold text-slate-900 transition hover:border-slate-900 hover:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
-  >
-    {children}
-  </a>
-);
+// Quieter, text-only entries — real but secondary audiences.
+const secondary = [
+  {
+    lead: "Agent or travel advisor?",
+    cta: "Partner with us",
+    href: "/contact/agents",
+  },
+  {
+    lead: "Looking to join our team or offer a service?",
+    cta: "Work with us",
+    href: "/contact/work-with-us",
+  },
+];
 
-const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="font-serif text-3xl leading-[1.12] tracking-[-0.02em] text-slate-900 md:text-4xl">
-    {children}
-  </h2>
-);
-
-const Body = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-[17px] leading-[1.75] text-slate-900/72">{children}</p>
-);
-
-const ContactOption = ({
-  label,
-  value,
-  href,
-}: {
-  label: string;
-  value: string;
-  href: string;
-}) => (
-  <a
-    href={href}
-    target={href.startsWith("http") ? "_blank" : undefined}
-    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-    className="block rounded-2xl border border-slate-900/10 bg-white/70 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition hover:bg-white hover:shadow-[0_16px_40px_rgba(15,23,42,0.08)] focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
-  >
-    <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-slate-900/45">
-      {label}
-    </p>
-    <p className="mt-2 break-words text-[15px] font-semibold leading-6 text-slate-900">
-      {value}
-    </p>
-  </a>
-);
-
-const ContactIntro = () => (
-  <section className="bg-white">
+const Hero = () => (
+  <section className="bg-bt-cream">
     <Container>
-      <div className="mx-auto max-w-[820px] py-16 text-center md:py-24">
-        <p className="mb-5 text-[13px] font-semibold uppercase tracking-[0.18em] text-slate-900/60">
-          Contact Beyond Traveling
-        </p>
+      <div className="mx-auto max-w-[680px] py-20 text-center md:py-28">
+        <Eyebrow>Contact Beyond Traveling</Eyebrow>
 
-        <h1 className="mx-auto max-w-[820px] font-serif text-4xl leading-[1.06] tracking-[-0.025em] text-slate-900 md:text-6xl">
-          Let’s Have a Conversation.
-          <span className="block italic text-[0.78em] leading-[1.15]">
-            No pressure. No sales pitch.
-          </span>
+        <h1 className="font-serif mt-6 text-4xl font-light leading-[1.12] tracking-[-0.01em] text-bt-navy md:text-[50px]">
+          How Can We
+          <br />
+          <span className="italic text-bt-gold">Help?</span>
         </h1>
 
-        <p className="mx-auto mt-6 max-w-[760px] text-[17px] leading-[1.75] text-slate-900/72">
-          Whether you are actively looking for a new property management team in
-          Punta Mita or just want to understand your options, we are happy to
-          talk. You can also explore how we work on our{" "}
-          <Link
-            href="/services"
-            className="font-semibold underline decoration-slate-900/25 underline-offset-4 transition hover:decoration-slate-900"
-          >
-            Services
-          </Link>{" "}
-          page.
+        <p className="mx-auto mt-6 max-w-[460px] text-[16px] font-normal leading-[1.75] text-bt-charcoal/85">
+          Whether you own a property in Punta Mita or are planning a stay,
+          we are happy to help. No pressure, no sales pitch.
         </p>
+      </div>
+    </Container>
+  </section>
+);
 
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <PrimaryButton href="#contact-form">Send a Message</PrimaryButton>
-          <OutlineAnchor href="https://wa.me/523313619889">
-            WhatsApp Us
-          </OutlineAnchor>
+const Options = () => (
+  <section className="bg-white">
+    <Container>
+      <div className="mx-auto max-w-[1100px] py-16 md:py-24">
+        <h2 className="sr-only">Contact options</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          {options.map((o, i) => (
+            <Link
+              key={o.href}
+              href={o.href}
+              className={`group block border-t border-bt-navy/15 py-10 transition-colors duration-200 hover:bg-bt-cream/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-bt-navy md:border-b md:px-12 md:py-16 ${
+                i === 1 ? "md:border-l" : ""
+              } ${i === options.length - 1 ? "border-b" : ""}`}
+            >
+              <Eyebrow>{o.audience}</Eyebrow>
+              <h3 className="font-serif mt-4 text-[32px] font-light leading-[1.15] text-bt-navy md:text-[38px]">
+                {o.title}
+              </h3>
+              <p className="mt-4 max-w-[400px] text-[15px] font-normal leading-[1.75] text-bt-charcoal/85">
+                {o.body}
+              </p>
+              <span className="mt-7 inline-flex items-center border-b border-bt-gold/50 pb-[3px] text-[14px] font-medium text-bt-navy transition group-hover:border-bt-gold">
+                {o.cta}
+                <span
+                  aria-hidden="true"
+                  className="ml-2 transition-transform duration-200 group-hover:translate-x-1"
+                >
+                  &rarr;
+                </span>
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-12 flex flex-col items-center gap-3 text-center text-[14px] font-normal text-bt-charcoal/85 md:flex-row md:justify-center md:gap-14">
+          {secondary.map((item) => (
+            <p key={item.href}>
+              {item.lead}{" "}
+              <Link
+                href={item.href}
+                className="border-b border-bt-gold/50 pb-px font-medium text-bt-navy transition hover:border-bt-gold"
+              >
+                {item.cta}
+              </Link>
+            </p>
+          ))}
         </div>
       </div>
     </Container>
   </section>
 );
 
-const ContactSection = () => {
-  return (
-    <section id="contact-form" className="overflow-hidden bg-[#f1f4f8]">
-      <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-24">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:items-start md:gap-16">
-          <div className="min-w-0 space-y-6 md:col-span-6">
-            <SectionTitle>Get in Touch</SectionTitle>
-
-            <Body>
-              We keep communication simple and direct. Tell us a little about
-              your property, what you are looking for, or what has not been
-              working with your current setup.
-            </Body>
-
-            <div className="grid gap-3">
-              <ContactOption
-                label="Email"
-                value="beyondtravelingmx@gmail.com"
-                href="mailto:beyondtravelingmx@gmail.com"
-              />
-
-              <ContactOption
-                label="Phone / WhatsApp"
-                value="+52 33 1361 9889"
-                href="https://wa.me/523313619889"
-              />
-            </div>
-
-            <div className="rounded-2xl border border-slate-900/10 bg-white/55 p-5">
-              <p className="text-[16px] font-semibold text-slate-900">
-                What happens next?
-              </p>
-
-              <ul className="mt-3 space-y-2 text-[15px] leading-7 text-slate-900/72">
-                <li>— We read your message carefully.</li>
-                <li>— We reply directly, usually by email or WhatsApp.</li>
-                <li>— If it makes sense, we schedule a simple conversation.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="min-w-0 md:col-span-6">
-            <div className="w-full overflow-hidden rounded-2xl border border-slate-200/70 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.08)] md:p-8">
-              <ContactForm />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ContactClosing = () => (
-  <section className="border-t border-slate-900/8 bg-white">
+const NotSure = () => (
+  <section className="bg-bt-navy">
     <Container>
-      <div className="mx-auto max-w-[780px] py-14 text-center md:py-20">
-        <h2 className="font-serif text-3xl leading-[1.12] tracking-[-0.02em] text-slate-900 md:text-5xl">
-          A simple conversation is usually the best place to start.
+      <div className="mx-auto max-w-[620px] py-20 text-center md:py-24">
+        <h2 className="font-serif text-3xl font-light leading-[1.2] text-white md:text-[38px]">
+          Not Sure Where to Start?
         </h2>
-
-        <p className="mx-auto mt-5 max-w-[680px] text-[17px] leading-[1.75] text-slate-900/72">
-          We can talk about your home, your current setup, rental goals,
-          communication, costs, and whether we are the right fit.
+        <p className="mx-auto mt-5 max-w-[440px] text-[15.5px] font-normal leading-[1.75] text-white/80">
+          Send us a message on WhatsApp and we will point you to the right
+          person.
         </p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="https://wa.me/523313619889"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center justify-center rounded-sm bg-white px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition hover:bg-bt-cream focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy"
+          >
+            WhatsApp
+          </a>
+        </div>
       </div>
     </Container>
   </section>
@@ -185,10 +142,10 @@ const ContactClosing = () => (
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-white">
-      <ContactIntro />
-      <ContactSection />
-      <ContactClosing />
-    </main>
+    <div className="min-h-screen bg-white">
+      <Hero />
+      <Options />
+      <NotSure />
+    </div>
   );
 }

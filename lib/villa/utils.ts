@@ -1,0 +1,611 @@
+// ─────────────────────────────────────────────────────────────
+// Utility helpers — Mexican Reserve
+// ─────────────────────────────────────────────────────────────
+
+// A season prices one of two ways, per Sanity's "Pricing by Season" field:
+// either a single flat `nightlyRate` for the whole season, OR a `bedroomRates`
+// array when the property charges differently depending on how many
+// bedrooms are occupied (e.g. 6BR: $2,200 vs 7BR: $2,400) — in which case
+// `nightlyRate` is left empty on that season. Both are optional at the type
+// level for exactly that reason; code reading a season must check both.
+export type Season = {
+  seasonName: string
+  nightlyRate?: number
+  bedroomRates?: { bedrooms: number; nightlyRate: number }[]
+  minimumStay: number
+}
+
+export type PhotoRef = { asset?: { _ref: string }; hotspot?: { x: number; y: number } }
+
+export type Property = {
+  _id: string
+  title: string
+  slug: string
+  tagline?: string
+  shortDescription?: string
+  fullDescription?: unknown[]
+  propertyType: 'condo' | 'villa' | 'estate'
+  featured?: boolean
+  homepageHero?: boolean
+  collection?: string[]
+  locationLabel: 'punta-mita' | 'punta-de-mita-area' | 'puerto-vallarta'
+  communityPuntaMita?: string
+  communityPuntaDeMita?: string
+  bedrooms: number
+  bathrooms: number
+  maxAdults: number
+  childOnlyBeds?: number
+  viewsAndPool?: string[]
+  golfCart6Seater?: number
+  golfCart4Seater?: number
+  memberships?: string
+  bedConfiguration?: unknown[]
+  priceOnRequest?: boolean
+  seasons?: Season[]
+  heroImage?: PhotoRef
+  mosaicPhotos?: PhotoRef[]
+  gallery?: unknown[]
+  videoUrl?: string
+  virtualTourUrl?: string
+  amenities?: string[]
+  staffServices?: { role: string; services: string[] }[]
+  policies?: { noPets: boolean; noEvents: boolean; noSmoking: boolean }
+  seoTitle?: string
+  seoDescription?: string
+  ogImage?: unknown
+  promotions?: {
+    limitedTimePromotion?: {
+      active: boolean
+      offerType?: 'percentage' | 'free-nights'
+      percentageOff?: number
+      payNights?: number
+      stayNights?: number
+      expiryDate?: string
+      note?: string
+    }
+    propertyOfTheMonth?: { active: boolean; month?: number; year?: number }
+    lastMinuteDeal?: {
+      active: boolean
+      availableDates?: string
+      offerType?: 'percentage' | 'free-nights'
+      percentageOff?: number
+      payNights?: number
+      stayNights?: number
+      note?: string
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// Label maps — copied verbatim from shared.js (single source of truth
+// on the current live site). Keep in sync if new communities/collections
+// are added in Sanity.
+// ─────────────────────────────────────────────────────────────
+
+export const COMM_LABELS: Record<string, string> = {
+  // Inside the gates — Punta Mita
+  '7-eight-bahia-golf-residences': '7 Eight Bahia',
+  'bahia-signature-estates':       'Bahia Signature Estates',
+  'bellavista-residences':         'Bellavista Residences',
+  'cuora':                         'Cuora',
+  'el-encanto':                    'El Encanto',
+  'el-encanto-villas':             'El Encanto Villas',
+  'four-seasons-residences':       'Four Seasons Residences',
+  'hacienda-de-mita':              'Hacienda de Mita',
+  'iyari-estates':                 'Iyari Estates',
+  'iyari-villas':                  'Iyari Villas',
+  'kupuri':                        'Kupuri',
+  'kupuri-beach-residences':       'Kupuri Beach Residences',
+  'la-punta-estates':              'La Punta Estates',
+  'la-serenata':                   'La Serenata',
+  'lagos-del-mar':                 'Lagos del Mar',
+  'las-marietas':                  'Las Marietas',
+  'las-palmas':                    'Las Palmas',
+  'las-palmas-golf-estates':       'Las Palmas Golf Estates',
+  'las-palmas-selva':              'Las Palmas Selva',
+  'las-terrazas':                  'Las Terrazas',
+  'las-vistas-estates':            'Las Vistas Estates',
+  'pacifico-estates':              'Pacifico Estates',
+  'porta-fortuna':                 'Porta Fortuna',
+  'porta-fortuna-golf':            'Porta Fortuna Golf',
+  'porta-fortuna-zen-casitas':     'Porta Fortuna Zen Casitas',
+  'ranchos-estates':               'Ranchos Estates',
+  'signature-estates':             'Signature Estates',
+  'tau-residences':                'TAU Residences',
+  'the-surf-residences':           'The Surf Residences',
+  // Outside the gates — Punta de Mita area
+  'bolongo':                       'Bolongo',
+  'el-farallon':                   'El Farallón',
+  'kirah':                         'Kiráh',
+  'litibu':                        'Litibú',
+  'los-veneros':                   'Los Veneros',
+  'maena':                         'Maena',
+  'naya':                          'Naya',
+  'nayama':                        'Nayamá',
+  'paradise-coves':                'Paradise Coves',
+  'pontoquito':                    'Pontoquito',
+  'punta-del-burro':               'Punta del Burro',
+  'real-del-mar':                  'Real del Mar',
+  'san-pancho':                    'San Pancho',
+  'sayulita':                      'Sayulita',
+  'susurros-del-corazon':          'Susurros del Corazón',
+  'uavi':                          'Uavi',
+  // Legacy slugs
+  'bahia':                         'Bahía',
+  'la-colina':                     'La Colina',
+  'corales':                       'Corales',
+  'punta-caracol':                 'Punta Caracol',
+  'el-eden':                       'El Edén',
+  'tres-vistas':                   'Tres Vistas',
+  'golf-villas':                   'Golf Villas',
+  'agave':                         'Agave Azul',
+  'mesquite':                      'Mesquite',
+  'casa-de-campo':                 'Casa de Campo',
+  'la-punta-residences':           'La Punta Residences',
+  'flamingos':                     'Flamingos',
+  'la-cruz':                       'La Cruz de Huanacaxtle',
+}
+
+export const COLL_LABELS: Record<string, string> = {
+  'exceptional-value': 'Exceptional Value',
+  'family-villas':     'Family Villa',
+  'oceanfront':        'Oceanfront',
+}
+
+export const COLL_NAMES: Record<string, string> = {
+  'exceptional-value': 'Exceptional Value',
+  'family-villas':     'Family Villas',
+  'oceanfront':        'Oceanfront',
+}
+
+export const VIEW_LABELS: Record<string, string> = {
+  'ocean-view':       'Ocean view',
+  'golf-course-view': 'Golf course view',
+  'lake-view':        'Lake view',
+  'oceanfront':       'Oceanfront',
+  'beachfront':       'Beachfront',
+  'golf-course':      'Golf course',
+  'hillside':         'Hillside',
+  'private-pool':     'Private pool',
+  'communal-pool':    'Communal pool',
+}
+
+export const DEST_LABELS: Record<string, string> = {
+  'punta-mita':      'Punta Mita',
+  'punta-de-mita':   'Punta de Mita Area',
+  'puerto-vallarta': 'Puerto Vallarta',
+}
+
+// URL slug (used by the root-level /[slug] destination pages and DEST_LABELS
+// above) -> the raw value Sanity actually stores on both the property
+// schema's locationLabel field and the activity schema's destinations field.
+// Only "punta-de-mita" differs from its own slug. Centralized here since
+// both the destination pages and /experiences need the same mapping.
+export const LOCATION_LABEL_BY_SLUG: Record<string, Property['locationLabel']> = {
+  'punta-mita':      'punta-mita',
+  'punta-de-mita':   'punta-de-mita-area',
+  'puerto-vallarta': 'puerto-vallarta',
+}
+
+// Mirrors the category list in sanity-studio/schemas/activity.js — the
+// query only returns the raw value, so this maps it back to a display label.
+// Order here is also the display order for category filter chips.
+export const EXPERIENCE_CATEGORIES: [string, string][] = [
+  ['ocean-water', 'Ocean & Water'],
+  ['wellness-beach-lifestyle', 'Wellness & Beach Lifestyle'],
+  ['sports-adventure', 'Sports & Adventure'],
+  ['beach-clubs-day-clubs', 'Beach Clubs & Day Clubs'],
+  ['food-dining', 'Food & Dining'],
+  ['high-end-vip', 'High-End & VIP'],
+]
+export const EXPERIENCE_CATEGORY_LABEL: Record<string, string> = Object.fromEntries(EXPERIENCE_CATEGORIES)
+
+// One bullet under an Activity (e.g. "Sunset cruise aboard a catamaran").
+// destinationOverride is only set when this specific experience is more
+// limited than the activity as a whole — e.g. within "Private Yacht &
+// Sailing Charters" (offered broadly), only "Marietas Islands boat tour"
+// carries an override narrowing it to Punta de Mita + Puerto Vallarta.
+// A bullet with no override simply inherits the parent Activity's own
+// `destinations` field.
+export type ExperienceItem = {
+  text: string
+  destinationOverride?: string[]
+}
+
+// One "Concierge & Experiences" card — what Sanity calls an "activity"
+// document (e.g. "Private Yacht & Sailing Charters"). `destinations` is its
+// broadest scope; `experiences` are the specific bookable bullets under it,
+// each optionally narrowed further via ExperienceItem.destinationOverride.
+export type Activity = {
+  _id: string
+  title: string
+  category: string
+  description: string
+  photo?: PhotoRef
+  destinations?: string[]
+  experiences: ExperienceItem[]
+}
+
+// Mirrors CATEGORY_LIST in sanity-studio/schemas/journalPost.js — the query
+// only returns the raw value, so this maps it back to a display label. Order
+// here is also the display order for the /journal category filter chips.
+export const JOURNAL_CATEGORIES: [string, string][] = [
+  ['destination-guides', 'Destination Guides'],
+  ['villas-living', 'Villas & Living'],
+  ['local-culture', 'Local Culture'],
+  ['planning-tips', 'Planning & Tips'],
+]
+export const JOURNAL_CATEGORY_LABEL: Record<string, string> = Object.fromEntries(JOURNAL_CATEGORIES)
+
+// A card-sized Journal post — every field the /journal listing page needs,
+// without the full body or resolved relatedProperties (see JOURNAL_POSTS_QUERY).
+export type JournalPostSummary = {
+  _id: string
+  title: string
+  slug: string
+  excerpt: string
+  coverImage?: PhotoRef
+  category: string
+  publishedDate: string
+}
+
+// A full article — everything JournalPostSummary has, plus the body and
+// resolved Related Villas (see JOURNAL_POST_BY_SLUG_QUERY).
+export type JournalPost = JournalPostSummary & {
+  body: unknown[]
+  seoTitle?: string
+  seoDescription?: string
+  relatedProperties?: Property[]
+}
+
+// Rough "X min read" estimate — 200 words/minute is the commonly cited
+// average adult silent-reading speed, floored at 1 minute so a very short
+// article never reads as "0 min read". Counts only actual text spans inside
+// portable text blocks (ignores images and empty blocks).
+export function readingTime(body: unknown[] | undefined): number {
+  if (!body?.length) return 1
+  const wordCount = (body as { _type: string; children?: { text?: string }[] }[])
+    .filter((b) => b._type === 'block')
+    .flatMap((b) => b.children || [])
+    .map((c) => c.text || '')
+    .join(' ')
+    .split(/\s+/)
+    .filter(Boolean).length
+  return Math.max(1, Math.round(wordCount / 200))
+}
+
+export const LOC_TYPE_LABELS: Record<string, string> = {
+  'oceanfront':  'Oceanfront',
+  'beachfront':  'Beachfront',
+  'golf-course': 'Golf Course',
+  'hillside':    'Hillside',
+}
+
+// sessionStorage key PropertyCard writes to (and ResultsLink reads from) so
+// a property page's "Results" breadcrumb can return a visitor to exactly the
+// filtered /villas search they came from — WITHOUT stuffing that filter
+// state into the property page's own URL (Francisco's call, 2026-08-27: the
+// old ?from=... approach made shared/copied property links long and ugly,
+// e.g. ?from=collection%3Dexceptional-value). Shared by both files so the
+// key can't drift out of sync between the writer and the reader.
+export const LAST_SEARCH_STORAGE_KEY = 'mr-last-search'
+
+/** Community label for the card's eyebrow ("Kupuri", "Sayulita", etc.)
+ *  Falls back to humanizing the raw slug (dashes → spaces, title case)
+ *  instead of showing it verbatim, in case a new community gets added in
+ *  Sanity before COMM_LABELS is updated to match. */
+export function communityLabel(p: Property): string {
+  const raw = p.communityPuntaMita || p.communityPuntaDeMita || ''
+  if (COMM_LABELS[raw]) return COMM_LABELS[raw]
+  return raw.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+}
+
+/** Which destination a property belongs to, for the Destination filter.
+ *  Reads straight off the authoritative `locationLabel` field rather than
+ *  inferring from the community sub-fields — those are only ever set for
+ *  Punta Mita and Punta de Mita Area properties (Puerto Vallarta has no
+ *  community dropdown by design), so the old community-based check could
+ *  never actually match a Puerto Vallarta property, silently leaving it
+ *  stuck as "Coming soon" on the villas listing's Destination filter. */
+export function destinationOf(p: Property): 'punta-mita' | 'punta-de-mita' | 'puerto-vallarta' | '' {
+  if (p.locationLabel === 'punta-mita') return 'punta-mita'
+  if (p.locationLabel === 'punta-de-mita-area') return 'punta-de-mita'
+  if (p.locationLabel === 'puerto-vallarta') return 'puerto-vallarta'
+  return ''
+}
+
+/**
+ * Collection badge shown top-left on the photo (excludes golf/membership
+ * entries). A property can legitimately belong to more than one collection
+ * (e.g. both "Exceptional Value" and "Oceanfront") — when a specific
+ * collection filter is active (villas listing, filtered by the header's
+ * Properties dropdown), `activeCollection` makes the badge show THAT
+ * collection instead of whichever one happens to come first in the
+ * property's own list. Without it, filtering by "Oceanfront" could still
+ * show "Exceptional Value" badges on every result, which reads as if the
+ * filter isn't working even though the result list itself is correct.
+ */
+export function collectionBadge(p: Property, activeCollection?: string): string {
+  const list = p.collection || []
+  if (activeCollection && list.includes(activeCollection) && COLL_LABELS[activeCollection]) {
+    return COLL_LABELS[activeCollection]
+  }
+  const coll = list.find(c => !/golf|membership/i.test(c) && COLL_LABELS[c])
+  return coll ? COLL_LABELS[coll] : ''
+}
+
+/**
+ * Location/view badge — shown alongside the collection badge on every
+ * property card sitewide (homepage, villas listing, similar properties).
+ * Standardized on the villas-listing page's version, per Francisco's call:
+ * one consistent card everywhere. Deliberately does not cover
+ * golf-course-view/hillside — only these three.
+ */
+export function locationBadge(p: Property): string {
+  const views = p.viewsAndPool || []
+  if (views.includes('beachfront')) return 'Beachfront'
+  if (views.includes('oceanfront')) return 'Oceanfront'
+  if (views.includes('ocean-view')) return 'Ocean View'
+  return ''
+}
+
+/** All photos for the card carousel: hero image first, then mosaic photos */
+export function allPhotos(p: Property): PhotoRef[] {
+  const list = [p.heroImage, ...(p.mosaicPhotos || [])].filter(
+    (ph): ph is PhotoRef => Boolean(ph?.asset?._ref)
+  )
+  return list
+}
+
+/** Compute total max guests from maxAdults + childOnlyBeds */
+export function totalGuests(p: Property): number {
+  return (p.maxAdults || 0) + (p.childOnlyBeds || 0)
+}
+
+/** Every real nightly rate across every season, flattened into one list.
+ *  A season contributes its flat `nightlyRate` if set, or every tier's
+ *  `nightlyRate` from `bedroomRates` if it uses bedroom-tiered pricing
+ *  instead (see the Season type above) — a season can only have one or the
+ *  other, but both are checked since either can be what's actually filled in.
+ *  Single source of truth for "all the numbers a property actually charges,"
+ *  so startingRate() and the villa page's rate-variance check can't quietly
+ *  drift apart and handle tiered seasons differently (which is exactly what
+ *  happened before this function existed — one handled tiers, one didn't). */
+export function allSeasonRates(p: Property): number[] {
+  const rates: number[] = []
+  for (const s of p.seasons || []) {
+    if (s.nightlyRate) rates.push(s.nightlyRate)
+    for (const br of s.bedroomRates || []) {
+      if (br.nightlyRate) rates.push(br.nightlyRate)
+    }
+  }
+  return rates
+}
+
+/** Compute starting rate = lowest nightly rate across all seasons */
+export function startingRate(p: Property): number | null {
+  const rates = allSeasonRates(p)
+  return rates.length ? Math.min(...rates) : null
+}
+
+/** Find one specific season by name (case-insensitive, e.g. "Christmas") and
+ *  return its lowest rate — the flat nightlyRate if set, or the lowest tier
+ *  in bedroomRates if it's priced per bedroom-count instead. Returns null if
+ *  this property doesn't have a season by that name, or that season has no
+ *  rate entered at all. Used by the wishlist comparison table's season
+ *  picker, so a client deciding on a specific week sees that week's real
+ *  rate instead of always the Low Season floor. */
+export function rateForSeason(p: Property, seasonName: string): number | null {
+  const season = p.seasons?.find(
+    (s) => s.seasonName?.toLowerCase() === seasonName.toLowerCase()
+  )
+  if (!season) return null
+  const rates: number[] = []
+  if (season.nightlyRate) rates.push(season.nightlyRate)
+  for (const br of season.bedroomRates || []) {
+    if (br.nightlyRate) rates.push(br.nightlyRate)
+  }
+  return rates.length ? Math.min(...rates) : null
+}
+
+// Lighter shape than Property — just the two fields a price range needs
+// (see DESTINATION_SHOWCASE_QUERY), so callers don't have to fetch or fake
+// an entire Property object just to compute a range across many of them.
+type RateSource = {
+  priceOnRequest?: boolean
+  seasons?: { nightlyRate?: number; bedroomRates?: { nightlyRate?: number }[] }[]
+}
+
+/** Price range across every property in a destination — from the single
+ *  cheapest rate (lowest season, any property) to the single most expensive
+ *  rate (highest season, any property). Properties marked priceOnRequest
+ *  are skipped entirely, same reasoning as everywhere else priceOnRequest
+ *  is checked: there's no real number there to pull into either end of the
+ *  range. Returns null if nothing priced turned up at all. */
+export function destinationPriceRange(properties: RateSource[]): { min: number; max: number } | null {
+  const rates: number[] = []
+  for (const p of properties) {
+    if (p.priceOnRequest) continue
+    for (const s of p.seasons || []) {
+      if (s.nightlyRate) rates.push(s.nightlyRate)
+      for (const br of s.bedroomRates || []) {
+        if (br.nightlyRate) rates.push(br.nightlyRate)
+      }
+    }
+  }
+  if (!rates.length) return null
+  return { min: Math.min(...rates), max: Math.max(...rates) }
+}
+
+/** "From $700 to $4,200 / night", or just "From $700 / night" in the edge
+ *  case where every property in the destination happens to share the exact
+ *  same single rate (a real range would otherwise read as a redundant
+ *  "From $700 to $700"). No "Villas"/"Properties" noun here on purpose —
+ *  the caller pairs this with its own "(Depending on the season)" note. */
+export function formatPriceRange(range: { min: number; max: number } | null): string | null {
+  if (!range) return null
+  if (range.min === range.max) return `From ${formatPrice(range.min)} / night`
+  return `From ${formatPrice(range.min)} to ${formatPrice(range.max)} / night`
+}
+
+/** Format price as $1,800. Guards against a missing rate (a season entered in
+ *  Sanity without its nightly rate filled in) — every other call site in the
+ *  codebase already checks for this before calling formatPrice, but the
+ *  villas/[slug] season table didn't, which crashed the entire production
+ *  build the moment one property (villa-kismet) had an incomplete season. */
+export function formatPrice(n: number | null | undefined): string {
+  if (n == null || Number.isNaN(n)) return '—'
+  return '$' + n.toLocaleString('en-US')
+}
+
+/** Check if property has pool */
+export function hasPool(p: Property): boolean {
+  return p.viewsAndPool?.includes('private-pool') ?? false
+}
+
+/** Check if property has ocean view */
+export function hasOceanView(p: Property): boolean {
+  return (p.viewsAndPool?.includes('ocean-view') || p.viewsAndPool?.includes('oceanfront') || p.viewsAndPool?.includes('beachfront')) ?? false
+}
+
+/** Check if property has beachfront */
+export function isBeachfront(p: Property): boolean {
+  return p.viewsAndPool?.includes('beachfront') ?? false
+}
+
+/** Human-readable location label */
+export function locationDisplay(p: Property): string {
+  const map: Record<string, string> = {
+    'punta-mita':         'Punta Mita',
+    'punta-de-mita-area': 'Punta de Mita Area',
+    'puerto-vallarta':    'Puerto Vallarta',
+  }
+  return map[p.locationLabel] || p.locationLabel
+}
+
+// TEMPORARY KILL SWITCH (2026-09-15) — Francisco's explicit instruction:
+// "Remove all promotions on the website until this is fixed." A bug in the
+// Sanity Promotions Manager tool (now fixed, see BulkPromotionsTool.jsx)
+// left stale "active" promotions on the published copies of Villa Amore
+// and Villa Brezza even after Francisco removed them — guests were seeing
+// deals that no longer existed. Setting this to true forces every deal
+// check below to report "no active deal" sitewide (badges, the /offers
+// page, the detail-page callout, everything), regardless of what's
+// actually saved in Sanity, until the underlying data is confirmed clean
+// and this is verified fixed. Flip back to false once confirmed — nothing
+// else needs to change, every deal function below reads this one flag.
+const DEALS_DISABLED = true
+
+/** Check if a limited time promotion is still active */
+export function hasActivePromotion(p: Property): boolean {
+  if (DEALS_DISABLED) return false
+  const promo = p.promotions?.limitedTimePromotion
+  if (!promo?.active) return false
+  if (!promo.expiryDate) return true
+  return new Date(promo.expiryDate) >= new Date()
+}
+
+/** Check if property has an active last minute deal */
+export function hasLastMinuteDeal(p: Property): boolean {
+  if (DEALS_DISABLED) return false
+  return p.promotions?.lastMinuteDeal?.active ?? false
+}
+
+/** Check if property is the current property of the month */
+export function isPropertyOfTheMonth(p: Property): boolean {
+  if (DEALS_DISABLED) return false
+  const potm = p.promotions?.propertyOfTheMonth
+  if (!potm?.active) return false
+  if (potm.month == null || potm.year == null) return true
+  const now = new Date()
+  return potm.month === now.getMonth() + 1 && potm.year === now.getFullYear()
+}
+
+/** Does this property have any currently-active promotion (any of the three types)? */
+export function hasAnyActiveDeal(p: Property): boolean {
+  return hasActivePromotion(p) || hasLastMinuteDeal(p) || isPropertyOfTheMonth(p)
+}
+
+type StructuredOffer = {
+  offerType?: 'percentage' | 'free-nights'
+  percentageOff?: number
+  payNights?: number
+  stayNights?: number
+}
+
+/**
+ * Builds a discount label from the shared percentage/free-nights structure —
+ * "15% Off" or "Pay 3, Stay 4" — rather than a hand-typed string, so the
+ * wording is always consistent no matter who enters it in Sanity. Used by
+ * both Limited Time Promotion and Last Minute Deal, which share this exact
+ * same offer-type structure.
+ */
+function offerLabel(offer: StructuredOffer | undefined, fallback: string): string {
+  if (!offer) return fallback
+  if (offer.offerType === 'percentage' && offer.percentageOff) {
+    return `${offer.percentageOff}% Off`
+  }
+  if (offer.offerType === 'free-nights' && offer.payNights && offer.stayNights) {
+    return `Pay ${offer.payNights}, Stay ${offer.stayNights}`
+  }
+  return fallback
+}
+
+/** Display label for a limited-time promotion, e.g. "15% Off" or "Pay 3, Stay 4". */
+export function limitedTimePromotionLabel(p: Property): string {
+  return offerLabel(p.promotions?.limitedTimePromotion, 'Limited-Time Offer')
+}
+
+/** Display label for a last-minute deal, e.g. "15% Off" or "Pay 3, Stay 4". */
+export function lastMinuteDealLabel(p: Property): string {
+  return offerLabel(p.promotions?.lastMinuteDeal, 'Last-Minute Deal')
+}
+
+/**
+ * Plain-language validity window for whichever deal is currently active on
+ * this property — e.g. "Valid Aug 1st to Oct 31st 2026" for a last-minute
+ * deal (Francisco's own free-text from the "Available Dates" field, shown
+ * as-is since it's often a loose range like "Dec 12–15 or Jan 3–7", not a
+ * single date), or "Valid through October 31, 2026" for a limited-time
+ * promotion (computed from its structured Expiry Date field). Previously
+ * this data existed in Sanity but was never shown anywhere on the live
+ * site — a guest saw "Pay 3, Stay 4" with no way to tell when it applied
+ * (Francisco's report, 2026-09-15). Property of the Month has no guest-
+ * facing validity window (it's an editorial distinction, not a rate with
+ * terms), so returns ''. Same priority order as dealBadgeLabel, so the
+ * date text shown always matches whichever badge is actually displayed.
+ */
+export function dealValidityText(p: Property): string {
+  if (isPropertyOfTheMonth(p)) return ''
+  if (hasActivePromotion(p)) {
+    const expiry = p.promotions?.limitedTimePromotion?.expiryDate
+    if (!expiry) return ''
+    // expiryDate is a date-only Sanity field ("YYYY-MM-DD"); appending a
+    // local midnight time avoids `new Date('2026-10-31')` being parsed as
+    // UTC midnight and displaying as the day before in timezones west of
+    // UTC (a real, easy-to-miss bug with date-only strings).
+    const formatted = new Date(`${expiry}T00:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+    return `Valid through ${formatted}`
+  }
+  if (hasLastMinuteDeal(p)) {
+    const dates = p.promotions?.lastMinuteDeal?.availableDates
+    return dates ? `Valid ${dates}` : ''
+  }
+  return ''
+}
+
+/**
+ * Small gold badge label for the card — shown on every card sitewide when a
+ * property has a genuinely active promotion (not page-specific), so guests
+ * see it wherever the card appears, not only on the Exclusive Deals page.
+ * Priority order when more than one is active: Property of the Month is the
+ * rarest/most editorial distinction, so it wins over a generic limited-time
+ * label, which in turn wins over a last-minute deal (the most transactional
+ * of the three).
+ */
+export function dealBadgeLabel(p: Property): string {
+  if (isPropertyOfTheMonth(p)) return 'Property of the Month'
+  if (hasActivePromotion(p)) return limitedTimePromotionLabel(p)
+  if (hasLastMinuteDeal(p)) return lastMinuteDealLabel(p)
+  return ''
+}

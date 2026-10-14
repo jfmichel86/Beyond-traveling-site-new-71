@@ -5,7 +5,7 @@ import { PrimaryButton, OutlineButton, Eyebrow } from "@/components/ui";
 export const metadata = {
   title: "Frequently Asked Questions | Beyond Traveling Punta Mita",
   description:
-    "Common questions from Punta Mita homeowners about pricing, availability, rentals, and how Beyond Traveling manages luxury properties.",
+    "Common questions from Punta Mita homeowners about pricing, availability, rentals, and how Beyond Traveling manages luxury properties.",  alternates: { canonical: "/faq" },
 };
 
 const QA = ({
@@ -19,7 +19,7 @@ const QA = ({
     <h2 className="font-serif text-[22px] font-normal leading-tight text-bt-navy md:text-[24px]">
       {question}
     </h2>
-    <p className="mt-3 max-w-[600px] font-light text-[15.5px] leading-[1.8] text-bt-charcoal/72">
+    <p className="mt-3 max-w-[600px] font-normal text-[15.5px] leading-[1.75] text-bt-charcoal/85">
       {children}
     </p>
   </div>
@@ -61,6 +61,20 @@ const FAQ_ITEMS = [
 export default function FAQPage() {
   return (
     <main className="bg-white pb-20 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQ_ITEMS.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: { "@type": "Answer", text: item.answer },
+            })),
+          }),
+        }}
+      />
       <section className="bg-bt-cream">
         <Container>
           <div className="mx-auto max-w-[680px] py-20 text-center md:py-28">
@@ -72,7 +86,7 @@ export default function FAQPage() {
               <span className="italic text-bt-gold">Usually Ask Us First.</span>
             </h1>
 
-            <p className="mx-auto mt-6 max-w-[460px] font-light text-[16px] leading-[1.85] text-bt-charcoal/72">
+            <p className="mx-auto mt-6 max-w-[460px] font-normal text-[16px] leading-[1.75] text-bt-charcoal/85">
               A few honest answers before we talk. Anything not covered here
               is easiest to work through in a short conversation.
             </p>
@@ -98,7 +112,7 @@ export default function FAQPage() {
             Still Have a Question?
           </h2>
 
-          <p className="mx-auto mt-5 max-w-[420px] font-light text-[16px] leading-[1.8] text-bt-charcoal/72">
+          <p className="mx-auto mt-5 max-w-[420px] font-normal text-[16px] leading-[1.75] text-bt-charcoal/85">
             The fastest answers come from a short conversation about your
             property specifically.
           </p>

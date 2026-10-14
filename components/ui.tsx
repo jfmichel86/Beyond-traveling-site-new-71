@@ -23,7 +23,7 @@ export const PrimaryButton = ({
 }) => (
   <Link
     href={href}
-    className="inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.18em] text-white transition hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
+    className="inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition duration-150 hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 active:scale-[0.98]"
   >
     {children}
   </Link>
@@ -38,7 +38,7 @@ export const OutlineButton = ({
 }) => (
   <Link
     href={href}
-    className="inline-flex min-h-11 items-center justify-center border border-bt-navy/30 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.18em] text-bt-navy transition hover:border-bt-navy hover:bg-bt-navy/[0.03] focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
+    className="inline-flex min-h-11 items-center justify-center border border-bt-navy/30 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition hover:border-bt-navy hover:bg-bt-navy/[0.03] focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
   >
     {children}
   </Link>
@@ -55,7 +55,7 @@ export const OutlineAnchor = ({
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-flex min-h-11 items-center justify-center border border-bt-navy/30 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.18em] text-bt-navy transition hover:border-bt-navy hover:bg-bt-navy/[0.03] focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
+    className="inline-flex min-h-11 items-center justify-center border border-bt-navy/30 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition hover:border-bt-navy hover:bg-bt-navy/[0.03] focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
   >
     {children}
   </a>
@@ -81,31 +81,67 @@ export const TextLink = ({
 export const Eyebrow = ({
   children,
   className = "",
+  as: Tag = "p",
 }: {
   children: React.ReactNode;
   className?: string;
+  /** Render as a real heading (h2/h3) when the label titles a section. */
+  as?: "p" | "h2" | "h3";
 }) => (
-  <p
-    className={`text-[11px] font-normal uppercase tracking-[0.32em] text-bt-navy/55 ${className}`}
+  <Tag
+    className={`text-[11px] font-medium uppercase tracking-[0.2em] text-bt-navy/85 ${className}`}
   >
     {children}
-  </p>
+  </Tag>
 );
 
-/** Full-width photo band — the one-photo "breather" between text sections. */
+/**
+ * Full-width photo band — the one-photo "breather" between text sections.
+ * Pass `caption` (and optionally `href`) to name the specific property shown
+ * rather than leaving the photo anonymous.
+ */
 export const FullBleedPhoto = ({
   src,
   alt,
   heightClass = "h-[340px] md:h-[480px]",
+  caption,
+  href,
 }: {
   src: string;
   alt: string;
   heightClass?: string;
-}) => (
-  <section className={`relative w-full ${heightClass}`}>
-    <Image src={src} alt={alt} fill sizes="100vw" className="object-cover" />
-  </section>
-);
+  caption?: string;
+  href?: string;
+}) => {
+  const photo = (
+    <section className={`group relative w-full ${heightClass}`}>
+      <Image src={src} alt={alt} fill sizes="100vw" className="object-cover" />
+      {caption && (
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent px-7 pb-6 pt-16 sm:px-8 md:px-12 lg:px-24">
+          <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-bt-gold-light">
+            Featured Property
+          </p>
+          <p className="font-serif mt-1 text-xl font-light text-white">
+            {caption}
+            {href && (
+              <span className="ml-3 align-middle font-sans text-[11px] font-medium uppercase tracking-[0.14em] text-white/85 transition-colors duration-300 group-hover:text-white">
+                View Property &rarr;
+              </span>
+            )}
+          </p>
+        </div>
+      )}
+    </section>
+  );
+
+  return href ? (
+    <Link href={href} className="block">
+      {photo}
+    </Link>
+  ) : (
+    photo
+  );
+};
 
 /**
  * Centered "positioning statement" block: eyebrow + italic serif pull-quote
@@ -116,22 +152,33 @@ export const PullQuoteSection = ({
   quote,
   body,
   bg = "bg-white",
+  dark = false,
   children,
 }: {
   eyebrow: string;
   quote: React.ReactNode;
   body?: React.ReactNode;
   bg?: string;
+  /** Set when `bg` is a dark color (e.g. bg-bt-navy) so text stays legible. */
+  dark?: boolean;
   children?: React.ReactNode;
 }) => (
   <section className={bg}>
     <div className="mx-auto max-w-[720px] px-6 py-20 text-center md:py-28">
-      <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="font-serif mt-6 text-[28px] font-light italic leading-[1.4] text-bt-navy md:text-[34px]">
+      <Eyebrow className={dark ? "text-bt-gold-light/90" : ""}>{eyebrow}</Eyebrow>
+      <h2
+        className={`font-serif mt-6 text-[28px] font-light italic leading-[1.4] md:text-[34px] ${
+          dark ? "text-white" : "text-bt-navy"
+        }`}
+      >
         {quote}
       </h2>
       {body && (
-        <p className="mx-auto mt-6 max-w-[540px] font-light text-[16px] leading-[1.85] text-bt-charcoal/72">
+        <p
+          className={`mx-auto mt-6 max-w-[540px] font-normal text-[16px] leading-[1.75] ${
+            dark ? "text-white/[0.68]" : "text-bt-charcoal/85"
+          }`}
+        >
           {body}
         </p>
       )}
@@ -154,7 +201,7 @@ export const HairlineRow = ({
 }) => (
   <section className={bg}>
     <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-20">
-      {heading && <Eyebrow className="mb-12 text-center">{heading}</Eyebrow>}
+      {heading && <Eyebrow as="h2" className="mb-12 text-center">{heading}</Eyebrow>}
       <div
         className={`grid gap-y-10 sm:grid-cols-2 md:gap-0 md:divide-x md:divide-bt-navy/15 ${
           columns === 4 ? "md:grid-cols-4" : "md:grid-cols-3"
@@ -163,7 +210,7 @@ export const HairlineRow = ({
         {items.map((item) => (
           <div key={item.title} className="px-0 text-center md:px-8">
             <p className="font-serif text-[20px] font-normal text-bt-navy">{item.title}</p>
-            <p className="mt-3 font-light text-[13px] leading-[1.75] text-bt-charcoal/62">
+            <p className="mt-3 font-normal text-[13px] leading-[1.75] text-bt-charcoal/85">
               {item.body}
             </p>
           </div>

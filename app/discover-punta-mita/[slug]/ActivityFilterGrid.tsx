@@ -56,7 +56,7 @@ export default function ActivityFilterGrid({
     <div>
       {tags.length > 1 && (
         <div className="mb-10">
-          <p className="text-[13px] uppercase tracking-[0.16em] text-slate-400">
+          <p className="text-[13px] uppercase tracking-[0.13em] text-slate-600">
             {language === "es" ? "Explorar por estilo" : "Browse by style"}
           </p>
 
@@ -100,7 +100,7 @@ export default function ActivityFilterGrid({
             {language === "es" ? "No se encontraron actividades" : "No activities found"}
           </h2>
 
-          <p className="mt-3 text-[16px] leading-[1.7] text-slate-900/70">
+          <p className="mt-3 text-[16px] leading-[1.7] text-slate-900/80">
             {language === "es"
               ? "Intenta seleccionar otro estilo."
               : "Try selecting a different style."}
@@ -142,7 +142,7 @@ function ActivityCard({
             {t(activity.title)}
           </h2>
 
-          <p className="mt-3 text-[15px] leading-[1.65] text-slate-600">
+          <p className="mt-3 text-[15px] leading-[1.65] text-slate-700">
             {t(activity.description)}
           </p>
         </div>

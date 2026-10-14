@@ -31,6 +31,12 @@ const es: Record<string, string> = {
   "Open menu": "Abrir menú",
   "Close menu": "Cerrar menú",
   "Close menu overlay": "Cerrar menú",
+  "Luxury Property Management in Punta Mita": "Administración de Propiedades de Lujo en Punta Mita",
+  "Property Management Services in Punta Mita": "Servicios de Administración de Propiedades en Punta Mita",
+  "Luxury Rental Properties in Punta Mita": "Propiedades de Renta de Lujo en Punta Mita",
+  "Discover Punta Mita Activities and Experiences": "Descubre Actividades y Experiencias en Punta Mita",
+  "Property Management Team in Punta Mita": "Equipo de Administración de Propiedades en Punta Mita",
+  "Contact Property Management Punta Mita": "Contacto de Administración de Propiedades en Punta Mita",
 
   // Footer
   "Guides": "Guías",
@@ -41,7 +47,29 @@ const es: Record<string, string> = {
     "Administración de propiedades y rentas de lujo en Punta Mita.",
   "Hands-on service, local expertise, and direct communication.":
     "Servicio cercano, experiencia local y comunicación directa.",
+  "Property management and luxury rentals in Punta Mita. Hands-on service, local expertise, and direct communication.":
+    "Administración de propiedades y rentas de lujo en Punta Mita. Servicio cercano, experiencia local y comunicación directa.",
   "WhatsApp Us": "Escríbenos por WhatsApp",
+  "Explore": "Explorar",
+  "We respond within 1 hour during the day.": "Respondemos en menos de 1 hora durante el día.",
+  "No long-term contracts. Cancel anytime with 30 days' notice.": "Sin contratos a largo plazo. Cancela cuando quieras con 30 días de aviso.",
+  "No hidden fees — ever.": "Sin cargos ocultos, nunca.",
+  "Get in touch": "Ponte en Contacto",
+  "Punta Mita Guides": "Guías de Punta Mita",
+  "Collaborate": "Colaborar",
+  "Partner With Us": "Asóciate con Nosotros",
+  "Work With Us": "Trabaja con Nosotros",
+  "FAQ": "Preguntas Frecuentes",
+  "Terms & Conditions": "Términos y Condiciones",
+  "Cancellation Policy": "Política de Cancelación",
+  "Privacy Policy": "Política de Privacidad",
+  "All rights reserved.": "Todos los derechos reservados.",
+  "Punta Mita, Nayarit, Mexico": "Punta Mita, Nayarit, México",
+  "Concierge Service": "Servicio de Concierge",
+  "Vacation Rental Management": "Administración de Rentas Vacacionales",
+  "Full-Service Management": "Administración Integral",
+  "Manage Your Property": "Administra Tu Propiedad",
+  "Book a Stay": "Reserva Tu Estancia",
   "View Services": "Ver Servicios",
 
   // Shared CTAs
@@ -361,7 +389,48 @@ const es: Record<string, string> = {
   "Clear accountability": "Responsabilidad clara",
   "No vague answers or disappearing after onboarding.": "Sin respuestas vagas ni desaparecer después del inicio.",
   "Our Story.": "Nuestra Historia.",
+
+  // About page (team section)
+  "Let’s See If We’re the Right People for Your Home": "Veamos Si Somos las Personas Adecuadas para Tu Casa",
+  "Beyond Traveling is a Punta Mita property management and luxury rental company, founded in 2023 by a local team that believes in personal, present, and honest care for your home.":
+    "Beyond Traveling es una empresa de administración de propiedades y rentas de lujo en Punta Mita, fundada en 2023 por un equipo local que cree en un cuidado personal, presente y honesto de tu hogar.",
+  "We started this after seeing how disconnected owners felt from the people managing their homes.":
+    "Empezamos esto al ver lo desconectados que se sentían los propietarios de quienes administraban sus casas.",
+  "Left waiting for updates, unclear about costs, unsure who was actually looking after the property. Our goal was simple: work that feels direct and genuinely involved.":
+    "Esperando noticias, sin claridad sobre los costos, sin saber quién cuidaba realmente la propiedad. Nuestra meta era simple: un trabajo directo y verdaderamente involucrado.",
+  "Since 2023, we have kept the team small on purpose. You know who looks after your home, and you can reach them directly.":
+    "Desde 2023 hemos mantenido el equipo pequeño a propósito. Sabes quién cuida tu casa y puedes comunicarte directamente con esa persona.",
+  "Browse Our Villas":
+    "Conoce Nuestras Villas",
+  "What We Believe":
+    "En Qué Creemos",
+  "Clear pricing and no hidden fees, so you always know where your money goes.":
+    "Precios claros y sin cargos ocultos, para que siempre sepas a dónde va tu dinero.",
+  "A quick answer when you reach out. We reply within one hour during the day.":
+    "Una respuesta rápida cuando nos escribes. Respondemos en menos de una hora durante el día.",
+  "Local Presence":
+    "Presencia Local",
+  "We are based in Punta Mita and take on a limited number of properties, so each one gets real attention.":
+    "Estamos en Punta Mita y administramos un número limitado de propiedades, para que cada una reciba atención real.",
+  "You deal with the people who run your property, never a call center.":
+    "Tratas con las personas que administran tu propiedad, nunca con un call center.",
+  "Meet the Team":
+    "Conoce al Equipo",
+  "A small team, on purpose. These are the people you will talk to.":
+    "Un equipo pequeño, a propósito. Estas son las personas con las que hablarás.",
+  "Co-Founder & General Manager":
+    "Cofundador y Gerente General",
+  "Co-Founder & Guest Experience Manager":
+    "Cofundadora y Gerente de Experiencia del Huésped",
+  "Operations Manager":
+    "Gerente de Operaciones",
+  "Rentals & Admin Coordinator": "Coordinadora de Rentas y Administración",
+  "Rentals, online presence, owner reporting, and finance & administration.": "Rentas, presencia en línea, reportes a propietarios, finanzas y administración.",
+  "Guest experience, rentals, and client acquisition.": "Experiencia del huésped, rentas y captación de clientes.",
+  "Property operations, maintenance oversight, and staff management.": "Operación de propiedades, supervisión de mantenimiento y gestión del personal.",
+  "Rental coordination, concierge support, and back-office administration.": "Coordinación de rentas, apoyo al concierge y administración de oficina.",
   "A More Personal Approach": "Un Enfoque Más Personal",
+  "A More Personal Approach.": "Un Enfoque Más Personal.",
   "Our Story. A More Personal Approach.": "Nuestra Historia. Un Enfoque Más Personal.",
   "We started this project after seeing how often homeowners felt disconnected from the people managing their homes.":
     "Comenzamos este proyecto al ver con qué frecuencia los propietarios se sentían desconectados de las personas que administraban sus casas.",
@@ -371,6 +440,8 @@ const es: Record<string, string> = {
     "Comenzamos este proyecto después de ver cuántos propietarios se sentían desconectados de las personas que administraban sus casas en Punta Mita. Muchos se quedaban esperando actualizaciones, sin claridad sobre costos o sin saber quién estaba realmente cuidando la propiedad.",
   "Our goal was simple: create a way of working that feels direct, transparent, and genuinely involved in the day-to-day of each property.":
     "Nuestro objetivo fue simple: crear una forma de trabajar directa, transparente y realmente involucrada en el día a día de cada propiedad.",
+  "Our goal was simple: create a way of working that feels direct, transparent, and genuinely involved in the day-to-day of each home.":
+    "Nuestro objetivo fue simple: crear una forma de trabajar directa, transparente y realmente involucrada en el día a día de cada casa.",
   "See How We Manage Properties": "Ver Cómo Administramos Propiedades",
   "Our Philosophy": "Nuestra Filosofía",
   "Integrity and care guide every decision we make.": "La integridad y el cuidado guían cada decisión que tomamos.",
@@ -628,7 +699,38 @@ const es: Record<string, string> = {
 
   "Beyond Traveling team member speaking with a local property vendor in Punta Mita":
     "Miembro del equipo de Beyond Traveling hablando con un proveedor local en Punta Mita",
-  
+
+  // Alt text — real property photography (replaced staged/AI imagery)
+  "Private pool and calm outdoor living space at a Beyond Traveling managed home in Punta Mita":
+    "Alberca privada y espacio exterior tranquilo en una casa administrada por Beyond Traveling en Punta Mita",
+
+  "Well-maintained outdoor kitchen and living space at a luxury villa managed by Beyond Traveling":
+    "Cocina exterior y espacio de estar bien cuidados en una villa de lujo administrada por Beyond Traveling",
+
+  "Luxury home in Punta Mita cared for by the local Beyond Traveling team":
+    "Casa de lujo en Punta Mita cuidada por el equipo local de Beyond Traveling",
+
+  "Luxury villa with private pool cared for by Beyond Traveling in Punta Mita":
+    "Villa de lujo con alberca privada cuidada por Beyond Traveling en Punta Mita",
+
+  "Bright, open dining space in a Punta Mita home managed by Beyond Traveling":
+    "Espacio de comedor amplio y luminoso en una casa de Punta Mita administrada por Beyond Traveling",
+
+  "Covered terrace and pool at a luxury villa managed by Beyond Traveling in Punta Mita":
+    "Terraza techada y alberca en una villa de lujo administrada por Beyond Traveling en Punta Mita",
+
+  "Well-maintained pool and outdoor living space at a luxury home in Punta Mita":
+    "Alberca y espacio exterior bien cuidados en una casa de lujo en Punta Mita",
+
+  "Outdoor living and dining space prepared for guests at a Punta Mita rental property":
+    "Espacio de estar y comedor exterior preparado para huéspedes en una propiedad de renta en Punta Mita",
+
+  "Pristine, freshly prepared bathroom in a luxury vacation rental in Punta Mita":
+    "Baño impecable y recién preparado en una propiedad vacacional de lujo en Punta Mita",
+
+  "Bright, well-kept kitchen and dining space in a Punta Mita home managed by Beyond Traveling":
+    "Cocina y comedor luminosos y bien cuidados en una casa de Punta Mita administrada por Beyond Traveling",
+
   // Attributes / alt / aria-label examples
   "View Villa Amore": "Ver Villa Amore",
   "View Villa Llamas": "Ver Villa Llamas",

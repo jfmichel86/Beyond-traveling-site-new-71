@@ -5,7 +5,7 @@ import Container from "@/components/Container";
 export const metadata = {
   title: "Cancellation Policy | Beyond Traveling Punta Mita",
   description:
-    "Deposit schedule, cancellation windows, refunds, and date-change terms for reservations booked directly with Beyond Traveling in Punta Mita.",
+    "Deposit schedule, cancellation windows, refunds, and date-change terms for reservations booked directly with Beyond Traveling in Punta Mita.",  alternates: { canonical: "/cancellation-policy" },
 };
 
 const PrimaryButton = ({
@@ -17,7 +17,7 @@ const PrimaryButton = ({
 }) => (
   <Link
     href={href}
-    className="inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.18em] text-white shadow-sm transition hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
+    className="inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white shadow-sm transition hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
   >
     {children}
   </Link>
@@ -32,7 +32,7 @@ const OutlineButton = ({
 }) => (
   <Link
     href={href}
-    className="inline-flex min-h-11 items-center justify-center rounded-sm border border-bt-navy/35 bg-white/55 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.18em] text-bt-navy transition hover:border-bt-navy hover:bg-white focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
+    className="inline-flex min-h-11 items-center justify-center rounded-sm border border-bt-navy/35 bg-white/55 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition hover:border-bt-navy hover:bg-white focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
   >
     {children}
   </Link>
@@ -54,7 +54,7 @@ const Section = ({
         {title}
       </h2>
     </div>
-    <div className="mt-3 max-w-[680px] font-light text-[16px] leading-[1.75] text-slate-900/72">
+    <div className="mt-3 max-w-[680px] font-normal text-[16px] leading-[1.75] text-slate-900/80">
       {children}
     </div>
   </div>
@@ -68,8 +68,8 @@ const RefundRow = ({
   refund: string;
 }) => (
   <div className="flex flex-col gap-1 border-b border-bt-navy/10 py-4 last:border-b-0 sm:flex-row sm:items-center sm:justify-between">
-    <span className="font-light text-[15px] text-bt-navy">{window}</span>
-    <span className="font-light text-[15px] text-slate-900/72">{refund}</span>
+    <span className="font-normal text-[15px] text-bt-navy">{window}</span>
+    <span className="font-normal text-[15px] text-slate-900/80">{refund}</span>
   </div>
 );
 
@@ -79,7 +79,7 @@ export default function CancellationPolicyPage() {
       <section className="bg-white">
         <Container>
           <div className="reveal mx-auto max-w-[760px] py-16 text-center md:py-24">
-            <p className="mb-5 text-[13px] font-light uppercase tracking-[0.18em] text-slate-900/60">
+            <p className="mb-5 text-[13px] font-medium uppercase tracking-[0.14em] text-slate-900/75">
               Legal
             </p>
 
@@ -90,12 +90,12 @@ export default function CancellationPolicyPage() {
               </span>
             </h1>
 
-            <p className="mx-auto mt-6 max-w-[620px] font-light text-[17px] leading-[1.75] text-slate-900/72">
+            <p className="mx-auto mt-6 max-w-[620px] font-normal text-[17px] leading-[1.75] text-slate-900/80">
               How deposits, cancellations, and date changes work for
               reservations booked directly with Beyond Traveling.
             </p>
 
-            <p className="mt-4 text-[13px] font-light uppercase tracking-[0.14em] text-slate-900/45">
+            <p className="mt-4 text-[13px] font-medium uppercase tracking-[0.14em] text-slate-900/70">
               Last updated: September 2026
             </p>
           </div>
@@ -105,7 +105,7 @@ export default function CancellationPolicyPage() {
       <section className="bg-white">
         <Container>
           <div className="reveal mx-auto max-w-[720px] pb-16 md:pb-24">
-            <p className="mb-8 font-light text-[16px] leading-[1.75] text-slate-900/72">
+            <p className="mb-8 font-normal text-[16px] leading-[1.75] text-slate-900/80">
               Once your dates are confirmed, a property is held exclusively
               for you — so a cancellation affects both the homeowner and
               other guests who may have wanted those same dates. This policy
@@ -113,7 +113,7 @@ export default function CancellationPolicyPage() {
               unusual, reach out directly; we review requests individually.
             </p>
 
-            <p className="mb-8 rounded-sm border border-bt-navy/15 bg-bt-cream px-6 py-4 font-light text-[15px] leading-[1.7] text-slate-900/72">
+            <p className="mb-8 rounded-sm border border-bt-navy/15 bg-bt-cream px-6 py-4 font-normal text-[15px] leading-[1.7] text-slate-900/80">
               This policy applies to reservations booked directly with Beyond
               Traveling. Bookings made through a third-party platform such as
               Airbnb or Vrbo follow that platform&apos;s own cancellation
@@ -198,10 +198,10 @@ export default function CancellationPolicyPage() {
               <p>
                 Send cancellation or date-change requests in writing to{" "}
                 <a
-                  href="mailto:beyondtravelingmx@gmail.com"
+                  href="mailto:management@beyondtravelingmx.com"
                   className="text-bt-navy underline underline-offset-2 hover:text-bt-gold"
                 >
-                  beyondtravelingmx@gmail.com
+                  management@beyondtravelingmx.com
                 </a>{" "}
                 or via WhatsApp at{" "}
                 <a
@@ -227,7 +227,7 @@ export default function CancellationPolicyPage() {
               Considering an unusual situation?
             </h2>
 
-            <p className="mx-auto mt-5 max-w-[620px] font-light text-[17px] leading-[1.75] text-slate-900/72">
+            <p className="mx-auto mt-5 max-w-[620px] font-normal text-[17px] leading-[1.75] text-slate-900/80">
               Reach out directly — we review circumstances individually and
               would rather talk it through than leave you guessing.
             </p>

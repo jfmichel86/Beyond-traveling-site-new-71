@@ -21,7 +21,7 @@ export default function VillaDiningMenuPage() {
     <main className="bg-white">
      <section className="bg-white">
   <div className="mx-auto max-w-[920px] px-6 py-16 text-center md:py-24">
-    <p className="mb-5 text-[13px] font-semibold uppercase tracking-[0.18em] text-slate-900/45">
+    <p className="mb-5 text-[13px] font-semibold uppercase tracking-[0.14em] text-slate-900/70">
       Villa Dining Menu
     </p>
 
@@ -32,7 +32,7 @@ export default function VillaDiningMenuPage() {
       </span>
     </h1>
 
-    <p className="mx-auto mt-6 max-w-[760px] text-[17px] leading-[1.75] text-slate-900/72">
+    <p className="mx-auto mt-6 max-w-[760px] text-[17px] leading-[1.75] text-slate-900/80">
       Enjoy relaxed, freshly prepared meals from the comfort of your
       private villa.
     </p>
@@ -45,7 +45,7 @@ export default function VillaDiningMenuPage() {
 <section className="bg-white py-12 md:py-16">
   <div className="mx-auto max-w-[1200px] px-6">
     <div className="max-w-[820px]">
-      <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-900/45">
+      <p className="text-[13px] font-semibold uppercase tracking-[0.13em] text-slate-900/70">
         Service Overview
       </p>
 
@@ -53,7 +53,7 @@ export default function VillaDiningMenuPage() {
         Freshly prepared meals, arranged around your stay
       </h2>
 
-      <div className="mt-6 space-y-4 text-[17px] leading-[1.8] text-slate-900/70">
+      <div className="mt-6 space-y-4 text-[17px] leading-[1.75] text-slate-900/80">
         <p>
           Breakfast preparation is included with your rental; however, the
           cost of groceries and ingredients is not included.
@@ -77,7 +77,7 @@ export default function VillaDiningMenuPage() {
 <section id="menu-categories" className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="mb-10 max-w-[760px]">
-            <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-900/45">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.13em] text-slate-900/70">
               Menu Categories
             </p>
 
@@ -85,7 +85,7 @@ export default function VillaDiningMenuPage() {
               Choose the service you would like to explore
             </h2>
 
-            <p className="mt-5 text-[17px] leading-[1.75] text-slate-900/70">
+            <p className="mt-5 text-[17px] leading-[1.75] text-slate-900/80">
               Browse breakfast, lunch, private dinner, children’s options, and
               desserts.
             </p>
@@ -135,7 +135,7 @@ export default function VillaDiningMenuPage() {
       >
         <div className="mx-auto max-w-[1100px] px-6 py-14 md:py-20">
           <div className="max-w-[780px]">
-            <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-900/45">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.13em] text-slate-900/70">
               Please Review
             </p>
 
@@ -143,7 +143,7 @@ export default function VillaDiningMenuPage() {
               Important Service Details
             </h2>
 
-            <p className="mt-5 text-[17px] leading-[1.75] text-slate-900/70">
+            <p className="mt-5 text-[17px] leading-[1.75] text-slate-900/80">
               These details help us keep the service clear, flexible, and easy
               to coordinate before and during your stay.
             </p>
@@ -153,7 +153,7 @@ export default function VillaDiningMenuPage() {
             {importantServiceDetails.map((detail) => (
               <div
                 key={detail}
-                className="rounded-2xl border border-slate-900/10 bg-white p-5 text-[15px] leading-[1.7] text-slate-900/72 shadow-sm"
+                className="rounded-2xl border border-slate-900/10 bg-white p-5 text-[15px] leading-[1.7] text-slate-900/80 shadow-sm"
               >
                 {detail}
               </div>

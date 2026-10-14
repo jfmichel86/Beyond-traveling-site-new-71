@@ -60,13 +60,13 @@ export default function VillaDiningCategoryPage({ params }: PageProps) {
         <div className="mx-auto max-w-[1200px] px-6">
           <Link
             href="/villa-dining-menu"
-            className="text-[14px] text-slate-500 transition hover:text-slate-900"
+            className="text-[14px] text-slate-600 transition hover:text-slate-900"
           >
             ← Back to Villa Dining Menu
           </Link>
 
           <div className="mt-8 max-w-[820px]">
-            <p className="text-[13px] uppercase tracking-[0.16em] text-slate-400">
+            <p className="text-[13px] uppercase tracking-[0.13em] text-slate-600">
               Villa Dining Menu
             </p>
 
@@ -74,12 +74,12 @@ export default function VillaDiningCategoryPage({ params }: PageProps) {
               {category.title}
             </h1>
 
-            <p className="mt-6 text-[20px] leading-[1.65] text-slate-900/80">
+            <p className="mt-6 text-[20px] leading-[1.65] text-slate-900/85">
               {category.description}
             </p>
 
             {category.intro && (
-              <p className="mt-5 text-[17px] leading-[1.8] text-slate-900/70">
+              <p className="mt-5 text-[17px] leading-[1.75] text-slate-900/80">
                 {category.intro}
               </p>
             )}
@@ -109,7 +109,7 @@ export default function VillaDiningCategoryPage({ params }: PageProps) {
                       {dish.title}
                     </h2>
 
-                    <p className="mt-3 text-[15px] leading-[1.65] text-slate-600">
+                    <p className="mt-3 text-[15px] leading-[1.65] text-slate-700">
                       {dish.description}
                     </p>
                   </div>
@@ -141,7 +141,7 @@ export default function VillaDiningCategoryPage({ params }: PageProps) {
                       </h2>
 
                       {subcategory.description && (
-                        <p className="mt-3 flex-1 text-[15px] leading-[1.65] text-slate-600">
+                        <p className="mt-3 flex-1 text-[15px] leading-[1.65] text-slate-700">
                           {subcategory.description}
                         </p>
                       )}

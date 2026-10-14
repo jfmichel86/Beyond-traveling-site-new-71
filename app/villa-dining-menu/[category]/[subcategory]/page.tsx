@@ -67,13 +67,13 @@ export default function VillaDiningSubcategoryPage({ params }: PageProps) {
         <div className="mx-auto max-w-[1200px] px-6">
           <Link
             href={`/villa-dining-menu/${category.slug}`}
-            className="text-[14px] text-slate-500 transition hover:text-slate-900"
+            className="text-[14px] text-slate-600 transition hover:text-slate-900"
           >
             ← Back to {category.title}
           </Link>
 
           <div className="mt-8 max-w-[820px]">
-            <p className="text-[13px] uppercase tracking-[0.16em] text-slate-400">
+            <p className="text-[13px] uppercase tracking-[0.13em] text-slate-600">
               {category.title}
             </p>
 
@@ -82,7 +82,7 @@ export default function VillaDiningSubcategoryPage({ params }: PageProps) {
             </h1>
 
             {subcategory.description && (
-              <p className="mt-6 text-[18px] leading-[1.75] text-slate-900/70">
+              <p className="mt-6 text-[18px] leading-[1.75] text-slate-900/80">
                 {subcategory.description}
               </p>
             )}
@@ -111,7 +111,7 @@ export default function VillaDiningSubcategoryPage({ params }: PageProps) {
                     {dish.title}
                   </h2>
 
-                  <p className="mt-3 text-[15px] leading-[1.65] text-slate-600">
+                  <p className="mt-3 text-[15px] leading-[1.65] text-slate-700">
                     {dish.description}
                   </p>
                 </div>

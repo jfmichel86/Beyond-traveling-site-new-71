@@ -5,7 +5,7 @@ import Container from "@/components/Container";
 export const metadata = {
   title: "Terms & Conditions | Beyond Traveling Punta Mita",
   description:
-    "Terms and conditions for booking a luxury villa or working with Beyond Traveling in Punta Mita: booking process, rates, guest conduct, and liability.",
+    "Terms and conditions for booking a luxury villa or working with Beyond Traveling in Punta Mita: booking process, rates, guest conduct, and liability.",  alternates: { canonical: "/terms-and-conditions" },
 };
 
 const PrimaryButton = ({
@@ -17,7 +17,7 @@ const PrimaryButton = ({
 }) => (
   <Link
     href={href}
-    className="inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.18em] text-white shadow-sm transition hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
+    className="inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white shadow-sm transition hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
   >
     {children}
   </Link>
@@ -32,7 +32,7 @@ const OutlineButton = ({
 }) => (
   <Link
     href={href}
-    className="inline-flex min-h-11 items-center justify-center rounded-sm border border-bt-navy/35 bg-white/55 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.18em] text-bt-navy transition hover:border-bt-navy hover:bg-white focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
+    className="inline-flex min-h-11 items-center justify-center rounded-sm border border-bt-navy/35 bg-white/55 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition hover:border-bt-navy hover:bg-white focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
   >
     {children}
   </Link>
@@ -69,7 +69,7 @@ const Section = ({
         {title}
       </h2>
     </div>
-    <div className="mt-3 max-w-[680px] font-light text-[16px] leading-[1.75] text-slate-900/72">
+    <div className="mt-3 max-w-[680px] font-normal text-[16px] leading-[1.75] text-slate-900/80">
       {children}
     </div>
   </div>
@@ -81,7 +81,7 @@ export default function TermsAndConditionsPage() {
       <section className="bg-white">
         <Container>
           <div className="reveal mx-auto max-w-[760px] py-16 text-center md:py-24">
-            <p className="mb-5 text-[13px] font-light uppercase tracking-[0.18em] text-slate-900/60">
+            <p className="mb-5 text-[13px] font-medium uppercase tracking-[0.14em] text-slate-900/75">
               Legal
             </p>
 
@@ -92,12 +92,12 @@ export default function TermsAndConditionsPage() {
               </span>
             </h1>
 
-            <p className="mx-auto mt-6 max-w-[620px] font-light text-[17px] leading-[1.75] text-slate-900/72">
+            <p className="mx-auto mt-6 max-w-[620px] font-normal text-[17px] leading-[1.75] text-slate-900/80">
               The terms below apply whenever you browse this website, submit
               an inquiry, or book a property with Beyond Traveling.
             </p>
 
-            <p className="mt-4 text-[13px] font-light uppercase tracking-[0.14em] text-slate-900/45">
+            <p className="mt-4 text-[13px] font-medium uppercase tracking-[0.14em] text-slate-900/70">
               Last updated: September 2026
             </p>
           </div>
@@ -107,7 +107,7 @@ export default function TermsAndConditionsPage() {
       <section className="bg-white">
         <Container>
           <div className="reveal mx-auto max-w-[720px] pb-16 md:pb-24">
-            <p className="mb-8 font-light text-[16px] leading-[1.75] text-slate-900/72">
+            <p className="mb-8 font-normal text-[16px] leading-[1.75] text-slate-900/80">
               By using this website or submitting an inquiry, you agree to the
               terms below. Our <LegalLink href="/cancellation-policy">Cancellation Policy</LegalLink> and{" "}
               <LegalLink href="/privacy-policy">Privacy Policy</LegalLink> are
@@ -200,10 +200,10 @@ export default function TermsAndConditionsPage() {
               <p>
                 Questions about these Terms can be sent to{" "}
                 <a
-                  href="mailto:beyondtravelingmx@gmail.com"
+                  href="mailto:management@beyondtravelingmx.com"
                   className="text-bt-navy underline underline-offset-2 hover:text-bt-gold"
                 >
-                  beyondtravelingmx@gmail.com
+                  management@beyondtravelingmx.com
                 </a>{" "}
                 or via WhatsApp at{" "}
                 <a
@@ -228,7 +228,7 @@ export default function TermsAndConditionsPage() {
               Have a question before you book?
             </h2>
 
-            <p className="mx-auto mt-5 max-w-[620px] font-light text-[17px] leading-[1.75] text-slate-900/72">
+            <p className="mx-auto mt-5 max-w-[620px] font-normal text-[17px] leading-[1.75] text-slate-900/80">
               We&apos;re happy to walk through the details with you directly.
             </p>
 

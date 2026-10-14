@@ -5,7 +5,7 @@ import Container from "@/components/Container";
 export const metadata = {
   title: "Privacy Policy | Beyond Traveling Punta Mita",
   description:
-    "How Beyond Traveling collects, uses, and protects the information you share with us through our website, contact form, and WhatsApp.",
+    "How Beyond Traveling collects, uses, and protects the information you share with us through our website, contact form, and WhatsApp.",  alternates: { canonical: "/privacy-policy" },
 };
 
 const PrimaryButton = ({
@@ -17,7 +17,7 @@ const PrimaryButton = ({
 }) => (
   <Link
     href={href}
-    className="inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.18em] text-white shadow-sm transition hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
+    className="inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white shadow-sm transition hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
   >
     {children}
   </Link>
@@ -32,7 +32,7 @@ const OutlineButton = ({
 }) => (
   <Link
     href={href}
-    className="inline-flex min-h-11 items-center justify-center rounded-sm border border-bt-navy/35 bg-white/55 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.18em] text-bt-navy transition hover:border-bt-navy hover:bg-white focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
+    className="inline-flex min-h-11 items-center justify-center rounded-sm border border-bt-navy/35 bg-white/55 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition hover:border-bt-navy hover:bg-white focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
   >
     {children}
   </Link>
@@ -54,7 +54,7 @@ const Section = ({
         {title}
       </h2>
     </div>
-    <div className="mt-3 max-w-[680px] font-light text-[16px] leading-[1.75] text-slate-900/72">
+    <div className="mt-3 max-w-[680px] font-normal text-[16px] leading-[1.75] text-slate-900/80">
       {children}
     </div>
   </div>
@@ -66,7 +66,7 @@ export default function PrivacyPolicyPage() {
       <section className="bg-white">
         <Container>
           <div className="reveal mx-auto max-w-[760px] py-16 text-center md:py-24">
-            <p className="mb-5 text-[13px] font-light uppercase tracking-[0.18em] text-slate-900/60">
+            <p className="mb-5 text-[13px] font-medium uppercase tracking-[0.14em] text-slate-900/75">
               Legal
             </p>
 
@@ -77,12 +77,12 @@ export default function PrivacyPolicyPage() {
               </span>
             </h1>
 
-            <p className="mx-auto mt-6 max-w-[620px] font-light text-[17px] leading-[1.75] text-slate-900/72">
+            <p className="mx-auto mt-6 max-w-[620px] font-normal text-[17px] leading-[1.75] text-slate-900/80">
               How we collect, use, and protect the information you share with
               us.
             </p>
 
-            <p className="mt-4 text-[13px] font-light uppercase tracking-[0.14em] text-slate-900/45">
+            <p className="mt-4 text-[13px] font-medium uppercase tracking-[0.14em] text-slate-900/70">
               Last updated: September 2026
             </p>
           </div>
@@ -146,10 +146,10 @@ export default function PrivacyPolicyPage() {
                 personal information. To exercise any of these rights,
                 contact us at{" "}
                 <a
-                  href="mailto:beyondtravelingmx@gmail.com"
+                  href="mailto:management@beyondtravelingmx.com"
                   className="text-bt-navy underline underline-offset-2 hover:text-bt-gold"
                 >
-                  beyondtravelingmx@gmail.com
+                  management@beyondtravelingmx.com
                 </a>{" "}
                 and we&apos;ll respond within a reasonable timeframe.
               </p>
@@ -167,10 +167,10 @@ export default function PrivacyPolicyPage() {
               <p>
                 Questions about your privacy can be sent to{" "}
                 <a
-                  href="mailto:beyondtravelingmx@gmail.com"
+                  href="mailto:management@beyondtravelingmx.com"
                   className="text-bt-navy underline underline-offset-2 hover:text-bt-gold"
                 >
-                  beyondtravelingmx@gmail.com
+                  management@beyondtravelingmx.com
                 </a>{" "}
                 or via WhatsApp at{" "}
                 <a
@@ -195,7 +195,7 @@ export default function PrivacyPolicyPage() {
               Have a question about your data?
             </h2>
 
-            <p className="mx-auto mt-5 max-w-[620px] font-light text-[17px] leading-[1.75] text-slate-900/72">
+            <p className="mx-auto mt-5 max-w-[620px] font-normal text-[17px] leading-[1.75] text-slate-900/80">
               We&apos;re glad to answer directly — just reach out.
             </p>
 
