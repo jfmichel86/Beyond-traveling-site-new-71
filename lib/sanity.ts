@@ -75,6 +75,21 @@ const SEASON_LABELS: Record<string, string> = {
   "high season": "High Season (Nov 1st to April 30th)",
 };
 
+/**
+ * What to do when Sanity can't be reached.
+ *  - While building or in dev: log it and use the fallback (so a Sanity outage
+ *    never blocks a deploy or local work).
+ *  - On the live site: throw. Next.js then keeps serving the last good copy of
+ *    the page and retries on the next visit, instead of caching an empty page.
+ */
+export function onSanityFailure<T>(err: unknown, fallback: T): T {
+  console.error(err);
+  if (process.env.NEXT_PHASE === "phase-production-build" || process.env.NODE_ENV !== "production") {
+    return fallback;
+  }
+  throw err instanceof Error ? err : new Error(String(err));
+}
+
 export async function sanityFetch<T>(query: string, params: Record<string, string> = {}): Promise<T> {
   const url = new URL(
     `https://${SANITY_PROJECT_ID}.api.sanity.io/v${API_VERSION}/data/query/${SANITY_DATASET}`
@@ -99,8 +114,7 @@ export async function getProperties(): Promise<PropertySummary[]> {
       }`
     );
   } catch (err) {
-    console.error(err);
-    return [];
+    return onSanityFailure(err, []);
   }
 }
 

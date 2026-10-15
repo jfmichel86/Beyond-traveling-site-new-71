@@ -1,7 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { isEsPath } from '@/lib/locale'
+import Link from "@/components/LocaleLink";
 import Image from 'next/image'
 import { urlFor } from '@/lib/villa/image'
 import {
@@ -18,6 +20,7 @@ const BATH_SVG  = <svg viewBox="0 0 24 24"><path d="M4 12h16v4a4 4 0 01-4 4H8a4 
 const GUEST_SVG = <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/></svg>
 
 export default function PropertyCard({ property: p }: Props) {
+  const es     = isEsPath(usePathname() || '/')
   const rate   = startingRate(p)
   const guests = totalGuests(p)
   const slug   = p.slug
@@ -42,7 +45,7 @@ export default function PropertyCard({ property: p }: Props) {
               <Image
                 key={i}
                 src={urlFor(ph).width(1300).height(867).quality(90).url()}
-                alt={`${p.title} — photo ${i + 1}`}
+                alt={`${p.title} — ${es ? 'foto' : 'photo'} ${i + 1}`}
                 fill
                 quality={90}
                 sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 33vw"
@@ -55,10 +58,10 @@ export default function PropertyCard({ property: p }: Props) {
 
         {photos.length > 1 && (
           <>
-            <button className="car-arrow car-prev" onClick={(e) => movePhoto(e, -1)} aria-label="Previous photo">
+            <button className="car-arrow car-prev" onClick={(e) => movePhoto(e, -1)} aria-label={es ? 'Foto anterior' : 'Previous photo'}>
               <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
             </button>
-            <button className="car-arrow car-next" onClick={(e) => movePhoto(e, 1)} aria-label="Next photo">
+            <button className="car-arrow car-next" onClick={(e) => movePhoto(e, 1)} aria-label={es ? 'Foto siguiente' : 'Next photo'}>
               <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
             </button>
             <div className="car-dots">
@@ -77,15 +80,15 @@ export default function PropertyCard({ property: p }: Props) {
         <div className="prop-name-row">
           <div className="prop-name">{p.title}</div>
           {rate ? (
-            <div className="prop-price">From <strong>{formatPrice(rate)}</strong> <span>/ night</span></div>
+            <div className="prop-price">{es ? 'Desde' : 'From'} <strong>{formatPrice(rate)}</strong> <span>{es ? '/ noche' : '/ night'}</span></div>
           ) : null}
         </div>
         <div className="prop-amenities">
-          <span className="prop-amenity">{BED_SVG}{p.bedrooms} bedroom{p.bedrooms !== 1 ? 's' : ''}</span>
+          <span className="prop-amenity">{BED_SVG}{es ? `${p.bedrooms} ${p.bedrooms !== 1 ? 'recámaras' : 'recámara'}` : `${p.bedrooms} bedroom${p.bedrooms !== 1 ? 's' : ''}`}</span>
           {p.bathrooms ? (
-            <span className="prop-amenity">{BATH_SVG}{p.bathrooms} bath{p.bathrooms !== 1 ? 's' : ''}</span>
+            <span className="prop-amenity">{BATH_SVG}{es ? `${p.bathrooms} ${p.bathrooms !== 1 ? 'baños' : 'baño'}` : `${p.bathrooms} bath${p.bathrooms !== 1 ? 's' : ''}`}</span>
           ) : null}
-          <span className="prop-amenity">{GUEST_SVG}{guests} guests</span>
+          <span className="prop-amenity">{GUEST_SVG}{es ? `${guests} huéspedes` : `${guests} guests`}</span>
         </div>
       </div>
     </Link>

@@ -2,11 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { usePathname } from "next/navigation";
+import { stripEs } from "@/lib/locale";
 import Container from "@/components/Container";
 import { useLanguage } from "@/lib/language-context";
 import { services } from "@/lib/services";
+import { FALLBACK_VILLAS } from "@/lib/fallback-villas";
 
 type MenuItem = { href: string; label: React.ReactNode };
 
@@ -18,12 +20,10 @@ const SERVICE_ITEMS: MenuItem[] = services.map((s) => ({
 // Managed properties with their own detail page under /properties.
 // The real list comes from Sanity (passed in by app/layout.tsx); this is only
 // a fallback in case Sanity can't be reached.
-const FALLBACK_PROPERTY_ITEMS: MenuItem[] = [
-  { href: "/properties/villa-amore", label: "Villa Amore" },
-  { href: "/properties/villa-llamas", label: "Villa Llamas" },
-  { href: "/properties/villa-brezza", label: "Villa Brezza" },
-  { href: "/properties/las-palmas-28", label: "Las Palmas 28" },
-];
+const FALLBACK_PROPERTY_ITEMS: MenuItem[] = FALLBACK_VILLAS.map((v) => ({
+  href: `/properties/${v.slug}`,
+  label: v.title,
+}));
 
 // Primary contact options (owners, guests). Agents and staff/vendors live in
 // the footer and on the /contact overview — deliberately not in the nav.
@@ -34,7 +34,7 @@ const CONTACT_ITEMS: MenuItem[] = [
 
 /** True when `href` is the current page or a section the current page sits under. */
 const useIsActive = (href: string) => {
-  const pathname = usePathname() || "/";
+  const pathname = stripEs(usePathname() || "/");
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
 };
@@ -336,7 +336,7 @@ export default function SiteHeader({
               href="/contact/owners"
               className="ml-4 hidden h-10 items-center justify-center whitespace-nowrap bg-bt-gold px-5 text-[11px] font-medium uppercase tracking-[0.13em] text-white transition hover:bg-bt-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-bt-navy focus-visible:ring-offset-2 xl:inline-flex"
             >
-              List Your Property
+              Talk With Us
             </Link>
           </div>
 
@@ -402,7 +402,7 @@ export default function SiteHeader({
                 onClick={() => setOpen(false)}
                 className="mb-6 flex h-12 w-full items-center justify-center bg-bt-gold text-[11px] font-medium uppercase tracking-[0.13em] text-white transition hover:bg-bt-navy"
               >
-                List Your Property
+                Talk With Us
               </Link>
 
               <div className="h-px w-full bg-bt-navy/10" />

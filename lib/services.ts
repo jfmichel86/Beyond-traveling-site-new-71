@@ -273,3 +273,17 @@ export const services: ServiceDetail[] = [
 export function getServiceBySlug(slug: string) {
   return services.find((s) => s.slug === slug);
 }
+
+
+/**
+ * Spanish display names for the two-part service titles ("Home" + "Watch"),
+ * keyed "title|italicTitle". Used by <ServiceName>, because word-by-word
+ * translation can't reorder or recombine the two halves.
+ */
+export const ES_SERVICE_NAMES: Record<string, [string, string]> = {
+  "Home|Watch": ["Home", "Watch"],
+  "Concierge|Service": ["Servicio de", "Concierge"],
+  "Vacation Rental|Management": ["Administración de Rentas", "Vacacionales"],
+  "Property|Management": ["Administración de", "Propiedades"],
+  "Full-Service|Management": ["Administración", "Integral"],
+};

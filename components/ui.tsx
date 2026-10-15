@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 
 /**
  * Shared "Quiet Boutique" primitives — used across every page after the
@@ -118,7 +118,7 @@ export const FullBleedPhoto = ({
       <Image src={src} alt={alt} fill sizes="100vw" className="object-cover" />
       {caption && (
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent px-7 pb-6 pt-16 sm:px-8 md:px-12 lg:px-24">
-          <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-bt-gold-light">
+          <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-bt-gold-light">
             Featured Property
           </p>
           <p className="font-serif mt-1 text-xl font-light text-white">
@@ -165,14 +165,16 @@ export const PullQuoteSection = ({
 }) => (
   <section className={bg}>
     <div className="mx-auto max-w-[720px] px-6 py-20 text-center md:py-28">
-      <Eyebrow className={dark ? "text-bt-gold-light/90" : ""}>{eyebrow}</Eyebrow>
-      <h2
+      <Eyebrow as="h2" className={dark ? "text-bt-gold-light/90" : ""}>
+        {eyebrow}
+      </Eyebrow>
+      <blockquote
         className={`font-serif mt-6 text-[28px] font-light italic leading-[1.4] md:text-[34px] ${
           dark ? "text-white" : "text-bt-navy"
         }`}
       >
         {quote}
-      </h2>
+      </blockquote>
       {body && (
         <p
           className={`mx-auto mt-6 max-w-[540px] font-normal text-[16px] leading-[1.75] ${

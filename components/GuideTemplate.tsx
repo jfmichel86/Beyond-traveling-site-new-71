@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
 import { Eyebrow, FullBleedPhoto } from "@/components/ui";
 

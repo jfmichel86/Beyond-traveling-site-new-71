@@ -1,6 +1,6 @@
 // GROQ queries for Beyond Traveling's villas — the Mexican Reserve "Property"
 // documents with "Show on Beyond Traveling" switched on.
-import { sanityFetch } from "@/lib/sanity";
+import { sanityFetch, onSanityFailure } from "@/lib/sanity";
 import type { Property } from "@/lib/villa/utils";
 
 const BT = `_type == "property" && showOnBeyondTraveling == true && defined(slug.current)`;
@@ -27,8 +27,7 @@ export async function getVillaCards(): Promise<Property[]> {
     );
     return list;
   } catch (err) {
-    console.error(err);
-    return [];
+    return onSanityFailure(err, []);
   }
 }
 

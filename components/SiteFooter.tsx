@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Container from "@/components/Container";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import FooterLanguageSwitch from "@/components/FooterLanguageSwitch";
 import { services } from "@/lib/services";
 

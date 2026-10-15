@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 
 /**
  * Sticky two-button bar shown on phones only. Shared so every page uses the
