@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { useLanguage } from "@/lib/language-context";
 import { getText } from "@/lib/i18n-types";
 import type { DiscoverCategory } from "@/lib/discoverPuntaMita";

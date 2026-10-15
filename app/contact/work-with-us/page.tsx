@@ -5,13 +5,14 @@ import {
   ContactHero,
   IncludeList,
 } from "@/components/contact/ContactShell";
+import { pageAlternates } from "@/lib/seo";
 
 // A recruiting / vendor page isn't something we want ranking in search.
 export const metadata = {
   title: "Work With Us | Careers & Vendors in Punta Mita",
   description:
     "Join the Beyond Traveling team in Punta Mita, or offer your services to our guests and properties.",
-  alternates: { canonical: "/contact/work-with-us" },
+  alternates: pageAlternates("/contact/work-with-us"),
   robots: { index: false, follow: true },
 };
 

@@ -1,18 +1,76 @@
 import React from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import Image from "next/image";
 import {
   PrimaryButton,
   Eyebrow,
-  FullBleedPhoto,
   PullQuoteSection,
   HairlineRow,
 } from "@/components/ui";
 import ComparisonTable from "@/components/ComparisonTable";
+import ServiceName from "@/components/ServiceName";
+import PropertyCard from "@/components/villa/PropertyCard";
+import { getVillaCards } from "@/lib/villa/queries";
+import type { Property } from "@/lib/villa/utils";
+import "./properties/villa.css";
+import { pageAlternates } from "@/lib/seo";
+import MobileStickyCta from "@/components/MobileStickyCta";
+import WhatsAppLink from "@/components/WhatsAppLink";
+
+// Re-check Sanity for new/edited villas every minute (villas strip below).
+export const revalidate = 60;
+
+const HOME_TITLE = "Punta Mita Property Management & Luxury Rentals";
+const HOME_DESCRIPTION =
+  "Luxury property management in Punta Mita: rental management, Home Watch, concierge, and villas to book. Clear pricing, no hidden fees, direct communication.";
 
 export const metadata = {
-  alternates: { canonical: "/" },
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
+  alternates: pageAlternates("/"),
+  openGraph: {
+    title: `${HOME_TITLE} | Beyond Traveling`,
+    description: HOME_DESCRIPTION,
+    url: "https://www.beyondtravelingmx.com",
+    siteName: "Beyond Traveling",
+    images: [
+      {
+        url: "/og-home.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Luxury property management in Punta Mita",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${HOME_TITLE} | Beyond Traveling`,
+    description: HOME_DESCRIPTION,
+    images: ["/og-home.jpg"],
+  },
 };
+
+/** Questions shown in the comparison panel's FAQ teaser — also emitted as
+ *  FAQPage JSON-LD, so the markup always matches the visible text. */
+const HOME_FAQ = [
+  {
+    question: "Are there hidden fees?",
+    answer:
+      "No. Our fees are straightforward, and we don\u2019t benefit when your expenses go up.",
+  },
+  {
+    question: "Rentals, or only maintenance?",
+    answer:
+      "Both. Guest communication and rental performance, alongside the upkeep that protects the property.",
+  },
+  {
+    question: "Do you take every property?",
+    answer:
+      "No. We work with a limited number of homeowners on purpose, to stay closely involved.",
+  },
+];
 
 const Hero = () => (
   <section className="relative bg-white">
@@ -23,30 +81,23 @@ const Hero = () => (
         <h1 className="font-serif mt-6 text-4xl font-light leading-[1.14] tracking-[-0.01em] text-bt-navy sm:text-[42px] md:text-[46px]">
           Luxury Property Management in Punta Mita.
           <br />
-          <span className="italic text-bt-gold">Done Personally. Done Right.</span>
+          <span className="italic text-bt-gold-text">Done Personally. Done Right.</span>
         </h1>
 
-        <p className="mt-6 max-w-[460px] font-normal text-[15px] leading-[1.75] text-bt-charcoal/85">
-          Beyond Traveling is a bilingual, locally based team providing
-          vacation rental management, high-end property management, Home
-          Watch, and concierge services across Punta Mita &mdash; serving
-          homeowners since 2023.
+        <p className="order-4 mt-6 max-w-[460px] font-normal text-[15px] leading-[1.75] text-bt-charcoal/85 md:order-3">
+          A bilingual, locally based team serving homeowners in Punta Mita
+          since 2023. We provide Property Management, Vacation Rental
+          Management, Home Watch, Concierge Services.
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-5">
+        <div className="order-3 mt-8 flex flex-wrap items-center gap-5 md:order-4">
           <PrimaryButton href="/contact/owners">
-            Book a Property Consultation
+            Talk With Us About Your Property
           </PrimaryButton>
-          <a
-            href="tel:+523313619889"
-            className="text-[12.5px] font-normal text-bt-navy/85 underline decoration-bt-navy/30 underline-offset-4 transition hover:text-bt-navy hover:decoration-bt-navy"
-          >
-            Or call +52 33 1361 9889
-          </a>
         </div>
       </div>
 
-      <div className="relative min-h-[320px] md:min-h-[560px]">
+      <div className="relative min-h-[260px] sm:min-h-[320px] md:min-h-[560px]">
         <Image
           src="/home/hero.jpg"
           alt="Luxury Punta Mita terrace cared for by Beyond Traveling"
@@ -58,41 +109,75 @@ const Hero = () => (
       </div>
     </div>
 
-    {/* scroll cue — signals there's more below on tall desktop viewports */}
-    <svg
-      aria-hidden="true"
-      className="pointer-events-none absolute bottom-6 left-1/2 hidden h-5 w-5 -translate-x-1/2 animate-bounce text-bt-navy/35 md:block"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
   </section>
 );
 
+const TRUST_ICONS: Record<string, React.ReactNode> = {
+  star: <path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4l-5.300 3 1.200-6L3.400 9.300l6-.7z" />,
+  pin: (
+    <>
+      <path d="M12 21s-6-5.600-6-10a6 6 0 0112 0c0 4.400-6 10-6 10z" />
+      <circle cx="12" cy="11" r="2.200" />
+    </>
+  ),
+  chat: <path d="M4 5h16v10H10l-4 4v-4H4z" />,
+  tool: (
+    <path d="M14.700 6.300a4 4 0 00-5 5L4 17l3 3 5.700-5.700a4 4 0 005-5l-2.400 2.400-2.300-.7-.7-2.300z" />
+  ),
+  shield: (
+    <>
+      <path d="M12 3l7 3v5c0 4.500-3 8-7 10-4-2-7-5.500-7-10V6z" />
+      <path d="M9 12l2 2 4-4" />
+    </>
+  ),
+  report: (
+    <>
+      <path d="M6 3h9l4 4v14H6z" />
+      <path d="M9 12h7M9 16h7M9 8h3" />
+    </>
+  ),
+};
+
 const TrustRow = () => {
   const items = [
-    "Local Punta Mita Experts",
-    "Bilingual Team",
-    "Property Inspections & Maintenance",
-    "Reliable Vendor Network",
-    "Monthly Property Reports",
+    { icon: "star", label: "Luxury Home Specialists" },
+    { icon: "pin", label: "Local Punta Mita Experts" },
+    { icon: "chat", label: "Bilingual Team" },
+    { icon: "tool", label: "Property Inspections & Maintenance" },
+    { icon: "shield", label: "Reliable Vendor Network" },
+    { icon: "report", label: "Monthly Property Reports" },
   ];
+
+  const rows = [items.slice(0, 3), items.slice(3)];
 
   return (
     <div className="bg-bt-navy">
-      <div className="mx-auto flex max-w-[1100px] cursor-default flex-wrap items-center justify-center gap-y-2 px-7 py-6 text-center text-[11px] font-medium uppercase tracking-[0.04em] text-white/85 sm:px-8 md:px-12 lg:px-24">
-        {items.map((item, i) => (
-          <React.Fragment key={item}>
-            <span>{item}</span>
-            {i < items.length - 1 && (
-              <span className="mx-4 text-bt-gold-light">&#9670;</span>
-            )}
-          </React.Fragment>
+      <div className="mx-auto flex max-w-[1100px] cursor-default flex-col gap-4 px-6 py-6 lg:gap-3.5 lg:px-12 lg:py-5">
+        {rows.map((row, r) => (
+          <ul
+            key={r}
+            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 lg:gap-x-12"
+          >
+            {row.map((item) => (
+              <li
+                key={item.label}
+                className="flex flex-col items-center gap-1.5 text-center lg:flex-row lg:gap-2.5 lg:text-left"
+              >
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="h-[18px] w-[18px] shrink-0 fill-none stroke-bt-gold-light stroke-[1.4]"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  {TRUST_ICONS[item.icon]}
+                </svg>
+                <span className="text-[11px] font-medium uppercase leading-[1.6] tracking-[0.08em] text-white/90">
+                  {item.label}
+                </span>
+              </li>
+            ))}
+          </ul>
         ))}
       </div>
     </div>
@@ -118,29 +203,53 @@ const ServiceCard = ({
 }) => (
   <Link
     href={href}
-    className={`group block px-7 py-12 transition-colors duration-300 hover:bg-bt-navy/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-bt-gold sm:px-8 md:px-10 ${
-      highlight ? "bg-bt-navy/[0.02]" : ""
+    className={`group flex h-full flex-col px-7 py-8 transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-bt-gold sm:px-8 sm:py-12 ${
+      highlight
+        ? "bg-bt-navy hover:bg-bt-navy-light"
+        : "hover:bg-bt-navy/[0.03]"
     }`}
   >
     {highlight ? (
-      <span className="inline-block rounded-sm bg-bt-navy px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-white">
+      <span className="inline-block self-start rounded-sm bg-bt-gold-light px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-bt-navy">
         {tag}
       </span>
     ) : (
-      <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-bt-navy/80">
+      <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-bt-navy/80">
         {tag}
       </p>
     )}
-    <h3 className="font-serif mt-3 text-xl font-normal text-bt-navy transition-colors duration-300 group-hover:text-bt-navy-light">
-      {title} <span className="italic text-[#8A6228]">{italicTitle}</span>
+    <h3
+      className={`font-serif mt-3 text-xl font-normal transition-colors duration-300 ${
+        highlight
+          ? "text-white"
+          : "text-bt-navy group-hover:text-bt-navy-light"
+      }`}
+    >
+      <ServiceName
+        title={title}
+        italic={italicTitle}
+        italicClassName={`italic ${highlight ? "text-bt-gold-light" : "text-bt-gold-text"}`}
+      />
     </h3>
-    <p className="mt-3 max-w-[320px] font-normal text-[13.5px] leading-[1.75] text-bt-charcoal/85">
+    <p
+      className={`mt-3 max-w-[320px] font-normal text-[13.5px] leading-[1.75] ${
+        highlight ? "text-white/85" : "text-bt-charcoal/85"
+      }`}
+    >
       {description}
     </p>
-    <span className="mt-4 inline-flex items-center text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy border-b border-bt-gold/50 pb-[3px] transition-colors duration-300 group-hover:border-bt-gold">
-      {linkLabel}
-      <span className="ml-1.5 inline-block transition-transform duration-300 group-hover:translate-x-1">
-        →
+    <span className="mt-auto flex pt-6">
+      <span
+        className={`inline-flex items-center border-b pb-[3px] text-[11px] font-medium uppercase tracking-[0.14em] transition-colors duration-300 ${
+          highlight
+            ? "border-bt-gold-light/50 text-bt-gold-light group-hover:border-bt-gold-light"
+            : "border-bt-gold/50 text-bt-navy group-hover:border-bt-gold"
+        }`}
+      >
+        {linkLabel}
+        <span className="ml-1.5 inline-block transition-transform duration-300 group-hover:translate-x-1">
+          →
+        </span>
       </span>
     </span>
   </Link>
@@ -167,75 +276,82 @@ const comparisonRows: { feature: string; values: boolean[] }[] = [
 
 const WhatWeDo = () => (
   <section className="bg-white">
-    <div className="mx-auto max-w-[680px] px-7 py-16 text-center sm:px-8 md:px-12 md:py-24">
+    <div className="mx-auto max-w-[860px] px-7 py-12 text-center sm:px-8 md:px-12 md:py-16">
       <Eyebrow>What We Do</Eyebrow>
       <h2 className="font-serif mx-auto mt-6 text-2xl font-normal leading-[1.2] tracking-[-0.01em] text-bt-navy md:text-[32px]">
-        Everything Your Home Needs.
+        Your Home,
         <br />
-        <span className="italic text-bt-gold">One Team to Handle It.</span>
+        <span className="italic text-bt-gold-text">Cared For Like It&rsquo;s Ours.</span>
       </h2>
-      <p className="mx-auto mt-5 max-w-[480px] font-normal text-[15px] leading-[1.75] text-bt-charcoal/85">
+      <p className="mx-auto mt-4 max-w-[760px] font-normal text-[15px] leading-[1.75] text-bt-charcoal/85">
         Occupied by guests or standing empty, the same team looks after every
         detail &mdash; inspections, upkeep, communication, and care.
       </p>
     </div>
 
-    {/* row 1 of 2 — simplest services (3 columns) */}
-    <div className="grid grid-cols-1 divide-y-2 divide-bt-navy/15 border-t-2 border-b-2 border-bt-navy/15 sm:grid-cols-3 sm:divide-x-2 sm:divide-y-0">
-      <ServiceCard
-        tag="For Vacant Homes"
-        title="Home"
-        italicTitle="Watch"
-        description="Scheduled visits and photo-documented checks for homes standing empty between guest stays."
-        href="/services/home-watch"
-        linkLabel="Explore Home Watch"
-      />
-      <ServiceCard
-        tag="For Every Stay"
-        title="Concierge"
-        italicTitle="Service"
-        description="Arrival prep and anything a stay requires, arranged directly for you in English or Spanish."
-        href="/services/concierge-service"
-        linkLabel="Explore Concierge Service"
-      />
-      <ServiceCard
-        tag="Guests & Bookings"
-        title="Vacation Rental"
-        italicTitle="Management"
-        description="Listings, pricing, and every guest conversation — the entire rental business, run for you. Bookable on its own."
-        href="/services/vacation-rental-management"
-        linkLabel="Explore Vacation Rental Management"
-      />
-    </div>
+    {/* Service cards — two centered, narrower rows (not full-bleed). Row 1:
+        the three simplest services. Row 2: the two most complete, narrower
+        still. The Full-Service card carries the emphasis (navy fill). */}
+    <div className="px-6 pb-16 sm:px-8 md:pb-24">
+      <div className="mx-auto max-w-[1040px] border-y border-bt-navy/15">
+        <div className="grid grid-cols-1 divide-y divide-bt-navy/15 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          <ServiceCard
+            tag="For Vacant Homes"
+            title="Home"
+            italicTitle="Watch"
+            description="Scheduled visits and photo-documented checks for homes standing empty between guest stays."
+            href="/services/home-watch"
+            linkLabel="Explore Home Watch"
+          />
+          <ServiceCard
+            tag="For Every Stay"
+            title="Concierge"
+            italicTitle="Service"
+            description="Arrival prep and anything a stay requires, arranged directly for you in English or Spanish."
+            href="/services/concierge-service"
+            linkLabel="Explore Concierge Service"
+          />
+          <ServiceCard
+            tag="Guests & Bookings"
+            title="Vacation Rental"
+            italicTitle="Management"
+            description="Listings, pricing, and every guest conversation — the entire rental business, run for you. Bookable on its own."
+            href="/services/vacation-rental-management"
+            linkLabel="Explore Vacation Rental Management"
+          />
+        </div>
+      </div>
 
-    {/* row 2 of 2 — the two most complete services, wider to fill the same width */}
-    <div className="grid grid-cols-1 divide-y-2 divide-bt-navy/15 sm:grid-cols-2 sm:divide-x-2 sm:divide-y-0">
-      <ServiceCard
-        tag="Property Only"
-        title="Property"
-        italicTitle="Management"
-        description="Maintenance, vendors, and bills for the house itself — you keep the guests and the calendar. Bookable on its own."
-        href="/services/property-management"
-        linkLabel="Explore Property Management"
-      />
-      <ServiceCard
-        tag="Most Complete"
-        highlight
-        title="Full-Service"
-        italicTitle="Management"
-        description="Property Management and Vacation Rental Management, combined into one team and one report."
-        href="/services/full-service-management"
-        linkLabel="Explore Full-Service Management"
-      />
+      <div className="mx-auto max-w-[700px] border-b border-bt-navy/15">
+        <div className="grid grid-cols-1 divide-y divide-bt-navy/15 sm:grid-cols-2 sm:divide-x sm:divide-y-0">
+          <ServiceCard
+            tag="Property Only"
+            title="Property"
+            italicTitle="Management"
+            description="Maintenance, vendors, and bills for the house itself — you keep the guests and the calendar. Bookable on its own."
+            href="/services/property-management"
+            linkLabel="Explore Property Management"
+          />
+          <ServiceCard
+            tag="Most Complete"
+            highlight
+            title="Full-Service"
+            italicTitle="Management"
+            description="The house and the rental business, handled by one team in one report. Most owners who want to be fully hands-off choose this."
+            href="/services/full-service-management"
+            linkLabel="Explore Full-Service Management"
+          />
+        </div>
+      </div>
     </div>
 
     {/* comparison table — cream panel, a clear shift from the white
         "What We Do" grid above it */}
-    <div className="border-t-2 border-bt-navy/15 bg-bt-cream px-6 py-16 md:px-14 md:py-20">
+    <div className="bg-bt-cream px-6 py-16 md:px-14 md:py-20">
       <div className="mx-auto max-w-[1220px]">
         <div className="mx-auto max-w-[560px] pb-12 text-center md:pb-14">
           <h2 className="font-serif text-2xl font-normal leading-[1.3] tracking-[-0.01em] text-bt-navy md:text-[32px]">
-            Which Service <span className="italic text-bt-gold">Is Right for Your Home?</span>
+            Which Service <span className="italic text-bt-gold-text">Is Right for Your Home?</span>
           </h2>
           <p className="mx-auto mt-4 max-w-[480px] font-normal text-[14.5px] leading-[1.75] text-bt-charcoal/90">
             Each one covers a different part of the job &mdash; combine what
@@ -244,9 +360,6 @@ const WhatWeDo = () => (
         </div>
 
         <ComparisonTable columns={comparisonColumns} rows={comparisonRows} />
-        <p className="mt-3 text-center text-[11px] font-medium uppercase tracking-[0.12em] text-bt-navy/75 md:hidden">
-          Swipe to compare &rarr;
-        </p>
 
         <p className="mt-6 text-center font-normal text-[13px] text-bt-charcoal/90">
           Property Management and Vacation Rental Management cover different
@@ -258,33 +371,16 @@ const WhatWeDo = () => (
             because this is where comparison/pricing doubts surface */}
         <div className="mx-auto mt-14 max-w-[980px] border-t border-bt-navy/15 pt-12 md:mt-16">
           <div className="grid gap-x-10 gap-y-8 sm:grid-cols-3">
-            <div>
-              <p className="font-serif text-[15px] font-normal text-bt-navy">
-                Are there hidden fees?
-              </p>
-              <p className="mt-2 font-normal text-[13px] leading-[1.75] text-bt-charcoal/90">
-                No. Our fees are straightforward, and we don&rsquo;t benefit
-                when your expenses go up.
-              </p>
-            </div>
-            <div>
-              <p className="font-serif text-[15px] font-normal text-bt-navy">
-                Rentals, or only maintenance?
-              </p>
-              <p className="mt-2 font-normal text-[13px] leading-[1.75] text-bt-charcoal/90">
-                Both. Guest communication and rental performance, alongside
-                the upkeep that protects the property.
-              </p>
-            </div>
-            <div>
-              <p className="font-serif text-[15px] font-normal text-bt-navy">
-                Do you take every property?
-              </p>
-              <p className="mt-2 font-normal text-[13px] leading-[1.75] text-bt-charcoal/90">
-                No. We work with a limited number of homeowners on purpose,
-                to stay closely involved.
-              </p>
-            </div>
+            {HOME_FAQ.map((item) => (
+              <div key={item.question}>
+                <p className="font-serif text-[15px] font-normal text-bt-navy">
+                  {item.question}
+                </p>
+                <p className="mt-2 font-normal text-[13px] leading-[1.75] text-bt-charcoal/90">
+                  {item.answer}
+                </p>
+              </div>
+            ))}
           </div>
           <p className="mt-9 text-center">
             <Link
@@ -297,57 +393,172 @@ const WhatWeDo = () => (
         </div>
       </div>
     </div>
+  </section>
+);
 
-    {/* Full-Service Management callout */}
-    <div className="bg-bt-navy px-6 py-20 text-center md:py-28">
-      <Eyebrow className="text-bt-gold-light/90">Full-Service Management</Eyebrow>
-      <h2 className="font-serif mx-auto mt-5 max-w-[560px] text-[28px] font-light italic leading-[1.4] text-white md:text-[34px]">
-        The House and the Rental Business. One Team, One Report.
-      </h2>
-      <p className="mx-auto mt-5 max-w-[480px] font-normal text-[16px] leading-[1.75] text-white/[0.68]">
-        Full-Service Management combines Property Management and Vacation
-        Rental Management &mdash; maintenance, vendors, and bills, plus the
-        bookings, guests, and calendar, handled by the same team. Most owners
-        who want to be fully hands-off land here.
-      </p>
-      <Link
-        href="/services/full-service-management"
-        className="mt-6 inline-block text-[11px] font-medium uppercase tracking-[0.13em] text-bt-gold-light border-b border-bt-gold-light/50 pb-[3px] transition hover:border-bt-gold-light"
-      >
-        Explore Full-Service Management &rarr;
-      </Link>
+const HowItWorks = () => (
+  <section className="bg-white">
+    <div className="mx-auto grid max-w-[1100px] items-stretch gap-12 px-6 py-20 md:grid-cols-[5fr_7fr] md:gap-20 md:px-12 md:py-28">
+      <div className="flex flex-col justify-center md:pr-4">
+        <Eyebrow>How It Works</Eyebrow>
+        <h2 className="font-serif mt-6 text-[34px] font-normal leading-[1.1] tracking-[-0.015em] text-bt-navy md:text-[52px]">
+          Getting Started
+          <br />
+          <span className="italic text-bt-gold-text">Is Simple.</span>
+        </h2>
+        <span aria-hidden="true" className="mt-8 block h-px w-14 bg-bt-gold" />
+        <p className="mt-8 font-serif text-[20px] font-normal italic leading-[1.55] text-bt-navy/90 md:text-[24px]">
+          Every home is different, so we start with a conversation and prepare a
+          proposal built around your property.
+        </p>
+      </div>
+
+      <ol className="divide-y divide-bt-navy/15 border-y border-bt-navy/15">
+        {[
+          {
+            title: "We talk.",
+            body: "A conversation about your home, how you use it, and what you need.",
+          },
+          {
+            title: "You get a proposal.",
+            body: "A clear quote built around your property and the services you choose.",
+          },
+          {
+            title: "We take over.",
+            body: "Once you\u2019re happy, we handle the day-to-day and keep you informed.",
+          },
+        ].map((step, i) => (
+          <li key={step.title} className="flex gap-6 py-8 md:gap-8">
+            <span
+              aria-hidden="true"
+              className="font-serif w-10 shrink-0 text-[40px] font-light italic leading-none text-bt-gold-text"
+            >
+              {i + 1}
+            </span>
+            <div>
+              <h3 className="font-serif text-[22px] font-normal text-bt-navy">
+                {step.title}
+              </h3>
+              <p className="mt-2 max-w-[420px] font-normal text-[14.5px] leading-[1.75] text-bt-charcoal/85">
+                {step.body}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
     </div>
   </section>
 );
 
-const FinalCta = () => (
-  <section id="contact" className="bg-bt-navy">
-    <div className="mx-auto max-w-[600px] px-6 py-20 text-center md:py-28">
-      <h2 className="font-serif text-3xl font-light leading-[1.15] tracking-[-0.01em] text-white md:text-[38px]">
-        Let&rsquo;s See If We&rsquo;re a Good Fit
+const VillasWeManage = ({ villas }: { villas: Property[] }) => (
+  <section className="bg-bt-cream">
+    <div className="mx-auto max-w-[680px] px-6 pb-4 pt-20 text-center md:pt-28">
+      <Eyebrow>Homes We Manage</Eyebrow>
+      <h2 className="font-serif mx-auto mt-6 text-2xl font-normal leading-[1.2] tracking-[-0.01em] text-bt-navy md:text-[32px]">
+        The Homes in Our Care,
+        <br />
+        <span className="italic text-bt-gold-text">Ready to Welcome Guests.</span>
       </h2>
-
-      <p className="mx-auto mt-5 max-w-[440px] font-normal text-[16px] leading-[1.75] text-white/80">
-        If you want a team that actually answers, stays involved, and treats
-        your home like it matters, let&rsquo;s talk.
+      <p className="mx-auto mt-5 max-w-[480px] font-normal text-[15px] leading-[1.75] text-bt-charcoal/85">
+        Each one is personally managed by our team and available to book for
+        your stay in Punta Mita.
       </p>
+    </div>
 
-      <div className="mt-8 flex flex-wrap justify-center gap-4">
+    {villas.length > 0 ? (
+      <div className="mr-villa pb-20 pt-12 md:pb-28 md:pt-14">
+        <div className="similar-grid mx-auto max-w-[1300px] px-6 md:px-16">
+          {villas.map((p) => (
+            <PropertyCard key={p._id} property={p} />
+          ))}
+        </div>
+      </div>
+    ) : (
+      /* Lightweight fallback if the villa data can't be loaded: no heavy photo,
+         just a clear path to the full list. */
+      <div className="pb-20 pt-8 text-center md:pb-28">
         <Link
-          href="/contact"
-          className="inline-flex min-h-11 items-center justify-center rounded-sm bg-white px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition duration-150 hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy active:scale-[0.98]"
+          href="/properties"
+          className="inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition duration-150 hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 active:scale-[0.98]"
         >
-          Contact Us
-        </Link>
-        <Link
-          href="/services"
-          className="inline-flex min-h-11 items-center justify-center border border-white/35 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition duration-150 hover:border-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy active:scale-[0.98]"
-        >
-          View Services
+          See Our Homes
         </Link>
       </div>
+    )}
 
-      <p className="mt-6">
+  </section>
+);
+
+const BTN_LIGHT =
+  "inline-flex min-h-11 items-center justify-center rounded-sm bg-white px-6 py-3.5 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition duration-150 hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy active:scale-[0.98]";
+const BTN_LIGHT_OUTLINE =
+  "inline-flex min-h-11 items-center justify-center border border-white/35 px-6 py-3.5 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-white transition duration-150 hover:border-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy active:scale-[0.98]";
+const BTN_NAVY =
+  "inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-6 py-3.5 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-white transition duration-150 hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 active:scale-[0.98]";
+const BTN_NAVY_OUTLINE =
+  "inline-flex min-h-11 items-center justify-center border border-bt-navy/35 px-6 py-3.5 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition duration-150 hover:border-bt-navy hover:bg-bt-navy/5 focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 active:scale-[0.98]";
+
+/** Final call to action: two clear paths, owners (primary) and guests. */
+const FinalCta = () => (
+  <section className="bg-bt-navy">
+    <div className="mx-auto max-w-[1100px] px-6 py-20 md:px-12 md:py-24">
+      <div className="mx-auto max-w-[620px] text-center">
+        <h2 className="font-serif text-3xl font-light leading-[1.15] tracking-[-0.01em] text-white md:text-[38px]">
+          Let&rsquo;s See If We&rsquo;re a Good Fit
+        </h2>
+        <p className="mt-5 font-normal text-[16px] leading-[1.75] text-white/80">
+          If you want a team that actually answers, stays involved, and treats
+          your home like it matters, let&rsquo;s talk.
+        </p>
+      </div>
+
+      <div className="mt-12 grid gap-6 md:grid-cols-2 md:gap-8">
+        {/* Owners — the main path */}
+        <div className="flex flex-col bg-white p-8 md:p-10">
+          <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-bt-gold-text">
+            For Homeowners
+          </p>
+          <h3 className="font-serif mt-4 text-[26px] font-normal leading-[1.2] text-bt-navy md:text-[30px]">
+            I Own a Home in Punta Mita
+          </h3>
+          <p className="mt-4 flex-1 font-normal text-[15px] leading-[1.75] text-bt-charcoal/85">
+            Tell us about your home and we&rsquo;ll prepare a proposal built
+            around it. No long-term contracts.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link href="/contact/owners" className={`${BTN_NAVY} sm:flex-1`}>
+              Talk With Us About Your Property
+            </Link>
+            <WhatsAppLink audience="owner" className={BTN_NAVY_OUTLINE}>
+              WhatsApp Us
+            </WhatsAppLink>
+          </div>
+        </div>
+
+        {/* Guests */}
+        <div className="flex flex-col border border-white/25 p-8 md:p-10">
+          <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-bt-gold-light">
+            For Guests
+          </p>
+          <h3 className="font-serif mt-4 text-[26px] font-normal leading-[1.2] text-white md:text-[30px]">
+            I&rsquo;d Like to Stay in a Villa
+          </h3>
+          <p className="mt-4 flex-1 font-normal text-[15px] leading-[1.75] text-white/80">
+            Browse the villas we manage, then ask us about your dates.
+            We&rsquo;ll reply directly with availability and rates.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link href="/contact/reservations" className={`${BTN_LIGHT} sm:flex-1`}>
+              Ask About a Stay
+            </Link>
+            <WhatsAppLink audience="guest" className={BTN_LIGHT_OUTLINE}>
+              WhatsApp Us
+            </WhatsAppLink>
+          </div>
+        </div>
+      </div>
+
+      <p className="mt-10 text-center">
         <Link
           href="/faq"
           className="text-[12.5px] font-normal text-white/85 underline decoration-white/35 underline-offset-4 transition hover:text-white hover:decoration-white"
@@ -359,44 +570,36 @@ const FinalCta = () => (
   </section>
 );
 
-const MobileStickyCta = () => (
-  <div className="animate-fadeUp fixed inset-x-0 bottom-0 z-40 border-t border-bt-navy/15 bg-white p-3 shadow-[0_-4px_16px_rgba(15,23,42,0.08)] md:hidden">
-    <div className="grid grid-cols-2 gap-3">
-      <a
-        href="https://wa.me/523313619889"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex min-h-11 items-center justify-center border border-bt-navy/25 text-[10px] font-medium uppercase tracking-[0.13em] text-bt-navy transition hover:bg-bt-navy/5 focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
-      >
-        WhatsApp
-      </a>
 
-      <Link
-        href="/contact"
-        className="inline-flex min-h-11 items-center justify-center bg-bt-navy text-[10px] font-medium uppercase tracking-[0.13em] text-white transition hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
-      >
-        Contact
-      </Link>
-    </div>
-  </div>
-);
+export default async function HomePage() {
+  const villas = await getVillaCards();
 
-export default function HomePage() {
   return (
     <div className="min-h-screen bg-white pb-20 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: HOME_FAQ.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: { "@type": "Answer", text: item.answer },
+            })),
+          }),
+        }}
+      />
       <Hero />
       <TrustRow />
       <WhatWeDo />
 
-      <FullBleedPhoto
-        src="/home/portfolio.jpg"
-        alt="Villa Brezza, a Beyond Traveling property in Punta Mita"
-        caption="Villa Brezza"
-        href="/properties/villa-brezza"
-      />
+      <HowItWorks />
+
+      <VillasWeManage villas={villas} />
 
       <PullQuoteSection
-        eyebrow="Our Approach"
+        eyebrow="Why Owners Choose Us"
         quote={
           <>
             We don&rsquo;t &ldquo;manage&rdquo; homes &mdash; we look after
@@ -405,11 +608,7 @@ export default function HomePage() {
         }
         body="We work with a limited number of homeowners, so we can stay closely involved — getting to know you, your home, and your priorities, whether that's preserving the property, stronger rental performance, or both."
         bg="bg-white"
-      >
-        <p className="mt-6 text-[16px] font-medium text-bt-navy">
-          And you can always reach us.
-        </p>
-      </PullQuoteSection>
+      />
 
       <HairlineRow
         columns={3}
@@ -431,7 +630,7 @@ export default function HomePage() {
       />
 
       <FinalCta />
-      <MobileStickyCta />
+      <MobileStickyCta contactHref="/contact/owners" contactLabel="Talk With Us" />
     </div>
   );
 }

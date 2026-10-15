@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { Eyebrow } from "@/components/ui";
 import {
   ContactHero,
@@ -7,12 +7,13 @@ import {
   DirectLines,
 } from "@/components/contact/ContactShell";
 import OwnerForm from "./OwnerForm";
+import { pageAlternates } from "@/lib/seo";
 
 export const metadata = {
   title: "Property Owner Inquiries | Punta Mita Property Management",
   description:
     "Talk with a local team about luxury property management in Punta Mita: property care, guest support, rental results, clear pricing, and no hidden fees.",
-  alternates: { canonical: "/contact/owners" },
+  alternates: pageAlternates("/contact/owners"),
 };
 
 export default function OwnersContactPage() {

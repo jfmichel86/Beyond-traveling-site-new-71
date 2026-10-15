@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { Eyebrow, OutlineButton } from "@/components/ui";
 import {
   ContactHero,
@@ -7,12 +7,13 @@ import {
   DirectLines,
   IncludeList,
 } from "@/components/contact/ContactShell";
+import { pageAlternates } from "@/lib/seo";
 
 export const metadata = {
   title: "Agent & Travel Advisor Partnerships | Punta Mita Villas",
   description:
     "Agencies, travel agents and rental agents: partner with Beyond Traveling to bring guests to our villas in Punta Mita.",
-  alternates: { canonical: "/contact/agents" },
+  alternates: pageAlternates("/contact/agents"),
 };
 
 const EMAIL = "agents@beyondtravelingmx.com";

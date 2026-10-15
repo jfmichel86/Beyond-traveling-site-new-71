@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import type { Metadata } from "next";
 import Container from "@/components/Container";
 import MobileStickyCta from "@/components/MobileStickyCta";
@@ -11,14 +11,15 @@ import {
   FullBleedPhoto,
   HairlineRow,
 } from "@/components/ui";
+import { pageAlternates } from "@/lib/seo";
 
 const SITE = "https://www.beyondtravelingmx.com";
 
 export const metadata: Metadata = {
-  title: "About Beyond Traveling | Punta Mita Property Management",
+  title: { absolute: "About Beyond Traveling | Punta Mita Property Management" },
   description:
     "Meet the small local team behind Beyond Traveling: founded in 2023, we manage luxury homes in Punta Mita with clear pricing and direct communication.",
-  alternates: { canonical: "/about" },
+  alternates: pageAlternates("/about"),
   openGraph: {
     type: "website",
     url: "/about",
@@ -280,7 +281,7 @@ export default function AboutPage() {
       <TeamSection />
 
       <AboutCTA />
-      <MobileStickyCta contactHref="/contact/owners" />
+      <MobileStickyCta contactHref="/contact/owners" contactLabel="Talk With Us" />
     </div>
   );
 }

@@ -1,11 +1,12 @@
 import React from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
+import { pageAlternates } from "@/lib/seo";
 
 export const metadata = {
-  title: "Terms & Conditions | Beyond Traveling Punta Mita",
+  title: { absolute: "Terms & Conditions | Beyond Traveling Punta Mita" },
   description:
-    "Terms and conditions for booking a luxury villa or working with Beyond Traveling in Punta Mita: booking process, rates, guest conduct, and liability.",  alternates: { canonical: "/terms-and-conditions" },
+    "Terms and conditions for booking a luxury villa or working with Beyond Traveling in Punta Mita: booking process, rates, guest conduct, and liability.",  alternates: pageAlternates("/terms-and-conditions"),
 };
 
 const PrimaryButton = ({

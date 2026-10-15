@@ -1,11 +1,12 @@
 import React from "react";
 import Container from "@/components/Container";
 import { PrimaryButton, OutlineButton, Eyebrow } from "@/components/ui";
+import { pageAlternates } from "@/lib/seo";
 
 export const metadata = {
-  title: "Frequently Asked Questions | Beyond Traveling Punta Mita",
+  title: { absolute: "Frequently Asked Questions | Beyond Traveling Punta Mita" },
   description:
-    "Common questions from Punta Mita homeowners about pricing, availability, rentals, and how Beyond Traveling manages luxury properties.",  alternates: { canonical: "/faq" },
+    "Common questions from Punta Mita homeowners about pricing, availability, rentals, and how Beyond Traveling manages luxury properties.",  alternates: pageAlternates("/faq"),
 };
 
 const QA = ({

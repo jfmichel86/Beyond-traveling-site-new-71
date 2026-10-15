@@ -1,9 +1,10 @@
 import GuideTemplate from "@/components/GuideTemplate";
+import { pageAlternates } from "@/lib/seo";
 
 export const metadata = {
-  title: "Luxury Rentals Punta Mita | Beyond Traveling",
+  title: { absolute: "Luxury Rentals Punta Mita | Beyond Traveling" },
   description:
-    "Discover luxury rentals in Punta Mita. Beyond Traveling manages high-end villas with full guest experience and local support.",  alternates: { canonical: "/luxury-rentals-punta-mita" },
+    "Discover luxury rentals in Punta Mita. Beyond Traveling manages high-end villas with full guest experience and local support.",  alternates: pageAlternates("/luxury-rentals-punta-mita"),
 };
 
 export default function LuxuryRentalsPage() {

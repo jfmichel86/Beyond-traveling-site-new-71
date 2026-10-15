@@ -1,11 +1,13 @@
 import React from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
+import EsText from "@/components/EsText";
+import { pageAlternates } from "@/lib/seo";
 
 export const metadata = {
-  title: "Cancellation Policy | Beyond Traveling Punta Mita",
+  title: { absolute: "Cancellation Policy | Beyond Traveling Punta Mita" },
   description:
-    "Deposit schedule, cancellation windows, refunds, and date-change terms for reservations booked directly with Beyond Traveling in Punta Mita.",  alternates: { canonical: "/cancellation-policy" },
+    "Deposit schedule, cancellation windows, refunds, and date-change terms for reservations booked directly with Beyond Traveling in Punta Mita.",  alternates: pageAlternates("/cancellation-policy"),
 };
 
 const PrimaryButton = ({
@@ -84,9 +86,9 @@ export default function CancellationPolicyPage() {
             </p>
 
             <h1 className="mx-auto max-w-[760px] font-serif text-4xl leading-[1.06] tracking-[-0.025em] text-bt-navy md:text-6xl">
-              Cancellation
+              <EsText en="Cancellation" es="Política de" />
               <span className="block italic text-[0.78em] leading-[1.15] text-bt-gold">
-                Policy.
+                <EsText en="Policy." es="Cancelación." />
               </span>
             </h1>
 

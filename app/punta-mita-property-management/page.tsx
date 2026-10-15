@@ -1,9 +1,10 @@
 import GuideTemplate from "@/components/GuideTemplate";
+import { pageAlternates } from "@/lib/seo";
 
 export const metadata = {
-  title: "Property Management Punta Mita | Beyond Traveling",
+  title: { absolute: "Property Management Punta Mita | Beyond Traveling" },
   description:
-    "Looking for property management in Punta Mita? Learn how we manage luxury homes, rentals, and guest experience with a local, hands-on approach.",  alternates: { canonical: "/punta-mita-property-management" },
+    "Looking for property management in Punta Mita? Learn how we manage luxury homes, rentals, and guest experience with a local, hands-on approach.",  alternates: pageAlternates("/punta-mita-property-management"),
 };
 
 export default function PuntaMitaPropertyManagementPage() {

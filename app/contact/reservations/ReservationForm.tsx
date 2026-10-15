@@ -2,6 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { useLanguage } from "@/lib/language-context";
+import { FALLBACK_VILLAS } from "@/lib/fallback-villas";
+import FormSent from "@/components/contact/FormSent";
+import { trackEvent } from "@/lib/analytics";
 import {
   Field,
   SelectInput,
@@ -9,12 +12,7 @@ import {
   submitClass,
 } from "@/components/contact/fields";
 
-const VILLAS = [
-  { slug: "villa-amore", name: "Villa Amore" },
-  { slug: "villa-brezza", name: "Villa Brezza" },
-  { slug: "villa-llamas", name: "Villa Llamas" },
-  { slug: "las-palmas-28", name: "Las Palmas 28" },
-];
+const VILLAS = FALLBACK_VILLAS.map((v) => ({ slug: v.slug, name: v.title }));
 
 const NOT_SURE = "not-sure";
 const GUESTS = Array.from({ length: 14 }, (_, i) => String(i + 1)).concat(
@@ -40,6 +38,7 @@ export default function ReservationForm() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [today, setToday] = useState("");
+  const [sentUrl, setSentUrl] = useState("");
   const { language } = useLanguage();
 
   // Set after mount so server and client markup match (no date at render time),
@@ -86,7 +85,11 @@ export default function ReservationForm() {
       lines.join("\n")
     )}`;
     window.open(url, "_blank", "noopener,noreferrer");
+    trackEvent("generate_lead", { lead_type: "guest", method: "whatsapp_form" });
+    setSentUrl(url);
   };
+
+  if (sentUrl) return <FormSent url={sentUrl} onReset={() => setSentUrl("")} />;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">

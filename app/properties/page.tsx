@@ -1,10 +1,12 @@
 import React from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
 import { PrimaryButton, OutlineButton, Eyebrow } from "@/components/ui";
 import { getVillaCards } from "@/lib/villa/queries";
 import PropertyCard from "@/components/villa/PropertyCard";
 import "./villa.css";
+import { pageAlternates } from "@/lib/seo";
+import MobileStickyCta from "@/components/MobileStickyCta";
 
 // Re-check Sanity for new/edited villas every minute.
 export const revalidate = 60;
@@ -12,30 +14,9 @@ export const revalidate = 60;
 export const metadata = {
   title: "Managed Properties in Punta Mita",
   description:
-    "Homes currently looked after by Beyond Traveling in Punta Mita. Luxury property management with direct communication, local care, guest support, and a limited portfolio.",  alternates: { canonical: "/properties" },
+    "Homes currently looked after by Beyond Traveling in Punta Mita. Luxury property management with direct communication, local care, guest support, and a limited portfolio.",  alternates: pageAlternates("/properties"),
 };
 
-const MobileStickyCta = () => (
-  <div className="fixed inset-x-0 bottom-0 z-40 border-t border-bt-navy/10 bg-white/95 p-3 backdrop-blur md:hidden">
-    <div className="grid grid-cols-2 gap-3">
-      <a
-        href="https://wa.me/523313619889"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex min-h-11 items-center justify-center border border-bt-navy/25 text-[11.5px] font-medium uppercase tracking-[0.13em] text-bt-navy transition hover:bg-bt-cream focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
-      >
-        WhatsApp
-      </a>
-
-      <Link
-        href="/contact"
-        className="inline-flex min-h-11 items-center justify-center bg-bt-navy text-[11.5px] font-medium uppercase tracking-[0.13em] text-white transition hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
-      >
-        Contact
-      </Link>
-    </div>
-  </div>
-);
 
 export default async function Properties() {
   const properties = await getVillaCards();
@@ -69,6 +50,12 @@ export default async function Properties() {
             <PropertyCard key={p._id} property={p} />
           ))}
         </div>
+        {properties.length === 0 && (
+          <p className="mx-auto max-w-[520px] px-6 text-center text-[16px] leading-[1.75] text-bt-charcoal/85">
+            Our homes are taking a moment to load. Please refresh the page in a
+            minute, or contact us and we&rsquo;ll send you the details directly.
+          </p>
+        )}
       </section>
 
       <section className="border-t border-bt-navy/10 bg-bt-cream">
@@ -91,7 +78,7 @@ export default async function Properties() {
         </div>
       </section>
 
-      <MobileStickyCta />
+      <MobileStickyCta contactHref="/contact/owners" contactLabel="Talk With Us" />
     </main>
   );
 }

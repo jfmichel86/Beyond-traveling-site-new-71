@@ -1,11 +1,13 @@
 import React from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
+import EsText from "@/components/EsText";
+import { pageAlternates } from "@/lib/seo";
 
 export const metadata = {
-  title: "Privacy Policy | Beyond Traveling Punta Mita",
+  title: { absolute: "Privacy Policy | Beyond Traveling Punta Mita" },
   description:
-    "How Beyond Traveling collects, uses, and protects the information you share with us through our website, contact form, and WhatsApp.",  alternates: { canonical: "/privacy-policy" },
+    "How Beyond Traveling collects, uses, and protects the information you share with us through our website, contact form, and WhatsApp.",  alternates: pageAlternates("/privacy-policy"),
 };
 
 const PrimaryButton = ({
@@ -71,9 +73,9 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <h1 className="mx-auto max-w-[760px] font-serif text-4xl leading-[1.06] tracking-[-0.025em] text-bt-navy md:text-6xl">
-              Privacy
+              <EsText en="Privacy" es="Política de" />
               <span className="block italic text-[0.78em] leading-[1.15] text-bt-gold">
-                Policy.
+                <EsText en="Policy." es="Privacidad." />
               </span>
             </h1>
 
@@ -133,9 +135,12 @@ export default function PrivacyPolicyPage() {
 
             <Section number="05" title="Cookies & Analytics">
               <p>
-                This site does not currently use advertising or tracking
-                cookies. If that changes, we&apos;ll update this policy
-                accordingly.
+                We use Google Analytics to understand how visitors use this
+                site, such as which pages are viewed, the type of device, and
+                general location. It does not identify you personally, and we
+                do not use advertising cookies or share this data for
+                advertising. You can block analytics cookies in your browser
+                settings at any time.
               </p>
             </Section>
 

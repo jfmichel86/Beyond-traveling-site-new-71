@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { useLanguage } from "@/lib/language-context";
+import FormSent from "@/components/contact/FormSent";
+import { trackEvent } from "@/lib/analytics";
 import {
   Field,
   SelectInput,
@@ -24,6 +26,7 @@ export default function OwnerForm() {
   const [bedrooms, setBedrooms] = useState("");
   const [setup, setSetup] = useState("");
   const [message, setMessage] = useState("");
+  const [sentUrl, setSentUrl] = useState("");
   const { language } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -47,7 +50,11 @@ export default function OwnerForm() {
       lines.join("\n")
     )}`;
     window.open(url, "_blank", "noopener,noreferrer");
+    trackEvent("generate_lead", { lead_type: "owner", method: "whatsapp_form" });
+    setSentUrl(url);
   };
+
+  if (sentUrl) return <FormSent url={sentUrl} onReset={() => setSentUrl("")} />;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">

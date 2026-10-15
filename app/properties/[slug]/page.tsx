@@ -1,5 +1,5 @@
 import { notFound, permanentRedirect } from 'next/navigation'
-import Link from 'next/link'
+import Link from "@/components/LocaleLink";
 import type { Metadata } from 'next'
 import { urlFor } from '@/lib/villa/image'
 import { getVilla, getVillaCards } from '@/lib/villa/queries'

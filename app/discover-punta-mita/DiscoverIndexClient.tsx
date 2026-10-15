@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import Image from "next/image";
 import Container from "@/components/Container";
 import { discoverCategories } from "@/lib/discoverPuntaMita";

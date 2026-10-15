@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
 import {
   PrimaryButton,
@@ -8,34 +9,15 @@ import {
   FullBleedPhoto,
   PullQuoteSection,
 } from "@/components/ui";
+import { pageAlternates } from "@/lib/seo";
+import MobileStickyCta from "@/components/MobileStickyCta";
 
 export const metadata = {
-  title: "Property Management Services in Punta Mita | Beyond Traveling",
+  title: { absolute: "Property Management Services in Punta Mita | Beyond Traveling" },
   description:
-    "Luxury property management services in Punta Mita with property care, guest coordination, cleaning, reporting, clear pricing, and direct owner communication.",  alternates: { canonical: "/services" },
+    "Luxury property management services in Punta Mita with property care, guest coordination, cleaning, reporting, clear pricing, and direct owner communication.",  alternates: pageAlternates("/services"),
 };
 
-const MobileStickyCta = () => (
-  <div className="fixed inset-x-0 bottom-0 z-40 border-t border-bt-navy/10 bg-white/95 p-3 backdrop-blur md:hidden">
-    <div className="grid grid-cols-2 gap-3">
-      <a
-        href="https://wa.me/523313619889"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex min-h-11 items-center justify-center border border-bt-navy/25 text-[10px] font-medium uppercase tracking-[0.13em] text-bt-navy transition hover:bg-bt-cream focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
-      >
-        WhatsApp
-      </a>
-
-      <a
-        href="/contact"
-        className="inline-flex min-h-11 items-center justify-center bg-bt-navy text-[10px] font-medium uppercase tracking-[0.13em] text-white transition hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
-      >
-        Contact
-      </a>
-    </div>
-  </div>
-);
 
 const ServiceItem = ({
   title,
@@ -105,12 +87,12 @@ export default function ServicesPage() {
         body="This is someone's home, not just an asset. Decisions affect comfort, costs, and rental results — responsiveness matters as much as execution."
       >
         <div className="mt-6">
-          <a
+          <Link
             href="/about"
             className="text-[12.5px] font-medium uppercase tracking-[0.14em] text-bt-navy border-b border-bt-gold pb-1.5"
           >
             See Who You&rsquo;ll Be Dealing With
-          </a>
+          </Link>
         </div>
       </PullQuoteSection>
 
@@ -173,7 +155,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <MobileStickyCta />
+      <MobileStickyCta contactHref="/contact/owners" contactLabel="Talk With Us" />
     </main>
   );
 }

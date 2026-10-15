@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { Eyebrow } from "@/components/ui";
 import {
   ContactHero,
@@ -7,12 +7,13 @@ import {
   DirectLines,
 } from "@/components/contact/ContactShell";
 import ReservationForm from "./ReservationForm";
+import { pageAlternates } from "@/lib/seo";
 
 export const metadata = {
   title: "Book a Villa in Punta Mita | Request Your Dates",
   description:
     "Request availability and rates for Villa Amore, Villa Brezza, Villa Llamas or Las Palmas 28 in Punta Mita. We reply personally, usually within an hour during the day.",
-  alternates: { canonical: "/contact/reservations" },
+  alternates: pageAlternates("/contact/reservations"),
 };
 
 export default function ReservationsContactPage() {

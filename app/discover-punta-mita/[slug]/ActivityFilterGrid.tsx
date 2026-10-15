@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { useMemo, useState } from "react";
 import { useLanguage } from "@/lib/language-context";
 import { getText } from "@/lib/i18n-types";

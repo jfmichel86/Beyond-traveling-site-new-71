@@ -3,6 +3,8 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ScrollReveal from "@/components/ScrollReveal";
+import Analytics from "@/components/Analytics";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { LanguageProvider } from "@/lib/language-context";
 import { services } from "@/lib/services";
 import { getProperties } from "@/lib/sanity";
@@ -13,7 +15,7 @@ import type { Metadata } from "next";
 // (Georgia) that made headings read as generic rather than boutique-luxury.
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500"],
   style: ["normal", "italic"],
   variable: "--font-cormorant",
   display: "swap",
@@ -21,7 +23,7 @@ const cormorant = Cormorant_Garamond({
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -33,14 +35,6 @@ export const metadata: Metadata = {
   },
   description:
     "Luxury property management in Punta Mita with direct owner communication, guest support, clear pricing, no hidden fees, and local care for high-end homes.",
-  keywords: [
-    "property management Punta Mita",
-    "luxury property management Punta Mita",
-    "villa management Punta Mita",
-    "luxury rentals Punta Mita",
-    "Punta Mita property services",
-    "Riviera Nayarit property management",
-  ],
   openGraph: {
     title: "Luxury Property Management Punta Mita | Beyond Traveling",
     description:
@@ -80,14 +74,39 @@ icons: {
   ],
 },
 };
+// Runs before the page paints. Hides .reveal elements only once the observer is
+// ready, and falls back to showing everything if anything goes wrong.
+const REVEAL_BOOT = `(function(){var d=document.documentElement;try{if(!("IntersectionObserver" in window))return;d.classList.add("js-reveal");function start(){try{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:0.08,rootMargin:"0px 0px -40px 0px"});document.querySelectorAll(".reveal:not(.in)").forEach(function(el){io.observe(el)})}catch(x){d.classList.remove("js-reveal")}}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start);else start()}catch(x){d.classList.remove("js-reveal")}})();`;
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   // Villa list for the PROPERTIES menu, from Sanity.
   const properties = (await getProperties()).map(({ slug, title }) => ({ slug, title }));
 
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${inter.variable}`} suppressHydrationWarning>
      <body className={`${inter.className} ${cormorant.variable} ${inter.variable} bg-white text-slate-900`}>
+    <script
+      dangerouslySetInnerHTML={{
+        __html: REVEAL_BOOT,
+      }}
+    />
     <ScrollReveal />
+    <Analytics />
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://www.beyondtravelingmx.com/#website",
+          name: "Beyond Traveling",
+          alternateName: "Beyond Traveling Punta Mita",
+          url: "https://www.beyondtravelingmx.com",
+          inLanguage: ["en", "es"],
+          publisher: { "@id": "https://www.beyondtravelingmx.com/#business" },
+        }),
+      }}
+    />
     <script
     type="application/ld+json"
     dangerouslySetInnerHTML={{
@@ -136,6 +155,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <SiteHeader properties={properties} />
           <main>{children}</main>
           <SiteFooter />
+          <FloatingWhatsApp />
         </LanguageProvider>
 
       </body>

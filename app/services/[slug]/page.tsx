@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import { notFound } from "next/navigation";
+import ServiceName from "@/components/ServiceName";
+import { pageAlternates } from "@/lib/seo";
 import Container from "@/components/Container";
 import {
   PrimaryButton,
@@ -25,7 +27,7 @@ export function generateMetadata({ params }: PageProps) {
   return {
     title: service.metaTitle,
     description: service.metaDescription,
-    alternates: { canonical: `/services/${service.slug}` },
+    alternates: pageAlternates(`/services/${service.slug}`),
   };
 }
 
@@ -47,7 +49,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
               </Link>
               <span className="mx-2 text-bt-gold">/</span>
               <span className="text-bt-navy/80">
-                {service.title} {service.italicTitle}
+                <ServiceName title={service.title} italic={service.italicTitle} plain />
               </span>
             </nav>
 
@@ -64,13 +66,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-5">
-              <PrimaryButton href="/contact/owners">Book a Property Consultation</PrimaryButton>
-              <a
-                href="tel:+523313619889"
-                className="text-[12.5px] font-normal text-bt-navy/75 underline decoration-bt-navy/25 underline-offset-4 transition hover:text-bt-navy hover:decoration-bt-navy"
-              >
-                Or call +52 33 1361 9889
-              </a>
+              <PrimaryButton href="/contact/owners">Talk With Us About Your Property</PrimaryButton>
             </div>
           </div>
 
@@ -102,7 +98,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
             <div className="pb-12 text-center md:pb-14">
               <Eyebrow>What&rsquo;s Included</Eyebrow>
               <h2 className="font-serif mt-5 text-3xl font-light leading-[1.2] tracking-[-0.01em] text-bt-navy md:text-[36px]">
-                {service.title} <span className="italic text-bt-gold">{service.italicTitle}</span>
+                <ServiceName title={service.title} italic={service.italicTitle} italicClassName="italic text-bt-gold" />
               </h2>
             </div>
 
@@ -175,7 +171,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
                   </span>
                 )}
                 <span className="font-serif mt-3 text-[19px] font-normal text-bt-navy">
-                  {s.title} <span className="italic text-bt-gold">{s.italicTitle}</span>
+                  <ServiceName title={s.title} italic={s.italicTitle} italicClassName="italic text-bt-gold" />
                 </span>
                 <span className="mt-2 font-normal text-[13px] leading-[1.7] text-bt-charcoal/85">
                   {s.summary}
@@ -198,14 +194,16 @@ export default function ServiceDetailPage({ params }: PageProps) {
           </h2>
           <p className="mx-auto mt-5 max-w-[440px] font-normal text-[16px] leading-[1.75] text-white/80">
             Tell us about the property and what you need. We&rsquo;ll tell you
-            honestly whether {service.title} {service.italicTitle} is the right fit.
+            honestly whether{" "}
+            <ServiceName title={service.title} italic={service.italicTitle} plain />{" "}
+            is the right fit.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact/owners"
               className="inline-flex min-h-11 items-center justify-center rounded-sm bg-white px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy"
             >
-              Book a Property Consultation
+              Talk With Us About Your Property
             </Link>
             <a
               href="https://wa.me/523313619889"

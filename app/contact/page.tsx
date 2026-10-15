@@ -1,13 +1,14 @@
 import React from "react";
-import Link from "next/link";
+import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
 import { Eyebrow } from "@/components/ui";
+import { pageAlternates } from "@/lib/seo";
 
 export const metadata = {
-  title: "Contact Beyond Traveling | Punta Mita Property Management",
+  title: { absolute: "Contact Beyond Traveling | Punta Mita Property Management" },
   description:
     "Contact Beyond Traveling in Punta Mita: talk about luxury property management for your home, or request a stay at one of our villas. Clear pricing, no hidden fees.",
-  alternates: { canonical: "/contact" },
+  alternates: pageAlternates("/contact"),
 };
 
 const options = [
