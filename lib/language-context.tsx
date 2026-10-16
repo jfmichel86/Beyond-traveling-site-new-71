@@ -49,7 +49,7 @@ const es: Record<string, string> = {
   "WhatsApp Us": "Escríbenos por WhatsApp",
   "Explore": "Explorar",
   "We respond within 1 hour during the day.": "Respondemos en menos de 1 hora durante el día.",
-  "No long-term contracts. Cancel anytime with 30 days' notice.": "Sin contratos a largo plazo. Cancela cuando quieras con 30 días de aviso.",
+  "No long-term contracts. Cancel anytime with 30 days’ notice.": "Sin contratos a largo plazo. Cancela cuando quieras con 30 días de aviso.",
   "No hidden fees — ever.": "Sin cargos ocultos, nunca.",
   "Get in touch": "Ponte en Contacto",
   "Punta Mita Guides": "Guías de Punta Mita",
@@ -204,8 +204,8 @@ const es: Record<string, string> = {
   "Reliable Vendor Network": "Red de Proveedores Confiables",
   "Monthly Property Reports": "Reportes Mensuales de la Propiedad",
 
-  "A bilingual, locally based team serving homeowners in Punta Mita since 2023. We provide Property Management, Vacation Rental Management, Home Watch, Concierge Services.":
-    "Un equipo bilingüe y local que atiende a propietarios en Punta Mita desde 2023. Ofrecemos Administración de Propiedades, Administración de Rentas Vacacionales, Home Watch, Servicios de Concierge.",
+  "A bilingual, locally based team serving homeowners in Punta Mita since 2023. We provide Property Management, Vacation Rental Management, Home Watch, Concierge Service.":
+    "Un equipo bilingüe y local que atiende a propietarios en Punta Mita desde 2023. Ofrecemos Administración de Propiedades, Administración de Rentas Vacacionales, Home Watch, Servicio de Concierge.",
 
   "No. Our fees are straightforward, and we don’t benefit when your expenses go up.":
     "No. Nuestras tarifas son claras y no nos beneficiamos cuando tus gastos aumentan.",
@@ -295,11 +295,11 @@ const es: Record<string, string> = {
     "Conoce la Administración de Propiedades",
   "Explore Full-Service Management":
     "Conoce la Administración Integral",
-  "Hello! I'd like to talk about managing my property in Punta Mita.":
+  "Hello! I’d like to talk about managing my property in Punta Mita.":
     "¡Hola! Me gustaría platicar sobre la administración de mi propiedad en Punta Mita.",
   "Villa Brezza, a Beyond Traveling property in Punta Mita":
     "Villa Brezza, una propiedad de Beyond Traveling en Punta Mita",
-  "We work with a limited number of homeowners, so we can stay closely involved — getting to know you, your home, and your priorities, whether that's preserving the property, stronger rental performance, or both.":
+  "We work with a limited number of homeowners, so we can stay closely involved — getting to know you, your home, and your priorities, whether that’s preserving the property, stronger rental performance, or both.":
     "Trabajamos con un número limitado de propietarios para mantenernos muy involucrados: conocerte a ti, tu casa y tus prioridades, ya sea conservar la propiedad, mejorar el desempeño de la renta, o ambas.",
   "Always Reachable":
     "Siempre Disponibles",
@@ -325,7 +325,7 @@ const es: Record<string, string> = {
     "Si buscas un equipo que conozca tu casa, responda directamente y mantenga los costos claros, platiquemos.",
   "Being present, paying attention, and making practical decisions before small issues become bigger ones.":
     "Estar presentes, poner atención y tomar decisiones prácticas antes de que los problemas pequeños se hagan grandes.",
-  "This is someone's home, not just an asset. Decisions affect comfort, costs, and rental results — responsiveness matters as much as execution.":
+  "This is someone’s home, not just an asset. Decisions affect comfort, costs, and rental results — responsiveness matters as much as execution.":
     "Esta es la casa de alguien, no solo un activo. Las decisiones afectan la comodidad, los costos y los resultados de renta; la capacidad de respuesta importa tanto como la ejecución.",
   "Regular inspections · Preventive maintenance · Trusted local vendors":
     "Inspecciones periódicas · Mantenimiento preventivo · Proveedores locales de confianza",
@@ -349,9 +349,9 @@ const es: Record<string, string> = {
     "Las respuestas más rápidas salen de una conversación breve sobre tu propiedad en particular.",
   "Will I deal with one person, or a system?":
     "¿Voy a tratar con una persona o con un sistema?",
-  "You deal with people. We keep communication direct and avoid passing your home through layers of staff — you always know who is caring for your property, what's happening day to day, and why decisions are being made.":
+  "You deal with people. We keep communication direct and avoid passing your home through layers of staff — you always know who is caring for your property, what’s happening day to day, and why decisions are being made.":
     "Tratas con personas. Mantenemos la comunicación directa y no pasamos tu casa por capas de personal: siempre sabes quién cuida tu propiedad, qué pasa día a día y por qué se toman las decisiones.",
-  "No. Our fees are straightforward, and we actively look for ways to save you money — avoiding unnecessary maintenance and managing cleaning and supplies efficiently. We don't inflate costs, and we don't benefit when your expenses go up.":
+  "No. Our fees are straightforward, and we actively look for ways to save you money — avoiding unnecessary maintenance and managing cleaning and supplies efficiently. We don’t inflate costs, and we don’t benefit when your expenses go up.":
     "No. Nuestras tarifas son claras y buscamos activamente formas de ahorrarte dinero: evitamos mantenimiento innecesario y manejamos la limpieza y los insumos de forma eficiente. No inflamos los costos y no nos beneficiamos cuando tus gastos suben.",
   "Do you handle rentals, or only maintenance?":
     "¿Manejan las rentas o solo el mantenimiento?",
@@ -359,7 +359,7 @@ const es: Record<string, string> = {
     "Ambos. Nos encargamos de la comunicación con los huéspedes, la preparación de la propiedad, la coordinación local y los detalles que impulsan un mejor desempeño de la renta, junto con el mantenimiento y la supervisión que protegen la propiedad misma.",
   "How available are you, really?":
     "¿Qué tan disponibles están, en realidad?",
-  "We live and work in Punta Mita, close to every home we manage. That means fast responses to guests, quick action when something needs attention, and real relationships with local vendors — not a \"we'll check on that Monday\" mentality.":
+  "We live and work in Punta Mita, close to every home we manage. That means fast responses to guests, quick action when something needs attention, and real relationships with local vendors — not a \"we’ll check on that Monday\" mentality.":
     "Vivimos y trabajamos en Punta Mita, cerca de cada casa que administramos. Eso significa respuestas rápidas a los huéspedes, acción inmediata cuando algo requiere atención y relaciones reales con proveedores locales; nada de una mentalidad de «lo revisamos el lunes».",
   "Do you take on every property that asks?":
     "¿Aceptan todas las propiedades que lo solicitan?",
@@ -469,7 +469,7 @@ const es: Record<string, string> = {
     "Tu Casa, Revisada.",
   "Even When No One Is There.":
     "Aun Cuando Nadie Está.",
-  "Homes in Punta Mita don't stay still while they're empty — humidity, storms, pests, and small leaks keep working. Home Watch puts a trusted local set of eyes on the property on a regular schedule, with photos after every visit so you always know where things stand.":
+  "Homes in Punta Mita don’t stay still while they’re empty — humidity, storms, pests, and small leaks keep working. Home Watch puts a trusted local set of eyes on the property on a regular schedule, with photos after every visit so you always know where things stand.":
     "Las casas en Punta Mita no se detienen cuando están vacías: la humedad, las tormentas, las plagas y las fugas pequeñas siguen trabajando. Home Watch pone un par de ojos locales de confianza en la propiedad con una frecuencia regular, con fotografías después de cada visita para que siempre sepas cómo van las cosas.",
   "Quiet Punta Mita villa looked after between stays by Beyond Traveling":
     "Villa tranquila en Punta Mita cuidada entre estancias por Beyond Traveling",
@@ -487,7 +487,7 @@ const es: Record<string, string> = {
     "Puertas, ventanas, plomería, aire acondicionado, alberca y áreas exteriores revisados con una lista constante en cada visita.",
   "Photo-Documented Reports":
     "Reportes con Fotografías",
-  "A dated report with photos after each visit, so you can see the home's condition from anywhere.":
+  "A dated report with photos after each visit, so you can see the home’s condition from anywhere.":
     "Un reporte fechado con fotografías después de cada visita, para que veas el estado de la casa desde cualquier lugar.",
   "Issue Flagging":
     "Aviso de Problemas",
@@ -509,7 +509,7 @@ const es: Record<string, string> = {
     "Cada Estancia Organizada.",
   "Before You Even Arrive.":
     "Incluso Antes de Que Llegues.",
-  "Whether it's you, your family, or your guests arriving, Concierge Service handles the details that make a stay feel effortless — the home ready on arrival, the right reservations made, and a local, bilingual team on call throughout.":
+  "Whether it’s you, your family, or your guests arriving, Concierge Service handles the details that make a stay feel effortless — the home ready on arrival, the right reservations made, and a local, bilingual team on call throughout.":
     "Seas tú, tu familia o tus huéspedes quienes lleguen, el Servicio de Concierge se encarga de los detalles que hacen que una estancia se sienta sin esfuerzo: la casa lista a la llegada, las reservaciones correctas y un equipo local bilingüe disponible en todo momento.",
   "Luxury Punta Mita terrace prepared for arriving guests":
     "Terraza de lujo en Punta Mita preparada para recibir huéspedes",
@@ -595,13 +595,13 @@ const es: Record<string, string> = {
     "La Administración de Propiedades se encarga de la casa física y de la administración que la respalda: inspecciones, mantenimiento preventivo, proveedores locales de confianza y los pagos que mantienen todo funcionando. Tú conservas el control de los huéspedes y el calendario; nosotros mantenemos la casa en excelentes condiciones.",
   "Well-maintained luxury home in Punta Mita":
     "Casa de lujo bien mantenida en Punta Mita",
-  "For owners who handle their own guests — or don't rent at all — but want the house in expert hands.":
+  "For owners who handle their own guests — or don’t rent at all — but want the house in expert hands.":
     "Para propietarios que manejan a sus propios huéspedes, o que no rentan, pero quieren la casa en manos expertas.",
   "Booking and guest communication stay with you. Add Vacation Rental Management any time to hand over both.":
     "Las reservaciones y la comunicación con los huéspedes siguen contigo. Agrega la Administración de Rentas Vacacionales cuando quieras para entregar ambas.",
   "Inspections & Visits":
     "Inspecciones y Visitas",
-  "Scheduled visits with photo-documented reports, so you always know the home's condition.":
+  "Scheduled visits with photo-documented reports, so you always know the home’s condition.":
     "Visitas programadas con reportes con fotografías, para que siempre conozcas el estado de la casa.",
   "Preventive Maintenance":
     "Mantenimiento Preventivo",
@@ -639,7 +639,7 @@ const es: Record<string, string> = {
     "La Administración Integral combina la Administración de Propiedades y la Administración de Rentas Vacacionales: mantenimiento, proveedores y pagos, además de las reservaciones, los huéspedes y el calendario, a cargo del mismo equipo. La mayoría de los propietarios que quieren desentenderse por completo terminan aquí.",
   "Luxury Punta Mita villa under full-service management by Beyond Traveling":
     "Villa de lujo en Punta Mita con administración integral de Beyond Traveling",
-  "For owners who want to be fully hands-off — and still know exactly what's happening.":
+  "For owners who want to be fully hands-off — and still know exactly what’s happening.":
     "Para propietarios que quieren desentenderse por completo, y aun así saber exactamente qué está pasando.",
   "One team looks after the home and the rental business, so nothing falls between two providers.":
     "Un solo equipo cuida la casa y el negocio de renta, para que nada se quede entre dos proveedores.",
@@ -679,7 +679,7 @@ const es: Record<string, string> = {
     "Hablemos de Tu Casa",
   "is the right fit.":
     "es la opción ideal.",
-  "Who It's For":
+  "Who It’s For":
     "Para Quién Es",
   "Featured Property":
     "Propiedad Destacada",
@@ -720,7 +720,7 @@ const es: Record<string, string> = {
     "Última actualización: septiembre de 2026",
   "Once your dates are confirmed, a property is held exclusively for you — so a cancellation affects both the homeowner and other guests who may have wanted those same dates. This policy is meant to be fair to everyone involved. If your situation is unusual, reach out directly; we review requests individually.":
     "Una vez confirmadas tus fechas, la propiedad se aparta exclusivamente para ti, por lo que una cancelación afecta tanto al propietario como a otros huéspedes que pudieron querer esas mismas fechas. Esta política busca ser justa para todos los involucrados. Si tu situación es poco común, escríbenos directamente; revisamos cada solicitud de manera individual.",
-  "This policy applies to reservations booked directly with Beyond Traveling. Bookings made through a third-party platform such as Airbnb or Vrbo follow that platform's own cancellation terms instead.":
+  "This policy applies to reservations booked directly with Beyond Traveling. Bookings made through a third-party platform such as Airbnb or Vrbo follow that platform’s own cancellation terms instead.":
     "Esta política aplica a las reservaciones hechas directamente con Beyond Traveling. Las reservaciones realizadas a través de plataformas de terceros, como Airbnb o Vrbo, se rigen por los términos de cancelación de esa plataforma.",
   ". The remaining balance is due 90 days before arrival. Bookings made within 90 days of check-in require payment in full at the time of booking.":
     ". El saldo restante vence 90 días antes de la llegada. Las reservaciones hechas dentro de los 90 días previos al check-in requieren el pago total al momento de reservar.",
@@ -728,15 +728,15 @@ const es: Record<string, string> = {
     "Los reembolsos de los montos pagados siguen el calendario siguiente, según con cuánta anticipación recibamos tu cancelación por escrito:",
   "Refunds are issued to your original payment method within 15 business days of receiving your written cancellation.":
     "Los reembolsos se realizan al método de pago original dentro de los 15 días hábiles posteriores a recibir tu cancelación por escrito.",
-  "We're happy to accommodate one complimentary date change per reservation, provided it's requested at least 90 days before arrival and new dates are available within the same calendar year. Rate differences between your original and new dates may apply. Requests made within 90 days of arrival are treated as a cancellation under the terms above.":
+  "We’re happy to accommodate one complimentary date change per reservation, provided it’s requested at least 90 days before arrival and new dates are available within the same calendar year. Rate differences between your original and new dates may apply. Requests made within 90 days of arrival are treated as a cancellation under the terms above.":
     "Con gusto aceptamos un cambio de fecha sin costo por reservación, siempre que se solicite con al menos 90 días de anticipación a la llegada y las nuevas fechas estén disponibles dentro del mismo año calendario. Puede aplicar una diferencia de tarifa entre tus fechas originales y las nuevas. Las solicitudes hechas dentro de los 90 días previos a la llegada se tratan como una cancelación conforme a los términos anteriores.",
-  "If a natural disaster, government travel restriction, or similarly extraordinary event directly affects Punta Mita or your ability to travel, we'll do our best to offer a 12-month rebooking credit rather than apply the standard cancellation terms above. This applies only when the circumstance is in effect immediately before or during your stay; if it resolves before your arrival, our standard cancellation terms apply. Each situation is reviewed individually.":
+  "If a natural disaster, government travel restriction, or similarly extraordinary event directly affects Punta Mita or your ability to travel, we’ll do our best to offer a 12-month rebooking credit rather than apply the standard cancellation terms above. This applies only when the circumstance is in effect immediately before or during your stay; if it resolves before your arrival, our standard cancellation terms apply. Each situation is reviewed individually.":
     "Si un desastre natural, una restricción gubernamental de viaje o un evento extraordinario similar afecta directamente a Punta Mita o tu posibilidad de viajar, haremos lo posible por ofrecerte un crédito de reprogramación de 12 meses en lugar de aplicar los términos estándar de cancelación. Esto aplica solo cuando la circunstancia esté vigente inmediatamente antes o durante tu estancia; si se resuelve antes de tu llegada, aplican nuestros términos estándar. Cada situación se revisa de forma individual.",
   "We recommend purchasing travel insurance at the time of booking to protect against cancellation costs from illness, injury, or unexpected changes to your travel plans.":
     "Recomendamos contratar un seguro de viaje al momento de reservar, para protegerte de los costos de cancelación por enfermedad, lesión o cambios inesperados en tus planes de viaje.",
   "No refund is issued for early departure or if you do not arrive for a confirmed reservation.":
     "No se realiza reembolso por salida anticipada ni si no te presentas a una reservación confirmada.",
-  ". We'll confirm receipt within 24 hours along with the terms that apply to your reservation.":
+  ". We’ll confirm receipt within 24 hours along with the terms that apply to your reservation.":
     ". Confirmaremos la recepción en un plazo de 24 horas, junto con los términos que aplican a tu reservación.",
   "Considering an unusual situation?":
     "¿Tienes una situación poco común?",
@@ -784,15 +784,15 @@ const es: Record<string, string> = {
     "se incorporan a estos términos por referencia.",
   "Beyond Traveling is a luxury property management and vacation rental company based in Punta Mita, Nayarit, México. We represent privately owned villas and act as booking agents and on-site coordinators on behalf of homeowners; ownership of each property remains with its respective owner.":
     "Beyond Traveling es una empresa de administración de propiedades de lujo y rentas vacacionales con sede en Punta Mita, Nayarit, México. Representamos villas de propiedad privada y actuamos como agentes de reservación y coordinadores en sitio en nombre de los propietarios; la propiedad de cada inmueble pertenece a su respectivo dueño.",
-  "Rates and availability shown on this site are provisional. A booking is only confirmed once we've issued written confirmation and received your deposit. A refundable security deposit equivalent to one night's rental applies to all reservations, and any additional house rules specific to a property are shared with you in your booking confirmation.":
+  "Rates and availability shown on this site are provisional. A booking is only confirmed once we’ve issued written confirmation and received your deposit. A refundable security deposit equivalent to one night’s rental applies to all reservations, and any additional house rules specific to a property are shared with you in your booking confirmation.":
     "Las tarifas y la disponibilidad que se muestran en este sitio son provisionales. Una reservación solo se confirma cuando emitimos una confirmación por escrito y recibimos tu depósito. A todas las reservaciones se aplica un depósito de seguridad reembolsable equivalente a una noche de renta, y cualquier regla adicional de la casa específica de cada propiedad se te comparte en tu confirmación de reservación.",
   "Rates are quoted per night in US dollars and are subject to change without notice until a booking is confirmed. Photos are representative and may vary slightly from current conditions. 16% VAT and 5% tourism tax may apply, and staff gratuities of 10–15% of the pre-tax reservation total are customary. Rates do not include food, beverage, or fees for guests beyond your confirmed occupancy.":
     "Las tarifas se cotizan por noche en dólares estadounidenses y están sujetas a cambio sin previo aviso hasta que se confirme una reservación. Las fotografías son representativas y pueden variar ligeramente respecto de las condiciones actuales. Pueden aplicar 16% de IVA y 5% de impuesto al turismo, y es costumbre dejar una propina al personal de entre 10% y 15% del total de la reservación antes de impuestos. Las tarifas no incluyen alimentos, bebidas ni cargos por huéspedes adicionales a la ocupación confirmada.",
-  "Please treat each property with the same care you'd give your own home — respecting occupancy limits, house rules, and local laws. Events or gatherings beyond your confirmed guest count require our prior written consent, and pets are only permitted with advance written approval. Significant violations of house rules may result in your stay being ended without refund.":
+  "Please treat each property with the same care you’d give your own home — respecting occupancy limits, house rules, and local laws. Events or gatherings beyond your confirmed guest count require our prior written consent, and pets are only permitted with advance written approval. Significant violations of house rules may result in your stay being ended without refund.":
     "Te pedimos tratar cada propiedad con el mismo cuidado que darías a tu propia casa, respetando los límites de ocupación, las reglas de la casa y las leyes locales. Los eventos o reuniones que excedan el número de huéspedes confirmado requieren nuestro consentimiento previo por escrito, y las mascotas solo se permiten con aprobación previa por escrito. Las violaciones graves a las reglas de la casa pueden dar lugar a que tu estancia termine sin reembolso.",
   "Guests use pools, ocean access, and other property amenities at their own risk. To the fullest extent permitted by law, Beyond Traveling and the homeowners we represent are not liable for injury, loss, or damage arising from your stay, except where caused by our own negligence. We recommend all guests carry travel insurance.":
     "Los huéspedes usan las albercas, el acceso al mar y otras amenidades de la propiedad bajo su propio riesgo. En la medida máxima permitida por la ley, Beyond Traveling y los propietarios a quienes representamos no son responsables por lesiones, pérdidas o daños derivados de tu estancia, salvo cuando sean causados por nuestra propia negligencia. Recomendamos que todos los huéspedes cuenten con seguro de viaje.",
-  "All text, photography, and design on this website belong to Beyond Traveling or are used with permission from homeowners and photographers. Please don't reproduce or repurpose this content without our written consent.":
+  "All text, photography, and design on this website belong to Beyond Traveling or are used with permission from homeowners and photographers. Please don’t reproduce or repurpose this content without our written consent.":
     "Todo el texto, la fotografía y el diseño de este sitio web pertenecen a Beyond Traveling o se usan con permiso de los propietarios y fotógrafos. Te pedimos no reproducir ni reutilizar este contenido sin nuestro consentimiento por escrito.",
   "These Terms are governed by the laws of México and the state of Nayarit, whose courts have jurisdiction over any dispute arising from your use of this site or a reservation made with us.":
     "Estos Términos se rigen por las leyes de México y del estado de Nayarit, cuyos tribunales tienen jurisdicción sobre cualquier controversia derivada del uso de este sitio o de una reservación hecha con nosotros.",
@@ -800,7 +800,7 @@ const es: Record<string, string> = {
     "Podemos actualizar estos Términos de vez en cuando; la fecha en la parte superior de esta página refleja la revisión más reciente. Los Términos vigentes al momento de tu reservación son los que aplican a esa reservación.",
   "Have a question before you book?":
     "¿Tienes una pregunta antes de reservar?",
-  "We're happy to walk through the details with you directly.":
+  "We’re happy to walk through the details with you directly.":
     "Con gusto revisamos los detalles contigo directamente.",
   "and":
     "y",
@@ -824,9 +824,9 @@ const es: Record<string, string> = {
     "Cómo recopilamos, usamos y protegemos la información que compartes con nosotros.",
   "We collect the information you choose to share with us — your name, email, phone number, and details about your travel plans or property — when you reach out through our contact form or WhatsApp. We do not collect payment card information through this website.":
     "Recopilamos la información que decides compartir con nosotros (tu nombre, correo, teléfono y detalles sobre tus planes de viaje o tu propiedad) cuando nos contactas a través de nuestro formulario de contacto o WhatsApp. No recopilamos información de tarjetas de pago a través de este sitio web.",
-  "Submitting our contact form opens WhatsApp with your message pre-filled; your details aren't stored in a server database on our end, and the message is handled the same way as any other conversation you'd start with us directly.":
+  "Submitting our contact form opens WhatsApp with your message pre-filled; your details aren’t stored in a server database on our end, and the message is handled the same way as any other conversation you’d start with us directly.":
     "Al enviar nuestro formulario de contacto se abre WhatsApp con tu mensaje ya escrito; tus datos no se almacenan en una base de datos de nuestro servidor, y el mensaje se maneja igual que cualquier otra conversación que inicies directamente con nosotros.",
-  "We use the details you share to respond to your inquiry, prepare quotes, and coordinate bookings — and, only if you'd like, to send occasional updates about properties and availability. We don't use your information to make automated decisions about you, and we never sell your personal information to third parties.":
+  "We use the details you share to respond to your inquiry, prepare quotes, and coordinate bookings — and, only if you’d like, to send occasional updates about properties and availability. We don’t use your information to make automated decisions about you, and we never sell your personal information to third parties.":
     "Usamos los datos que compartes para responder a tu consulta, preparar cotizaciones y coordinar reservaciones y, solo si lo deseas, para enviarte novedades ocasionales sobre propiedades y disponibilidad. No usamos tu información para tomar decisiones automatizadas sobre ti y nunca vendemos tu información personal a terceros.",
   "When you book a property, we share the necessary details with the relevant homeowner or on-site team so your stay can be confirmed and coordinated. We do not share your information with advertisers or data brokers.":
     "Cuando reservas una propiedad, compartimos los datos necesarios con el propietario o el equipo en sitio correspondiente para que tu estancia pueda confirmarse y coordinarse. No compartimos tu información con anunciantes ni corredores de datos.",
@@ -836,11 +836,11 @@ const es: Record<string, string> = {
     "Podemos actualizar esta política periódicamente conforme evolucionen nuestras prácticas. La fecha en la parte superior de esta página refleja la revisión más reciente.",
   "Have a question about your data?":
     "¿Tienes una pregunta sobre tus datos?",
-  "We're glad to answer directly — just reach out.":
+  "We’re glad to answer directly — just reach out.":
     "Con gusto te respondemos directamente; solo escríbenos.",
   "Under Mexican data protection law, you have the right to Access, Rectify, Cancel, or Object to the use of your personal information. To exercise any of these rights, contact us at":
     "Conforme a la ley mexicana de protección de datos, tienes derecho a Acceder, Rectificar, Cancelar u Oponerte al uso de tu información personal. Para ejercer cualquiera de estos derechos, contáctanos en",
-  "and we'll respond within a reasonable timeframe.":
+  "and we’ll respond within a reasonable timeframe.":
     "y responderemos en un plazo razonable.",
   "Questions about your privacy can be sent to":
     "Las preguntas sobre tu privacidad pueden enviarse a",
@@ -1154,18 +1154,426 @@ const es: Record<string, string> = {
     "Ver Nuestras Casas",
   "Our homes are taking a moment to load. Please refresh the page in a minute, or contact us and we’ll send you the details directly.":
     "Nuestras casas tardan un momento en cargar. Actualiza la página en un minuto o contáctanos y te enviamos los detalles directamente.",
-  "For Homeowners":
-    "Para Propietarios",
-  "I Own a Home in Punta Mita":
-    "Tengo una Casa en Punta Mita",
-  "Tell us about your home and we’ll prepare a proposal built around it. No long-term contracts.":
-    "Cuéntanos sobre tu casa y preparamos una propuesta a la medida. Sin contratos a largo plazo.",
-  "I’d Like to Stay in a Villa":
-    "Quiero Hospedarme en una Villa",
-  "Browse the villas we manage, then ask us about your dates. We’ll reply directly with availability and rates.":
-    "Explora las villas que administramos y pregúntanos por tus fechas. Te respondemos directamente con disponibilidad y tarifas.",
-  "Ask About a Stay":
-    "Preguntar por una Estancia",
+  "Low-rise residences on the 7th and 8th fairways of the Bahia course — four-bedroom homes with a private plunge pool on every terrace, an easy walk to Pacífico Beach Club.":
+    "Residencias de baja altura en los fairways 7 y 8 del campo Bahia: casas de cuatro recámaras con alberca de inmersión privada en cada terraza, a unos pasos del Pacífico Beach Club.",
+  "Condos within El Encanto, most looking out over the Pacifico course’s fairways or the community’s lakes rather than the ocean.":
+    "Condominios dentro de El Encanto, la mayoría con vista a los fairways del campo Pacifico o a los lagos de la comunidad, más que al océano.",
+  "Standalone villas within El Encanto — the community’s only ocean-facing homes, each with a private pool, moments from Sufi Ocean Club.":
+    "Villas independientes dentro de El Encanto: las únicas casas de la comunidad con vista al mar, cada una con alberca privada, a un momento de Sufi Ocean Club.",
+  "Private villas and residences inside the Four Seasons Resort grounds, with full access to the hotel’s dining, spa, and daily service standards.":
+    "Villas y residencias privadas dentro de los terrenos del Four Seasons Resort, con acceso completo a los restaurantes, el spa y los estándares de servicio diario del hotel.",
+  "Punta Mita’s only true beachfront condo community — low-rise buildings around a communal infinity pool, with direct beach access and Pacifico fairway views.":
+    "La única comunidad de condominios realmente frente a la playa en Punta Mita: edificios de baja altura alrededor de una alberca infinita común, con acceso directo a la playa y vista a los fairways del campo Pacifico.",
+  "Large private lots on Litibu Bay, each with its own custom-built villa — no two homes alike, from the footprint to the architecture.":
+    "Grandes terrenos privados en la bahía de Litibú, cada uno con su propia villa construida a la medida: no hay dos casas iguales, desde la huella hasta la arquitectura.",
+  "A single matched collection of villas in Iyari, all sharing the same architecture and layout — four bedrooms, a private plunge pool, and access to the community’s cabana on Playa Iyari.":
+    "Una colección homogénea de villas en Iyari, todas con la misma arquitectura y distribución: cuatro recámaras, alberca de inmersión privada y acceso a la cabaña de la comunidad en Playa Iyari.",
+  "Home sites sold individually across Kupuri — every villa custom-built and different from the next, a short walk from Kupuri Beach Club’s sushi counter, Ka restaurant, and treehouse spa.":
+    "Terrenos que se venden por separado en todo Kupuri: cada villa se construye a la medida y es distinta de la siguiente, a corta distancia del sushi bar, el restaurante Ka y el spa en la casa del árbol de Kupuri Beach Club.",
+  "A single matched collection of condos within Kupuri, all built to the same design, a short walk from Kupuri Beach Club.":
+    "Una colección homogénea de condominios dentro de Kupuri, todos construidos con el mismo diseño, a corta distancia de Kupuri Beach Club.",
+  "Oceanfront lots on the peninsula’s western tip next to the St. Regis, each with 270-degree ocean views and a second, separately gated entrance.":
+    "Terrenos frente al mar en el extremo occidental de la península, junto al St. Regis, cada uno con vistas al océano de 270 grados y una segunda entrada independiente con acceso controlado.",
+  "Contemporary homes built around the golf course’s interior lagoons, with cantilevered rooflines and floor-to-ceiling glass framing the water on both sides.":
+    "Casas contemporáneas construidas alrededor de las lagunas interiores del campo de golf, con techos en voladizo y cristal del piso al techo que enmarca el agua por ambos lados.",
+  "An ultra-private enclave at the peninsula’s edge, named for the Marietas Islands visible from nearly every residence — three- and four-bedroom homes with sweeping sunset ocean views.":
+    "Un enclave ultra privado en el borde de la península, nombrado por las Islas Marietas visibles desde casi todas las residencias: casas de tres y cuatro recámaras con amplias vistas al océano y al atardecer.",
+  "Houses in Las Palmas’ original phase, nearly all facing the golf course — three and four bedroom homes sharing a similar architectural style.":
+    "Casas de la fase original de Las Palmas, casi todas frente al campo de golf: casas de tres y cuatro recámaras con un estilo arquitectónico similar.",
+  "Larger four-bedroom villas than Las Palmas’ original phase, set back among dense tropical planting rather than facing a view — nearly all built to the same architecture and layout.":
+    "Villas de cuatro recámaras más grandes que las de la fase original de Las Palmas, ubicadas entre vegetación tropical densa en lugar de frente a una vista: casi todas con la misma arquitectura y distribución.",
+  "A boutique condo community on the Pacifico course’s 14th fairway, centered on twin communal pools linked by a 160-meter saltwater swimming canal.":
+    "Una comunidad boutique de condominios en el fairway 14 del campo Pacifico, con dos albercas comunes unidas por un canal de natación de agua salada de 160 metros.",
+  "Punta Mita’s newest hillside community, on Careyeros hill, with homesites looking out over the entire peninsula, the Four Seasons, and the Tail of the Whale.":
+    "La comunidad en ladera más nueva de Punta Mita, en el cerro Careyeros, con terrenos que miran a toda la península, el Four Seasons y la Cola de la Ballena.",
+  "West-facing homes near the Pacifico course built for sunset — horizontal architecture and extensive glazing framing the Pacific’s golden hour, moments from Sea Breeze Beach Club.":
+    "Casas orientadas al oeste cerca del campo Pacifico, pensadas para el atardecer: arquitectura horizontal y amplios ventanales que enmarcan la hora dorada del Pacífico, a un momento de Sea Breeze Beach Club.",
+  "Porta Fortuna’s original ocean-facing villas, in two rows — first-row homes sit beachfront with five real bedrooms, second-row villas hold four bedrooms and their own ocean views, both a short walk from Sufi Ocean Club.":
+    "Las villas originales de Porta Fortuna frente al mar, en dos filas: las de primera fila están frente a la playa con cinco recámaras reales; las de segunda fila tienen cuatro recámaras y su propia vista al mar; ambas a corta distancia de Sufi Ocean Club.",
+  "The newest villas in Porta Fortuna — a matched set of four-plus-bedroom homes facing the golf course, sharing a consistent layout and architecture.":
+    "Las villas más nuevas de Porta Fortuna: un conjunto homogéneo de casas de cuatro o más recámaras frente al campo de golf, con distribución y arquitectura consistentes.",
+  "Three-bedroom casitas within Porta Fortuna built for quiet — private pool, ocean and golf views, and a short walk to Sufi Ocean Club’s fire pit and restaurant.":
+    "Casitas de tres recámaras dentro de Porta Fortuna, pensadas para la tranquilidad: alberca privada, vistas al mar y al campo de golf, y a corta distancia del fogatero y el restaurante de Sufi Ocean Club.",
+  "One of Punta Mita’s original beachfront communities — some of the peninsula’s largest oceanfront estates, set in mature tropical gardens near the Pacifico course.":
+    "Una de las comunidades frente a la playa originales de Punta Mita: algunas de las propiedades frente al mar más grandes de la península, rodeadas de jardines tropicales maduros cerca del campo Pacifico.",
+  "Punta Mita’s newest enclave, at the peninsula’s southern point, built for sunset views with modern, smart-home-equipped three- and four-bedroom residences.":
+    "El enclave más nuevo de Punta Mita, en el extremo sur de la península, pensado para disfrutar el atardecer, con residencias modernas de tres y cuatro recámaras equipadas con domótica.",
+  "Condos by architects Sordo Madaleno, set directly in front of the La Lancha surf break with views of the Marietas Islands and Banderas Bay, steps from El Surf Club.":
+    "Condominios de los arquitectos Sordo Madaleno, justo frente a la ola de La Lancha, con vistas a las Islas Marietas y la Bahía de Banderas, a pasos de El Surf Club.",
+  "Estates set between the Bahia fairways and the open Pacific, most with a private infinity pool angled toward the water — no two homes alike.":
+    "Propiedades entre los fairways del campo Bahia y el océano Pacífico abierto, la mayoría con alberca infinita privada orientada hacia el agua: no hay dos casas iguales.",
+  "Hillside homes above the golf courses, each with floor-to-ceiling glass, a private pool, and sweeping views over the Pacific and both fairways below.":
+    "Casas en ladera sobre los campos de golf, cada una con cristal del piso al techo, alberca privada y amplias vistas al Pacífico y a ambos fairways abajo.",
+  "A beachfront enclave with its own private beach club, pools, and spa — residences range from garden villas to rooftop penthouses, all oceanfront.":
+    "Un enclave frente a la playa con su propio beach club privado, albercas y spa: las residencias van desde villas con jardín hasta penthouses en azotea, todas frente al mar.",
+  "A secluded, quiet enclave with spa-style finishes and generous grounds on three- and four-bedroom homes.":
+    "Un enclave tranquilo y reservado con acabados estilo spa y amplios terrenos, con casas de tres y cuatro recámaras.",
+  "Large home sites in Las Palmas, sold as lots rather than finished houses — every future villa here will be custom-built and different from its neighbors.":
+    "Grandes terrenos en Las Palmas, que se venden como lotes y no como casas terminadas: cada futura villa será construida a la medida y distinta de sus vecinas.",
+  "Oceanfront homes between the Pacific and the golf course fairways, many with cliffside infinity pools — no two residences built alike.":
+    "Casas frente al mar entre el Pacífico y los fairways del campo de golf, muchas con albercas infinitas sobre el acantilado: no hay dos residencias iguales.",
+  "6 or more":
+    "6 o más",
+  "Included":
+    "Incluido",
+  "Not included":
+    "No incluido",
+  "Language":
+    "Idioma",
+  "Transparency":
+    "Transparencia",
+  "Direct":
+    "Directo",
+  "Conversation.":
+    "sin Compromiso.",
+  "Plan Your":
+    "Planea Tu",
+  "Stay.":
+    "Estancia.",
+  "Together.":
+    "Juntos.",
+  "Careers":
+    "Empleo",
+  "Vendors":
+    "Proveedores",
+  "Guide":
+    "Guía",
+  "Please Review":
+    "Por Favor Revisa",
+  "These details help us keep the service clear, flexible, and easy to coordinate before and during your stay.":
+    "Estos detalles nos ayudan a que el servicio sea claro, flexible y fácil de coordinar antes y durante tu estancia.",
+  "← Back to":
+    "← Volver a",
+  "No refund":
+    "Sin reembolso",
+  "Overview":
+    "Resumen",
+  "Rooms":
+    "Habitaciones",
+  "Show more":
+    "Ver más",
+  "Show less":
+    "Ver menos",
+  "Show fewer amenities":
+    "Ver menos amenidades",
+  "Photo gallery":
+    "Galería de fotos",
+  "Previous photo":
+    "Foto anterior",
+  "Next photo":
+    "Foto siguiente",
+  "Close":
+    "Cerrar",
+  "Open":
+    "Abrir",
+  "Select dates":
+    "Elige fechas",
+  "Select guests":
+    "Elige huéspedes",
+  "Done":
+    "Listo",
+  "Clear":
+    "Limpiar",
+  "Adults":
+    "Adultos",
+  "Children":
+    "Niños",
+  "Infants":
+    "Bebés",
+  "Ages 13+":
+    "13 años o más",
+  "Ages 2–13":
+    "2 a 13 años",
+  "Ages 0–1":
+    "0 a 1 año",
+  "Condo":
+    "Condominio",
+  "Direct beach access":
+    "Acceso directo a la playa",
+  "Oceanfront community":
+    "Comunidad frente al mar",
+  "On the golf course":
+    "Sobre el campo de golf",
+  "No pets allowed":
+    "No se permiten mascotas",
+  "Pets welcome":
+    "Se aceptan mascotas",
+  "No smoking":
+    "No se permite fumar",
+  "Smoking permitted outdoors":
+    "Se permite fumar al aire libre",
+  "No parties or events":
+    "No se permiten fiestas ni eventos",
+  "Small gatherings allowed":
+    "Se permiten reuniones pequeñas",
+  "Up to":
+    "Hasta",
+  "hot tub":
+    "jacuzzi",
+  "outdoor shower":
+    "regadera exterior",
+  "double shower":
+    "regadera doble",
+  "Walk-Through":
+    "Recorrido Inicial",
+  "Transportation":
+    "Transporte",
+  "Care Plan":
+    "Plan de Cuidado",
+  "Onboarding":
+    "Incorporación",
+  "Safe":
+    "Caja fuerte",
+  "Foosball":
+    "Futbolito",
+  "Games":
+    "Juegos",
+  "Pétanque":
+    "Petanca",
+  "Yoga Room":
+    "Sala de Yoga",
+  "Bicycles":
+    "Bicicletas",
+  "Kayaks":
+    "Kayaks",
+  "Firepit":
+    "Fogatero",
+  "Hot Tub":
+    "Jacuzzi",
+  "Jacuzzi":
+    "Jacuzzi",
+  "Wet Bar":
+    "Bar Húmedo",
+  "Office":
+    "Oficina",
+  "Desk":
+    "Escritorio",
+  "Printer":
+    "Impresora",
+  "Foosball Table (Shared)":
+    "Mesa de Futbolito (Compartida)",
+  "Ping Pong Table (Shared)":
+    "Mesa de Ping Pong (Compartida)",
+  "Elevator":
+    "Elevador",
+  "Accessibility":
+    "Accesibilidad",
+  "Oceanfront":
+    "Frente al Mar",
+  "Beachfront":
+    "Frente a la Playa",
+  "Hillside":
+    "En Ladera",
+  "Lake View":
+    "Vista al Lago",
+  "Full/Double":
+    "Matrimonial",
+  "Twin":
+    "Individual",
+  "Bunk":
+    "Litera",
+  "Sofa Bed":
+    "Sofá Cama",
+  "Housekeeper":
+    "Ama de Llaves",
+  "Cook":
+    "Cocinero(a)",
+  "Butler":
+    "Mayordomo",
+  "Laundry":
+    "Lavandería",
+  "Dinner":
+    "Cena",
+  "Sauna":
+    "Sauna",
+  "Cornhole":
+    "Cornhole",
+  "Croquet":
+    "Croquet",
+  "Piano":
+    "Piano",
+  "Bar":
+    "Bar",
+  "Chef":
+    "Chef",
+  "Bartender":
+    "Bartender",
+  "Golf Membership":
+    "Membresía de Golf",
+  "King bed":
+    "Cama king",
+  "Queen bed":
+    "Cama queen",
+  "Full bed":
+    "Cama matrimonial",
+  "Twin bed":
+    "Cama individual",
+  "Single bed":
+    "Cama individual",
+  "Double bed":
+    "Cama matrimonial",
+  "Bunk bed":
+    "Litera",
+  "Sofa bed":
+    "Sofá cama",
+  "Crib":
+    "Cuna",
+  "Trundle bed":
+    "Cama nido",
+  "Nespresso Machine":
+    "Máquina Nespresso",
+  "Cards / Poker Table":
+    "Mesa de Cartas / Póker",
+  "Scrabble Table":
+    "Mesa de Scrabble",
+  "Private Vehicle":
+    "Vehículo Privado",
+  "Cold Water Tub":
+    "Tina de Agua Fría",
+  "Electric Massage Bed":
+    "Cama de Masaje Eléctrica",
+  "Infrared Room":
+    "Sala de Infrarrojos",
+  "Foosball Table":
+    "Mesa de Futbolito",
+  "Driver":
+    "Chofer",
+  "Babysitter":
+    "Niñera",
+  "Groundskeeper":
+    "Jardinero",
+  "Security":
+    "Seguridad",
+  "Grocery Shopping":
+    "Compra de Víveres",
+  "All Meals":
+    "Todas las Comidas",
+  "Custom Menus":
+    "Menús a la Medida",
+  "Family Villa":
+    "Villa Familiar",
+  "Family Villas":
+    "Villas Familiares",
+  "Ocean view":
+    "Vista al mar",
+  "Golf course view":
+    "Vista al campo de golf",
+  "Lake view":
+    "Vista al lago",
+  "Golf course":
+    "Campo de golf",
+  "Private pool":
+    "Alberca privada",
+  "Communal pool":
+    "Alberca común",
+  "Punta de Mita Area":
+    "Zona de Punta de Mita",
+  "Golf Villas":
+    "Villas de Golf",
+  "Wellness & Beach Lifestyle":
+    "Bienestar y Vida de Playa",
+  "Sports & Adventure":
+    "Deportes y Aventura",
+  "High-End & VIP":
+    "Alta Gama y VIP",
+  "Destination Guides":
+    "Guías del Destino",
+  "Villas & Living":
+    "Villas y Estilo de Vida",
+  "Local Culture":
+    "Cultura Local",
+  "Planning & Tips":
+    "Planeación y Consejos",
+  "Limited-Time Offer":
+    "Oferta por Tiempo Limitado",
+  "Last-Minute Deal":
+    "Oferta de Último Minuto",
+  "Property of the Month":
+    "Propiedad del Mes",
+  "Villa Llamas is designed for easy days outdoors, with wide covered terraces, a private pool, generous lounge areas, and green views across the golf course. The main living spaces open fully to the terrace, creating a relaxed flow between the sofa lounge, dining area, kitchen, pool deck, and garden.":
+    "Villa Llamas está pensada para disfrutar días tranquilos al aire libre, con amplias terrazas techadas, alberca privada, generosas áreas de descanso y vistas verdes al campo de golf. Los espacios principales se abren por completo a la terraza, creando un flujo relajado entre la sala, el comedor, la cocina, el área de la alberca y el jardín.",
+  "Outside, guests can enjoy shaded seating, sun loungers with umbrellas, an outdoor dining area, and a covered bar with grill. The pool sits alongside a broad lawn and tropical landscaping, offering a calm setting for mornings in the sun, afternoon swims, and evenings by the water.":
+    "Afuera, los huéspedes pueden disfrutar de asientos con sombra, camastros con sombrillas, un comedor al aire libre y un bar techado con asador. La alberca se encuentra junto a un amplio jardín y vegetación tropical, un entorno tranquilo para las mañanas de sol, los chapuzones de la tarde y las noches junto al agua.",
+  "Inside, the home feels bright and comfortable, with an open living room, large dining table, modern kitchen, and soft natural textures throughout. Bedrooms are spacious and peaceful, with a mix of king, double-bed, and bunk accommodations visible in the photos. Several rooms connect to terraces or garden views, adding to the indoor-outdoor feeling of the house.":
+    "Por dentro, la casa se siente luminosa y cómoda, con una sala abierta, una gran mesa de comedor, una cocina moderna y texturas naturales y suaves en todos los espacios. Las recámaras son amplias y tranquilas, con una combinación de camas king, matrimoniales y literas que se aprecian en las fotos. Varias habitaciones se conectan con terrazas o vistas al jardín, lo que refuerza la sensación de vivir entre el interior y el exterior.",
+  "Bathrooms are clean and airy, with glass showers, stone finishes, and in one suite, a freestanding bathtub beside large windows. From the upper level and aerial views, the villa also enjoys glimpses of the bay and surrounding Punta Mita landscape.":
+    "Los baños son limpios y espaciosos, con regaderas de cristal, acabados de piedra y, en una de las suites, una tina independiente junto a grandes ventanales. Desde el nivel superior y en las vistas aéreas, la villa también ofrece vistazos de la bahía y del paisaje de Punta Mita.",
+  "A welcoming Punta Mita villa with bright indoor-outdoor living, a private pool, shaded terraces, and views across the golf course toward the bay.":
+    "Una acogedora villa en Punta Mita con vida luminosa entre interior y exterior, alberca privada, terrazas con sombra y vistas al campo de golf hacia la bahía.",
+  "Private pool, open-air terraces, golf course greenery, and distant ocean views.":
+    "Alberca privada, terrazas al aire libre, áreas verdes del campo de golf y vistas lejanas al océano.",
+  "This ocean-view villa brings together wide terraces, soft indoor spaces, and a relaxed connection to the surrounding landscape. The main living area opens completely to the outdoor terrace, creating an easy flow between the lounge, dining spaces, pool, and shaded seating areas.":
+    "Esta villa con vista al mar combina amplias terrazas, espacios interiores suaves y una conexión relajada con el paisaje que la rodea. La sala principal se abre por completo a la terraza exterior, creando un flujo natural entre la sala, los comedores, la alberca y las áreas de descanso con sombra.",
+  "Outside, the villa offers several places to enjoy the day: a private pool facing the bay, lounge chairs for sun-filled afternoons, covered sitting areas, an outdoor dining table, and a grill area with ocean and green hillside views. A lower terrace with a hammock and lounge seating adds a quiet place to unwind with the breeze and surrounding nature.":
+    "Afuera, la villa ofrece varios lugares para disfrutar el día: una alberca privada frente a la bahía, camastros para las tardes soleadas, áreas techadas para sentarse, un comedor al aire libre y una zona de asador con vistas al océano y a las colinas verdes. Una terraza inferior con hamaca y asientos de descanso añade un rincón tranquilo para relajarse con la brisa y la naturaleza.",
+  "Inside, the home feels bright and calm, with comfortable sofas, a generous dining area, and a well-equipped kitchen with a large island and breakfast stools. The bedrooms are spacious and restful, with ocean or garden views, soft neutral tones, and direct access to terraces in several rooms. Bathrooms include double vanities, walk-in showers, and soaking tubs in select spaces.":
+    "Por dentro, la casa se siente luminosa y serena, con sofás cómodos, un amplio comedor y una cocina bien equipada con una gran isla y bancos para el desayuno. Las recámaras son espaciosas y relajantes, con vistas al océano o al jardín, tonos neutros suaves y acceso directo a las terrazas en varias de ellas. Los baños cuentan con lavabos dobles, regaderas amplias y tinas de remojo en algunos espacios.",
+  "Designed for gathering, resting, and enjoying the view, this villa is ideal for days that move easily from morning coffee by the water to long outdoor meals, pool time, and peaceful evenings overlooking the coast.":
+    "Diseñada para reunirse, descansar y disfrutar de la vista, esta villa es ideal para días que pasan con naturalidad del café de la mañana junto al agua a largas comidas al aire libre, tiempo en la alberca y tardes tranquilas con vista a la costa.",
+  "A warm coastal villa with sweeping ocean views, a private pool, open-air dining, spacious bedrooms, and inviting terraces made for slow days together.":
+    "Una cálida villa costera con amplias vistas al océano, alberca privada, comedor al aire libre, recámaras espaciosas y terrazas acogedoras pensadas para días tranquilos en compañía.",
+  "Ocean views, private pool, open terraces, and relaxed indoor-outdoor living.":
+    "Vistas al océano, alberca privada, terrazas abiertas y una vida relajada entre interior y exterior.",
+  "Casa Paraiso offers an inviting beachfront stay where the home opens directly toward the sand, the pool, and the calm blue water beyond. A wide lawn connects the house to the beach, creating an easy flow between lounging under the shade, swimming, gathering outdoors, and stepping into the sand.":
+    "Casa Paraiso ofrece una estancia frente a la playa donde la casa se abre directamente hacia la arena, la alberca y las tranquilas aguas azules más allá. Un amplio jardín conecta la casa con la playa, creando un flujo natural entre descansar a la sombra, nadar, reunirse al aire libre y pisar la arena.",
+  "The outdoor spaces are designed for long, relaxed days together. A private pool and spa sit beside sun loungers, umbrellas, and a covered terrace with generous seating, dining, and an outdoor grill area. From morning coffee to sunset meals, the setting keeps the ocean in view while offering plenty of shaded areas for comfort.":
+    "Los espacios exteriores están diseñados para días largos y relajados en compañía. Una alberca y un spa privados se encuentran junto a camastros, sombrillas y una terraza techada con amplios asientos, comedor y zona de asador. Del café de la mañana a las cenas al atardecer, el entorno mantiene el océano a la vista y ofrece muchas áreas de sombra para estar cómodo.",
+  "Inside, the home feels warm and open, with high wood ceilings, soft natural tones, and large sliding doors that bring in light and connect the living and dining areas to the terrace. The main gathering space includes a long dining table, comfortable lounge seating, and views that draw the eye straight out to the beach.":
+    "Por dentro, la casa se siente cálida y abierta, con techos altos de madera, tonos naturales suaves y grandes puertas corredizas que dejan entrar la luz y conectan la sala y el comedor con la terraza. El espacio principal de reunión incluye una larga mesa de comedor, cómodos asientos de sala y vistas que llevan la mirada directamente hacia la playa.",
+  "Bedrooms continue the relaxed coastal feel, with soft textiles, natural textures, seating areas, and views toward the garden, pool, or ocean. Several rooms open toward outdoor spaces, while bathrooms feature stone, wood, glass showers, and calm details that add to the sense of rest.":
+    "Las recámaras continúan con el ambiente costero y relajado, con textiles suaves, texturas naturales, áreas de descanso y vistas al jardín, la alberca o el océano. Varias habitaciones se abren hacia espacios exteriores, y los baños combinan piedra, madera, regaderas de cristal y detalles serenos que aportan una sensación de descanso.",
+  "With beachfront access visible from the home, a large lawn, private pool, shaded terraces, and welcoming interiors, Porta Fortuna A1 is made for guests who want to spend their days moving easily between the water, the beach, and comfortable shared spaces.":
+    "Con acceso a la playa visible desde la casa, un gran jardín, alberca privada, terrazas con sombra e interiores acogedores, Porta Fortuna A1 está hecha para quienes quieren pasar sus días moviéndose con naturalidad entre el agua, la playa y cómodos espacios compartidos.",
+  "Casa Paraiso is a beachfront home with a private pool, spacious lawn, shaded terraces, and warm indoor-outdoor spaces made for relaxed days by the sea.":
+    "Casa Paraiso es una casa frente a la playa con alberca privada, amplio jardín, terrazas con sombra y cálidos espacios entre interior y exterior, hechos para días relajados junto al mar.",
+  "Beachfront living with a private pool, open-air terraces, and calm ocean views.":
+    "Vida frente a la playa con alberca privada, terrazas al aire libre y tranquilas vistas al océano.",
+  "This inviting Punta Mita home opens to peaceful golf course views, lush palms, and a relaxed outdoor setting designed for easy days in the sun. The terrace brings together a private pool, shaded lounge areas, an outdoor dining space, barbecue area, sun loungers, and soft seating overlooking the fairway.":
+    "Esta acogedora casa de Punta Mita se abre a tranquilas vistas del campo de golf, palmeras exuberantes y un entorno exterior relajado, pensado para días fáciles bajo el sol. La terraza reúne alberca privada, áreas de descanso con sombra, un comedor al aire libre, zona de asador, camastros y asientos suaves con vista al fairway.",
+  "Inside, Las Palmas 28 feels bright and calm, with high ceilings, soft neutral tones, and wide glass doors that connect the living room, dining area, and kitchen to the outdoors. The main living space offers comfortable seating, a TV area, and views toward the terrace and greenery, creating a natural flow for spending time together throughout the day.":
+    "Por dentro, Las Palmas 28 se siente luminosa y serena, con techos altos, tonos neutros suaves y amplias puertas de cristal que conectan la sala, el comedor y la cocina con el exterior. El espacio principal ofrece asientos cómodos, un área de TV y vistas hacia la terraza y la vegetación, creando un flujo natural para pasar el día juntos.",
+  "The bedrooms continue the same relaxed feel, with light-filled spaces, warm wood details, and direct access to balconies, patios, or garden views. One bedroom opens to a covered balcony with seating and views over the palms and golf course, while others offer easy access to outdoor sitting areas. Bathrooms include clean finishes, double vanities in some spaces, walk-in showers, and an open-air bathtub surrounded by tropical plants.":
+    "Las recámaras mantienen el mismo ambiente relajado, con espacios llenos de luz, detalles de madera cálida y acceso directo a balcones, patios o vistas al jardín. Una recámara se abre a un balcón techado con asientos y vistas a las palmeras y al campo de golf, mientras que otras tienen fácil acceso a áreas exteriores para sentarse. Los baños incluyen acabados limpios, lavabos dobles en algunos espacios, regaderas amplias y una tina al aire libre rodeada de plantas tropicales.",
+  "With its private pool, generous terraces, courtyard details, and calm fairway setting, this home is well suited for guests who want a comfortable stay surrounded by greenery, outdoor living, and the easy rhythm of Punta Mita.":
+    "Con su alberca privada, amplias terrazas, detalles de patio y un tranquilo entorno junto al fairway, esta casa es ideal para quienes buscan una estancia cómoda rodeada de vegetación, vida al aire libre y el ritmo tranquilo de Punta Mita.",
+  "A warm Punta Mita retreat with open indoor-outdoor living, a private pool, golf course views, shaded terraces, and relaxed spaces for gathering or unwinding.":
+    "Un cálido refugio en Punta Mita con vida abierta entre interior y exterior, alberca privada, vistas al campo de golf, terrazas con sombra y espacios relajados para reunirse o descansar.",
+  "Golf course views, private pool, open-air living, and lush tropical surroundings.":
+    "Vistas al campo de golf, alberca privada, vida al aire libre y un exuberante entorno tropical.",
+  "Villa Brezza brings together open indoor spaces, shaded terraces, and a generous outdoor setting designed for relaxed days with family and friends. The home opens toward the pool, lawn, and golf course views, creating an easy connection between the living room, dining areas, outdoor lounge, and sun deck.":
+    "Villa Brezza combina espacios interiores abiertos, terrazas con sombra y un generoso entorno exterior, pensados para días relajados en familia y con amigos. La casa se abre hacia la alberca, el jardín y las vistas al campo de golf, creando una conexión natural entre la sala, los comedores, el área de descanso exterior y el solárium.",
+  "The main social areas feel bright and spacious, with large sliding doors that invite natural light and allow the interiors to flow directly outside. Guests can gather around the indoor dining table, enjoy the comfortable living room, or step onto the covered terrace for outdoor meals, casual lounging, and time by the grill and bar area.":
+    "Las áreas sociales principales se sienten luminosas y amplias, con grandes puertas corredizas que dejan entrar la luz natural y permiten que los interiores fluyan directamente hacia el exterior. Los huéspedes pueden reunirse en torno a la mesa del comedor interior, disfrutar de la cómoda sala o salir a la terraza techada para comer al aire libre, descansar con calma y pasar tiempo junto al asador y el bar.",
+  "Outside, Villa Brezza offers a private pool, sun loungers with umbrellas, hammocks, a fire pit seating area, and wide green spaces that look across the golf course. The upper terrace adds another quiet place to sit and take in the open views toward the mountains, treetops, and distant ocean.":
+    "Afuera, Villa Brezza ofrece alberca privada, camastros con sombrillas, hamacas, un área con fogatero y asientos, y amplios espacios verdes con vista al campo de golf. La terraza superior añade otro rincón tranquilo para sentarse y disfrutar de las vistas abiertas hacia las montañas, las copas de los árboles y el océano a lo lejos.",
+  "The home has 4 bedrooms, plus an additional bedroom next to the laundry room that is suitable for staff. Bedrooms are calm and inviting, with soft neutral tones, wood details, TVs, seating areas, and large windows or terrace access in several rooms. Bathrooms are spacious and bright, with glass showers, stone finishes, double vanities in several suites, and freestanding tubs in select bathrooms.":
+    "La casa tiene 4 recámaras, más una recámara adicional junto al cuarto de lavado, adecuada para el personal. Las recámaras son tranquilas y acogedoras, con tonos neutros suaves, detalles de madera, televisiones, áreas de descanso y grandes ventanas o acceso a la terraza en varias de ellas. Los baños son amplios y luminosos, con regaderas de cristal, acabados de piedra, lavabos dobles en varias suites y tinas independientes en algunos baños.",
+  "Villa Brezza is a bright Punta Mita home with open living spaces, a private pool, garden lounges, and terraces overlooking the golf course.":
+    "Villa Brezza es una luminosa casa en Punta Mita con espacios de vida abiertos, alberca privada, áreas de descanso en el jardín y terrazas con vista al campo de golf.",
+  "Private pool, shaded terraces, golf course views, and relaxed indoor-outdoor living.":
+    "Alberca privada, terrazas con sombra, vistas al campo de golf y vida relajada entre interior y exterior.",
+  "Master Bedroom":
+    "Recámara Principal",
+  "Bedroom 5":
+    "Recámara 5",
+  "Bedroom 6":
+    "Recámara 6",
+  "Bedroom 7":
+    "Recámara 7",
+  "Bedroom 8":
+    "Recámara 8",
+  "Bedroom 9":
+    "Recámara 9",
+  "Bedroom 10":
+    "Recámara 10",
+  "Thanksgiving":
+    "Día de Acción de Gracias",
+  "Easter":
+    "Semana Santa",
+  "Spring Break":
+    "Spring Break",
+  "Villa":
+    "Villa",
   // About page (team section)
   "Let’s See If We’re the Right People for Your Home": "Veamos Si Somos las Personas Adecuadas para Tu Casa",
   "Beyond Traveling is a Punta Mita property management and luxury rental company, founded in 2023 by a local team that believes in personal, present, and honest care for your home.":
@@ -1862,6 +2270,12 @@ const es: Record<string, string> = {
 
 const normalize = (value: string) => value.replace(/\s+/g, " ").trim();
 
+// Lookup ignores straight vs. curly apostrophes, so text coming from outside
+// the code (e.g. villa descriptions in Sanity) still finds its translation.
+const unifyApostrophes = (value: string) => value.replace(/[‘’']/g, "’");
+const esLookup: Record<string, string> = {};
+for (const [k, v] of Object.entries(es)) esLookup[unifyApostrophes(normalize(k))] = v;
+
 const originalText = new WeakMap<Text, string>();
 const originalAttributes = new WeakMap<Element, Map<string, string>>();
 const translatableAttributes = ["placeholder", "aria-label", "title", "alt"] as const;
@@ -1893,7 +2307,7 @@ function translateAttributes(language: Language) {
           return;
         }
 
-        const translated = es[key];
+        const translated = esLookup[unifyApostrophes(key)];
         if (!translated) return;
 
         if (element.getAttribute(attribute) !== translated) {
@@ -1940,7 +2354,7 @@ function translateTextNodes(language: Language) {
       return;
     }
 
-    const translated = es[key];
+    const translated = esLookup[unifyApostrophes(key)];
     if (!translated) return;
 
     const leading = original.match(/^\s*/)?.[0] || "";

@@ -46,7 +46,7 @@ export const services: ServiceDetail[] = [
     heroLine: "Your Home, Checked On.",
     heroItalic: "Even When No One Is There.",
     intro:
-      "Homes in Punta Mita don't stay still while they're empty — humidity, storms, pests, and small leaks keep working. Home Watch puts a trusted local set of eyes on the property on a regular schedule, with photos after every visit so you always know where things stand.",
+      "Homes in Punta Mita don’t stay still while they’re empty — humidity, storms, pests, and small leaks keep working. Home Watch puts a trusted local set of eyes on the property on a regular schedule, with photos after every visit so you always know where things stand.",
     heroImage: "/home/portfolio.jpg",
     heroAlt: "Quiet Punta Mita villa looked after between stays by Beyond Traveling",
     idealFor: {
@@ -64,7 +64,7 @@ export const services: ServiceDetail[] = [
       },
       {
         title: "Photo-Documented Reports",
-        body: "A dated report with photos after each visit, so you can see the home's condition from anywhere.",
+        body: "A dated report with photos after each visit, so you can see the home’s condition from anywhere.",
       },
       {
         title: "Issue Flagging",
@@ -91,7 +91,7 @@ export const services: ServiceDetail[] = [
     heroLine: "Every Stay Arranged.",
     heroItalic: "Before You Even Arrive.",
     intro:
-      "Whether it's you, your family, or your guests arriving, Concierge Service handles the details that make a stay feel effortless — the home ready on arrival, the right reservations made, and a local, bilingual team on call throughout.",
+      "Whether it’s you, your family, or your guests arriving, Concierge Service handles the details that make a stay feel effortless — the home ready on arrival, the right reservations made, and a local, bilingual team on call throughout.",
     heroImage: "/home/hero.jpg",
     heroAlt: "Luxury Punta Mita terrace prepared for arriving guests",
     idealFor: {
@@ -189,13 +189,13 @@ export const services: ServiceDetail[] = [
     heroImage: "/home/partnership.jpg",
     heroAlt: "Well-maintained luxury home in Punta Mita",
     idealFor: {
-      quote: "For owners who handle their own guests — or don't rent at all — but want the house in expert hands.",
+      quote: "For owners who handle their own guests — or don’t rent at all — but want the house in expert hands.",
       body: "Booking and guest communication stay with you. Add Vacation Rental Management any time to hand over both.",
     },
     included: [
       {
         title: "Inspections & Visits",
-        body: "Scheduled visits with photo-documented reports, so you always know the home's condition.",
+        body: "Scheduled visits with photo-documented reports, so you always know the home’s condition.",
       },
       {
         title: "Preventive Maintenance",
@@ -239,7 +239,7 @@ export const services: ServiceDetail[] = [
     heroImage: "/properties/villa-brezza.jpg",
     heroAlt: "Luxury Punta Mita villa under full-service management by Beyond Traveling",
     idealFor: {
-      quote: "For owners who want to be fully hands-off — and still know exactly what's happening.",
+      quote: "For owners who want to be fully hands-off — and still know exactly what’s happening.",
       body: "One team looks after the home and the rental business, so nothing falls between two providers.",
     },
     included: [
