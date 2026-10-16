@@ -61,6 +61,7 @@ const mailButton =
   "inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition duration-150 hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 active:scale-[0.98]";
 
 const Block = ({
+  id,
   eyebrow,
   title,
   body,
@@ -70,6 +71,7 @@ const Block = ({
   hrefEs,
   divider,
 }: {
+  id: string;
   eyebrow: string;
   title: string;
   body: string;
@@ -79,7 +81,7 @@ const Block = ({
   hrefEs: string;
   divider?: boolean;
 }) => (
-  <div className={`min-w-0 ${divider ? "md:border-l md:border-bt-navy/15 md:pl-16" : ""}`}>
+  <div id={id} className={`min-w-0 scroll-mt-32 ${divider ? "md:border-l md:border-bt-navy/15 md:pl-16" : ""}`}>
     <Eyebrow>{eyebrow}</Eyebrow>
     <h2 className="font-serif mt-4 text-[30px] font-light leading-[1.15] text-bt-navy md:text-[34px]">
       {title}
@@ -124,6 +126,7 @@ export default function WorkWithUsPage() {
         <Container>
           <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-16 py-20 md:grid-cols-2 md:gap-16 md:py-24">
             <Block
+              id="careers"
               eyebrow="Careers"
               title="Join Our Team"
               body="If you would like to work with us in property management, rentals, or on-site and guest-service roles, send us your details. We will be in touch if there is a fit."
@@ -138,6 +141,7 @@ export default function WorkWithUsPage() {
               hrefEs={jobMailtoEs}
             />
             <Block
+              id="vendors"
               divider
               eyebrow="Vendors"
               title="Offer Your Services"
