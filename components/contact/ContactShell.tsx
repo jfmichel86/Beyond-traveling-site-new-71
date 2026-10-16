@@ -2,6 +2,7 @@ import React from "react";
 import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
 import { Eyebrow } from "@/components/ui";
+import BilingualAnchor from "@/components/BilingualAnchor";
 
 /**
  * Shared page furniture for the /contact/* sub-pages: cream hero with a
@@ -75,14 +76,15 @@ export function ContactLayout({
 export function DirectLines({
   rows,
 }: {
-  rows: { label: string; value: string; href: string; external?: boolean }[];
+  rows: { label: string; value: string; href: string; hrefEs?: string; external?: boolean }[];
 }) {
   return (
     <div>
       {rows.map((row, i) => (
-        <a
+        <BilingualAnchor
           key={row.label}
-          href={row.href}
+          hrefEn={row.href}
+          hrefEs={row.hrefEs ?? row.href}
           {...(row.external
             ? { target: "_blank", rel: "noopener noreferrer" }
             : {})}
@@ -96,7 +98,7 @@ export function DirectLines({
           <p className="mt-1.5 break-words text-[15px] font-medium text-bt-navy">
             {row.value}
           </p>
-        </a>
+        </BilingualAnchor>
       ))}
     </div>
   );

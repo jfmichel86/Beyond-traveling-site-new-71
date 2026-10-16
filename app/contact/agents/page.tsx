@@ -8,6 +8,7 @@ import {
   IncludeList,
 } from "@/components/contact/ContactShell";
 import { pageAlternates } from "@/lib/seo";
+import { mailtoUrl } from "@/lib/mailto";
 
 export const metadata = {
   title: "Agent & Travel Advisor Partnerships | Punta Mita Villas",
@@ -18,21 +19,29 @@ export const metadata = {
 
 const EMAIL = "agents@beyondtravelingmx.com";
 
-const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(
-  "Partnership inquiry"
-)}&body=${encodeURIComponent(
-  [
-    "Hello,",
-    "",
-    "Name:",
-    "Agency / company:",
-    "Website:",
-    "Markets or regions you work with:",
-    "How you would like to collaborate:",
-    "",
-    "Thank you!",
-  ].join("\n")
-)}`;
+const mailto = mailtoUrl(EMAIL, "Partnership inquiry", [
+  "Hello,",
+  "",
+  "Name:",
+  "Agency / company:",
+  "Website:",
+  "Markets or regions you work with:",
+  "How you would like to collaborate:",
+  "",
+  "Thank you!",
+]);
+
+const mailtoEs = mailtoUrl(EMAIL, "Consulta de colaboración", [
+  "Hola,",
+  "",
+  "Nombre:",
+  "Agencia / empresa:",
+  "Sitio web:",
+  "Mercados o regiones con los que trabajas:",
+  "Cómo te gustaría colaborar:",
+  "",
+  "¡Gracias!",
+]);
 
 export default function AgentsContactPage() {
   return (
@@ -73,7 +82,7 @@ export default function AgentsContactPage() {
             <Eyebrow className="mb-7">Write to Us</Eyebrow>
 
             <DirectLines
-              rows={[{ label: "Email", value: EMAIL, href: mailto }]}
+              rows={[{ label: "Email", value: EMAIL, href: mailto, hrefEs: mailtoEs }]}
             />
 
             <p className="mt-6 max-w-[400px] text-[14px] font-normal leading-[1.75] text-bt-charcoal/85">

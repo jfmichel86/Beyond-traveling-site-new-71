@@ -9,6 +9,9 @@ import Container from "@/components/Container";
 import { useLanguage } from "@/lib/language-context";
 import { services } from "@/lib/services";
 import { FALLBACK_VILLAS } from "@/lib/fallback-villas";
+import WhatsAppLink from "@/components/WhatsAppLink";
+
+const ES_NAV_LABELS: Record<string, string> = { SERVICES: "servicios", PROPERTIES: "propiedades", CONTACT: "contacto" };
 
 type MenuItem = { href: string; label: React.ReactNode };
 
@@ -83,6 +86,7 @@ const NavDropdown = ({
   label: string;
   items: MenuItem[];
 }) => {
+  const { language } = useLanguage();
   const [open, setOpen] = React.useState(false);
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const menuId = React.useId();
@@ -117,7 +121,11 @@ const NavDropdown = ({
         <NavLink href={href} showTitle={false}>{label}</NavLink>
         <button
           type="button"
-          aria-label={`${open ? "Close" : "Open"} ${label.toLowerCase()} menu`}
+          aria-label={
+            language === "es"
+              ? `${open ? "Cerrar" : "Abrir"} menú de ${ES_NAV_LABELS[label] ?? label.toLowerCase()}`
+              : `${open ? "Close" : "Open"} ${label.toLowerCase()} menu`
+          }
           aria-expanded={open}
           aria-controls={menuId}
           onClick={() => setOpen((v) => !v)}
@@ -139,7 +147,7 @@ const NavDropdown = ({
 
       {/* Panel hangs directly under the label: its left edge (minus the item
           padding) lines up with the label text, and pt-4 bridges the gap so
-          hover isn't lost moving down into it. */}
+          hover isn’t lost moving down into it. */}
       <div
         id={menuId}
         className={`absolute -left-5 top-full z-40 pt-4 transition duration-200 ease-out ${
@@ -269,15 +277,10 @@ export default function SiteHeader({
               <span><span className="text-white/70">Reservations:</span> reservations@beyondtravelingmx.com</span>
             </a>
             <span className="h-3 w-px bg-white/20" aria-hidden />
-            <a
-              href="https://wa.me/523313619889"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 transition hover:text-white"
-            >
+            <WhatsAppLink topic="owner" className="inline-flex items-center gap-2 transition hover:text-white">
               <WhatsAppIcon />
               +52 33 1361 9889
-            </a>
+            </WhatsAppLink>
           </div>
         </Container>
       </div>

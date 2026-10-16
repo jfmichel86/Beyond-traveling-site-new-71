@@ -3,6 +3,7 @@ import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
 import EsText from "@/components/EsText";
 import { pageAlternates } from "@/lib/seo";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 export const metadata = {
   title: { absolute: "Privacy Policy | Beyond Traveling Punta Mita" },
@@ -107,9 +108,9 @@ export default function PrivacyPolicyPage() {
             <Section number="02" title="How Our Contact Form Works">
               <p>
                 Submitting our contact form opens WhatsApp with your message
-                pre-filled; your details aren&apos;t stored in a server
+                pre-filled; your details aren&rsquo;t stored in a server
                 database on our end, and the message is handled the same way
-                as any other conversation you&apos;d start with us directly.
+                as any other conversation you&rsquo;d start with us directly.
               </p>
             </Section>
 
@@ -117,8 +118,8 @@ export default function PrivacyPolicyPage() {
               <p>
                 We use the details you share to respond to your inquiry,
                 prepare quotes, and coordinate bookings — and, only if
-                you&apos;d like, to send occasional updates about properties
-                and availability. We don&apos;t use your information to make
+                you&rsquo;d like, to send occasional updates about properties
+                and availability. We don&rsquo;t use your information to make
                 automated decisions about you, and we never sell your
                 personal information to third parties.
               </p>
@@ -156,7 +157,7 @@ export default function PrivacyPolicyPage() {
                 >
                   management@beyondtravelingmx.com
                 </a>{" "}
-                and we&apos;ll respond within a reasonable timeframe.
+                and we&rsquo;ll respond within a reasonable timeframe.
               </p>
             </Section>
 
@@ -178,14 +179,12 @@ export default function PrivacyPolicyPage() {
                   management@beyondtravelingmx.com
                 </a>{" "}
                 or via WhatsApp at{" "}
-                <a
-                  href="https://wa.me/523313619889"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <WhatsAppLink
+                  topic="privacy"
                   className="text-bt-navy underline underline-offset-2 hover:text-bt-gold"
                 >
                   +52 33 1361 9889
-                </a>
+                </WhatsAppLink>
                 .
               </p>
             </Section>
@@ -201,7 +200,7 @@ export default function PrivacyPolicyPage() {
             </h2>
 
             <p className="mx-auto mt-5 max-w-[620px] font-normal text-[17px] leading-[1.75] text-slate-900/80">
-              We&apos;re glad to answer directly — just reach out.
+              We&rsquo;re glad to answer directly — just reach out.
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">

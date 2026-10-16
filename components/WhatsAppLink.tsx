@@ -2,23 +2,49 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
-import { isEsPath } from "@/lib/locale";
-import { WA_MESSAGES, whatsappUrl, type WaAudience } from "@/lib/whatsapp";
+import { isEsPath, stripEs } from "@/lib/locale";
+import {
+  WA_MESSAGES,
+  serviceMessage,
+  sourceNote,
+  whatsappUrl,
+  type WaTopic,
+} from "@/lib/whatsapp";
 
-/** WhatsApp link with a prefilled message in the visitor's language. */
+/**
+ * WhatsApp link with a prefilled message in the visitor's language that fits
+ * the page, plus a short note of which page it was sent from.
+ * `topic="service"` needs `serviceEn` / `serviceEs` (the service's name).
+ */
 export default function WhatsAppLink({
+  topic,
   audience,
+  serviceEn,
+  serviceEs,
   className,
   children,
+  ...rest
 }: {
-  audience: WaAudience;
+  topic?: WaTopic;
+  /** Older name for `topic` ("owner" | "guest"). */
+  audience?: "owner" | "guest";
+  serviceEn?: string;
+  serviceEs?: string;
   className?: string;
   children: React.ReactNode;
-}) {
-  const es = isEsPath(usePathname() || "/");
+} & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "className" | "children">) {
+  const pathname = usePathname() || "/";
+  const es = isEsPath(pathname);
+  const t: WaTopic = topic ?? audience ?? "owner";
+  const msg =
+    t === "service"
+      ? serviceMessage(serviceEn ?? "management", serviceEs ?? serviceEn ?? "administración")
+      : WA_MESSAGES[t];
+  const text = (es ? msg.es : msg.en) + sourceNote(stripEs(pathname), es);
   return (
     <a
-      href={whatsappUrl(WA_MESSAGES[audience][es ? "es" : "en"])}
+      {...rest}
+      href={whatsappUrl(text)}
       target="_blank"
       rel="noopener noreferrer"
       className={className}

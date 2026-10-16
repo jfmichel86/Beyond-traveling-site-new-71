@@ -11,6 +11,8 @@ import {
   PullQuoteSection,
 } from "@/components/ui";
 import { getServiceBySlug, services } from "@/lib/services";
+import WhatsAppLink from "@/components/WhatsAppLink";
+import { ES_SERVICE_NAMES } from "@/lib/services";
 
 type PageProps = {
   params: { slug: string };
@@ -85,7 +87,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
 
       {/* Who it's for */}
       <PullQuoteSection
-        eyebrow="Who It's For"
+        eyebrow="Who It’s For"
         quote={service.idealFor.quote}
         body={service.idealFor.body}
         bg="bg-bt-cream"
@@ -205,14 +207,14 @@ export default function ServiceDetailPage({ params }: PageProps) {
             >
               Talk With Us About Your Property
             </Link>
-            <a
-              href="https://wa.me/523313619889"
-              target="_blank"
-              rel="noopener noreferrer"
+            <WhatsAppLink
+              topic="service"
+              serviceEn={`${service.title} ${service.italicTitle}`}
+              serviceEs={(ES_SERVICE_NAMES[`${service.title}|${service.italicTitle}`] ?? [service.title, service.italicTitle]).join(" ")}
               className="inline-flex min-h-11 items-center justify-center border border-white/30 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition hover:border-white hover:bg-white/[0.06]"
             >
               WhatsApp Us
-            </a>
+            </WhatsAppLink>
           </div>
         </div>
       </section>

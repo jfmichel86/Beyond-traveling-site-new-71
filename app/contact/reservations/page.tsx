@@ -8,6 +8,7 @@ import {
 } from "@/components/contact/ContactShell";
 import ReservationForm from "./ReservationForm";
 import { pageAlternates } from "@/lib/seo";
+import { WA_MESSAGES, whatsappUrl } from "@/lib/whatsapp";
 
 export const metadata = {
   title: "Book a Villa in Punta Mita | Request Your Dates",
@@ -52,7 +53,8 @@ export default function ReservationsContactPage() {
                   {
                     label: "Phone / WhatsApp",
                     value: "+52 33 1361 9889",
-                    href: "https://wa.me/523313619889",
+                    href: whatsappUrl(WA_MESSAGES.guest.en),
+                    hrefEs: whatsappUrl(WA_MESSAGES.guest.es),
                     external: true,
                   },
                   {

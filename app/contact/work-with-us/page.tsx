@@ -6,6 +6,8 @@ import {
   IncludeList,
 } from "@/components/contact/ContactShell";
 import { pageAlternates } from "@/lib/seo";
+import { mailtoUrl } from "@/lib/mailto";
+import BilingualAnchor from "@/components/BilingualAnchor";
 
 // A recruiting / vendor page isn't something we want ranking in search.
 export const metadata = {
@@ -18,10 +20,8 @@ export const metadata = {
 
 const EMAIL = "info@beyondtravelingmx.com";
 
-const mailtoFor = (subject: string, fields: string[]) =>
-  `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-    ["Hello,", "", ...fields, "", "Thank you!"].join("\n")
-  )}`;
+const mailtoFor = (subject: string, fields: string[], es = false) =>
+  mailtoUrl(EMAIL, subject, [es ? "Hola," : "Hello,", "", ...fields, "", es ? "¡Gracias!" : "Thank you!"]);
 
 const jobMailto = mailtoFor("Job inquiry", [
   "Name:",
@@ -29,6 +29,16 @@ const jobMailto = mailtoFor("Job inquiry", [
   "Experience and languages:",
   "Link to your CV or portfolio:",
 ]);
+const jobMailtoEs = mailtoFor(
+  "Consulta de empleo",
+  [
+    "Nombre:",
+    "Puesto que te interesa:",
+    "Experiencia e idiomas que hablas:",
+    "Enlace a tu CV o portafolio:",
+  ],
+  true
+);
 
 const vendorMailto = mailtoFor("Service provider inquiry", [
   "Name and company:",
@@ -36,6 +46,16 @@ const vendorMailto = mailtoFor("Service provider inquiry", [
   "Area you cover:",
   "Website or portfolio:",
 ]);
+const vendorMailtoEs = mailtoFor(
+  "Consulta de proveedor de servicios",
+  [
+    "Nombre y empresa:",
+    "Servicio que ofreces:",
+    "Zona que cubres:",
+    "Sitio web o portafolio:",
+  ],
+  true
+);
 
 const mailButton =
   "inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition duration-150 hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 active:scale-[0.98]";
@@ -47,6 +67,7 @@ const Block = ({
   includes,
   cta,
   href,
+  hrefEs,
   divider,
 }: {
   eyebrow: string;
@@ -55,6 +76,7 @@ const Block = ({
   includes: string[];
   cta: string;
   href: string;
+  hrefEs: string;
   divider?: boolean;
 }) => (
   <div className={`min-w-0 ${divider ? "md:border-l md:border-bt-navy/15 md:pl-16" : ""}`}>
@@ -70,9 +92,9 @@ const Block = ({
     <IncludeList items={includes} />
 
     <div className="mt-8">
-      <a href={href} className={mailButton}>
+      <BilingualAnchor hrefEn={href} hrefEs={hrefEs} className={mailButton}>
         {cta}
-      </a>
+      </BilingualAnchor>
       <p className="mt-4 text-[13.5px] font-normal text-bt-charcoal/85">
         Or write to{" "}
         <a
@@ -113,6 +135,7 @@ export default function WorkWithUsPage() {
               ]}
               cta="Email Your Details"
               href={jobMailto}
+              hrefEs={jobMailtoEs}
             />
             <Block
               divider
@@ -127,6 +150,7 @@ export default function WorkWithUsPage() {
               ]}
               cta="Email Your Proposal"
               href={vendorMailto}
+              hrefEs={vendorMailtoEs}
             />
           </div>
         </Container>

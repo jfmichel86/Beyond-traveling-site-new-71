@@ -8,6 +8,7 @@ import {
 } from "@/components/contact/ContactShell";
 import OwnerForm from "./OwnerForm";
 import { pageAlternates } from "@/lib/seo";
+import { WA_MESSAGES, whatsappUrl } from "@/lib/whatsapp";
 
 export const metadata = {
   title: "Property Owner Inquiries | Punta Mita Property Management",
@@ -57,7 +58,8 @@ export default function OwnersContactPage() {
                   {
                     label: "Phone / WhatsApp",
                     value: "+52 33 1361 9889",
-                    href: "https://wa.me/523313619889",
+                    href: whatsappUrl(WA_MESSAGES.owner.en),
+                    hrefEs: whatsappUrl(WA_MESSAGES.owner.es),
                     external: true,
                   },
                 ]}

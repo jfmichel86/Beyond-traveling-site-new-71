@@ -3,6 +3,7 @@ import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
 import EsText from "@/components/EsText";
 import { pageAlternates } from "@/lib/seo";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 export const metadata = {
   title: { absolute: "Cancellation Policy | Beyond Traveling Punta Mita" },
@@ -118,7 +119,7 @@ export default function CancellationPolicyPage() {
             <p className="mb-8 rounded-sm border border-bt-navy/15 bg-bt-cream px-6 py-4 font-normal text-[15px] leading-[1.7] text-slate-900/80">
               This policy applies to reservations booked directly with Beyond
               Traveling. Bookings made through a third-party platform such as
-              Airbnb or Vrbo follow that platform&apos;s own cancellation
+              Airbnb or Vrbo follow that platform&rsquo;s own cancellation
               terms instead.
             </p>
 
@@ -158,8 +159,8 @@ export default function CancellationPolicyPage() {
 
             <Section number="03" title="Date Changes">
               <p>
-                We&apos;re happy to accommodate one complimentary date change
-                per reservation, provided it&apos;s requested at least 90
+                We&rsquo;re happy to accommodate one complimentary date change
+                per reservation, provided it&rsquo;s requested at least 90
                 days before arrival and new dates are available within the
                 same calendar year. Rate differences between your original
                 and new dates may apply. Requests made within 90 days of
@@ -171,7 +172,7 @@ export default function CancellationPolicyPage() {
               <p>
                 If a natural disaster, government travel restriction, or
                 similarly extraordinary event directly affects Punta Mita or
-                your ability to travel, we&apos;ll do our best to offer a
+                your ability to travel, we&rsquo;ll do our best to offer a
                 12-month rebooking credit rather than apply the standard
                 cancellation terms above. This applies only when the
                 circumstance is in effect immediately before or during your
@@ -206,15 +207,13 @@ export default function CancellationPolicyPage() {
                   management@beyondtravelingmx.com
                 </a>{" "}
                 or via WhatsApp at{" "}
-                <a
-                  href="https://wa.me/523313619889"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <WhatsAppLink
+                  topic="cancellation"
                   className="text-bt-navy underline underline-offset-2 hover:text-bt-gold"
                 >
                   +52 33 1361 9889
-                </a>
-                . We&apos;ll confirm receipt within 24 hours along with the
+                </WhatsAppLink>
+                . We&rsquo;ll confirm receipt within 24 hours along with the
                 terms that apply to your reservation.
               </p>
             </Section>

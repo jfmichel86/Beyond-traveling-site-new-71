@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { isEsPath, stripEs } from "@/lib/locale";
-import { WA_MESSAGES, whatsappUrl, type WaAudience } from "@/lib/whatsapp";
+import { WA_MESSAGES, sourceNote, whatsappUrl, type WaAudience } from "@/lib/whatsapp";
 
 const GUEST_AREAS = ["/properties", "/contact/reservations", "/discover-punta-mita", "/villa-dining-menu"];
 
@@ -26,7 +26,7 @@ export default function FloatingWhatsApp() {
 
   return (
     <a
-      href={whatsappUrl(WA_MESSAGES[audience][es ? "es" : "en"])}
+      href={whatsappUrl(WA_MESSAGES[audience][es ? "es" : "en"] + sourceNote(path, es))}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}

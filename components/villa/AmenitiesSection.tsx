@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useLanguage } from '@/lib/language-context'
 
 type AmenityItem = { key: string; label: string }
 type AmenityCategory = { label: string; icon: React.ReactNode; items: AmenityItem[] }
@@ -14,6 +15,7 @@ export default function AmenitiesSection({
   highlights: AmenityItem[]
   totalCount: number
 }) {
+  const { language } = useLanguage()
   const [expanded, setExpanded] = useState(false)
 
   return (
@@ -30,7 +32,7 @@ export default function AmenitiesSection({
       )}
 
       <button className={`expand-btn${expanded ? ' open' : ''}`} type="button" onClick={() => setExpanded((o) => !o)}>
-        {expanded ? 'Show fewer amenities' : `View all ${totalCount} amenities`}
+        {expanded ? 'Show fewer amenities' : language === 'es' ? `Ver las ${totalCount} amenidades` : `View all ${totalCount} amenities`}
         <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
       </button>
 

@@ -87,7 +87,7 @@ const Hero = () => (
         <p className="order-4 mt-6 max-w-[460px] font-normal text-[15px] leading-[1.75] text-bt-charcoal/85 md:order-3">
           A bilingual, locally based team serving homeowners in Punta Mita
           since 2023. We provide Property Management, Vacation Rental
-          Management, Home Watch, Concierge Services.
+          Management, Home Watch, Concierge Service.
         </p>
 
         <div className="order-3 mt-8 flex flex-wrap items-center gap-5 md:order-4">
@@ -152,7 +152,7 @@ const TrustRow = () => {
 
   return (
     <div className="bg-bt-navy">
-      <div className="mx-auto flex max-w-[1100px] cursor-default flex-col gap-4 px-6 py-6 lg:gap-3.5 lg:px-12 lg:py-5">
+      <div className="mx-auto flex max-w-[1100px] flex-col gap-4 px-6 py-6 lg:gap-3.5 lg:px-12 lg:py-5">
         {rows.map((row, r) => (
           <ul
             key={r}
@@ -489,83 +489,43 @@ const VillasWeManage = ({ villas }: { villas: Property[] }) => (
   </section>
 );
 
-const BTN_LIGHT =
-  "inline-flex min-h-11 items-center justify-center rounded-sm bg-white px-6 py-3.5 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition duration-150 hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy active:scale-[0.98]";
-const BTN_LIGHT_OUTLINE =
-  "inline-flex min-h-11 items-center justify-center border border-white/35 px-6 py-3.5 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-white transition duration-150 hover:border-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy active:scale-[0.98]";
-const BTN_NAVY =
-  "inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-6 py-3.5 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-white transition duration-150 hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 active:scale-[0.98]";
-const BTN_NAVY_OUTLINE =
-  "inline-flex min-h-11 items-center justify-center border border-bt-navy/35 px-6 py-3.5 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition duration-150 hover:border-bt-navy hover:bg-bt-navy/5 focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 active:scale-[0.98]";
-
-/** Final call to action: two clear paths, owners (primary) and guests. */
 const FinalCta = () => (
   <section className="bg-bt-navy">
-    <div className="mx-auto max-w-[1100px] px-6 py-20 md:px-12 md:py-24">
-      <div className="mx-auto max-w-[620px] text-center">
+    <div className="mx-auto grid max-w-[1100px] items-center gap-10 px-6 py-20 md:grid-cols-[1fr_auto] md:gap-16 md:px-12 md:py-24">
+      <div>
         <h2 className="font-serif text-3xl font-light leading-[1.15] tracking-[-0.01em] text-white md:text-[38px]">
           Let&rsquo;s See If We&rsquo;re a Good Fit
         </h2>
-        <p className="mt-5 font-normal text-[16px] leading-[1.75] text-white/80">
+
+        <p className="mt-5 max-w-[480px] font-normal text-[16px] leading-[1.75] text-white/80">
           If you want a team that actually answers, stays involved, and treats
           your home like it matters, let&rsquo;s talk.
         </p>
+
+        <p className="mt-6">
+          <Link
+            href="/faq"
+            className="text-[12.5px] font-normal text-white/85 underline decoration-white/35 underline-offset-4 transition hover:text-white hover:decoration-white"
+          >
+            Have a question first? See common questions.
+          </Link>
+        </p>
       </div>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2 md:gap-8">
-        {/* Owners — the main path */}
-        <div className="flex flex-col bg-white p-8 md:p-10">
-          <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-bt-gold-text">
-            For Homeowners
-          </p>
-          <h3 className="font-serif mt-4 text-[26px] font-normal leading-[1.2] text-bt-navy md:text-[30px]">
-            I Own a Home in Punta Mita
-          </h3>
-          <p className="mt-4 flex-1 font-normal text-[15px] leading-[1.75] text-bt-charcoal/85">
-            Tell us about your home and we&rsquo;ll prepare a proposal built
-            around it. No long-term contracts.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="/contact/owners" className={`${BTN_NAVY} sm:flex-1`}>
-              Talk With Us About Your Property
-            </Link>
-            <WhatsAppLink audience="owner" className={BTN_NAVY_OUTLINE}>
-              WhatsApp Us
-            </WhatsAppLink>
-          </div>
-        </div>
-
-        {/* Guests */}
-        <div className="flex flex-col border border-white/25 p-8 md:p-10">
-          <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-bt-gold-light">
-            For Guests
-          </p>
-          <h3 className="font-serif mt-4 text-[26px] font-normal leading-[1.2] text-white md:text-[30px]">
-            I&rsquo;d Like to Stay in a Villa
-          </h3>
-          <p className="mt-4 flex-1 font-normal text-[15px] leading-[1.75] text-white/80">
-            Browse the villas we manage, then ask us about your dates.
-            We&rsquo;ll reply directly with availability and rates.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="/contact/reservations" className={`${BTN_LIGHT} sm:flex-1`}>
-              Ask About a Stay
-            </Link>
-            <WhatsAppLink audience="guest" className={BTN_LIGHT_OUTLINE}>
-              WhatsApp Us
-            </WhatsAppLink>
-          </div>
-        </div>
-      </div>
-
-      <p className="mt-10 text-center">
+      <div className="flex flex-col gap-4 sm:flex-row md:flex-col">
         <Link
-          href="/faq"
-          className="text-[12.5px] font-normal text-white/85 underline decoration-white/35 underline-offset-4 transition hover:text-white hover:decoration-white"
+          href="/contact/owners"
+          className="inline-flex min-h-11 items-center justify-center rounded-sm bg-white px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition duration-150 hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy active:scale-[0.98]"
         >
-          Have a question first? See common questions.
+          Talk With Us About Your Property
         </Link>
-      </p>
+        <WhatsAppLink
+          audience="owner"
+          className="inline-flex min-h-11 items-center justify-center border border-white/35 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition duration-150 hover:border-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy active:scale-[0.98]"
+        >
+          WhatsApp Us
+        </WhatsAppLink>
+      </div>
     </div>
   </section>
 );
@@ -575,7 +535,7 @@ export default async function HomePage() {
   const villas = await getVillaCards();
 
   return (
-    <div className="min-h-screen bg-white pb-20 md:pb-0">
+    <div className="bg-white pb-20 md:pb-0">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -606,7 +566,7 @@ export default async function HomePage() {
             them, with you.
           </>
         }
-        body="We work with a limited number of homeowners, so we can stay closely involved — getting to know you, your home, and your priorities, whether that's preserving the property, stronger rental performance, or both."
+        body="We work with a limited number of homeowners, so we can stay closely involved — getting to know you, your home, and your priorities, whether that’s preserving the property, stronger rental performance, or both."
         bg="bg-white"
       />
 
@@ -620,7 +580,7 @@ export default async function HomePage() {
           },
           {
             title: "No Lock-In",
-            body: "No long-term contracts. Cancel anytime with 30 days' notice.",
+            body: "No long-term contracts. Cancel anytime with 30 days’ notice.",
           },
           {
             title: "Transparent Pricing",

@@ -44,6 +44,9 @@ export const OutlineButton = ({
   </Link>
 );
 
+export const OUTLINE_CLASS =
+  "inline-flex min-h-11 items-center justify-center border border-bt-navy/30 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition hover:border-bt-navy hover:bg-bt-navy/[0.03] focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2";
+
 export const OutlineAnchor = ({
   children,
   href,

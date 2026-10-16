@@ -8,7 +8,8 @@ import { discoverCategories } from "@/lib/discoverPuntaMita";
 import { useLanguage } from "@/lib/language-context";
 import { getText } from "@/lib/i18n-types";
 import type { LocalizedText } from "@/lib/i18n-types";
-import { PrimaryButton, OutlineButton, OutlineAnchor, Eyebrow } from "@/components/ui";
+import { PrimaryButton, OutlineButton, OUTLINE_CLASS, Eyebrow } from "@/components/ui";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 function CategoryTile({
   category,
@@ -56,14 +57,12 @@ function MobileStickyCta() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-bt-navy/10 bg-white/95 p-3 backdrop-blur md:hidden">
       <div className="grid grid-cols-2 gap-3">
-        <a
-          href="https://wa.me/523313619889"
-          target="_blank"
-          rel="noopener noreferrer"
+        <WhatsAppLink
+          topic="discover"
           className="inline-flex min-h-11 items-center justify-center border border-bt-navy/25 text-[10px] font-medium uppercase tracking-[0.13em] text-bt-navy transition hover:bg-bt-cream focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
         >
           WhatsApp
-        </a>
+        </WhatsAppLink>
 
         <Link
           href="/contact"
@@ -157,9 +156,9 @@ export default function DiscoverPuntaMitaPage() {
             <PrimaryButton href="/contact/reservations">
               {language === "es" ? "Pídenos Ayuda Para Planear Tu Estancia" : "Ask Us to Plan Your Stay"}
             </PrimaryButton>
-            <OutlineAnchor href="https://wa.me/523313619889">
+            <WhatsAppLink topic="discover" className={OUTLINE_CLASS}>
               {language === "es" ? "Escríbenos por WhatsApp" : "WhatsApp Us"}
-            </OutlineAnchor>
+            </WhatsAppLink>
           </div>
         </div>
       </section>

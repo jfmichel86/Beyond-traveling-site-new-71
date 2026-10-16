@@ -2,6 +2,7 @@ import React from "react";
 import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
 import { pageAlternates } from "@/lib/seo";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 export const metadata = {
   title: { absolute: "Terms & Conditions | Beyond Traveling Punta Mita" },
@@ -128,9 +129,9 @@ export default function TermsAndConditionsPage() {
             <Section number="02" title="Booking Process">
               <p>
                 Rates and availability shown on this site are provisional. A
-                booking is only confirmed once we&apos;ve issued written
+                booking is only confirmed once we&rsquo;ve issued written
                 confirmation and received your deposit. A refundable security
-                deposit equivalent to one night&apos;s rental applies to all
+                deposit equivalent to one night&rsquo;s rental applies to all
                 reservations, and any additional house rules specific to a
                 property are shared with you in your booking confirmation.
               </p>
@@ -150,7 +151,7 @@ export default function TermsAndConditionsPage() {
 
             <Section number="04" title="Guest Conduct & Property Use">
               <p>
-                Please treat each property with the same care you&apos;d give
+                Please treat each property with the same care you&rsquo;d give
                 your own home — respecting occupancy limits, house rules, and
                 local laws. Events or gatherings beyond your confirmed guest
                 count require our prior written consent, and pets are only
@@ -175,7 +176,7 @@ export default function TermsAndConditionsPage() {
               <p>
                 All text, photography, and design on this website belong to
                 Beyond Traveling or are used with permission from homeowners
-                and photographers. Please don&apos;t reproduce or repurpose
+                and photographers. Please don&rsquo;t reproduce or repurpose
                 this content without our written consent.
               </p>
             </Section>
@@ -207,14 +208,12 @@ export default function TermsAndConditionsPage() {
                   management@beyondtravelingmx.com
                 </a>{" "}
                 or via WhatsApp at{" "}
-                <a
-                  href="https://wa.me/523313619889"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <WhatsAppLink
+                  topic="terms"
                   className="text-bt-navy underline underline-offset-2 hover:text-bt-gold"
                 >
                   +52 33 1361 9889
-                </a>
+                </WhatsAppLink>
                 .
               </p>
             </Section>
@@ -230,7 +229,7 @@ export default function TermsAndConditionsPage() {
             </h2>
 
             <p className="mx-auto mt-5 max-w-[620px] font-normal text-[17px] leading-[1.75] text-slate-900/80">
-              We&apos;re happy to walk through the details with you directly.
+              We&rsquo;re happy to walk through the details with you directly.
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">

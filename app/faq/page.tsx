@@ -30,12 +30,12 @@ const FAQ_ITEMS = [
   {
     question: "Will I deal with one person, or a system?",
     answer:
-      "You deal with people. We keep communication direct and avoid passing your home through layers of staff — you always know who is caring for your property, what's happening day to day, and why decisions are being made.",
+      "You deal with people. We keep communication direct and avoid passing your home through layers of staff — you always know who is caring for your property, what’s happening day to day, and why decisions are being made.",
   },
   {
     question: "Are there hidden fees?",
     answer:
-      "No. Our fees are straightforward, and we actively look for ways to save you money — avoiding unnecessary maintenance and managing cleaning and supplies efficiently. We don't inflate costs, and we don't benefit when your expenses go up.",
+      "No. Our fees are straightforward, and we actively look for ways to save you money — avoiding unnecessary maintenance and managing cleaning and supplies efficiently. We don’t inflate costs, and we don’t benefit when your expenses go up.",
   },
   {
     question: "Do you handle rentals, or only maintenance?",
@@ -45,7 +45,7 @@ const FAQ_ITEMS = [
   {
     question: "How available are you, really?",
     answer:
-      "We live and work in Punta Mita, close to every home we manage. That means fast responses to guests, quick action when something needs attention, and real relationships with local vendors — not a \"we'll check on that Monday\" mentality.",
+      "We live and work in Punta Mita, close to every home we manage. That means fast responses to guests, quick action when something needs attention, and real relationships with local vendors — not a \"we’ll check on that Monday\" mentality.",
   },
   {
     question: "Do you take on every property that asks?",

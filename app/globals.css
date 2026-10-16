@@ -87,11 +87,11 @@
    Hovering any cell tints its whole column; each header/cell
    carries data-col="<index>". Browsers without :has() simply skip
    the highlight. */
-.cmp-table:has([data-col="0"]:hover) [data-col="0"] { background-color: rgb(30 58 95 / 0.09); }
-.cmp-table:has([data-col="1"]:hover) [data-col="1"] { background-color: rgb(30 58 95 / 0.09); }
-.cmp-table:has([data-col="2"]:hover) [data-col="2"] { background-color: rgb(30 58 95 / 0.09); }
-.cmp-table:has([data-col="3"]:hover) [data-col="3"] { background-color: rgb(30 58 95 / 0.09); }
-.cmp-table:has([data-col="4"]:hover) [data-col="4"] { background-color: rgb(30 58 95 / 0.09); }
-.cmp-table:has([data-col="5"]:hover) [data-col="5"] { background-color: rgb(30 58 95 / 0.09); }
-.cmp-table:has([data-col="6"]:hover) [data-col="6"] { background-color: rgb(30 58 95 / 0.09); }
-.cmp-table:has([data-col="7"]:hover) [data-col="7"] { background-color: rgb(30 58 95 / 0.09); }
+.cmp-table:has([data-col="0"]:hover) [data-col="0"] { background-color: rgb(30 58 95 / 0.17); }
+.cmp-table:has([data-col="1"]:hover) [data-col="1"] { background-color: rgb(30 58 95 / 0.17); }
+.cmp-table:has([data-col="2"]:hover) [data-col="2"] { background-color: rgb(30 58 95 / 0.17); }
+.cmp-table:has([data-col="3"]:hover) [data-col="3"] { background-color: rgb(30 58 95 / 0.17); }
+.cmp-table:has([data-col="4"]:hover) [data-col="4"] { background-color: rgb(30 58 95 / 0.17); }
+.cmp-table:has([data-col="5"]:hover) [data-col="5"] { background-color: rgb(30 58 95 / 0.17); }
+.cmp-table:has([data-col="6"]:hover) [data-col="6"] { background-color: rgb(30 58 95 / 0.17); }
+.cmp-table:has([data-col="7"]:hover) [data-col="7"] { background-color: rgb(30 58 95 / 0.17); }

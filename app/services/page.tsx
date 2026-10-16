@@ -3,7 +3,7 @@ import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
 import {
   PrimaryButton,
-  OutlineAnchor,
+  OUTLINE_CLASS,
   TextLink,
   Eyebrow,
   FullBleedPhoto,
@@ -11,6 +11,7 @@ import {
 } from "@/components/ui";
 import { pageAlternates } from "@/lib/seo";
 import MobileStickyCta from "@/components/MobileStickyCta";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 export const metadata = {
   title: { absolute: "Property Management Services in Punta Mita | Beyond Traveling" },
@@ -84,7 +85,7 @@ export default function ServicesPage() {
       <PullQuoteSection
         eyebrow="Our Approach"
         quote="Being present, paying attention, and making practical decisions before small issues become bigger ones."
-        body="This is someone's home, not just an asset. Decisions affect comfort, costs, and rental results — responsiveness matters as much as execution."
+        body="This is someone’s home, not just an asset. Decisions affect comfort, costs, and rental results — responsiveness matters as much as execution."
       >
         <div className="mt-6">
           <Link
@@ -148,9 +149,9 @@ export default function ServicesPage() {
             <PrimaryButton href="/contact/owners">
               Talk With Us About Your Property
             </PrimaryButton>
-            <OutlineAnchor href="https://wa.me/523313619889">
+            <WhatsAppLink topic="owner" className={OUTLINE_CLASS}>
               WhatsApp Us
-            </OutlineAnchor>
+            </WhatsAppLink>
           </div>
         </div>
       </section>

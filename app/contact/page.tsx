@@ -3,6 +3,7 @@ import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
 import { Eyebrow } from "@/components/ui";
 import { pageAlternates } from "@/lib/seo";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 export const metadata = {
   title: { absolute: "Contact Beyond Traveling | Punta Mita Property Management" },
@@ -127,14 +128,12 @@ const NotSure = () => (
           person.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="https://wa.me/523313619889"
-            target="_blank"
-            rel="noopener noreferrer"
+          <WhatsAppLink
+            topic="owner"
             className="inline-flex min-h-11 items-center justify-center rounded-sm bg-white px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition hover:bg-bt-cream focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy"
           >
             WhatsApp
-          </a>
+          </WhatsAppLink>
         </div>
       </div>
     </Container>

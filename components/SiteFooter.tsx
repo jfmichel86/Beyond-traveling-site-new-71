@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import Link from "@/components/LocaleLink";
 import FooterLanguageSwitch from "@/components/FooterLanguageSwitch";
 import { services } from "@/lib/services";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 /**
  * Site footer.
@@ -181,14 +182,12 @@ export default function SiteFooter() {
                   className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-bt-gold transition-transform duration-300 ease-out group-hover:scale-x-100"
                 />
               </a>
-              <a
-                href="https://wa.me/523313619889"
-                target="_blank"
-                rel="noopener noreferrer"
+              <WhatsAppLink
+                topic="owner"
                 className="inline-flex min-h-11 items-center justify-center border border-bt-navy/30 px-6 text-[14px] font-medium text-bt-navy transition hover:border-bt-navy hover:bg-bt-navy/[0.03] focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2"
               >
                 WhatsApp +52 33 1361 9889
-              </a>
+              </WhatsAppLink>
             </div>
           </address>
 

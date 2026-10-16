@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { formatPrice } from '@/lib/villa/utils'
+import { useLanguage } from '@/lib/language-context'
 
 const WA_NUMBER = '523313619889'
 const CONTACT_EMAIL = 'reservations@beyondtravelingmx.com'
@@ -11,13 +12,13 @@ type PanelOpen = 'dates' | 'guests' | null
 function fmt(y: number, m: number, d: number) {
   return `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`
 }
-function fmtShort(ds: string) {
+function fmtShort(ds: string, locale = 'en-US') {
   const [y, m, d] = ds.split('-').map(Number)
-  return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+  return new Date(y, m - 1, d).toLocaleDateString(locale, { month: 'short', day: 'numeric' })
 }
-function fmtLong(ds: string) {
+function fmtLong(ds: string, locale = 'en-US') {
   const [y, m, d] = ds.split('-').map(Number)
-  return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+  return new Date(y, m - 1, d).toLocaleDateString(locale, { month: 'long', day: 'numeric', year: 'numeric' })
 }
 
 export default function Sidebar({
@@ -31,6 +32,9 @@ export default function Sidebar({
   minStayNights: number
   priceOnRequest?: boolean
 }) {
+  const { language } = useLanguage()
+  const es = language === 'es'
+  const locale = es ? 'es-MX' : 'en-US'
   const [openPanel, setOpenPanel] = useState<PanelOpen>(null)
   const wrapRef = useRef<HTMLDivElement>(null)
 
@@ -84,6 +88,12 @@ export default function Sidebar({
 
   const guestsLabel = () => {
     const parts: string[] = []
+    if (es) {
+      if (guests.adults) parts.push(`${guests.adults} adulto${guests.adults > 1 ? 's' : ''}`)
+      if (guests.children) parts.push(`${guests.children} niño${guests.children > 1 ? 's' : ''}`)
+      if (guests.infants) parts.push(`${guests.infants} bebé${guests.infants > 1 ? 's' : ''}`)
+      return parts.join(', ')
+    }
     if (guests.adults) parts.push(`${guests.adults} adult${guests.adults > 1 ? 's' : ''}`)
     if (guests.children) parts.push(`${guests.children} child${guests.children > 1 ? 'ren' : ''}`)
     if (guests.infants) parts.push(`${guests.infants} infant${guests.infants > 1 ? 's' : ''}`)
@@ -91,8 +101,8 @@ export default function Sidebar({
   }
 
   const datesLabel = () => {
-    if (checkIn && checkOut) return `${fmtShort(checkIn)} – ${fmtShort(checkOut)}`
-    if (checkIn) return `${fmtShort(checkIn)} → select check-out`
+    if (checkIn && checkOut) return `${fmtShort(checkIn, locale)} – ${fmtShort(checkOut, locale)}`
+    if (checkIn) return `${fmtShort(checkIn, locale)} → ${es ? 'elige la salida' : 'select check-out'}`
     return ''
   }
 
@@ -101,7 +111,8 @@ export default function Sidebar({
     const firstDay = new Date(y, m, 1)
     const daysInMonth = new Date(y, m + 1, 0).getDate()
     const startDow = firstDay.getDay()
-    const monthLabel = firstDay.toLocaleString('en-US', { month: 'long' }) + ' ' + y
+    const monthName = firstDay.toLocaleString(locale, { month: 'long' })
+    const monthLabel = monthName.charAt(0).toUpperCase() + monthName.slice(1) + ' ' + y
     const cells = []
     for (let i = 0; i < startDow; i++) cells.push(<div key={`e${i}`} className="dp-day dp-day-empty" />)
     for (let d = 1; d <= daysInMonth; d++) {
@@ -136,7 +147,7 @@ export default function Sidebar({
           ) : <div style={{ width: 28 }} />}
         </div>
         <div className="dp-day-names">
-          {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map((n) => <div className="dp-day-name" key={n}>{n}</div>)}
+          {(es ? ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'] : ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']).map((n) => <div className="dp-day-name" key={n}>{n}</div>)}
         </div>
         <div className="dp-days-grid">{cells}</div>
       </div>
@@ -152,7 +163,15 @@ export default function Sidebar({
   const buildMessage = () => {
     const dl = datesLabel()
     const gl = guestsLabel()
-    const parts: string[] = [`Hi, I'm interested in ${propertyTitle}.`]
+    if (es) {
+      const parts: string[] = [`Hola, me interesa ${propertyTitle}.`]
+      if (dl) parts.push(`Fechas: ${dl}.`)
+      if (gl) parts.push(`Huéspedes: ${gl}.`)
+      if (!dl && !gl) parts.push('¿Podrían compartirme disponibilidad y tarifas?')
+      else parts.push('¿Pueden confirmar disponibilidad?')
+      return parts.join(' ')
+    }
+    const parts: string[] = [`Hi, I’m interested in ${propertyTitle}.`]
     if (dl) parts.push(`Dates: ${dl}.`)
     if (gl) parts.push(`Guests: ${gl}.`)
     if (!dl && !gl) parts.push('Could you please share availability and rates?')
@@ -163,6 +182,15 @@ export default function Sidebar({
   const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(buildMessage())}`
 
   const emailHref = (() => {
+    if (es) {
+      const subject = `Consulta de disponibilidad — ${propertyTitle}`
+      let body = `Hola,\n\nMe interesa ${propertyTitle}.`
+      if (checkIn && checkOut) body += `\n\nLlegada: ${fmtLong(checkIn, locale)}\nSalida: ${fmtLong(checkOut, locale)}`
+      else if (datesLabel()) body += `\n\nFechas: ${datesLabel()}`
+      if (guestsLabel()) body += `\nHuéspedes: ${guestsLabel()}`
+      body += '\n\n¿Podrían confirmar disponibilidad y compartirme la tarifa final?\n\nGracias'
+      return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    }
     const subject = `Availability Inquiry — ${propertyTitle}`
     let body = `Hi,\n\nI am interested in ${propertyTitle}.`
     if (checkIn && checkOut) body += `\n\nCheck-in: ${fmtLong(checkIn)}\nCheck-out: ${fmtLong(checkOut)}`
@@ -191,7 +219,7 @@ export default function Sidebar({
                 <span className="iq-amount">{minRate ? formatPrice(minRate) : '—'}</span>
                 <span className="iq-per">/ night</span>
               </div>
-              {minStayNights > 0 && <div className="iq-min-stay">{minStayNights}-night minimum stay</div>}
+              {minStayNights > 0 && <div className="iq-min-stay">{es ? `Estancia mínima de ${minStayNights} noche${minStayNights !== 1 ? 's' : ''}` : `${minStayNights}-night minimum stay`}</div>}
             </>
           )}
         </div>
@@ -220,8 +248,8 @@ export default function Sidebar({
 
           {nights > 0 && (
             <div className="iq-nights-est" style={{ display: 'block' }}>
-              {nights} night{nights !== 1 ? 's' : ''}
-              {minRate ? ` · est. ${formatPrice(nights * minRate)}` : ''}
+              {es ? `${nights} noche${nights !== 1 ? 's' : ''}` : `${nights} night${nights !== 1 ? 's' : ''}`}
+              {minRate ? ` · ${es ? 'aprox.' : 'est.'} ${formatPrice(nights * minRate)}` : ''}
             </div>
           )}
 

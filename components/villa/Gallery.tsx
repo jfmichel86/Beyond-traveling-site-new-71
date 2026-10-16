@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { useLanguage } from '@/lib/language-context'
 import Image from 'next/image'
 import { urlFor } from '@/lib/villa/image'
 import type { PhotoRef } from '@/lib/villa/utils'
@@ -13,6 +14,7 @@ type Photo = { ph: PhotoRef; tag: string }
 const lbSrc = (p: Photo) => urlFor(p.ph).width(2200).quality(92).url()
 
 export default function Gallery({ photos, mosaicPhotos }: { photos: Photo[]; mosaicPhotos: Photo[] }) {
+  const { language } = useLanguage()
   const [lbOpen, setLbOpen] = useState(false)
   const [lbIdx, setLbIdx] = useState(0)
   const thumbRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -83,7 +85,7 @@ export default function Gallery({ photos, mosaicPhotos }: { photos: Photo[]; mos
               onClick={() => openLb(realIndexOf(p))}
               role="button"
               tabIndex={0}
-              aria-label={`View photo ${i + 1}`}
+              aria-label={language === 'es' ? `Ver foto ${i + 1}` : `View photo ${i + 1}`}
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') openLb(realIndexOf(p)) }}
             >
               <Image

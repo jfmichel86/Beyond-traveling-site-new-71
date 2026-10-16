@@ -6,12 +6,13 @@ import Container from "@/components/Container";
 import MobileStickyCta from "@/components/MobileStickyCta";
 import {
   PrimaryButton,
-  OutlineAnchor,
+  OUTLINE_CLASS,
   Eyebrow,
   FullBleedPhoto,
   HairlineRow,
 } from "@/components/ui";
 import { pageAlternates } from "@/lib/seo";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 const SITE = "https://www.beyondtravelingmx.com";
 
@@ -219,20 +220,16 @@ const AboutCTA = () => (
 
       <p className="mt-5 text-[15px] leading-[1.75] text-bt-charcoal/85">
         <span className="block">We respond within 1 hour during the day.</span>
-        <span className="block">No long-term contracts. Cancel anytime with 30 days&apos; notice.</span>
+        <span className="block">No long-term contracts. Cancel anytime with 30 days&rsquo; notice.</span>
       </p>
 
       <div className="mt-8 flex flex-wrap justify-center gap-4">
         <PrimaryButton href="/contact/owners">
           Talk With Us About Your Property
         </PrimaryButton>
-        <OutlineAnchor
-          href={`https://wa.me/523313619889?text=${encodeURIComponent(
-            "Hello! I'd like to talk about managing my property in Punta Mita."
-          )}`}
-        >
+        <WhatsAppLink topic="owner" className={OUTLINE_CLASS}>
           WhatsApp Us
-        </OutlineAnchor>
+        </WhatsAppLink>
       </div>
     </div>
   </section>

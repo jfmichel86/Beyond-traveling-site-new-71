@@ -78,7 +78,7 @@ export default async function Properties() {
         </div>
       </section>
 
-      <MobileStickyCta contactHref="/contact/owners" contactLabel="Talk With Us" />
+      <MobileStickyCta contactHref="/contact/owners" contactLabel="Talk With Us" whatsappTopic="guest" />
     </main>
   );
 }
