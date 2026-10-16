@@ -122,6 +122,7 @@ export default function SiteFooter() {
                   src="/logo-beyond-traveling.png"
                   alt="Beyond Traveling"
                   fill
+                  sizes="(min-width: 768px) 185px, 162px"
                   className="object-contain object-left"
                 />
               </Link>

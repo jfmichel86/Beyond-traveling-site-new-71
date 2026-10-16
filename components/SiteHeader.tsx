@@ -307,7 +307,7 @@ export default function SiteHeader({
               compact ? "h-[44px] w-[102px] md:h-[50px] md:w-[115px]" : "h-[52px] w-[120px] md:h-[72px] md:w-[166px]"
             }`}
           >
-            <Image src="/logo-beyond-traveling.png" alt="Beyond Traveling" fill priority className="object-contain object-left" />
+            <Image src="/logo-beyond-traveling.png" alt="Beyond Traveling" fill priority sizes="(min-width: 768px) 166px, 120px" className="object-contain object-left" />
           </Link>
 
           {/* Desktop nav */}
@@ -362,7 +362,11 @@ export default function SiteHeader({
       {/* Mobile panel — always mounted so open/close can transition instead
           of snapping in and out */}
       <div
-        className={`fixed inset-0 z-40 md:hidden ${open ? "" : "pointer-events-none"}`}
+        // `invisible` when closed takes the hidden menu's links out of the tab order
+        // and the accessibility tree (a screen reader / AI agent would otherwise find
+        // focusable links inside an aria-hidden panel). The visibility transition keeps
+        // the slide-out animation intact.
+        className={`fixed inset-0 z-40 transition-[visibility] duration-300 md:hidden ${open ? "visible" : "invisible pointer-events-none"}`}
         aria-hidden={!open}
       >
         <button
@@ -381,7 +385,7 @@ export default function SiteHeader({
             <Container className="py-4">
               <div className="flex items-center justify-between">
                 <div className="relative h-[36px] w-[83px]">
-                  <Image src="/logo-beyond-traveling.png" alt="Beyond Traveling" fill className="object-contain object-left" />
+                  <Image src="/logo-beyond-traveling.png" alt="Beyond Traveling" fill sizes="83px" className="object-contain object-left" />
                 </div>
                 <button
                   type="button"
