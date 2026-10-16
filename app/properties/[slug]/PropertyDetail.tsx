@@ -63,6 +63,9 @@ export default async function PropertyDetailPage({ params, es = false }: { param
     notFound()
   }
 
+  // Spanish text from Sanity when the visitor is on /es and it has been written;
+  // otherwise the English text (the dictionary translates what it knows).
+  const fullDesc = es && prop.fullDescriptionEs?.length ? prop.fullDescriptionEs : prop.fullDescription
   const typeLabel = prop.propertyType === 'condo' ? 'Condo' : 'Villa'
   const minRate = startingRate(prop)
   const totalCarts = (prop.golfCart6Seater || 0) + (prop.golfCart4Seater || 0)
@@ -240,7 +243,7 @@ export default async function PropertyDetailPage({ params, es = false }: { param
               )}
             </div>
             <h1 className="prop-title">{titleFirst} {titleRest && <em>{titleRest}</em>}</h1>
-            {prop.tagline && <p className="pd-tagline">{prop.tagline}</p>}
+            {(es && prop.taglineEs ? prop.taglineEs : prop.tagline) && <p className="pd-tagline">{es && prop.taglineEs ? prop.taglineEs : prop.tagline}</p>}
             <div className="specs-strip">
               <div className="spec-item spec-beds">
                 <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -259,7 +262,7 @@ export default async function PropertyDetailPage({ params, es = false }: { param
             </div>
           </div>
 
-          {prop.shortDescription && <p className="short-desc reveal" id="overview">{prop.shortDescription}</p>}
+          {(es && prop.shortDescriptionEs ? prop.shortDescriptionEs : prop.shortDescription) && <p className="short-desc reveal" id="overview">{es && prop.shortDescriptionEs ? prop.shortDescriptionEs : prop.shortDescription}</p>}
 
           <div className="detail-section reveal">
             <span className="sec-label">At a glance</span>
@@ -284,11 +287,11 @@ export default async function PropertyDetailPage({ params, es = false }: { param
             </div>
           </div>
 
-          {prop.fullDescription?.length ? (
+          {fullDesc?.length ? (
             <div className="detail-section reveal">
               <span className="sec-label">{es ? (prop.propertyType === 'condo' ? 'Sobre este condominio' : 'Sobre esta villa') : `About this ${typeLabel.toLowerCase()}`}</span>
               <h2 className="sec-title">{descH2}</h2>
-              <DescriptionExpand>{renderPortableText(prop.fullDescription)}</DescriptionExpand>
+              <DescriptionExpand>{renderPortableText(fullDesc)}</DescriptionExpand>
             </div>
           ) : null}
 
