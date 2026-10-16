@@ -43,8 +43,8 @@ const GUIDE_LINKS = [
 ];
 
 const COLLABORATE_LINKS = [
-  { href: "/contact/agents", label: "Partner With Us" },
-  { href: "/contact/work-with-us", label: "Work With Us" },
+  { href: "/contact/work-with-us#vendors", label: "Work With Us" }, // suppliers & vendors
+  { href: "/contact/work-with-us#careers", label: "Join Our Team" }, // people who want to work at BT
 ];
 
 const LEGAL_LINKS = [
