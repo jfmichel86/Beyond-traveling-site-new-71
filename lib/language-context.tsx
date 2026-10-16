@@ -1575,7 +1575,7 @@ const es: Record<string, string> = {
   "Villa":
     "Villa",
   // About page (team section)
-  "Let’s See If We’re the Right People for Your Home": "Veamos Si Somos las Personas Adecuadas para Tu Casa",
+  "Let’s See If We’re the Right People for Your Home": "Veamos Si Somos las Personas Adecuadas para Tu Hogar",
   "Beyond Traveling is a Punta Mita property management and luxury rental company, founded in 2023 by a local team that believes in personal, present, and honest care for your home.":
     "Beyond Traveling es una empresa de administración de propiedades y rentas de lujo en Punta Mita, fundada en 2023 por un equipo local que cree en un cuidado personal, presente y honesto de tu hogar.",
   "We started this after seeing how disconnected owners felt from the people managing their homes.":
