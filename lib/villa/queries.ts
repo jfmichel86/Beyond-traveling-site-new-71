@@ -37,7 +37,7 @@ export async function getVilla(slug: string): Promise<VillaDetail | null> {
   return sanityFetch<VillaDetail | null>(
     `*[${BT} && slug.current == $slug][0] {
       ${CARD_FIELDS},
-      fullDescription, golfCart6Seater, golfCart4Seater, memberships, bedConfiguration,
+      fullDescription, taglineEs, shortDescriptionEs, fullDescriptionEs, golfCart6Seater, golfCart4Seater, memberships, bedConfiguration,
       "gallery": gallery[]{ asset, hotspot, roomTag, isMosaic },
       amenities, "staffServices": staffServices[]{ role, services }, policies, btExtraGuestNote
     }`,

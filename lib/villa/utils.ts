@@ -24,6 +24,10 @@ export type Property = {
   tagline?: string
   shortDescription?: string
   fullDescription?: unknown[]
+  // Optional Spanish text written in Sanity (shown on /es instead of the English)
+  taglineEs?: string
+  shortDescriptionEs?: string
+  fullDescriptionEs?: unknown[]
   propertyType: 'condo' | 'villa' | 'estate'
   featured?: boolean
   homepageHero?: boolean
