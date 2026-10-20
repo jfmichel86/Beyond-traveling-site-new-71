@@ -65,6 +65,7 @@ const es: Record<string, string> = {
   "Concierge Service": "Servicio de Concierge",
   "Vacation Rental Management": "Administración de Rentas Vacacionales",
   "Full-Service Management": "Administración Integral",
+  "Let Us Care for Your Home": "Déjanos Cuidar Tu Hogar",
   "Manage Your Property": "Administra Tu Propiedad",
   "Book a Stay": "Reserva Tu Estancia",
   "View Services": "Ver Servicios",
@@ -379,14 +380,14 @@ const es: Record<string, string> = {
     "Envíanos un mensaje por WhatsApp y te canalizamos con la persona indicada.",
   "For property owners":
     "Para propietarios",
-  "Talk with us about managing your home in Punta Mita: property care, guest support and rental results, with clear pricing and no hidden fees.":
-    "Platica con nosotros sobre la administración de tu casa en Punta Mita: cuidado de la propiedad, atención a huéspedes y resultados de renta, con precios claros y sin cargos ocultos.",
+  "Talk with us about your home in Punta Mita: property care, guest support and rental results, with clear pricing and no hidden fees.":
+    "Platica con nosotros sobre tu hogar en Punta Mita: cuidado de la propiedad, atención a huéspedes y resultados de renta, con precios claros y sin cargos ocultos.",
   "Talk about your property":
     "Platícanos de tu propiedad",
   "For guests":
     "Para huéspedes",
-  "Ask about availability and rates for Villa Amore, Villa Brezza, Villa Llamas or Las Palmas 28. We reply to you personally.":
-    "Consulta disponibilidad y tarifas de Villa Amore, Villa Brezza, Villa Llamas o Las Palmas 28. Te respondemos personalmente.",
+  "Ask about availability and rates for our villas in Punta Mita. We reply to you personally.":
+    "Consulta disponibilidad y tarifas de nuestras villas en Punta Mita. Te respondemos personalmente.",
   "Request your dates":
     "Solicita tus fechas",
   "Agent or travel advisor?":
@@ -695,6 +696,8 @@ const es: Record<string, string> = {
     "Propietarios:",
   "Reservations:":
     "Reservaciones:",
+  "Rentals:":
+    "Rentas:",
 
   "No pressure. No sales pitch. Whether you’re actively looking for a new team or just want to understand your options, we’re happy to talk. You can also explore how we work on our":
     "Sin presión y sin discurso de ventas. Ya sea que estés buscando activamente un nuevo equipo o solo quieras conocer tus opciones, con gusto platicamos. También puedes conocer cómo trabajamos en nuestra página de",
@@ -1608,11 +1611,14 @@ const es: Record<string, string> = {
     "Cofundadora y Gerente de Experiencia del Huésped",
   "Operations Manager":
     "Gerente de Operaciones",
-  "Rentals & Admin Coordinator": "Coordinadora de Rentas y Administración",
-  "Rentals, online presence, owner reporting, and finance & administration.": "Rentas, presencia en línea, reportes a propietarios, finanzas y administración.",
+  "Office Administrator": "Administradora de Oficina",
+  "Concierge & Social Media": "Concierge y Redes Sociales",
+  "The team that looks after your home every day.": "El equipo que cuida tu hogar todos los días.",
+  "Company direction, finances, and growth.": "Dirección de la empresa, finanzas y crecimiento.",
   "Guest experience, rentals, and client acquisition.": "Experiencia del huésped, rentas y captación de clientes.",
-  "Property operations, maintenance oversight, and staff management.": "Operación de propiedades, supervisión de mantenimiento y gestión del personal.",
-  "Rental coordination, concierge support, and back-office administration.": "Coordinación de rentas, apoyo al concierge y administración de oficina.",
+  "Property operations, maintenance, and on-site staff.": "Operación de propiedades, mantenimiento y personal en sitio.",
+  "Administration, back-office, and rentals.": "Administración, oficina y rentas.",
+  "Concierge service and social media.": "Servicio de concierge y redes sociales.",
   "A More Personal Approach": "Un Enfoque Más Personal",
   "See How We Manage Properties": "Ver Cómo Administramos Propiedades",
   "Let’s Talk": "Hablemos",
