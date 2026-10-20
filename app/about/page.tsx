@@ -1,4 +1,6 @@
 import React from "react";
+import fs from "node:fs";
+import path from "node:path";
 import Image from "next/image";
 import Link from "@/components/LocaleLink";
 import type { Metadata } from "next";
@@ -50,7 +52,7 @@ const TEAM: TeamMember[] = [
   {
     name: "Francisco Michel",
     title: "Co-Founder & General Manager",
-    scope: "Rentals, online presence, owner reporting, and finance & administration.",
+    scope: "Company direction, finances, and growth.",
   },
   {
     name: "Sandra Flores",
@@ -60,12 +62,17 @@ const TEAM: TeamMember[] = [
   {
     name: "Andrés Castro",
     title: "Operations Manager",
-    scope: "Property operations, maintenance oversight, and staff management.",
+    scope: "Property operations, maintenance, and on-site staff.",
   },
   {
     name: "Violeta Esparza",
-    title: "Rentals & Admin Coordinator",
-    scope: "Rental coordination, concierge support, and back-office administration.",
+    title: "Office Administrator",
+    scope: "Administration, back-office, and rentals.",
+  },
+  {
+    name: "Paloma Mejía",
+    title: "Concierge & Social Media",
+    scope: "Concierge service and social media.",
   },
 ];
 
@@ -166,7 +173,7 @@ const OurStory = () => (
 
 const TeamSection = () => (
   <section className="bg-white">
-    <div className="mx-auto max-w-[1100px] px-6 pb-20 pt-4 md:pb-28">
+    <div className="mx-auto max-w-[1200px] px-6 py-20 md:py-28">
       <div className="mx-auto max-w-[560px] text-center">
         <Eyebrow as="h2">Meet the Team</Eyebrow>
         <p className="mt-5 font-serif text-[24px] font-light italic leading-[1.4] text-bt-navy md:text-[28px]">
@@ -174,16 +181,19 @@ const TeamSection = () => (
         </p>
       </div>
 
-      <ul className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-14 flex flex-wrap justify-center gap-x-8 gap-y-12 lg:gap-x-6">
         {TEAM.map((m) => (
-          <li key={m.name} className="text-center">
+          <li
+            key={m.name}
+            className="w-full text-center sm:w-[calc((100%_-_2rem)/2)] lg:w-[calc((100%_-_6rem)/5)]"
+          >
             <div className="relative mx-auto aspect-[4/5] w-full max-w-[240px] overflow-hidden bg-bt-sand">
               {m.photo ? (
                 <Image
                   src={m.photo}
                   alt={`${m.name}, ${m.title} at Beyond Traveling`}
                   fill
-                  sizes="(min-width: 1024px) 240px, (min-width: 640px) 45vw, 240px"
+                  sizes="(min-width: 1024px) 220px, (min-width: 640px) 45vw, 240px"
                   className="object-cover"
                 />
               ) : (
@@ -210,6 +220,43 @@ const TeamSection = () => (
     </div>
   </section>
 );
+
+/**
+ * Group photo of the on-site staff (housekeeping + maintenance). No names or
+ * bios on purpose. The section appears automatically once the photo exists at
+ * /public/about/on-site-team.jpg and stays hidden until then.
+ */
+const ON_SITE_PHOTO = "/about/on-site-team.jpg";
+
+const hasOnSitePhoto = () => {
+  try {
+    return fs.existsSync(path.join(process.cwd(), "public", ON_SITE_PHOTO));
+  } catch {
+    return false;
+  }
+};
+
+const OnSiteTeam = () => {
+  if (!hasOnSitePhoto()) return null;
+  return (
+    <section className="bg-white">
+      <figure className="mx-auto max-w-[1100px] px-6 pb-20 md:pb-28">
+        <div className="relative aspect-[3/2] w-full overflow-hidden bg-bt-sand md:aspect-[16/9]">
+          <Image
+            src={ON_SITE_PHOTO}
+            alt="The housekeeping and maintenance team who look after the homes Beyond Traveling manages in Punta Mita"
+            fill
+            sizes="(min-width: 1148px) 1100px, 100vw"
+            className="object-cover"
+          />
+        </div>
+        <figcaption className="mt-6 text-center font-serif text-[22px] font-light italic leading-[1.4] text-bt-navy md:text-[26px]">
+          The team that looks after your home every day.
+        </figcaption>
+      </figure>
+    </section>
+  );
+};
 
 const AboutCTA = () => (
   <section className="border-t border-bt-navy/10 bg-bt-cream">
@@ -276,6 +323,8 @@ export default function AboutPage() {
       />
 
       <TeamSection />
+
+      <OnSiteTeam />
 
       <AboutCTA />
       <MobileStickyCta contactHref="/contact/owners" contactLabel="Talk With Us" />

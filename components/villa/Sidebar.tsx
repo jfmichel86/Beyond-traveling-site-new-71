@@ -5,7 +5,7 @@ import { formatPrice } from '@/lib/villa/utils'
 import { useLanguage } from '@/lib/language-context'
 
 const WA_NUMBER = '523313619889'
-const CONTACT_EMAIL = 'reservations@beyondtravelingmx.com'
+const CONTACT_EMAIL = 'rentals@beyondtravelingmx.com'
 
 type PanelOpen = 'dates' | 'guests' | null
 

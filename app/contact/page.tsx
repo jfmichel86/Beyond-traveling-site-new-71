@@ -15,15 +15,15 @@ export const metadata = {
 const options = [
   {
     audience: "For property owners",
-    title: "Manage Your Property",
-    body: "Talk with us about managing your home in Punta Mita: property care, guest support and rental results, with clear pricing and no hidden fees.",
+    title: "Let Us Care for Your Home",
+    body: "Talk with us about your home in Punta Mita: property care, guest support and rental results, with clear pricing and no hidden fees.",
     cta: "Talk about your property",
     href: "/contact/owners",
   },
   {
     audience: "For guests",
     title: "Book a Stay",
-    body: "Ask about availability and rates for Villa Amore, Villa Brezza, Villa Llamas or Las Palmas 28. We reply to you personally.",
+    body: "Ask about availability and rates for our villas in Punta Mita. We reply to you personally.",
     cta: "Request your dates",
     href: "/contact/reservations",
   },
@@ -74,7 +74,7 @@ const Options = () => (
             <Link
               key={o.href}
               href={o.href}
-              className={`group block border-t border-bt-navy/15 py-10 transition-colors duration-200 hover:bg-bt-cream/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-bt-navy md:border-b md:px-12 md:py-16 ${
+              className={`group flex flex-col border-t border-bt-navy/15 py-10 transition-colors duration-200 hover:bg-bt-cream/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-bt-navy md:border-b md:px-12 md:py-16 ${
                 i === 1 ? "md:border-l" : ""
               } ${i === options.length - 1 ? "border-b" : ""}`}
             >
@@ -82,10 +82,10 @@ const Options = () => (
               <h3 className="font-serif mt-4 text-[32px] font-light leading-[1.15] text-bt-navy md:text-[38px]">
                 {o.title}
               </h3>
-              <p className="mt-4 max-w-[400px] text-[15px] font-normal leading-[1.75] text-bt-charcoal/85">
+              <p className="mt-4 mb-7 max-w-[400px] text-[15px] font-normal leading-[1.75] text-bt-charcoal/85">
                 {o.body}
               </p>
-              <span className="mt-7 inline-flex items-center border-b border-bt-gold/50 pb-[3px] text-[14px] font-medium text-bt-navy transition group-hover:border-bt-gold">
+              <span className="mt-auto inline-flex items-center self-start border-b border-bt-gold/50 pb-[3px] text-[14px] font-medium text-bt-navy transition group-hover:border-bt-gold">
                 {o.cta}
                 <span
                   aria-hidden="true"

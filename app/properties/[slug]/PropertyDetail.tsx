@@ -402,8 +402,8 @@ export default async function PropertyDetailPage({ params, es = false }: { param
                   WhatsApp us
                 </BilingualAnchor>
                 <BilingualAnchor
-                  hrefEn={`mailto:reservations@beyondtravelingmx.com?subject=${encodeURIComponent(`Rate Inquiry — ${prop.title}`)}&body=${encodeURIComponent(`Hi,\n\nI am interested in ${prop.title} and would like to inquire about availability and rates.\n\nThank you`)}`}
-                  hrefEs={`mailto:reservations@beyondtravelingmx.com?subject=${encodeURIComponent(`Consulta de tarifas — ${prop.title}`)}&body=${encodeURIComponent(`Hola,\n\nMe interesa ${prop.title} y quisiera consultar disponibilidad y tarifas.\n\nGracias`)}`}
+                  hrefEn={`mailto:rentals@beyondtravelingmx.com?subject=${encodeURIComponent(`Rate Inquiry — ${prop.title}`)}&body=${encodeURIComponent(`Hi,\n\nI am interested in ${prop.title} and would like to inquire about availability and rates.\n\nThank you`)}`}
+                  hrefEs={`mailto:rentals@beyondtravelingmx.com?subject=${encodeURIComponent(`Consulta de tarifas — ${prop.title}`)}&body=${encodeURIComponent(`Hola,\n\nMe interesa ${prop.title} y quisiera consultar disponibilidad y tarifas.\n\nGracias`)}`}
                   className="por-cta-btn por-email">
                   <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
                   Send an email

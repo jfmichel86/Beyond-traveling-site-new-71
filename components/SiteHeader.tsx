@@ -31,7 +31,7 @@ const FALLBACK_PROPERTY_ITEMS: MenuItem[] = FALLBACK_VILLAS.map((v) => ({
 // Primary contact options (owners, guests). Agents and staff/vendors live in
 // the footer and on the /contact overview — deliberately not in the nav.
 const CONTACT_ITEMS: MenuItem[] = [
-  { href: "/contact/owners", label: "Manage Your Property" },
+  { href: "/contact/owners", label: "Let Us Care for Your Home" },
   { href: "/contact/reservations", label: "Book a Stay" },
 ];
 
@@ -272,9 +272,9 @@ export default function SiteHeader({
               <span><span className="text-white/70">Owners:</span> management@beyondtravelingmx.com</span>
             </a>
             <span className="h-3 w-px bg-white/20" aria-hidden />
-            <a href="mailto:reservations@beyondtravelingmx.com" className="inline-flex items-center gap-2 transition hover:text-white">
+            <a href="mailto:rentals@beyondtravelingmx.com" className="inline-flex items-center gap-2 transition hover:text-white">
               <MailIcon />
-              <span><span className="text-white/70">Reservations:</span> reservations@beyondtravelingmx.com</span>
+              <span><span className="text-white/70">Rentals:</span> rentals@beyondtravelingmx.com</span>
             </a>
             <span className="h-3 w-px bg-white/20" aria-hidden />
             <WhatsAppLink topic="owner" className="inline-flex items-center gap-2 transition hover:text-white">

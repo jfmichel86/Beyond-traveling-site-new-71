@@ -13,7 +13,7 @@ import { WA_MESSAGES, whatsappUrl } from "@/lib/whatsapp";
 export const metadata = {
   title: "Book a Villa in Punta Mita | Request Your Dates",
   description:
-    "Request availability and rates for Villa Amore, Villa Brezza, Villa Llamas or Las Palmas 28 in Punta Mita. We reply personally, usually within an hour during the day.",
+    "Request availability and rates for our luxury villas in Punta Mita. We reply personally, usually within an hour during the day.",
   alternates: pageAlternates("/contact/reservations"),
 };
 
@@ -59,8 +59,8 @@ export default function ReservationsContactPage() {
                   },
                   {
                     label: "Email",
-                    value: "reservations@beyondtravelingmx.com",
-                    href: "mailto:reservations@beyondtravelingmx.com",
+                    value: "rentals@beyondtravelingmx.com",
+                    href: "mailto:rentals@beyondtravelingmx.com",
                   },
                 ]}
               />
