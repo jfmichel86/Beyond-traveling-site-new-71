@@ -1,5 +1,6 @@
 import GuideTemplate from "@/components/GuideTemplate";
 import { pageAlternates } from "@/lib/seo";
+import { getSitePhoto, photoAlt } from "@/lib/sitePhotos";
 
 export const metadata = {
   title: { absolute: "Villa Management Punta Mita | Beyond Traveling" },
@@ -7,13 +8,15 @@ export const metadata = {
     "Professional villa management in Punta Mita. We handle maintenance, rentals, and guest experience for luxury homes.",  alternates: pageAlternates("/villa-management-punta-mita"),
 };
 
-export default function VillaManagementPage() {
+export default async function VillaManagementPage() {
+  const photo = await getSitePhoto("guide:villa-management-punta-mita", "/home/hero.jpg");
+
   return (
     <GuideTemplate
       guideLabel="Guide"
       title="Villa Management in Punta Mita"
-      heroImage="/properties/villa-brezza.jpg"
-      heroAlt="A luxury villa in Punta Mita managed by Beyond Traveling"
+      heroImage={photo.src}
+      heroAlt={photoAlt(photo, "A luxury villa in Punta Mita managed by Beyond Traveling")}
       intro="Managing a villa in Punta Mita requires constant oversight. From maintenance to guest coordination, every detail impacts the value and performance of the property. Our villa management services in Punta Mita are designed to maintain each property at a high standard while ensuring smooth operations and guest experience."
       sections={[
         {

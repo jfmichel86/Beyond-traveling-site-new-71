@@ -1,5 +1,6 @@
 import GuideTemplate from "@/components/GuideTemplate";
 import { pageAlternates } from "@/lib/seo";
+import { getSitePhoto, photoAlt } from "@/lib/sitePhotos";
 
 export const metadata = {
   title: { absolute: "Property Management Punta Mita | Beyond Traveling" },
@@ -7,13 +8,15 @@ export const metadata = {
     "Looking for property management in Punta Mita? Learn how we manage luxury homes, rentals, and guest experience with a local, hands-on approach.",  alternates: pageAlternates("/punta-mita-property-management"),
 };
 
-export default function PuntaMitaPropertyManagementPage() {
+export default async function PuntaMitaPropertyManagementPage() {
+  const photo = await getSitePhoto("guide:punta-mita-property-management", "/home/services.jpg");
+
   return (
     <GuideTemplate
       guideLabel="Guide"
       title="Property Management in Punta Mita"
-      heroImage="/home/services.jpg"
-      heroAlt="A luxury property in Punta Mita cared for by Beyond Traveling"
+      heroImage={photo.src}
+      heroAlt={photoAlt(photo, "A luxury property in Punta Mita cared for by Beyond Traveling")}
       intro="Managing a property in Punta Mita requires more than coordination. It requires local presence, responsiveness, and a clear understanding of how luxury homes operate in a rental environment. Our property management services in Punta Mita are designed to keep homes well maintained while ensuring a smooth and high-quality guest experience."
       sections={[
         {

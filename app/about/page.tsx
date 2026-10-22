@@ -8,13 +8,12 @@ import Container from "@/components/Container";
 import MobileStickyCta from "@/components/MobileStickyCta";
 import {
   PrimaryButton,
-  OUTLINE_CLASS,
   Eyebrow,
   FullBleedPhoto,
   HairlineRow,
 } from "@/components/ui";
 import { pageAlternates } from "@/lib/seo";
-import WhatsAppLink from "@/components/WhatsAppLink";
+import OwnerCta from "@/components/OwnerCta";
 
 const SITE = "https://www.beyondtravelingmx.com";
 
@@ -223,10 +222,13 @@ const TeamSection = () => (
 
 /**
  * Group photo of the on-site staff (housekeeping + maintenance). No names or
- * bios on purpose. The section appears automatically once the photo exists at
- * /public/about/on-site-team.jpg and stays hidden until then.
+ * bios on purpose. The real photo appears automatically once it exists at
+ * /public/about/on-site-team.jpg. Until then a plain placeholder box is shown
+ * while SHOW_ON_SITE_PLACEHOLDER is true; set it to false to hide the whole
+ * section until the photo is uploaded.
  */
 const ON_SITE_PHOTO = "/about/on-site-team.jpg";
+const SHOW_ON_SITE_PLACEHOLDER = true;
 
 const hasOnSitePhoto = () => {
   try {
@@ -237,18 +239,21 @@ const hasOnSitePhoto = () => {
 };
 
 const OnSiteTeam = () => {
-  if (!hasOnSitePhoto()) return null;
+  const hasPhoto = hasOnSitePhoto();
+  if (!hasPhoto && !SHOW_ON_SITE_PLACEHOLDER) return null;
   return (
     <section className="bg-white">
       <figure className="mx-auto max-w-[1100px] px-6 pb-20 md:pb-28">
         <div className="relative aspect-[3/2] w-full overflow-hidden bg-bt-sand md:aspect-[16/9]">
-          <Image
-            src={ON_SITE_PHOTO}
-            alt="The housekeeping and maintenance team who look after the homes Beyond Traveling manages in Punta Mita"
-            fill
-            sizes="(min-width: 1148px) 1100px, 100vw"
-            className="object-cover"
-          />
+          {hasPhoto && (
+            <Image
+              src={ON_SITE_PHOTO}
+              alt="The housekeeping and maintenance team who look after the homes Beyond Traveling manages in Punta Mita"
+              fill
+              sizes="(min-width: 1148px) 1100px, 100vw"
+              className="object-cover"
+            />
+          )}
         </div>
         <figcaption className="mt-6 text-center font-serif text-[22px] font-light italic leading-[1.4] text-bt-navy md:text-[26px]">
           The team that looks after your home every day.
@@ -257,30 +262,6 @@ const OnSiteTeam = () => {
     </section>
   );
 };
-
-const AboutCTA = () => (
-  <section className="border-t border-bt-navy/10 bg-bt-cream">
-    <div className="mx-auto max-w-[600px] px-6 py-20 text-center md:py-28">
-      <h2 className="font-serif text-3xl font-light leading-[1.2] tracking-[-0.01em] text-bt-navy md:text-[36px]">
-        Let&rsquo;s See If We&rsquo;re the Right People for Your Home
-      </h2>
-
-      <p className="mt-5 text-[15px] leading-[1.75] text-bt-charcoal/85">
-        <span className="block">We respond within 1 hour during the day.</span>
-        <span className="block">No long-term contracts. Cancel anytime with 30 days&rsquo; notice.</span>
-      </p>
-
-      <div className="mt-8 flex flex-wrap justify-center gap-4">
-        <PrimaryButton href="/contact/owners">
-          Talk With Us About Your Property
-        </PrimaryButton>
-        <WhatsAppLink topic="owner" className={OUTLINE_CLASS}>
-          WhatsApp Us
-        </WhatsAppLink>
-      </div>
-    </div>
-  </section>
-);
 
 export default function AboutPage() {
   return (
@@ -326,7 +307,7 @@ export default function AboutPage() {
 
       <OnSiteTeam />
 
-      <AboutCTA />
+      <OwnerCta />
       <MobileStickyCta contactHref="/contact/owners" contactLabel="Talk With Us" />
     </div>
   );

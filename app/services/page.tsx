@@ -3,7 +3,6 @@ import Link from "@/components/LocaleLink";
 import Container from "@/components/Container";
 import {
   PrimaryButton,
-  OUTLINE_CLASS,
   TextLink,
   Eyebrow,
   FullBleedPhoto,
@@ -11,7 +10,8 @@ import {
 } from "@/components/ui";
 import { pageAlternates } from "@/lib/seo";
 import MobileStickyCta from "@/components/MobileStickyCta";
-import WhatsAppLink from "@/components/WhatsAppLink";
+import OwnerCta from "@/components/OwnerCta";
+import { getSitePhoto, photoAlt } from "@/lib/sitePhotos";
 
 export const metadata = {
   title: { absolute: "Property Management Services in Punta Mita | Beyond Traveling" },
@@ -46,7 +46,9 @@ const ServiceItem = ({
   </div>
 );
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const photo = await getSitePhoto("services", "/services/our-approach.jpg");
+
   return (
     <main className="pb-20 md:pb-0">
       <section className="bg-bt-cream">
@@ -78,8 +80,8 @@ export default function ServicesPage() {
       </section>
 
       <FullBleedPhoto
-        src="/services/our-approach.jpg"
-        alt="Covered terrace and pool at a luxury villa managed by Beyond Traveling in Punta Mita"
+        src={photo.src}
+        alt={photoAlt(photo, "Covered terrace and pool at a luxury villa managed by Beyond Traveling in Punta Mita")}
       />
 
       <PullQuoteSection
@@ -133,28 +135,7 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      <section className="border-t border-bt-navy/10 bg-white">
-        <div className="mx-auto max-w-[660px] px-6 py-20 text-center md:py-28">
-          <h3 className="font-serif text-3xl font-light leading-[1.3] tracking-[-0.01em] text-bt-navy md:text-[34px]">
-            Doing the Right Things Consistently — and Being Available When It
-            Matters
-          </h3>
-
-          <p className="mx-auto mt-5 max-w-[440px] font-normal text-[16px] leading-[1.75] text-bt-charcoal/85">
-            If you want a team that knows your home, answers directly, and
-            keeps costs clear, let&rsquo;s talk.
-          </p>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <PrimaryButton href="/contact/owners">
-              Talk With Us About Your Property
-            </PrimaryButton>
-            <WhatsAppLink topic="owner" className={OUTLINE_CLASS}>
-              WhatsApp Us
-            </WhatsAppLink>
-          </div>
-        </div>
-      </section>
+      <OwnerCta />
 
       <MobileStickyCta contactHref="/contact/owners" contactLabel="Talk With Us" />
     </main>

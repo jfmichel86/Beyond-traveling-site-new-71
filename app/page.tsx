@@ -15,7 +15,8 @@ import type { Property } from "@/lib/villa/utils";
 import "./properties/villa.css";
 import { pageAlternates } from "@/lib/seo";
 import MobileStickyCta from "@/components/MobileStickyCta";
-import WhatsAppLink from "@/components/WhatsAppLink";
+import { getSitePhoto, photoAlt, type SitePhoto } from "@/lib/sitePhotos";
+import OwnerCta from "@/components/OwnerCta";
 
 // Re-check Sanity for new/edited villas every minute (villas strip below).
 export const revalidate = 60;
@@ -72,7 +73,7 @@ const HOME_FAQ = [
   },
 ];
 
-const Hero = () => (
+const Hero = ({ photo }: { photo: SitePhoto }) => (
   <section className="relative bg-white">
     <div className="grid md:grid-cols-2">
       <div className="flex flex-col justify-center px-7 py-16 sm:px-8 md:px-12 md:py-24 lg:pl-24">
@@ -99,8 +100,8 @@ const Hero = () => (
 
       <div className="relative min-h-[260px] sm:min-h-[320px] md:min-h-[560px]">
         <Image
-          src="/home/hero.jpg"
-          alt="Luxury Punta Mita terrace cared for by Beyond Traveling"
+          src={photo.src}
+          alt={photoAlt(photo, "Luxury Punta Mita terrace cared for by Beyond Traveling")}
           fill
           priority
           sizes="(min-width: 768px) 50vw, 100vw"
@@ -489,50 +490,12 @@ const VillasWeManage = ({ villas }: { villas: Property[] }) => (
   </section>
 );
 
-const FinalCta = () => (
-  <section className="bg-bt-navy">
-    <div className="mx-auto grid max-w-[1100px] items-center gap-10 px-6 py-20 md:grid-cols-[1fr_auto] md:gap-16 md:px-12 md:py-24">
-      <div>
-        <h2 className="font-serif text-3xl font-light leading-[1.15] tracking-[-0.01em] text-white md:text-[38px]">
-          Let&rsquo;s See If We&rsquo;re a Good Fit
-        </h2>
-
-        <p className="mt-5 max-w-[480px] font-normal text-[16px] leading-[1.75] text-white/80">
-          If you want a team that actually answers, stays involved, and treats
-          your home like it matters, let&rsquo;s talk.
-        </p>
-
-        <p className="mt-6">
-          <Link
-            href="/faq"
-            className="text-[12.5px] font-normal text-white/85 underline decoration-white/35 underline-offset-4 transition hover:text-white hover:decoration-white"
-          >
-            Have a question first? See common questions.
-          </Link>
-        </p>
-      </div>
-
-      <div className="flex flex-col gap-4 sm:flex-row md:flex-col">
-        <Link
-          href="/contact/owners"
-          className="inline-flex min-h-11 items-center justify-center rounded-sm bg-white px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition duration-150 hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy active:scale-[0.98]"
-        >
-          Talk With Us About Your Property
-        </Link>
-        <WhatsAppLink
-          audience="owner"
-          className="inline-flex min-h-11 items-center justify-center border border-white/35 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition duration-150 hover:border-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy active:scale-[0.98]"
-        >
-          WhatsApp Us
-        </WhatsAppLink>
-      </div>
-    </div>
-  </section>
-);
-
 
 export default async function HomePage() {
-  const villas = await getVillaCards();
+  const [villas, heroPhoto] = await Promise.all([
+    getVillaCards(),
+    getSitePhoto("home-hero", "/home/hero.jpg"),
+  ]);
 
   return (
     <div className="bg-white pb-20 md:pb-0">
@@ -550,7 +513,7 @@ export default async function HomePage() {
           }),
         }}
       />
-      <Hero />
+      <Hero photo={heroPhoto} />
       <TrustRow />
       <WhatWeDo />
 
@@ -589,7 +552,7 @@ export default async function HomePage() {
         ]}
       />
 
-      <FinalCta />
+      <OwnerCta />
       <MobileStickyCta contactHref="/contact/owners" contactLabel="Talk With Us" />
     </div>
   );

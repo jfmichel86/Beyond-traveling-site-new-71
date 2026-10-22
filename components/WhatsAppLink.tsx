@@ -2,18 +2,17 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
-import { isEsPath, stripEs } from "@/lib/locale";
+import { isEsPath } from "@/lib/locale";
 import {
   WA_MESSAGES,
   serviceMessage,
-  sourceNote,
   whatsappUrl,
   type WaTopic,
 } from "@/lib/whatsapp";
 
 /**
  * WhatsApp link with a prefilled message in the visitor's language that fits
- * the page, plus a short note of which page it was sent from.
+ * the page.
  * `topic="service"` needs `serviceEn` / `serviceEs` (the service's name).
  */
 export default function WhatsAppLink({
@@ -40,7 +39,7 @@ export default function WhatsAppLink({
     t === "service"
       ? serviceMessage(serviceEn ?? "management", serviceEs ?? serviceEn ?? "administración")
       : WA_MESSAGES[t];
-  const text = (es ? msg.es : msg.en) + sourceNote(stripEs(pathname), es);
+  const text = es ? msg.es : msg.en;
   return (
     <a
       {...rest}

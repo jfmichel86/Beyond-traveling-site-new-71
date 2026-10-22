@@ -1,5 +1,6 @@
 import GuideTemplate from "@/components/GuideTemplate";
 import { pageAlternates } from "@/lib/seo";
+import { getSitePhoto, photoAlt } from "@/lib/sitePhotos";
 
 export const metadata = {
   title: { absolute: "Luxury Rentals Punta Mita | Beyond Traveling" },
@@ -7,13 +8,15 @@ export const metadata = {
     "Discover luxury rentals in Punta Mita. Beyond Traveling manages high-end villas with full guest experience and local support.",  alternates: pageAlternates("/luxury-rentals-punta-mita"),
 };
 
-export default function LuxuryRentalsPage() {
+export default async function LuxuryRentalsPage() {
+  const photo = await getSitePhoto("guide:luxury-rentals-punta-mita", "/home/portfolio.jpg");
+
   return (
     <GuideTemplate
       guideLabel="Guide"
       title="Luxury Rentals in Punta Mita"
-      heroImage="/home/portfolio.jpg"
-      heroAlt="A luxury rental villa in Punta Mita managed by Beyond Traveling"
+      heroImage={photo.src}
+      heroAlt={photoAlt(photo, "A luxury rental villa in Punta Mita managed by Beyond Traveling")}
       intro="Punta Mita is one of the most exclusive destinations in Mexico, known for its private villas, oceanfront properties, and high-end guest experiences. Luxury rentals in Punta Mita require careful management, attention to detail, and a consistent approach to guest experience."
       sections={[
         {

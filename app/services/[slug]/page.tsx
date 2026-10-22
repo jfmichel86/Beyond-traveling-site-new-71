@@ -11,8 +11,9 @@ import {
   PullQuoteSection,
 } from "@/components/ui";
 import { getServiceBySlug, services } from "@/lib/services";
-import WhatsAppLink from "@/components/WhatsAppLink";
-import { ES_SERVICE_NAMES } from "@/lib/services";
+import OwnerCta from "@/components/OwnerCta";
+import ServiceInquiry from "@/components/ServiceInquiry";
+import { getSitePhoto, photoAlt, type PhotoSlot } from "@/lib/sitePhotos";
 
 type PageProps = {
   params: { slug: string };
@@ -33,9 +34,10 @@ export function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default function ServiceDetailPage({ params }: PageProps) {
+export default async function ServiceDetailPage({ params }: PageProps) {
   const service = getServiceBySlug(params.slug);
   if (!service) notFound();
+  const photo = await getSitePhoto(`service:${service.slug}` as PhotoSlot, service.heroImage);
 
   const others = services.filter((s) => s.slug !== service.slug);
 
@@ -74,8 +76,8 @@ export default function ServiceDetailPage({ params }: PageProps) {
 
           <div className="relative min-h-[320px] md:min-h-[560px]">
             <Image
-              src={service.heroImage}
-              alt={service.heroAlt}
+              src={photo.src}
+              alt={photoAlt(photo, service.heroAlt)}
               fill
               priority
               sizes="(min-width: 768px) 50vw, 100vw"
@@ -152,6 +154,9 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Ask about this specific service */}
+      <ServiceInquiry title={service.title} italic={service.italicTitle} />
+
       {/* Other services */}
       <section className="border-t border-bt-navy/10 bg-white">
         <div className="mx-auto max-w-[1220px] px-6 py-16 md:py-20">
@@ -188,36 +193,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="bg-bt-navy">
-        <div className="mx-auto max-w-[600px] px-6 py-20 text-center md:py-28">
-          <h2 className="font-serif text-3xl font-light leading-[1.15] tracking-[-0.01em] text-white md:text-[38px]">
-            Let&rsquo;s Talk About Your Home
-          </h2>
-          <p className="mx-auto mt-5 max-w-[440px] font-normal text-[16px] leading-[1.75] text-white/80">
-            Tell us about the property and what you need. We&rsquo;ll tell you
-            honestly whether{" "}
-            <ServiceName title={service.title} italic={service.italicTitle} plain />{" "}
-            is the right fit.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/contact/owners"
-              className="inline-flex min-h-11 items-center justify-center rounded-sm bg-white px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-bt-navy"
-            >
-              Talk With Us About Your Property
-            </Link>
-            <WhatsAppLink
-              topic="service"
-              serviceEn={`${service.title} ${service.italicTitle}`}
-              serviceEs={(ES_SERVICE_NAMES[`${service.title}|${service.italicTitle}`] ?? [service.title, service.italicTitle]).join(" ")}
-              className="inline-flex min-h-11 items-center justify-center border border-white/30 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition hover:border-white hover:bg-white/[0.06]"
-            >
-              WhatsApp Us
-            </WhatsAppLink>
-          </div>
-        </div>
-      </section>
+      <OwnerCta />
     </main>
   );
 }
