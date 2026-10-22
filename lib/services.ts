@@ -137,7 +137,7 @@ export const services: ServiceDetail[] = [
     heroItalic: "Run for You.",
     intro:
       "Renting a luxury home well takes more than a listing. Vacation Rental Management covers the guest side of the business — how the home is presented and priced, every inquiry and booking, and the experience guests have from first message to check-out.",
-    heroImage: "/properties/villa-amore.jpg",
+    heroImage: "/home/services.jpg",
     heroAlt: "Luxury vacation rental villa in Punta Mita managed by Beyond Traveling",
     idealFor: {
       quote: "For owners who want strong rental results without answering guest messages themselves.",
@@ -236,7 +236,7 @@ export const services: ServiceDetail[] = [
     heroItalic: "One Team, One Report.",
     intro:
       "Full-Service Management combines Property Management and Vacation Rental Management — maintenance, vendors, and bills, plus the bookings, guests, and calendar, handled by the same team. Most owners who want to be fully hands-off land here.",
-    heroImage: "/properties/villa-brezza.jpg",
+    heroImage: "/services/our-approach.jpg",
     heroAlt: "Luxury Punta Mita villa under full-service management by Beyond Traveling",
     idealFor: {
       quote: "For owners who want to be fully hands-off — and still know exactly what’s happening.",

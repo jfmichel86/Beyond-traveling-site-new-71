@@ -47,11 +47,5 @@ export const serviceMessage = (en: string, es: string): Msg => ({
   es: `¡Hola! Me interesa el servicio de ${es} para mi propiedad en Punta Mita.`,
 });
 
-/** Short note at the end of the message saying which page the visitor was on. */
-export const sourceNote = (path: string, es: boolean) => {
-  const url = `beyondtravelingmx.com${path === "/" ? "" : es ? `/es${path}` : path}`;
-  return es ? ` (Enviado desde ${url})` : ` (Sent from ${url})`;
-};
-
 export const whatsappUrl = (message?: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}${message ? `?text=${encodeURIComponent(message)}` : ""}`;
