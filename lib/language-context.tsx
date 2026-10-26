@@ -2284,6 +2284,9 @@ const esLookup: Record<string, string> = {};
 for (const [k, v] of Object.entries(es)) esLookup[unifyApostrophes(normalize(k))] = v;
 
 const originalText = new WeakMap<Text, string>();
+// What the translator itself last wrote into a node, so a change made by React
+// (e.g. a calendar's month title) can be told apart from our own translation.
+const writtenText = new WeakMap<Text, string>();
 const originalAttributes = new WeakMap<Element, Map<string, string>>();
 const translatableAttributes = ["placeholder", "aria-label", "title", "alt"] as const;
 
@@ -2351,7 +2354,14 @@ function translateTextNodes(language: Language) {
   while (walker.nextNode()) nodes.push(walker.currentNode as Text);
 
   nodes.forEach((node) => {
-    if (!originalText.has(node)) originalText.set(node, node.textContent || "");
+    const current = node.textContent || "";
+    if (!originalText.has(node)) {
+      originalText.set(node, current);
+    } else if (current !== originalText.get(node) && current !== writtenText.get(node)) {
+      // The page changed this text on its own (React re-render): it is the new original.
+      originalText.set(node, current);
+      writtenText.delete(node);
+    }
 
     const original = originalText.get(node) || "";
     const key = normalize(original);
@@ -2371,6 +2381,7 @@ function translateTextNodes(language: Language) {
     if (node.textContent !== nextText) {
       node.textContent = nextText;
     }
+    writtenText.set(node, nextText);
   });
 }
 
