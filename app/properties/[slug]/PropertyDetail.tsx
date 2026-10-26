@@ -397,7 +397,6 @@ export default async function PropertyDetailPage({ params, es = false }: { param
               <span className="sec-label">Plan your stay</span>
               <h2 className="sec-title">Availability</h2>
               <AvailabilityCalendar
-                propertyTitle={prop.title}
                 bookedRanges={bookedRanges}
                 minStayNights={minStayNights}
               />
