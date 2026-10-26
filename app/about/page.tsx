@@ -114,7 +114,7 @@ const jsonLd = {
 const AboutHero = () => (
   <section className="bg-bt-cream">
     <Container>
-      <div className="mx-auto max-w-[680px] py-20 text-center md:py-28">
+      <div className="mx-auto max-w-[680px] py-20 text-center md:py-24">
         <Eyebrow>About Beyond Traveling</Eyebrow>
 
         <h1 className="font-serif mt-6 text-4xl font-light leading-[1.12] tracking-[-0.01em] text-bt-navy md:text-[50px]">
@@ -137,7 +137,7 @@ const AboutHero = () => (
 
 const OurStory = () => (
   <section className="bg-white">
-    <div className="mx-auto max-w-[720px] px-6 py-20 text-center md:py-28">
+    <div className="mx-auto max-w-[720px] px-6 py-16 text-center md:py-20">
       <Eyebrow as="h2">Our Story</Eyebrow>
       <blockquote className="font-serif mt-6 text-[28px] font-light italic leading-[1.4] text-bt-navy md:text-[34px]">
         We started this after seeing how disconnected owners felt from the people
@@ -172,7 +172,7 @@ const OurStory = () => (
 
 const TeamSection = () => (
   <section className="bg-white">
-    <div className="mx-auto max-w-[1200px] px-6 py-20 md:py-28">
+    <div className="mx-auto max-w-[1200px] px-6 py-16 md:py-20">
       <div className="mx-auto max-w-[560px] text-center">
         <Eyebrow as="h2">Meet the Team</Eyebrow>
         <p className="mt-5 font-serif text-[24px] font-light italic leading-[1.4] text-bt-navy md:text-[28px]">
@@ -180,11 +180,11 @@ const TeamSection = () => (
         </p>
       </div>
 
-      <ul className="mt-14 flex flex-wrap justify-center gap-x-8 gap-y-12 lg:gap-x-6">
+      <ul className="mt-14 flex flex-wrap justify-center gap-x-4 gap-y-10 sm:gap-x-8 sm:gap-y-12 lg:gap-x-6">
         {TEAM.map((m) => (
           <li
             key={m.name}
-            className="w-full text-center sm:w-[calc((100%_-_2rem)/2)] lg:w-[calc((100%_-_6rem)/5)]"
+            className="w-[calc((100%_-_1rem)/2)] text-center sm:w-[calc((100%_-_2rem)/2)] lg:w-[calc((100%_-_6rem)/5)]"
           >
             <div className="relative mx-auto aspect-[4/5] w-full max-w-[240px] overflow-hidden bg-bt-sand">
               {m.photo ? (
@@ -204,18 +204,20 @@ const TeamSection = () => (
                 </div>
               )}
             </div>
-            <h3 className="mt-6 font-serif text-[24px] font-normal leading-tight text-bt-navy">
+            <h3 className="mt-5 font-serif text-[19px] font-normal leading-tight text-bt-navy sm:mt-6 sm:text-[24px]">
               {m.name}
             </h3>
-            <p className="mt-2 text-[12px] font-medium uppercase leading-[1.6] tracking-[0.12em] text-bt-gold-text sm:min-h-[2.4rem]">
+            <p className="mt-2 min-h-[2.1rem] text-[10.5px] font-medium uppercase leading-[1.6] tracking-[0.1em] text-bt-gold-text sm:min-h-[2.4rem] sm:text-[12px] sm:tracking-[0.12em]">
               {m.title}
             </p>
-            <p className="mx-auto mt-3 max-w-[260px] text-[14px] leading-[1.7] text-bt-charcoal/85">
+            <p className="mx-auto mt-3 max-w-[260px] text-[13px] leading-[1.7] text-bt-charcoal/85 sm:text-[14px]">
               {m.scope}
             </p>
           </li>
         ))}
       </ul>
+
+      <OnSiteTeamPhoto />
     </div>
   </section>
 );
@@ -238,28 +240,26 @@ const hasOnSitePhoto = () => {
   }
 };
 
-const OnSiteTeam = () => {
+const OnSiteTeamPhoto = () => {
   const hasPhoto = hasOnSitePhoto();
   if (!hasPhoto && !SHOW_ON_SITE_PLACEHOLDER) return null;
   return (
-    <section className="bg-white">
-      <figure className="mx-auto max-w-[1100px] px-6 pb-20 md:pb-28">
-        <div className="relative aspect-[3/2] w-full overflow-hidden bg-bt-sand md:aspect-[16/9]">
-          {hasPhoto && (
-            <Image
-              src={ON_SITE_PHOTO}
-              alt="The housekeeping and maintenance team who look after the homes Beyond Traveling manages in Punta Mita"
-              fill
-              sizes="(min-width: 1148px) 1100px, 100vw"
-              className="object-cover"
-            />
-          )}
-        </div>
-        <figcaption className="mt-6 text-center font-serif text-[22px] font-light italic leading-[1.4] text-bt-navy md:text-[26px]">
-          The team that looks after your home every day.
-        </figcaption>
-      </figure>
-    </section>
+    <figure className="mx-auto mt-16 max-w-[860px] md:mt-20">
+      <div className="relative aspect-[13/10] w-full overflow-hidden bg-bt-sand">
+        {hasPhoto && (
+          <Image
+            src={ON_SITE_PHOTO}
+            alt="Group photo of the housekeeping and maintenance team who look after the homes Beyond Traveling manages in Punta Mita"
+            fill
+            sizes="(min-width: 908px) 860px, 100vw"
+            className="object-cover"
+          />
+        )}
+      </div>
+      <figcaption className="mt-6 text-center font-serif text-[22px] font-light italic leading-[1.4] text-bt-navy md:text-[26px]">
+        The people who look after the homes we manage.
+      </figcaption>
+    </figure>
   );
 };
 
@@ -304,8 +304,6 @@ export default function AboutPage() {
       />
 
       <TeamSection />
-
-      <OnSiteTeam />
 
       <OwnerCta />
       <MobileStickyCta contactHref="/contact/owners" contactLabel="Talk With Us" />

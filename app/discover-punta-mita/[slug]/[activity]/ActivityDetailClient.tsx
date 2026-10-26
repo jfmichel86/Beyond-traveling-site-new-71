@@ -44,7 +44,7 @@ export default function ActivityDetailClient({
   };
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-16 md:py-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -15,7 +15,7 @@ export default function DiscoverCategoryClient({
   const t = (value: Parameters<typeof getText>[0]) => getText(value, language);
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-16 md:py-20">
       <div className="mx-auto max-w-[1200px] px-6">
         <Link
           href="/discover-punta-mita"

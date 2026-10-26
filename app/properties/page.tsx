@@ -25,7 +25,7 @@ export default async function Properties() {
     <main className="pb-20 md:pb-0">
       <section className="bg-bt-cream">
         <Container>
-          <div className="mx-auto max-w-[680px] py-20 text-center md:py-28">
+          <div className="mx-auto max-w-[680px] py-20 text-center md:py-24">
             <Eyebrow>Managed Properties in Punta Mita</Eyebrow>
 
             <h1 className="font-serif mt-6 text-4xl font-light leading-[1.15] tracking-[-0.01em] text-bt-navy md:text-[46px]">
@@ -59,7 +59,7 @@ export default async function Properties() {
       </section>
 
       <section className="border-t border-bt-navy/10 bg-bt-cream">
-        <div className="mx-auto max-w-[660px] px-6 py-20 text-center md:py-28">
+        <div className="mx-auto max-w-[660px] px-6 py-20 text-center md:py-24">
           <h2 className="font-serif text-3xl font-light leading-[1.3] tracking-[-0.01em] text-bt-navy md:text-[34px]">
             Our Portfolio Grows Through Trust and Referrals — Not Volume
           </h2>

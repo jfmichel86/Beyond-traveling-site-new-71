@@ -82,7 +82,7 @@ export default function DiscoverPuntaMitaPage() {
     <main className="bg-white pb-20 md:pb-0">
       <section className="bg-bt-cream">
         <Container>
-          <div className="mx-auto max-w-[680px] py-20 text-center md:py-28">
+          <div className="mx-auto max-w-[680px] py-20 text-center md:py-24">
             <Eyebrow>
               {language === "es" ? "Experiencias en Punta Mita" : "Punta Mita Experiences"}
             </Eyebrow>
@@ -115,7 +115,7 @@ export default function DiscoverPuntaMitaPage() {
         </Container>
       </section>
 
-      <section id="experiences" className="bg-white py-20 md:py-24">
+      <section id="experiences" className="bg-white py-16 md:py-20">
         <Container>
           <div className="mx-auto mb-14 max-w-[700px] text-center">
             <Eyebrow>{language === "es" ? "Experiencias" : "Experiences"}</Eyebrow>
@@ -139,7 +139,7 @@ export default function DiscoverPuntaMitaPage() {
       </section>
 
       <section className="border-t border-bt-navy/10 bg-bt-cream">
-        <div className="mx-auto max-w-[660px] px-6 py-20 text-center md:py-28">
+        <div className="mx-auto max-w-[660px] px-6 py-20 text-center md:py-24">
           <h2 className="font-serif text-3xl font-light leading-[1.3] tracking-[-0.01em] text-bt-navy md:text-[34px]">
             {language === "es"
               ? "Dinos qué tipo de estancia quieres"

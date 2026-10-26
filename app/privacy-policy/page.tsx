@@ -94,7 +94,7 @@ export default function PrivacyPolicyPage() {
 
       <section className="bg-white">
         <Container>
-          <div className="reveal mx-auto max-w-[720px] pb-16 md:pb-24">
+          <div className="reveal mx-auto max-w-[720px] pb-16 md:pb-20">
             <Section number="01" title="Information We Collect">
               <p>
                 We collect the information you choose to share with us —
@@ -194,7 +194,7 @@ export default function PrivacyPolicyPage() {
 
       <section className="border-t border-bt-navy/10 bg-bt-cream">
         <Container>
-          <div className="reveal mx-auto max-w-[780px] py-14 text-center md:py-20">
+          <div className="reveal mx-auto max-w-[780px] py-16 text-center md:py-20">
             <h2 className="font-serif text-3xl leading-[1.12] tracking-[-0.02em] text-bt-navy md:text-5xl">
               Have a question about your data?
             </h2>

@@ -53,7 +53,7 @@ export default async function ServicesPage() {
     <main className="pb-20 md:pb-0">
       <section className="bg-bt-cream">
         <Container>
-          <div className="mx-auto max-w-[720px] py-20 text-center md:py-28">
+          <div className="mx-auto max-w-[720px] py-20 text-center md:py-24">
             <Eyebrow>Property Management Services in Punta Mita</Eyebrow>
 
             <h1 className="font-serif mt-6 text-4xl font-light leading-[1.15] tracking-[-0.01em] text-bt-navy md:text-[48px]">
@@ -101,7 +101,7 @@ export default async function ServicesPage() {
 
       <section id="services-included" className="bg-bt-cream">
         <Container>
-          <div className="mx-auto max-w-[900px] py-20 md:py-24">
+          <div className="mx-auto max-w-[900px] py-16 md:py-20">
             <div className="flex flex-col gap-14 md:gap-16">
               <ServiceItem
                 title="Property Care"

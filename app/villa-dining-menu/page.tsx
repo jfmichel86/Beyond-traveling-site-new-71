@@ -74,7 +74,7 @@ export default function VillaDiningMenuPage() {
   <div className="border-t border-slate-200" />
 </div>
 
-<section id="menu-categories" className="bg-white py-14 md:py-20">
+<section id="menu-categories" className="bg-white py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="mb-10 max-w-[760px]">
             <p className="text-[13px] font-semibold uppercase tracking-[0.13em] text-slate-900/70">
@@ -133,7 +133,7 @@ export default function VillaDiningMenuPage() {
         id="service-details"
         className="border-t border-slate-900/8 bg-[#f1f4f8]"
       >
-        <div className="mx-auto max-w-[1100px] px-6 py-14 md:py-20">
+        <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-20">
           <div className="max-w-[780px]">
             <p className="text-[13px] font-semibold uppercase tracking-[0.13em] text-slate-900/70">
               Please Review

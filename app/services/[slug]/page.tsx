@@ -98,7 +98,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       {/* What's included */}
       <section className="bg-white">
         <Container>
-          <div className="mx-auto max-w-[900px] py-20 md:py-24">
+          <div className="mx-auto max-w-[900px] py-16 md:py-20">
             <div className="pb-12 text-center md:pb-14">
               <Eyebrow>What&rsquo;s Included</Eyebrow>
               <h2 className="font-serif mt-5 text-3xl font-light leading-[1.2] tracking-[-0.01em] text-bt-navy md:text-[36px]">

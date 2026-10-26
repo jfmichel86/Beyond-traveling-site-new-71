@@ -56,7 +56,7 @@ export default function VillaDiningCategoryPage({ params }: PageProps) {
 
   return (
     <main className="bg-white">
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-6">
           <Link
             href="/villa-dining-menu"

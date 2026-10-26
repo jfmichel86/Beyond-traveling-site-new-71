@@ -16,6 +16,8 @@ import Gallery from '@/components/villa/Gallery'
 import AnchorNav from '@/components/villa/AnchorNav'
 import Sidebar from '@/components/villa/Sidebar'
 import MobileCtaBar from '@/components/villa/MobileCtaBar'
+import AvailabilityCalendar from '@/components/villa/AvailabilityCalendar'
+import { getBookedRanges } from '@/lib/villa/availability'
 import PolicyAccordion from '@/components/villa/PolicyAccordion'
 import DescriptionExpand from '@/components/villa/DescriptionExpand'
 import AmenitiesSection from '@/components/villa/AmenitiesSection'
@@ -67,6 +69,8 @@ export default async function PropertyDetailPage({ params, es = false }: { param
   // otherwise the English text (the dictionary translates what it knows).
   const fullDesc = es && prop.fullDescriptionEs?.length ? prop.fullDescriptionEs : prop.fullDescription
   const typeLabel = prop.propertyType === 'condo' ? 'Condo' : 'Villa'
+  // Booked dates from the property's booking calendar (null → no calendar shown).
+  const bookedRanges = await getBookedRanges(prop.icalUrl)
   const minRate = startingRate(prop)
   const totalCarts = (prop.golfCart6Seater || 0) + (prop.golfCart4Seater || 0)
   const cartParts: string[] = []
@@ -210,7 +214,7 @@ export default async function PropertyDetailPage({ params, es = false }: { param
     <div className="mr-villa">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <AnchorNav />
+      <AnchorNav showAvailability={!!bookedRanges} />
 
       <div className="breadcrumb">
         <Link href="/">Home</Link>
@@ -388,6 +392,18 @@ export default async function PropertyDetailPage({ params, es = false }: { param
             </div>
           ) : null}
 
+          {bookedRanges ? (
+            <div className="detail-section reveal" id="availability">
+              <span className="sec-label">Plan your stay</span>
+              <h2 className="sec-title">Availability</h2>
+              <AvailabilityCalendar
+                propertyTitle={prop.title}
+                bookedRanges={bookedRanges}
+                minStayNights={minStayNights}
+              />
+            </div>
+          ) : null}
+
           {prop.priceOnRequest ? (
             <div className="detail-section reveal" id="rates">
               <span className="sec-label">Pricing</span>
@@ -484,7 +500,7 @@ export default async function PropertyDetailPage({ params, es = false }: { param
         </div>
 
         <div className="detail-right">
-          <Sidebar propertyTitle={prop.title} minRate={minRate} minStayNights={minStayNights} priceOnRequest={!!prop.priceOnRequest} />
+          <Sidebar propertyTitle={prop.title} minRate={minRate} minStayNights={minStayNights} priceOnRequest={!!prop.priceOnRequest} bookedRanges={bookedRanges} />
         </div>
       </div>
 

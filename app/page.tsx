@@ -277,7 +277,7 @@ const comparisonRows: { feature: string; values: boolean[] }[] = [
 
 const WhatWeDo = () => (
   <section className="bg-white">
-    <div className="mx-auto max-w-[860px] px-7 py-12 text-center sm:px-8 md:px-12 md:py-16">
+    <div className="mx-auto max-w-[860px] px-7 py-16 text-center sm:px-8 md:px-12 md:py-20">
       <Eyebrow>What We Do</Eyebrow>
       <h2 className="font-serif mx-auto mt-6 text-2xl font-normal leading-[1.2] tracking-[-0.01em] text-bt-navy md:text-[32px]">
         Your Home,
@@ -293,7 +293,7 @@ const WhatWeDo = () => (
     {/* Service cards — two centered, narrower rows (not full-bleed). Row 1:
         the three simplest services. Row 2: the two most complete, narrower
         still. The Full-Service card carries the emphasis (navy fill). */}
-    <div className="px-6 pb-16 sm:px-8 md:pb-24">
+    <div className="px-6 pb-16 sm:px-8 md:pb-20">
       <div className="mx-auto max-w-[1040px] border-y border-bt-navy/15">
         <div className="grid grid-cols-1 divide-y divide-bt-navy/15 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           <ServiceCard
@@ -399,7 +399,7 @@ const WhatWeDo = () => (
 
 const HowItWorks = () => (
   <section className="bg-white">
-    <div className="mx-auto grid max-w-[1100px] items-stretch gap-12 px-6 py-20 md:grid-cols-[5fr_7fr] md:gap-20 md:px-12 md:py-28">
+    <div className="mx-auto grid max-w-[1100px] items-stretch gap-12 px-6 py-16 md:grid-cols-[5fr_7fr] md:gap-20 md:px-12 md:py-20">
       <div className="flex flex-col justify-center md:pr-4">
         <Eyebrow>How It Works</Eyebrow>
         <h2 className="font-serif mt-6 text-[34px] font-normal leading-[1.1] tracking-[-0.015em] text-bt-navy md:text-[52px]">
@@ -453,7 +453,7 @@ const HowItWorks = () => (
 
 const VillasWeManage = ({ villas }: { villas: Property[] }) => (
   <section className="bg-bt-cream">
-    <div className="mx-auto max-w-[680px] px-6 pb-4 pt-20 text-center md:pt-28">
+    <div className="mx-auto max-w-[680px] px-6 pb-4 pt-16 text-center md:pt-20">
       <Eyebrow>Homes We Manage</Eyebrow>
       <h2 className="font-serif mx-auto mt-6 text-2xl font-normal leading-[1.2] tracking-[-0.01em] text-bt-navy md:text-[32px]">
         The Homes in Our Care,
@@ -467,7 +467,7 @@ const VillasWeManage = ({ villas }: { villas: Property[] }) => (
     </div>
 
     {villas.length > 0 ? (
-      <div className="mr-villa pb-20 pt-12 md:pb-28 md:pt-14">
+      <div className="mr-villa pb-16 pt-12 md:pb-20 md:pt-14">
         <div className="similar-grid mx-auto max-w-[1300px] px-6 md:px-16">
           {villas.map((p) => (
             <PropertyCard key={p._id} property={p} />
@@ -477,7 +477,7 @@ const VillasWeManage = ({ villas }: { villas: Property[] }) => (
     ) : (
       /* Lightweight fallback if the villa data can't be loaded: no heavy photo,
          just a clear path to the full list. */
-      <div className="pb-20 pt-8 text-center md:pb-28">
+      <div className="pb-16 pt-8 text-center md:pb-20">
         <Link
           href="/properties"
           className="inline-flex min-h-11 items-center justify-center rounded-sm bg-bt-navy px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition duration-150 hover:bg-bt-navy-light focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 active:scale-[0.98]"

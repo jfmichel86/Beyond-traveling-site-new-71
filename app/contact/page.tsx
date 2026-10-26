@@ -46,7 +46,7 @@ const secondary = [
 const Hero = () => (
   <section className="bg-bt-cream">
     <Container>
-      <div className="mx-auto max-w-[680px] py-20 text-center md:py-28">
+      <div className="mx-auto max-w-[680px] py-20 text-center md:py-24">
         <Eyebrow>Contact Beyond Traveling</Eyebrow>
 
         <h1 className="font-serif mt-6 text-4xl font-light leading-[1.12] tracking-[-0.01em] text-bt-navy md:text-[50px]">
@@ -67,7 +67,7 @@ const Hero = () => (
 const Options = () => (
   <section className="bg-white">
     <Container>
-      <div className="mx-auto max-w-[1100px] py-16 md:py-24">
+      <div className="mx-auto max-w-[1100px] py-16 md:py-20">
         <h2 className="sr-only">Contact options</h2>
         <div className="grid grid-cols-1 md:grid-cols-2">
           {options.map((o, i) => (

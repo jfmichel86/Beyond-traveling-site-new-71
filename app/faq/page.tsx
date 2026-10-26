@@ -78,7 +78,7 @@ export default function FAQPage() {
       />
       <section className="bg-bt-cream">
         <Container>
-          <div className="mx-auto max-w-[680px] py-20 text-center md:py-28">
+          <div className="mx-auto max-w-[680px] py-20 text-center md:py-24">
             <Eyebrow>Frequently Asked Questions</Eyebrow>
 
             <h1 className="font-serif mt-6 text-4xl font-light leading-[1.12] tracking-[-0.01em] text-bt-navy md:text-[48px]">
@@ -108,7 +108,7 @@ export default function FAQPage() {
       </section>
 
       <section className="border-t border-bt-navy/10 bg-bt-cream">
-        <div className="mx-auto max-w-[600px] px-6 py-20 text-center md:py-28">
+        <div className="mx-auto max-w-[600px] px-6 py-20 text-center md:py-24">
           <h2 className="font-serif text-3xl font-light leading-[1.2] tracking-[-0.01em] text-bt-navy md:text-[34px]">
             Still Have a Question?
           </h2>

@@ -107,7 +107,7 @@ export default function CancellationPolicyPage() {
 
       <section className="bg-white">
         <Container>
-          <div className="reveal mx-auto max-w-[720px] pb-16 md:pb-24">
+          <div className="reveal mx-auto max-w-[720px] pb-16 md:pb-20">
             <p className="mb-8 font-normal text-[16px] leading-[1.75] text-slate-900/80">
               Once your dates are confirmed, a property is held exclusively
               for you — so a cancellation affects both the homeowner and
@@ -223,7 +223,7 @@ export default function CancellationPolicyPage() {
 
       <section className="border-t border-bt-navy/10 bg-bt-cream">
         <Container>
-          <div className="reveal mx-auto max-w-[780px] py-14 text-center md:py-20">
+          <div className="reveal mx-auto max-w-[780px] py-16 text-center md:py-20">
             <h2 className="font-serif text-3xl leading-[1.12] tracking-[-0.02em] text-bt-navy md:text-5xl">
               Considering an unusual situation?
             </h2>

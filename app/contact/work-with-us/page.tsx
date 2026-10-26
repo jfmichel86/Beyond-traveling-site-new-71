@@ -124,7 +124,7 @@ export default function WorkWithUsPage() {
 
       <section className="bg-white">
         <Container>
-          <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-16 py-20 md:grid-cols-2 md:gap-16 md:py-24">
+          <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-16 py-16 md:grid-cols-2 md:gap-16 md:py-20">
             <Block
               id="careers"
               eyebrow="Careers"
