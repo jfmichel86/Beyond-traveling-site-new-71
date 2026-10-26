@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { formatPrice } from '@/lib/villa/utils'
 import { useLanguage } from '@/lib/language-context'
+import { buildBookedSet, rangeIsFree, type BookedRange } from '@/lib/villa/bookedNights'
 
 const WA_NUMBER = '523313619889'
 const CONTACT_EMAIL = 'rentals@beyondtravelingmx.com'
@@ -26,11 +27,14 @@ export default function Sidebar({
   minRate,
   minStayNights,
   priceOnRequest = false,
+  bookedRanges = null,
 }: {
   propertyTitle: string
   minRate: number | null
   minStayNights: number
   priceOnRequest?: boolean
+  /** Dates already taken (from the booking calendar); greyed out in the picker. */
+  bookedRanges?: BookedRange[] | null
 }) {
   const { language } = useLanguage()
   const es = language === 'es'
@@ -62,6 +66,15 @@ export default function Sidebar({
   const toggle = (p: Exclude<PanelOpen, null>) => setOpenPanel((cur) => (cur === p ? null : p))
 
   const clearDates = () => { setCheckIn(''); setCheckOut('') }
+
+  const booked = useMemo(() => buildBookedSet(bookedRanges), [bookedRanges])
+  // A booked day can still be a departure day if every night before it is free.
+  const isBlocked = (ds: string) => {
+    if (booked.size === 0) return false
+    const choosingOut = !!checkIn && !checkOut
+    if (choosingOut && ds > checkIn) return !rangeIsFree(booked, checkIn, ds)
+    return booked.has(ds)
+  }
 
   const dayClick = (ds: string) => {
     if (!checkIn || checkOut || ds < checkIn) {
@@ -118,7 +131,7 @@ export default function Sidebar({
     for (let d = 1; d <= daysInMonth; d++) {
       const date = new Date(y, m, d); date.setHours(0, 0, 0, 0)
       const ds = fmt(y, m, d)
-      const isPast = date < todayD
+      const isPast = date < todayD || isBlocked(ds)
       const isToday = date.getTime() === todayD.getTime()
       const isStart = checkIn === ds
       const isEnd = checkOut === ds

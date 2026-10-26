@@ -2,16 +2,18 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-const SECTIONS = [
+const BASE_SECTIONS = [
   { id: 'overview', label: 'Overview' },
   { id: 'rooms', label: 'Rooms' },
   { id: 'amenities', label: 'Amenities' },
   { id: 'staff', label: 'Staff' },
+  { id: 'availability', label: 'Availability' },
   { id: 'rates', label: 'Rates' },
   { id: 'location', label: 'Location' },
 ]
 
-export default function AnchorNav() {
+export default function AnchorNav({ showAvailability = false }: { showAvailability?: boolean }) {
+  const SECTIONS = showAvailability ? BASE_SECTIONS : BASE_SECTIONS.filter((s) => s.id !== 'availability')
   const [visible, setVisible] = useState(false)
   const [active, setActive] = useState('overview')
   const anchorRef = useRef<HTMLDivElement>(null)
@@ -79,7 +81,8 @@ export default function AnchorNav() {
       window.removeEventListener('scroll', onScroll)
       document.body.classList.remove('an-visible')
     }
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showAvailability])
 
   // A flat scroll-margin-top guess (the previous approach) assumed a fixed
   // nav height, but the main nav isn't always the same height — it wraps

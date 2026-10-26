@@ -57,6 +57,8 @@ export type Property = {
   seoTitle?: string
   seoDescription?: string
   ogImage?: unknown
+  /** Booking calendar feed (iCal link) — used only on the server to read booked dates. */
+  icalUrl?: string
   promotions?: {
     limitedTimePromotion?: {
       active: boolean

@@ -8,6 +8,12 @@ import Link from "@/components/LocaleLink";
  * the previous pattern) since the same handful of components now appear
  * on every single page.
  *
+ * Vertical spacing standard (keep every page on these two tiers):
+ *   - Content sections ........ py-16 md:py-20  (64px / 80px)
+ *   - Page intro + closing CTA . py-20 md:py-24  (80px / 96px)
+ * Two same-colour sections stacked together double their padding, so give
+ * the second one pt-0 or merge them.
+ *
  * Design language: no box-shadow, no border-radius beyond 2px (rounded-sm
  * at most), no card borders — hairline dividers (border-*-bt-navy/10..15)
  * and full-bleed photography instead. Serif (Cormorant Garamond) for
@@ -167,7 +173,7 @@ export const PullQuoteSection = ({
   children?: React.ReactNode;
 }) => (
   <section className={bg}>
-    <div className="mx-auto max-w-[720px] px-6 py-20 text-center md:py-28">
+    <div className="mx-auto max-w-[720px] px-6 py-16 text-center md:py-20">
       <Eyebrow as="h2" className={dark ? "text-bt-gold-light/90" : ""}>
         {eyebrow}
       </Eyebrow>

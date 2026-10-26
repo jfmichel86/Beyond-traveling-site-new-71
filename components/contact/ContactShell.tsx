@@ -64,7 +64,7 @@ export function ContactLayout({
   return (
     <section id="contact-form" className="bg-white">
       <Container>
-        <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-14 py-20 md:grid-cols-2 md:gap-20 md:py-24">
+        <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-14 py-16 md:grid-cols-2 md:gap-20 md:py-20">
           <div className="min-w-0">{aside}</div>
           <div className="min-w-0">{main}</div>
         </div>

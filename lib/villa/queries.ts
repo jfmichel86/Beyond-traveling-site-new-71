@@ -39,7 +39,7 @@ export async function getVilla(slug: string): Promise<VillaDetail | null> {
       ${CARD_FIELDS},
       fullDescription, taglineEs, shortDescriptionEs, fullDescriptionEs, golfCart6Seater, golfCart4Seater, memberships, bedConfiguration,
       "gallery": gallery[]{ asset, hotspot, roomTag, isMosaic },
-      amenities, "staffServices": staffServices[]{ role, services }, policies, btExtraGuestNote
+      amenities, "staffServices": staffServices[]{ role, services }, policies, btExtraGuestNote, icalUrl
     }`,
     { slug }
   );

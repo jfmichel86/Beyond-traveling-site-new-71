@@ -1613,7 +1613,7 @@ const es: Record<string, string> = {
     "Gerente de Operaciones",
   "Office Administrator": "Administradora de Oficina",
   "Concierge & Social Media": "Concierge y Redes Sociales",
-  "The team that looks after your home every day.": "El equipo que cuida tu hogar todos los días.",
+  "The people who look after the homes we manage.": "Las personas que cuidan los hogares que administramos.",
   "Company direction, finances, and growth.": "Dirección de la empresa, finanzas y crecimiento.",
   "Guest experience, rentals, and client acquisition.": "Experiencia del huésped, rentas y captación de clientes.",
   "Property operations, maintenance, and on-site staff.": "Operación de propiedades, mantenimiento y personal en sitio.",
@@ -1691,6 +1691,7 @@ const es: Record<string, string> = {
   "BBQ/Grill": "Asador/Parrilla",
   "Sun Loungers": "Camastros",
   "Availability": "Disponibilidad",
+  "Plan your stay": "Planea tu estancia",
   "Calendar shown for reference. Final availability confirmed upon request.":
     "Calendario mostrado como referencia. La disponibilidad final se confirma al solicitarla.",
   "Seasonal Rates": "Tarifas por Temporada",
