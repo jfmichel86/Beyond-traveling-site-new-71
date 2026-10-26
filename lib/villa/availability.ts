@@ -75,7 +75,13 @@ export async function getBookedRanges(icalUrl?: string | null): Promise<BookedRa
     const res = await fetch(icalUrl.replace(/^webcal:/i, 'https:'), {
       next: { revalidate: FEED_REVALIDATE_SECONDS },
       signal: AbortSignal.timeout(7000),
-      headers: { Accept: 'text/calendar, text/plain, */*' },
+      headers: {
+        Accept: 'text/calendar, text/plain, */*',
+        'Accept-Language': 'en-US,en;q=0.9',
+        // Some booking platforms refuse requests that don't look like a browser.
+        'User-Agent':
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+      },
     })
     if (!res.ok) return null
     const text = await res.text()
