@@ -31,6 +31,8 @@ export type GroceryCategory = {
   title: string;
   titleEs?: string;
   items: GroceryItem[];
+  /** Sub-categories, for a group such as "Alcoholic Drinks". */
+  children?: GroceryCategory[];
 };
 
 /** [singular, plural] for each unit, in English and Spanish. */
@@ -50,19 +52,33 @@ export const UNIT_LABELS: Record<GroceryUnit, { en: [string, string]; es: [strin
   bag: { en: ["bag", "bags"], es: ["bolsa", "bolsas"] },
 };
 
+const ITEMS = `*[_type == "groceryItem" && category._ref == ^._id && available != false]
+  | order(coalesce(sortOrder, 999) asc, name asc) {
+    "id": _id, name, nameEs, unit, seasonal, price
+  }`;
+
+/** Drop empty categories, and groups left with no sub-categories. */
+function prune(cats: GroceryCategory[]): GroceryCategory[] {
+  return cats
+    .map((c) => ({ ...c, items: c.items || [], children: c.children?.filter((k) => k.items?.length) }))
+    .filter((c) => c.items.length || c.children?.length);
+}
+
 export async function getGroceryCatalog(): Promise<GroceryCategory[]> {
   try {
     const cats = await sanityFetch<GroceryCategory[]>(
-      `*[_type == "groceryCategory"] | order(coalesce(sortOrder, 999) asc, title asc) {
+      `*[_type == "groceryCategory" && !defined(parent)] | order(coalesce(sortOrder, 999) asc, title asc) {
         "id": _id, "slug": slug.current, title, titleEs,
-        "items": *[_type == "groceryItem" && category._ref == ^._id && available != false]
-          | order(coalesce(sortOrder, 999) asc, name asc) {
-            "id": _id, name, nameEs, unit, seasonal, price
-          }
-      }[count(items) > 0]`
+        "items": ${ITEMS},
+        "children": *[_type == "groceryCategory" && parent._ref == ^._id] | order(coalesce(sortOrder, 999) asc, title asc) {
+          "id": _id, "slug": slug.current, title, titleEs,
+          "items": ${ITEMS}
+        }
+      }`
     );
+    const pruned = prune(cats || []);
     // Nothing uploaded to Sanity yet → use the built-in list
-    return cats && cats.length ? cats : GROCERY_FALLBACK;
+    return pruned.length ? pruned : GROCERY_FALLBACK;
   } catch (err) {
     // Never leave guests without a list: fall back to the built-in copy
     console.error(err);
