@@ -5,7 +5,6 @@
 //   groceryCategory — sections; a main section has a "side" (Ready to Enjoy /
 //                     Cooking for Yourself); a category can sit inside a group
 //   groceryItem     — products ("Also Show In" lists one item in more places)
-//   groceryPack     — quick-start packs (one tap adds a set of items)
 // ─────────────────────────────────────────────────────────────
 
 import { sanityFetch } from "@/lib/sanity";
@@ -44,17 +43,7 @@ export type GroceryCategory = {
   children?: GroceryCategory[];
 };
 
-export type GroceryPack = {
-  id: string;
-  title: string;
-  titleEs?: string;
-  description?: string;
-  descriptionEs?: string;
-  side: GrocerySide;
-  items: { id: string; qty: number }[];
-};
-
-export type GroceryData = { catalog: GroceryCategory[]; packs: GroceryPack[] };
+export type GroceryData = { catalog: GroceryCategory[] };
 
 /** [singular, plural] for each unit, in English and Spanish. */
 export const UNIT_LABELS: Record<GroceryUnit, { en: [string, string]; es: [string, string] }> = {
@@ -97,7 +86,7 @@ function tidy(cats: RawCategory[]): GroceryCategory[] {
 
 export async function getGroceryData(): Promise<GroceryData> {
   try {
-    const data = await sanityFetch<{ catalog: RawCategory[]; packs: GroceryPack[] }>(
+    const data = await sanityFetch<{ catalog: RawCategory[] }>(
       `{
         "catalog": *[_type == "groceryCategory" && !defined(parent)] | order(coalesce(sortOrder, 999) asc, title asc) {
           "id": _id, "slug": slug.current, title, titleEs, "side": coalesce(side, "enjoy"),
@@ -106,17 +95,13 @@ export async function getGroceryData(): Promise<GroceryData> {
             "id": _id, "slug": slug.current, title, titleEs,
             ${ITEMS}
           }
-        },
-        "packs": *[_type == "groceryPack" && active != false] | order(coalesce(sortOrder, 999) asc) {
-          "id": _id, title, titleEs, description, descriptionEs, "side": coalesce(side, "enjoy"),
-          "items": items[defined(item._ref) && item->available != false]{ "id": item._ref, "qty": coalesce(quantity, 1) }
         }
       }`
     );
     const catalog = tidy(data?.catalog || []);
     // Nothing uploaded to Sanity yet → use the built-in list
     if (!catalog.length) return GROCERY_FALLBACK;
-    return { catalog, packs: (data.packs || []).filter((p) => p.items?.length) };
+    return { catalog };
   } catch (err) {
     // Never leave guests without a list: fall back to the built-in copy
     console.error(err);
