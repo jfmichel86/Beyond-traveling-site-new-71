@@ -1,8 +1,11 @@
 // ─────────────────────────────────────────────────────────────
 // Pre-arrival groceries — guests pick items on /groceries and send the list
-// to the concierge by WhatsApp or email. Items and categories are edited in
-// the Mexican Reserve Sanity Studio → Groceries (types groceryCategory and
-// groceryItem). Turn an item's "Available" switch off to hide it.
+// to the concierge by WhatsApp or email. Everything is edited in the Mexican
+// Reserve Sanity Studio → Groceries:
+//   groceryCategory — sections; a main section has a "side" (Ready to Enjoy /
+//                     Cooking for Yourself); a category can sit inside a group
+//   groceryItem     — products ("Also Show In" lists one item in more places)
+//   groceryPack     — quick-start packs (one tap adds a set of items)
 // ─────────────────────────────────────────────────────────────
 
 import { sanityFetch } from "@/lib/sanity";
@@ -16,6 +19,8 @@ export type GroceryUnit =
   | "piece" | "kg" | "bunch" | "package" | "loaf" | "box" | "can"
   | "bottle" | "carton" | "six-pack" | "jar" | "dozen" | "bag";
 
+export type GrocerySide = "enjoy" | "cooking";
+
 export type GroceryItem = {
   id: string;
   name: string;
@@ -23,6 +28,8 @@ export type GroceryItem = {
   unit: GroceryUnit;
   seasonal?: boolean;
   price?: number;
+  /** A copy shown here from another category ("Also Show In"). */
+  alsoListed?: boolean;
 };
 
 export type GroceryCategory = {
@@ -30,10 +37,24 @@ export type GroceryCategory = {
   slug: string;
   title: string;
   titleEs?: string;
+  /** Only on main sections. */
+  side?: GrocerySide;
   items: GroceryItem[];
-  /** Sub-categories, for a group such as "Alcoholic Drinks". */
+  /** Sub-categories, for a group such as "The Bar". */
   children?: GroceryCategory[];
 };
+
+export type GroceryPack = {
+  id: string;
+  title: string;
+  titleEs?: string;
+  description?: string;
+  descriptionEs?: string;
+  side: GrocerySide;
+  items: { id: string; qty: number }[];
+};
+
+export type GroceryData = { catalog: GroceryCategory[]; packs: GroceryPack[] };
 
 /** [singular, plural] for each unit, in English and Spanish. */
 export const UNIT_LABELS: Record<GroceryUnit, { en: [string, string]; es: [string, string] }> = {
@@ -52,33 +73,50 @@ export const UNIT_LABELS: Record<GroceryUnit, { en: [string, string]; es: [strin
   bag: { en: ["bag", "bags"], es: ["bolsa", "bolsas"] },
 };
 
-const ITEMS = `*[_type == "groceryItem" && category._ref == ^._id && available != false]
-  | order(coalesce(sortOrder, 999) asc, name asc) {
-    "id": _id, name, nameEs, unit, seasonal, price
-  }`;
+const ITEM_FIELDS = `"id": _id, name, nameEs, unit, seasonal, price`;
+const ITEMS = `"items": *[_type == "groceryItem" && category._ref == ^._id && available != false]
+    | order(coalesce(sortOrder, 999) asc, name asc) { ${ITEM_FIELDS} },
+  "also": *[_type == "groceryItem" && ^._id in alsoIn[]._ref && available != false]
+    | order(name asc) { ${ITEM_FIELDS}, "alsoListed": true }`;
 
-/** Drop empty categories, and groups left with no sub-categories. */
-function prune(cats: GroceryCategory[]): GroceryCategory[] {
+type RawCategory = GroceryCategory & { also?: GroceryItem[]; children?: RawCategory[] };
+
+/** Merge "Also Show In" copies, drop empty categories and empty groups. */
+function tidy(cats: RawCategory[]): GroceryCategory[] {
   return cats
-    .map((c) => ({ ...c, items: c.items || [], children: c.children?.filter((k) => k.items?.length) }))
+    .map((c) => {
+      const { also, children, ...rest } = c;
+      return {
+        ...rest,
+        items: [...(c.items || []), ...(also || [])],
+        children: children ? tidy(children) : undefined,
+      };
+    })
     .filter((c) => c.items.length || c.children?.length);
 }
 
-export async function getGroceryCatalog(): Promise<GroceryCategory[]> {
+export async function getGroceryData(): Promise<GroceryData> {
   try {
-    const cats = await sanityFetch<GroceryCategory[]>(
-      `*[_type == "groceryCategory" && !defined(parent)] | order(coalesce(sortOrder, 999) asc, title asc) {
-        "id": _id, "slug": slug.current, title, titleEs,
-        "items": ${ITEMS},
-        "children": *[_type == "groceryCategory" && parent._ref == ^._id] | order(coalesce(sortOrder, 999) asc, title asc) {
-          "id": _id, "slug": slug.current, title, titleEs,
-          "items": ${ITEMS}
+    const data = await sanityFetch<{ catalog: RawCategory[]; packs: GroceryPack[] }>(
+      `{
+        "catalog": *[_type == "groceryCategory" && !defined(parent)] | order(coalesce(sortOrder, 999) asc, title asc) {
+          "id": _id, "slug": slug.current, title, titleEs, "side": coalesce(side, "enjoy"),
+          ${ITEMS},
+          "children": *[_type == "groceryCategory" && parent._ref == ^._id] | order(coalesce(sortOrder, 999) asc, title asc) {
+            "id": _id, "slug": slug.current, title, titleEs,
+            ${ITEMS}
+          }
+        },
+        "packs": *[_type == "groceryPack" && active != false] | order(coalesce(sortOrder, 999) asc) {
+          "id": _id, title, titleEs, description, descriptionEs, "side": coalesce(side, "enjoy"),
+          "items": items[defined(item._ref) && item->available != false]{ "id": item._ref, "qty": coalesce(quantity, 1) }
         }
       }`
     );
-    const pruned = prune(cats || []);
+    const catalog = tidy(data?.catalog || []);
     // Nothing uploaded to Sanity yet → use the built-in list
-    return pruned.length ? pruned : GROCERY_FALLBACK;
+    if (!catalog.length) return GROCERY_FALLBACK;
+    return { catalog, packs: (data.packs || []).filter((p) => p.items?.length) };
   } catch (err) {
     // Never leave guests without a list: fall back to the built-in copy
     console.error(err);
