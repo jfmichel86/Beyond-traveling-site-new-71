@@ -42,6 +42,13 @@ const EMPTY: Saved = {
 const fold = (s: string) =>
   s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
+/** Every category that holds items, groups' sub-categories included, in page order. */
+const leavesOf = (cats: GroceryCategory[]): GroceryCategory[] =>
+  cats.flatMap((c) => [...(c.items.length ? [c] : []), ...(c.children || [])]);
+
+const countItems = (c: GroceryCategory): number =>
+  c.items.length + (c.children || []).reduce((n, k) => n + k.items.length, 0);
+
 const fmtQty = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(1));
 
 function formatDate(iso: string, es: boolean) {
@@ -74,6 +81,10 @@ export default function GroceryShop({
   const [sent, setSent] = useState<"" | "whatsapp" | "email">("");
   const [copied, setCopied] = useState(false);
   const [otherVilla, setOtherVilla] = useState("");
+  const [open, setOpen] = useState<Record<string, boolean>>({});
+
+  const leaves = useMemo(() => leavesOf(catalog), [catalog]);
+  const toggle = (id: string) => setOpen((o) => ({ ...o, [id]: !o[id] }));
 
   const itemName = useCallback(
     (it: GroceryItem) => (es ? it.nameEs || it.name : it.name),
@@ -85,9 +96,9 @@ export default function GroceryShop({
   // id → item + its category, for building the list
   const index = useMemo(() => {
     const m = new Map<string, { item: GroceryItem; cat: GroceryCategory }>();
-    for (const cat of catalog) for (const item of cat.items) m.set(item.id, { item, cat });
+    for (const cat of leaves) for (const item of cat.items) m.set(item.id, { item, cat });
     return m;
-  }, [catalog]);
+  }, [leaves]);
 
   // Restore a list in progress, then apply ?name=&villa=&arrival= from a
   // personal link the concierge sends (those win over the saved values).
@@ -167,13 +178,13 @@ export default function GroceryShop({
   // Items in the list, in catalog order
   const chosen = useMemo(() => {
     const out: { item: GroceryItem; cat: GroceryCategory; n: number }[] = [];
-    for (const cat of catalog)
+    for (const cat of leaves)
       for (const item of cat.items) {
         const n = s.qty[item.id];
         if (n > 0) out.push({ item, cat, n });
       }
     return out;
-  }, [catalog, s.qty]);
+  }, [leaves, s.qty]);
 
   const count = chosen.length;
   const estimate = chosen.reduce((sum, c) => sum + (c.item.price ? c.item.price * c.n : 0), 0);
@@ -182,14 +193,16 @@ export default function GroceryShop({
   const q = fold(query.trim());
   const visible = useMemo(() => {
     if (!q) return catalog;
+    const match = (it: GroceryItem) => fold(it.name).includes(q) || fold(it.nameEs || "").includes(q);
     return catalog
       .map((cat) => ({
         ...cat,
-        items: cat.items.filter(
-          (it) => fold(it.name).includes(q) || fold(it.nameEs || "").includes(q)
-        ),
+        items: cat.items.filter(match),
+        children: (cat.children || [])
+          .map((k) => ({ ...k, items: k.items.filter(match) }))
+          .filter((k) => k.items.length),
       }))
-      .filter((cat) => cat.items.length);
+      .filter((cat) => cat.items.length || cat.children.length);
   }, [catalog, q]);
 
   // ── The message sent to the concierge ──────────────────────────────────
@@ -519,6 +532,90 @@ export default function GroceryShop({
     </div>
   );
 
+  const itemRow = (it: GroceryItem) => {
+    const n = s.qty[it.id] || 0;
+    return (
+      <li key={it.id} className="border-b border-bt-navy/10 py-3">
+        <div className="flex items-center justify-between gap-4">
+          <div className="min-w-0">
+            <p className="text-[15px] leading-snug text-bt-navy">{itemName(it)}</p>
+            <p className="mt-0.5 text-[12px] text-bt-charcoal/70">
+              {t("per", "por")} {unitLabel(it, 1)}
+              {it.price ? ` · ≈ $${it.price} USD` : ""}
+              {it.seasonal && <span className="ml-2 text-bt-gold-text">· {t("seasonal", "de temporada")}</span>}
+            </p>
+          </div>
+          {stepper(it)}
+        </div>
+        {n > 0 && (
+          <input
+            type="text"
+            value={s.notes[it.id] || ""}
+            onChange={(e) => setNote(it.id, e.target.value)}
+            placeholder={t("Brand or note (optional)", "Marca o nota (opcional)")}
+            aria-label={t(`Brand or note for ${itemName(it)}`, `Marca o nota para ${itemName(it)}`)}
+            className="mt-2 w-full border-0 border-b border-dashed border-bt-navy/20 bg-transparent px-0 py-1.5 text-[13.5px] text-bt-navy outline-none placeholder:text-bt-navy/55 focus:border-bt-navy"
+          />
+        )}
+      </li>
+    );
+  };
+
+  /** A collapsible category (depth 0) or a sub-category inside a group (depth 1). */
+  const section = (cat: GroceryCategory, depth: number): React.ReactNode => {
+    const isOpen = !!q || !!open[cat.id];
+    const all = [...cat.items, ...(cat.children || []).flatMap((k) => k.items)];
+    const inList = all.filter((it) => s.qty[it.id]).length;
+    const title = es ? cat.titleEs || cat.title : cat.title;
+    const panelId = `panel-${cat.slug}`;
+    const Heading = depth ? "h3" : "h2";
+    return (
+      <section key={cat.id} id={`cat-${cat.slug}`} className={`scroll-mt-[150px] ${depth ? "" : "border-b border-bt-navy/15"}`}>
+        <Heading className={depth ? "border-b border-bt-navy/10" : ""}>
+          <button
+            type="button"
+            onClick={() => toggle(cat.id)}
+            aria-expanded={isOpen}
+            aria-controls={panelId}
+            disabled={!!q}
+            className={`group flex w-full items-center justify-between gap-4 text-left ${depth ? "py-3.5 pl-1" : "py-5"}`}
+          >
+            <span className="min-w-0">
+              <span className={`font-serif font-light text-bt-navy ${depth ? "text-[21px] md:text-[22px]" : "text-[26px] md:text-[30px]"}`}>
+                {title}
+              </span>
+              <span className="ml-3 whitespace-nowrap text-[12px] text-bt-charcoal/60">
+                {countItems(cat)} {t("items", "artículos")}
+              </span>
+            </span>
+            <span className="flex shrink-0 items-center gap-3">
+              {inList > 0 && (
+                <span className="bg-bt-navy px-2 py-0.5 text-[11.5px] font-medium tabular-nums text-white">
+                  {inList} {t("in list", "en lista")}
+                </span>
+              )}
+              {!q && (
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className={`h-5 w-5 text-bt-navy/70 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}>
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              )}
+            </span>
+          </button>
+        </Heading>
+        {isOpen && (
+          <div id={panelId} className={depth ? "pb-6 pl-1" : "pb-8"}>
+            {cat.items.length > 0 && <ul className="grid gap-x-10 md:grid-cols-2">{cat.items.map(itemRow)}</ul>}
+            {cat.children && cat.children.length > 0 && (
+              <div className="border-l-2 border-bt-gold/40 pl-4 md:pl-6">
+                {cat.children.map((k) => section(k, 1))}
+              </div>
+            )}
+          </div>
+        )}
+      </section>
+    );
+  };
+
   // ── Page ────────────────────────────────────────────────────────────────
   return (
     <div translate="no">
@@ -545,6 +642,7 @@ export default function GroceryShop({
                 <a
                   key={cat.id}
                   href={`#cat-${cat.slug}`}
+                  onClick={() => setOpen((o) => ({ ...o, [cat.id]: true }))}
                   className="shrink-0 border border-bt-navy/15 px-3 py-1.5 text-[12px] text-bt-navy transition hover:border-bt-navy/40 hover:bg-bt-cream"
                 >
                   {es ? cat.titleEs || cat.title : cat.title}
@@ -570,55 +668,30 @@ export default function GroceryShop({
             </div>
           )}
 
-          {visible.map((cat) => {
-            const inCat = cat.items.filter((it) => s.qty[it.id]).length;
-            return (
-              <section key={cat.id} id={`cat-${cat.slug}`} className="scroll-mt-[150px] pb-12">
-                <div className="flex items-baseline justify-between border-b border-bt-navy/15 pb-3">
-                  <h2 className="font-serif text-[26px] font-light text-bt-navy md:text-[30px]">
-                    {es ? cat.titleEs || cat.title : cat.title}
-                  </h2>
-                  {inCat > 0 && (
-                    <span className="text-[12px] font-medium text-bt-gold-text">
-                      {inCat} {t("in your list", "en tu lista")}
-                    </span>
-                  )}
-                </div>
-                <ul className="grid gap-x-10 md:grid-cols-2">
-                  {cat.items.map((it) => {
-                    const n = s.qty[it.id] || 0;
-                    return (
-                      <li key={it.id} className="border-b border-bt-navy/10 py-3">
-                        <div className="flex items-center justify-between gap-4">
-                          <div className="min-w-0">
-                            <p className="text-[15px] leading-snug text-bt-navy">{itemName(it)}</p>
-                            <p className="mt-0.5 text-[12px] text-bt-charcoal/70">
-                              {t("per", "por")} {unitLabel(it, 1)}
-                              {it.price ? ` · ≈ $${it.price} USD` : ""}
-                              {it.seasonal && (
-                                <span className="ml-2 text-bt-gold-text">· {t("seasonal", "de temporada")}</span>
-                              )}
-                            </p>
-                          </div>
-                          {stepper(it)}
-                        </div>
-                        {n > 0 && (
-                          <input
-                            type="text"
-                            value={s.notes[it.id] || ""}
-                            onChange={(e) => setNote(it.id, e.target.value)}
-                            placeholder={t("Brand or note (optional)", "Marca o nota (opcional)")}
-                            aria-label={t(`Brand or note for ${itemName(it)}`, `Marca o nota para ${itemName(it)}`)}
-                            className="mt-2 w-full border-0 border-b border-dashed border-bt-navy/20 bg-transparent px-0 py-1.5 text-[13.5px] text-bt-navy outline-none placeholder:text-bt-navy/55 focus:border-bt-navy"
-                          />
-                        )}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </section>
-            );
-          })}
+          {!q && (
+            <div className="mb-4 flex justify-end">
+              <button
+                type="button"
+                onClick={() => {
+                  const anyOpen = Object.values(open).some(Boolean);
+                  setOpen(
+                    anyOpen
+                      ? {}
+                      : Object.fromEntries(
+                          catalog.flatMap((c) => [c.id, ...(c.children || []).map((k) => k.id)]).map((id) => [id, true])
+                        )
+                  );
+                }}
+                className="text-[12.5px] font-medium text-bt-navy/75 underline-offset-4 hover:text-bt-navy hover:underline"
+              >
+                {Object.values(open).some(Boolean) ? t("Close all", "Cerrar todo") : t("Open all", "Abrir todo")}
+              </button>
+            </div>
+          )}
+
+          <div className="border-t border-bt-navy/15">
+            {visible.map((cat) => section(cat, 0))}
+          </div>
         </div>
 
         {/* Computer: list beside the catalog */}
