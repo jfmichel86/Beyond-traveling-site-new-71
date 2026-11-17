@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { isEsPath } from "@/lib/locale";
 import {
@@ -8,7 +9,10 @@ import {
   GROCERY_WHATSAPP,
   UNIT_LABELS,
   type GroceryCategory,
+  type GroceryData,
   type GroceryItem,
+  type GroceryPack,
+  type GrocerySide,
 } from "@/lib/groceries";
 import { fieldClass, labelClass, submitClass } from "@/components/contact/fields";
 import { trackEvent } from "@/lib/analytics";
@@ -46,8 +50,30 @@ const fold = (s: string) =>
 const leavesOf = (cats: GroceryCategory[]): GroceryCategory[] =>
   cats.flatMap((c) => [...(c.items.length ? [c] : []), ...(c.children || [])]);
 
-const countItems = (c: GroceryCategory): number =>
-  c.items.length + (c.children || []).reduce((n, k) => n + k.items.length, 0);
+/** All items shown in a section (its own, its sub-categories', and copies). */
+const itemsIn = (c: GroceryCategory): GroceryItem[] => [
+  ...c.items,
+  ...(c.children || []).flatMap((k) => k.items),
+];
+
+const SIDES: { key: GrocerySide; en: string; es: string; subEn: string; subEs: string; img: string }[] = [
+  {
+    key: "enjoy",
+    en: "Ready to Enjoy",
+    es: "Listo para Disfrutar",
+    subEn: "Snacks, drinks, the bar & essentials",
+    subEs: "Botanas, bebidas, el bar y lo esencial",
+    img: "/villa-dining-menu/dishes/guacamole-and-pico-de-gallo.jpg",
+  },
+  {
+    key: "cooking",
+    en: "Cooking for Yourself",
+    es: "Si Vas a Cocinar",
+    subEn: "Ingredients, only if you plan to cook",
+    subEs: "Ingredientes, solo si piensas cocinar",
+    img: "/villa-dining-menu/dishes/grilled-vegetables.jpg",
+  },
+];
 
 const fmtQty = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(1));
 
@@ -63,12 +89,14 @@ function formatDate(iso: string, es: boolean) {
 }
 
 export default function GroceryShop({
-  catalog,
+  data,
   villas,
 }: {
-  catalog: GroceryCategory[];
+  data: GroceryData;
   villas: string[];
 }) {
+  const catalog = data.catalog;
+  const packs: GroceryPack[] = data.packs || [];
   const es = isEsPath(usePathname() || "/");
   const t = (en: string, esText: string) => (es ? esText : en);
 
@@ -82,6 +110,11 @@ export default function GroceryShop({
   const [copied, setCopied] = useState(false);
   const [otherVilla, setOtherVilla] = useState("");
   const [open, setOpen] = useState<Record<string, boolean>>({});
+  const [side, setSide] = useState<GrocerySide>("enjoy");
+  const sideCats = useMemo(
+    () => catalog.filter((c) => (c.side || "enjoy") === side),
+    [catalog, side]
+  );
 
   const leaves = useMemo(() => leavesOf(catalog), [catalog]);
   const toggle = (id: string) => setOpen((o) => ({ ...o, [id]: !o[id] }));
@@ -96,7 +129,9 @@ export default function GroceryShop({
   // id → item + its category, for building the list
   const index = useMemo(() => {
     const m = new Map<string, { item: GroceryItem; cat: GroceryCategory }>();
-    for (const cat of leaves) for (const item of cat.items) m.set(item.id, { item, cat });
+    // The item's own category wins over "Also Show In" copies
+    for (const cat of leaves) for (const item of cat.items) if (!item.alsoListed) m.set(item.id, { item, cat });
+    for (const cat of leaves) for (const item of cat.items) if (!m.has(item.id)) m.set(item.id, { item, cat });
     return m;
   }, [leaves]);
 
@@ -120,6 +155,7 @@ export default function GroceryShop({
     );
 
     const p = new URLSearchParams(window.location.search);
+    if (p.get("side") === "cooking") setSide("cooking");
     const pName = p.get("name");
     const pVilla = p.get("villa");
     const pArrival = p.get("arrival");
@@ -181,7 +217,7 @@ export default function GroceryShop({
     for (const cat of leaves)
       for (const item of cat.items) {
         const n = s.qty[item.id];
-        if (n > 0) out.push({ item, cat, n });
+        if (n > 0 && !item.alsoListed) out.push({ item, cat, n });
       }
     return out;
   }, [leaves, s.qty]);
@@ -192,8 +228,9 @@ export default function GroceryShop({
   // Search
   const q = fold(query.trim());
   const visible = useMemo(() => {
-    if (!q) return catalog;
-    const match = (it: GroceryItem) => fold(it.name).includes(q) || fold(it.nameEs || "").includes(q);
+    if (!q) return sideCats;
+    const match = (it: GroceryItem) =>
+      !it.alsoListed && (fold(it.name).includes(q) || fold(it.nameEs || "").includes(q));
     return catalog
       .map((cat) => ({
         ...cat,
@@ -203,7 +240,7 @@ export default function GroceryShop({
           .filter((k) => k.items.length),
       }))
       .filter((cat) => cat.items.length || cat.children.length);
-  }, [catalog, q]);
+  }, [catalog, sideCats, q]);
 
   // ── The message sent to the concierge ──────────────────────────────────
   const villaName = s.villa === OTHER_VILLA ? otherVilla.trim() : s.villa;
@@ -285,6 +322,48 @@ export default function GroceryShop({
     if (!window.confirm(t("Clear your whole list?", "¿Borrar toda tu lista?"))) return;
     setS((prev) => ({ ...prev, qty: {}, notes: {}, requests: "" }));
     setSent("");
+  };
+
+  // ── Quick-start packs ──────────────────────────────────────────────────
+  const packAdded = (pk: GroceryPack) =>
+    pk.items.every((x) => !index.has(x.id) || (s.qty[x.id] || 0) >= x.qty);
+
+  const addPack = (pk: GroceryPack) => {
+    setS((prev) => {
+      const qty = { ...prev.qty };
+      for (const x of pk.items) if (index.has(x.id)) qty[x.id] = Math.max(qty[x.id] || 0, x.qty);
+      return { ...prev, qty };
+    });
+    setSent("");
+    trackEvent("grocery_pack_added", { pack: pk.title });
+  };
+
+  const packCard = (pk: GroceryPack) => {
+    const added = packAdded(pk);
+    const names = pk.items.map((x) => index.get(x.id)?.item).filter(Boolean) as GroceryItem[];
+    const shown = names.slice(0, 4).map((it) => itemName(it).replace(/\s*\(.*\)$/, ""));
+    return (
+      <div key={pk.id} className="flex w-[78%] shrink-0 snap-start flex-col border border-bt-navy/12 bg-white p-5 sm:w-auto">
+        <p className="font-serif text-[21px] font-light leading-tight text-bt-navy">{es ? pk.titleEs || pk.title : pk.title}</p>
+        {(es ? pk.descriptionEs || pk.description : pk.description) && (
+          <p className="mt-2 text-[13.5px] leading-[1.6] text-bt-charcoal/85">{es ? pk.descriptionEs || pk.description : pk.description}</p>
+        )}
+        <p className="mt-3 flex-1 text-[12px] leading-[1.6] text-bt-charcoal/65">
+          {shown.join(" · ")}
+          {names.length > 4 ? ` ${t(`+ ${names.length - 4} more`, `+ ${names.length - 4} más`)}` : ""}
+        </p>
+        <button
+          type="button"
+          onClick={() => addPack(pk)}
+          disabled={added}
+          className={`mt-4 inline-flex min-h-10 items-center justify-center px-5 text-[11px] font-medium uppercase tracking-[0.14em] transition focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 ${
+            added ? "cursor-default bg-bt-cream text-bt-gold-text" : "bg-bt-navy text-white hover:bg-bt-navy-light"
+          }`}
+        >
+          {added ? t("Added to your list ✓", "Agregado a tu lista ✓") : t(`Add ${names.length} items`, `Agregar ${names.length} artículos`)}
+        </button>
+      </div>
+    );
   };
 
   // ── Pieces ──────────────────────────────────────────────────────────────
@@ -564,8 +643,8 @@ export default function GroceryShop({
   /** A collapsible category (depth 0) or a sub-category inside a group (depth 1). */
   const section = (cat: GroceryCategory, depth: number): React.ReactNode => {
     const isOpen = !!q || !!open[cat.id];
-    const all = [...cat.items, ...(cat.children || []).flatMap((k) => k.items)];
-    const inList = all.filter((it) => s.qty[it.id]).length;
+    const all = itemsIn(cat);
+    const inList = new Set(all.filter((it) => s.qty[it.id]).map((it) => it.id)).size;
     const title = es ? cat.titleEs || cat.title : cat.title;
     const panelId = `panel-${cat.slug}`;
     const Heading = depth ? "h3" : "h2";
@@ -585,7 +664,7 @@ export default function GroceryShop({
                 {title}
               </span>
               <span className="ml-3 whitespace-nowrap text-[12px] text-bt-charcoal/60">
-                {countItems(cat)} {t("items", "artículos")}
+                {all.length} {t("items", "artículos")}
               </span>
             </span>
             <span className="flex shrink-0 items-center gap-3">
@@ -619,6 +698,70 @@ export default function GroceryShop({
   // ── Page ────────────────────────────────────────────────────────────────
   return (
     <div translate="no">
+      {/* Which side: Ready to Enjoy / Cooking for Yourself */}
+      <div className="mx-auto w-full max-w-[1280px] px-6 pt-10 md:px-12 md:pt-14">
+        <div role="tablist" aria-label={t("Grocery list sections", "Secciones de la lista")} className="grid grid-cols-2 gap-3 md:gap-6">
+          {SIDES.map((sd) => {
+            const active = side === sd.key;
+            return (
+              <button
+                key={sd.key}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => {
+                  setSide(sd.key);
+                  setQuery("");
+                }}
+                className={`group relative h-[132px] overflow-hidden text-left transition focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 md:h-[190px] ${
+                  active ? "ring-2 ring-bt-gold ring-offset-2" : "opacity-80 hover:opacity-100"
+                }`}
+              >
+                <Image src={sd.img} alt="" fill sizes="(min-width: 768px) 600px, 50vw" className="object-cover transition duration-700 group-hover:scale-[1.03]" />
+                <span className={`absolute inset-0 ${active ? "bg-gradient-to-t from-bt-navy/90 via-bt-navy/45 to-bt-navy/10" : "bg-gradient-to-t from-black/75 via-black/35 to-black/10"}`} />
+                <span className="absolute inset-x-0 bottom-0 p-4 md:p-6">
+                  <span className="block font-serif text-[20px] font-light leading-tight text-white md:text-[30px]">
+                    {es ? sd.es : sd.en}
+                  </span>
+                  <span className="mt-1 block text-[11.5px] leading-snug text-white/85 md:text-[13.5px]">{es ? sd.subEs : sd.subEn}</span>
+                </span>
+                {active && (
+                  <span className="absolute right-3 top-3 bg-bt-gold px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.14em] text-white">
+                    {t("Viewing", "Viendo")}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        {side === "cooking" && (
+          <div className="mt-6 border-l-2 border-bt-gold bg-bt-cream px-5 py-4">
+            <p className="text-[14.5px] leading-[1.7] text-bt-charcoal/90">
+              <span className="font-medium text-bt-navy">{t("Only if you plan to cook yourself.", "Solo si piensas cocinar tú.")}</span>{" "}
+              {t(
+                "If our cook prepares your meals, skip this part. The cook takes care of those groceries.",
+                "Si nuestro cocinero prepara tus comidas, no necesitas esta parte; el cocinero se encarga de esas compras."
+              )}
+            </p>
+          </div>
+        )}
+
+        {packs.some((pk) => pk.side === side) && (
+          <div className="mt-10">
+            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-bt-navy/85">
+              {t("Quick-Start Packs", "Paquetes Rápidos")}
+            </p>
+            <p className="mt-2 text-[14px] text-bt-charcoal/80">
+              {t("One tap adds the set. Change quantities or remove anything after.", "Un toque agrega todo. Después puedes cambiar cantidades o quitar lo que quieras.")}
+            </p>
+            <div className="-mx-6 mt-5 flex snap-x gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4">
+              {packs.filter((pk) => pk.side === side).map(packCard)}
+            </div>
+          </div>
+        )}
+      </div>
+
       {/* Search + category shortcuts */}
       <div className="sticky top-[60px] z-20 border-b border-bt-navy/10 bg-white/95 backdrop-blur md:top-[64px]">
         <div className="mx-auto w-full max-w-[1280px] px-6 py-3 md:px-12">
@@ -638,7 +781,7 @@ export default function GroceryShop({
           </div>
           {!q && (
             <nav aria-label={t("Categories", "Categorías")} className="-mx-6 mt-2 flex gap-2 overflow-x-auto px-6 pb-1 [scrollbar-width:none] md:-mx-12 md:px-12">
-              {catalog.map((cat) => (
+              {sideCats.map((cat) => (
                 <a
                   key={cat.id}
                   href={`#cat-${cat.slug}`}
@@ -678,7 +821,7 @@ export default function GroceryShop({
                     anyOpen
                       ? {}
                       : Object.fromEntries(
-                          catalog.flatMap((c) => [c.id, ...(c.children || []).map((k) => k.id)]).map((id) => [id, true])
+                          sideCats.flatMap((c) => [c.id, ...(c.children || []).map((k) => k.id)]).map((id) => [id, true])
                         )
                   );
                 }}

@@ -3,7 +3,7 @@ import EsText from "@/components/EsText";
 import { Eyebrow } from "@/components/ui";
 import { getProperties } from "@/lib/sanity";
 import { FALLBACK_VILLAS } from "@/lib/fallback-villas";
-import { getGroceryCatalog } from "@/lib/groceries";
+import { getGroceryData } from "@/lib/groceries";
 import GroceryShop from "./GroceryShop";
 
 // Private page for booked guests (shared by the concierge) — not in Google.
@@ -36,7 +36,7 @@ const NOTES: { en: string; es: string }[] = [
 ];
 
 export default async function GroceriesPage() {
-  const [catalog, properties] = await Promise.all([getGroceryCatalog(), getProperties()]);
+  const [data, properties] = await Promise.all([getGroceryData(), getProperties()]);
   const villas = (properties.length ? properties : FALLBACK_VILLAS).map((p) => p.title);
 
   return (
@@ -62,7 +62,7 @@ export default async function GroceriesPage() {
 
           <ol className="mx-auto mt-10 grid max-w-[720px] gap-6 text-left sm:grid-cols-3">
             {[
-              { en: "Tap “Add” and choose quantities.", es: "Toca “Agregar” y elige cantidades." },
+              { en: "Start with a quick-start pack or tap “Add” on anything.", es: "Empieza con un paquete rápido o toca “Agregar” en lo que quieras." },
               { en: "Add a brand or note if you have a favorite.", es: "Agrega una marca o nota si tienes alguna favorita." },
               { en: "Send your list. We confirm everything with you.", es: "Envía tu lista. Te confirmamos todo." },
             ].map((s, i) => (
@@ -84,7 +84,7 @@ export default async function GroceriesPage() {
         </div>
       </section>
 
-      <GroceryShop catalog={catalog} villas={villas} />
+      <GroceryShop data={data} villas={villas} />
 
       {/* Good to know */}
       <section className="border-t border-bt-navy/10 bg-bt-cream">
