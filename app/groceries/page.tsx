@@ -21,10 +21,10 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/groceries/og-groceries.jpg",
+        url: "/groceries/groceries-preview.jpg",
         width: 1200,
         height: 630,
-        alt: "Fresh fruit, guacamole and juices waiting at your villa",
+        alt: "Groceries, fruit, snacks and drinks laid out in a villa kitchen",
       },
     ],
   },
@@ -33,7 +33,7 @@ export const metadata = {
     title: "Pre-Arrival Groceries | Beyond Traveling",
     description:
       "Arrive to a stocked villa. Choose snacks, drinks, the bar and groceries online and send your list to our concierge.",
-    images: ["/groceries/og-groceries.jpg"],
+    images: ["/groceries/groceries-preview.jpg"],
   },
 };
 

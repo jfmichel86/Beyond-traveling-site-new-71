@@ -13,7 +13,9 @@ import {
   type GroceryItem,
   type GrocerySide,
 } from "@/lib/groceries";
-import { fieldClass, labelClass, submitClass } from "@/components/contact/fields";
+import { fieldClass, submitClass } from "@/components/contact/fields";
+import "@/app/properties/villa.css";
+import "./groceries.css";
 import { trackEvent } from "@/lib/analytics";
 
 const STORAGE_KEY = "bt-groceries-v1";
@@ -25,7 +27,8 @@ type Saved = {
   name: string;
   villa: string;
   arrival: string;
-  guests: string;
+  guests: string; // no longer used (kept so older saved lists still load)
+  party: { adults: number; children: number; infants: number };
   allergies: string;
   requests: string;
 };
@@ -37,6 +40,7 @@ const EMPTY: Saved = {
   villa: "",
   arrival: "",
   guests: "",
+  party: { adults: 0, children: 0, infants: 0 },
   allergies: "",
   requests: "",
 };
@@ -108,6 +112,11 @@ export default function GroceryShop({
   const [copied, setCopied] = useState(false);
   const [otherVilla, setOtherVilla] = useState("");
   const [open, setOpen] = useState<Record<string, boolean>>({});
+  // Villa / arrival / guests pickers — same look as the villa pages' inquiry card
+  const [panel, setPanel] = useState<null | "villa" | "dates" | "guests">(null);
+  const [calY, setCalY] = useState(new Date().getFullYear());
+  const [calM, setCalM] = useState(new Date().getMonth());
+  const togglePanel = (p: "villa" | "dates" | "guests") => setPanel((cur) => (cur === p ? null : p));
   const [side, setSide] = useState<GrocerySide>("enjoy");
   const sideCats = useMemo(
     () => catalog.filter((c) => (c.side || "enjoy") === side),
@@ -144,6 +153,7 @@ export default function GroceryShop({
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (raw) saved = { ...EMPTY, ...JSON.parse(raw) };
+      if (!saved.party) saved.party = EMPTY.party;
     } catch {
       /* storage unavailable: start empty */
     }
@@ -179,6 +189,16 @@ export default function GroceryShop({
       /* ignore */
     }
   }, [s, loaded]);
+
+  // Close an open picker when clicking anywhere outside it
+  useEffect(() => {
+    if (!panel) return;
+    const onDown = (e: MouseEvent) => {
+      if (!(e.target as Element)?.closest?.(".iq-field")) setPanel(null);
+    };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [panel]);
 
   // Lock page scroll behind the phone list sheet
   useEffect(() => {
@@ -251,7 +271,7 @@ export default function GroceryShop({
       `Villa: ${villaName}`,
       `${t("Arrival", "Llegada")}: ${formatDate(s.arrival, es)}`,
     ];
-    if (s.guests.trim()) lines.push(`${t("Guests", "Huéspedes")}: ${s.guests.trim()}`);
+    if (partyLabel()) lines.push(`${t("Guests", "Huéspedes")}: ${partyLabel()}`);
     if (s.allergies.trim()) lines.push(`${t("Allergies / dietary needs", "Alergias / dieta")}: ${s.allergies.trim()}`);
 
     let lastCat = "";
@@ -276,6 +296,90 @@ export default function GroceryShop({
     lines.push("", t(`${count} items. Thank you!`, `${count} artículos. ¡Gracias!`));
     return lines.join("\n");
   };
+
+  const party = s.party || EMPTY.party;
+  const partyLabel = () => {
+    const out: string[] = [];
+    const add = (n: number, en: [string, string], esw: [string, string]) => {
+      if (n) out.push(`${n} ${(es ? esw : en)[n === 1 ? 0 : 1]}`);
+    };
+    add(party.adults, ["adult", "adults"], ["adulto", "adultos"]);
+    add(party.children, ["child", "children"], ["niño", "niños"]);
+    add(party.infants, ["infant", "infants"], ["bebé", "bebés"]);
+    return out.join(", ");
+  };
+  const stepParty = (k: keyof Saved["party"], d: number) =>
+    set("party", { ...party, [k]: Math.max(0, party[k] + d) });
+
+  const calNav = (dir: 1 | -1) => {
+    let m = calM + dir, y = calY;
+    if (m < 0) { m = 11; y -= 1; }
+    if (m > 11) { m = 0; y += 1; }
+    setCalM(m); setCalY(y);
+  };
+
+  const renderMonth = () => {
+    const first = new Date(calY, calM, 1);
+    const days = new Date(calY, calM + 1, 0).getDate();
+    const name = first.toLocaleString(es ? "es-MX" : "en-US", { month: "long" });
+    const label = name.charAt(0).toUpperCase() + name.slice(1) + " " + calY;
+    const now = new Date();
+    const isCurrent = calY === now.getFullYear() && calM === now.getMonth();
+    const cells: React.ReactNode[] = [];
+    for (let i = 0; i < first.getDay(); i++) cells.push(<div key={`e${i}`} className="dp-day dp-day-empty" />);
+    for (let d = 1; d <= days; d++) {
+      const ds = `${calY}-${String(calM + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+      const past = !!today && ds < today;
+      let cls = "dp-day";
+      if (past) cls += " dp-day-past";
+      if (ds === today && s.arrival !== ds) cls += " dp-day-today";
+      if (s.arrival === ds) cls += " dp-day-start dp-day-end";
+      cells.push(
+        <div
+          key={d}
+          className={cls}
+          role="button"
+          tabIndex={past ? -1 : 0}
+          aria-label={formatDate(ds, es)}
+          onClick={past ? undefined : () => { set("arrival", ds); setTimeout(() => setPanel(null), 250); }}
+          onKeyDown={past ? undefined : (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); set("arrival", ds); setPanel(null); } }}
+        >
+          {d}
+        </div>
+      );
+    }
+    return (
+      <div>
+        <div className="dp-month-header">
+          {isCurrent ? <div style={{ width: 28 }} /> : (
+            <button className="dp-nav-btn" type="button" onClick={() => calNav(-1)} aria-label={t("Previous month", "Mes anterior")}>
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+            </button>
+          )}
+          <div className="dp-month-title">{label}</div>
+          <button className="dp-nav-btn" type="button" onClick={() => calNav(1)} aria-label={t("Next month", "Mes siguiente")}>
+            <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18" /></svg>
+          </button>
+        </div>
+        <div className="dp-day-names">
+          {(es ? ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sá"] : ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]).map((n) => (
+            <div className="dp-day-name" key={n}>{n}</div>
+          ))}
+        </div>
+        <div className="dp-days-grid">{cells}</div>
+      </div>
+    );
+  };
+
+  const arrivalLabel = () => {
+    if (!s.arrival) return "";
+    const [y, m, d] = s.arrival.split("-").map(Number);
+    return new Date(y, m - 1, d).toLocaleDateString(es ? "es-MX" : "en-US", { month: "long", day: "numeric", year: "numeric" });
+  };
+
+  const Arrow = () => (
+    <svg className="iq-dd-arrow" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg>
+  );
 
   const validate = () => {
     if (!s.name.trim() || !villaName || !s.arrival) {
@@ -413,14 +517,12 @@ export default function GroceryShop({
         </p>
       )}
 
-      {/* Details */}
-      <div className="mt-8 space-y-4">
-        <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-bt-navy/85">
-          {t("Your Details", "Tus Datos")}
-        </p>
+      {/* Details — same fields and pickers as the villa pages' inquiry card */}
+      <div className="mr-villa gro-details mt-8">
+        <p className="gro-section-label">{t("Your Details", "Tus Datos")}</p>
 
-        <div>
-          <label htmlFor={`g-name${inSheet ? "-m" : ""}`} className={labelClass}>{t("Name", "Nombre")}</label>
+        <div className="iq-field">
+          <label htmlFor={`g-name${inSheet ? "-m" : ""}`} className="iq-label">{t("Name", "Nombre")}</label>
           <input
             id={`g-name${inSheet ? "-m" : ""}`}
             type="text"
@@ -428,28 +530,39 @@ export default function GroceryShop({
             value={s.name}
             onChange={(e) => set("name", e.target.value)}
             placeholder={t("Your name", "Tu nombre")}
-            className={fieldClass}
+            className="iq-input"
           />
         </div>
 
-        <div>
-          <label htmlFor={`g-villa${inSheet ? "-m" : ""}`} className={labelClass}>Villa</label>
-          <select
-            id={`g-villa${inSheet ? "-m" : ""}`}
-            value={s.villa}
-            onChange={(e) => set("villa", e.target.value)}
-            className={`${fieldClass} appearance-none`}
+        <div className="iq-field">
+          <span className="iq-label">Villa</span>
+          <button
+            type="button"
+            className={`iq-dd-trigger${panel === "villa" ? " is-open" : ""}`}
+            onClick={() => togglePanel("villa")}
+            aria-expanded={panel === "villa"}
           >
-            <option value="" disabled>
-              {t("Select your villa", "Elige tu villa")}
-            </option>
-            {villas.map((v) => (
-              <option key={v} value={v}>
-                {v}
-              </option>
-            ))}
-            <option value={OTHER_VILLA}>{t("Another property", "Otra propiedad")}</option>
-          </select>
+            <span className={`iq-dd-val${s.villa ? "" : " ph"}`}>
+              {s.villa === OTHER_VILLA ? t("Another property", "Otra propiedad") : s.villa || t("Select your villa", "Elige tu villa")}
+            </span>
+            <Arrow />
+          </button>
+          {panel === "villa" && (
+            <div className="iq-dd-panel gro-options" role="listbox">
+              {[...villas, OTHER_VILLA].map((v) => (
+                <button
+                  key={v}
+                  type="button"
+                  role="option"
+                  aria-selected={s.villa === v}
+                  className={`iq-opt${s.villa === v ? " is-selected" : ""}`}
+                  onClick={() => { set("villa", v); setPanel(null); }}
+                >
+                  {v === OTHER_VILLA ? t("Another property", "Otra propiedad") : v}
+                </button>
+              ))}
+            </div>
+          )}
           {s.villa === OTHER_VILLA && (
             <input
               type="text"
@@ -457,41 +570,85 @@ export default function GroceryShop({
               onChange={(e) => setOtherVilla(e.target.value)}
               placeholder={t("Property name", "Nombre de la propiedad")}
               aria-label={t("Property name", "Nombre de la propiedad")}
-              className={`${fieldClass} mt-2`}
+              className="iq-input mt-2"
             />
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
-          <div>
-            <label htmlFor={`g-arrival${inSheet ? "-m" : ""}`} className={labelClass}>{t("Arrival", "Llegada")}</label>
-            <input
-              id={`g-arrival${inSheet ? "-m" : ""}`}
-              type="date"
-              min={today || undefined}
-              value={s.arrival}
-              onChange={(e) => set("arrival", e.target.value)}
-              className={fieldClass}
-            />
-          </div>
-          <div>
-            <label htmlFor={`g-guests${inSheet ? "-m" : ""}`} className={labelClass}>{t("Guests", "Huéspedes")}</label>
-            <input
-              id={`g-guests${inSheet ? "-m" : ""}`}
-              type="text"
-              inputMode="numeric"
-              value={s.guests}
-              onChange={(e) => set("guests", e.target.value)}
-              placeholder={t("e.g. 6 adults, 2 kids", "ej. 6 adultos, 2 niños")}
-              className={fieldClass}
-            />
-          </div>
+        <div className="iq-field">
+          <span className="iq-label">{t("Arrival date", "Fecha de llegada")}</span>
+          <button
+            type="button"
+            className={`iq-dd-trigger${panel === "dates" ? " is-open" : ""}`}
+            onClick={() => togglePanel("dates")}
+            aria-expanded={panel === "dates"}
+          >
+            <span className={`iq-dd-val${s.arrival ? "" : " ph"}`}>{arrivalLabel() || t("Select date", "Elige la fecha")}</span>
+            <Arrow />
+          </button>
+          {panel === "dates" && (
+            <div className="iq-dd-panel iq-date-panel">
+              <div className="dp-cal-body dp-active">
+                {renderMonth()}
+                <div className="dp-panel-footer">
+                  <button className="dp-clear-btn" type="button" onClick={() => set("arrival", "")}>
+                    {t("Clear date", "Borrar fecha")}
+                  </button>
+                  <button className="dp-done-btn" type="button" onClick={() => setPanel(null)}>
+                    {t("Done", "Listo")}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
-        <div>
-          <label htmlFor={`g-allergies${inSheet ? "-m" : ""}`} className={labelClass}>
+        <div className="iq-field">
+          <span className="iq-label">{t("Guests", "Huéspedes")}</span>
+          <button
+            type="button"
+            className={`iq-dd-trigger${panel === "guests" ? " is-open" : ""}`}
+            onClick={() => togglePanel("guests")}
+            aria-expanded={panel === "guests"}
+          >
+            <span className={`iq-dd-val${partyLabel() ? "" : " ph"}`}>{partyLabel() || t("Select guests", "Elige huéspedes")}</span>
+            <Arrow />
+          </button>
+          {panel === "guests" && (
+            <div className="iq-dd-panel iq-guest-panel">
+              {([
+                ["adults", t("Adults", "Adultos"), t("Ages 13+", "13 años o más")],
+                ["children", t("Children", "Niños"), t("Ages 2–12", "2 a 12 años")],
+                ["infants", t("Infants", "Bebés"), t("Under 2", "Menores de 2")],
+              ] as const).map(([key, label, age]) => (
+                <div className="g-row" key={key}>
+                  <div className="g-info">
+                    <div className="g-type">{label}</div>
+                    <div className="g-age">{age}</div>
+                  </div>
+                  <div className="g-counter">
+                    <button className="ctr-btn" type="button" disabled={party[key] === 0} onClick={() => stepParty(key, -1)} aria-label={`${label} −1`}>&#8722;</button>
+                    <span className="ctr-val">{party[key]}</span>
+                    <button className="ctr-btn" type="button" onClick={() => stepParty(key, 1)} aria-label={`${label} +1`}>+</button>
+                  </div>
+                </div>
+              ))}
+              <div className="g-done-row">
+                <button className="g-clear-btn" type="button" onClick={() => set("party", { adults: 0, children: 0, infants: 0 })}>
+                  {t("Clear", "Borrar")}
+                </button>
+                <button className="g-done-btn" type="button" onClick={() => setPanel(null)}>
+                  {t("Done", "Listo")}
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="iq-field">
+          <label htmlFor={`g-allergies${inSheet ? "-m" : ""}`} className="iq-label">
             {t("Allergies or dietary needs", "Alergias o dieta especial")}
-            <span className="ml-2 text-[12px] font-normal text-bt-navy/80">{t("(optional)", "(opcional)")}</span>
+            <span className="gro-optional">{t("optional", "opcional")}</span>
           </label>
           <input
             id={`g-allergies${inSheet ? "-m" : ""}`}
@@ -499,14 +656,14 @@ export default function GroceryShop({
             value={s.allergies}
             onChange={(e) => set("allergies", e.target.value)}
             placeholder={t("Nut allergy, gluten-free, vegan…", "Alergia a nueces, sin gluten, vegano…")}
-            className={fieldClass}
+            className="iq-input"
           />
         </div>
 
-        <div>
-          <label htmlFor={`g-requests${inSheet ? "-m" : ""}`} className={labelClass}>
+        <div className="iq-field">
+          <label htmlFor={`g-requests${inSheet ? "-m" : ""}`} className="iq-label">
             {t("Anything not on the list?", "¿Algo que no está en la lista?")}
-            <span className="ml-2 text-[12px] font-normal text-bt-navy/80">{t("(optional)", "(opcional)")}</span>
+            <span className="gro-optional">{t("optional", "opcional")}</span>
           </label>
           <textarea
             id={`g-requests${inSheet ? "-m" : ""}`}
@@ -517,7 +674,7 @@ export default function GroceryShop({
               "Favorite brands, birthday cake, flowers… we’ll do our best to find it.",
               "Marcas favoritas, pastel de cumpleaños, flores… haremos lo posible por conseguirlo."
             )}
-            className={`${fieldClass} resize-y`}
+            className="iq-input resize-y"
           />
         </div>
       </div>
