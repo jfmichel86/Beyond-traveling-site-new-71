@@ -826,23 +826,32 @@ export default function GroceryShop({
                   setSide(sd.key);
                   setQuery("");
                 }}
-                className={`group relative h-[132px] overflow-hidden text-left transition focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 md:h-[190px] ${
-                  active ? "ring-2 ring-bt-gold ring-offset-2" : "opacity-80 hover:opacity-100"
+                className={`group flex flex-col bg-white text-left transition focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 ${
+                  active ? "border-2 border-bt-gold" : "border-2 border-transparent opacity-75 hover:opacity-100"
                 }`}
               >
-                <Image src={sd.img} alt="" fill sizes="(min-width: 768px) 600px, 50vw" className="object-cover transition duration-700 group-hover:scale-[1.03]" />
-                <span className={`absolute inset-0 ${active ? "bg-gradient-to-t from-bt-navy/90 via-bt-navy/45 to-bt-navy/10" : "bg-gradient-to-t from-black/75 via-black/35 to-black/10"}`} />
-                <span className="absolute inset-x-0 bottom-0 p-4 md:p-6">
-                  <span className="block font-serif text-[20px] font-light leading-tight text-white md:text-[30px]">
-                    {es ? sd.es : sd.en}
+                {/* Whole photo, never cropped or darkened */}
+                <Image
+                  src={sd.img}
+                  alt=""
+                  width={1672}
+                  height={941}
+                  sizes="(min-width: 1280px) 600px, 50vw"
+                  className="block h-auto w-full"
+                />
+                <span className={`block px-3 pb-3 pt-3 md:px-5 md:pb-5 md:pt-4 ${active ? "bg-bt-cream" : "bg-white"}`}>
+                  <span className="flex items-baseline justify-between gap-3">
+                    <span className="block font-serif text-[19px] font-light leading-tight text-bt-navy md:text-[28px]">
+                      {es ? sd.es : sd.en}
+                    </span>
+                    {active && (
+                      <span className="hidden shrink-0 text-[10px] font-medium uppercase tracking-[0.16em] text-bt-gold-text sm:inline">
+                        {t("Viewing", "Viendo")}
+                      </span>
+                    )}
                   </span>
-                  <span className="mt-1 block text-[11.5px] leading-snug text-white/85 md:text-[13.5px]">{es ? sd.subEs : sd.subEn}</span>
+                  <span className="mt-1 block text-[11.5px] leading-snug text-bt-charcoal/80 md:text-[13.5px]">{es ? sd.subEs : sd.subEn}</span>
                 </span>
-                {active && (
-                  <span className="absolute right-3 top-3 bg-bt-gold px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.14em] text-white">
-                    {t("Viewing", "Viendo")}
-                  </span>
-                )}
               </button>
             );
           })}
