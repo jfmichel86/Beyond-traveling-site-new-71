@@ -65,7 +65,7 @@ export default function ReturningGuestOfferPage() {
             <p className="mx-auto mt-6 max-w-[620px] font-normal text-[17px] leading-[1.75] text-slate-900/80">
               <EsText
                 en="A thank-you to the guests who have stayed with us: how your 10% code, the referral program and the survey gift work."
-                es="Un agradecimiento para quienes se han hospedado con nosotros: cómo funcionan su código de 10%, el programa de recomendación y el regalo por responder la encuesta."
+                es="Un agradecimiento para quienes se han hospedado con nosotros: cómo funcionan tu código de 10%, el programa de recomendación y el regalo por responder la encuesta."
               />
             </p>
 
@@ -82,21 +82,21 @@ export default function ReturningGuestOfferPage() {
             <Section number="01" en="The Offer" es="La oferta">
               <P
                 en="After your stay, we send you a personal code for 10% off the rental rate of one new reservation booked directly with Beyond Traveling or Mexican Reserve. The discount applies to the rental rate only; taxes, deposits, service fees and additional services are not discounted."
-                es="Después de su estancia, le enviamos un código personal con 10% de descuento en la tarifa de renta de una nueva reservación hecha directamente con Beyond Traveling o Mexican Reserve. El descuento aplica solo sobre la tarifa de renta; impuestos, depósitos, cuotas de servicio y servicios adicionales no tienen descuento."
+                es="Después de tu estancia, te enviamos un código personal con 10% de descuento en la tarifa de renta de una nueva reservación hecha directamente con Beyond Traveling o Mexican Reserve. El descuento aplica solo sobre la tarifa de renta; impuestos, depósitos, cuotas de servicio y servicios adicionales no tienen descuento."
               />
             </Section>
 
             <Section number="02" en="Where It Applies" es="Dónde aplica">
               <P
                 en="Valid at all Beyond Traveling villas. At Mexican Reserve, the offer applies to selected properties; our reservations team confirms eligibility when preparing your quote."
-                es="Válido en todas las villas de Beyond Traveling. En Mexican Reserve, la oferta aplica en propiedades seleccionadas; nuestro equipo de reservaciones confirma la elegibilidad al preparar su cotización."
+                es="Válido en todas las villas de Beyond Traveling. En Mexican Reserve, la oferta aplica en propiedades seleccionadas; nuestro equipo de reservaciones confirma la elegibilidad al preparar tu cotización."
               />
             </Section>
 
             <Section number="03" en="Validity" es="Vigencia">
               <P
                 en="Your code is valid for 12 months after your check-out date. The exact expiry date appears in your thank-you email. The new reservation must be booked before that date."
-                es="Su código es válido durante 12 meses después de su fecha de salida. La fecha exacta de vencimiento aparece en su correo de agradecimiento. La nueva reservación debe hacerse antes de esa fecha."
+                es="Tu código es válido durante 12 meses después de tu fecha de salida. La fecha exacta de vencimiento aparece en tu correo de agradecimiento. La nueva reservación debe hacerse antes de esa fecha."
               />
             </Section>
 
@@ -114,17 +114,17 @@ export default function ReturningGuestOfferPage() {
               />
             </Section>
 
-            <Section number="06" en="Refer a Friend" es="Recomiende a un amigo">
+            <Section number="06" en="Refer a Friend" es="Recomienda a un amigo">
               <P
                 en="You may share your code with a friend. When a friend books directly with us using your code, they receive 10% off the rental rate of their stay, and once their stay is completed, you receive another 10% off your next stay. The same conditions in this page apply to both discounts."
-                es="Puede compartir su código con un amigo. Cuando un amigo reserve directamente con nosotros usando su código, recibirá 10% de descuento en la tarifa de renta de su estancia y, una vez concluida, usted recibirá otro 10% de descuento en su próxima estancia. Las mismas condiciones de esta página aplican a ambos descuentos."
+                es="Puedes compartir tu código con un amigo. Cuando tu amigo reserve directamente con nosotros usando tu código, recibirá 10% de descuento en la tarifa de renta de su estancia y, una vez concluida, tú recibirás otro 10% de descuento en tu próxima estancia. Las mismas condiciones de esta página aplican a ambos descuentos."
               />
             </Section>
 
             <Section number="07" en="Survey Thank-You Gift" es="Regalo por responder la encuesta">
               <P
                 en="Guests who complete our post-stay survey receive a complimentary welcome dinner service on their next stay booked directly with us within the validity of their code."
-                es="Los huéspedes que respondan nuestra encuesta después de su estancia reciben un servicio de cena de bienvenida de cortesía en su próxima estancia reservada directamente con nosotros dentro de la vigencia de su código."
+                es="Los huéspedes que respondan nuestra encuesta después de su estancia reciben un servicio de cena de bienvenida de cortesía en su próxima estancia reservada directamente con nosotros dentro de la vigencia de su código. Si respondiste la encuesta, este regalo es para ti."
               />
             </Section>
 
@@ -132,7 +132,7 @@ export default function ReturningGuestOfferPage() {
               <p>
                 <EsText
                   en="Mention your code when you request your quote, or simply use the “Plan Your Return” button in your thank-you email. You can also write to "
-                  es="Mencione su código al solicitar su cotización, o use el botón “Planee su regreso” de su correo de agradecimiento. También puede escribirnos a "
+                  es="Menciona tu código al solicitar tu cotización, o usa el botón “Planea tu regreso” de tu correo de agradecimiento. También puedes escribirnos a "
                 />
                 <a href="mailto:rentals@beyondtravelingmx.com" className={linkClass}>
                   rentals@beyondtravelingmx.com
@@ -147,7 +147,7 @@ export default function ReturningGuestOfferPage() {
                 es="Un código por reservación. La oferta no es acumulable con otras ofertas, promociones o descuentos, y no tiene valor en efectivo. Podemos modificar o terminar esta oferta en cualquier momento; las reservaciones ya confirmadas con el descuento no se ven afectadas."
               />
               <p className="mt-3">
-                <EsText en="See also our " es="Consulte también nuestros " />
+                <EsText en="See also our " es="Consulta también nuestros " />
                 <Link href="/terms-and-conditions" className={linkClass}>
                   <EsText en="Terms & Conditions" es="Términos y Condiciones" />
                 </Link>{" "}
