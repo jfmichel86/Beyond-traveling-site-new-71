@@ -26,12 +26,16 @@ const NOTES: { en: string; es: string }[] = [
     es: "Envía tu lista con al menos una semana de anticipación.",
   },
   {
-    en: "Deliveries are made every day before 12 pm, and we can restock anything during your stay.",
-    es: "Entregamos todos los días antes de las 12 pm, y podemos reabastecer lo que necesites durante tu estancia.",
+    en: "Deliveries are between 2 pm and 4 pm on Monday, Wednesday and Friday.",
+    es: "Las entregas son entre 2 pm y 4 pm los lunes, miércoles y viernes.",
   },
   {
-    en: "Availability can’t be guaranteed; we’ll let you know if something can’t be found. Unused groceries can’t be refunded.",
-    es: "No podemos garantizar la disponibilidad; te avisamos si algo no se consigue. No hay reembolsos por productos no utilizados.",
+    en: "This list is provided for your convenience, and availability of items cannot be guaranteed.",
+    es: "Esta lista es para tu comodidad y no podemos garantizar la disponibilidad de los artículos.",
+  },
+  {
+    en: "Unfortunately, refunds cannot be made for groceries that are not used.",
+    es: "Lamentablemente, no podemos hacer reembolsos por productos que no se utilicen.",
   },
 ];
 
@@ -62,7 +66,7 @@ export default async function GroceriesPage() {
 
           <ol className="mx-auto mt-10 grid max-w-[720px] gap-6 text-left sm:grid-cols-3">
             {[
-              { en: "Start with a quick-start pack or tap “Add” on anything.", es: "Empieza con un paquete rápido o toca “Agregar” en lo que quieras." },
+              { en: "Tap “Add” and choose quantities.", es: "Toca “Agregar” y elige cantidades." },
               { en: "Add a brand or note if you have a favorite.", es: "Agrega una marca o nota si tienes alguna favorita." },
               { en: "Send your list. We confirm everything with you.", es: "Envía tu lista. Te confirmamos todo." },
             ].map((s, i) => (

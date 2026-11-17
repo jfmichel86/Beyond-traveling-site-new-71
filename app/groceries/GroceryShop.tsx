@@ -11,7 +11,6 @@ import {
   type GroceryCategory,
   type GroceryData,
   type GroceryItem,
-  type GroceryPack,
   type GrocerySide,
 } from "@/lib/groceries";
 import { fieldClass, labelClass, submitClass } from "@/components/contact/fields";
@@ -63,7 +62,7 @@ const SIDES: { key: GrocerySide; en: string; es: string; subEn: string; subEs: s
     es: "Listo para Disfrutar",
     subEn: "Snacks, drinks, the bar & essentials",
     subEs: "Botanas, bebidas, el bar y lo esencial",
-    img: "/villa-dining-menu/dishes/guacamole-and-pico-de-gallo.jpg",
+    img: "/groceries/ready-to-enjoy.jpg",
   },
   {
     key: "cooking",
@@ -71,7 +70,7 @@ const SIDES: { key: GrocerySide; en: string; es: string; subEn: string; subEs: s
     es: "Si Vas a Cocinar",
     subEn: "Ingredients, only if you plan to cook",
     subEs: "Ingredientes, solo si piensas cocinar",
-    img: "/villa-dining-menu/dishes/grilled-vegetables.jpg",
+    img: "/groceries/cooking.jpg",
   },
 ];
 
@@ -96,7 +95,6 @@ export default function GroceryShop({
   villas: string[];
 }) {
   const catalog = data.catalog;
-  const packs: GroceryPack[] = data.packs || [];
   const es = isEsPath(usePathname() || "/");
   const t = (en: string, esText: string) => (es ? esText : en);
 
@@ -322,48 +320,6 @@ export default function GroceryShop({
     if (!window.confirm(t("Clear your whole list?", "¿Borrar toda tu lista?"))) return;
     setS((prev) => ({ ...prev, qty: {}, notes: {}, requests: "" }));
     setSent("");
-  };
-
-  // ── Quick-start packs ──────────────────────────────────────────────────
-  const packAdded = (pk: GroceryPack) =>
-    pk.items.every((x) => !index.has(x.id) || (s.qty[x.id] || 0) >= x.qty);
-
-  const addPack = (pk: GroceryPack) => {
-    setS((prev) => {
-      const qty = { ...prev.qty };
-      for (const x of pk.items) if (index.has(x.id)) qty[x.id] = Math.max(qty[x.id] || 0, x.qty);
-      return { ...prev, qty };
-    });
-    setSent("");
-    trackEvent("grocery_pack_added", { pack: pk.title });
-  };
-
-  const packCard = (pk: GroceryPack) => {
-    const added = packAdded(pk);
-    const names = pk.items.map((x) => index.get(x.id)?.item).filter(Boolean) as GroceryItem[];
-    const shown = names.slice(0, 4).map((it) => itemName(it).replace(/\s*\(.*\)$/, ""));
-    return (
-      <div key={pk.id} className="flex w-[78%] shrink-0 snap-start flex-col border border-bt-navy/12 bg-white p-5 sm:w-auto">
-        <p className="font-serif text-[21px] font-light leading-tight text-bt-navy">{es ? pk.titleEs || pk.title : pk.title}</p>
-        {(es ? pk.descriptionEs || pk.description : pk.description) && (
-          <p className="mt-2 text-[13.5px] leading-[1.6] text-bt-charcoal/85">{es ? pk.descriptionEs || pk.description : pk.description}</p>
-        )}
-        <p className="mt-3 flex-1 text-[12px] leading-[1.6] text-bt-charcoal/65">
-          {shown.join(" · ")}
-          {names.length > 4 ? ` ${t(`+ ${names.length - 4} more`, `+ ${names.length - 4} más`)}` : ""}
-        </p>
-        <button
-          type="button"
-          onClick={() => addPack(pk)}
-          disabled={added}
-          className={`mt-4 inline-flex min-h-10 items-center justify-center px-5 text-[11px] font-medium uppercase tracking-[0.14em] transition focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2 ${
-            added ? "cursor-default bg-bt-cream text-bt-gold-text" : "bg-bt-navy text-white hover:bg-bt-navy-light"
-          }`}
-        >
-          {added ? t("Added to your list ✓", "Agregado a tu lista ✓") : t(`Add ${names.length} items`, `Agregar ${names.length} artículos`)}
-        </button>
-      </div>
-    );
   };
 
   // ── Pieces ──────────────────────────────────────────────────────────────
@@ -747,19 +703,6 @@ export default function GroceryShop({
           </div>
         )}
 
-        {packs.some((pk) => pk.side === side) && (
-          <div className="mt-10">
-            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-bt-navy/85">
-              {t("Quick-Start Packs", "Paquetes Rápidos")}
-            </p>
-            <p className="mt-2 text-[14px] text-bt-charcoal/80">
-              {t("One tap adds the set. Change quantities or remove anything after.", "Un toque agrega todo. Después puedes cambiar cantidades o quitar lo que quieras.")}
-            </p>
-            <div className="-mx-6 mt-5 flex snap-x gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4">
-              {packs.filter((pk) => pk.side === side).map(packCard)}
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Search + category shortcuts */}
