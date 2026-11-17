@@ -1,0 +1,55 @@
+/* ─────────────────────────────────────────────────────────────
+   Grocery page — "Your Details" form.
+   Reuses the villa pages' inquiry-card styles (app/properties/villa.css:
+   .iq-field, .iq-label, .iq-dd-trigger, .iq-dd-panel, .dp-*, .g-*, .ctr-*)
+   so the villa, date and guest pickers look exactly like a villa page.
+   Only the differences live here: the panels open in place (the list
+   panel is a narrow scrolling column, where a pop-over would be clipped),
+   plain text inputs styled like the triggers, and the villa options list.
+   ───────────────────────────────────────────────────────────── */
+
+.mr-villa.gro-details { background: transparent; color: var(--charcoal); }
+
+.mr-villa.gro-details .gro-section-label {
+  font-family: var(--font-inter, Inter), sans-serif;
+  font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--deep-ocean); margin-bottom: 16px;
+}
+.mr-villa.gro-details .iq-field { margin-bottom: 16px; }
+.mr-villa.gro-details .gro-optional {
+  margin-left: 8px; letter-spacing: .06em; text-transform: lowercase; color: var(--charcoal-light); opacity: .85;
+}
+
+/* Text inputs, styled like the dropdown triggers */
+.mr-villa.gro-details .iq-input {
+  display: block; width: 100%;
+  border: 1px solid var(--sand-dark); border-radius: 2px; padding: 10px 12px;
+  background: var(--white); color: var(--charcoal);
+  font-family: var(--font-inter, Inter), sans-serif; font-size: 13.5px; line-height: 1.5;
+  outline: none; transition: border-color .2s;
+}
+.mr-villa.gro-details .iq-input::placeholder { color: var(--charcoal-light); opacity: .8; }
+.mr-villa.gro-details .iq-input:hover,
+.mr-villa.gro-details .iq-input:focus { border-color: var(--ocean); }
+
+/* Panels open in place, under their field */
+.mr-villa.gro-details .iq-dd-panel {
+  position: static; width: 100%; max-width: none; margin-top: 8px;
+  box-shadow: 0 8px 28px rgba(30,58,95,.12);
+}
+.mr-villa.gro-details .iq-date-panel { padding: 14px 16px 12px; }
+.mr-villa.gro-details .iq-date-panel .dp-cal-body { padding: 0; }
+
+/* Villa options */
+.mr-villa.gro-details .gro-options { padding: 4px 0; overflow: hidden; }
+.mr-villa.gro-details .iq-opt {
+  display: flex; align-items: center; justify-content: space-between; width: 100%;
+  padding: 11px 16px; border: none; border-bottom: 1px solid var(--sand);
+  font-family: var(--font-inter, Inter), sans-serif; font-size: 12px; font-weight: 400;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--charcoal);
+  text-align: left; cursor: pointer; transition: background .15s, color .15s;
+}
+.mr-villa.gro-details .iq-opt:last-child { border-bottom: none; }
+.mr-villa.gro-details .iq-opt:hover { background: var(--cream); color: var(--deep-ocean); }
+.mr-villa.gro-details .iq-opt.is-selected { color: var(--deep-ocean); font-weight: 500; }
+.mr-villa.gro-details .iq-opt.is-selected::after { content: "✓"; color: var(--gold); letter-spacing: 0; }

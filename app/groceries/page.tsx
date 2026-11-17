@@ -8,10 +8,33 @@ import GroceryShop from "./GroceryShop";
 
 // Private page for booked guests (shared by the concierge) — not in Google.
 export const metadata = {
-  title: "Pre-Arrival Groceries | Beyond Traveling",
+  // The site's title template adds " | Beyond Traveling"
+  title: "Pre-Arrival Groceries",
   description:
-    "Choose the groceries you would like waiting at your villa in Punta Mita and send your list to our concierge.",
+    "Arrive to a stocked villa. Choose snacks, drinks, the bar and groceries online and send your list to our concierge. We shop and deliver before you arrive.",
   robots: { index: false, follow: false },
+  openGraph: {
+    title: "Pre-Arrival Groceries | Beyond Traveling",
+    description:
+      "Arrive to a stocked villa. Choose snacks, drinks, the bar and groceries online and send your list to our concierge.",
+    url: "https://www.beyondtravelingmx.com/groceries",
+    type: "website",
+    images: [
+      {
+        url: "/groceries/og-groceries.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Fresh fruit, guacamole and juices waiting at your villa",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pre-Arrival Groceries | Beyond Traveling",
+    description:
+      "Arrive to a stocked villa. Choose snacks, drinks, the bar and groceries online and send your list to our concierge.",
+    images: ["/groceries/og-groceries.jpg"],
+  },
 };
 
 export const revalidate = 60;
