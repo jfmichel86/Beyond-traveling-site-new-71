@@ -1023,7 +1023,7 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
               <button key={s} type="button" className="arr-chip" onClick={() => go(i + 1)}>{s}</button>
             ))}
           </div>
-          <pre className="arr-review">{summarize(r, a).replace(/\nConfirmed by:.*$/, "")}</pre>
+          <pre className="arr-review">{summarize(r, a, es ? "es" : "en").replace(/\n(Confirmed by|Confirmado por):.*$/, "")}</pre>
           <p className="arr-hint">{t(`${VAT_PCT}% VAT is charged on top of all prices.`, `A todos los precios se les suma ${VAT_PCT}% de IVA.`)}</p>
           <div className="iq-field mt-5"><span className="iq-label">{t("Type your full name to confirm", "Escribe tu nombre completo para confirmar")}</span>
             <input className="iq-input" value={a.confirmName} onChange={(e) => up((x) => ({ ...x, confirmName: e.target.value }))} autoComplete="name" /></div>
