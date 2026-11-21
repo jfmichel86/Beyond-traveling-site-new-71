@@ -12,6 +12,9 @@ import {
   CELEBRATION_EXTRAS,
   DIET_TAGS,
   GOLF_CARTS,
+  carArrivalWindow,
+  cartSuggestion,
+  INCLUDED_CART_SEATS,
   BREAKFAST_EARLIEST,
   GROCERY_FEE,
   MEAL_PREP,
@@ -315,9 +318,16 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
       }
       if (a.transport === "no") {
         const o = a.ownArrival;
-        if (!o.airline.trim() || !o.flight.trim() || !o.date || parseTime(o.time) === null)
+        if (!a.ownMode) return t("Please tell us how you're getting to Punta Mita: by plane or by car.", "Cuéntanos cómo llegas a Punta Mita: en avión o en auto.");
+        if (a.ownMode === "flight" && (!o.airline.trim() || !o.flight.trim() || !o.date || parseTime(o.time) === null))
           return t("Please add your arrival flight and the time it lands (e.g. 3:45 pm), so your concierge can be ready for you.", "Agrega tu vuelo de llegada y la hora en que aterriza (ej. 3:45 pm), para que tu concierge te espere.");
+        if (a.ownMode === "car" && (!o.date || parseTime(o.time) === null || !a.ownDeparture.date || parseTime(a.ownDeparture.time) === null))
+          return t("Please add the day and approximate time you'll arrive at the villa and when you'll leave.", "Agrega el día y la hora aproximada en que llegarás a la villa y cuándo te irás.");
       }
+    }
+    if (s === 5) {
+      if (a.activities.some((x) => x.activity === "Dinner reservation" && !x.notes.trim()))
+        return t("Please tell us which restaurant you'd like for your dinner reservation.", "Cuéntanos qué restaurante prefieres para tu reservación de cena.");
     }
     return "";
   };
@@ -333,6 +343,8 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
 
   // Departure on check-out day after 2 pm → offer a late check-out request
   const lateDeparture = (() => {
+    if (a.transport === "no" && a.ownMode === "car")
+      return a.ownDeparture.date === r.checkOut && (parseTime(a.ownDeparture.time) ?? 0) > (parseTime(CHECK_OUT_TIME) ?? 660);
     const deps: { date: string; time: string }[] = a.transport === "yes" ? a.departures : a.transport === "no" ? [a.ownDeparture] : [];
     return deps.some((d) => d.date === r.checkOut && (parseTime(d.time) ?? 0) >= LATE_CHECKOUT_AFTER);
   })();
@@ -479,7 +491,7 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
 
   // ── Submit ───────────────────────────────────────────────────────────────
   const submit = async () => {
-    for (const s0 of [0, 1, 2]) {
+    for (const s0 of [0, 1, 2, 5]) {
       const miss = missingFor(s0);
       if (miss) {
         setError(`${STEPS[s0]}: ${miss}`);
@@ -645,7 +657,7 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
       {/* 2 · Transfers */}
       {step === 2 && (
         <section>
-          <h1 className="arr-h1">{t("Airport transfers", "Traslados al aeropuerto")}</h1>
+          <h1 className="arr-h1">{t("Airport transfers (to and from)", "Traslados desde y hacia el aeropuerto")}</h1>
           <p className="arr-p">{t("Would you like private transportation to and from the airport?", "¿Quieres transporte privado desde y hacia el aeropuerto?")}</p>
           <YesNo value={a.transport} onChange={(v) => up((x) => ({ ...x, transport: v, arrivals: v === "yes" && !x.arrivals.length ? [newFlight(false)] : x.arrivals, departures: v === "yes" && !x.departures.length ? [newFlight(true)] : x.departures }))} yes={t("Yes, please", "Sí, por favor")} no={t("No, thanks", "No, gracias")} />
           {a.transport === "yes" && (
@@ -670,10 +682,47 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
           )}
           {a.transport === "no" && (
             <div className="mt-5 space-y-4">
-              <p className="arr-p">{t("No problem. Please tell us your arrival flight so we can estimate when you'll reach the villa and have your concierge waiting for you.", "Sin problema. Cuéntanos tu vuelo de llegada para calcular a qué hora llegarás a la villa y que tu concierge te espere.")}</p>
-              {ownFlightFields("ownArrival")}
-              <p className="arr-note">{t(`Check-out is at ${CHECK_OUT_TIME} at the latest. We recommend leaving Punta Mita 3 hours before an international flight and 2 hours before a domestic flight.`, `La salida es a más tardar a las ${CHECK_OUT_TIME}. Recomendamos salir de Punta Mita 3 horas antes de un vuelo internacional y 2 horas antes de uno nacional.`)}</p>
-              {ownFlightFields("ownDeparture")}
+              <p className="arr-p">{t("No problem. How are you getting to Punta Mita?", "Sin problema. ¿Cómo llegas a Punta Mita?")}</p>
+              <div className="arr-yesno">
+                {([["flight", t("By plane", "En avión")], ["car", t("By car", "En auto")]] as const).map(([k, label]) => (
+                  <button key={k} type="button" className={`arr-choice${a.ownMode === k ? " is-on" : ""}`} onClick={() => up((x) => ({ ...x, ownMode: k }))}>{label}</button>
+                ))}
+              </div>
+              {a.ownMode === "flight" && (
+                <>
+                  <p className="arr-p">{t("Please tell us your arrival flight so we can estimate when you'll reach the villa and have your concierge waiting for you.", "Cuéntanos tu vuelo de llegada para calcular a qué hora llegarás a la villa y que tu concierge te espere.")}</p>
+                  {ownFlightFields("ownArrival")}
+                  <p className="arr-note">{t(`Check-out is at ${CHECK_OUT_TIME} at the latest. We recommend leaving Punta Mita 3 hours before an international flight and 2 hours before a domestic flight.`, `La salida es a más tardar a las ${CHECK_OUT_TIME}. Recomendamos salir de Punta Mita 3 horas antes de un vuelo internacional y 2 horas antes de uno nacional.`)}</p>
+                  {ownFlightFields("ownDeparture")}
+                </>
+              )}
+              {a.ownMode === "car" && (
+                <>
+                  <div className="arr-card">
+                    <p className="arr-card-title">{t("Your arrival", "Tu llegada")}</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Picker label={t("Date", "Fecha")} value={a.ownArrival.date} options={dateOpts(flightDates)} placeholder={t("Select", "Elige")} onChange={(v) => up((x) => ({ ...x, ownArrival: { ...x.ownArrival, date: v } }))} />
+                      <Picker label={t("Arrival at the villa (approx.)", "Llegada a la villa (aprox.)")} value={a.ownArrival.time} options={TIMES} placeholder="4:00 pm" onChange={(v) => up((x) => ({ ...x, ownArrival: { ...x.ownArrival, time: v } }))} />
+                    </div>
+                    {carArrivalWindow(a.ownArrival.time) && (
+                      <p className="arr-note">
+                        {t(
+                          `Your concierge will be waiting for you from ${carArrivalWindow(a.ownArrival.time)!.from} to ${carArrivalWindow(a.ownArrival.time)!.to}. If your plans change on the road, just send them a message.`,
+                          `Tu concierge te esperará de ${carArrivalWindow(a.ownArrival.time)!.from} a ${carArrivalWindow(a.ownArrival.time)!.to}. Si cambia tu hora en el camino, solo mándale un mensaje.`
+                        )}
+                      </p>
+                    )}
+                  </div>
+                  <div className="arr-card">
+                    <p className="arr-card-title">{t("Your departure", "Tu salida")}</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Picker label={t("Date", "Fecha")} value={a.ownDeparture.date} options={dateOpts(flightDates)} placeholder={t("Select", "Elige")} onChange={(v) => up((x) => ({ ...x, ownDeparture: { ...x.ownDeparture, date: v } }))} />
+                      <Picker label={t("Leaving the villa", "Salida de la villa")} value={a.ownDeparture.time} options={TIMES} placeholder="11:00 am" onChange={(v) => up((x) => ({ ...x, ownDeparture: { ...x.ownDeparture, time: v } }))} />
+                    </div>
+                    <p className="arr-hint">{t(`Check-out is at ${CHECK_OUT_TIME} at the latest.`, `La salida es a más tardar a las ${CHECK_OUT_TIME}.`)}</p>
+                  </div>
+                </>
+              )}
             </div>
           )}
           {lateDeparture && (
@@ -681,7 +730,9 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
               <p className="arr-card-title">{t("Late check-out", "Salida tardía")}</p>
               <label className="arr-toggle">
                 <input type="checkbox" checked={a.lateCheckout.want} onChange={(e) => up((x) => ({ ...x, lateCheckout: { ...x.lateCheckout, want: e.target.checked } }))} />
-                <span>{t("Your flight leaves in the afternoon. Would you like to request a late check-out?", "Tu vuelo sale por la tarde. ¿Quieres solicitar una salida tardía?")}</span>
+                <span>{a.transport === "no" && a.ownMode === "car"
+                    ? t(`Check-out is at ${CHECK_OUT_TIME}. Would you like to request a late check-out?`, `La salida es a las ${CHECK_OUT_TIME}. ¿Quieres solicitar una salida tardía?`)
+                    : t("Your flight leaves in the afternoon. Would you like to request a late check-out?", "Tu vuelo sale por la tarde. ¿Quieres solicitar una salida tardía?")}</span>
               </label>
               {a.lateCheckout.want && (
                 <div className="mt-3">
@@ -821,6 +872,39 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
               `La forma más fácil de moverse en Punta Mita y el pueblo de Punta de Mita. Por día: 4 pasajeros ${mxn(GOLF_CARTS[season]["4"])} · 6 pasajeros ${mxn(GOLF_CARTS[season]["6"])}. Se maneja bajo tu propio riesgo; los daños los cobra la arrendadora.`
             )}
           </p>
+          <div className="arr-note">
+            {t(
+              `Your rental already includes one ${INCLUDED_CART_SEATS}-passenger golf cart. Add carts here only if you'd like extra ones.`,
+              `Tu renta ya incluye un carrito de golf de ${INCLUDED_CART_SEATS} pasajeros. Agrega carritos aquí solo si quieres adicionales.`
+            )}
+          </div>
+          {(() => {
+            const sug = cartSuggestion(counts.total);
+            if (!sug) return null;
+            const seats = a.carts.reduce((n, g) => n + Number(g.size) * g.qty, 0);
+            const enough = INCLUDED_CART_SEATS + seats >= counts.total;
+            if (enough && a.carts.length) return null;
+            const label = es
+              ? `${sug.qty} carrito${sug.qty > 1 ? "s" : ""} de ${sug.size} pasajeros`
+              : `${sug.qty} ${sug.size}-passenger cart${sug.qty > 1 ? "s" : ""}`;
+            return (
+              <div className="arr-card mb-4">
+                <p className="arr-p mb-3">
+                  {t(
+                    `You're a group of ${counts.total}, so the included cart won't fit everyone. We suggest adding ${label} so you can all get around together.`,
+                    `Son ${counts.total} personas, así que el carrito incluido no alcanza para todos. Te sugerimos agregar ${label} para que puedan moverse todos juntos.`
+                  )}
+                </p>
+                <button
+                  type="button"
+                  className="arr-add mt-0"
+                  onClick={() => up((x) => ({ ...x, carts: [...x.carts, { id: rid(), size: sug.size, qty: sug.qty, from: r.checkIn, to: r.checkOut }] }))}
+                >
+                  + {t(`Add ${label}`, `Agregar ${label}`)}
+                </button>
+              </div>
+            );
+          })()}
           <div className="space-y-4">
             {a.carts.map((g) => (
               <div key={g.id} className="arr-card">
@@ -982,8 +1066,9 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
                       <div className="mt-3 grid grid-cols-2 gap-3">
                         <div className="iq-field"><span className="iq-label">{t("People", "Personas")}</span>
                           <input className="iq-input" inputMode="numeric" value={x0.people} onChange={(e) => set({ people: e.target.value })} /></div>
-                        <div className="iq-field"><span className="iq-label">{t("Notes", "Notas")}</span>
-                          <input className="iq-input" value={x0.notes} onChange={(e) => set({ notes: e.target.value })} /></div>
+                        <div className="iq-field">
+                          <span className="iq-label">{x0.activity === "Dinner reservation" ? t("Preferred restaurant *", "Restaurante de tu preferencia *") : t("Notes", "Notas")}</span>
+                          <input className="iq-input" value={x0.notes} placeholder={x0.activity === "Dinner reservation" ? t("e.g. Café des Artistes", "ej. Café des Artistes") : ""} onChange={(e) => set({ notes: e.target.value })} /></div>
                       </div>
                     </div>
                   );
