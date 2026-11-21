@@ -76,3 +76,50 @@ export async function saveAnswers(id: string, answers: ArrivalAnswers, summary: 
   );
   if (!res.ok) throw new Error(`Concierge save failed: ${res.status} ${await res.text()}`);
 }
+
+// ─── Cooks' recipe reviews ───────────────────────────────────────────────────
+// Each time a cook sends her review on /cocina/recetas, her FULL recipes (every
+// ingredient with her final amount) are saved as a "recipeReview" document, so
+// Studio → Concierge → Recetas can download all cooks side by side.
+
+export type ReviewedIngredient = {
+  n: string; // ingredient name
+  t: "base" | "opcion" | "basico";
+  u: [string, string]; // unit singular / plural
+  o: number; // original amount (per adult)
+  q: number; // the cook's amount (0 when removed)
+  x?: boolean; // removed
+};
+export type ReviewedDish = { id: string; name: string; ingredients: ReviewedIngredient[]; missing: string };
+export type RecipeReviewPayload = { cook: string; menu: string; dishes: ReviewedDish[]; message: string };
+
+export async function saveRecipeReview(p: RecipeReviewPayload) {
+  const changed = p.dishes.filter(
+    (d) => d.missing.trim() || d.ingredients.some((i) => i.x || Math.abs(i.q - i.o) > 1e-9)
+  ).length;
+  const res = await fetch(
+    `https://${SANITY_PROJECT_ID}.api.sanity.io/v${API}/data/mutate/${DATASET}?returnIds=false`,
+    {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token()}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        mutations: [
+          {
+            create: {
+              _type: "recipeReview",
+              cook: p.cook.trim().slice(0, 80) || "Sin nombre",
+              menu: p.menu.slice(0, 40),
+              submittedAt: new Date().toISOString(),
+              dishCount: p.dishes.length,
+              changedCount: changed,
+              summary: p.message.slice(0, 20000),
+              recipesJson: JSON.stringify(p.dishes),
+            },
+          },
+        ],
+      }),
+      cache: "no-store",
+    }
+  );
+  if (!res.ok) throw new Error(`Recipe review save failed: ${res.status} ${await res.text()}`);
+}
