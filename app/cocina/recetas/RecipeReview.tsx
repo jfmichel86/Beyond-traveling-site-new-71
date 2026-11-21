@@ -1,8 +1,8 @@
 "use client";
 
 // Phone-first page where a villa cook reviews the breakfast recipes, one dish at a
-// time: big – / + buttons, "Quitar", "¿Falta algo?", then one WhatsApp message
-// with only what changed. Spanish only (tú). Progress is kept on the phone.
+// time: big – / + buttons, "Quitar", "¿Falta algo?", then a read-through of every
+// recipe in full, then one WhatsApp message with only what changed. Spanish only (tú). Progress is kept on the phone.
 
 import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
@@ -74,6 +74,10 @@ export default function RecipeReview({
 }) {
   const [s, setS] = useState<Saved>({ cook: "", step: -1, dishes: {} });
   const [loaded, setLoaded] = useState(false);
+  const [checked, setChecked] = useState(false);
+  // Set when the cook opens a dish from the final review, so "Listo" brings her back to it
+  const [fromReview, setFromReview] = useState<string | null>(null);
+  const [scrollTo, setScrollTo] = useState<string | null>(null);
 
   useEffect(() => {
     try {
@@ -98,8 +102,19 @@ export default function RecipeReview({
   const step = s.step; // -1 = intro, 0..total-1 = dishes, total = summary
   const go = (n: number) => {
     setS((p) => ({ ...p, step: n }));
+    setChecked(false);
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  // Back on the final review, bring the dish she just fixed into view
+  useEffect(() => {
+    if (!scrollTo || s.step < dishes.length) return;
+    const t = setTimeout(() => {
+      document.getElementById(`receta-${scrollTo}`)?.scrollIntoView({ block: "start" });
+      setScrollTo(null);
+    }, 60);
+    return () => clearTimeout(t);
+  }, [scrollTo, s.step, dishes.length]);
 
   const dishState = (id: string) => s.dishes[id] || emptyDish();
   const patchDish = (id: string, fn: (d: DishState) => DishState) =>
@@ -140,8 +155,39 @@ export default function RecipeReview({
     return [...head, ...body, ok ? `Los otros ${ok} platillos están bien. ✅` : ""].join("\n").trim();
   };
 
+  // Her full recipes (every ingredient, her final amounts), saved privately so they
+  // can be downloaded side by side from Studio → Concierge → Recetas
+  const fullRecipes = () =>
+    dishes.map((d) => {
+      const st = s.dishes[d.id] || emptyDish();
+      return {
+        id: d.id,
+        name: d.name,
+        missing: st.missing.trim(),
+        ingredients: d.ingredients.map((ing, i) => ({
+          n: ing.name,
+          t: ing.type,
+          u: ing.unit,
+          o: ing.qty,
+          q: st.removed[i] ? 0 : st.qty[i] ?? ing.qty,
+          ...(st.removed[i] ? { x: true } : {}),
+        })),
+      };
+    });
+
   const send = () => {
-    window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(message())}`, "_blank", "noopener,noreferrer");
+    const text = message();
+    try {
+      void fetch("/api/cocina/recetas", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cook: s.cook, menu: title, dishes: fullRecipes(), message: text }),
+        keepalive: true,
+      }).catch(() => undefined);
+    } catch {
+      /* the WhatsApp message still goes out */
+    }
+    window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
   };
 
   const restart = () => {
@@ -166,7 +212,7 @@ export default function RecipeReview({
             ["1", "Las cantidades son para 1 persona adulta."],
             ["2", "Si una cantidad no está bien, usa los botones – y +."],
             ["3", "Si algo no va, toca “Quitar”. Si falta algo, escríbelo."],
-            ["4", "Al final, toca “Enviar por WhatsApp”."],
+            ["4", "Al final verás todas las recetas completas para revisarlas, y las envías por WhatsApp."],
           ].map(([n, t]) => (
             <li key={n} className="flex gap-4">
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-bt-navy text-[16px] font-medium text-white">{n}</span>
@@ -190,67 +236,166 @@ export default function RecipeReview({
 
         <button
           type="button"
-          onClick={() => go(doneCount > 0 ? Math.min(dishes.findIndex((d) => !dishState(d.id).done), total) : 0)}
+          onClick={() => {
+            if (doneCount === 0) return go(0);
+            const next = dishes.findIndex((d) => !dishState(d.id).done);
+            go(next === -1 ? total : next); // all done → straight to the full recipes
+          }}
           className="mt-8 w-full rounded-sm bg-bt-navy px-6 py-4 text-[17px] font-medium text-white active:scale-[0.99]"
         >
-          {doneCount > 0 ? `Continuar (${doneCount} de ${total} listos)` : "Empezar"}
+          {doneCount === 0
+            ? "Empezar"
+            : doneCount >= total
+              ? "Ver mis recetas completas"
+              : `Continuar (${doneCount} de ${total} listos)`}
         </button>
+        {doneCount > 0 && (
+          <button
+            type="button"
+            onClick={restart}
+            className="mt-4 w-full rounded-sm border border-bt-navy/30 px-6 py-3.5 text-[16px] font-medium text-bt-navy active:scale-[0.99]"
+          >
+            Empezar de nuevo desde el platillo 1
+          </button>
+        )}
       </div>
     );
   }
 
-  // ── Summary ──────────────────────────────────────────────────────────────
+  // ── Final review: every recipe in full ─────────────────────────────────
   if (step >= total) {
+    const changedIds = new Set(changes.map((c) => c.dish.id));
     return (
-      <div className="mx-auto max-w-[560px] px-5 pb-16 pt-10">
-        <h1 className="font-serif text-[34px] font-light leading-tight text-bt-navy">¡Gracias{s.cook.trim() ? `, ${s.cook.trim()}` : ""}! 🙌</h1>
-        <p className="mt-3 text-[17px] leading-[1.6] text-bt-charcoal">
-          {changes.length
-            ? `Hiciste cambios en ${changes.length} ${changes.length === 1 ? "platillo" : "platillos"}:`
-            : "No hiciste cambios. Todo está bien."}
-        </p>
-
-        {changes.length > 0 && (
-          <div className="mt-6 space-y-4">
-            {changes.map((c) => (
-              <div key={c.dish.id} className="rounded-sm border border-bt-navy/12 bg-white p-4">
-                <p className="text-[17px] font-semibold text-bt-navy">{c.dish.name}</p>
-                <ul className="mt-2 space-y-1.5">
-                  {c.lines.map((l, i) => (
-                    <li key={i} className="text-[15.5px] leading-snug text-bt-charcoal">• {l}</li>
-                  ))}
-                </ul>
-                <button
-                  type="button"
-                  onClick={() => go(dishes.findIndex((d) => d.id === c.dish.id))}
-                  className="mt-3 text-[14px] font-medium text-bt-navy underline underline-offset-4"
-                >
-                  Corregir
-                </button>
-              </div>
-            ))}
+      <div className="mx-auto max-w-[560px] pb-16 pt-10">
+        <div className="px-5">
+          <p className="text-[12px] font-medium uppercase tracking-[0.2em] text-bt-gold-text">Último paso</p>
+          <h1 className="mt-3 font-serif text-[32px] font-light leading-tight text-bt-navy">
+            Revisa tus recetas completas{s.cook.trim() ? `, ${s.cook.trim()}` : ""}
+          </h1>
+          <p className="mt-3 text-[17px] leading-[1.6] text-bt-charcoal">
+            Así quedan los {total} platillos <b className="font-semibold">para 1 persona adulta</b>. Léelos como si los fueras a cocinar.
+            Si algo no cuadra, toca <b className="font-semibold">Corregir</b>.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-[14px] text-bt-charcoal">
+            <span className="inline-flex items-center gap-2"><span className="inline-block h-3.5 w-3.5 rounded-sm bg-bt-gold/30" /> Lo cambiaste</span>
+            <span className="inline-flex items-center gap-2"><span className="text-bt-charcoal/50 line-through">Tachado</span> Lo quitaste</span>
+            <span className="inline-flex items-center gap-2">➕ Lo agregaste</span>
           </div>
-        )}
+        </div>
 
-        <button
-          type="button"
-          onClick={send}
-          className="mt-8 flex w-full items-center justify-center gap-3 rounded-sm bg-[#1FA855] px-6 py-4 text-[18px] font-semibold text-white active:scale-[0.99]"
-        >
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-            <path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.659 1.438 5.168L2 22l4.985-1.402A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2z" />
-          </svg>
-          Enviar por WhatsApp
-        </button>
+        <div className="mt-6 space-y-6">
+          {dishes.map((d, di) => {
+            const st = s.dishes[d.id] || emptyDish();
+            const changed = changedIds.has(d.id);
+            const groups: [string, KitchenDish["ingredients"][number]["type"]][] = [
+              ["", "base"],
+              ["Solo si lo piden", "opcion"],
+              ["Normalmente ya hay en la villa", "basico"],
+            ];
+            return (
+              <section key={d.id} id={`receta-${d.id}`} className="scroll-mt-20 border-y border-bt-navy/10 bg-white">
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-bt-cream">
+                  <Image src={d.img} alt={d.name} fill sizes="(min-width: 600px) 560px, 100vw" className="object-cover" />
+                  <span className={`absolute left-3 top-3 rounded-full px-3 py-1 text-[13px] font-semibold ${changed ? "bg-bt-gold text-white" : "bg-white/95 text-[#1F7A43]"}`}>
+                    {changed ? "Con cambios" : "Sin cambios ✓"}
+                  </span>
+                </div>
+                <div className="px-5 pb-5 pt-4">
+                  <p className="text-[13px] text-bt-charcoal/70">{di + 1} de {total}</p>
+                  <h2 className="font-serif text-[26px] font-light leading-tight text-bt-navy">{d.name}</h2>
 
-        <div className="mt-6 flex items-center justify-between">
-          <button type="button" onClick={() => go(total - 1)} className="text-[15px] font-medium text-bt-navy">
-            ← Volver a los platillos
+                  {groups.map(([label, type]) => {
+                    const items = d.ingredients.map((ing, i) => ({ ing, i })).filter((x) => x.ing.type === type);
+                    if (!items.length) return null;
+                    return (
+                      <div key={type} className="mt-3">
+                        {label && <p className="mb-1 text-[12px] font-medium uppercase tracking-[0.14em] text-bt-gold-text">{label}</p>}
+                        <ul className="space-y-1">
+                          {items.map(({ ing, i }) => {
+                            const removed = !!st.removed[i];
+                            const q = st.qty[i] ?? ing.qty;
+                            const edited = !removed && Math.abs(q - ing.qty) > 1e-9;
+                            return (
+                              <li
+                                key={i}
+                                className={`flex items-baseline gap-3 rounded-sm px-2 py-1.5 text-[16.5px] leading-snug ${edited ? "bg-bt-gold/20" : ""} ${removed ? "text-bt-charcoal/45 line-through" : "text-bt-charcoal"}`}
+                              >
+                                <span className={`w-[118px] shrink-0 ${removed ? "" : "font-semibold text-bt-navy"}`}>
+                                  {fmt(q)} {unitFor(ing.unit, q)}
+                                </span>
+                                <span className="min-w-0">
+                                  {ing.name}
+                                  {edited && (
+                                    <span className="ml-2 whitespace-nowrap text-[13px] text-bt-charcoal/70 no-underline">
+                                      (antes {fmt(ing.qty)})
+                                    </span>
+                                  )}
+                                </span>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    );
+                  })}
+
+                  {st.missing.trim() && (
+                    <p className="mt-3 rounded-sm bg-bt-gold/20 px-3 py-2 text-[16px] leading-snug text-bt-charcoal">
+                      ➕ <b className="font-semibold">Agregaste:</b> {st.missing.trim()}
+                    </p>
+                  )}
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setFromReview(d.id);
+                      go(di);
+                    }}
+                    className="mt-4 w-full rounded-sm border border-bt-navy/30 px-4 py-3 text-[16px] font-medium text-bt-navy active:scale-[0.99]"
+                  >
+                    Corregir este platillo
+                  </button>
+                </div>
+              </section>
+            );
+          })}
+        </div>
+
+        <div className="px-5">
+          <label className="mt-8 flex cursor-pointer items-start gap-3 rounded-sm border border-bt-navy/20 bg-white p-4">
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={(e) => setChecked(e.target.checked)}
+              className="mt-0.5 h-6 w-6 shrink-0 accent-bt-navy"
+            />
+            <span className="text-[16.5px] leading-snug text-bt-charcoal">
+              Ya revisé las {total} recetas completas y las cantidades tienen sentido.
+            </span>
+          </label>
+
+          <button
+            type="button"
+            onClick={send}
+            disabled={!checked}
+            className="mt-4 flex w-full items-center justify-center gap-3 rounded-sm bg-[#1FA855] px-6 py-4 text-[18px] font-semibold text-white active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.659 1.438 5.168L2 22l4.985-1.402A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2z" />
+            </svg>
+            Enviar por WhatsApp
           </button>
-          <button type="button" onClick={restart} className="text-[13px] text-bt-charcoal/70 underline underline-offset-4">
-            Empezar de nuevo
-          </button>
+          {!checked && <p className="mt-2 text-center text-[14px] text-bt-charcoal/70">Marca la casilla de arriba para poder enviar.</p>}
+
+          <div className="mt-6 flex items-center justify-between">
+            <button type="button" onClick={() => go(total - 1)} className="text-[15px] font-medium text-bt-navy">
+              ← Volver a los platillos
+            </button>
+            <button type="button" onClick={restart} className="text-[13px] text-bt-charcoal/70 underline underline-offset-4">
+              Empezar de nuevo
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -267,6 +412,12 @@ export default function RecipeReview({
 
   const next = () => {
     patchDish(dish.id, (d) => ({ ...d, done: true }));
+    if (fromReview) {
+      setScrollTo(fromReview);
+      setFromReview(null);
+      go(total);
+      return;
+    }
     go(step + 1);
   };
 
@@ -386,7 +537,7 @@ export default function RecipeReview({
             onClick={next}
             className="flex-1 rounded-sm bg-bt-navy px-5 py-4 text-[17px] font-medium text-white active:scale-[0.99]"
           >
-            {step === total - 1 ? "Listo ✓ Terminar" : "Listo ✓ Siguiente"}
+            {fromReview ? "Listo ✓ Volver a la revisión" : step === total - 1 ? "Listo ✓ Ver todas las recetas" : "Listo ✓ Siguiente"}
           </button>
         </div>
       </div>
