@@ -5,6 +5,7 @@ import { DEMO_RESERVATION, type Reservation } from "@/lib/arrival";
 import { conciergeReady, getReservation } from "@/lib/concierge";
 import { villaDiningCategories } from "@/lib/villaDiningMenu";
 import { discoverCategories } from "@/lib/discoverPuntaMita";
+import { INFO_ONLY_ACTIVITIES, HIDDEN_ACTIVITIES } from "@/lib/arrival";
 
 // Private, per-reservation page. Never cached, never indexed.
 export const dynamic = "force-dynamic";
@@ -40,17 +41,26 @@ function menuOptions(): MenuOptions {
     sweet: dishes("breakfast", ["sweet-breakfast-options"]),
     lunch,
     dinner,
-    discover: discoverCategories.map((c) => ({
-      slug: c.slug,
-      title: c.title,
-      image: c.image,
-      activities: c.activities.map((act) => ({
-        slug: act.slug,
-        title: act.title,
-        image: act.image,
-        options: act.experienceOptions.map((o) => o.title),
-      })),
-    })),
+    discover: discoverCategories
+      .map((c) => ({
+        slug: c.slug,
+        title: c.title,
+        image: c.image,
+        activities: c.activities
+          .filter((act) => !INFO_ONLY_ACTIVITIES.has(act.slug) && !HIDDEN_ACTIVITIES.has(act.slug))
+          .map((act) => ({
+            slug: act.slug,
+            title: act.title,
+            image: act.image,
+            options: act.experienceOptions.map((o) => o.title),
+          })),
+      }))
+      .filter((c) => c.activities.length > 0),
+    onYourOwn: discoverCategories.flatMap((c) =>
+      c.activities
+        .filter((act) => INFO_ONLY_ACTIVITIES.has(act.slug))
+        .map((act) => ({ title: act.title, href: `/discover-punta-mita/${c.slug}/${act.slug}` }))
+    ),
   };
 }
 

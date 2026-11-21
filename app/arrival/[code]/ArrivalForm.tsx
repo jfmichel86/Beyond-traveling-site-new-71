@@ -12,6 +12,7 @@ import {
   CELEBRATION_EXTRAS,
   DIET_TAGS,
   GOLF_CARTS,
+  BREAKFAST_EARLIEST,
   GROCERY_FEE,
   MEAL_PREP,
   VAT_PCT,
@@ -55,6 +56,8 @@ export type MenuOptions = {
   lunch: Option[];
   dinner: Option[];
   discover: DiscoverCategoryLite[];
+  /** Ideas with no booking needed (beach clubs, events…), linked to Discover Punta Mita. */
+  onYourOwn: { title: L10n; href: string }[];
 };
 
 /** Quick reservations that aren't Discover activities. */
@@ -62,7 +65,6 @@ const RESERVATIONS: { key: string; en: string; es: string }[] = [
   { key: "Dinner reservation", en: "Dinner reservation", es: "Reservación para cenar" },
   { key: "Tee time", en: "Tee time", es: "Horario de golf" },
   { key: "Tennis / padel / pickleball court", en: "Tennis / padel / pickleball court", es: "Cancha de tenis / pádel / pickleball" },
-  { key: "Beach club day", en: "Beach club day", es: "Día en beach club" },
 ];
 
 const TIMES = (() => {
@@ -494,7 +496,7 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
       const res = await fetch(`/api/arrival/${encodeURIComponent(r.code)}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ answers: a }),
+        body: JSON.stringify({ answers: a, lang: es ? "es" : "en" }),
       });
       const json = (await res.json().catch(() => ({}))) as { ok?: boolean; demo?: boolean };
       if (!res.ok || !json.ok) throw new Error();
@@ -756,7 +758,7 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
                   </div>
                   {m.breakfast.on && (
                     <>
-                      <Picker label={t("Time", "Hora")} value={m.breakfast.time} options={TIMES.slice(8, 22)} placeholder="9:00 am" onChange={(v) => up((x) => ({ ...x, meals: x.meals.map((y, j) => (j === i ? { ...y, breakfast: { ...y.breakfast, time: v } } : y)) }))} />
+                      <Picker label={t("Time", "Hora")} value={m.breakfast.time} options={TIMES.slice(TIMES.findIndex((o) => o.value === BREAKFAST_EARLIEST), 22)} placeholder="9:00 am" onChange={(v) => up((x) => ({ ...x, meals: x.meals.map((y, j) => (j === i ? { ...y, breakfast: { ...y.breakfast, time: v } } : y)) }))} />
                       <span className="iq-label">{t("Savory", "Salado")}</span>
                       <DishPicker options={menus.savory} selected={m.breakfast.savory ? [m.breakfast.savory] : []} noneLabel={t("No savory", "Sin salado")} onToggle={(v) => up((x) => ({ ...x, meals: x.meals.map((y, j) => (j === i ? { ...y, breakfast: { ...y.breakfast, savory: y.breakfast.savory === v ? "" : v } } : y)) }))} />
                       <span className="iq-label">{t("Sweet", "Dulce")}</span>
@@ -815,8 +817,8 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
           <h1 className="arr-h1">{t("Golf carts", "Carritos de golf")}</h1>
           <p className="arr-p">
             {t(
-              `The easiest way to get around Punta Mita and the town of Punta de Mita. Per day, ${season === "high" ? "high season (Nov–Apr)" : "low season (May–Oct)"}: 4-passenger ${mxn(GOLF_CARTS[season]["4"])} · 6-passenger ${mxn(GOLF_CARTS[season]["6"])}. Driving is at your own risk; damage is charged by the rental company.`,
-              `La forma más fácil de moverse en Punta Mita y el pueblo de Punta de Mita. Por día, ${season === "high" ? "temporada alta (nov–abr)" : "temporada baja (may–oct)"}: 4 pasajeros ${mxn(GOLF_CARTS[season]["4"])} · 6 pasajeros ${mxn(GOLF_CARTS[season]["6"])}. Se maneja bajo tu propio riesgo; los daños los cobra la arrendadora.`
+              `The easiest way to get around Punta Mita and the town of Punta de Mita. Per day: 4-passenger ${mxn(GOLF_CARTS[season]["4"])} · 6-passenger ${mxn(GOLF_CARTS[season]["6"])}. Driving is at your own risk; damage is charged by the rental company.`,
+              `La forma más fácil de moverse en Punta Mita y el pueblo de Punta de Mita. Por día: 4 pasajeros ${mxn(GOLF_CARTS[season]["4"])} · 6 pasajeros ${mxn(GOLF_CARTS[season]["6"])}. Se maneja bajo tu propio riesgo; los daños los cobra la arrendadora.`
             )}
           </p>
           <div className="space-y-4">
@@ -989,6 +991,21 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
               </div>
               <p className="arr-hint">{t("All activities are subject to availability. Your concierge will confirm dates, times and prices.", "Todas las actividades están sujetas a disponibilidad. Tu concierge confirmará fechas, horarios y precios.")}</p>
             </>
+          )}
+
+          {menus.onYourOwn.length > 0 && (
+            <div className="arr-note mt-6">
+              <p className="arr-p">
+                <b>{t("Also in Punta Mita, no booking needed:", "También en Punta Mita, sin reservar:")}</b>{" "}
+                {menus.onYourOwn.map((o, i) => (
+                  <React.Fragment key={o.href}>
+                    {i > 0 && " · "}
+                    <a className="underline underline-offset-2" href={`${es ? "/es" : ""}${o.href}`} target="_blank" rel="noopener">{es ? o.title.es : o.title.en}</a>
+                  </React.Fragment>
+                ))}
+                . {t("You can simply go whenever you like; ask your concierge if you need directions or transportation.", "Puedes ir cuando quieras; pregunta a tu concierge si necesitas indicaciones o transporte.")}
+              </p>
+            </div>
           )}
 
           <h2 className="arr-h2">{t("Anything else?", "¿Algo más?")}</h2>
