@@ -1,8 +1,9 @@
 // Saves a guest's arrival form on their reservation (private concierge dataset).
 // POST /api/arrival/<code>  { answers }
 import { NextResponse } from "next/server";
-import { getReservation, isValidCode, saveAnswers, conciergeReady, notifyArrival } from "@/lib/concierge";
-import { summarize, type ArrivalAnswers } from "@/lib/arrival";
+import { getReservation, isValidCode, saveAnswers, conciergeReady, notifyArrival, arrivalLink } from "@/lib/concierge";
+import { summarize, itinerary, type ArrivalAnswers } from "@/lib/arrival";
+import { renderArrivalEmail } from "@/lib/arrivalEmail";
 
 export const dynamic = "force-dynamic";
 
@@ -36,7 +37,14 @@ export async function POST(req: Request, { params }: { params: { code: string } 
     await saveAnswers(reservation.id, answers, summary);
     // Email the concierge and the guest (never blocks the guest's confirmation)
     const guestSummary = lang === "es" ? summarize(reservation, answers, "es") : summary;
-    await notifyArrival(reservation, summary, guestSummary, lang).catch(() => undefined);
+    const bookingId = reservation.id.startsWith("booking-") ? reservation.id.slice("booking-".length) : "";
+    const conciergeHtml = renderArrivalEmail(itinerary(reservation, answers, "en"), {
+      audience: "concierge", link: arrivalLink(reservation, "en"), guestName: reservation.guestName, bookingId,
+    });
+    const guestHtml = renderArrivalEmail(itinerary(reservation, answers, lang), {
+      audience: "guest", link: arrivalLink(reservation, lang), guestName: answers.main.name || reservation.guestName,
+    });
+    await notifyArrival(reservation, { summary, guestSummary, conciergeHtml, guestHtml }, lang).catch(() => undefined);
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error(err);
