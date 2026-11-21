@@ -129,7 +129,7 @@ export async function saveRecipeReview(p: RecipeReviewPayload) {
 // full details to concierge@ and a copy to the guest, and marks the booking.
 // Set in Vercel: ARRIVAL_NOTIFY_URL (the web app URL) and ARRIVAL_NOTIFY_SECRET.
 
-export async function notifyArrival(r: Reservation, summary: string, lang: "en" | "es") {
+export async function notifyArrival(r: Reservation, summary: string, guestSummary: string, lang: "en" | "es") {
   const url = process.env.ARRIVAL_NOTIFY_URL;
   const secret = process.env.ARRIVAL_NOTIFY_SECRET;
   if (!url || !secret) return;
@@ -149,7 +149,8 @@ export async function notifyArrival(r: Reservation, summary: string, lang: "en" 
         checkIn: r.checkIn,
         checkOut: r.checkOut,
         lang,
-        summary,
+        summary, // English, for the concierge
+        guestSummary, // in the guest's language, for their copy
         link: `${site}${lang === "es" ? "/es" : ""}/arrival/${r.code}`,
       }),
       signal: ctrl.signal,

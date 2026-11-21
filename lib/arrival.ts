@@ -310,77 +310,119 @@ export function blankAnswers(r: Reservation): ArrivalAnswers {
 }
 
 /** Plain-text summary for the concierge (Sanity) and the guest's review step. */
-export function summarize(r: Reservation, a: ArrivalAnswers): string {
+/**
+ * Plain-text summary of the guest's answers. English for the concierge (Sanity,
+ * concierge email); the guest's own language on the review screen and in their copy.
+ */
+export function summarize(r: Reservation, a: ArrivalAnswers, lang: "en" | "es" = "en"): string {
+  const es = lang === "es";
+  const t = (en: string, esText: string) => (es ? esText : en);
+  const d = (iso: string, withYear = false) => fmtDate(iso, es, withYear);
+  const n = (k: number, one: string, many: string) => `${k} ${k === 1 ? one : many}`;
   const L: string[] = [];
   const c = groupCounts(a.people);
-  L.push(`MAIN GUEST: ${a.main.name}`);
-  if (a.main.phone) L.push(`Phone: ${a.main.phone}`);
-  if (a.main.email) L.push(`Email: ${a.main.email}`);
-  if (a.main.address) L.push(`Address: ${a.main.address}`);
-  L.push(`${r.villa} · ${fmtDate(r.checkIn, false, true)} → ${fmtDate(r.checkOut, false, true)}`);
-  L.push("", `GROUP (${c.adults} ${c.adults === 1 ? "adult" : "adults"} over 13, ${c.children} ${c.children === 1 ? "child" : "children"} 5–13, ${c.under5} under 5)`);
+  L.push(`${t("MAIN GUEST", "HUÉSPED PRINCIPAL")}: ${a.main.name}`);
+  if (a.main.phone) L.push(`${t("Phone", "Teléfono")}: ${a.main.phone}`);
+  if (a.main.email) L.push(`${t("Email", "Correo")}: ${a.main.email}`);
+  if (a.main.address) L.push(`${t("Address", "Dirección")}: ${a.main.address}`);
+  L.push(`${r.villa} · ${d(r.checkIn, true)} → ${d(r.checkOut, true)}`);
+  L.push(
+    "",
+    es
+      ? `GRUPO (${n(c.adults, "adulto mayor de 13", "adultos mayores de 13")}, ${n(c.children, "niño de 5 a 13", "niños de 5 a 13")}, ${n(c.under5, "menor de 5", "menores de 5")})`
+      : `GROUP (${n(c.adults, "adult", "adults")} over 13, ${n(c.children, "child", "children")} 5–13, ${c.under5} under 5)`
+  );
   a.people.filter((p) => p.name.trim()).forEach((p, i) => L.push(`${i + 1}. ${p.name}${p.age ? ` (${p.age})` : ""}`));
-  L.push(`Access cards (estimate): USD ${accessFeeUsd(a.people).toFixed(2)}`);
+  L.push(`${t("Access cards (estimate)", "Tarjetas de acceso (estimado)")}: USD ${accessFeeUsd(a.people).toFixed(2)}`);
 
+  const kind = (intl: boolean) => (intl ? t("international", "internacional") : t("domestic", "nacional"));
   const flights = (title: string, list: Flight[], departure: boolean) => {
     if (!list.length) return;
     L.push("", title);
     for (const f of list) {
-      const extras = [f.carSeats ? `${f.carSeats} car seat(s)` : "", f.boosters ? `${f.boosters} booster(s)` : ""].filter(Boolean).join(", ");
+      const extras = [
+        f.carSeats ? `${f.carSeats} ${t("car seat(s)", "silla(s) para auto")}` : "",
+        f.boosters ? `${f.boosters} ${t("booster(s)", "booster(s)")}` : "",
+      ].filter(Boolean).join(", ");
+      const pickup = pickupFor(f.time, f.intl);
       L.push(
-        `- ${fmtDate(f.date)} · ${f.party} · ${f.airline} ${f.flight} at ${f.time} · ${f.people} people · ${vehicleName(f.vehicle)}` +
-          (departure ? ` · ${f.intl ? "international" : "domestic"}${pickupFor(f.time, f.intl) ? ` · pickup ${pickupFor(f.time, f.intl)}` : ""}` : "") +
+        `- ${d(f.date)} · ${f.party} · ${f.airline} ${f.flight} ${t("at", "a las")} ${f.time} · ${f.people} ${t("people", "personas")} · ${vehicleName(f.vehicle)}` +
+          (departure ? ` · ${kind(f.intl)}${pickup ? ` · ${t("pickup", "recogida")} ${pickup}` : ""}` : "") +
           (extras ? ` · ${extras}` : "")
       );
     }
   };
   if (a.transport === "no") {
-    L.push("", "TRANSFERS: not needed (own transportation)");
-    const o = a.ownArrival, d = a.ownDeparture;
+    L.push("", t("TRANSFERS: not needed (own transportation)", "TRASLADOS: no se necesitan (transporte propio)"));
+    const o = a.ownArrival, dep = a.ownDeparture;
     const w = villaArrivalWindow(o.time);
-    if (o.flight || o.time) L.push(`- Arrival flight: ${fmtDate(o.date)} · ${o.airline} ${o.flight} lands ${o.time}${w ? ` · expected at the villa ~${w.eta} (concierge waits ${w.from}–${w.to})` : ""}`);
-    if (d.flight || d.time) L.push(`- Departure flight: ${fmtDate(d.date)} · ${d.airline} ${d.flight} at ${d.time} (${d.intl ? "international" : "domestic"})`);
+    if (o.flight || o.time)
+      L.push(
+        `- ${t("Arrival flight", "Vuelo de llegada")}: ${d(o.date)} · ${o.airline} ${o.flight} ${t("lands", "aterriza")} ${o.time}` +
+          (w ? ` · ${t("expected at the villa", "llegada estimada a la villa")} ~${w.eta} (${t("concierge waits", "el concierge espera de")} ${w.from}–${w.to})` : "")
+      );
+    if (dep.flight || dep.time) L.push(`- ${t("Departure flight", "Vuelo de salida")}: ${d(dep.date)} · ${dep.airline} ${dep.flight} ${t("at", "a las")} ${dep.time} (${kind(dep.intl)})`);
   }
   if (a.transport === "yes") {
-    flights("ARRIVALS", a.arrivals, false);
-    flights("DEPARTURES", a.departures, true);
+    flights(t("ARRIVALS", "LLEGADAS"), a.arrivals, false);
+    flights(t("DEPARTURES", "SALIDAS"), a.departures, true);
   }
 
-  if (a.lateCheckout?.want) L.push("", `LATE CHECK-OUT REQUESTED: until ${a.lateCheckout.time} (to be confirmed)`);
-  L.push("", `GROCERY PRE-STOCKING: ${a.grocery === "yes" ? "YES – send the grocery link" : a.grocery === "no" ? "No" : "—"}`);
+  if (a.lateCheckout?.want)
+    L.push("", t(`LATE CHECK-OUT REQUESTED: until ${a.lateCheckout.time} (to be confirmed)`, `SALIDA TARDE SOLICITADA: hasta las ${a.lateCheckout.time} (por confirmar)`));
+  L.push(
+    "",
+    `${t("GROCERY PRE-STOCKING", "DESPENSA ANTES DE LLEGAR")}: ${
+      a.grocery === "yes" ? t("YES – send the grocery link", "SÍ – enviar el enlace de despensa") : a.grocery === "no" ? "No" : "—"
+    }`
+  );
   if (a.diet.length) {
-    L.push("", "ALLERGIES & DIET");
-    a.diet.forEach((d) => L.push(`- ${d.who || "?"}: ${[...d.tags.map((t) => DIET_TAGS.find((x) => x.key === t)?.en || t), d.notes].filter(Boolean).join(", ")}`));
+    L.push("", t("ALLERGIES & DIET", "ALERGIAS Y DIETA"));
+    a.diet.forEach((x) =>
+      L.push(`- ${x.who || "?"}: ${[...x.tags.map((tg) => { const k = DIET_TAGS.find((y) => y.key === tg); return k ? (es ? k.es : k.en) : tg; }), x.notes].filter(Boolean).join(", ")}`)
+    );
   }
   const mealLines: string[] = [];
   for (const m of a.meals) {
     const parts: string[] = [];
-    if (m.breakfast.on) parts.push(`Breakfast ${m.breakfast.time}${m.breakfast.savory ? ` – savory: ${m.breakfast.savory}` : ""}${m.breakfast.sweet ? ` – sweet: ${m.breakfast.sweet}` : ""}`);
-    if (m.lunch.on) parts.push(`Lunch ${m.lunch.time}${m.lunch.dishes.length ? ` – ${m.lunch.dishes.join(", ")}` : ""}`);
-    if (m.dinner.on) parts.push(`Dinner ${m.dinner.time}${m.dinner.dishes.length ? ` – ${m.dinner.dishes.join(", ")}` : ""}`);
-    if (parts.length) mealLines.push(`${fmtDate(m.date)}: ${parts.join(" | ")}`);
+    if (m.breakfast.on)
+      parts.push(
+        `${t("Breakfast", "Desayuno")} ${m.breakfast.time}${m.breakfast.savory ? ` – ${t("savory", "salado")}: ${m.breakfast.savory}` : ""}${m.breakfast.sweet ? ` – ${t("sweet", "dulce")}: ${m.breakfast.sweet}` : ""}`
+      );
+    if (m.lunch.on) parts.push(`${t("Lunch", "Comida")} ${m.lunch.time}${m.lunch.dishes.length ? ` – ${m.lunch.dishes.join(", ")}` : ""}`);
+    if (m.dinner.on) parts.push(`${t("Dinner", "Cena")} ${m.dinner.time}${m.dinner.dishes.length ? ` – ${m.dinner.dishes.join(", ")}` : ""}`);
+    if (parts.length) mealLines.push(`${d(m.date)}: ${parts.join(" | ")}`);
   }
-  if (mealLines.length) L.push("", "MEALS", ...mealLines);
+  if (mealLines.length) L.push("", t("MEALS", "COMIDAS"), ...mealLines);
 
   if (a.carts.length) {
-    L.push("", "GOLF CARTS");
-    a.carts.forEach((g) => L.push(`- ${g.qty} × ${g.size}-passenger · ${fmtDate(g.from)} → ${fmtDate(g.to)}`));
+    L.push("", t("GOLF CARTS", "CARRITOS DE GOLF"));
+    a.carts.forEach((g) => L.push(`- ${g.qty} × ${g.size} ${t("passengers", "pasajeros")} · ${d(g.from)} → ${d(g.to)}`));
   }
   if (a.celebrations.length) {
-    L.push("", "CELEBRATIONS");
-    a.celebrations.forEach((x) => L.push(`- ${fmtDate(x.date)} · ${x.occasion}${x.prepare.length ? ` · prepare: ${x.prepare.map((p) => CELEBRATION_EXTRAS.find((e) => e.key === p)?.en || p).join(", ")}` : ""}${x.notes ? ` · ${x.notes}` : ""}`));
+    L.push("", t("CELEBRATIONS", "CELEBRACIONES"));
+    a.celebrations.forEach((x) =>
+      L.push(
+        `- ${d(x.date)} · ${x.occasion}${
+          x.prepare.length
+            ? ` · ${t("prepare", "preparar")}: ${x.prepare.map((p) => { const k = CELEBRATION_EXTRAS.find((e) => e.key === p); return k ? (es ? k.es : k.en) : p; }).join(", ")}`
+            : ""
+        }${x.notes ? ` · ${x.notes}` : ""}`
+      )
+    );
   }
   if (a.activities.length) {
-    L.push("", "ACTIVITIES & RESERVATIONS");
+    L.push("", t("ACTIVITIES & RESERVATIONS", "ACTIVIDADES Y RESERVACIONES"));
     a.activities.forEach((x) => {
       const when = x.flexible
-        ? "any day"
-        : x.slots.filter((s) => s.date).map((s) => `${fmtDate(s.date)}${s.time ? ` ${s.time}` : ""}`).join(" or ") || "dates to confirm";
-      L.push(`- ${x.option || x.activity}${x.option ? ` (${x.activity})` : ""} · ${when}${x.people ? ` · ${x.people} people` : ""}${x.notes ? ` · ${x.notes}` : ""}`);
+        ? t("any day", "cualquier día")
+        : x.slots.filter((sl) => sl.date).map((sl) => `${d(sl.date)}${sl.time ? ` ${sl.time}` : ""}`).join(t(" or ", " o ")) ||
+          t("dates to confirm", "fechas por confirmar");
+      L.push(`- ${x.option || x.activity}${x.option ? ` (${x.activity})` : ""} · ${when}${x.people ? ` · ${x.people} ${t("people", "personas")}` : ""}${x.notes ? ` · ${x.notes}` : ""}`);
     });
   }
-  if (a.notes.trim()) L.push("", "OTHER NOTES", a.notes.trim());
-  L.push("", `Confirmed by: ${a.confirmName}`);
+  if (a.notes.trim()) L.push("", t("OTHER NOTES", "OTRAS NOTAS"), a.notes.trim());
+  L.push("", `${t("Confirmed by", "Confirmado por")}: ${a.confirmName}`);
   return L.join("\n");
 }
 
