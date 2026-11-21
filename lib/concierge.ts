@@ -125,15 +125,21 @@ export async function saveRecipeReview(p: RecipeReviewPayload) {
 }
 
 // ─── Email when a guest sends the arrival form ──────────────────────────────
+
+export const arrivalLink = (r: Reservation, lang: "en" | "es") =>
+  `https://www.beyondtravelingmx.com${lang === "es" ? "/es" : ""}/arrival/${r.code}`;
 // The Concierge Master Sheet's Apps Script (deployed as a web app) emails the
 // full details to concierge@ and a copy to the guest, and marks the booking.
 // Set in Vercel: ARRIVAL_NOTIFY_URL (the web app URL) and ARRIVAL_NOTIFY_SECRET.
 
-export async function notifyArrival(r: Reservation, summary: string, guestSummary: string, lang: "en" | "es") {
+export async function notifyArrival(
+  r: Reservation,
+  m: { summary: string; guestSummary: string; conciergeHtml: string; guestHtml: string },
+  lang: "en" | "es"
+) {
   const url = process.env.ARRIVAL_NOTIFY_URL;
   const secret = process.env.ARRIVAL_NOTIFY_SECRET;
   if (!url || !secret) return;
-  const site = "https://www.beyondtravelingmx.com";
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 15000);
   try {
@@ -149,9 +155,11 @@ export async function notifyArrival(r: Reservation, summary: string, guestSummar
         checkIn: r.checkIn,
         checkOut: r.checkOut,
         lang,
-        summary, // English, for the concierge
-        guestSummary, // in the guest's language, for their copy
-        link: `${site}${lang === "es" ? "/es" : ""}/arrival/${r.code}`,
+        summary: m.summary, // plain text, English (concierge)
+        guestSummary: m.guestSummary, // plain text, guest's language
+        conciergeHtml: m.conciergeHtml, // designed email for the concierge
+        guestHtml: m.guestHtml, // designed email for the guest
+        link: arrivalLink(r, lang),
       }),
       signal: ctrl.signal,
       cache: "no-store",

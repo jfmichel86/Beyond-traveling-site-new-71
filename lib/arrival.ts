@@ -61,6 +61,12 @@ export const INFO_ONLY_ACTIVITIES = new Set<string>([
   "party-beach-clubs",
   "other-beach-clubs",
   "punta-mita-seasonal-events-holidays",
+  "signature-dinner-shows",
+  "curated-nights-out",
+  "sayulita-san-pancho-half-day-experiences",
+  "la-cruz-bucerias-specialty-outings",
+  // restaurants: booked with "Dinner reservation" (Reservations tab), naming the restaurant
+  "punta-mita-fine-dining-oceanfront-restaurants",
 ]);
 
 /** Discover entries that aren't activities at all (a service level), left out of the form entirely. */
@@ -113,6 +119,8 @@ export type ArrivalAnswers = {
   main: { name: string; email: string; phone: string; address: string };
   people: Person[];
   transport: "" | "yes" | "no";
+  /** With transport "no": arriving by plane on their own, or driving to Punta Mita. */
+  ownMode: "" | "flight" | "car";
   arrivals: Flight[];
   departures: Flight[];
   ownArrival: OwnFlight;
@@ -243,6 +251,23 @@ export function villaArrivalWindow(landing: string) {
   return { eta: fmtTime(eta), from: fmtTime(eta - 30), to: fmtTime(eta + 30) };
 }
 
+/** Arriving by car: the concierge waits 30 minutes before and after their estimated time. */
+export function carArrivalWindow(time: string) {
+  const t = parseTime(time);
+  if (t === null) return null;
+  return { eta: fmtTime(t), from: fmtTime(t - 30), to: fmtTime(t + 30) };
+}
+
+/** Every property includes one 6-passenger golf cart in the rent. */
+export const INCLUDED_CART_SEATS = 6;
+
+/** Suggested extra cart(s) for the group size: 8–10 people → one 4-passenger; 11+ → 6-passenger(s). */
+export function cartSuggestion(total: number): { size: CartSize; qty: number } | null {
+  if (total >= 11) return { size: "6", qty: Math.ceil((total - INCLUDED_CART_SEATS) / 6) };
+  if (total >= 8) return { size: "4", qty: 1 };
+  return null;
+}
+
 /** All dates from a to b, inclusive (YYYY-MM-DD). */
 export function datesBetween(a: string, b: string): string[] {
   if (!a || !b) return [];
@@ -286,6 +311,7 @@ export function blankAnswers(r: Reservation): ArrivalAnswers {
       age: "",
     })),
     transport: "",
+    ownMode: "",
     arrivals: [],
     departures: [],
     ownArrival: { airline: "", flight: "", date: r.checkIn, time: "", intl: true },
@@ -310,119 +336,163 @@ export function blankAnswers(r: Reservation): ArrivalAnswers {
 }
 
 /** Plain-text summary for the concierge (Sanity) and the guest's review step. */
-/**
- * Plain-text summary of the guest's answers. English for the concierge (Sanity,
- * concierge email); the guest's own language on the review screen and in their copy.
- */
-export function summarize(r: Reservation, a: ArrivalAnswers, lang: "en" | "es" = "en"): string {
+/** Quick reservations (not Discover activities): key stored in the answers → label. */
+export const RESERVATION_LABELS: Record<string, { en: string; es: string }> = {
+  "Dinner reservation": { en: "Dinner reservation", es: "Reservación para cenar" },
+  "Tee time": { en: "Tee time", es: "Horario de golf" },
+  "Tennis / padel / pickleball court": { en: "Tennis / padel / pickleball court", es: "Cancha de tenis / pádel / pickleball" },
+};
+
+export type ItinerarySection = { title: string; note?: string; items: string[] };
+export type Itinerary = {
+  lang: "en" | "es";
+  guest: { label: string; value: string }[];
+  stay: { villa: string; dates: string };
+  sections: ItinerarySection[];
+  confirmedBy: { label: string; value: string };
+};
+
+/** The guest's answers organized in sections, in English (concierge) or the guest's language. */
+export function itinerary(r: Reservation, a: ArrivalAnswers, lang: "en" | "es" = "en"): Itinerary {
   const es = lang === "es";
   const t = (en: string, esText: string) => (es ? esText : en);
   const d = (iso: string, withYear = false) => fmtDate(iso, es, withYear);
   const n = (k: number, one: string, many: string) => `${k} ${k === 1 ? one : many}`;
-  const L: string[] = [];
-  const c = groupCounts(a.people);
-  L.push(`${t("MAIN GUEST", "HUÉSPED PRINCIPAL")}: ${a.main.name}`);
-  if (a.main.phone) L.push(`${t("Phone", "Teléfono")}: ${a.main.phone}`);
-  if (a.main.email) L.push(`${t("Email", "Correo")}: ${a.main.email}`);
-  if (a.main.address) L.push(`${t("Address", "Dirección")}: ${a.main.address}`);
-  L.push(`${r.villa} · ${d(r.checkIn, true)} → ${d(r.checkOut, true)}`);
-  L.push(
-    "",
-    es
-      ? `GRUPO (${n(c.adults, "adulto mayor de 13", "adultos mayores de 13")}, ${n(c.children, "niño de 5 a 13", "niños de 5 a 13")}, ${n(c.under5, "menor de 5", "menores de 5")})`
-      : `GROUP (${n(c.adults, "adult", "adults")} over 13, ${n(c.children, "child", "children")} 5–13, ${c.under5} under 5)`
-  );
-  a.people.filter((p) => p.name.trim()).forEach((p, i) => L.push(`${i + 1}. ${p.name}${p.age ? ` (${p.age})` : ""}`));
-  L.push(`${t("Access cards (estimate)", "Tarjetas de acceso (estimado)")}: USD ${accessFeeUsd(a.people).toFixed(2)}`);
+  const sections: ItinerarySection[] = [];
+  const add = (title: string, items: string[], note?: string) => {
+    if (items.length) sections.push({ title, items, ...(note ? { note } : {}) });
+  };
 
+  const guest = [
+    { label: t("Main guest", "Huésped principal"), value: a.main.name },
+    { label: t("Phone", "Teléfono"), value: a.main.phone },
+    { label: t("Email", "Correo"), value: a.main.email },
+    { label: t("Address", "Dirección"), value: a.main.address },
+  ].filter((x) => x.value.trim());
+
+  // Group
+  const c = groupCounts(a.people);
+  add(
+    t("Group", "Grupo"),
+    [
+      ...a.people.filter((p) => p.name.trim()).map((p, i) => `${i + 1}. ${p.name}${p.age ? ` (${p.age})` : ""}`),
+      `${t("Access cards (estimate)", "Tarjetas de acceso (estimado)")}: USD ${accessFeeUsd(a.people).toFixed(2)}`,
+    ],
+    es
+      ? `${n(c.adults, "adulto mayor de 13", "adultos mayores de 13")}, ${n(c.children, "niño de 5 a 13", "niños de 5 a 13")}, ${n(c.under5, "menor de 5", "menores de 5")}`
+      : `${n(c.adults, "adult", "adults")} over 13, ${n(c.children, "child", "children")} 5–13, ${c.under5} under 5`
+  );
+
+  // Transfers / arrival
   const kind = (intl: boolean) => (intl ? t("international", "internacional") : t("domestic", "nacional"));
-  const flights = (title: string, list: Flight[], departure: boolean) => {
-    if (!list.length) return;
-    L.push("", title);
-    for (const f of list) {
+  const flightLines = (list: Flight[], departure: boolean) =>
+    list.map((f) => {
       const extras = [
         f.carSeats ? `${f.carSeats} ${t("car seat(s)", "silla(s) para auto")}` : "",
         f.boosters ? `${f.boosters} ${t("booster(s)", "booster(s)")}` : "",
       ].filter(Boolean).join(", ");
       const pickup = pickupFor(f.time, f.intl);
-      L.push(
-        `- ${d(f.date)} · ${f.party} · ${f.airline} ${f.flight} ${t("at", "a las")} ${f.time} · ${f.people} ${t("people", "personas")} · ${vehicleName(f.vehicle)}` +
-          (departure ? ` · ${kind(f.intl)}${pickup ? ` · ${t("pickup", "recogida")} ${pickup}` : ""}` : "") +
-          (extras ? ` · ${extras}` : "")
+      return (
+        `${d(f.date)} · ${f.party} · ${f.airline} ${f.flight} ${t("at", "a las")} ${f.time} · ${f.people} ${t("people", "personas")} · ${vehicleName(f.vehicle)}` +
+        (departure ? ` · ${kind(f.intl)}${pickup ? ` · ${t("pickup", "recogida")} ${pickup}` : ""}` : "") +
+        (extras ? ` · ${extras}` : "")
       );
-    }
-  };
-  if (a.transport === "no") {
-    L.push("", t("TRANSFERS: not needed (own transportation)", "TRASLADOS: no se necesitan (transporte propio)"));
-    const o = a.ownArrival, dep = a.ownDeparture;
-    const w = villaArrivalWindow(o.time);
-    if (o.flight || o.time)
-      L.push(
-        `- ${t("Arrival flight", "Vuelo de llegada")}: ${d(o.date)} · ${o.airline} ${o.flight} ${t("lands", "aterriza")} ${o.time}` +
-          (w ? ` · ${t("expected at the villa", "llegada estimada a la villa")} ~${w.eta} (${t("concierge waits", "el concierge espera de")} ${w.from}–${w.to})` : "")
-      );
-    if (dep.flight || dep.time) L.push(`- ${t("Departure flight", "Vuelo de salida")}: ${d(dep.date)} · ${dep.airline} ${dep.flight} ${t("at", "a las")} ${dep.time} (${kind(dep.intl)})`);
-  }
+    });
   if (a.transport === "yes") {
-    flights(t("ARRIVALS", "LLEGADAS"), a.arrivals, false);
-    flights(t("DEPARTURES", "SALIDAS"), a.departures, true);
+    add(t("Airport transfers · arrivals", "Traslados · llegadas"), flightLines(a.arrivals, false));
+    add(t("Airport transfers · departures", "Traslados · salidas"), flightLines(a.departures, true));
   }
-
+  if (a.transport === "no") {
+    const o = a.ownArrival, dep = a.ownDeparture;
+    const items: string[] = [];
+    if (a.ownMode === "car") {
+      const w = carArrivalWindow(o.time);
+      if (o.time) items.push(`${t("Arriving by car", "Llegada en auto")}: ${d(o.date)} ~${o.time}` + (w ? ` (${t("concierge waits", "el concierge espera de")} ${w.from}–${w.to})` : ""));
+      if (dep.time) items.push(`${t("Leaving the villa", "Salida de la villa")}: ${d(dep.date)} ${dep.time}`);
+      add(t("Arrival · no transfers (by car)", "Llegada · sin traslados (en auto)"), items.length ? items : ["—"]);
+    } else {
+      const w = villaArrivalWindow(o.time);
+      if (o.flight || o.time)
+        items.push(
+          `${t("Arrival flight", "Vuelo de llegada")}: ${d(o.date)} · ${o.airline} ${o.flight} ${t("lands", "aterriza")} ${o.time}` +
+            (w ? ` · ${t("expected at the villa", "llegada estimada a la villa")} ~${w.eta} (${t("concierge waits", "el concierge espera de")} ${w.from}–${w.to})` : "")
+        );
+      if (dep.flight || dep.time) items.push(`${t("Departure flight", "Vuelo de salida")}: ${d(dep.date)} · ${dep.airline} ${dep.flight} ${t("at", "a las")} ${dep.time} (${kind(dep.intl)})`);
+      add(t("Arrival · no transfers (own transportation)", "Llegada · sin traslados (transporte propio)"), items.length ? items : ["—"]);
+    }
+  }
   if (a.lateCheckout?.want)
-    L.push("", t(`LATE CHECK-OUT REQUESTED: until ${a.lateCheckout.time} (to be confirmed)`, `SALIDA TARDE SOLICITADA: hasta las ${a.lateCheckout.time} (por confirmar)`));
-  L.push(
-    "",
-    `${t("GROCERY PRE-STOCKING", "DESPENSA ANTES DE LLEGAR")}: ${
-      a.grocery === "yes" ? t("YES – send the grocery link", "SÍ – enviar el enlace de despensa") : a.grocery === "no" ? "No" : "—"
-    }`
+    add(t("Late check-out", "Salida tardía"), [t(`Requested until ${a.lateCheckout.time} (to be confirmed)`, `Solicitada hasta las ${a.lateCheckout.time} (por confirmar)`)]);
+
+  // Food
+  add(t("Grocery pre-stocking", "Despensa antes de llegar"), [
+    a.grocery === "yes" ? t("Yes – send the grocery link", "Sí – enviar el enlace de despensa") : a.grocery === "no" ? "No" : "—",
+  ]);
+  add(
+    t("Allergies & diet", "Alergias y dieta"),
+    a.diet.map((x) => `${x.who || "?"}: ${[...x.tags.map((tg) => { const k = DIET_TAGS.find((y) => y.key === tg); return k ? (es ? k.es : k.en) : tg; }), x.notes].filter(Boolean).join(", ")}`)
   );
-  if (a.diet.length) {
-    L.push("", t("ALLERGIES & DIET", "ALERGIAS Y DIETA"));
-    a.diet.forEach((x) =>
-      L.push(`- ${x.who || "?"}: ${[...x.tags.map((tg) => { const k = DIET_TAGS.find((y) => y.key === tg); return k ? (es ? k.es : k.en) : tg; }), x.notes].filter(Boolean).join(", ")}`)
-    );
-  }
   const mealLines: string[] = [];
   for (const m of a.meals) {
     const parts: string[] = [];
     if (m.breakfast.on)
-      parts.push(
-        `${t("Breakfast", "Desayuno")} ${m.breakfast.time}${m.breakfast.savory ? ` – ${t("savory", "salado")}: ${m.breakfast.savory}` : ""}${m.breakfast.sweet ? ` – ${t("sweet", "dulce")}: ${m.breakfast.sweet}` : ""}`
-      );
+      parts.push(`${t("Breakfast", "Desayuno")} ${m.breakfast.time}${m.breakfast.savory ? ` – ${t("savory", "salado")}: ${m.breakfast.savory}` : ""}${m.breakfast.sweet ? ` – ${t("sweet", "dulce")}: ${m.breakfast.sweet}` : ""}`);
     if (m.lunch.on) parts.push(`${t("Lunch", "Comida")} ${m.lunch.time}${m.lunch.dishes.length ? ` – ${m.lunch.dishes.join(", ")}` : ""}`);
     if (m.dinner.on) parts.push(`${t("Dinner", "Cena")} ${m.dinner.time}${m.dinner.dishes.length ? ` – ${m.dinner.dishes.join(", ")}` : ""}`);
     if (parts.length) mealLines.push(`${d(m.date)}: ${parts.join(" | ")}`);
   }
-  if (mealLines.length) L.push("", t("MEALS", "COMIDAS"), ...mealLines);
+  add(t("Meals", "Comidas"), mealLines);
 
-  if (a.carts.length) {
-    L.push("", t("GOLF CARTS", "CARRITOS DE GOLF"));
-    a.carts.forEach((g) => L.push(`- ${g.qty} × ${g.size} ${t("passengers", "pasajeros")} · ${d(g.from)} → ${d(g.to)}`));
-  }
-  if (a.celebrations.length) {
-    L.push("", t("CELEBRATIONS", "CELEBRACIONES"));
-    a.celebrations.forEach((x) =>
-      L.push(
-        `- ${d(x.date)} · ${x.occasion}${
-          x.prepare.length
-            ? ` · ${t("prepare", "preparar")}: ${x.prepare.map((p) => { const k = CELEBRATION_EXTRAS.find((e) => e.key === p); return k ? (es ? k.es : k.en) : p; }).join(", ")}`
-            : ""
+  // Extras
+  add(
+    t("Extra golf carts", "Carritos de golf adicionales"),
+    a.carts.map((g) => `${g.qty} × ${g.size} ${t("passengers", "pasajeros")} · ${d(g.from)} → ${d(g.to)}`),
+    t("one 6-passenger cart is included", "incluye un carrito de 6 pasajeros")
+  );
+  add(
+    t("Celebrations", "Celebraciones"),
+    a.celebrations.map(
+      (x) =>
+        `${d(x.date)} · ${x.occasion}${
+          x.prepare.length ? ` · ${t("prepare", "preparar")}: ${x.prepare.map((p) => { const k = CELEBRATION_EXTRAS.find((e) => e.key === p); return k ? (es ? k.es : k.en) : p; }).join(", ")}` : ""
         }${x.notes ? ` · ${x.notes}` : ""}`
-      )
-    );
-  }
-  if (a.activities.length) {
-    L.push("", t("ACTIVITIES & RESERVATIONS", "ACTIVIDADES Y RESERVACIONES"));
-    a.activities.forEach((x) => {
+    )
+  );
+  add(
+    t("Activities & reservations", "Actividades y reservaciones"),
+    a.activities.map((x) => {
       const when = x.flexible
         ? t("any day", "cualquier día")
-        : x.slots.filter((sl) => sl.date).map((sl) => `${d(sl.date)}${sl.time ? ` ${sl.time}` : ""}`).join(t(" or ", " o ")) ||
-          t("dates to confirm", "fechas por confirmar");
-      L.push(`- ${x.option || x.activity}${x.option ? ` (${x.activity})` : ""} · ${when}${x.people ? ` · ${x.people} ${t("people", "personas")}` : ""}${x.notes ? ` · ${x.notes}` : ""}`);
-    });
+        : x.slots.filter((sl) => sl.date).map((sl) => `${d(sl.date)}${sl.time ? ` ${sl.time}` : ""}`).join(t(" or ", " o ")) || t("dates to confirm", "fechas por confirmar");
+      const act = RESERVATION_LABELS[x.activity] ? (es ? RESERVATION_LABELS[x.activity].es : RESERVATION_LABELS[x.activity].en) : x.activity;
+      return `${x.option || act}${x.option ? ` (${act})` : ""} · ${when}${x.people ? ` · ${x.people} ${t("people", "personas")}` : ""}${x.notes ? ` · ${x.notes}` : ""}`;
+    })
+  );
+  if (a.notes.trim()) add(t("Other notes", "Otras notas"), [a.notes.trim()]);
+
+  return {
+    lang,
+    guest,
+    stay: { villa: r.villa, dates: `${d(r.checkIn, true)} → ${d(r.checkOut, true)}` },
+    sections,
+    confirmedBy: { label: t("Confirmed by", "Confirmado por"), value: a.confirmName },
+  };
+}
+
+/**
+ * Plain-text summary of the guest's answers. English for the concierge (Sanity);
+ * the guest's own language on the review screen.
+ */
+export function summarize(r: Reservation, a: ArrivalAnswers, lang: "en" | "es" = "en"): string {
+  const it = itinerary(r, a, lang);
+  const L: string[] = [];
+  it.guest.forEach((g, i) => L.push(i === 0 ? `${g.label.toUpperCase()}: ${g.value}` : `${g.label}: ${g.value}`));
+  L.push(`${it.stay.villa} · ${it.stay.dates}`);
+  for (const sec of it.sections) {
+    L.push("", `${sec.title.toUpperCase()}${sec.note ? ` (${sec.note})` : ""}`);
+    sec.items.forEach((x) => L.push(/^\d+\. /.test(x) ? x : `- ${x}`));
   }
-  if (a.notes.trim()) L.push("", t("OTHER NOTES", "OTRAS NOTAS"), a.notes.trim());
-  L.push("", `${t("Confirmed by", "Confirmado por")}: ${a.confirmName}`);
+  L.push("", `${it.confirmedBy.label}: ${it.confirmedBy.value}`);
   return L.join("\n");
 }
 
