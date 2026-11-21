@@ -123,3 +123,42 @@ export async function saveRecipeReview(p: RecipeReviewPayload) {
   );
   if (!res.ok) throw new Error(`Recipe review save failed: ${res.status} ${await res.text()}`);
 }
+
+// ─── Email when a guest sends the arrival form ──────────────────────────────
+// The Concierge Master Sheet's Apps Script (deployed as a web app) emails the
+// full details to concierge@ and a copy to the guest, and marks the booking.
+// Set in Vercel: ARRIVAL_NOTIFY_URL (the web app URL) and ARRIVAL_NOTIFY_SECRET.
+
+export async function notifyArrival(r: Reservation, summary: string, lang: "en" | "es") {
+  const url = process.env.ARRIVAL_NOTIFY_URL;
+  const secret = process.env.ARRIVAL_NOTIFY_SECRET;
+  if (!url || !secret) return;
+  const site = "https://www.beyondtravelingmx.com";
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 15000);
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        secret,
+        bookingId: r.id.startsWith("booking-") ? r.id.slice("booking-".length) : "",
+        guestName: r.guestName,
+        email: r.email || "",
+        villa: r.villa,
+        checkIn: r.checkIn,
+        checkOut: r.checkOut,
+        lang,
+        summary,
+        link: `${site}${lang === "es" ? "/es" : ""}/arrival/${r.code}`,
+      }),
+      signal: ctrl.signal,
+      cache: "no-store",
+    });
+    if (!res.ok) console.error("Arrival email failed:", res.status);
+  } catch (err) {
+    console.error("Arrival email failed:", err);
+  } finally {
+    clearTimeout(timer);
+  }
+}

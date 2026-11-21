@@ -41,6 +41,31 @@ export type CartSize = "4" | "6";
 
 export const VAT_PCT = 16;
 
+/** Golf-cart seasons by arrival date: high Nov 1 – Apr 30, low May 1 – Oct 31. */
+export const SEASON_LABEL = {
+  high: { en: "high season (Nov 1 – Apr 30)", es: "temporada alta (1 nov – 30 abr)" },
+  low: { en: "low season (May 1 – Oct 31)", es: "temporada baja (1 may – 31 oct)" },
+} as const;
+
+/** Earliest breakfast the cook can serve. */
+export const BREAKFAST_EARLIEST = "8:45 am";
+
+/**
+ * Discover Punta Mita activities that are only ideas of what to do — guests go on
+ * their own and don't book them through us (no third-party supplier). They're left
+ * out of the arrival form's activity requests and listed as "no booking needed".
+ * Use the activity's slug from lib/discoverPuntaMita.ts.
+ */
+export const INFO_ONLY_ACTIVITIES = new Set<string>([
+  "punta-mita-beach-clubs",
+  "party-beach-clubs",
+  "other-beach-clubs",
+  "punta-mita-seasonal-events-holidays",
+]);
+
+/** Discover entries that aren't activities at all (a service level), left out of the form entirely. */
+export const HIDDEN_ACTIVITIES = new Set<string>(["full-stay-concierge-vip-hosting"]);
+
 // ── What the guest fills in ──────────────────────────────────────────────
 
 export type Person = { name: string; age: string };
