@@ -35,7 +35,8 @@ export async function POST(req: Request, { params }: { params: { code: string } 
     const summary = summarize(reservation, answers);
     await saveAnswers(reservation.id, answers, summary);
     // Email the concierge and the guest (never blocks the guest's confirmation)
-    await notifyArrival(reservation, summary, lang).catch(() => undefined);
+    const guestSummary = lang === "es" ? summarize(reservation, answers, "es") : summary;
+    await notifyArrival(reservation, summary, guestSummary, lang).catch(() => undefined);
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error(err);
