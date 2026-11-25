@@ -152,6 +152,9 @@ export type Reservation = {
   children?: number | null;
   answers?: ArrivalAnswers | null;
   submittedAt?: string | null;
+  /** The guest's unsent progress, saved on the server at each step. */
+  draft?: { answers: ArrivalAnswers; step: number; updatedAt: string } | null;
+  language?: string | null;
 };
 
 export const DIET_TAGS = [

@@ -163,7 +163,7 @@ export const importantServiceDetails = [
   "Breakfast preparation is included with your rental.",
   "The cost of groceries, food, beverages, and ingredients is not included.",
   "All groceries required to prepare your selected meals will be charged separately at the end of your stay.",
-  "A 15% shopping fee applies to the total grocery receipts.",
+  "A grocery shopping fee applies: MXN 1,200 + 15% of the receipts for villas, or MXN 2,500 + 20% for estates and larger homes.",
   "Lunch and dinner preparation may be arranged upon request for an additional service cost.",
   "Menus can be customized with advance notice.",
   "Leftover groceries remain at the villa and are not deducted from the final grocery bill.",

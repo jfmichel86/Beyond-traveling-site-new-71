@@ -1942,8 +1942,8 @@ const es: Record<string, string> = {
     "El costo de alimentos, bebidas, compras e ingredientes no está incluido.",
   "All groceries required to prepare your selected meals will be charged separately at the end of your stay.":
     "Todos los alimentos necesarios para preparar los platillos seleccionados se cobrarán por separado al final de tu estancia.",
-  "A 15% shopping fee applies to the total grocery receipts.":
-    "Se aplica un cargo de compras del 15% sobre el total de los recibos de supermercado.",
+  "A grocery shopping fee applies: MXN 1,200 + 15% of the receipts for villas, or MXN 2,500 + 20% for estates and larger homes.":
+    "Se aplica una tarifa de compras: MXN 1,200 + 15% de los tickets en villas, o MXN 2,500 + 20% en estates y casas más grandes.",
   "Lunch and dinner preparation may be arranged upon request for an additional service cost.":
     "La preparación de lunch y cena puede organizarse bajo solicitud con un costo adicional de servicio.",
   "Menus can be customized with advance notice.":

@@ -19,7 +19,7 @@ export default function FloatingWhatsApp() {
 
   if (/^\/properties\/[^/]+/.test(path)) return null;
   // The grocery page has its own "Send by WhatsApp" list panel in that corner
-  if (path === "/groceries" || path.startsWith("/cocina")) return null;
+  if (path === "/groceries" || path.startsWith("/cocina") || path.startsWith("/arrival")) return null;
 
   const audience: WaAudience = GUEST_AREAS.some((p) => path === p || path.startsWith(`${p}/`))
     ? "guest"

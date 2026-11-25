@@ -13,10 +13,51 @@ type PanelOpen = 'dates' | 'guests' | null
 function fmt(y: number, m: number, d: number) {
   return `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`
 }
-function fmtShort(ds: string, locale = 'en-US') {
-  const [y, m, d] = ds.split('-').map(Number)
-  return new Date(y, m - 1, d).toLocaleDateString(locale, { month: 'short', day: 'numeric' })
+const ordinal = (n: number) => {
+  const r = n % 100
+  if (r >= 11 && r <= 13) return `${n}th`
+  return `${n}${({ 1: 'st', 2: 'nd', 3: 'rd' } as Record<number, string>)[n % 10] || 'th'}`
 }
+const parts = (ds: string) => {
+  const [y, m, d] = ds.split('-').map(Number)
+  return { y, m, d, date: new Date(y, m - 1, d) }
+}
+const monthName = (date: Date, locale: string, style: 'long' | 'short') =>
+  date.toLocaleDateString(locale, { month: style })
+
+/** One date for the field, e.g. "July 4th" / "4 de julio". */
+function fmtDay(ds: string, es: boolean) {
+  const { d, date } = parts(ds)
+  const locale = es ? 'es-MX' : 'en-US'
+  return es ? `${d} de ${monthName(date, locale, 'long')}` : `${monthName(date, locale, 'long')} ${ordinal(d)}`
+}
+
+/** The chosen range, always with the year: "July 4th – 9th, 2026". Long month
+ *  names are kept when both dates share a month; otherwise months are
+ *  abbreviated so the label still fits the field. */
+function fmtRange(inDs: string, outDs: string, es: boolean) {
+  const a = parts(inDs)
+  const b = parts(outDs)
+  const locale = es ? 'es-MX' : 'en-US'
+  const sameYear = a.y === b.y
+  const sameMonth = sameYear && a.m === b.m
+  if (sameMonth) {
+    return es
+      ? `${a.d} – ${b.d} de ${monthName(a.date, locale, 'long')} de ${a.y}`
+      : `${monthName(a.date, locale, 'long')} ${ordinal(a.d)} – ${ordinal(b.d)}, ${a.y}`
+  }
+  const ma = monthName(a.date, locale, 'short').replace('.', '')
+  const mb = monthName(b.date, locale, 'short').replace('.', '')
+  if (sameYear) {
+    return es
+      ? `${a.d} ${ma} – ${b.d} ${mb} ${a.y}`
+      : `${ma} ${ordinal(a.d)} – ${mb} ${ordinal(b.d)}, ${a.y}`
+  }
+  return es
+    ? `${a.d} ${ma} ${a.y} – ${b.d} ${mb} ${b.y}`
+    : `${ma} ${a.d}, ${a.y} – ${mb} ${b.d}, ${b.y}`
+}
+
 function fmtLong(ds: string, locale = 'en-US') {
   const [y, m, d] = ds.split('-').map(Number)
   return new Date(y, m - 1, d).toLocaleDateString(locale, { month: 'long', day: 'numeric', year: 'numeric' })
@@ -114,8 +155,8 @@ export default function Sidebar({
   }
 
   const datesLabel = () => {
-    if (checkIn && checkOut) return `${fmtShort(checkIn, locale)} – ${fmtShort(checkOut, locale)}`
-    if (checkIn) return `${fmtShort(checkIn, locale)} → ${es ? 'elige la salida' : 'select check-out'}`
+    if (checkIn && checkOut) return fmtRange(checkIn, checkOut, es)
+    if (checkIn) return `${fmtDay(checkIn, es)} → ${es ? 'elige la salida' : 'select check-out'}`
     return ''
   }
 
@@ -261,8 +302,9 @@ export default function Sidebar({
 
           {nights > 0 && (
             <div className="iq-nights-est" style={{ display: 'block' }}>
-              {es ? `${nights} noche${nights !== 1 ? 's' : ''}` : `${nights} night${nights !== 1 ? 's' : ''}`}
-              {minRate ? ` · ${es ? 'aprox.' : 'est.'} ${formatPrice(nights * minRate)}` : ''}
+              {/* No dollar total on purpose: rates change by season and the seasons
+                  carry no date ranges in Sanity, so any number here could be wrong. */}
+              {`${es ? `${nights} noche${nights !== 1 ? 's' : ''}` : `${nights} night${nights !== 1 ? 's' : ''}`} · ${es ? 'te enviaremos tu tarifa exacta' : 'we’ll send your exact rate'}`}
             </div>
           )}
 

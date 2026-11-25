@@ -9,6 +9,7 @@
 
 import { SANITY_PROJECT_ID } from "@/lib/sanity";
 import type { ArrivalAnswers, Reservation } from "@/lib/arrival";
+import type { ConciergeService } from "@/lib/conciergeServices";
 
 const DATASET = process.env.SANITY_CONCIERGE_DATASET || "concierge";
 const API = "2024-01-01";
@@ -18,63 +19,148 @@ export const conciergeReady = () => !!token();
 
 export const isValidCode = (code: string) => /^[a-z0-9]{6,24}$/i.test(code);
 
-type RawReservation = Omit<Reservation, "answers"> & { answersJson?: string | null };
+// ─── Low-level Sanity calls ──────────────────────────────────────────────────
 
-export async function getReservation(code: string): Promise<Reservation | null> {
-  if (!conciergeReady() || !isValidCode(code)) return null;
+async function query<T>(groq: string, params: Record<string, unknown> = {}): Promise<T> {
   const url = new URL(`https://${SANITY_PROJECT_ID}.api.sanity.io/v${API}/data/query/${DATASET}`);
-  url.searchParams.set(
-    "query",
-    `*[_type == "reservation" && code == $code && !(_id in path("drafts.**"))][0]{
-      "id": _id, code, guestName, email, phone, villa,
-      "propertyType": coalesce(propertyType, "villa"), checkIn, checkOut, adults, children, answersJson, submittedAt
-    }`
-  );
-  url.searchParams.set("$code", JSON.stringify(code));
-  const res = await fetch(url.toString(), {
-    headers: { Authorization: `Bearer ${token()}` },
-    cache: "no-store",
-  });
+  url.searchParams.set("query", groq);
+  for (const [k, v] of Object.entries(params)) url.searchParams.set(`$${k}`, JSON.stringify(v));
+  const res = await fetch(url.toString(), { headers: { Authorization: `Bearer ${token()}` }, cache: "no-store" });
   if (!res.ok) throw new Error(`Concierge read failed: ${res.status}`);
-  const raw = ((await res.json()) as { result: RawReservation | null }).result;
-  if (!raw) return null;
-  let answers: ArrivalAnswers | null = null;
-  try {
-    answers = raw.answersJson ? (JSON.parse(raw.answersJson) as ArrivalAnswers) : null;
-  } catch {
-    answers = null;
-  }
-  const { answersJson: _drop, ...rest } = raw;
-  void _drop;
-  return { ...rest, answers };
+  return ((await res.json()) as { result: T }).result;
 }
 
-/** Save the guest's answers on their reservation. */
-export async function saveAnswers(id: string, answers: ArrivalAnswers, summary: string) {
-  const res = await fetch(
-    `https://${SANITY_PROJECT_ID}.api.sanity.io/v${API}/data/mutate/${DATASET}?returnIds=false`,
-    {
-      method: "POST",
-      headers: { Authorization: `Bearer ${token()}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        mutations: [
-          {
-            patch: {
-              id,
-              set: {
-                answersJson: JSON.stringify(answers),
-                summary,
-                submittedAt: new Date().toISOString(),
-                status: "received",
-              },
-            },
-          },
-        ],
-      }),
-      cache: "no-store",
-    }
-  );
+async function mutate(mutations: unknown[]) {
+  const res = await fetch(`https://${SANITY_PROJECT_ID}.api.sanity.io/v${API}/data/mutate/${DATASET}?returnIds=false`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token()}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ mutations }),
+    cache: "no-store",
+  });
   if (!res.ok) throw new Error(`Concierge save failed: ${res.status} ${await res.text()}`);
+}
+
+const parse = <T,>(json?: string | null): T | null => {
+  try {
+    return json ? (JSON.parse(json) as T) : null;
+  } catch {
+    return null;
+  }
+};
+
+// ─── The guest's arrival guide ──────────────────────────────────────────────
+
+const RESERVATION_FIELDS = `"id": _id, code, guestName, email, phone, villa,
+  "propertyType": coalesce(propertyType, "villa"), checkIn, checkOut, adults, children,
+  answersJson, submittedAt, draftJson, draftStep, draftUpdatedAt, language,
+  "services": coalesce(services, [])`;
+
+type RawReservation = Omit<Reservation, "answers" | "draft"> & {
+  answersJson?: string | null;
+  draftJson?: string | null;
+  draftStep?: number | null;
+  draftUpdatedAt?: string | null;
+  language?: string | null;
+  services?: ConciergeService[];
+};
+
+function toReservation(raw: RawReservation): Reservation & { services: ConciergeService[] } {
+  const { answersJson, draftJson, draftStep, draftUpdatedAt, ...rest } = raw;
+  const draftAnswers = parse<ArrivalAnswers>(draftJson);
+  return {
+    ...rest,
+    services: raw.services || [],
+    answers: parse<ArrivalAnswers>(answersJson),
+    draft: draftAnswers ? { answers: draftAnswers, step: draftStep ?? 0, updatedAt: draftUpdatedAt || "" } : null,
+  };
+}
+
+export async function getReservation(code: string) {
+  if (!conciergeReady() || !isValidCode(code)) return null;
+  const raw = await query<RawReservation | null>(
+    `*[_type == "reservation" && code == $code && !(_id in path("drafts.**"))][0]{ ${RESERVATION_FIELDS} }`,
+    { code }
+  );
+  return raw ? toReservation(raw) : null;
+}
+
+/** Save the guest's answers on their reservation, and refresh the concierge's service list. */
+export async function saveAnswers(id: string, answers: ArrivalAnswers, summary: string, services?: ConciergeService[]) {
+  await mutate([
+    {
+      patch: {
+        id,
+        set: {
+          answersJson: JSON.stringify(answers),
+          summary,
+          submittedAt: new Date().toISOString(),
+          status: "received",
+          ...(services ? { services } : {}),
+        },
+      },
+    },
+  ]);
+}
+
+/** The guest's progress while filling in the guide (so it follows them to another device, and for reminders). */
+export async function saveDraft(id: string, answers: ArrivalAnswers, step: number, lang: "en" | "es") {
+  await mutate([
+    { patch: { id, set: { draftJson: JSON.stringify(answers), draftStep: step, draftUpdatedAt: new Date().toISOString(), draftLang: lang } } },
+  ]);
+}
+
+// ─── Concierge panel ────────────────────────────────────────────────────────
+
+export type Reminder = { _key: string; at: string; kind: string; by: string };
+
+export type PanelReservation = Reservation & {
+  services: ConciergeService[];
+  generalNotes: string;
+  addVat: boolean;
+  reminders: Reminder[];
+  summary: string;
+  draftLang: "en" | "es" | "";
+  createdAt: string;
+};
+
+const PANEL_FIELDS = `${RESERVATION_FIELDS}, summary, generalNotes, draftLang,
+  "addVat": coalesce(addVat, true), "reminders": coalesce(reminders, []), "createdAt": _createdAt`;
+
+type RawPanel = RawReservation & { summary?: string; generalNotes?: string; addVat?: boolean; reminders?: Reminder[]; draftLang?: string; createdAt: string };
+
+function toPanel(raw: RawPanel): PanelReservation {
+  return {
+    ...toReservation(raw),
+    summary: raw.summary || "",
+    generalNotes: raw.generalNotes || "",
+    addVat: raw.addVat !== false,
+    reminders: raw.reminders || [],
+    draftLang: raw.draftLang === "es" ? "es" : raw.draftLang === "en" ? "en" : "",
+    createdAt: raw.createdAt,
+  };
+}
+
+export async function listReservations(): Promise<PanelReservation[]> {
+  const raw = await query<RawPanel[]>(
+    `*[_type == "reservation" && !(_id in path("drafts.**"))] | order(checkIn asc){ ${PANEL_FIELDS} }`
+  );
+  return raw.map(toPanel);
+}
+
+export async function getReservationById(id: string): Promise<PanelReservation | null> {
+  if (!/^[A-Za-z0-9._-]{1,128}$/.test(id) || id.startsWith("drafts.")) return null;
+  const raw = await query<RawPanel | null>(`*[_type == "reservation" && _id == $id][0]{ ${PANEL_FIELDS} }`, { id });
+  return raw ? toPanel(raw) : null;
+}
+
+/** The concierge's work on a reservation: services (status, cost, notes), general notes, VAT. */
+export async function saveConciergeData(id: string, data: { services: ConciergeService[]; generalNotes: string; addVat: boolean }) {
+  await mutate([{ patch: { id, set: { services: data.services, generalNotes: data.generalNotes, addVat: data.addVat } } }]);
+}
+
+export async function addReminder(id: string, kind: string, by: string) {
+  const item: Reminder = { _key: Math.random().toString(36).slice(2, 12), at: new Date().toISOString(), kind, by };
+  await mutate([{ patch: { id, setIfMissing: { reminders: [] }, insert: { after: "reminders[-1]", items: [item] } } }]);
 }
 
 // ─── Cooks' recipe reviews ───────────────────────────────────────────────────
@@ -134,7 +220,7 @@ export const arrivalLink = (r: Reservation, lang: "en" | "es") =>
 
 export async function notifyArrival(
   r: Reservation,
-  m: { summary: string; guestSummary: string; conciergeHtml: string; guestHtml: string },
+  m: { summary: string; guestSummary: string; conciergeHtml: string; guestHtml: string; conciergeSubject: string; guestSubject: string },
   lang: "en" | "es"
 ) {
   const url = process.env.ARRIVAL_NOTIFY_URL;
@@ -159,6 +245,8 @@ export async function notifyArrival(
         guestSummary: m.guestSummary, // plain text, guest's language
         conciergeHtml: m.conciergeHtml, // designed email for the concierge
         guestHtml: m.guestHtml, // designed email for the guest
+        conciergeSubject: m.conciergeSubject,
+        guestSubject: m.guestSubject,
         link: arrivalLink(r, lang),
       }),
       signal: ctrl.signal,
@@ -167,6 +255,28 @@ export async function notifyArrival(
     if (!res.ok) console.error("Arrival email failed:", res.status);
   } catch (err) {
     console.error("Arrival email failed:", err);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/** Send a ready-made email (e.g. a reminder) through the Concierge Master Sheet's web app. */
+export async function sendViaSheet(m: { email: string; subject: string; html: string; text: string; bookingId?: string }) {
+  const url = process.env.ARRIVAL_NOTIFY_URL;
+  const secret = process.env.ARRIVAL_NOTIFY_SECRET;
+  if (!url || !secret) throw new Error("Email is not set up (ARRIVAL_NOTIFY_URL / ARRIVAL_NOTIFY_SECRET).");
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 20000);
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ secret, action: "reminder", ...m }),
+      signal: ctrl.signal,
+      cache: "no-store",
+    });
+    const json = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+    if (!res.ok || json.ok === false) throw new Error(`Email failed: ${json.error || res.status}`);
   } finally {
     clearTimeout(timer);
   }
