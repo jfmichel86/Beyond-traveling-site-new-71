@@ -74,7 +74,7 @@ export async function getBookedRanges(icalUrl?: string | null): Promise<BookedRa
   try {
     const res = await fetch(icalUrl.replace(/^webcal:/i, 'https:'), {
       next: { revalidate: FEED_REVALIDATE_SECONDS },
-      signal: AbortSignal.timeout(7000),
+      signal: AbortSignal.timeout(4000),
       headers: {
         Accept: 'text/calendar, text/plain, */*',
         'Accept-Language': 'en-US,en;q=0.9',

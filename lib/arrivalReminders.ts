@@ -23,7 +23,7 @@ export const daysToArrival = (r: PanelReservation) =>
 export type DueReminder = { kind: "not-started" | "incomplete"; tag: string };
 
 export function dueReminder(r: PanelReservation, now = Date.now()): DueReminder | null {
-  if (r.submittedAt || !r.email || !/@/.test(r.email)) return null;
+  if (r.archived || r.submittedAt || !r.email || !/@/.test(r.email)) return null;
   const days = daysToArrival(r);
   if (days < 1) return null;
   const sent = new Set(r.reminders.map((x) => x.kind));

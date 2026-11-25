@@ -121,12 +121,17 @@ export type PanelReservation = Reservation & {
   summary: string;
   draftLang: "en" | "es" | "";
   createdAt: string;
+  /** Hidden from the panel's lists (test, cancelled…); no automatic reminders. */
+  archived: boolean;
+  archivedAt: string;
+  archivedBy: string;
 };
 
 const PANEL_FIELDS = `${RESERVATION_FIELDS}, summary, generalNotes, draftLang,
-  "addVat": coalesce(addVat, true), "reminders": coalesce(reminders, []), "createdAt": _createdAt`;
+  "addVat": coalesce(addVat, true), "reminders": coalesce(reminders, []), "createdAt": _createdAt,
+  "archived": coalesce(archived, false), archivedAt, archivedBy`;
 
-type RawPanel = RawReservation & { summary?: string; generalNotes?: string; addVat?: boolean; reminders?: Reminder[]; draftLang?: string; createdAt: string };
+type RawPanel = RawReservation & { summary?: string; generalNotes?: string; addVat?: boolean; reminders?: Reminder[]; draftLang?: string; createdAt: string; archived?: boolean; archivedAt?: string; archivedBy?: string };
 
 function toPanel(raw: RawPanel): PanelReservation {
   return {
@@ -137,6 +142,9 @@ function toPanel(raw: RawPanel): PanelReservation {
     reminders: raw.reminders || [],
     draftLang: raw.draftLang === "es" ? "es" : raw.draftLang === "en" ? "en" : "",
     createdAt: raw.createdAt,
+    archived: raw.archived === true,
+    archivedAt: raw.archivedAt || "",
+    archivedBy: raw.archivedBy || "",
   };
 }
 
@@ -156,6 +164,11 @@ export async function getReservationById(id: string): Promise<PanelReservation |
 /** The concierge's work on a reservation: services (status, cost, notes), general notes, VAT. */
 export async function saveConciergeData(id: string, data: { services: ConciergeService[]; generalNotes: string; addVat: boolean }) {
   await mutate([{ patch: { id, set: { services: data.services, generalNotes: data.generalNotes, addVat: data.addVat } } }]);
+}
+
+/** Archive (hide from the panel) or bring back a reservation. Nothing is deleted. */
+export async function setArchived(id: string, archived: boolean, by: string) {
+  await mutate([{ patch: { id, set: archived ? { archived: true, archivedAt: new Date().toISOString(), archivedBy: by } : { archived: false } } }]);
 }
 
 export async function addReminder(id: string, kind: string, by: string) {

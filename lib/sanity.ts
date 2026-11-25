@@ -98,8 +98,19 @@ export async function sanityFetch<T>(query: string, params: Record<string, strin
   url.searchParams.set("perspective", "published");
   for (const [k, v] of Object.entries(params)) url.searchParams.set(`$${k}`, JSON.stringify(v));
 
-  const res = await fetch(url.toString(), { next: { revalidate: REVALIDATE_SECONDS } });
-  if (!res.ok) throw new Error(`Sanity request failed: ${res.status} ${await res.text()}`);
+  // One quick retry: a momentary Sanity hiccup (rate limit, 5xx, dropped
+  // connection) shouldn't turn into a 500 page for a visitor or a link preview.
+  let res: Response | undefined;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      res = await fetch(url.toString(), { next: { revalidate: REVALIDATE_SECONDS } });
+      if (res.ok || (res.status < 500 && res.status !== 429)) break;
+    } catch (err) {
+      if (attempt === 1) throw err;
+    }
+    await new Promise((r) => setTimeout(r, 400));
+  }
+  if (!res || !res.ok) throw new Error(`Sanity request failed: ${res?.status} ${await res?.text()}`);
   const json = (await res.json()) as { result: T };
   return json.result;
 }
