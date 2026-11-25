@@ -5,6 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ScrollReveal from "@/components/ScrollReveal";
 import Analytics from "@/components/Analytics";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import HideOnConcierge from "@/components/HideOnConcierge";
 import { LanguageProvider } from "@/lib/language-context";
 import { services } from "@/lib/services";
 import { getProperties } from "@/lib/sanity";
@@ -152,10 +153,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   />
 
         <LanguageProvider>
-          <SiteHeader properties={properties} />
+          <HideOnConcierge><SiteHeader properties={properties} /></HideOnConcierge>
           <main>{children}</main>
-          <SiteFooter />
-          <FloatingWhatsApp />
+          <HideOnConcierge>
+            <SiteFooter />
+            <FloatingWhatsApp />
+          </HideOnConcierge>
         </LanguageProvider>
 
       </body>

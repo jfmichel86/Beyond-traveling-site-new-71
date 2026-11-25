@@ -246,6 +246,11 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
           setStep(saved.step || 0);
           setSent("");
         }
+      } else if (r.draft?.answers?.main && !r.submittedAt) {
+        // Progress saved from another device
+        const base = blankAnswers(r);
+        setA({ ...base, ...r.draft.answers, activities: (r.draft.answers.activities || []).filter((x: ActivityRequest) => Array.isArray(x.slots)) });
+        setStep(r.draft.step || 0);
       }
     } catch {
       /* ignore */
@@ -290,9 +295,23 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
   ];
 
   const go = (n: number) => {
+    const target = Math.max(0, Math.min(STEPS.length - 1, n));
     setStepError("");
-    setStep(Math.max(0, Math.min(STEPS.length - 1, n)));
+    setStep(target);
     window.scrollTo({ top: 0, behavior: "smooth" });
+    // Save progress on the server, so it follows the guest to another device and the concierge sees where they are
+    if (r.code !== "demo" && !sent) {
+      try {
+        void fetch(`/api/arrival/${encodeURIComponent(r.code)}/draft`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ answers: a, step: target, lang: es ? "es" : "en" }),
+          keepalive: true,
+        }).catch(() => undefined);
+      } catch {
+        /* ignore */
+      }
+    }
   };
 
   // What still needs filling before moving on (empty = all good)

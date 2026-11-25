@@ -3,7 +3,8 @@
 import { NextResponse } from "next/server";
 import { getReservation, isValidCode, saveAnswers, conciergeReady, notifyArrival, arrivalLink } from "@/lib/concierge";
 import { summarize, itinerary, type ArrivalAnswers } from "@/lib/arrival";
-import { renderArrivalEmail } from "@/lib/arrivalEmail";
+import { renderArrivalEmail, arrivalSubject } from "@/lib/arrivalEmail";
+import { mergeServices, servicesFromAnswers } from "@/lib/conciergeServices";
 
 export const dynamic = "force-dynamic";
 
@@ -34,7 +35,9 @@ export async function POST(req: Request, { params }: { params: { code: string } 
     const reservation = await getReservation(code);
     if (!reservation) return NextResponse.json({ ok: false, error: "not-found" }, { status: 404 });
     const summary = summarize(reservation, answers);
-    await saveAnswers(reservation.id, answers, summary);
+    // One row per requested service for the concierge panel (keeps work already done)
+    const services = mergeServices(reservation.services || [], servicesFromAnswers(reservation, answers));
+    await saveAnswers(reservation.id, answers, summary, services);
     // Email the concierge and the guest (never blocks the guest's confirmation)
     const guestSummary = lang === "es" ? summarize(reservation, answers, "es") : summary;
     const bookingId = reservation.id.startsWith("booking-") ? reservation.id.slice("booking-".length) : "";
@@ -44,7 +47,10 @@ export async function POST(req: Request, { params }: { params: { code: string } 
     const guestHtml = renderArrivalEmail(itinerary(reservation, answers, lang), {
       audience: "guest", link: arrivalLink(reservation, lang), guestName: answers.main.name || reservation.guestName,
     });
-    await notifyArrival(reservation, { summary, guestSummary, conciergeHtml, guestHtml }, lang).catch(() => undefined);
+    const name = answers.main.name.trim() || reservation.guestName;
+    const conciergeSubject = arrivalSubject("en", name, reservation.villa, reservation.checkIn, reservation.checkOut);
+    const guestSubject = arrivalSubject(lang, name, reservation.villa, reservation.checkIn, reservation.checkOut);
+    await notifyArrival(reservation, { summary, guestSummary, conciergeHtml, guestHtml, conciergeSubject, guestSubject }, lang).catch(() => undefined);
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error(err);

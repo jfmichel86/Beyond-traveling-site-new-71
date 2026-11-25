@@ -41,8 +41,8 @@ export const revalidate = 60;
 
 const NOTES: { en: string; es: string }[] = [
   {
-    en: "Items are charged at store prices, plus a concierge fee of 15% of the total and a flat $60 USD.",
-    es: "Los artículos se cobran a precio de tienda, más una tarifa de concierge del 15% del total y $60 USD fijos.",
+    en: "Items are charged at store prices, plus a shopping fee: MXN 1,200 + 15% of the receipts for villas, or MXN 2,500 + 20% for estates and larger homes.",
+    es: "Los artículos se cobran a precio de tienda, más una tarifa de compras: MXN 1,200 + 15% de los tickets en villas, o MXN 2,500 + 20% en estates y casas más grandes.",
   },
   {
     en: "Send your list at least one week before you arrive.",
@@ -104,8 +104,8 @@ export default async function GroceriesPage() {
 
           <p className="mx-auto mt-8 max-w-[600px] text-[13px] leading-[1.7] text-bt-charcoal/75">
             <EsText
-              en="Store prices + 15% concierge fee + $60 USD flat. Please order at least one week ahead."
-              es="Precio de tienda + 15% de tarifa de concierge + $60 USD fijos. Pide con al menos una semana de anticipación."
+              en="Store prices + shopping fee (MXN 1,200 + 15% for villas, MXN 2,500 + 20% for estates). Please order at least one week ahead."
+              es="Precio de tienda + tarifa de compras (MXN 1,200 + 15% en villas, MXN 2,500 + 20% en estates). Pide con al menos una semana de anticipación."
             />
           </p>
         </div>
