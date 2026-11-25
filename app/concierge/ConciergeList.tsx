@@ -4,7 +4,7 @@ import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import type { Row } from "./data";
 
-type Filter = "upcoming" | "stay" | "pending" | "past" | "all";
+type Filter = "upcoming" | "stay" | "pending" | "past" | "all" | "archived";
 
 const today = () => {
   const d = new Date();
@@ -19,8 +19,11 @@ const GUIDE_STYLE: Record<string, string> = {
 
 const money = (n: number) => `MXN $${n.toLocaleString("en-US", { maximumFractionDigits: 2 })}`;
 
-export default function ConciergeList({ rows, demo }: { rows: Row[]; demo: boolean }) {
+export default function ConciergeList({ rows: allRows, demo }: { rows: Row[]; demo: boolean }) {
   const [filter, setFilter] = useState<Filter>("upcoming");
+  // Archived reservations (tests, cancellations…) only show in their own tab
+  const rows = useMemo(() => allRows.filter((r) => !r.archived), [allRows]);
+  const archived = useMemo(() => allRows.filter((r) => r.archived), [allRows]);
   const [q, setQ] = useState("");
   const t = today();
 
@@ -30,14 +33,15 @@ export default function ConciergeList({ rows, demo }: { rows: Row[]; demo: boole
     pending: (r: Row) => r.checkOut >= t && (r.active > r.confirmed || r.guide.state !== "received"),
     past: (r: Row) => r.checkOut < t,
     all: () => true,
+    archived: () => true,
   };
 
   const shown = useMemo(() => {
     const term = q.trim().toLowerCase();
-    const list = rows.filter(is[filter]).filter((r) => !term || `${r.guest} ${r.villa} ${r.bookingId}`.toLowerCase().includes(term));
+    const list = (filter === "archived" ? archived : rows.filter(is[filter])).filter((r) => !term || `${r.guest} ${r.villa} ${r.bookingId}`.toLowerCase().includes(term));
     return filter === "past" ? list.reverse() : list;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rows, filter, q]);
+  }, [rows, archived, filter, q]);
 
   const upcoming = rows.filter(is.upcoming);
   const in7 = (() => {
@@ -57,6 +61,7 @@ export default function ConciergeList({ rows, demo }: { rows: Row[]; demo: boole
     ["pending", `Con pendientes (${rows.filter(is.pending).length})`],
     ["past", "Pasadas"],
     ["all", "Todas"],
+    ...(archived.length ? ([["archived", `Archivadas (${archived.length})`]] as [Filter, string][]) : []),
   ];
 
   return (

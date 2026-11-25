@@ -53,10 +53,11 @@ export default async function ReservationPage({ params }: { params: { id: string
         arrival={arrivalLine(r)}
         guide={g}
         reminders={r.reminders.map((x) => ({ at: fmtDate(x.at.slice(0, 10), true), by: x.by }))}
-        canRemind={!r.submittedAt && !!r.email}
+        canRemind={!r.submittedAt && !!r.email && !r.archived}
         summary={r.summary}
         initial={{ services: servicesOf(r), generalNotes: r.generalNotes, addVat: r.addVat }}
         unsaved={!r.services.length && servicesOf(r).length > 0}
+        archived={r.archived ? `Archivada${r.archivedAt ? ` el ${fmtDate(r.archivedAt.slice(0, 10), true)}` : ""}${r.archivedBy ? ` por ${r.archivedBy}` : ""}.` : ""}
       />
     </>
   );

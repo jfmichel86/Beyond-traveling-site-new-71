@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   STATUS_LABEL,
   STATUS_ORDER,
@@ -44,6 +45,8 @@ type Props = {
   initial: { services: ConciergeService[]; generalNotes: string; addVat: boolean };
   /** Services were just built from the guest's answers and aren't saved yet. */
   unsaved: boolean;
+  /** Archived: hidden from the lists. Text like "Archivada el 25 nov por ana@…", or "" when active. */
+  archived: string;
 };
 
 export default function ReservationPanel(p: Props) {
@@ -53,6 +56,8 @@ export default function ReservationPanel(p: Props) {
   const [addVat, setAddVat] = useState(p.initial.addVat);
   const [save, setSave] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [remind, setRemind] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [archiving, setArchiving] = useState<"idle" | "working" | "error">("idle");
+  const router = useRouter();
   const first = useRef(true);
 
   // Autosave, a moment after the last change
@@ -116,6 +121,27 @@ export default function ReservationPanel(p: Props) {
     }
   };
 
+  const archive = async (on: boolean) => {
+    const q = on
+      ? "¿Archivar esta renta?\n\nDejará de aparecer en las listas y no se enviarán recordatorios automáticos. No se borra nada: la puedes ver y restaurar en la pestaña \"Archivadas\"."
+      : "¿Restaurar esta renta? Volverá a aparecer en las listas.";
+    if (!window.confirm(q)) return;
+    setArchiving("working");
+    try {
+      const res = await fetch(`/api/concierge/reservations/${encodeURIComponent(p.id)}/archive`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ archived: on }),
+      });
+      if (!res.ok) throw new Error();
+      setArchiving("idle");
+      if (on) router.push("/concierge");
+      else router.refresh();
+    } catch {
+      setArchiving("error");
+    }
+  };
+
   const t = serviceTotals(services, addVat);
   const pct = t.active ? Math.round((t.confirmed / t.active) * 100) : 0;
 
@@ -125,6 +151,24 @@ export default function ReservationPanel(p: Props) {
 
   return (
     <div className="mx-auto flex max-w-[1180px] flex-col gap-6 px-4 pb-16 pt-8 sm:px-6">
+      {p.archived && (
+        <div className="flex flex-wrap items-center justify-between gap-3 border-l-2 border-bt-gold bg-white px-4 py-3">
+          <span className="text-[14px]">
+            <b>Renta archivada.</b> No aparece en las listas y no recibe recordatorios automáticos. {p.archived}
+          </span>
+          <button
+            type="button"
+            onClick={() => archive(false)}
+            disabled={archiving === "working" || p.demo}
+            className="min-h-[40px] border border-bt-navy px-4 text-[13px] font-semibold text-bt-navy disabled:opacity-60"
+          >
+            {archiving === "working" ? "Restaurando…" : "Restaurar"}
+          </button>
+        </div>
+      )}
+      {archiving === "error" && (
+        <p role="alert" className="border-l-2 border-[#8A4B12] bg-white px-4 py-3 text-[14px] text-[#8A4B12]">No se pudo cambiar. Revisa tu conexión e intenta de nuevo.</p>
+      )}
       {/* Header */}
       <div className="flex flex-wrap items-end justify-between gap-5">
         <div className="flex flex-col gap-1.5">
@@ -140,6 +184,17 @@ export default function ReservationPanel(p: Props) {
           >
             Estado de cuenta
           </Link>
+          {!p.archived && (
+            <button
+              type="button"
+              onClick={() => archive(true)}
+              disabled={archiving === "working" || p.demo}
+              title={p.demo ? "No disponible en la vista de prueba" : "Ocultar esta renta de las listas (prueba, cancelada…)"}
+              className="flex min-h-[44px] items-center border border-bt-sand-dark bg-white px-4 text-[13px] font-semibold text-bt-charcoal-light hover:border-bt-navy hover:text-bt-navy disabled:opacity-60"
+            >
+              {archiving === "working" ? "Archivando…" : "Archivar"}
+            </button>
+          )}
         </div>
       </div>
 

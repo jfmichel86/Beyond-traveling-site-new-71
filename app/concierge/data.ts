@@ -54,6 +54,7 @@ export function rowOf(r: PanelReservation) {
     confirmed: t.confirmed,
     active: t.active,
     total: t.total,
+    archived: r.archived,
   };
 }
 export type Row = ReturnType<typeof rowOf>;
