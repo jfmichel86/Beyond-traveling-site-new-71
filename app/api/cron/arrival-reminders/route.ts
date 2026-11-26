@@ -1,8 +1,9 @@
-// Daily (vercel.json → crons): reminds guests who haven't sent their arrival guide.
+// Daily (vercel.json → crons): reminds guests who haven't sent their arrival guide,
+// and guests who asked for groceries but haven't sent their grocery list.
 // Vercel calls it with "Authorization: Bearer <CRON_SECRET>".
 import { NextResponse } from "next/server";
 import { conciergeReady, listReservations } from "@/lib/concierge";
-import { dueReminder, sendReminder } from "@/lib/arrivalReminders";
+import { dueReminder, sendReminder, groceryReminderDue, sendGroceryReminder } from "@/lib/arrivalReminders";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -26,6 +27,19 @@ export async function GET(req: Request) {
       failed.push(r.id);
     }
     if (sent.length + failed.length >= 40) break;
+  }
+
+  // Grocery lists still missing (daily, from 10 days before arrival)
+  for (const r of list) {
+    if (sent.length + failed.length >= 60) break;
+    if (!groceryReminderDue(r)) continue;
+    try {
+      await sendGroceryReminder(r, "automático");
+      sent.push(`${r.id} (grocery)`);
+    } catch (err) {
+      console.error(err);
+      failed.push(`${r.id} (grocery)`);
+    }
   }
   return NextResponse.json({ ok: true, sent, failed });
 }
