@@ -175,3 +175,128 @@ export function renderReminderEmail(o: {
   const text = `${title}\n\n${body}\n\n${o.villa} · ${o.dates}\n\n${button}: ${o.link}`;
   return { html, text };
 }
+
+// ─── Grocery list ────────────────────────────────────────────────────────────
+
+const subjectDates = (lang: "en" | "es", checkIn: string, checkOut: string) => {
+  const es = lang === "es";
+  const at = (iso: string) => new Date(`${iso}T12:00:00`);
+  const sameYear = checkIn.slice(0, 4) === checkOut.slice(0, 4);
+  const fmt = (iso: string, year: boolean) =>
+    at(iso).toLocaleDateString(es ? "es-MX" : "en-US", { day: "numeric", month: "short", ...(year ? { year: "numeric" } : {}) }).replace(/\./g, "");
+  return `${fmt(checkIn, !sameYear)} – ${fmt(checkOut, true)}`;
+};
+
+/** "Name - Property - 4 ene – 7 ene 2027" (Spanish dates unless lang = "en") */
+export function grocerySubject(guestName: string, villa: string, checkIn: string, checkOut: string, lang: "en" | "es" = "es"): string {
+  return [guestName, villa, subjectDates(lang, checkIn, checkOut)].filter((x) => String(x || "").trim()).join(" - ");
+}
+
+/** To concierge@ when a guest sends (or updates) their grocery list. Spanish. */
+export function renderGroceryReceivedEmail(o: {
+  guestName: string;
+  villa: string;
+  dates: string;
+  updated: boolean;
+  party: string;
+  allergies: string;
+  listText: string;
+  count: number;
+  panelLink: string;
+}): { html: string; text: string } {
+  const title = o.updated ? "Lista de despensa actualizada" : "Lista de despensa recibida";
+  const intro = o.updated
+    ? `${o.guestName} envió una nueva versión de su lista de despensa. Reemplaza a la anterior.`
+    : `${o.guestName} envió su lista de despensa.`;
+  const facts = [
+    `${o.count} artículo${o.count === 1 ? "" : "s"}`,
+    o.party ? `Huéspedes: ${o.party}` : "",
+    o.allergies ? `Alergias / dieta: ${o.allergies}` : "",
+  ].filter(Boolean);
+
+  const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"></head>
+<body style="margin:0;padding:0;background:${CREAM}">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${CREAM}">
+<tr><td align="center" style="padding:24px 12px">
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;background:#ffffff;border:1px solid ${SAND}">
+    <tr><td style="background:${NAVY};padding:26px 32px">
+      <p style="margin:0;font:600 11px/1.4 ${SANS};letter-spacing:3px;color:${GOLD}">CONCIERGE · DESPENSA</p>
+      <p style="margin:10px 0 0;font:normal 26px/1.2 ${SERIF};color:#ffffff">${esc(title)}</p>
+    </td></tr>
+    <tr><td style="padding:24px 32px 0">
+      <p style="margin:0;font:15px/1.6 ${SANS};color:${TEXT}">${esc(intro)}</p>
+      <p style="margin:14px 0 0;font:normal 20px/1.25 ${SERIF};color:${NAVY}">${esc(o.villa)}</p>
+      <p style="margin:2px 0 0;font:14px/1.5 ${SANS};color:${TEXT}">${esc(o.dates)}</p>
+      <p style="margin:10px 0 0;font:14px/1.6 ${SANS};color:${MUTED}">${facts.map(esc).join("<br>")}</p>
+    </td></tr>
+    <tr><td align="center" style="padding:24px 32px 8px">
+      <a href="${esc(o.panelLink)}" style="display:inline-block;background:${NAVY};color:#ffffff;text-decoration:none;font:600 13px/1 ${SANS};letter-spacing:2px;text-transform:uppercase;padding:15px 26px">Ver e imprimir la lista</a>
+    </td></tr>
+    <tr><td style="padding:16px 32px 28px">
+      <div style="background:${CREAM};padding:16px 18px;font:13.5px/1.6 ${SANS};color:${TEXT};white-space:pre-wrap">${esc(o.listText)}</div>
+    </td></tr>
+  </table>
+</td></tr></table>
+</body></html>`;
+  const text = `${title}\n\n${intro}\n${o.villa} · ${o.dates}\n${facts.join("\n")}\n\n${o.listText}\n\nVer e imprimir: ${o.panelLink}`;
+  return { html, text };
+}
+
+/** To the guest: we still need their grocery list (they asked for pre-stocking). */
+export function renderGroceryReminderEmail(o: {
+  lang: "en" | "es";
+  guestName: string;
+  villa: string;
+  dates: string;
+  deadline: string; // "Wednesday, December 30" / "miércoles 30 de diciembre"
+  late: boolean; // the deadline already passed
+  link: string;
+}): { html: string; text: string } {
+  const es = o.lang === "es";
+  const t = (en: string, esText: string) => (es ? esText : en);
+  const first = (o.guestName || "").trim().split(/\s+/)[0] || "";
+  const title = t("Your grocery list", "Tu lista de despensa");
+  const body = o.late
+    ? t(
+        `Hi ${first}, you asked us to stock ${o.villa} before you arrive, and we haven't received your grocery list yet. Please send it as soon as you can so we have time to shop for everything.`,
+        `Hola ${first}, nos pediste llenar la despensa de ${o.villa} antes de tu llegada y todavía no recibimos tu lista. Mándala lo antes posible para tener tiempo de comprar todo.`
+      )
+    : t(
+        `Hi ${first}, you asked us to stock ${o.villa} before you arrive. To have everything ready, we need your grocery list by ${o.deadline}. Pick what you'd like and send it in a couple of minutes.`,
+        `Hola ${first}, nos pediste llenar la despensa de ${o.villa} antes de tu llegada. Para tener todo listo, necesitamos tu lista a más tardar el ${o.deadline}. Elige lo que quieras y mándala en un par de minutos.`
+      );
+  const button = t("Choose my groceries", "Elegir mi despensa");
+
+  const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"></head>
+<body style="margin:0;padding:0;background:${CREAM}">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${CREAM}">
+<tr><td align="center" style="padding:24px 12px">
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;background:#ffffff;border:1px solid ${SAND}">
+    <tr><td style="background:${NAVY};padding:28px 32px">
+      <p style="margin:0;font:600 11px/1.4 ${SANS};letter-spacing:3px;color:${GOLD}">BEYOND TRAVELING</p>
+      <p style="margin:10px 0 0;font:normal 28px/1.2 ${SERIF};color:#ffffff">${esc(title)}</p>
+    </td></tr>
+    <tr><td style="padding:26px 32px 0">
+      <p style="margin:0;font:15px/1.6 ${SANS};color:${TEXT}">${esc(body)}</p>
+    </td></tr>
+    <tr><td style="padding:20px 32px 0">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${CREAM}">
+        <tr><td style="padding:14px 18px">
+          <p style="margin:0;font:normal 20px/1.25 ${SERIF};color:${NAVY}">${esc(o.villa)}</p>
+          <p style="margin:2px 0 0;font:14px/1.5 ${SANS};color:${TEXT}">${esc(o.dates)}</p>
+          ${o.late ? "" : `<p style="margin:8px 0 0;font:600 13px/1.5 ${SANS};color:${GOLD_TEXT}">${esc(t(`Send it by ${o.deadline}`, `Envíala a más tardar el ${o.deadline}`))}</p>`}
+        </td></tr>
+      </table>
+    </td></tr>
+    <tr><td align="center" style="padding:28px 32px 30px">
+      <a href="${esc(o.link)}" style="display:inline-block;background:${NAVY};color:#ffffff;text-decoration:none;font:600 13px/1 ${SANS};letter-spacing:2px;text-transform:uppercase;padding:15px 26px">${esc(button)}</a>
+    </td></tr>
+    <tr><td style="background:${CREAM};padding:18px 32px;border-top:1px solid ${SAND}">
+      <p style="margin:0;font:12px/1.6 ${SANS};color:${MUTED};text-align:center">Beyond Traveling Concierge · Punta Mita, Nayarit<br>${esc(t("Changed your mind about groceries? Just reply to this email.", "¿Ya no quieres el servicio de despensa? Solo responde a este correo."))}</p>
+    </td></tr>
+  </table>
+</td></tr></table>
+</body></html>`;
+  const text = `${title}\n\n${body}\n\n${o.villa} · ${o.dates}\n\n${button}: ${o.link}`;
+  return { html, text };
+}

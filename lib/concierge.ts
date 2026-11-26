@@ -10,6 +10,7 @@
 import { SANITY_PROJECT_ID } from "@/lib/sanity";
 import type { ArrivalAnswers, Reservation } from "@/lib/arrival";
 import type { ConciergeService } from "@/lib/conciergeServices";
+import type { GroceryList, SavedGroceryList } from "@/lib/groceryList";
 
 const DATASET = process.env.SANITY_CONCIERGE_DATASET || "concierge";
 const API = "2024-01-01";
@@ -121,6 +122,8 @@ export type PanelReservation = Reservation & {
   summary: string;
   draftLang: "en" | "es" | "";
   createdAt: string;
+  /** The grocery list the guest sent from the grocery page, or null. */
+  grocery: SavedGroceryList | null;
   /** Hidden from the panel's lists (test, cancelled…); no automatic reminders. */
   archived: boolean;
   archivedAt: string;
@@ -129,9 +132,11 @@ export type PanelReservation = Reservation & {
 
 const PANEL_FIELDS = `${RESERVATION_FIELDS}, summary, generalNotes, draftLang,
   "addVat": coalesce(addVat, true), "reminders": coalesce(reminders, []), "createdAt": _createdAt,
-  "archived": coalesce(archived, false), archivedAt, archivedBy`;
+  "archived": coalesce(archived, false), archivedAt, archivedBy,
+  groceryJson, grocerySentAt, groceryFirstAt, "groceryTimes": coalesce(groceryTimes, 0)`;
 
-type RawPanel = RawReservation & { summary?: string; generalNotes?: string; addVat?: boolean; reminders?: Reminder[]; draftLang?: string; createdAt: string; archived?: boolean; archivedAt?: string; archivedBy?: string };
+type RawPanel = RawReservation & { summary?: string; generalNotes?: string; addVat?: boolean; reminders?: Reminder[]; draftLang?: string; createdAt: string; archived?: boolean; archivedAt?: string; archivedBy?: string;
+  groceryJson?: string | null; grocerySentAt?: string | null; groceryFirstAt?: string | null; groceryTimes?: number };
 
 function toPanel(raw: RawPanel): PanelReservation {
   return {
@@ -145,6 +150,12 @@ function toPanel(raw: RawPanel): PanelReservation {
     archived: raw.archived === true,
     archivedAt: raw.archivedAt || "",
     archivedBy: raw.archivedBy || "",
+    grocery: (() => {
+      const list = parse<GroceryList>(raw.groceryJson);
+      return list && raw.grocerySentAt
+        ? { list, sentAt: raw.grocerySentAt, firstAt: raw.groceryFirstAt || raw.grocerySentAt, times: raw.groceryTimes || 1 }
+        : null;
+    })(),
   };
 }
 
@@ -169,6 +180,15 @@ export async function saveConciergeData(id: string, data: { services: ConciergeS
 /** Archive (hide from the panel) or bring back a reservation. Nothing is deleted. */
 export async function setArchived(id: string, archived: boolean, by: string) {
   await mutate([{ patch: { id, set: archived ? { archived: true, archivedAt: new Date().toISOString(), archivedBy: by } : { archived: false } } }]);
+}
+
+/** The guest sent (or re-sent) their grocery list. The latest one replaces the previous one. */
+export async function saveGroceryList(id: string, list: GroceryList) {
+  const now = new Date().toISOString();
+  await mutate([
+    { patch: { id, setIfMissing: { groceryFirstAt: now, groceryTimes: 0 } } },
+    { patch: { id, set: { groceryJson: JSON.stringify(list), grocerySentAt: now }, inc: { groceryTimes: 1 } } },
+  ]);
 }
 
 export async function addReminder(id: string, kind: string, by: string) {

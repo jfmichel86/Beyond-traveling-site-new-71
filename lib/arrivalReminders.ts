@@ -10,8 +10,9 @@
 
 import type { PanelReservation } from "@/lib/concierge";
 import { arrivalLink, sendViaSheet, addReminder } from "@/lib/concierge";
-import { arrivalSubject, renderReminderEmail } from "@/lib/arrivalEmail";
-import { fmtDate } from "@/lib/arrival";
+import { arrivalSubject, renderReminderEmail, grocerySubject, renderGroceryReminderEmail } from "@/lib/arrivalEmail";
+import { fmtDate, addDays } from "@/lib/arrival";
+import { GROCERY_DEADLINE_DAYS } from "@/lib/groceryList";
 
 const DAY = 86400_000;
 const MILESTONES = [14, 7, 3];
@@ -69,4 +70,46 @@ export async function sendReminder(r: PanelReservation, kind: "not-started" | "i
     bookingId: r.id.startsWith("booking-") ? r.id.slice(8) : "",
   });
   await addReminder(r.id, tag, by);
+}
+
+// ─── Grocery list reminders (sent from the concierge panel) ─────────────────
+
+/** Last day to receive the grocery list (YYYY-MM-DD). */
+export const groceryDeadline = (r: PanelReservation) => addDays(r.checkIn, -GROCERY_DEADLINE_DAYS);
+
+/** The grocery page, filled in for this guest; what they send is saved on the reservation. */
+export const groceryLink = (r: PanelReservation, lang: "en" | "es") => {
+  const name = r.answers?.main?.name || r.draft?.answers?.main?.name || r.guestName;
+  const q = new URLSearchParams({ code: r.code, name, villa: r.villa, arrival: r.checkIn });
+  return `https://www.beyondtravelingmx.com${lang === "es" ? "/es" : ""}/groceries?${q.toString()}`;
+};
+
+/** Reminder tags start with "grocery-" so they never mix with the arrival-guide reminders. */
+export const isGroceryReminder = (kind: string) => kind.startsWith("grocery-");
+
+export async function sendGroceryReminder(r: PanelReservation, by: string) {
+  const email = r.answers?.main?.email || r.email;
+  if (!email || !/@/.test(email)) throw new Error("This reservation has no guest email.");
+  const lang = reminderLang(r);
+  const es = lang === "es";
+  const name = r.answers?.main?.name?.trim() || r.guestName;
+  const deadlineIso = groceryDeadline(r);
+  const deadline = new Date(`${deadlineIso}T12:00:00`).toLocaleDateString(es ? "es-MX" : "en-US", { weekday: "long", month: "long", day: "numeric" });
+  const { html, text } = renderGroceryReminderEmail({
+    lang,
+    guestName: name,
+    villa: r.villa,
+    dates: `${fmtDate(r.checkIn, es, true)} → ${fmtDate(r.checkOut, es, true)}`,
+    deadline,
+    late: daysToArrival(r) < GROCERY_DEADLINE_DAYS,
+    link: groceryLink(r, lang),
+  });
+  await sendViaSheet({
+    email,
+    subject: `${es ? "Recordatorio · Lista de despensa" : "Reminder · Grocery list"} - ${grocerySubject(name, r.villa, r.checkIn, r.checkOut, lang)}`,
+    html,
+    text,
+    bookingId: r.id.startsWith("booking-") ? r.id.slice(8) : "",
+  });
+  await addReminder(r.id, `grocery-${new Date().toISOString().slice(0, 10)}`, by);
 }

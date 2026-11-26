@@ -16,7 +16,7 @@ const base = (id: string, guestName: string, villa: string, checkIn: string, che
   id, code: "demo", guestName, villa, checkIn, checkOut, propertyType: "villa", email: "guest@example.com", phone: "+1 555 000 0000",
   adults: 4, children: 2, answers: null, submittedAt: null, draft: null, language: "en",
   services: [], generalNotes: "", addVat: true, reminders: [], summary: "", draftLang: "", createdAt: "2026-10-20T10:00:00Z",
-  archived: false, archivedAt: "", archivedBy: "",
+  archived: false, archivedAt: "", archivedBy: "", grocery: null,
   ...extra,
 });
 
