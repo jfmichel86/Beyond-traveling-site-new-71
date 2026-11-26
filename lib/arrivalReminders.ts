@@ -11,7 +11,7 @@
 import type { PanelReservation } from "@/lib/concierge";
 import { arrivalLink, sendViaSheet, addReminder } from "@/lib/concierge";
 import { arrivalSubject, renderReminderEmail, grocerySubject, renderGroceryReminderEmail } from "@/lib/arrivalEmail";
-import { fmtDate, addDays } from "@/lib/arrival";
+import { fmtDate, addDays, GROCERY_FEE, GROCERY_LATE_FEE } from "@/lib/arrival";
 import { GROCERY_DEADLINE_DAYS } from "@/lib/groceryList";
 
 const DAY = 86400_000;
@@ -72,7 +72,14 @@ export async function sendReminder(r: PanelReservation, kind: "not-started" | "i
   await addReminder(r.id, tag, by);
 }
 
-// ─── Grocery list reminders (sent from the concierge panel) ─────────────────
+// ─── Grocery list reminders ──────────────────────────────────────────────────
+// Guests who asked for grocery pre-stocking in their guide and haven't sent the
+// list: one reminder a day from 10 days before arrival until the day before.
+// From 6 days before, the email warns about the late fee; under 5 days it says
+// the late fee applies. The concierge can also send one from the panel.
+
+const GROCERY_FIRST_REMINDER_DAYS = 10;
+const LATE_WARNING_DAYS = 6;
 
 /** Last day to receive the grocery list (YYYY-MM-DD). */
 export const groceryDeadline = (r: PanelReservation) => addDays(r.checkIn, -GROCERY_DEADLINE_DAYS);
@@ -87,6 +94,20 @@ export const groceryLink = (r: PanelReservation, lang: "en" | "es") => {
 /** Reminder tags start with "grocery-" so they never mix with the arrival-guide reminders. */
 export const isGroceryReminder = (kind: string) => kind.startsWith("grocery-");
 
+/** Mexico date (YYYY-MM-DD) of an ISO timestamp. */
+const mxDate = (iso: string) => new Date(new Date(iso).getTime() - 6 * 3600_000).toISOString().slice(0, 10);
+
+/** True when today's automatic grocery reminder should go out. */
+export function groceryReminderDue(r: PanelReservation): boolean {
+  if (r.archived || r.grocery || r.answers?.grocery !== "yes") return false;
+  const email = r.answers?.main?.email || r.email;
+  if (!email || !/@/.test(email)) return false;
+  const days = daysToArrival(r);
+  if (days < 1 || days > GROCERY_FIRST_REMINDER_DAYS) return false;
+  const today = todayIso();
+  return !r.reminders.some((x) => isGroceryReminder(x.kind) && mxDate(x.at) === today);
+}
+
 export async function sendGroceryReminder(r: PanelReservation, by: string) {
   const email = r.answers?.main?.email || r.email;
   if (!email || !/@/.test(email)) throw new Error("This reservation has no guest email.");
@@ -94,6 +115,13 @@ export async function sendGroceryReminder(r: PanelReservation, by: string) {
   const es = lang === "es";
   const name = r.answers?.main?.name?.trim() || r.guestName;
   const deadlineIso = groceryDeadline(r);
+  const days = daysToArrival(r);
+  const base = GROCERY_FEE[r.propertyType] || GROCERY_FEE.villa;
+  const lateFee = GROCERY_LATE_FEE[r.propertyType];
+  const fee =
+    lateFee && days <= LATE_WARNING_DAYS
+      ? { stage: days < GROCERY_DEADLINE_DAYS ? ("applies" as const) : ("warn" as const), normal: base.mxn, late: lateFee, pct: base.pct }
+      : undefined;
   const deadline = new Date(`${deadlineIso}T12:00:00`).toLocaleDateString(es ? "es-MX" : "en-US", { weekday: "long", month: "long", day: "numeric" });
   const { html, text } = renderGroceryReminderEmail({
     lang,
@@ -101,8 +129,9 @@ export async function sendGroceryReminder(r: PanelReservation, by: string) {
     villa: r.villa,
     dates: `${fmtDate(r.checkIn, es, true)} → ${fmtDate(r.checkOut, es, true)}`,
     deadline,
-    late: daysToArrival(r) < GROCERY_DEADLINE_DAYS,
+    late: days < GROCERY_DEADLINE_DAYS,
     link: groceryLink(r, lang),
+    fee,
   });
   await sendViaSheet({
     email,

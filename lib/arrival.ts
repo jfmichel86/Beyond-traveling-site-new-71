@@ -28,6 +28,8 @@ export const GROCERY_FEE: Record<PropertyType, { mxn: number; pct: number }> = {
   villa: { mxn: 1200, pct: 15 },
   estate: { mxn: 2500, pct: 20 },
 };
+/** Fixed fee when the grocery list arrives less than 5 days before arrival (same %). Only where set. */
+export const GROCERY_LATE_FEE: Partial<Record<PropertyType, number>> = { villa: 1400 };
 
 /** Lunch or dinner preparation, per service. */
 export const MEAL_PREP = { mxn: 5500, upToGuests: 10 };

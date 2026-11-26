@@ -251,6 +251,8 @@ export function renderGroceryReminderEmail(o: {
   deadline: string; // "Wednesday, December 30" / "miércoles 30 de diciembre"
   late: boolean; // the deadline already passed
   link: string;
+  /** Late-fee notice: "warn" (6–5 days before) or "applies" (deadline passed). Omitted when there's no late fee. */
+  fee?: { stage: "warn" | "applies"; normal: number; late: number; pct: number };
 }): { html: string; text: string } {
   const es = o.lang === "es";
   const t = (en: string, esText: string) => (es ? esText : en);
@@ -266,6 +268,18 @@ export function renderGroceryReminderEmail(o: {
         `Hola ${first}, nos pediste llenar la despensa de ${o.villa} antes de tu llegada. Para tener todo listo, necesitamos tu lista a más tardar el ${o.deadline}. Elige lo que quieras y mándala en un par de minutos.`
       );
   const button = t("Choose my groceries", "Elegir mi despensa");
+  const n = (x: number) => x.toLocaleString("en-US");
+  const feeNote = !o.fee
+    ? ""
+    : o.fee.stage === "warn"
+      ? t(
+          `Please note: if we don't receive your grocery list at least 5 days before your arrival (by ${o.deadline}), the grocery shopping fee increases to MXN ${n(o.fee.late)} instead of MXN ${n(o.fee.normal)} (plus ${o.fee.pct}% of the store receipts).`,
+          `Importante: si no recibimos tu lista de despensa al menos 5 días antes de tu llegada (a más tardar el ${o.deadline}), la tarifa de compras sube a MXN ${n(o.fee.late)} en lugar de MXN ${n(o.fee.normal)} (más el ${o.fee.pct}% de los tickets).`
+        )
+      : t(
+          `Since there are now less than 5 days before your arrival, the grocery shopping fee is MXN ${n(o.fee.late)} instead of MXN ${n(o.fee.normal)} (plus ${o.fee.pct}% of the store receipts).`,
+          `Como ya faltan menos de 5 días para tu llegada, la tarifa de compras es de MXN ${n(o.fee.late)} en lugar de MXN ${n(o.fee.normal)} (más el ${o.fee.pct}% de los tickets).`
+        );
 
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"></head>
 <body style="margin:0;padding:0;background:${CREAM}">
@@ -279,6 +293,11 @@ export function renderGroceryReminderEmail(o: {
     <tr><td style="padding:26px 32px 0">
       <p style="margin:0;font:15px/1.6 ${SANS};color:${TEXT}">${esc(body)}</p>
     </td></tr>
+    ${feeNote ? `<tr><td style="padding:18px 32px 0">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFF6E5;border-left:3px solid ${GOLD}">
+        <tr><td style="padding:12px 16px;font:600 14px/1.55 ${SANS};color:#6B4A12">${esc(feeNote)}</td></tr>
+      </table>
+    </td></tr>` : ""}
     <tr><td style="padding:20px 32px 0">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${CREAM}">
         <tr><td style="padding:14px 18px">
@@ -297,6 +316,6 @@ export function renderGroceryReminderEmail(o: {
   </table>
 </td></tr></table>
 </body></html>`;
-  const text = `${title}\n\n${body}\n\n${o.villa} · ${o.dates}\n\n${button}: ${o.link}`;
+  const text = `${title}\n\n${body}${feeNote ? `\n\n${feeNote}` : ""}\n\n${o.villa} · ${o.dates}\n\n${button}: ${o.link}`;
   return { html, text };
 }
