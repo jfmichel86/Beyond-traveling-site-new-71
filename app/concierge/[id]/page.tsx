@@ -1,7 +1,7 @@
 import React from "react";
 import { notFound, redirect } from "next/navigation";
 import { getSession } from "@/lib/conciergeAuth";
-import { fmtDate, groupCounts, carArrivalWindow, villaArrivalWindow, vehicleName } from "@/lib/arrival";
+import { fmtDate, GROCERY_LATE_FEE, groupCounts, carArrivalWindow, villaArrivalWindow, vehicleName } from "@/lib/arrival";
 import type { PanelReservation } from "@/lib/concierge";
 import PanelTop from "../PanelTop";
 import ReservationPanel from "./ReservationPanel";
@@ -43,6 +43,9 @@ export default async function ReservationPage({ params }: { params: { id: string
   const groceryReminders = r.reminders.filter((x) => isGroceryReminder(x.kind));
   const lastGr = groceryReminders[groceryReminders.length - 1];
   const email = a?.main.email || r.email || "";
+  const lateFeeMxn = GROCERY_LATE_FEE[r.propertyType];
+  const mx = (iso: string) => new Date(new Date(iso).getTime() - 6 * 3600_000).toISOString().slice(0, 10);
+  const groceryLate = r.grocery ? mx(r.grocery.firstAt) > groceryDeadline(r) : daysToArrival(r) < GROCERY_DEADLINE_DAYS;
 
   return (
     <>
@@ -71,6 +74,7 @@ export default async function ReservationPage({ params }: { params: { id: string
           reminders: groceryReminders.length,
           lastReminder: lastGr ? `${fmtDate(lastGr.at.slice(0, 10), true)} (${lastGr.by})` : "",
           canRemind: !r.grocery && !!email && !r.archived && daysToArrival(r) >= 0,
+          lateFee: groceryLate && lateFeeMxn ? `Llegó tarde: aplica tarifa de MXN ${lateFeeMxn.toLocaleString("en-US")}` : "",
         }}
         initial={{ services: servicesOf(r), generalNotes: r.generalNotes, addVat: r.addVat }}
         unsaved={!r.services.length && servicesOf(r).length > 0}

@@ -51,6 +51,8 @@ type Props = {
     reminders: number;
     lastReminder: string;
     canRemind: boolean;
+    /** "Llegó tarde: aplica tarifa de MXN 1,400", or "". */
+    lateFee: string;
   };
   initial: { services: ConciergeService[]; generalNotes: string; addVat: boolean };
   /** Services were just built from the guest's answers and aren't saved yet. */
@@ -153,6 +155,7 @@ export default function ReservationPanel(p: Props) {
       {gr.received ? (
         <>
           <span className="rounded-full bg-[#DDEEDF] px-2.5 py-1 text-[12px] font-semibold text-[#1F6B3A]">{gr.received}</span>
+          {gr.lateFee && <span className="text-[12px] font-semibold text-[#8A4B12]">{gr.lateFee}</span>}
           <Link
             href={`/concierge/${encodeURIComponent(p.id)}/despensa`}
             className="text-[13px] font-semibold text-bt-navy underline underline-offset-4"
@@ -165,6 +168,7 @@ export default function ReservationPanel(p: Props) {
           <span className={`rounded-full px-2.5 py-1 text-[12px] font-semibold ${gr.overdue ? "bg-[#F6E0CF] text-[#8A4B12]" : "bg-bt-sand text-[#4A4E55]"}`}>
             {gr.overdue ? `Lista vencida · era el ${gr.deadline}` : `Lista pendiente · fecha límite ${gr.deadline}`}
           </span>
+          {gr.overdue && gr.lateFee && <span className="text-[12px] font-semibold text-[#8A4B12]">{gr.lateFee.replace("Llegó tarde: aplica", "Si llega, aplica")}</span>}
           <span className="text-[12px] text-bt-charcoal-light">
             {gr.reminders ? `${gr.reminders} recordatorio${gr.reminders > 1 ? "s" : ""} · último ${gr.lastReminder}` : "Sin recordatorios"}
           </span>
