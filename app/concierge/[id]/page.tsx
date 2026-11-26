@@ -6,6 +6,8 @@ import type { PanelReservation } from "@/lib/concierge";
 import PanelTop from "../PanelTop";
 import ReservationPanel from "./ReservationPanel";
 import { guideState, isDemo, loadOne, nights, peopleText, servicesOf } from "../data";
+import { daysToArrival, groceryDeadline, isGroceryReminder } from "@/lib/arrivalReminders";
+import { GROCERY_DEADLINE_DAYS } from "@/lib/groceryList";
 
 export const dynamic = "force-dynamic";
 
@@ -37,6 +39,10 @@ export default async function ReservationPage({ params }: { params: { id: string
     ? `${counts.total} huéspedes (${counts.adults} adultos, ${counts.children + counts.under5} niños)`
     : peopleText(r);
   const g = guideState(r);
+  const guideReminders = r.reminders.filter((x) => !isGroceryReminder(x.kind));
+  const groceryReminders = r.reminders.filter((x) => isGroceryReminder(x.kind));
+  const lastGr = groceryReminders[groceryReminders.length - 1];
+  const email = a?.main.email || r.email || "";
 
   return (
     <>
@@ -52,9 +58,20 @@ export default async function ReservationPage({ params }: { params: { id: string
         contact={[a?.main.phone || r.phone || "", a?.main.email || r.email || ""].filter(Boolean)}
         arrival={arrivalLine(r)}
         guide={g}
-        reminders={r.reminders.map((x) => ({ at: fmtDate(x.at.slice(0, 10), true), by: x.by }))}
+        reminders={guideReminders.map((x) => ({ at: fmtDate(x.at.slice(0, 10), true), by: x.by }))}
         canRemind={!r.submittedAt && !!r.email && !r.archived}
         summary={r.summary}
+        grocery={{
+          received: r.grocery
+            ? `Lista recibida · ${fmtDate(r.grocery.sentAt.slice(0, 10), true)}${r.grocery.times > 1 ? ` (actualizada ${r.grocery.times} veces)` : ""}`
+            : "",
+          items: r.grocery ? r.grocery.list.items.length : 0,
+          deadline: fmtDate(groceryDeadline(r), true),
+          overdue: !r.grocery && daysToArrival(r) < GROCERY_DEADLINE_DAYS,
+          reminders: groceryReminders.length,
+          lastReminder: lastGr ? `${fmtDate(lastGr.at.slice(0, 10), true)} (${lastGr.by})` : "",
+          canRemind: !r.grocery && !!email && !r.archived && daysToArrival(r) >= 0,
+        }}
         initial={{ services: servicesOf(r), generalNotes: r.generalNotes, addVat: r.addVat }}
         unsaved={!r.services.length && servicesOf(r).length > 0}
         archived={r.archived ? `Archivada${r.archivedAt ? ` el ${fmtDate(r.archivedAt.slice(0, 10), true)}` : ""}${r.archivedBy ? ` por ${r.archivedBy}` : ""}.` : ""}

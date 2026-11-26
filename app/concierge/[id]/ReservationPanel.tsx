@@ -42,6 +42,16 @@ type Props = {
   reminders: { at: string; by: string }[];
   canRemind: boolean;
   summary: string;
+  /** The guest's grocery list: received (label) or pending (deadline, reminders). */
+  grocery: {
+    received: string;
+    items: number;
+    deadline: string;
+    overdue: boolean;
+    reminders: number;
+    lastReminder: string;
+    canRemind: boolean;
+  };
   initial: { services: ConciergeService[]; generalNotes: string; addVat: boolean };
   /** Services were just built from the guest's answers and aren't saved yet. */
   unsaved: boolean;
@@ -56,6 +66,7 @@ export default function ReservationPanel(p: Props) {
   const [addVat, setAddVat] = useState(p.initial.addVat);
   const [save, setSave] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [remind, setRemind] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [grRemind, setGrRemind] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [archiving, setArchiving] = useState<"idle" | "working" | "error">("idle");
   const router = useRouter();
   const first = useRef(true);
@@ -120,6 +131,58 @@ export default function ReservationPanel(p: Props) {
       setRemind("error");
     }
   };
+
+  const sendGroceryReminder = async () => {
+    if (!window.confirm("¿Enviar ahora al huésped un recordatorio de su lista de despensa?")) return;
+    setGrRemind("sending");
+    try {
+      const res = await fetch(`/api/concierge/reservations/${encodeURIComponent(p.id)}/grocery-remind`, { method: "POST" });
+      if (res.status === 401) {
+        window.location.href = "/concierge/login";
+        return;
+      }
+      setGrRemind(res.ok ? "sent" : "error");
+    } catch {
+      setGrRemind("error");
+    }
+  };
+
+  const gr = p.grocery;
+  const groceryStatus = (
+    <div className="mt-1.5 flex flex-col items-start gap-1.5">
+      {gr.received ? (
+        <>
+          <span className="rounded-full bg-[#DDEEDF] px-2.5 py-1 text-[12px] font-semibold text-[#1F6B3A]">{gr.received}</span>
+          <Link
+            href={`/concierge/${encodeURIComponent(p.id)}/despensa`}
+            className="text-[13px] font-semibold text-bt-navy underline underline-offset-4"
+          >
+            Ver lista ({gr.items} artículo{gr.items === 1 ? "" : "s"}) →
+          </Link>
+        </>
+      ) : (
+        <>
+          <span className={`rounded-full px-2.5 py-1 text-[12px] font-semibold ${gr.overdue ? "bg-[#F6E0CF] text-[#8A4B12]" : "bg-bt-sand text-[#4A4E55]"}`}>
+            {gr.overdue ? `Lista vencida · era el ${gr.deadline}` : `Lista pendiente · fecha límite ${gr.deadline}`}
+          </span>
+          <span className="text-[12px] text-bt-charcoal-light">
+            {gr.reminders ? `${gr.reminders} recordatorio${gr.reminders > 1 ? "s" : ""} · último ${gr.lastReminder}` : "Sin recordatorios"}
+          </span>
+          {gr.canRemind && (
+            <button
+              type="button"
+              onClick={sendGroceryReminder}
+              disabled={grRemind === "sending" || grRemind === "sent" || p.demo}
+              className="min-h-[36px] border border-bt-navy px-3 text-[12.5px] font-semibold text-bt-navy disabled:opacity-60"
+            >
+              {grRemind === "sending" ? "Enviando…" : grRemind === "sent" ? "Recordatorio enviado ✓" : grRemind === "error" ? "No se pudo enviar · reintentar" : "Recordar lista de despensa"}
+            </button>
+          )}
+        </>
+      )}
+    </div>
+  );
+  const hasGroceryRow = services.some((s) => s.key === "grocery");
 
   const archive = async (on: boolean) => {
     const q = on
@@ -245,6 +308,14 @@ export default function ReservationPanel(p: Props) {
           <span>Servicio</span><span>Fecha y hora</span><span>Estado</span><span>Costo (MXN)</span><span>Notas</span><span>Cobrar</span>
         </div>
 
+        {!hasGroceryRow && gr.received && (
+          <div className="flex flex-col gap-1 border-b border-bt-sand px-4 py-4 sm:px-6">
+            <span className="text-[14px] font-semibold text-bt-navy">Lista de despensa</span>
+            <span className="text-[13px] text-bt-charcoal-light">El huésped envió una lista aunque no pidió la despensa en su guía.</span>
+            {groceryStatus}
+          </div>
+        )}
+
         {services.length === 0 && (
           <p className="px-6 py-8 text-[15px] text-bt-charcoal-light">
             {p.guide.state === "received" ? "El huésped no pidió servicios." : "Aparecerán aquí cuando el huésped envíe su guía de llegada."}
@@ -273,6 +344,7 @@ export default function ReservationPanel(p: Props) {
                 )}
                 <span className="text-[13px] text-bt-charcoal-light">{s.detail}</span>
                 {s.guestRemoved && <span className="text-[12px] font-semibold text-[#8A4B12]">El huésped ya no lo pide en su guía</span>}
+                {s.key === "grocery" && !s.guestRemoved && groceryStatus}
               </div>
 
               <div className="flex items-center gap-2 lg:block">

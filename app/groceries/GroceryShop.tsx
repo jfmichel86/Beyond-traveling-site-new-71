@@ -108,7 +108,10 @@ export default function GroceryShop({
   const [sheet, setSheet] = useState(false);
   const [today, setToday] = useState("");
   const [error, setError] = useState("");
-  const [sent, setSent] = useState<"" | "whatsapp" | "email">("");
+  const [sent, setSent] = useState<"" | "whatsapp" | "email" | "concierge">("");
+  // Opened from the guest's arrival guide or a reminder: the list is saved on their reservation
+  const [code, setCode] = useState("");
+  const [saving, setSaving] = useState(false);
   const [copied, setCopied] = useState(false);
   const [otherVilla, setOtherVilla] = useState("");
   const [open, setOpen] = useState<Record<string, boolean>>({});
@@ -164,6 +167,8 @@ export default function GroceryShop({
 
     const p = new URLSearchParams(window.location.search);
     if (p.get("side") === "cooking") setSide("cooking");
+    const pCode = p.get("code");
+    if (pCode && /^[a-z0-9]{4,24}$/i.test(pCode)) setCode(pCode);
     const pName = p.get("name");
     const pVilla = p.get("villa");
     const pArrival = p.get("arrival");
@@ -400,6 +405,57 @@ export default function GroceryShop({
     window.open(url, "_blank", "noopener,noreferrer");
     trackEvent("generate_lead", { lead_type: "grocery", method: "whatsapp" });
     setSent("whatsapp");
+  };
+
+  /** Saves the list on the guest's reservation; the concierge sees it in the panel and gets an email. */
+  const sendToConcierge = async () => {
+    if (!validate() || saving) return;
+    const label = (it: GroceryItem, n: number, lang: "en" | "es") => UNIT_LABELS[it.unit]?.[lang][n === 1 ? 0 : 1] ?? it.unit;
+    const partyEs = (() => {
+      const out: string[] = [];
+      const add = (n: number, w: [string, string]) => { if (n) out.push(`${n} ${w[n === 1 ? 0 : 1]}`); };
+      add(party.adults, ["adulto", "adultos"]);
+      add(party.children, ["niño", "niños"]);
+      add(party.infants, ["bebé", "bebés"]);
+      return out.join(", ");
+    })();
+    const list = {
+      items: chosen.map(({ item, cat, n }) => ({
+        id: item.id,
+        cat: cat.title,
+        catEs: cat.titleEs || cat.title,
+        name: item.name,
+        nameEs: item.nameEs || item.name,
+        qty: n,
+        unit: label(item, n, "en"),
+        unitEs: label(item, n, "es"),
+        note: (s.notes[item.id] || "").trim(),
+      })),
+      party: partyEs,
+      allergies: s.allergies.trim(),
+      requests: s.requests.trim(),
+      lang: es ? "es" : "en",
+    };
+    setSaving(true);
+    try {
+      const res = await fetch(`/api/arrival/${encodeURIComponent(code)}/groceries`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ list }),
+      });
+      if (!res.ok) throw new Error();
+      trackEvent("generate_lead", { lead_type: "grocery", method: "concierge" });
+      setSent("concierge");
+    } catch {
+      setError(
+        t(
+          "We couldn't send your list. Please try again, or send it by WhatsApp below.",
+          "No pudimos enviar tu lista. Intenta de nuevo o mándala por WhatsApp aquí abajo."
+        )
+      );
+    } finally {
+      setSaving(false);
+    }
   };
 
   const sendEmail = () => {
@@ -688,24 +744,49 @@ export default function GroceryShop({
       {sent ? (
         <div className="mt-6 border-l-2 border-bt-gold bg-bt-cream px-5 py-4">
           <p className="text-[14.5px] font-medium text-bt-navy">
-            {sent === "whatsapp"
-              ? t("WhatsApp opened with your list.", "Se abrió WhatsApp con tu lista.")
-              : t("Your email app opened with your list.", "Se abrió tu correo con tu lista.")}
+            {sent === "concierge"
+              ? t("Your list was sent to your concierge ✓", "Tu lista se envió a tu concierge ✓")
+              : sent === "whatsapp"
+                ? t("WhatsApp opened with your list.", "Se abrió WhatsApp con tu lista.")
+                : t("Your email app opened with your list.", "Se abrió tu correo con tu lista.")}
           </p>
           <p className="mt-1 text-[13.5px] leading-[1.7] text-bt-charcoal/85">
-            {t(
-              "Just tap send there. Your concierge will confirm everything with you.",
-              "Solo dale enviar ahí. Tu concierge te confirmará todo."
-            )}
+            {sent === "concierge"
+              ? t(
+                  "We'll confirm everything with you. Need a change? Update your list and send it again; the new one replaces the previous one.",
+                  "Te confirmaremos todo. ¿Quieres cambiar algo? Actualiza tu lista y mándala de nuevo; la nueva reemplaza a la anterior."
+                )
+              : t(
+                  "Just tap send there. Your concierge will confirm everything with you.",
+                  "Solo dale enviar ahí. Tu concierge te confirmará todo."
+                )}
           </p>
-          <button type="button" onClick={() => setSent("")} className="mt-2 text-[12.5px] font-medium text-bt-navy underline underline-offset-4">
-            {t("Didn’t open? Try again", "¿No se abrió? Intenta de nuevo")}
-          </button>
+          {sent !== "concierge" && (
+            <button type="button" onClick={() => setSent("")} className="mt-2 text-[12.5px] font-medium text-bt-navy underline underline-offset-4">
+              {t("Didn’t open? Try again", "¿No se abrió? Intenta de nuevo")}
+            </button>
+          )}
         </div>
       ) : null}
 
       <div className="mt-6 space-y-3">
-        <button type="button" onClick={sendWhatsApp} className={submitClass}>
+        {code && (
+          <>
+            <button type="button" onClick={sendToConcierge} disabled={saving || sent === "concierge"} className={`${submitClass} disabled:opacity-60`}>
+              {saving
+                ? t("Sending…", "Enviando…")
+                : sent === "concierge"
+                  ? t("Sent ✓", "Enviada ✓")
+                  : t("Send to my concierge", "Enviar a mi concierge")}
+            </button>
+            <p className="pt-1 text-center text-[12px] uppercase tracking-[0.14em] text-bt-charcoal/60">{t("or", "o")}</p>
+          </>
+        )}
+        <button
+          type="button"
+          onClick={sendWhatsApp}
+          className={code ? "inline-flex min-h-11 w-full items-center justify-center border border-bt-navy/30 px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bt-navy transition hover:border-bt-navy hover:bg-bt-navy/[0.03] focus:outline-none focus:ring-2 focus:ring-bt-navy focus:ring-offset-2" : submitClass}
+        >
           {t("Send by WhatsApp", "Enviar por WhatsApp")}
         </button>
         <button

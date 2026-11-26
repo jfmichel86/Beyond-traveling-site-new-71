@@ -24,7 +24,7 @@ export const STEP_NAMES = ["Bienvenida", "Tu grupo", "Traslados", "Comidas", "Ca
 export type GuideState = { state: "received" | "incomplete" | "not-started"; label: string; note: string };
 
 export function guideState(r: PanelReservation): GuideState {
-  const n = r.reminders.length;
+  const n = r.reminders.filter((x) => !x.kind.startsWith("grocery-")).length;
   const rem = n ? `${n} recordatorio${n > 1 ? "s" : ""}` : "Sin recordatorios";
   if (r.submittedAt) return { state: "received", label: `Recibida · ${fmtDate(r.submittedAt.slice(0, 10), true)}`, note: rem };
   if (r.draft) return { state: "incomplete", label: "Incompleta", note: `Se quedó en ${STEP_NAMES[r.draft.step] || "el paso " + (r.draft.step + 1)} · ${rem}` };

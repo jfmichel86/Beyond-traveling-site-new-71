@@ -45,6 +45,7 @@ import {
 import Image from "next/image";
 import "@/app/properties/villa.css";
 import "@/app/groceries/groceries.css";
+import { GROCERY_DEADLINE_DAYS } from "@/lib/groceryList";
 import "./arrival.css";
 
 export type Option = { value: string; label: string; group?: string; img?: string };
@@ -777,13 +778,13 @@ export default function ArrivalForm({ reservation, menus }: { reservation: Reser
               <p className="arr-p">{t("Choose your groceries on our grocery page. It opens in a new tab, so you won't lose your progress here.", "Elige tu despensa en nuestra página de despensa. Se abre en otra pestaña, así no pierdes lo que llevas aquí.")}</p>
               <a
                 className="arr-primary arr-btn-link"
-                href={`${es ? "/es" : ""}/groceries?name=${encodeURIComponent(a.main.name)}&villa=${encodeURIComponent(r.villa)}&arrival=${r.checkIn}`}
+                href={`${es ? "/es" : ""}/groceries?code=${encodeURIComponent(r.code)}&name=${encodeURIComponent(a.main.name)}&villa=${encodeURIComponent(r.villa)}&arrival=${r.checkIn}`}
                 target="_blank"
                 rel="noopener"
               >
                 {t("Open the grocery list ↗", "Abrir la lista de despensa ↗")}
               </a>
-              <p className="arr-hint">{t("Prefer to do it later? No problem: your concierge will also send you the link.", "¿Prefieres hacerlo después? Sin problema: tu concierge también te enviará el enlace.")}</p>
+              <p className="arr-hint">{t(`Prefer to do it later? No problem: just send it by ${fmtDate(addDays(r.checkIn, -GROCERY_DEADLINE_DAYS), es)} so we have time to shop.`, `¿Prefieres hacerlo después? Sin problema: solo mándala a más tardar el ${fmtDate(addDays(r.checkIn, -GROCERY_DEADLINE_DAYS), es)} para tener tiempo de comprar.`)}</p>
             </div>
           )}
 
